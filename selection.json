@@ -1,0 +1,12 @@
+{
+  "schema": 1,
+  "generated_at": null,
+  "catalog": null,
+  "target": {
+    "game": "Super Smash Bros. Ultimate",
+    "version": "13.0.5",
+    "loader": "ARCropolis 4.1.1",
+    "modpack_repo": "GianZapata/Gian-Ultimate-Modpack-private"
+  },
+  "items": []
+}
