@@ -61,9 +61,9 @@ const KEY='ssbu_sel_v1';let sel=JSON.parse(localStorage.getItem(KEY)||'{}');let 
 const wf=document.getElementById('wf');Object.entries(WS).forEach(([k,v])=>wf.add(new Option(v[1],k)));wf.add(new Option('Pendiente de auditoría','_pend'));
 const esc=s=>String(s??'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 function k(f,p){return f.code+':'+p.id}
-function nav(){document.getElementById('nav').innerHTML=F.map((f,i)=>{const a=f.picks.filter(p=>p.audited).length,s=f.picks.filter(p=>sel[k(f,p)]).length;return `<a href="#" data-i="${i}" class="${i==cur?'on':''}"><span>${esc(f.name)}</span><span class="c">${s?'✓'+s+' · ':''}${a}/${f.picks.length}</span></a>`}).join('');
+function nav(){document.getElementById('nav').innerHTML=F.map((f,i)=>{const a=f.picks.filter(p=>p.audited).length,s=f.picks.filter(p=>sel[k(f,p)]).length;return `<a href="#" data-i="${i}" class="${i==cur?'on':''}"><span>${esc(f.name)}</span><span class="c">${s?'✓'+s+' · ':''}${f.picks.filter(p=>!p.withdrawn).length}</span></a>`}).join('');
  document.querySelectorAll('nav a').forEach(a=>a.onclick=e=>{e.preventDefault();cur=+a.dataset.i;render();scrollTo(0,0)});
- const fs=document.getElementById('fsel');fs.innerHTML=F.map((f,i)=>{const a=f.picks.filter(p=>p.audited).length,s=f.picks.filter(p=>sel[k(f,p)]).length;return `<option value="${i}" ${i==cur?'selected':''}>${esc(f.name)} (${s?'✓'+s+' · ':''}${a}/${f.picks.length} auditadas)</option>`}).join('');fs.onchange=()=>{cur=+fs.value;render();scrollTo(0,0)}}
+ const fs=document.getElementById('fsel');fs.innerHTML=F.map((f,i)=>{const a=f.picks.filter(p=>p.audited).length,s=f.picks.filter(p=>sel[k(f,p)]).length;return `<option value="${i}" ${i==cur?'selected':''}>${esc(f.name)} (${s?'✓'+s+' · ':''}${f.picks.filter(p=>!p.withdrawn).length} apariencias)</option>`}).join('');fs.onchange=()=>{cur=+fs.value;render();scrollTo(0,0)}}
 function card(f,p){const on=!!sel[k(f,p)];let w;
  if(p.audited){const x=WS[p.wifi_status]||['w0',p.wifi_status||'?'];w=`<span class="tag ${x[0]}">${esc(x[1])}</span>`}
  else w=`<span class="tag w0">Pendiente de auditoría</span>`;
@@ -87,8 +87,8 @@ function card(f,p){const on=!!sel[k(f,p)];let w;
  <div class="ft"><label><input type="checkbox" data-k="${k(f,p)}" ${on?'checked':''}> La quiero</label><span style="opacity:.6">#${p.id}</span></div></div>`}
 function render(){const f=F[cur],fw=wf.value,oa=onlyA.checked,os=onlyS.checked;
  let ps=f.picks.filter(p=>!p.withdrawn||document.getElementById('showW').checked).filter(p=>(!oa||p.audited)&&(!os||sel[k(f,p)])&&(!fw||(fw=='_pend'?!p.audited:p.wifi_status==fw)));
- const a=f.picks.filter(p=>p.audited).length;
- document.getElementById('main').innerHTML=`<h2>${esc(f.name)}</h2>${a<f.picks.length?`<div class="warn">${f.picks.length-a} de ${f.picks.length} candidatas encontradas siguen pendientes de auditoría: sus datos Wi-Fi y de slots son del catálogo anterior y no están comprobados.</div>`:''}<div class="grid">${ps.map(p=>card(f,p)).join('')||'<p>Nada con estos filtros.</p>'}</div>`;
+ const a=f.picks.filter(p=>p.audited).length,act=f.picks.filter(p=>!p.withdrawn).length,mii=['51','52','53'].includes(f.code);
+ document.getElementById('main').innerHTML=`<h2>${esc(f.name)} · ${act} apariencias</h2>${!mii&&act<8?`<div class="warn">Cobertura real ${act}/8: ${8-act} hueco(s) sin sustituta que cumpla los criterios.</div>`:''}${a<f.picks.length?`<div class="warn">${f.picks.length-a} de ${f.picks.length} candidatas encontradas siguen pendientes de auditoría: sus datos Wi-Fi y de slots son del catálogo anterior y no están comprobados.</div>`:''}<div class="grid">${ps.map(p=>card(f,p)).join('')||'<p>Nada con estos filtros.</p>'}</div>`;
  document.querySelectorAll('[data-k]').forEach(c=>c.onchange=()=>{c.checked?sel[c.dataset.k]=1:delete sel[c.dataset.k];localStorage.setItem(KEY,JSON.stringify(sel));render()});
  document.getElementById('cnt').textContent=Object.keys(sel).length+' elegidas';nav()}
 [wf,onlyA,onlyS,showW].forEach(e=>e.onchange=render);
