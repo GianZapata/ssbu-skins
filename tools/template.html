@@ -1,0 +1,69 @@
+<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Skins SSBU · selección personal</title>
+<style>
+body{font-family:system-ui,sans-serif;margin:0;background:#14161c;color:#e8e8ee}
+header{position:sticky;top:0;background:#1d2029;padding:10px 16px;z-index:5;border-bottom:1px solid #333;display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+h1{font-size:18px;margin:0 12px 0 0}select,input,button{background:#2a2e3a;color:#eee;border:1px solid #444;border-radius:6px;padding:6px 8px}
+button{cursor:pointer}button.p{background:#3b6fd8;border-color:#3b6fd8}
+.layout{display:flex}nav{width:210px;height:calc(100vh - 60px);overflow:auto;position:sticky;top:56px;border-right:1px solid #333}
+nav a{display:flex;justify-content:space-between;padding:5px 10px;color:#ccd;text-decoration:none;font-size:13px}nav a.on{background:#2d3550;color:#fff}
+nav .c{opacity:.7}main{flex:1;padding:16px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:12px}
+.card{background:#1f222c;border:1px solid #333;border-radius:10px;overflow:hidden;display:flex;flex-direction:column}
+.card.sel{outline:2px solid #4caf50}.card img{width:100%;aspect-ratio:16/9;object-fit:cover;background:#000}
+.b{padding:8px 10px;font-size:12.5px;line-height:1.4;flex:1}.t{font-weight:600;font-size:14px}
+.tag{display:inline-block;padding:1px 6px;border-radius:9px;font-size:11px;margin:2px 3px 2px 0;background:#333}
+.w1{background:#1e6b34}.w2{background:#7a6a12}.w3{background:#7a4512}.w4{background:#444}.w5{background:#8a1f1f}.w0{background:#3a3a55}
+.q{color:#aab;font-style:italic;margin-top:4px}.ft{padding:8px 10px;border-top:1px solid #333;display:flex;justify-content:space-between;align-items:center}
+.warn{background:#2b2316;border:1px solid #6b5420;padding:8px 12px;border-radius:8px;font-size:13px;margin-bottom:12px}
+a{color:#8ab4ff}
+</style></head><body>
+<header><h1>Skins SSBU · 13.0.5 / ARCropolis 4.1.1</h1>
+<select id="wf"><option value="">Todos los estados Wi-Fi</option></select>
+<label><input type="checkbox" id="onlyA"> Solo auditadas</label>
+<label><input type="checkbox" id="onlyS"> Solo mis elegidas</label><label><input type="checkbox" id="showW"> Ver retiradas</label>
+<span id="cnt"></span><button class="p" id="exp">Exportar mi selección</button><button id="clr">Limpiar</button>
+<span style="font-size:11px;opacity:.6">Página {{STAMP}} · auditoría <span id="gen"></span></span></header>
+<div class="layout"><nav id="nav"></nav><main id="main"></main></div>
+<script>
+const F=/*DATA*/null;const META=/*META*/null;
+const WS={autor_explicito:['w1','Autor: declaración explícita sin condiciones'],autor_condicionado:['w2','Autor: declaración condicionada'],tercero:['w3','Solo terceros, sin confirmación del autor'],sin_evidencia:['w4','Sin evidencia localizada'],incompatible:['w5','Incompatible según la fuente']};
+const KEY='ssbu_sel_v1';let sel=JSON.parse(localStorage.getItem(KEY)||'{}');let cur=0;
+const wf=document.getElementById('wf');Object.entries(WS).forEach(([k,v])=>wf.add(new Option(v[1],k)));wf.add(new Option('Pendiente de auditoría','_pend'));
+const esc=s=>String(s??'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+function k(f,p){return f.code+':'+p.id}
+function nav(){document.getElementById('nav').innerHTML=F.map((f,i)=>{const a=f.picks.filter(p=>p.audited).length,s=f.picks.filter(p=>sel[k(f,p)]).length;return `<a href="#" data-i="${i}" class="${i==cur?'on':''}"><span>${esc(f.name)}</span><span class="c">${s?'✓'+s+' · ':''}${a}/${f.picks.length}</span></a>`}).join('');
+ document.querySelectorAll('nav a').forEach(a=>a.onclick=e=>{e.preventDefault();cur=+a.dataset.i;render()})}
+function card(f,p){const on=!!sel[k(f,p)];let w;
+ if(p.audited){const x=WS[p.wifi_status]||['w0',p.wifi_status||'?'];w=`<span class="tag ${x[0]}">${esc(x[1])}</span>`}
+ else w=`<span class="tag w0">Pendiente de auditoría</span>`;
+ const rows=[];
+ if(p.audited){
+  if(p.wifi_quote)rows.push(`<div class="q">«${esc(p.wifi_quote)}» ${p.wifi_source?'('+esc(p.wifi_source)+')':''} ${p.wifi_source_url?`<a href="${esc(p.wifi_source_url)}" target="_blank">fuente</a>`:''}</div>`);
+  if(p.conditions)rows.push(`<div><b>Condiciones:</b> ${esc(p.conditions)}</div>`);
+  if(p.design)rows.push(`<div><b>Diseño:</b> ${esc(p.design)}</div>`);
+  rows.push(`<div><b>Slots:</b> orig. ${esc(p.slots_orig||'?')} → ${esc(p.dest||'?')} ${p.assignment?'('+esc(p.assignment)+')':''}</div>`);
+  if(p.conflicts)rows.push(`<div><b>Conflictos:</b> ${esc(p.conflicts)}</div>`);
+  if(p.deps)rows.push(`<div><b>Dependencias:</b> ${esc(p.deps)}</div>`);
+  rows.push(`<div><b>Compatibilidad:</b> ${esc(p.compat||'no verificada')} · ${esc(p.file_note||'archivo no inspeccionado')} · ${esc(p.console_test||'prueba en consola pendiente')}</div>`);
+  if(p.status)rows.push(`<div><b>Estado:</b> ${esc(p.status)}</div>`);
+  if(p.notes)rows.push(`<div>${esc(p.notes)}</div>`);
+ } else {
+  rows.push(`<div class="q">Cita previa (sin verificar): ${esc(p.quote_prev)}</div>`);
+  rows.push(`<div><b>Slots orig.:</b> ${esc(p.slots_orig)} · archivo no inspeccionado · prueba en consola pendiente</div>`);
+  if(p.note_prev)rows.push(`<div style="opacity:.75">${esc(p.note_prev)}</div>`);
+ }
+ return `<div class="card ${on?'sel':''}"><img loading="lazy" src="${p.img}" alt=""><div class="b"><div class="t">${esc(p.name)}${p.new?' <span class="tag w1">sustituta</span>':''}${p.withdrawn?' <span class="tag w5">retirada</span>':''}</div><div>por ${esc(p.author)} · <a href="${p.url}" target="_blank">GameBanana</a></div>${w}${rows.join('')}</div>
+ <div class="ft"><label><input type="checkbox" data-k="${k(f,p)}" ${on?'checked':''}> La quiero</label><span style="opacity:.6">#${p.id}</span></div></div>`}
+function render(){const f=F[cur],fw=wf.value,oa=onlyA.checked,os=onlyS.checked;
+ let ps=f.picks.filter(p=>!p.withdrawn||document.getElementById('showW').checked).filter(p=>(!oa||p.audited)&&(!os||sel[k(f,p)])&&(!fw||(fw=='_pend'?!p.audited:p.wifi_status==fw)));
+ const a=f.picks.filter(p=>p.audited).length;
+ document.getElementById('main').innerHTML=`<h2>${esc(f.name)}</h2>${a<f.picks.length?`<div class="warn">${f.picks.length-a} de ${f.picks.length} candidatas encontradas siguen pendientes de auditoría: sus datos Wi-Fi y de slots son del catálogo anterior y no están comprobados.</div>`:''}<div class="grid">${ps.map(p=>card(f,p)).join('')||'<p>Nada con estos filtros.</p>'}</div>`;
+ document.querySelectorAll('[data-k]').forEach(c=>c.onchange=()=>{c.checked?sel[c.dataset.k]=1:delete sel[c.dataset.k];localStorage.setItem(KEY,JSON.stringify(sel));render()});
+ document.getElementById('cnt').textContent=Object.keys(sel).length+' elegidas';nav()}
+[wf,onlyA,onlyS,showW].forEach(e=>e.onchange=render);
+document.getElementById('clr').onclick=()=>{if(confirm('¿Borrar toda tu selección?')){sel={};localStorage.setItem(KEY,'{}');render()}};
+document.getElementById('exp').onclick=()=>{const out=[];F.forEach(f=>f.picks.forEach(p=>{if(sel[k(f,p)])out.push({luchador:f.name,id:p.id,nombre:p.name,autor:p.author,url:p.url,auditada:p.audited,wifi:p.wifi_status||'pendiente',destino:p.dest||null})}));
+ const b=new Blob([JSON.stringify(out,null,2)],{type:'application/json'});const a=document.createElement('a');a.href=URL.createObjectURL(b);a.download='mi_seleccion_ssbu.json';a.click()};
+document.getElementById('gen').textContent=(META&&META.generated||'').replace('T',' ');render();
+</script></body></html>
