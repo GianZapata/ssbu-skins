@@ -1,5 +1,5 @@
 # Genera index.html desde data/catalog.json (lo mantiene Instalador Skins SSBU).
-import json,base64,io,os,datetime
+import json,base64,io,os,datetime,zoneinfo
 from PIL import Image
 B=os.path.dirname(os.path.abspath(__file__)); R=os.path.join(B,'..')
 c=json.load(open(os.path.join(R,'data','catalog.json')))
@@ -33,7 +33,7 @@ for e in c.get('withdrawn',[]):
 data=json.dumps([F[k] for k in order],ensure_ascii=False)
 meta=json.dumps({'generated':c.get('generated'),'counts':c.get('counts'),'audited':c.get('audited_fighters')},ensure_ascii=False)
 tpl=open(os.path.join(B,'template.html')).read()
-out=tpl.replace('/*DATA*/null',data).replace('/*META*/null',meta).replace('{{STAMP}}',datetime.datetime.now().strftime('%Y-%m-%d %H:%M'))
+out=tpl.replace('/*DATA*/null',data).replace('/*META*/null',meta).replace('{{STAMP}}',datetime.datetime.now(zoneinfo.ZoneInfo('America/Monterrey')).strftime('%Y-%m-%d %H:%M'))
 open(os.path.join(R,'index.html'),'w').write(out)
 ps=[p for f in F.values() for p in f['picks']]
 print('ok',len(out)//1024,'KB · auditadas',sum(p['audited'] for p in ps),'/',len(ps),'· retiradas',sum(p['withdrawn'] for p in ps))
