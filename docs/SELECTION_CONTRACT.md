@@ -6,6 +6,10 @@ Puente entre este repo (selector de skins, móvil) y `GianZapata/Gian-Ultimate-M
 - **Quién lee:** los agentes del repo del ModPack, vía `https://raw.githubusercontent.com/GianZapata/ssbu-skins/master/selection.json` (o clonando este repo).
 - **Quién actualiza el estado:** el agente que instala. La web conserva cualquier ítem cuyo `status` ya no sea `wanted`.
 
+## Límites (`limits`)
+
+El archivo incluye `limits.per_fighter` (8, o 7 si `keep_original_slot` es `true`) y `limits.keep_original_slot`. La web impide guardar más de ese máximo por luchador (los trajes Mii no cuentan). Con `keep_original_slot: true` el agente **no debe tocar el slot `c00`** del luchador, aunque el catálogo proponga `c00` como destino: en ese caso reubicar la skin en un `c01`–`c07` libre o marcarla `skipped` con el motivo en `result`.
+
 ## Ítem
 
 | Campo | Significado |

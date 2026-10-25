@@ -10,4 +10,8 @@ Los estados Wi-Fi safe son los estados de evidencia registrados en el catálogo,
 python3 tools/build_viewer.py
 ```
 
-Necesita Pillow. Lee `data/catalog.json` y `tools/template.html`. Si existe `thumbs/<mod_id>.jpg`, incrusta esa foto (hasta 1280 px). Si no, la página apunta a GameBanana con `srcset` (220, 530 y el original) para que el navegador elija una imagen nítida. Escribe `index.html` en la raíz. El CSS va en esa página: GitHub Pages no necesita el CDN de Tailwind.
+Sin dependencias de red ni de Node: solo Python 3 (Pillow únicamente si existe `thumbs/`). Lee `data/catalog.json` y `tools/template.html`; escribe `index.html` en la raíz. El CSS y el JS van dentro de esa página, así que GitHub Pages no necesita CDN ni compilación.
+
+Antes de generar, `python3 tools/validate_catalog.py` comprueba que el catálogo cumple `docs/AUDIT_CONTRACT.md`. Contrato de la selección: `docs/SELECTION_CONTRACT.md`.
+
+No subir `node_modules/`, binarios ni CSS compilado al repo: el historial no se puede aligerar sin reescribirlo.
