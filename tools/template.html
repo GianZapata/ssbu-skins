@@ -124,8 +124,16 @@ function matches(e){const {f,p,k}=e;
  if(fsel&&!sel[k])return false;
  if(q){const s=(p.name+' '+f.name+' '+p.author).toLowerCase();if(!q.split(/\s+/).every(w=>s.includes(w)))return false}
  return true}
-function card(e){const {f,p,k}=e,on=!!sel[k];
- return `<div class="card ${on?'saved':''}"><button class="im" data-d="${esc(k)}" aria-label="Ver ${esc(p.name)}"><img loading="lazy" src="${esc(p.img)}" alt=""></button>
+function pic(p, kind, eager){
+ if(!p.img) return '';
+ const set=p.srcset?` srcset="${esc(p.srcset)}"`:'';
+ const sizes=kind==='shot'?'(min-width: 780px) 748px, calc(100vw - 32px)':kind==='row'?'72px':'(min-width: 1000px) 260px, (min-width: 700px) 240px, calc((100vw - 40px) / 2)';
+ const pri=eager==='high'?' fetchpriority="high"':'';
+ return `<img alt="" loading="${eager?'eager':'lazy'}"${pri} decoding="async" src="${esc(p.img)}"${set} sizes="${sizes}">`;
+}
+function card(e,i){const {f,p,k}=e,on=!!sel[k];
+ const eager=i===0?'high':i<2;
+ return `<div class="card ${on?'saved':''}"><button class="im" data-d="${esc(k)}" aria-label="Ver ${esc(p.name)}">${pic(p,'card',eager)}</button>
  <div class="cb"><div class="nm">${esc(p.name)}</div><div class="fg">${esc(f.name)}</div>
  <div class="foot">${stat(p,k)}<button class="bm ${on?'on':''}" data-b="${esc(k)}" aria-pressed="${on}" aria-label="${on?'Quitar de':'Guardar en'} mi selección: ${esc(p.name)}">${BM}</button></div></div></div>`}
 
@@ -137,7 +145,7 @@ function vExplore(){
  <div class="row2"><select id="fs2" aria-label="Luchador"><option value="">Todos los luchadores</option>${F.map(f=>`<option value="${esc(f.code)}" ${f.code===fighter?'selected':''}>${esc(f.name)}</option>`).join('')}</select>
  <button id="fbtn" class="${nfil()?'on':''}">☰ Filtros${nfil()?' ('+nfil()+')':''}</button></div></header>
  <h2>Explorar apariencias <span class="fg" style="font-size:14px;font-weight:400">· ${list.length}</span></h2>
- <div class="grid" id="grid">${list.slice(0,shown).map(card).join('')}</div>
+ <div class="grid" id="grid">${list.slice(0,shown).map((e,i)=>card(e,i)).join('')}</div>
  ${list.length>shown?`<button class="more" id="more">Ver más (${list.length-shown})</button>`:''}
  ${list.length?'':'<p class="empty">Nada con estos filtros.</p>'}`;
  $('q').oninput=e=>{q=e.target.value.trim().toLowerCase();shown=PAGE;const pos=e.target.selectionStart;vExplore();const i=$('q');i.focus();i.setSelectionRange(pos,pos)};
@@ -152,12 +160,14 @@ function bind(){
 function vSel(){
  const ks=Object.keys(sel).filter(k=>idx[k]).sort((a,b)=>idx[a].i-idx[b].i);
  $('app').innerHTML=`<header><h1>Mi selección</h1><p class="sub">${ks.length} guardada${ks.length==1?'':'s'} para instalar</p></header>
- ${ks.map(k=>{const {f,p}=idx[k];return `<div class="item"><img src="${esc(p.img)}" alt=""><div class="m"><b>${esc(p.name)}</b><span>${esc(f.name)} · ${esc(p.dest||'sin destino')}</span><br>${stat(p,k)}</div><button data-d="${esc(k)}" aria-label="Detalles">›</button><button data-b="${esc(k)}" aria-label="Quitar ${esc(p.name)}">✕</button></div>`}).join('')||'<p class="empty">Aún no guardaste nada.<br>Toca el marcador de una skin para añadirla.</p>'}
+ ${ks.map(k=>{const {f,p}=idx[k];return `<div class="item">${pic(p,'row')}<div class="m"><b>${esc(p.name)}</b><span>${esc(f.name)} · ${esc(p.dest||'sin destino')}</span><br>${stat(p,k)}</div><button data-d="${esc(k)}" aria-label="Detalles">›</button><button data-b="${esc(k)}" aria-label="Quitar ${esc(p.name)}">✕</button></div>`}).join('')||'<p class="empty">Aún no guardaste nada.<br>Toca el marcador de una skin para añadirla.</p>'}
  <div class="send" ${dirty||pending()?'':'hidden'}><button class="p" id="send">${tok()?'Enviar al ModPack ('+ks.length+')':'Conectar y enviar ('+ks.length+')'}</button></div>`;
  if($('send'))$('send').onclick=push;bind()}
 function vInfo(){
  const a=all.filter(e=>e.p.audited).length,n=Object.keys(sel).length;
- $('app').innerHTML=`<header><h1>Información</h1><p class="sub">${a} auditadas de ${all.length} · catálogo ${esc((META&&META.generated||'').replace('T',' '))}</p></header>
+ const gen=((META&&META.generated)||'').replace('T',' ').replace(/Z$/,'');
+ const tz=META&&META.timezone?' ('+META.timezone+')':'';
+ $('app').innerHTML=`<header><h1>Información</h1><p class="sub">${a} auditadas de ${all.length} · catálogo ${esc(gen)}${esc(tz)}</p></header>
  <div class="box"><h3>Cómo funciona</h3><div class="flow">
  <div><b>1</b><span>Un bot (Grok) audita las skins y actualiza <code>data/catalog.json</code>.</span></div>
  <div><b>2</b><span>Otro agente regenera esta página con el catálogo.</span></div>
@@ -194,7 +204,7 @@ function openD(k){detail=k;const {f,p}=idx[k];const d=[];
   d.push(`<div><b>Compatibilidad:</b> ${esc(p.compat||'no verificada')} · ${esc(p.console_test||'prueba en consola pendiente')}</div>`);
   if(p.notes)d.push(`<div>${esc(p.notes)}</div>`);
  }else{d.push(`<div class="q">Pendiente de auditoría. Cita previa sin verificar: ${esc(p.quote_prev)}</div><div><b>Slots orig.:</b> ${esc(p.slots_orig)} · archivo sin inspeccionar</div>`)}
- $('dBody').innerHTML=`<div class="dh"><img src="${esc(p.img)}" alt=""></div><h3 style="margin-top:12px">${esc(p.name)}</h3><div class="fg">${esc(f.name)} · por ${esc(p.author)} · <a href="${esc(p.url)}" target="_blank" rel="noopener">GameBanana</a> · #${p.id}</div><div style="margin:8px 0">${stat(p,k)}</div><div class="dl">${d.join('')}</div>`;
+ $('dBody').innerHTML=`<div class="dh">${pic(p,'shot','high')}</div><h3 style="margin-top:12px">${esc(p.name)}</h3><div class="fg">${esc(f.name)} · por ${esc(p.author)} · <a href="${esc(p.url)}" target="_blank" rel="noopener">GameBanana</a> · #${p.id}</div><div style="margin:8px 0">${stat(p,k)}</div><div class="dl">${d.join('')}</div>`;
  dSync();$('shD').classList.add('open')}
 function dSync(){$('dSave').textContent=sel[detail]?'Quitar de mi selección':'Guardar en mi selección'}
 $('dClose').onclick=()=>{$('shD').classList.remove('open');detail=null};
