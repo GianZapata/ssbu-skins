@@ -1,0 +1,45 @@
+name: Publicar página
+on:
+  push:
+    branches: [master]
+  workflow_dispatch:
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+concurrency:
+  group: pages
+  cancel-in-progress: false
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: '3.12' }
+      - run: pip install Pillow
+      - run: python3 tools/validate_catalog.py
+      - run: python3 tools/build_viewer.py
+      - name: Guardar index.html regenerado
+        run: |
+          git config user.name "github-actions"
+          git config user.email "actions@users.noreply.github.com"
+          git add index.html
+          git diff --cached --quiet || (git commit -m "Regenerar index.html desde el catálogo" && git pull --rebase origin master && git push origin HEAD:master)
+      - name: Preparar sitio
+        run: |
+          mkdir _site
+          cp index.html selection.json .nojekyll _site/
+      - uses: actions/configure-pages@v5
+        with: { enablement: true }
+      - uses: actions/upload-pages-artifact@v3
+        with: { path: _site }
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.d.outputs.page_url }}
+    steps:
+      - id: d
+        uses: actions/deploy-pages@v4
