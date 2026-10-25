@@ -8,3 +8,6 @@ __pycache__/
 .firebase/
 *-debug.log
 _dbonly_test.html
+_site/
+tests/.cache/
+tests/.shots/

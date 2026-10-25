@@ -3,6 +3,11 @@ on:
   push:
     branches: [master]
   workflow_dispatch:
+    inputs:
+      sync_inventory:
+        description: 'Sincronizar también el inventario con Firestore (revísalo antes; nunca es automático)'
+        type: boolean
+        default: false
 permissions:
   contents: write
   pages: write
@@ -22,12 +27,16 @@ jobs:
       - run: pip install Pillow
       - run: python3 tools/validate_catalog.py
       - run: python3 tools/build_viewer.py
-      - name: Sincronizar el catálogo con Firestore
+      - name: Sincronizar el catálogo con Firestore (solo el catálogo)
         if: env.FIREBASE_SA != ''
         run: |
           pip install google-cloud-firestore
           printf '%s' "$FIREBASE_SA" > "$RUNNER_TEMP/sa.json"
-          GOOGLE_APPLICATION_CREDENTIALS="$RUNNER_TEMP/sa.json" python3 tools/db.py seed
+          GOOGLE_APPLICATION_CREDENTIALS="$RUNNER_TEMP/sa.json" python3 tools/db.py seed --only catalog
+      - name: Sincronizar el inventario con Firestore (manual)
+        if: env.FIREBASE_SA != '' && github.event_name == 'workflow_dispatch' && inputs.sync_inventory
+        run: |
+          GOOGLE_APPLICATION_CREDENTIALS="$RUNNER_TEMP/sa.json" python3 tools/db.py seed --only installed
       - name: Guardar index.html regenerado
         run: |
           git config user.name "github-actions"
@@ -35,10 +44,7 @@ jobs:
           git add index.html
           git diff --cached --quiet || (git commit -m "Regenerar index.html desde el catálogo" && git pull --rebase origin master && git push origin HEAD:master)
       - name: Preparar sitio
-        run: |
-          mkdir _site
-          cp index.html .nojekyll _site/
-          cp -r installed _site/installed
+        run: python3 tools/make_site.py _site
       - uses: actions/configure-pages@v5
         with: { enablement: true }
       - uses: actions/upload-pages-artifact@v3
