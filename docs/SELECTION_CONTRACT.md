@@ -12,7 +12,7 @@ El archivo incluye `limits.per_fighter` (8, o 7 si `keep_original_slot` es `true
 
 ## Lo ya instalado (`data/installed.json`) y `replace_slots`
 
-`data/installed.json` lista, por luchador, los slots `cNN` que ya están ocupados en el ModPack (`ultimate/mods/*/fighter/<luchador>/model/body/cNN`). Lo genera `python3 tools/scan_installed.py <ruta del repo del ModPack>`. **El agente instalador debe volver a ejecutarlo y subir el resultado después de cada instalación.** Es ocupación de slots: no identifica la skin ni distingue una skin de un ajuste de modelo.
+`data/installed.json` lista, por luchador, los slots `cNN` que ya están ocupados en el ModPack (`ultimate/mods/*/fighter/<luchador>/model/body/cNN`). Lo genera `python3 tools/scan_installed.py <ruta del repo del ModPack>`, que además guarda en `installed/<luchador>_<NN>.webp` el retrato de cada slot (decodificado de `ui/replace*/chara/chara_N`) y, cuando el pack renombra el costume (`nam_chr1_<NN>_<luchador>` en `msg_name.xmsbt`), su nombre. `info[slot]` trae `n` (nombre), `skin` (tiene retrato propio: es una skin completa) e `i` (imagen). **El agente instalador debe volver a ejecutar el escáner y subir `data/installed.json` y `installed/` después de cada instalación.** Un slot sin retrato puede ser solo un ajuste de modelo; el escáner no identifica de qué skin se trata más allá del nombre.
 
 La web cuenta esos slots dentro del máximo por luchador y avisa si una skin propone un slot ocupado. El usuario puede marcar un slot instalado como «reemplazar»; eso llega en `replace_slots` (`{"<roster_no>": [1, 3]}`). Un slot **solo se puede sobrescribir si aparece ahí**; cualquier otro slot ocupado debe respetarse.
 
@@ -23,7 +23,9 @@ La web cuenta esos slots dentro del máximo por luchador y avisa si una skin pro
 | `key` | `<roster_no>:<mod_id>`, identificador único |
 | `fighter`, `roster_no` | Luchador del catálogo |
 | `mod_id`, `name`, `author`, `url` | Mod en GameBanana (`url` es la fuente de descarga) |
-| `dest_slot` | Slot de destino propuesto (`c00`…`c07`); `null` si no auditado |
+| `assigned_slot` | **Slot elegido por el usuario (o asignado automáticamente) donde debe quedar la skin** (`c00`…`c07`); `null` para trajes Mii. **El instalador debe usar este slot**, reubicando los archivos del mod si sus slots originales (`native_slots`) son otros |
+| `order` | Posición de la skin dentro de su luchador, ordenada por `assigned_slot` (1…n) |
+| `dest_slot` | Slot propuesto por el auditor (solo orientativo; no manda sobre `assigned_slot`); `null` si no auditado |
 | `native_slots`, `assignment` | Slots originales del mod y estado de la asignación |
 | `audited`, `wifi` | Estado de auditoría / evidencia Wi-Fi (no es prueba en consola) |
 | `dependencies`, `conflicts`, `notes` | Avisos que el agente debe respetar al instalar |

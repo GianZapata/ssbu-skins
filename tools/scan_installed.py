@@ -2,8 +2,13 @@
 # Uso: python3 tools/scan_installed.py /ruta/al/Gian-Ultimate-Modpack-private
 # Un slot cNN cuenta como ocupado si existe ultimate/mods/<mod>/fighter/<interno>/model/body/cNN
 # (si el luchador no tiene carpeta "body", se usa cualquier model/*/cNN). Es ocupación de slots,
-# no identifica de qué skin se trata ni distingue una skin de un ajuste de modelo.
+# no identifica de qué skin se trata por sí mismo. Para cada slot ocupado intenta además:
+#  - nombre: entrada nam_chr1_<slot>_<interno> de ui/message/msg_name.xmsbt (cuando el pack renombra el costume);
+#  - retrato: ui/replace*/chara/chara_0/chara_0_<interno>_<slot>.bntx, decodificado a installed/<interno>_<slot>.webp.
+# Un slot con retrato propio es una skin completa; sin retrato puede ser solo un ajuste de modelo.
 import json, os, re, sys, datetime
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+import bntx
 R = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..')
 # nombre interno del juego -> roster_no del catálogo
 INTERNAL = {
@@ -17,6 +22,23 @@ INTERNAL = {
  'jack':'71','brave':'72','buddy':'73','dolly':'74','master':'75','tantan':'76','pickel':'77','edge':'78','eflame':'79','elight':'80','demon':'81','trail':'82'}
 IGNORED = {'koopag', 'element', 'ptrainer'}  # Giga Bowser, modelo compartido de Pyra/Mythra y el Entrenador Pokémon: no son luchadores del catálogo
 SLOT = re.compile(r'^c(\d{2})$')
+NAME = re.compile(r'<entry label="nam_chr1_(\d\d)_(\w+)">\s*<text>(.*?)</text>', re.S)
+def read_names(mods, scanned):
+    names = {}
+    for mod in scanned:
+        f = os.path.join(mods, mod, 'ui', 'message', 'msg_name.xmsbt')
+        if not os.path.isfile(f): continue
+        raw = open(f, 'rb').read()
+        try: t = raw.decode('utf-16')
+        except UnicodeError: t = raw.decode('utf-8', 'ignore')
+        for slot, internal, text in NAME.findall(t): names[(internal, int(slot))] = ' '.join(text.split())
+    return names
+KINDS = (0, 1, 4, 2, 6, 3, 5, 7)  # chara_0 (128 px) primero; si falta, el siguiente tamaño disponible
+def portraits(mods, mod, internal, slot):
+    for k in KINDS:
+        for base in ('replace', 'replace_patch'):
+            f = os.path.join(mods, mod, 'ui', base, 'chara', f'chara_{k}', f'chara_{k}_{internal}_{slot:02d}.bntx')
+            if os.path.isfile(f): yield f
 def main(mp):
     mods = os.path.join(mp, 'ultimate', 'mods')
     fighters, unknown, scanned = {}, set(), []
@@ -35,13 +57,38 @@ def main(mp):
             if not slots: continue
             e = fighters.setdefault(INTERNAL[name], {'internal': name, 'slots': set(), 'mods': set()})
             e['slots'] |= slots; e['mods'].add(mod)
+    names = read_names(mods, scanned)
+    imgdir = os.path.join(R, 'installed'); os.makedirs(imgdir, exist_ok=True)
+    keep, nimg = set(), 0
+    for code, v in fighters.items():
+        v['info'] = {}
+        for sl in sorted(v['slots']):
+            e = {}
+            nm = names.get((v['internal'], sl))
+            if nm: e['n'] = nm
+            for mod in sorted(v['mods']):
+                for pf in portraits(mods, mod, v['internal'], sl):
+                    e['skin'] = True
+                    try:
+                        im = bntx.decode(pf).convert('RGB'); im.thumbnail((128, 128))
+                        fn = f"{v['internal']}_{sl:02d}.webp"
+                        im.save(os.path.join(imgdir, fn), 'WEBP', quality=72, method=4)
+                        e['i'] = fn; keep.add(fn); nimg += 1
+                    except Exception as ex:
+                        print('  sin imagen', os.path.basename(pf), ex); continue
+                    break
+                if e.get('i') or e.get('skin'): break
+            v['info'][str(sl)] = e
+    for f in os.listdir(imgdir):
+        if f.endswith('.webp') and f not in keep: os.remove(os.path.join(imgdir, f))
     out = {'source': 'GianZapata/Gian-Ultimate-Modpack-private', 'scanned_at': datetime.datetime.now(datetime.timezone.utc).strftime('%Y-%m-%dT%H:%M:%SZ'),
-           'note': 'Slots ocupados en el ModPack; no identifica la skin ni distingue skins de ajustes de modelo.',
+           'note': 'Slots ocupados en el ModPack. info[slot]: n=nombre del costume (si el pack lo renombra), skin=tiene retrato propio, i=imagen en installed/.',
            'mods_scanned': scanned,
-           'fighters': {k: {'internal': v['internal'], 'slots': sorted(v['slots']), 'mods': sorted(v['mods'])} for k, v in sorted(fighters.items())}}
+           'fighters': {k: {'internal': v['internal'], 'slots': sorted(v['slots']), 'mods': sorted(v['mods']), 'info': v['info']} for k, v in sorted(fighters.items())}}
     json.dump(out, open(os.path.join(R, 'data', 'installed.json'), 'w'), ensure_ascii=False, indent=1)
     n = sum(len(v['slots']) for v in out['fighters'].values())
-    print(f"ok · {len(out['fighters'])} luchadores · {n} slots ocupados · mods: {', '.join(scanned)}" + (f" · sin emparejar: {sorted(unknown)}" if unknown else ''))
+    nn = sum(1 for v in out['fighters'].values() for e in v['info'].values() if e.get('n'))
+    print(f"ok · {len(out['fighters'])} luchadores · {n} slots ocupados · {nimg} retratos · {nn} nombres · mods: {', '.join(scanned)}" + (f" · sin emparejar: {sorted(unknown)}" if unknown else ''))
 if __name__ == '__main__':
     if len(sys.argv) != 2: sys.exit(__doc__)
     main(sys.argv[1])

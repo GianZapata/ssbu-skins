@@ -63,15 +63,32 @@ img.bad{visibility:hidden}
 .bm{flex:none;width:46px;height:46px;border-radius:10px;padding:0;background:none;border:2px solid #fffd;display:grid;place-items:center}
 .bm svg{width:22px;height:22px;fill:none;stroke:#fff;stroke-width:2}
 .bm.on{border-color:var(--ac);background:var(--acd)}.bm.on svg{fill:var(--ac);stroke:var(--ac)}
-.cl{color:#f0b4b0;font-size:12px;min-height:0}.cl:empty{display:none}
 .chips{display:flex;gap:4px;flex:0 0 100%;min-width:0}
-.slt{flex:1 1 0;min-width:0;min-height:40px;padding:2px 0;border-radius:8px;border:1px dashed var(--bd);background:none;display:flex;flex-direction:column;align-items:center;justify-content:center;font-size:12px;line-height:1.1;color:var(--mu)}
-.slt small{font-size:9px;opacity:.85;white-space:nowrap}
-.slt.ins{background:var(--s2);border:1px solid #556;color:var(--tx)}
-.slt.rep{border:1px dashed var(--ac);color:var(--ac)}
-.slt.sel{border:1px solid var(--ac);background:var(--acd);color:var(--ac)}
-.slt.res{background:repeating-linear-gradient(45deg,#1d222d,#1d222d 4px,#151921 4px,#151921 8px);color:#778}
-button.slt{cursor:pointer}
+.slt{flex:1 1 0;min-width:0;position:relative;aspect-ratio:1;min-height:0;padding:0;border-radius:8px;border:1px dashed var(--bd);background:none;overflow:hidden;color:var(--mu);display:block}
+.slt img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.slt b{position:absolute;left:3px;top:2px;z-index:1;font-size:10px;line-height:1;color:#fff;text-shadow:0 0 3px #000,0 0 3px #000}
+.slt small{position:absolute;left:0;right:0;bottom:0;z-index:1;font-size:8.5px;line-height:1.35;background:#000b;color:#fff;text-align:center;white-space:nowrap;overflow:hidden}
+.slt.ni b{color:var(--mu);text-shadow:none}.slt.ni small{background:none;color:var(--mu)}
+.slt.ins{border:1px solid #667}
+.slt.rep{border:1px dashed var(--ac)}.slt.rep img{opacity:.4}
+.slt.sel{border:2px solid var(--ac)}
+.slt.res{background:repeating-linear-gradient(45deg,#1d222d,#1d222d 4px,#151921 4px,#151921 8px)}
+.prow{margin:14px 0}
+.prow .pn{width:100%;display:flex;justify-content:space-between;align-items:center;min-height:38px;background:none;border:0;padding:0 2px;font-size:15px;font-weight:700;border-radius:8px}
+.prow .pn span{color:var(--mu);font-weight:400;font-size:14px}
+.ia{display:flex;gap:6px;margin-top:6px;flex-wrap:wrap}
+.ia button{min-height:36px;font-size:13px;padding:0 10px}
+.ia .sl2{font-weight:700}
+.fch{display:flex;gap:8px;overflow-x:auto;padding:4px 0 8px;scrollbar-width:none}
+.fch::-webkit-scrollbar{display:none}
+.fch button{flex:none;min-height:36px;border-radius:18px;font-size:13px;padding:0 12px;background:var(--s1)}
+.fch button.on{background:var(--ac);border-color:var(--ac);color:#1a1300;font-weight:700}
+.sp{display:flex;gap:12px;align-items:center;margin:8px 0}
+.sp img,.sp .nopic{width:120px;height:120px;border-radius:12px;object-fit:cover;background:#000;flex:none}
+.sp .nopic{display:grid;place-items:center;color:var(--mu);font-size:12px;text-align:center;border:1px dashed var(--bd);background:none}
+.mvl{display:flex;flex-direction:column}
+.mvl button{display:flex;justify-content:space-between;align-items:center;min-height:46px;border-radius:0;border:0;border-bottom:1px solid var(--bd);background:none;text-align:left}
+.mvl button:disabled{opacity:.4}
 .card.full:not(.saved) .bm{opacity:.35;border-style:dashed}
 .more{width:100%;margin:16px 0}
 .empty{color:var(--mu);text-align:center;padding:32px 0}
@@ -143,6 +160,7 @@ body.lock .toast{bottom:calc(env(safe-area-inset-bottom) + 150px)}
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
 </style></head><body>
 <div class="fm" id="fm" hidden></div>
+<div class="fm" id="sw" hidden></div>
 <div class="wrap">
 <section id="vE">
  <header><div class="ttl"><div><h1>Skins SSBU</h1><p class="sub">Tu catálogo personal</p></div><button class="ib" id="info" aria-label="Información">i</button></div>
@@ -156,11 +174,13 @@ body.lock .toast{bottom:calc(env(safe-area-inset-bottom) + 150px)}
  <p class="empty" id="empty" hidden>Nada con estos filtros.</p>
 </section>
 <section id="vS" hidden></section>
+<section id="vP" hidden></section>
 <section id="vI" hidden></section>
 </div>
 <nav class="tabs"><div class="in">
  <button id="tE" class="on"><svg viewBox="0 0 24 24"><path d="M3 11l9-8 9 8v10a1 1 0 0 1-1 1h-5v-7H9v7H4a1 1 0 0 1-1-1z"/></svg>Explorar</button>
- <button id="tS"><svg viewBox="0 0 24 24"><path d="M6 3h12v18l-6-4-6 4z"/></svg><span id="tSl">Mi selección</span><span class="badge" id="bd" hidden></span></button>
+ <button id="tS"><svg viewBox="0 0 24 24"><path d="M6 3h12v18l-6-4-6 4z"/></svg><span id="tSl">Selección</span><span class="badge" id="bd" hidden></span></button>
+ <button id="tP"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>Instalado</button>
  <button id="tI"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 11v6M12 7.5v.5"/></svg>Información</button>
 </div></nav>
 
@@ -174,6 +194,7 @@ body.lock .toast{bottom:calc(env(safe-area-inset-bottom) + 150px)}
  <label class="opt"><input type="checkbox" id="fg"> Solo sugeridas por otros</label>
 </div><div class="acts"><button id="fReset">Limpiar</button><button class="p" id="fOk">Aplicar</button></div></div></div>
 <div class="sheet" id="shD"><div class="in"><div class="sc" id="dBody"></div><div class="acts"><button id="dClose">Cerrar</button><button class="p" id="dSave"></button></div></div></div>
+<div class="sheet" id="shL"><div class="in"><div class="sc" id="lBody"></div><div class="acts" id="lActs"></div></div></div>
 <div class="sheet" id="shG"><div class="in"><div class="sc" id="gBody"></div><div class="acts"><button id="gNo">Descartar</button><button class="p" id="gOk">Guardar sugerencias</button></div></div></div>
 
 <div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Galería">
@@ -212,6 +233,9 @@ if(!sugg||!sugg.friends){const o=sugg;sugg={friends:{}};if(o&&o.keys&&o.keys.len
 let keepOrig=LS('ssbu_keep')==='1';
 let repl=J('ssbu_repl',{});const saveRepl=()=>LS('ssbu_repl',JSON.stringify(repl));
 const INST=(META.installed&&META.installed.fighters)||{};
+const INFO=(META.installed&&META.installed.info)||{};
+const IMGDIR='installed/';
+const instInfo=(code,s)=>(INFO[code]||{})[s]||{};
 let remote={items:{},sha:null},dirty=false,view='E',shown=PAGE,cur=[],detail=null;
 let q='',fighter=LS('ssbu_fighter')||'',au='all',fwifi=false,fsel=false,fsug=false;
 const all=[];F.forEach((f,i)=>f.picks.forEach(p=>{if(!p.withdrawn)all.push({f,p,i,k:key(f,p)})}));
@@ -235,28 +259,47 @@ const instKept=code=>instSlots(code).filter(s=>usable().includes(s)&&!isRepl(cod
 const nSel=code=>Object.keys(sel).filter(k=>idx[k]&&idx[k].f.code===code&&!isMii(idx[k].p)).length;
 const used=code=>nSel(code)+instKept(code).length;
 const slotNum=d=>{const m=/^c(\d\d)$/.exec(d||'');return m?+m[1]:null};
-// aviso si el slot propuesto ya está ocupado por lo instalado
-const instClash=e=>{if(FM)return '';const s=slotNum(e.p.dest);return s!==null&&instSlots(e.f.code).includes(s)&&!isRepl(e.f.code,s)?`Slot ${e.p.dest} ya ocupado por lo instalado`:''};
+const slotName=n=>n==null?'sin slot':'c0'+n;
+// slot asignado a cada skin elegida (no Mii) de un luchador: {slot: clave}
+function bySlot(code){const m={};Object.keys(sel).forEach(k=>{if(idx[k]&&idx[k].f.code===code&&!isMii(idx[k].p)&&sel[k].slot!=null)m[sel[k].slot]=k});return m}
+const takenSet=(code,except)=>{const t=new Set(instKept(code));Object.entries(bySlot(code)).forEach(([sl,k])=>{if(k!==except)t.add(+sl)});return t};
+const firstFree=(code,except)=>{const t=takenSet(code,except),f=usable().find(x=>!t.has(x));return f===undefined?null:f};
+// da un slot válido y único a cada skin elegida: respeta lo instalado, c00 reservado y el orden en que se eligieron
+function ensureSlots(){if(FM)return false;let ch=false;const by={};
+ Object.keys(sel).forEach(k=>{if(idx[k])(by[idx[k].f.code]=by[idx[k].f.code]||[]).push(k)});
+ Object.entries(by).forEach(([code,ks])=>{ks.sort((a,b)=>(sel[a].t||0)-(sel[b].t||0));
+  const inst=new Set(instKept(code)),seen=new Set();
+  ks.forEach(k=>{if(isMii(idx[k].p)){if(sel[k].slot!=null){sel[k].slot=null;ch=true}return}
+   let sl=sel[k].slot;const ok=sl!=null&&usable().includes(sl)&&!inst.has(sl)&&!seen.has(sl);
+   if(!ok){sl=usable().find(x=>!inst.has(x)&&!seen.has(x));if(sl===undefined)sl=null;if(sel[k].slot!==sl){sel[k].slot=sl;ch=true}}
+   if(sl!=null)seen.add(sl)})});
+ if(ch)saveSel();return ch}
+// nota (no alarma) cuando el slot asignado no es uno de los originales del mod: el instalador lo reubica
+function reslotNote(k){const p=idx[k].p,sl=sel[k]&&sel[k].slot;if(sl==null)return '';
+ const nat=(String(p.slots_orig||'').match(/\d+/g)||[]).map(Number);if(!nat.length||nat.includes(sl))return '';
+ return `Se reubica de ${nat.length>2?'sus slots':slotName(nat[0])} a ${slotName(sl)}`}
 const isFull=e=>!FM&&!isMii(e.p)&&used(e.f.code)>=limit();
 const sugBy=k=>Object.entries(sugg.friends).filter(([n,ks])=>ks.includes(k)).map(([n])=>n);
 const sgText=k=>{if(FM)return help.raw.includes(k)?help.by+' ya la tiene':'';if(sel[k])return '';const n=sugBy(k);return n.length?'Sugerida · '+(n.length>2?n[0]+' +'+(n.length-1):n.join(', ')):''};
 const isSug=k=>!!sgText(k);
 const sugAll=()=>{const m={};Object.entries(sugg.friends).forEach(([n,ks])=>ks.forEach(k=>{if(idx[k]&&!sel[k])(m[k]=m[k]||[]).push(n)}));return Object.keys(m).sort((a,b)=>m[b].length-m[a].length||idx[a].i-idx[b].i)};
 const barCls=(u,L)=>u>=L?'full':u>=L-2?'warn':'';
-function slotChips(f){const ins=instSlots(f.code);if(!ins.length)return '';
- const dests=new Set(Object.keys(sel).filter(k=>idx[k]&&idx[k].f.code===f.code).map(k=>slotNum(idx[k].p.dest)));
- return `<div class="chips">${[0,1,2,3,4,5,6,7].map(s=>{const i=ins.includes(s),r=i&&isRepl(f.code,s),res=s===0&&keepOrig;
-  const c=res?'res':i?(r?'rep':'ins'):dests.has(s)?'sel':'';
-  const t=res?'orig.':i?(r?'reemp.':'inst.'):dests.has(s)?'elegida':'libre';
-  return i&&!res?`<button class="slt ${c}" data-slot="${s}" aria-pressed="${r}" title="Toca para ${r?'conservar':'reemplazar'}">c0${s}<small>${t}</small></button>`:`<span class="slt ${c}">c0${s}<small>${t}</small></span>`}).join('')}</div>`}
+function tileHTML(code,sn){const ins=instSlots(code).includes(sn),r=ins&&isRepl(code,sn),res=sn===0&&keepOrig,k=bySlot(code)[sn],inf=instInfo(code,sn);
+ let cls='',img='',lab='libre',lbl='libre';
+ if(res){cls='res';lab='orig.';lbl='reservado: diseño original'}
+ else if(k){cls='sel';const p=idx[k].p;img=p.g&&p.g[0]?gU(p.g[0],'s'):p.img;lab=r?'cambia':'nueva';lbl='elegida: '+p.name}
+ else if(ins&&!r){cls='ins';img=inf.i?IMGDIR+inf.i:'';lab=inf.n?inf.n:(inf.skin?'inst.':'en uso');lbl='ocupado en el ModPack'+(inf.n?': '+inf.n:'')}
+ else if(ins&&r){cls='rep';img=inf.i?IMGDIR+inf.i:'';lab='se quita';lbl='se quitará lo instalado'}
+ return `<button class="slt ${cls}${img?'':' ni'}" data-slot="${sn}" data-code="${esc(code)}" aria-label="c0${sn}, ${esc(lbl)}">${img?`<img alt="" loading="lazy" src="${esc(img)}">`:''}<b>c0${sn}</b><small>${esc(lab)}</small></button>`}
+const tilesHTML=code=>`<div class="chips">${[0,1,2,3,4,5,6,7].map(sn=>tileHTML(code,sn)).join('')}</div>`;
 function meterHTML(f){const u=used(f.code),L=limit(),ik=instKept(f.code).length,ns=nSel(f.code);
  return `<b>${esc(f.name)}: ${u}/${L} cupos</b><small>${ik?ik+' instalado'+(ik>1?'s':'')+' + '+ns+' elegida'+(ns==1?'':'s')+' · ':''}${u>L?'Te pasaste del máximo: quita '+(u-L):u===L?'Completo: quita una para añadir otra':'Quedan '+(L-u)+' ('+(keepOrig?'c01–c07':'c00–c07')+')'}</small><div class="bar ${barCls(u,L)}"><i style="width:${Math.min(100,u/L*100)}%"></i></div>`}
 function paintMeter(){const m=$('meter');const f=F.find(x=>x.code===fighter);
  if(FM){m.hidden=true;return}
  if(!f){m.hidden=true;return}
- m.hidden=false;m.innerHTML=`<div class="mi">${meterHTML(f)}</div><button id="keep" aria-pressed="${keepOrig}">${keepOrig?'Conservo c00':'Uso c00'}</button>${slotChips(f)}`;
+ m.hidden=false;m.innerHTML=`<div class="mi">${meterHTML(f)}</div><button id="keep" aria-pressed="${keepOrig}">${keepOrig?'Conservo c00':'Uso c00'}</button>${tilesHTML(f.code)}`;
  $('keep').onclick=toggleKeep}
-$('meter').onclick=e=>{const b=e.target.closest('[data-slot]');if(!b)return;const code=fighter,s=+b.dataset.slot,a=repl[code]||[];repl[code]=a.includes(s)?a.filter(x=>x!==s):[...a,s];if(!repl[code].length)delete repl[code];saveRepl();dirty=true;paintAll();if(view!=='E')renderView();if(lb.k)lbSync();if(detail)dSync()};
+$('meter').onclick=e=>{const b=e.target.closest('[data-slot]');if(b)openSlot(b.dataset.code,+b.dataset.slot)};
 function toggleKeep(){keepOrig=!keepOrig;LS('ssbu_keep',keepOrig?'1':'0');dirty=true;paintAll();toast(keepOrig?'Máximo 7 por luchador: conservas el original (c00)':'Máximo 8 por luchador: usas c00–c07');if(view!=='E')renderView();if(lb.k)lbSync();if(detail)dSync()}
 
 /* ---------- Tarjetas ---------- */
@@ -277,16 +320,15 @@ function cardCls(e){return 'card'+(sel[e.k]?' saved':'')+(isSug(e.k)?' sg':'')+(
 function card(e,i){const {f,p,k}=e,on=!!sel[k];
  const img=p.img?`<img alt="" ${i<2?'':'loading="lazy" '}decoding="async" src="${esc(p.img)}"${p.srcset?` srcset="${esc(p.srcset)}" sizes="${SIZES}"`:''}>`:'';
  return `<div class="${cardCls(e)}" data-card="${esc(k)}"><button class="im" data-lb="${esc(k)}" aria-label="Ver fotos de ${esc(p.name)}">${img}<span class="sgb">${esc(sgText(k))}</span>${p.g&&p.g.length>1?`<span class="nph">${p.g.length} fotos</span>`:''}</button>
- <div class="cb"><div class="tx" data-d="${esc(k)}"><div class="nm">${esc(p.name)}</div><div class="fg">${esc(f.name)}</div><div class="fg cl">${esc(instClash(e)?'⚠ '+instClash(e):'')}</div></div>
+ <div class="cb"><div class="tx" data-d="${esc(k)}"><div class="nm">${esc(p.name)}</div><div class="fg">${esc(f.name)}</div></div>
  <div class="foot"><span class="stc">${stat(p,k)}</span><button class="bm ${on?'on':''}" data-b="${esc(k)}" aria-pressed="${on}" aria-label="${on?'Quitar de':'Guardar en'} mi selección: ${esc(p.name)}">${BM}</button></div></div></div>`}
 function paintCard(el){const k=el.dataset.card,e=idx[k];if(!e)return;
  const c=cardCls(e);if(el.className!==c)el.className=c;
  const b=el.querySelector('.bm'),on=!!sel[k];
  if(b.classList.contains('on')!==on){b.classList.toggle('on',on);b.setAttribute('aria-pressed',on);b.setAttribute('aria-label',(on?'Quitar de':'Guardar en')+' mi selección: '+e.p.name)}
  const s=el.querySelector('.stc'),h=stat(e.p,k);if(s.innerHTML!==h)s.innerHTML=h;
- const cl=el.querySelector('.cl'),t=instClash(e)?'⚠ '+instClash(e):'';if(cl.textContent!==t)cl.textContent=t;
  const sg=el.querySelector('.sgb'),t2=sgText(k);if(sg.textContent!==t2)sg.textContent=t2}
-function paintAll(){document.querySelectorAll('#grid .card').forEach(paintCard);paintMeter();counts()}
+function paintAll(){ensureSlots();document.querySelectorAll('#grid .card').forEach(paintCard);paintMeter();counts()}
 
 /* ---------- Explorar ---------- */
 function fillFighters(){$('fs2').innerHTML='<option value="">Todos los luchadores</option>'+F.map(f=>`<option value="${esc(f.code)}"${f.code===fighter?' selected':''}>${esc(f.name)}</option>`).join('')}
@@ -314,8 +356,9 @@ document.addEventListener('error',e=>{const t=e.target;if(!t||t.tagName!=='IMG')
 
 /* ---------- Acciones ---------- */
 function toggle(k){const e=idx[k];
+ if(swap&&e.f.code===swap.code){doSwap(k);return true}
  if(!sel[k]){if(isFull(e)){toast(`${e.f.name}: ya tienes ${used(e.f.code)}/${limit()}. Quita una para añadir otra`);buzz([30,40,30]);return false}
-  sel[k]={t:Date.now()}}else delete sel[k];
+  sel[k]={t:Date.now(),slot:FM||isMii(e.p)?null:firstFree(e.f.code)}}else delete sel[k];
  dirty=true;saveSel();buzz(15);paintAll();if(detail===k)dSync();if(lb.k===k)lbSync();if(view!=='E')renderView();return true}
 function counts(){const n=Object.keys(sel).length;$('bd').hidden=!n;$('bd').textContent=n;if(FM)paintFm()}
 function paintFm(){const n=Object.keys(sel).filter(k=>idx[k]).length,b=$('fm');b.hidden=false;
@@ -324,24 +367,20 @@ function paintFm(){const n=Object.keys(sel).filter(k=>idx[k]).length,b=$('fm');b
 function exitHelp(){if(confirm('¿Salir del modo ayuda? Tus recomendaciones se quedan guardadas en este dispositivo.')){LS('ssbu_help',null);location.reload()}}
 
 /* ---------- Pestañas ---------- */
-const secs={E:'vE',S:'vS',I:'vI'},scrollPos={E:0,S:0,I:0};
+const secs={E:'vE',S:'vS',P:'vP',I:'vI'},scrollPos={E:0,S:0,P:0,I:0};
 function tab(v){if(v===view){scrollTo(0,0);return}scrollPos[view]=scrollY;view=v;
  Object.entries(secs).forEach(([x,id])=>{$(id).hidden=x!==v;$('t'+x).classList.toggle('on',x===v)});
  renderView();scrollTo(0,scrollPos[v]||0)}
-function renderView(){if(view==='S')vSel();else if(view==='I')vInfo()}
-$('tE').onclick=()=>tab('E');$('tS').onclick=()=>tab('S');$('tI').onclick=()=>tab('I');
-function clash(k){if(FM)return '';const {f,p}=idx[k];if(!p.dest)return '';
- const ic=instClash(idx[k]);if(ic)return `<br><span class="st r"><i></i>${esc(ic)}</span>`;
- const o=Object.keys(sel).filter(x=>x!==k&&idx[x]&&idx[x].f.code===f.code&&idx[x].p.dest===p.dest);
- return o.length?`<br><span class="st r"><i></i>Mismo slot ${esc(p.dest)} que «${esc(idx[o[0]].p.name)}»</span>`:''}
+function renderView(){if(view==='S')vSel();else if(view==='P')vInst();else if(view==='I')vInfo()}
+$('tE').onclick=()=>tab('E');$('tS').onclick=()=>tab('S');$('tP').onclick=()=>tab('P');$('tI').onclick=()=>tab('I');
 function vSel(){
- const ks=Object.keys(sel).filter(k=>idx[k]).sort((a,b)=>idx[a].i-idx[b].i),by={};
+ const ks=Object.keys(sel).filter(k=>idx[k]).sort((a,b)=>idx[a].i-idx[b].i||(sel[a].slot==null)-(sel[b].slot==null)||(sel[a].slot||0)-(sel[b].slot||0)),by={};
  ks.forEach(k=>(by[idx[k].f.code]=by[idx[k].f.code]||[]).push(k));
  const sk=FM?[]:sugAll();
  const sugLine=k=>{const n=sugBy(k);return `<br><span class="st g"><i></i>${esc(n.join(', '))}${n.length>1?' · '+n.length+' amigos':''}</span>`};
- const item=(k,s)=>{const {f,p}=idx[k];return `<div class="item"><button class="th" data-lb="${esc(k)}" aria-label="Ver fotos">${p.img?`<img alt="" loading="lazy" src="${esc(p.g&&p.g[0]?gU(p.g[0],'s'):p.img)}">`:''}</button><div class="m"><b data-d="${esc(k)}">${esc(p.name)}</b><span>${esc(f.name)} · ${esc(p.dest||'sin destino')}</span><br><span class="stc">${stat(p,k)}</span>${s?sugLine(k):clash(k)}</div>
+ const item=(k,s)=>{const {f,p}=idx[k];return `<div class="item"><button class="th" data-lb="${esc(k)}" aria-label="Ver fotos">${p.img?`<img alt="" loading="lazy" src="${esc(p.g&&p.g[0]?gU(p.g[0],'s'):p.img)}">`:''}</button><div class="m"><b data-d="${esc(k)}">${esc(p.name)}</b><span>${esc(f.name)}${s||FM?'':' · '+slotName(sel[k].slot)}</span><br><span class="stc">${stat(p,k)}</span>${s?sugLine(k):reslotNote(k)?`<br><span class="fg" style="font-size:12px">${esc(reslotNote(k))}</span>`:''}${s||FM||isMii(p)?'':`<div class="ia"><button class="sl2" data-sl="${esc(k)}" aria-label="Cambiar de slot">${slotName(sel[k].slot)} ▾</button><button data-mv="${esc(k)}" data-dir="-1" aria-label="Subir">▲</button><button data-mv="${esc(k)}" data-dir="1" aria-label="Bajar">▼</button><button data-sw="${esc(k)}">⇄ Cambiar</button></div>`}</div>
   ${s?`<button class="x p" data-add="${esc(k)}" aria-label="Añadir ${esc(p.name)}">＋</button>`:`<button class="x" data-b="${esc(k)}" aria-label="Quitar ${esc(p.name)}">✕</button>`}</div>`};
- const groups=Object.entries(by).map(([c,l])=>{const f=F.find(x=>x.code===c),u=used(c),L=limit();if(FM)return `<div class="grp"><h3><span>${esc(f.name)}</span><span style="color:var(--mu)">${l.length}</span></h3></div>`+l.map(k=>item(k)).join('');return `<div class="grp"><h3><span>${esc(f.name)}</span><span style="color:${u>L?'var(--er)':'var(--mu)'}">${instKept(c).length?instKept(c).length+' inst. · ':''}${u}/${L}</span></h3><div class="bar ${barCls(u,L)}"><i style="width:${Math.min(100,u/L*100)}%"></i></div></div>`+l.map(k=>item(k)).join('')}).join('');
+ const groups=Object.entries(by).map(([c,l])=>{const f=F.find(x=>x.code===c),u=used(c),L=limit();if(FM)return `<div class="grp"><h3><span>${esc(f.name)}</span><span style="color:var(--mu)">${l.length}</span></h3></div>`+l.map(k=>item(k)).join('');return `<div class="grp"><h3><span>${esc(f.name)}</span><span style="color:${u>L?'var(--er)':'var(--mu)'}">${instKept(c).length?instKept(c).length+' inst. · ':''}${u}/${L}</span></h3><div class="bar ${barCls(u,L)}"><i style="width:${Math.min(100,u/L*100)}%"></i></div><div style="display:flex;margin-top:8px">${tilesHTML(c)}</div></div>`+l.map(k=>item(k)).join('')}).join('');
  const pend=FM?ks.length>0:dirty||pending();
  $('vS').innerHTML=`<header><div class="ttl"><div><h1>${FM?'Mis recomendaciones':'Mi selección'}</h1><p class="sub">${FM?ks.length+' para '+esc(help.by):ks.length+' guardada'+(ks.length==1?'':'s')+' · máx. '+limit()+' por luchador'}</p></div><button class="ib" id="shr" aria-label="${FM?'Enviar':'Pedir ayuda a amigos'}">⇪</button></div></header>
  ${sk.length?`<div class="box" style="margin-top:12px"><h3>Recomendadas por tus amigos (${sk.length})</h3><p>Las que más amigos eligieron van primero. Toca ＋ para añadir.</p>${sk.map(k=>item(k,1)).join('')}<div class="acts" style="padding:8px 0 0"><button id="addAll">Añadir todas</button><button id="noSug">Descartar</button></div></div>`:''}
@@ -350,7 +389,11 @@ function vSel(){
  $('send').onclick=FM?sendBack:push;$('shr').onclick=FM?sendBack:shareHelp;
  if($('addAll'))$('addAll').onclick=()=>{let n=0,skp=0;sk.forEach(k=>{if(!sel[k]){if(isFull(idx[k]))skp++;else{sel[k]={t:Date.now()};n++}}});dirty=true;saveSel();paintAll();renderView();toast(n+' añadidas'+(skp?' · '+skp+' no caben en el máximo':''))};
  if($('noSug'))$('noSug').onclick=()=>{sugg={friends:{}};saveSug();paintAll();renderView()}}
-$('vS').onclick=e=>{const b=e.target.closest('[data-b]');if(b){toggle(b.dataset.b);return}
+$('vS').onclick=e=>{const t=e.target.closest('[data-slot]');if(t){openSlot(t.dataset.code,+t.dataset.slot);return}
+ const sl=e.target.closest('[data-sl]');if(sl){openSlot(idx[sl.dataset.sl].f.code,sel[sl.dataset.sl].slot,'move');return}
+ const mv=e.target.closest('[data-mv]');if(mv){moveSlot(mv.dataset.mv,+mv.dataset.dir);return}
+ const sw=e.target.closest('[data-sw]');if(sw){const k=sw.dataset.sw;startSwap(idx[k].f.code,sel[k].slot,k);return}
+ const b=e.target.closest('[data-b]');if(b){toggle(b.dataset.b);return}
  const a=e.target.closest('[data-add]');if(a){toggle(a.dataset.add);return}
  const d=e.target.closest('[data-d]');if(d){openD(d.dataset.d);return}
  const l=e.target.closest('[data-lb]');if(l)openLB(l.dataset.lb,0)};
@@ -371,7 +414,7 @@ function vInfo(){
  <div class="acts" style="padding:4px 0 0"><button class="p" id="shr2">Pedir ayuda (${n} elegidas)</button></div>
  ${Object.keys(sugg.friends).length?`<p style="margin-top:12px">Ya te respondieron:</p>${Object.entries(sugg.friends).map(([nm,ks])=>`<div class="opt" style="min-height:44px"><span style="flex:1">${esc(nm)} · ${ks.length} recomendada${ks.length==1?'':'s'}</span><button data-fdel="${esc(nm)}" style="min-height:36px">Quitar</button></div>`).join('')}`:''}</div>
  <div class="box"><h3>Máximo por luchador</h3><label class="opt" style="border:0"><input type="checkbox" id="kp" ${keepOrig?'checked':''}> <span>Conservar el diseño original (c00)<br><small style="color:var(--mu)">Activado: máx. 7 (c01–c07). Desactivado: máx. 8 (c00–c07). Los trajes Mii no cuentan.</small></span></label></div>
- ${META.installed?`<div class="box"><h3>Instalado en el ModPack</h3><p>${Object.keys(INST).length} luchadores con ${Object.values(INST).reduce((n,v)=>n+v.length,0)} slots ocupados · escaneo ${esc((META.installed.scanned_at||'').replace('T',' ').replace('Z',''))}.</p><p>Esos slots cuentan en el máximo por luchador y avisan si una skin nueva propone un slot ocupado. En el medidor de cada luchador, toca un slot instalado para marcarlo «reemplazar» y liberar su cupo.</p><p class="fg">Es ocupación de slots: no sé qué skin es cada una ni si es una skin o un ajuste de modelo.</p></div>`:''}
+ ${META.installed?`<div class="box"><h3>Instalado en el ModPack</h3><p>${Object.keys(INST).length} luchadores con ${Object.values(INST).reduce((n,v)=>n+v.length,0)} slots ocupados · escaneo ${esc((META.installed.scanned_at||'').replace('T',' ').replace('Z',''))}.</p><p>Míralo en la pestaña <b>Instalado</b>: cada slot con su retrato y, cuando el pack lo renombra, su nombre. Esos slots cuentan en el máximo por luchador.</p></div>`:''}
  <div class="box"><h3>Cómo funciona</h3><div class="flow">
  <div><b>1</b><span>Un bot (Grok) audita las skins y actualiza <code>data/catalog.json</code>.</span></div>
  <div><b>2</b><span>Otro agente regenera esta página con el catálogo.</span></div>
@@ -390,6 +433,80 @@ function vInfo(){
  $('tokD').onclick=()=>{LS('ssbu_tok',null);toast('Token quitado');renderView()};
  $('copy').onclick=async()=>{const t=JSON.stringify(build(),null,2);try{await navigator.clipboard.writeText(t);toast('JSON copiado')}catch(e){const l=document.createElement('a');l.href=URL.createObjectURL(new Blob([t],{type:'application/json'}));l.download='selection.json';l.click()}};
  $('clr').onclick=()=>{if(confirm('¿Vaciar toda la selección?')){sel={};dirty=true;saveSel();paintAll();renderView()}}}
+
+
+/* ---------- Slots: hoja, mover y «quitar este por este» ---------- */
+let slotCtx=null,swap=null;
+const fname=code=>(F.find(f=>f.code===code)||{}).name||code;
+const markRepl=(code,sn,on)=>{const a=repl[code]||[];repl[code]=on?(a.includes(sn)?a:[...a,sn]):a.filter(x=>x!==sn);if(!repl[code].length)delete repl[code];saveRepl()};
+function afterSlotChange(){dirty=true;saveSel();paintAll();if(view!=='E')renderView();if(lb.k)lbSync();if(detail)dSync();if($('shL').classList.contains('open')&&slotCtx)openSlot(slotCtx.code,slotCtx.sn,slotCtx.mode,true)}
+function openSlot(code,sn,mode,keep){if(sn==null||FM)return;slotCtx={code,sn,mode};
+ const ins=instSlots(code).includes(sn),r=ins&&isRepl(code,sn),res=sn===0&&keepOrig,k=bySlot(code)[sn],inf=instInfo(code,sn);
+ let body='',acts='';const act=(a,t,c)=>`<button data-act="${a}"${c?` class="${c}"`:''}>${t}</button>`;
+ if(mode==='move'&&k){
+  body=`<h3>${esc(idx[k].p.name)}</h3><p class="fg">Elige el slot de ${esc(fname(code))}. Si está ocupado por otra skin tuya, se intercambian; si es de lo instalado, se quitará.</p><div class="mvl">${usable().map(t=>{const kk=bySlot(code)[t],ii=instSlots(code).includes(t)&&!isRepl(code,t);
+   const st=t===sn?'aquí':kk?'otra skin tuya: '+idx[kk].p.name:ii?'ocupado en el ModPack'+(instInfo(code,t).n?' · '+instInfo(code,t).n:''):'libre';
+   return `<button data-to="${t}" ${t===sn?'disabled':''}><span><b>c0${t}</b> · ${esc(st)}</span><span>›</span></button>`}).join('')}</div>`;
+  acts=act('back','Volver')}
+ else if(res){body=`<h3>${esc(fname(code))} · c00</h3><p>Conservas el diseño original en c00.</p>`;acts=act('close','Cerrar')+act('usec00','Usar c00 también','p')}
+ else if(k){const p=idx[k].p,n=reslotNote(k);
+  body=`<h3>${esc(fname(code))} · ${slotName(sn)}</h3><div class="sp">${p.g&&p.g[0]?`<img alt="" src="${esc(gU(p.g[0],'m'))}">`:'<div class="nopic">sin foto</div>'}<div><b>${esc(p.name)}</b><div class="fg">por ${esc(p.author)}</div>${r?'<div class="fg">Reemplaza lo instalado en este slot</div>':''}${n?`<div class="fg">${esc(n)}</div>`:''}</div></div>`;
+  acts=act('swap','⇄ Cambiar por otra…','p')+act('move','Mover de slot')+act('rm','Quitar de mi selección')}
+ else if(ins&&!r){const nm=inf.n||(inf.skin?'Skin instalada (sin nombre)':'Slot en uso');
+  body=`<h3>${esc(fname(code))} · ${slotName(sn)}</h3><div class="sp">${inf.i?`<img alt="" src="${esc(IMGDIR+inf.i)}">`:'<div class="nopic">sin retrato</div>'}<div><b>${esc(nm)}</b><div class="fg">${inf.skin?'Skin completa con retrato propio en el ModPack.':'Ocupado en el ModPack, sin retrato propio: puede ser solo un ajuste de modelo.'}</div></div></div>`;
+  acts=act('swap','⇄ Reemplazar por una skin…','p')+act('free','Quitar sin reemplazar')}
+ else if(ins&&r){
+  body=`<h3>${esc(fname(code))} · ${slotName(sn)}</h3><div class="sp">${inf.i?`<img alt="" style="opacity:.5" src="${esc(IMGDIR+inf.i)}">`:'<div class="nopic">sin retrato</div>'}<div><b>${esc(inf.n||'Lo instalado aquí')}</b><div class="fg">Se quitará y el slot queda libre para una skin nueva.</div></div></div>`;
+  acts=act('swap','Elegir skin para este slot…','p')+act('keepinst','Conservar lo instalado')}
+ else{body=`<h3>${esc(fname(code))} · ${slotName(sn)}</h3><p>Slot libre.</p>`;acts=act('swap','Elegir skin para este slot…','p')+act('close','Cerrar')}
+ $('lBody').innerHTML=body;$('lActs').innerHTML=acts;$('lActs').style.flexWrap='wrap';
+ if(!keep)openOv('shL')}
+$('shL').onclick=e=>{if(e.target===$('shL'))closeOv('shL')};
+$('lBody').onclick=e=>{const t=e.target.closest('[data-to]');if(t&&slotCtx){moveTo(bySlot(slotCtx.code)[slotCtx.sn],+t.dataset.to)}};
+$('lActs').onclick=e=>{const b=e.target.closest('[data-act]');if(!b||!slotCtx)return;const {code,sn}=slotCtx,k=bySlot(code)[sn];
+ switch(b.dataset.act){
+  case 'close':closeOv('shL');break;
+  case 'back':openSlot(code,sn,'',true);break;
+  case 'move':openSlot(code,sn,'move',true);break;
+  case 'usec00':closeOv('shL');toggleKeep();break;
+  case 'free':markRepl(code,sn,true);toast(slotName(sn)+': se quitará lo instalado');afterSlotChange();break;
+  case 'keepinst':markRepl(code,sn,false);ensureSlots();afterSlotChange();break;
+  case 'rm':closeOv('shL');if(k)toggle(k);break;
+  case 'swap':closeOv('shL');startSwap(code,sn,k||null);break}};
+function moveTo(k,t){if(!k||!sel[k])return;const code=idx[k].f.code,cur=sel[k].slot;if(t===cur)return;
+ const occ=bySlot(code)[t];
+ if(occ&&occ!==k)sel[occ].slot=cur;
+ else if(instKept(code).includes(t)){markRepl(code,t,true);toast(slotName(t)+': se quitará lo instalado')}
+ sel[k].slot=t;slotCtx.sn=t;slotCtx.mode='';afterSlotChange()}
+function moveSlot(k,dir){if(!sel[k]||sel[k].slot==null)return;const code=idx[k].f.code,u=usable();let i=u.indexOf(sel[k].slot);
+ for(i+=dir;i>=0&&i<u.length;i+=dir){const t=u[i];if(instKept(code).includes(t))continue;const occ=bySlot(code)[t];if(occ&&occ!==k)sel[occ].slot=sel[k].slot;sel[k].slot=t;dirty=true;saveSel();paintAll();if(view!=='E')renderView();return}
+ toast('No hay más slots en esa dirección')}
+function startSwap(code,sn,from){swap={code,slot:sn,from};fighter=code;LS('ssbu_fighter',fighter);fillFighters();if(view!=='E')tab('E');renderGrid();paintSw();scrollTo(0,0)}
+function paintSw(){const b=$('sw');$('fs2').disabled=!!swap;if(!swap){b.hidden=true;return}
+ b.hidden=false;b.innerHTML=`<b>${swap.from?'Cambiar «'+esc(idx[swap.from].p.name)+'» por…':'Elige la skin para '+slotName(swap.slot)} · ${esc(fname(swap.code))}</b><button id="swX">Cancelar</button>`;$('swX').onclick=endSwap}
+function endSwap(){swap=null;paintSw();renderGrid()}
+function doSwap(k){const {code,slot,from}=swap,e=idx[k];
+ if(isMii(e.p)){toast('Los trajes Mii no usan slot c00–c07');return}
+ let msg=`«${e.p.name}» va en ${slotName(slot)}`;
+ if(from&&from!==k&&sel[from]){msg=`«${e.p.name}» reemplaza a «${idx[from].p.name}» en ${slotName(slot)}`;delete sel[from]}
+ const occ=bySlot(code)[slot];if(occ&&occ!==k&&sel[occ])sel[occ].slot=sel[k]&&sel[k].slot!=null?sel[k].slot:null;
+ if(instSlots(code).includes(slot)&&!isRepl(code,slot)){markRepl(code,slot,true);msg+=' (se quita lo instalado)'}
+ if(!sel[k])sel[k]={t:Date.now()};sel[k].slot=slot;
+ swap=null;paintSw();dirty=true;saveSel();buzz(15);paintAll();renderGrid();if(view!=='E')renderView();toast(msg)}
+
+/* ---------- Instalado: vista general ---------- */
+let pfl=LS('ssbu_pfl')||'all';
+function vInst(){
+ let nf=0,ns=0,ni=0,nn=0;Object.entries(INST).forEach(([c,v])=>{nf++;ns+=v.length;v.forEach(sn=>{const i=instInfo(c,sn);if(i.skin)ni++;if(i.n)nn++})});
+ const rows=F.filter(f=>{const u=used(f.code),L=limit(),ch=nSel(f.code)||(repl[f.code]||[]).length;return pfl==='free'?u<L:pfl==='full'?u>=L:pfl==='chg'?!!ch:pfl==='inst'?instSlots(f.code).length>0:true});
+ const FL=[['all','Todos'],['inst','Con instalados'],['free','Con slots libres'],['full','Completos'],['chg','Con cambios']];
+ $('vP').innerHTML=`<header><h1>Instalado</h1><p class="sub">${META.installed?`${nf} luchadores · ${ns} slots ocupados · ${ni} con retrato · ${nn} con nombre`:'Sin datos: falta data/installed.json'}</p></header>
+ <p class="fg" style="margin:10px 0 4px">Así está cada luchador hoy. Toca un slot para verlo, reemplazarlo o quitarlo. En dorado, lo que vas a instalar.</p>
+ <div class="fch">${FL.map(([k,l])=>`<button data-pfl="${k}" class="${pfl===k?'on':''}">${l}</button>`).join('')}</div>
+ ${rows.map(f=>{const u=used(f.code),L=limit();return `<div class="prow"><button class="pn" data-pf="${esc(f.code)}"><span style="color:var(--tx);font-weight:700;font-size:15px">${esc(f.name)}</span><span>${u}/${L} ›</span></button>${tilesHTML(f.code)}</div>`}).join('')||'<p class="empty">Ninguno con este filtro.</p>'}`}
+$('vP').onclick=e=>{const t=e.target.closest('[data-slot]');if(t){openSlot(t.dataset.code,+t.dataset.slot);return}
+ const f=e.target.closest('[data-pfl]');if(f){pfl=f.dataset.pfl;LS('ssbu_pfl',pfl);vInst();return}
+ const n=e.target.closest('[data-pf]');if(n){fighter=n.dataset.pf;LS('ssbu_fighter',fighter);fillFighters();tab('E');renderGrid()}};
 
 /* ---------- Capas (sheets y lightbox) con botón Atrás ---------- */
 const ovs=[];let skip=0;
@@ -497,13 +614,14 @@ function showWelcome(){const n=help.raw.filter(k=>idx[k]).length;
  $('gOk').hidden=false;$('gOk').textContent='Empezar';$('gNo').hidden=true;gAction=()=>{closeOv('shG');$('gNo').hidden=false};gNoAct=null;openOv('shG')}
 
 /* ---------- Contrato selection.json ---------- */
+function rankOf(k){const code=idx[k].f.code;const ks=Object.keys(sel).filter(x=>idx[x]&&idx[x].f.code===code).sort((a,b)=>(sel[a].slot==null)-(sel[b].slot==null)||(sel[a].slot||0)-(sel[b].slot||0));return ks.indexOf(k)+1}
 function build(){const items=[];
  Object.keys(sel).forEach(k=>{const e=idx[k];if(!e)return;const {f,p}=e,r=remote.items[k];
-  items.push({key:k,fighter:f.name,roster_no:f.code,mod_id:p.id,name:p.name,author:p.author,url:p.url,dest_slot:p.dest||null,native_slots:p.slots_orig||null,assignment:p.assignment||null,audited:p.audited,wifi:p.wifi_status||'pendiente',dependencies:p.deps||null,conflicts:p.conflicts||null,notes:p.notes||null,
+  items.push({key:k,fighter:f.name,roster_no:f.code,mod_id:p.id,name:p.name,author:p.author,url:p.url,dest_slot:p.dest||null,assigned_slot:sel[k].slot!=null?slotName(sel[k].slot):null,order:rankOf(k),native_slots:p.slots_orig||null,assignment:p.assignment||null,audited:p.audited,wifi:p.wifi_status||'pendiente',dependencies:p.deps||null,conflicts:p.conflicts||null,notes:p.notes||null,
    status:(r&&r.status)||'wanted',selected_at:(r&&r.selected_at)||new Date(sel[k].t).toISOString(),...(r&&r.status&&r.status!=='wanted'?{result:r.result||null,updated_at:r.updated_at||null}:{})})});
  Object.keys(remote.items).forEach(k=>{const r=remote.items[k];if(!sel[k]&&r.status&&r.status!=='wanted')items.push(r)});
  return {schema:1,generated_at:new Date().toISOString(),catalog:META&&META.generated||null,target:{game:'Super Smash Bros. Ultimate',version:'13.0.5',loader:'ARCropolis 4.1.1',modpack_repo:'GianZapata/Gian-Ultimate-Modpack-private'},limits:{per_fighter:limit(),keep_original_slot:keepOrig},replace_slots:repl,items}}
-function pending(){const a=Object.keys(sel).sort().join(),b=Object.keys(remote.items).filter(k=>(remote.items[k].status||'wanted')==='wanted').sort().join();return a!==b}
+function pending(){const g=(k,sl)=>k+'@'+(sl==null?'':sl);const a=Object.keys(sel).map(k=>g(k,sel[k].slot)).sort().join(),b=Object.keys(remote.items).filter(k=>(remote.items[k].status||'wanted')==='wanted').map(k=>g(k,slotNum(remote.items[k].assigned_slot))).sort().join();return a!==b}
 
 /* ---------- GitHub ---------- */
 const tok=()=>LS('ssbu_tok');
@@ -516,7 +634,7 @@ async function pull(first){
  try{let r;
   if(tok()){r=await gh('/contents/'+PATHF+'?ref='+BR);if(r.status===404){remote={items:{},sha:null};return}if(!r.ok)throw 0;const j=await r.json();remote.sha=j.sha;applyRemote(JSON.parse(b64d(j.content)))}
   else{r=await fetch(PATHF+'?'+Date.now());if(!r.ok)return;applyRemote(await r.json())}
-  if(first&&!Object.keys(sel).length&&!dirty){Object.values(remote.items).forEach(e=>{if(idx[e.key]&&(e.status||'wanted')==='wanted')sel[e.key]={t:Date.parse(e.selected_at)||Date.now()}});saveSel()}
+  if(first&&!Object.keys(sel).length&&!dirty){Object.values(remote.items).forEach(e=>{if(idx[e.key]&&(e.status||'wanted')==='wanted')sel[e.key]={t:Date.parse(e.selected_at)||Date.now(),slot:slotNum(e.assigned_slot)}});saveSel()}
  }catch(e){}
  paintAll();if(view!=='E'&&!isTxt(document.activeElement))renderView()}
 async function push(){
@@ -532,7 +650,8 @@ addEventListener('beforeunload',e=>{if(dirty&&tok()){e.preventDefault();e.return
 // un enlace de un amigo pegado en la misma pestaña solo cambia el #: reiniciar para procesarlo
 addEventListener('hashchange',()=>{if(/^#(sel|help|sug)=/.test(location.hash))location.reload()});
 
-if(FM){document.body.classList.add('fmode');$('tSl').textContent='Mis elecciones'}
+if(FM){document.body.classList.add('fmode');$('tSl').textContent='Elegidas';$('tP').hidden=true}
+ensureSlots();
 fillFighters();readHash();renderGrid();counts();pull(true);
 if(incoming)setTimeout(showIncoming,300);else if(FM&&HASH&&HASH.type==='help')setTimeout(showWelcome,300);
 </script></body></html>

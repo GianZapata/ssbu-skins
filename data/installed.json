@@ -1,7 +1,7 @@
 {
  "source": "GianZapata/Gian-Ultimate-Modpack-private",
- "scanned_at": "2026-10-25T11:25:09Z",
- "note": "Slots ocupados en el ModPack; no identifica la skin ni distingue skins de ajustes de modelo.",
+ "scanned_at": "2026-10-25T13:35:43Z",
+ "note": "Slots ocupados en el ModPack. info[slot]: n=nombre del costume (si el pack lo renombra), skin=tiene retrato propio, i=imagen en installed/.",
  "mods_scanned": [
   "The WuBoy Ultimate Modpack",
   "The WuBoy Ultimate Modpack Optionals"
@@ -20,7 +20,37 @@
    ],
    "mods": [
     "The WuBoy Ultimate Modpack"
-   ]
+   ],
+   "info": {
+    "1": {
+     "skin": true,
+     "i": "mario_01.webp"
+    },
+    "2": {
+     "skin": true,
+     "i": "mario_02.webp"
+    },
+    "3": {
+     "skin": true,
+     "i": "mario_03.webp"
+    },
+    "4": {
+     "skin": true,
+     "i": "mario_04.webp"
+    },
+    "5": {
+     "skin": true,
+     "i": "mario_05.webp"
+    },
+    "6": {
+     "skin": true,
+     "i": "mario_06.webp"
+    },
+    "7": {
+     "skin": true,
+     "i": "mario_07.webp"
+    }
+   }
   },
   "02": {
    "internal": "donkey",
@@ -31,7 +61,23 @@
    ],
    "mods": [
     "The WuBoy Ultimate Modpack"
-   ]
+   ],
+   "info": {
+    "2": {
+     "n": "A Real Gorilla",
+     "skin": true,
+     "i": "donkey_02.webp"
+    },
+    "4": {
+     "n": "Swole Doge",
+     "skin": true,
+     "i": "donkey_04.webp"
+    },
+    "6": {
+     "skin": true,
+     "i": "donkey_06.webp"
+    }
+   }
   },
   "03": {
    "internal": "link",
@@ -44,7 +90,29 @@
    ],
    "mods": [
     "The WuBoy Ultimate Modpack"
-   ]
+   ],
+   "info": {
+    "2": {
+     "skin": true,
+     "i": "link_02.webp"
+    },
+    "3": {
+     "skin": true,
+     "i": "link_03.webp"
+    },
+    "5": {
+     "skin": true,
+     "i": "link_05.webp"
+    },
+    "6": {
+     "skin": true,
+     "i": "link_06.webp"
+    },
+    "7": {
+     "skin": true,
+     "i": "link_07.webp"
+    }
+   }
   },
   "04": {
    "internal": "samus",
@@ -55,7 +123,21 @@
    ],
    "mods": [
     "The WuBoy Ultimate Modpack"
-   ]
+   ],
+   "info": {
+    "5": {
+     "skin": true,
+     "i": "samus_05.webp"
+    },
+    "6": {
+     "skin": true,
+     "i": "samus_06.webp"
+    },
+    "7": {
+     "skin": true,
+     "i": "samus_07.webp"
+    }
+   }
   },
   "04ε": {
    "internal": "samusd",
@@ -68,7 +150,30 @@
    ],
    "mods": [
     "The WuBoy Ultimate Modpack"
-   ]
+   ],
+   "info": {
+    "1": {
+     "skin": true,
+     "i": "samusd_01.webp"
+    },
+    "2": {
+     "skin": true,
+     "i": "samusd_02.webp"
+    },
+    "3": {
+     "skin": true,
+     "i": "samusd_03.webp"
+    },
+    "6": {
+     "skin": true,
+     "i": "samusd_06.webp"
+    },
+    "7": {
+     "n": "Raven Beak",
+     "skin": true,
+     "i": "samusd_07.webp"
+    }
+   }
   },
   "05": {
    "internal": "yoshi",
@@ -77,7 +182,13 @@
    ],
    "mods": [
     "The WuBoy Ultimate Modpack"
-   ]
+   ],
+   "info": {
+    "7": {
+     "skin": true,
+     "i": "yoshi_07.webp"
+    }
+   }
   },
   "06": {
    "internal": "kirby",
@@ -87,7 +198,17 @@
    ],
    "mods": [
     "The WuBoy Ultimate Modpack"
-   ]
+   ],
+   "info": {
+    "1": {
+     "skin": true,
+     "i": "kirby_01.webp"
+    },
+    "5": {
+     "skin": true,
+     "i": "kirby_05.webp"
+    }
+   }
   },
   "07": {
    "internal": "fox",
@@ -99,7 +220,25 @@
    ],
    "mods": [
     "The WuBoy Ultimate Modpack"
-   ]
+   ],
+   "info": {
+    "3": {
+     "skin": true,
+     "i": "fox_03.webp"
+    },
+    "5": {
+     "skin": true,
+     "i": "fox_05.webp"
+    },
+    "6": {
+     "skin": true,
+     "i": "fox_06.webp"
+    },
+    "7": {
+     "skin": true,
+     "i": "fox_07.webp"
+    }
+   }
   },
   "08": {
    "internal": "pikachu",
@@ -109,7 +248,18 @@
    ],
    "mods": [
     "The WuBoy Ultimate Modpack"
-   ]
+   ],
+   "info": {
+    "1": {
+     "skin": true,
+     "i": "pikachu_01.webp"
+    },
+    "7": {
+     "n": "Totodile",
+     "skin": true,
+     "i": "pikachu_07.webp"
+    }
+   }
   },
   "09": {
    "internal": "luigi",
@@ -125,7 +275,42 @@
    ],
    "mods": [
     "The WuBoy Ultimate Modpack"
-   ]
+   ],
+   "info": {
+    "0": {
+     "skin": true,
+     "i": "luigi_00.webp"
+    },
+    "1": {
+     "skin": true,
+     "i": "luigi_01.webp"
+    },
+    "2": {
+     "skin": true,
+     "i": "luigi_02.webp"
+    },
+    "3": {
+     "skin": true,
+     "i": "luigi_03.webp"
+    },
+    "4": {
+     "skin": true,
+     "i": "luigi_04.webp"
+    },
+    "5": {
+     "skin": true,
+     "i": "luigi_05.webp"
+    },
+    "6": {
+     "skin": true,
+     "i": "luigi_06.webp"
+    },
+    "7": {
+     "n": "Mr. L",
+     "skin": true,
+     "i": "luigi_07.webp"
+    }
+   }
   },
   "10": {
    "internal": "ness",
@@ -135,7 +320,17 @@
    ],
    "mods": [
     "The WuBoy Ultimate Modpack"
-   ]
+   ],
+   "info": {
+    "2": {
+     "skin": true,
+     "i": "ness_02.webp"
+    },
+    "6": {
+     "skin": true,
+     "i": "ness_06.webp"
+    }
+   }
   },
   "11": {
    "internal": "captain",
@@ -149,7 +344,34 @@
    ],
    "mods": [
     "The WuBoy Ultimate Modpack"
-   ]
+   ],
+   "info": {
+    "0": {
+     "skin": true,
+     "i": "captain_00.webp"
+    },
+    "3": {
+     "skin": true,
+     "i": "captain_03.webp"
+    },
+    "4": {
+     "skin": true,
+     "i": "captain_04.webp"
+    },
+    "5": {
+     "skin": true,
+     "i": "captain_05.webp"
+    },
+    "6": {
+     "skin": true,
+     "i": "captain_06.webp"
+    },
+    "7": {
+     "n": "Pepsiman",
+     "skin": true,
+     "i": "captain_07.webp"
+    }
+   }
   },
   "12": {
    "internal": "purin",
@@ -161,7 +383,26 @@
    ],
    "mods": [
     "The WuBoy Ultimate Modpack"
-   ]
+   ],
+   "info": {
+    "1": {
+     "skin": true,
+     "i": "purin_01.webp"
+    },
+    "4": {
+     "skin": true,
+     "i": "purin_04.webp"
+    },
+    "6": {
+     "n": "Spheal",
+     "skin": true,
+     "i": "purin_06.webp"
+    },
+    "7": {
+     "skin": true,
+     "i": "purin_07.webp"
+    }
+   }
   },
   "13": {
    "internal": "peach",
@@ -174,7 +415,29 @@
    ],
    "mods": [
     "The WuBoy Ultimate Modpack"
-   ]
+   ],
+   "info": {
+    "2": {
+     "skin": true,
+     "i": "peach_02.webp"
+    },
+    "4": {
+     "skin": true,
+     "i": "peach_04.webp"
+    },
+    "5": {
+     "skin": true,
+     "i": "peach_05.webp"
+    },
+    "6": {
+     "skin": true,
+     "i": "peach_06.webp"
+    },
+    "7": {
+     "skin": true,
+     "i": "peach_07.webp"
+    }
+   }
   },
   "13ε": {
    "internal": "daisy",
@@ -187,7 +450,29 @@
    ],
    "mods": [
     "The WuBoy Ultimate Modpack"
-   ]
+   ],
+   "info": {
+    "2": {
+     "skin": true,
+     "i": "daisy_02.webp"
+    },
+    "3": {
+     "skin": true,
+     "i": "daisy_03.webp"
+    },
+    "5": {
+     "skin": true,
+     "i": "daisy_05.webp"
+    },
+    "6": {
+     "skin": true,
+     "i": "daisy_06.webp"
+    },
+    "7": {
+     "skin": true,
+     "i": "daisy_07.webp"
+    }
+   }
   },
   "14": {
    "internal": "koopa",
@@ -201,7 +486,35 @@
    ],
    "mods": [
     "The WuBoy Ultimate Modpack"
-   ]
+   ],
+   "info": {
+    "1": {
+     "skin": true,
+     "i": "koopa_01.webp"
+    },
+    "2": {
+     "skin": true,
+     "i": "koopa_02.webp"
+    },
+    "3": {
+     "skin": true,
+     "i": "koopa_03.webp"
+    },
+    "4": {
+     "skin": true,
+     "i": "koopa_04.webp"
+    },
+    "6": {
+     "n": "Dry Bowser",
+     "skin": true,
+     "i": "koopa_06.webp"
+    },
+    "7": {
+     "n": "Dark Bowser",
+     "skin": true,
+     "i": "koopa_07.webp"
+    }
+   }
   },
   "16": {
    "internal": "sheik",
@@ -213,7 +526,26 @@
    ],
    "mods": [
     "The WuBoy Ultimate Modpack"
-   ]
+   ],
+   "info": {
+    "0": {
+     "skin": true,
+     "i": "sheik_00.webp"
+    },
+    "2": {
+     "skin": true,
+     "i": "sheik_02.webp"
+    },
+    "3": {
+     "skin": true,
+     "i": "sheik_03.webp"
+    },
+    "7": {
+     "n": "Ibuki",
+     "skin": true,
+     "i": "sheik_07.webp"
+    }
+   }
   },
   "17": {
    "internal": "zelda",
@@ -226,7 +558,30 @@
    ],
    "mods": [
     "The WuBoy Ultimate Modpack"
-   ]
+   ],
+   "info": {
+    "3": {
+     "skin": true,
+     "i": "zelda_03.webp"
+    },
+    "4": {
+     "skin": true,
+     "i": "zelda_04.webp"
+    },
+    "5": {
+     "skin": true,
+     "i": "zelda_05.webp"
+    },
+    "6": {
+     "skin": true,
+     "i": "zelda_06.webp"
+    },
+    "7": {
+     "n": "Wiz",
+     "skin": true,
+     "i": "zelda_07.webp"
+    }
+   }
   },
   "18": {
    "internal": "mariod",
@@ -237,7 +592,21 @@
    ],
    "mods": [
     "The WuBoy Ultimate Modpack"
-   ]
+   ],
+   "info": {
+    "2": {
+     "skin": true,
+     "i": "mariod_02.webp"
+    },
+    "3": {
+     "skin": true,
+     "i": "mariod_03.webp"
+    },
+    "5": {
+     "skin": true,
+     "i": "mariod_05.webp"
+    }
+   }
   },
   "19": {
    "internal": "pichu",
@@ -247,7 +616,17 @@
    ],
    "mods": [
     "The WuBoy Ultimate Modpack"
-   ]
+   ],
+   "info": {
+    "1": {
+     "skin": true,
+     "i": "pichu_01.webp"
+    },
+    "2": {
+     "skin": true,
+     "i": "pichu_02.webp"
+    }
+   }
   },
   "20": {
    "internal": "falco",
@@ -258,7 +637,21 @@
    ],
    "mods": [
     "The WuBoy Ultimate Modpack"
-   ]
+   ],
+   "info": {
+    "1": {
+     "skin": true,
+     "i": "falco_01.webp"
+    },
+    "3": {
+     "skin": true,
+     "i": "falco_03.webp"
+    },
+    "7": {
+     "skin": true,
+     "i": "falco_07.webp"
+    }
+   }
   },
   "21": {
    "internal": "marth",
@@ -270,7 +663,25 @@
    ],
    "mods": [
     "The WuBoy Ultimate Modpack"
-   ]
+   ],
+   "info": {
+    "1": {
+     "skin": true,
+     "i": "marth_01.webp"
+    },
+    "3": {
+     "skin": true,
+     "i": "marth_03.webp"
+    },
+    "4": {
+     "skin": true,
+     "i": "marth_04.webp"
+    },
+    "5": {
+     "skin": true,
+     "i": "marth_05.webp"
+    }
+   }
   },
   "21ε": {
    "internal": "lucina",
@@ -286,7 +697,42 @@
    ],
    "mods": [
     "The WuBoy Ultimate Modpack"
-   ]
+   ],
+   "info": {
+    "0": {
+     "n": "Yu",
+     "skin": true,
+     "i": "lucina_00.webp"
+    },
+    "1": {
+     "skin": true,
+     "i": "lucina_01.webp"
+    },
+    "2": {
+     "skin": true,
+     "i": "lucina_02.webp"
+    },
+    "3": {
+     "skin": true,
+     "i": "lucina_03.webp"
+    },
+    "4": {
+     "skin": true,
+     "i": "lucina_04.webp"
+    },
+    "5": {
+     "skin": true,
+     "i": "lucina_05.webp"
+    },
+    "6": {
+     "skin": true,
+     "i": "lucina_06.webp"
+    },
+    "7": {
+     "skin": true,
+     "i": "lucina_07.webp"
+    }
+   }
   },
   "22": {
    "internal": "younglink",
@@ -296,7 +742,17 @@
    ],
    "mods": [
     "The WuBoy Ultimate Modpack"
-   ]
+   ],
+   "info": {
+    "5": {
+     "skin": true,
+     "i": "younglink_05.webp"
+    },
+    "7": {
+     "skin": true,
+     "i": "younglink_07.webp"
+    }
+   }
   },
   "23": {
    "internal": "ganon",
@@ -308,7 +764,26 @@
    ],
    "mods": [
     "The WuBoy Ultimate Modpack"
-   ]
+   ],
+   "info": {
+    "1": {
+     "skin": true,
+     "i": "ganon_01.webp"
+    },
+    "4": {
+     "skin": true,
+     "i": "ganon_04.webp"
+    },
+    "5": {
+     "skin": true,
+     "i": "ganon_05.webp"
+    },
+    "7": {
+     "n": "Thanos",
+     "skin": true,
+     "i": "ganon_07.webp"
+    }
+   }
   },
   "24": {
    "internal": "mewtwo",
@@ -318,7 +793,17 @@
    ],
    "mods": [
     "The WuBoy Ultimate Modpack"
-   ]
+   ],
+   "info": {
+    "3": {
+     "skin": true,
+     "i": "mewtwo_03.webp"
+    },
+    "7": {
+     "skin": true,
+     "i": "mewtwo_07.webp"
+    }
+   }
   },
   "25": {
    "internal": "roy",
@@ -328,7 +813,17 @@
    ],
    "mods": [
     "The WuBoy Ultimate Modpack"
-   ]
+   ],
+   "info": {
+    "2": {
+     "skin": true,
+     "i": "roy_02.webp"
+    },
+    "4": {
+     "skin": true,
+     "i": "roy_04.webp"
+    }
+   }
   },
   "25ε": {
    "internal": "chrom",
@@ -339,7 +834,21 @@
    ],
    "mods": [
     "The WuBoy Ultimate Modpack"
-   ]
+   ],
+   "info": {
+    "2": {
+     "skin": true,
+     "i": "chrom_02.webp"
+    },
+    "6": {
+     "skin": true,
+     "i": "chrom_06.webp"
+    },
+    "7": {
+     "skin": true,
+     "i": "chrom_07.webp"
+    }
+   }
   },
   "26": {
    "internal": "gamewatch",
@@ -349,7 +858,17 @@
    ],
    "mods": [
     "The WuBoy Ultimate Modpack"
-   ]
+   ],
+   "info": {
+    "2": {
+     "skin": true,
+     "i": "gamewatch_02.webp"
+    },
+    "7": {
+     "skin": true,
+     "i": "gamewatch_07.webp"
+    }
+   }
   },
   "27": {
    "internal": "metaknight",
@@ -363,7 +882,33 @@
    ],
    "mods": [
     "The WuBoy Ultimate Modpack"
-   ]
+   ],
+   "info": {
+    "1": {
+     "skin": true,
+     "i": "metaknight_01.webp"
+    },
+    "2": {
+     "skin": true,
+     "i": "metaknight_02.webp"
+    },
+    "3": {
+     "skin": true,
+     "i": "metaknight_03.webp"
+    },
+    "4": {
+     "skin": true,
+     "i": "metaknight_04.webp"
+    },
+    "5": {
+     "skin": true,
+     "i": "metaknight_05.webp"
+    },
+    "7": {
+     "skin": true,
+     "i": "metaknight_07.webp"
+    }
+   }
   },
   "28": {
    "internal": "pit",
@@ -375,7 +920,25 @@
    ],
    "mods": [
     "The WuBoy Ultimate Modpack"
-   ]
+   ],
+   "info": {
+    "1": {
+     "skin": true,
+     "i": "pit_01.webp"
+    },
+    "2": {
+     "skin": true,
+     "i": "pit_02.webp"
+    },
+    "5": {
+     "skin": true,
+     "i": "pit_05.webp"
+    },
+    "6": {
+     "skin": true,
+     "i": "pit_06.webp"
+    }
+   }
   },
   "28ε": {
    "internal": "pitb",
@@ -385,7 +948,17 @@
    ],
    "mods": [
     "The WuBoy Ultimate Modpack"
-   ]
+   ],
+   "info": {
+    "4": {
+     "skin": true,
+     "i": "pitb_04.webp"
+    },
+    "7": {
+     "skin": true,
+     "i": "pitb_07.webp"
+    }
+   }
   },
   "29": {
    "internal": "szerosuit",
@@ -398,7 +971,30 @@
    ],
    "mods": [
     "The WuBoy Ultimate Modpack"
-   ]
+   ],
+   "info": {
+    "1": {
+     "n": "Naoto",
+     "skin": true,
+     "i": "szerosuit_01.webp"
+    },
+    "2": {
+     "skin": true,
+     "i": "szerosuit_02.webp"
+    },
+    "3": {
+     "skin": true,
+     "i": "szerosuit_03.webp"
+    },
+    "4": {
+     "skin": true,
+     "i": "szerosuit_04.webp"
+    },
+    "5": {
+     "skin": true,
+     "i": "szerosuit_05.webp"
+    }
+   }
   },
   "30": {
    "internal": "wario",
@@ -412,7 +1008,34 @@
    ],
    "mods": [
     "The WuBoy Ultimate Modpack"
-   ]
+   ],
+   "info": {
+    "1": {
+     "skin": true,
+     "i": "wario_01.webp"
+    },
+    "2": {
+     "skin": true,
+     "i": "wario_02.webp"
+    },
+    "3": {
+     "skin": true,
+     "i": "wario_03.webp"
+    },
+    "5": {
+     "skin": true,
+     "i": "wario_05.webp"
+    },
+    "6": {
+     "skin": true,
+     "i": "wario_06.webp"
+    },
+    "7": {
+     "n": "Mr. Krabs",
+     "skin": true,
+     "i": "wario_07.webp"
+    }
+   }
   },
   "31": {
    "internal": "snake",
@@ -422,7 +1045,17 @@
    ],
    "mods": [
     "The WuBoy Ultimate Modpack"
-   ]
+   ],
+   "info": {
+    "0": {
+     "skin": true,
+     "i": "snake_00.webp"
+    },
+    "4": {
+     "skin": true,
+     "i": "snake_04.webp"
+    }
+   }
   },
   "32": {
    "internal": "ike",
@@ -436,7 +1069,34 @@
    ],
    "mods": [
     "The WuBoy Ultimate Modpack"
-   ]
+   ],
+   "info": {
+    "1": {
+     "n": "Travis",
+     "skin": true,
+     "i": "ike_01.webp"
+    },
+    "3": {
+     "skin": true,
+     "i": "ike_03.webp"
+    },
+    "4": {
+     "skin": true,
+     "i": "ike_04.webp"
+    },
+    "5": {
+     "skin": true,
+     "i": "ike_05.webp"
+    },
+    "6": {
+     "skin": true,
+     "i": "ike_06.webp"
+    },
+    "7": {
+     "skin": true,
+     "i": "ike_07.webp"
+    }
+   }
   },
   "33": {
    "internal": "pzenigame",
@@ -446,7 +1106,17 @@
    ],
    "mods": [
     "The WuBoy Ultimate Modpack"
-   ]
+   ],
+   "info": {
+    "0": {
+     "skin": true,
+     "i": "pzenigame_00.webp"
+    },
+    "3": {
+     "skin": true,
+     "i": "pzenigame_03.webp"
+    }
+   }
   },
   "34": {
    "internal": "pfushigisou",
@@ -455,7 +1125,13 @@
    ],
    "mods": [
     "The WuBoy Ultimate Modpack"
-   ]
+   ],
+   "info": {
+    "3": {
+     "skin": true,
+     "i": "pfushigisou_03.webp"
+    }
+   }
   },
   "35": {
    "internal": "plizardon",
@@ -464,7 +1140,13 @@
    ],
    "mods": [
     "The WuBoy Ultimate Modpack"
-   ]
+   ],
+   "info": {
+    "3": {
+     "skin": true,
+     "i": "plizardon_03.webp"
+    }
+   }
   },
   "36": {
    "internal": "diddy",
@@ -475,7 +1157,21 @@
    ],
    "mods": [
     "The WuBoy Ultimate Modpack"
-   ]
+   ],
+   "info": {
+    "1": {
+     "skin": true,
+     "i": "diddy_01.webp"
+    },
+    "2": {
+     "skin": true,
+     "i": "diddy_02.webp"
+    },
+    "4": {
+     "skin": true,
+     "i": "diddy_04.webp"
+    }
+   }
   },
   "38": {
    "internal": "sonic",
@@ -489,7 +1185,33 @@
    ],
    "mods": [
     "The WuBoy Ultimate Modpack"
-   ]
+   ],
+   "info": {
+    "0": {
+     "skin": true,
+     "i": "sonic_00.webp"
+    },
+    "1": {
+     "skin": true,
+     "i": "sonic_01.webp"
+    },
+    "2": {
+     "skin": true,
+     "i": "sonic_02.webp"
+    },
+    "3": {
+     "skin": true,
+     "i": "sonic_03.webp"
+    },
+    "4": {
+     "skin": true,
+     "i": "sonic_04.webp"
+    },
+    "7": {
+     "skin": true,
+     "i": "sonic_07.webp"
+    }
+   }
   },
   "39": {
    "internal": "dedede",
@@ -499,7 +1221,17 @@
    ],
    "mods": [
     "The WuBoy Ultimate Modpack"
-   ]
+   ],
+   "info": {
+    "3": {
+     "skin": true,
+     "i": "dedede_03.webp"
+    },
+    "7": {
+     "skin": true,
+     "i": "dedede_07.webp"
+    }
+   }
   },
   "40": {
    "internal": "pikmin",
@@ -508,7 +1240,14 @@
    ],
    "mods": [
     "The WuBoy Ultimate Modpack"
-   ]
+   ],
+   "info": {
+    "3": {
+     "n": "Louie",
+     "skin": true,
+     "i": "pikmin_03.webp"
+    }
+   }
   },
   "41": {
    "internal": "lucario",
@@ -522,7 +1261,33 @@
    ],
    "mods": [
     "The WuBoy Ultimate Modpack"
-   ]
+   ],
+   "info": {
+    "1": {
+     "skin": true,
+     "i": "lucario_01.webp"
+    },
+    "2": {
+     "skin": true,
+     "i": "lucario_02.webp"
+    },
+    "4": {
+     "skin": true,
+     "i": "lucario_04.webp"
+    },
+    "5": {
+     "skin": true,
+     "i": "lucario_05.webp"
+    },
+    "6": {
+     "skin": true,
+     "i": "lucario_06.webp"
+    },
+    "7": {
+     "skin": true,
+     "i": "lucario_07.webp"
+    }
+   }
   },
   "42": {
    "internal": "robot",
@@ -534,7 +1299,25 @@
    ],
    "mods": [
     "The WuBoy Ultimate Modpack"
-   ]
+   ],
+   "info": {
+    "1": {
+     "skin": true,
+     "i": "robot_01.webp"
+    },
+    "2": {
+     "skin": true,
+     "i": "robot_02.webp"
+    },
+    "4": {
+     "skin": true,
+     "i": "robot_04.webp"
+    },
+    "7": {
+     "skin": true,
+     "i": "robot_07.webp"
+    }
+   }
   },
   "43": {
    "internal": "toonlink",
@@ -547,7 +1330,29 @@
    ],
    "mods": [
     "The WuBoy Ultimate Modpack"
-   ]
+   ],
+   "info": {
+    "2": {
+     "skin": true,
+     "i": "toonlink_02.webp"
+    },
+    "3": {
+     "skin": true,
+     "i": "toonlink_03.webp"
+    },
+    "5": {
+     "skin": true,
+     "i": "toonlink_05.webp"
+    },
+    "6": {
+     "skin": true,
+     "i": "toonlink_06.webp"
+    },
+    "7": {
+     "skin": true,
+     "i": "toonlink_07.webp"
+    }
+   }
   },
   "44": {
    "internal": "wolf",
@@ -559,7 +1364,25 @@
    ],
    "mods": [
     "The WuBoy Ultimate Modpack"
-   ]
+   ],
+   "info": {
+    "1": {
+     "skin": true,
+     "i": "wolf_01.webp"
+    },
+    "3": {
+     "skin": true,
+     "i": "wolf_03.webp"
+    },
+    "4": {
+     "skin": true,
+     "i": "wolf_04.webp"
+    },
+    "5": {
+     "skin": true,
+     "i": "wolf_05.webp"
+    }
+   }
   },
   "45": {
    "internal": "murabito",
@@ -575,7 +1398,17 @@
    ],
    "mods": [
     "The WuBoy Ultimate Modpack"
-   ]
+   ],
+   "info": {
+    "0": {},
+    "1": {},
+    "2": {},
+    "3": {},
+    "4": {},
+    "5": {},
+    "6": {},
+    "7": {}
+   }
   },
   "46": {
    "internal": "rockman",
@@ -586,7 +1419,21 @@
    ],
    "mods": [
     "The WuBoy Ultimate Modpack"
-   ]
+   ],
+   "info": {
+    "1": {
+     "skin": true,
+     "i": "rockman_01.webp"
+    },
+    "5": {
+     "skin": true,
+     "i": "rockman_05.webp"
+    },
+    "6": {
+     "skin": true,
+     "i": "rockman_06.webp"
+    }
+   }
   },
   "47": {
    "internal": "wiifit",
@@ -595,7 +1442,13 @@
    ],
    "mods": [
     "The WuBoy Ultimate Modpack"
-   ]
+   ],
+   "info": {
+    "2": {
+     "skin": true,
+     "i": "wiifit_02.webp"
+    }
+   }
   },
   "48": {
    "internal": "rosetta",
@@ -604,7 +1457,13 @@
    ],
    "mods": [
     "The WuBoy Ultimate Modpack"
-   ]
+   ],
+   "info": {
+    "6": {
+     "skin": true,
+     "i": "rosetta_06.webp"
+    }
+   }
   },
   "49": {
    "internal": "littlemac",
@@ -614,7 +1473,17 @@
    ],
    "mods": [
     "The WuBoy Ultimate Modpack"
-   ]
+   ],
+   "info": {
+    "1": {
+     "skin": true,
+     "i": "littlemac_01.webp"
+    },
+    "2": {
+     "skin": true,
+     "i": "littlemac_02.webp"
+    }
+   }
   },
   "50": {
    "internal": "gekkouga",
@@ -627,7 +1496,29 @@
    ],
    "mods": [
     "The WuBoy Ultimate Modpack"
-   ]
+   ],
+   "info": {
+    "0": {
+     "skin": true,
+     "i": "gekkouga_00.webp"
+    },
+    "2": {
+     "skin": true,
+     "i": "gekkouga_02.webp"
+    },
+    "4": {
+     "skin": true,
+     "i": "gekkouga_04.webp"
+    },
+    "6": {
+     "skin": true,
+     "i": "gekkouga_06.webp"
+    },
+    "7": {
+     "skin": true,
+     "i": "gekkouga_07.webp"
+    }
+   }
   },
   "51": {
    "internal": "miifighter",
@@ -636,7 +1527,10 @@
    ],
    "mods": [
     "The WuBoy Ultimate Modpack"
-   ]
+   ],
+   "info": {
+    "0": {}
+   }
   },
   "54": {
    "internal": "palutena",
@@ -645,7 +1539,14 @@
    ],
    "mods": [
     "The WuBoy Ultimate Modpack"
-   ]
+   ],
+   "info": {
+    "7": {
+     "n": "Melia",
+     "skin": true,
+     "i": "palutena_07.webp"
+    }
+   }
   },
   "55": {
    "internal": "pacman",
@@ -661,7 +1562,33 @@
    ],
    "mods": [
     "The WuBoy Ultimate Modpack"
-   ]
+   ],
+   "info": {
+    "0": {},
+    "1": {
+     "skin": true,
+     "i": "pacman_01.webp"
+    },
+    "2": {
+     "skin": true,
+     "i": "pacman_02.webp"
+    },
+    "3": {},
+    "4": {},
+    "5": {
+     "skin": true,
+     "i": "pacman_05.webp"
+    },
+    "6": {
+     "skin": true,
+     "i": "pacman_06.webp"
+    },
+    "7": {
+     "n": "King Bob-omb",
+     "skin": true,
+     "i": "pacman_07.webp"
+    }
+   }
   },
   "56": {
    "internal": "reflet",
@@ -677,7 +1604,23 @@
    ],
    "mods": [
     "The WuBoy Ultimate Modpack"
-   ]
+   ],
+   "info": {
+    "0": {},
+    "1": {},
+    "2": {},
+    "3": {},
+    "4": {
+     "skin": true,
+     "i": "reflet_04.webp"
+    },
+    "5": {
+     "skin": true,
+     "i": "reflet_05.webp"
+    },
+    "6": {},
+    "7": {}
+   }
   },
   "57": {
    "internal": "shulk",
@@ -692,7 +1635,38 @@
    ],
    "mods": [
     "The WuBoy Ultimate Modpack"
-   ]
+   ],
+   "info": {
+    "1": {
+     "skin": true,
+     "i": "shulk_01.webp"
+    },
+    "2": {
+     "skin": true,
+     "i": "shulk_02.webp"
+    },
+    "3": {
+     "skin": true,
+     "i": "shulk_03.webp"
+    },
+    "4": {
+     "skin": true,
+     "i": "shulk_04.webp"
+    },
+    "5": {
+     "n": "Alvis",
+     "skin": true,
+     "i": "shulk_05.webp"
+    },
+    "6": {
+     "skin": true,
+     "i": "shulk_06.webp"
+    },
+    "7": {
+     "skin": true,
+     "i": "shulk_07.webp"
+    }
+   }
   },
   "60": {
    "internal": "ryu",
@@ -707,7 +1681,39 @@
    ],
    "mods": [
     "The WuBoy Ultimate Modpack"
-   ]
+   ],
+   "info": {
+    "1": {
+     "skin": true,
+     "i": "ryu_01.webp"
+    },
+    "2": {
+     "n": "Kermit",
+     "skin": true,
+     "i": "ryu_02.webp"
+    },
+    "3": {
+     "skin": true,
+     "i": "ryu_03.webp"
+    },
+    "4": {
+     "skin": true,
+     "i": "ryu_04.webp"
+    },
+    "5": {
+     "skin": true,
+     "i": "ryu_05.webp"
+    },
+    "6": {
+     "n": "Wallace",
+     "skin": true,
+     "i": "ryu_06.webp"
+    },
+    "7": {
+     "skin": true,
+     "i": "ryu_07.webp"
+    }
+   }
   },
   "60ε": {
    "internal": "ken",
@@ -723,7 +1729,41 @@
    ],
    "mods": [
     "The WuBoy Ultimate Modpack"
-   ]
+   ],
+   "info": {
+    "0": {
+     "skin": true,
+     "i": "ken_00.webp"
+    },
+    "1": {
+     "skin": true,
+     "i": "ken_01.webp"
+    },
+    "2": {
+     "skin": true,
+     "i": "ken_02.webp"
+    },
+    "3": {
+     "skin": true,
+     "i": "ken_03.webp"
+    },
+    "4": {
+     "skin": true,
+     "i": "ken_04.webp"
+    },
+    "5": {
+     "skin": true,
+     "i": "ken_05.webp"
+    },
+    "6": {
+     "skin": true,
+     "i": "ken_06.webp"
+    },
+    "7": {
+     "skin": true,
+     "i": "ken_07.webp"
+    }
+   }
   },
   "61": {
    "internal": "cloud",
@@ -739,7 +1779,41 @@
    ],
    "mods": [
     "The WuBoy Ultimate Modpack"
-   ]
+   ],
+   "info": {
+    "0": {
+     "skin": true,
+     "i": "cloud_00.webp"
+    },
+    "1": {
+     "skin": true,
+     "i": "cloud_01.webp"
+    },
+    "2": {
+     "skin": true,
+     "i": "cloud_02.webp"
+    },
+    "3": {
+     "skin": true,
+     "i": "cloud_03.webp"
+    },
+    "4": {
+     "skin": true,
+     "i": "cloud_04.webp"
+    },
+    "5": {
+     "skin": true,
+     "i": "cloud_05.webp"
+    },
+    "6": {
+     "skin": true,
+     "i": "cloud_06.webp"
+    },
+    "7": {
+     "skin": true,
+     "i": "cloud_07.webp"
+    }
+   }
   },
   "62": {
    "internal": "kamui",
@@ -752,7 +1826,29 @@
    ],
    "mods": [
     "The WuBoy Ultimate Modpack"
-   ]
+   ],
+   "info": {
+    "1": {
+     "skin": true,
+     "i": "kamui_01.webp"
+    },
+    "2": {
+     "skin": true,
+     "i": "kamui_02.webp"
+    },
+    "3": {
+     "skin": true,
+     "i": "kamui_03.webp"
+    },
+    "5": {
+     "skin": true,
+     "i": "kamui_05.webp"
+    },
+    "7": {
+     "skin": true,
+     "i": "kamui_07.webp"
+    }
+   }
   },
   "63": {
    "internal": "bayonetta",
@@ -766,7 +1862,31 @@
    ],
    "mods": [
     "The WuBoy Ultimate Modpack"
-   ]
+   ],
+   "info": {
+    "1": {
+     "n": "Kat",
+     "skin": true,
+     "i": "bayonetta_01.webp"
+    },
+    "2": {
+     "skin": true,
+     "i": "bayonetta_02.webp"
+    },
+    "3": {
+     "skin": true,
+     "i": "bayonetta_03.webp"
+    },
+    "4": {},
+    "5": {
+     "skin": true,
+     "i": "bayonetta_05.webp"
+    },
+    "7": {
+     "skin": true,
+     "i": "bayonetta_07.webp"
+    }
+   }
   },
   "64": {
    "internal": "inkling",
@@ -777,7 +1897,22 @@
    ],
    "mods": [
     "The WuBoy Ultimate Modpack"
-   ]
+   ],
+   "info": {
+    "4": {
+     "n": "Octoling",
+     "skin": true,
+     "i": "inkling_04.webp"
+    },
+    "6": {
+     "skin": true,
+     "i": "inkling_06.webp"
+    },
+    "7": {
+     "skin": true,
+     "i": "inkling_07.webp"
+    }
+   }
   },
   "65": {
    "internal": "ridley",
@@ -791,7 +1926,33 @@
    ],
    "mods": [
     "The WuBoy Ultimate Modpack"
-   ]
+   ],
+   "info": {
+    "2": {
+     "skin": true,
+     "i": "ridley_02.webp"
+    },
+    "3": {
+     "skin": true,
+     "i": "ridley_03.webp"
+    },
+    "4": {
+     "skin": true,
+     "i": "ridley_04.webp"
+    },
+    "5": {
+     "skin": true,
+     "i": "ridley_05.webp"
+    },
+    "6": {
+     "skin": true,
+     "i": "ridley_06.webp"
+    },
+    "7": {
+     "skin": true,
+     "i": "ridley_07.webp"
+    }
+   }
   },
   "66": {
    "internal": "simon",
@@ -800,7 +1961,13 @@
    ],
    "mods": [
     "The WuBoy Ultimate Modpack"
-   ]
+   ],
+   "info": {
+    "6": {
+     "skin": true,
+     "i": "simon_06.webp"
+    }
+   }
   },
   "66ε": {
    "internal": "richter",
@@ -811,7 +1978,21 @@
    ],
    "mods": [
     "The WuBoy Ultimate Modpack"
-   ]
+   ],
+   "info": {
+    "2": {
+     "skin": true,
+     "i": "richter_02.webp"
+    },
+    "4": {
+     "skin": true,
+     "i": "richter_04.webp"
+    },
+    "7": {
+     "skin": true,
+     "i": "richter_07.webp"
+    }
+   }
   },
   "67": {
    "internal": "krool",
@@ -824,7 +2005,29 @@
    ],
    "mods": [
     "The WuBoy Ultimate Modpack"
-   ]
+   ],
+   "info": {
+    "3": {
+     "skin": true,
+     "i": "krool_03.webp"
+    },
+    "4": {
+     "skin": true,
+     "i": "krool_04.webp"
+    },
+    "5": {
+     "skin": true,
+     "i": "krool_05.webp"
+    },
+    "6": {
+     "skin": true,
+     "i": "krool_06.webp"
+    },
+    "7": {
+     "skin": true,
+     "i": "krool_07.webp"
+    }
+   }
   },
   "68": {
    "internal": "shizue",
@@ -834,7 +2037,17 @@
    ],
    "mods": [
     "The WuBoy Ultimate Modpack"
-   ]
+   ],
+   "info": {
+    "4": {
+     "skin": true,
+     "i": "shizue_04.webp"
+    },
+    "6": {
+     "skin": true,
+     "i": "shizue_06.webp"
+    }
+   }
   },
   "69": {
    "internal": "gaogaen",
@@ -848,7 +2061,33 @@
    ],
    "mods": [
     "The WuBoy Ultimate Modpack"
-   ]
+   ],
+   "info": {
+    "2": {
+     "skin": true,
+     "i": "gaogaen_02.webp"
+    },
+    "3": {
+     "skin": true,
+     "i": "gaogaen_03.webp"
+    },
+    "4": {
+     "skin": true,
+     "i": "gaogaen_04.webp"
+    },
+    "5": {
+     "skin": true,
+     "i": "gaogaen_05.webp"
+    },
+    "6": {
+     "skin": true,
+     "i": "gaogaen_06.webp"
+    },
+    "7": {
+     "skin": true,
+     "i": "gaogaen_07.webp"
+    }
+   }
   },
   "70": {
    "internal": "packun",
@@ -863,7 +2102,37 @@
    ],
    "mods": [
     "The WuBoy Ultimate Modpack"
-   ]
+   ],
+   "info": {
+    "0": {
+     "skin": true,
+     "i": "packun_00.webp"
+    },
+    "1": {
+     "skin": true,
+     "i": "packun_01.webp"
+    },
+    "2": {
+     "skin": true,
+     "i": "packun_02.webp"
+    },
+    "3": {
+     "skin": true,
+     "i": "packun_03.webp"
+    },
+    "4": {
+     "skin": true,
+     "i": "packun_04.webp"
+    },
+    "6": {
+     "skin": true,
+     "i": "packun_06.webp"
+    },
+    "7": {
+     "skin": true,
+     "i": "packun_07.webp"
+    }
+   }
   },
   "71": {
    "internal": "jack",
@@ -879,7 +2148,42 @@
    ],
    "mods": [
     "The WuBoy Ultimate Modpack"
-   ]
+   ],
+   "info": {
+    "0": {
+     "skin": true,
+     "i": "jack_00.webp"
+    },
+    "1": {
+     "n": "Violet",
+     "skin": true,
+     "i": "jack_01.webp"
+    },
+    "2": {
+     "skin": true,
+     "i": "jack_02.webp"
+    },
+    "3": {
+     "skin": true,
+     "i": "jack_03.webp"
+    },
+    "4": {
+     "skin": true,
+     "i": "jack_04.webp"
+    },
+    "5": {
+     "skin": true,
+     "i": "jack_05.webp"
+    },
+    "6": {
+     "skin": true,
+     "i": "jack_06.webp"
+    },
+    "7": {
+     "skin": true,
+     "i": "jack_07.webp"
+    }
+   }
   },
   "72": {
    "internal": "brave",
@@ -893,7 +2197,34 @@
    ],
    "mods": [
     "The WuBoy Ultimate Modpack"
-   ]
+   ],
+   "info": {
+    "2": {
+     "n": "Trunks",
+     "skin": true,
+     "i": "brave_02.webp"
+    },
+    "3": {
+     "skin": true,
+     "i": "brave_03.webp"
+    },
+    "4": {
+     "skin": true,
+     "i": "brave_04.webp"
+    },
+    "5": {
+     "skin": true,
+     "i": "brave_05.webp"
+    },
+    "6": {
+     "skin": true,
+     "i": "brave_06.webp"
+    },
+    "7": {
+     "skin": true,
+     "i": "brave_07.webp"
+    }
+   }
   },
   "73": {
    "internal": "buddy",
@@ -905,7 +2236,25 @@
    ],
    "mods": [
     "The WuBoy Ultimate Modpack"
-   ]
+   ],
+   "info": {
+    "1": {
+     "skin": true,
+     "i": "buddy_01.webp"
+    },
+    "3": {
+     "skin": true,
+     "i": "buddy_03.webp"
+    },
+    "6": {
+     "skin": true,
+     "i": "buddy_06.webp"
+    },
+    "7": {
+     "skin": true,
+     "i": "buddy_07.webp"
+    }
+   }
   },
   "74": {
    "internal": "dolly",
@@ -920,7 +2269,39 @@
    ],
    "mods": [
     "The WuBoy Ultimate Modpack"
-   ]
+   ],
+   "info": {
+    "1": {
+     "skin": true,
+     "i": "dolly_01.webp"
+    },
+    "2": {
+     "skin": true,
+     "i": "dolly_02.webp"
+    },
+    "3": {
+     "skin": true,
+     "i": "dolly_03.webp"
+    },
+    "4": {
+     "n": "All Might",
+     "skin": true,
+     "i": "dolly_04.webp"
+    },
+    "5": {
+     "n": "Jotaro",
+     "skin": true,
+     "i": "dolly_05.webp"
+    },
+    "6": {
+     "skin": true,
+     "i": "dolly_06.webp"
+    },
+    "7": {
+     "skin": true,
+     "i": "dolly_07.webp"
+    }
+   }
   },
   "75": {
    "internal": "master",
@@ -936,7 +2317,43 @@
    ],
    "mods": [
     "The WuBoy Ultimate Modpack"
-   ]
+   ],
+   "info": {
+    "0": {
+     "skin": true,
+     "i": "master_00.webp"
+    },
+    "1": {
+     "skin": true,
+     "i": "master_01.webp"
+    },
+    "2": {
+     "n": "Noctis",
+     "skin": true,
+     "i": "master_02.webp"
+    },
+    "3": {
+     "skin": true,
+     "i": "master_03.webp"
+    },
+    "4": {
+     "skin": true,
+     "i": "master_04.webp"
+    },
+    "5": {
+     "skin": true,
+     "i": "master_05.webp"
+    },
+    "6": {
+     "skin": true,
+     "i": "master_06.webp"
+    },
+    "7": {
+     "n": "Morag",
+     "skin": true,
+     "i": "master_07.webp"
+    }
+   }
   },
   "76": {
    "internal": "tantan",
@@ -950,7 +2367,33 @@
    ],
    "mods": [
     "The WuBoy Ultimate Modpack"
-   ]
+   ],
+   "info": {
+    "1": {
+     "skin": true,
+     "i": "tantan_01.webp"
+    },
+    "2": {
+     "skin": true,
+     "i": "tantan_02.webp"
+    },
+    "3": {
+     "skin": true,
+     "i": "tantan_03.webp"
+    },
+    "5": {
+     "skin": true,
+     "i": "tantan_05.webp"
+    },
+    "6": {
+     "skin": true,
+     "i": "tantan_06.webp"
+    },
+    "7": {
+     "skin": true,
+     "i": "tantan_07.webp"
+    }
+   }
   },
   "77": {
    "internal": "pickel",
@@ -966,7 +2409,17 @@
    ],
    "mods": [
     "The WuBoy Ultimate Modpack Optionals"
-   ]
+   ],
+   "info": {
+    "0": {},
+    "1": {},
+    "2": {},
+    "3": {},
+    "4": {},
+    "5": {},
+    "6": {},
+    "7": {}
+   }
   },
   "78": {
    "internal": "edge",
@@ -980,7 +2433,35 @@
    ],
    "mods": [
     "The WuBoy Ultimate Modpack"
-   ]
+   ],
+   "info": {
+    "1": {
+     "skin": true,
+     "i": "edge_01.webp"
+    },
+    "2": {
+     "skin": true,
+     "i": "edge_02.webp"
+    },
+    "3": {
+     "n": "Jin",
+     "skin": true,
+     "i": "edge_03.webp"
+    },
+    "4": {
+     "n": "Vergil",
+     "skin": true,
+     "i": "edge_04.webp"
+    },
+    "5": {
+     "skin": true,
+     "i": "edge_05.webp"
+    },
+    "7": {
+     "skin": true,
+     "i": "edge_07.webp"
+    }
+   }
   },
   "79": {
    "internal": "eflame",
@@ -995,7 +2476,16 @@
    ],
    "mods": [
     "The WuBoy Ultimate Modpack"
-   ]
+   ],
+   "info": {
+    "1": {},
+    "2": {},
+    "3": {},
+    "4": {},
+    "5": {},
+    "6": {},
+    "7": {}
+   }
   },
   "80": {
    "internal": "elight",
@@ -1010,7 +2500,16 @@
    ],
    "mods": [
     "The WuBoy Ultimate Modpack"
-   ]
+   ],
+   "info": {
+    "1": {},
+    "2": {},
+    "3": {},
+    "4": {},
+    "5": {},
+    "6": {},
+    "7": {}
+   }
   },
   "81": {
    "internal": "demon",
@@ -1023,7 +2522,29 @@
    ],
    "mods": [
     "The WuBoy Ultimate Modpack"
-   ]
+   ],
+   "info": {
+    "3": {
+     "skin": true,
+     "i": "demon_03.webp"
+    },
+    "4": {
+     "skin": true,
+     "i": "demon_04.webp"
+    },
+    "5": {
+     "skin": true,
+     "i": "demon_05.webp"
+    },
+    "6": {
+     "skin": true,
+     "i": "demon_06.webp"
+    },
+    "7": {
+     "skin": true,
+     "i": "demon_07.webp"
+    }
+   }
   },
   "82": {
    "internal": "trail",
@@ -1033,7 +2554,17 @@
    ],
    "mods": [
     "The WuBoy Ultimate Modpack"
-   ]
+   ],
+   "info": {
+    "6": {
+     "skin": true,
+     "i": "trail_06.webp"
+    },
+    "7": {
+     "skin": true,
+     "i": "trail_07.webp"
+    }
+   }
   }
  }
 }

@@ -16,9 +16,8 @@ Antes de generar, `python3 tools/validate_catalog.py` comprueba que el catálogo
 
 No subir `node_modules/`, binarios ni CSS compilado al repo: el historial no se puede aligerar sin reescribirlo.
 
-Slots ya instalados: `python3 tools/scan_installed.py <ruta del repo del ModPack>` escribe `data/installed.json`, que la página usa para contar cupos y avisar de choques.
+Slots ya instalados: `python3 tools/scan_installed.py <ruta del repo del ModPack>` escribe `data/installed.json` y los retratos en `installed/*.webp` (Pillow; decodifica los `.bntx` con `tools/bntx.py`). La página los muestra en la pestaña **Instalado** y los cuenta dentro del máximo por luchador.
 
 ## Ayuda de amigos
 
 Sin cuentas ni servidor: la página usa enlaces. En Información, «Pedir ayuda» genera un enlace `#help=…` que abre la página en **modo amigo** (lista aparte, sin tope de cupos, con «ya la tiene» en lo que tú elegiste). El amigo toca «Enviar» y te devuelve un enlace `#sug=…`; al abrirlo, sus recomendaciones aparecen en Mi selección, con las más votadas primero. Los enlaces solo llevan identificadores de skins y un nombre, nunca el token.
-

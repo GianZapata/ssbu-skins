@@ -45,7 +45,8 @@ ip=os.path.join(R,'data','installed.json')
 inst=None
 if os.path.exists(ip):
     j=json.load(open(ip,encoding='utf-8'))
-    inst={'scanned_at':j.get('scanned_at'),'source':j.get('source'),'fighters':{k:v['slots'] for k,v in j.get('fighters',{}).items()}}
+    inst={'scanned_at':j.get('scanned_at'),'source':j.get('source'),'fighters':{k:v['slots'] for k,v in j.get('fighters',{}).items()},
+          'info':{k:{str(s):e for s,e in v.get('info',{}).items()} for k,v in j.get('fighters',{}).items()}}
 meta=json.dumps({'generated':c.get('generated'),'timezone':c.get('timezone'),'counts':c.get('counts'),'base':BASE,'installed':inst},ensure_ascii=False,separators=(',',':'))
 tpl=open(os.path.join(B,'template.html'),encoding='utf-8').read()
 out=tpl.replace('/*DATA*/null',data).replace('/*META*/null',meta).replace('{{STAMP}}',datetime.datetime.now().strftime('%Y-%m-%d %H:%M'))
