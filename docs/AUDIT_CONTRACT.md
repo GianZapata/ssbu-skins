@@ -25,8 +25,8 @@ Reglas: el estado Wi-Fi es evidencia registrada, **no** prueba en consola. No in
 
 ```
 Grok (audita)  ──▶  data/catalog.json  ──▶  Action: build_viewer.py + db.py seed  ──▶  index.html  +  Firestore (catalog/*)
-                                                                                         │ (el dueño elige en el móvil)
-Agente instalador (Switch)  ◀──  tools/db.py selection  ◀──  Firestore (selection/main)  ◀┘
+                                                                                         │ (cualquiera propone en el móvil: changes/*)
+Agente instalador (Switch)  ◀──  tools/db.py plan  ◀──  Firestore (changes/*, history/*)  ◀┘
 ```
 
 Grok **solo edita `data/catalog.json`** y hace push: la Action valida, regenera la página y copia el catálogo a Firestore (si existe el secreto `FIREBASE_SERVICE_ACCOUNT`).

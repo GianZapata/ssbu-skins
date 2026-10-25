@@ -1,48 +1,50 @@
 rules_version = '2';
-// Modelo:
-//  - catalog, installed, meta, status: los escribe solo el backend (cuenta de servicio, que se salta estas reglas); lectura pública.
-//  - config/owner: el primer usuario con cuenta de Google que lo reclama es el dueño; nadie puede cambiarlo después.
-//  - selection/main: lectura pública; solo la escribe el dueño.
-//  - suggestions/{uid}: cada visitante escribe la suya; el dueño lee todas.
+// Modelo: un único plan compartido, editable por cualquiera con sesión anónima automática.
+//  - catalog, installed, meta, status: los escribe el backend (cuenta de servicio, que se salta estas reglas); la web solo lee.
+//  - changes/{luchador}_{traje}: UNA propuesta por traje (un documento por traje, para que editar trajes distintos
+//    nunca se pisen). Cualquiera puede proponer o deshacer, pero solo hacia una apariencia que exista en el catálogo.
+//  - history/{id}: registro inmutable de cada cambio (para el historial y el deshacer).
+//  - selection/*: modelo anterior (dueño + recomendaciones); solo lectura, para migrar con tools/db.py migrate.
 service cloud.firestore {
   match /databases/{database}/documents {
     function signedIn() { return request.auth != null; }
-    function ownerPath() { return /databases/$(database)/documents/config/owner; }
-    function isOwner() {
-      return signedIn() && exists(ownerPath()) && get(ownerPath()).data.uid == request.auth.uid;
+    function catPath(code) { return /databases/$(database)/documents/catalog/$(code); }
+    function okVid(code, vid) {
+      return vid is string && vid.size() <= 80 && exists(catPath(code)) && vid in get(catPath(code)).data.vids;
     }
-    function notAnonymous() { return request.auth.token.firebase.sign_in_provider != 'anonymous'; }
-    function okName(n) { return n is string && n.size() <= 40; }
+    function okSlot(s) { return s is int && s >= 0 && s <= 7; }
+    function okRef(v) { return v == null || (v is string && v.size() <= 80); }
 
     match /catalog/{code}   { allow read: if true; allow write: if false; }
     match /installed/{code} { allow read: if true; allow write: if false; }
     match /meta/{doc}       { allow read: if true; allow write: if false; }
-    match /status/{key}     { allow read: if true; allow write: if false; }
+    match /status/{vid}     { allow read: if true; allow write: if false; }
+    match /selection/{doc}  { allow read: if true; allow write: if false; }
 
-    match /config/owner {
+    match /changes/{id} {
       allow read: if true;
-      allow create: if signedIn() && notAnonymous()
-        && request.resource.data.keys().hasOnly(['uid', 'claimedAt'])
-        && request.resource.data.uid == request.auth.uid;
+      allow create, update: if signedIn()
+        && request.resource.data.keys().hasOnly(['code', 'slot', 'vid', 'by', 'at'])
+        && request.resource.data.code is string && request.resource.data.code.size() <= 4
+        && okSlot(request.resource.data.slot)
+        && id == request.resource.data.code + '_' + string(request.resource.data.slot)
+        && okVid(request.resource.data.code, request.resource.data.vid)
+        && request.resource.data.by == request.auth.uid
+        && request.resource.data.at == request.time;
+      allow delete: if signedIn();
+    }
+
+    match /history/{id} {
+      allow read: if true;
+      allow create: if signedIn()
+        && request.resource.data.keys().hasOnly(['code', 'slot', 'from', 'to', 'kind', 'by', 'at'])
+        && request.resource.data.code is string && request.resource.data.code.size() <= 4
+        && okSlot(request.resource.data.slot)
+        && okRef(request.resource.data.from) && okRef(request.resource.data.to)
+        && request.resource.data.kind in ['set', 'clear', 'undo']
+        && request.resource.data.by == request.auth.uid
+        && request.resource.data.at == request.time;
       allow update, delete: if false;
-    }
-
-    match /selection/main {
-      allow read: if true;
-      allow write: if isOwner()
-        && request.resource.data.keys().hasOnly(['ownerName', 'picks', 'repl', 'keepOrig', 'updatedAt', 'updatedMs'])
-        && okName(request.resource.data.ownerName)
-        && request.resource.data.picks is map && request.resource.data.picks.size() <= 400;
-    }
-
-    match /suggestions/{uid} {
-      allow get: if signedIn() && (request.auth.uid == uid || isOwner());
-      allow list: if isOwner();
-      allow create, update: if signedIn() && request.auth.uid == uid
-        && request.resource.data.keys().hasOnly(['name', 'picks', 'updatedAt'])
-        && okName(request.resource.data.name)
-        && request.resource.data.picks is list && request.resource.data.picks.size() <= 400;
-      allow delete: if signedIn() && (request.auth.uid == uid || isOwner());
     }
   }
 }

@@ -1,0 +1,387 @@
+{
+ "scanned_at": "2026-10-25T21:25:50Z",
+ "base": "main@6ff9a01",
+ "integration": "cursor/gamebanana-skin-additions-0ddb",
+ "note": "Cambios en ramas sin fusionar en main: skins preparadas por agentes, sin confirmar en la consola.",
+ "branches": [
+  {
+   "name": "cursor/gamebanana-skin-additions-0ddb",
+   "sha": "d0bfe4e",
+   "author": "Cursor Agent",
+   "date": "2026-10-24",
+   "subject": "Update character slot names in msg_name.xmsbt",
+   "slots": {
+    "bayonetta": [
+     0,
+     3,
+     6
+    ],
+    "captain": [
+     0,
+     1,
+     2
+    ],
+    "cloud": [
+     2
+    ],
+    "donkey": [
+     0,
+     1,
+     2,
+     3,
+     5,
+     7
+    ],
+    "ganon": [
+     0,
+     2,
+     3,
+     6
+    ],
+    "luigi": [
+     0
+    ],
+    "pickel": [
+     0,
+     1,
+     4
+    ],
+    "szerosuit": [
+     0,
+     2,
+     6,
+     7
+    ]
+   }
+  },
+  {
+   "name": "claude/vigilant-keller-6i5s1d",
+   "sha": "8adc365",
+   "author": "Gian Zapata",
+   "date": "2026-10-24",
+   "subject": "Add gian-sin-musica profile and 'without' for inherited components",
+   "slots": {}
+  },
+  {
+   "name": "cursor/bayonetta-harley-0ddb",
+   "sha": "631d464",
+   "author": "Cursor Agent",
+   "date": "2026-10-24",
+   "subject": "PR #7: Install Harley Quinn c03, remove Kat leftovers",
+   "slots": {
+    "bayonetta": [
+     3
+    ]
+   }
+  },
+  {
+   "name": "cursor/captain-falcon-skins-0ddb",
+   "sha": "296f7a5",
+   "author": "Cursor Agent",
+   "date": "2026-10-24",
+   "subject": "PR #4: Remove 0-byte Captain Falcon portraits",
+   "slots": {
+    "captain": [
+     0,
+     1,
+     2
+    ]
+   }
+  },
+  {
+   "name": "cursor/cloud-black-gold-0ddb",
+   "sha": "6ff9a01",
+   "author": "WuBoytH",
+   "date": "2023-07-27",
+   "subject": "Delete bgm_zz06_f_element.nus3audio",
+   "slots": {}
+  },
+  {
+   "name": "cursor/donkey-bananza-0ddb",
+   "sha": "6ff9a01",
+   "author": "WuBoytH",
+   "date": "2023-07-27",
+   "subject": "Delete bgm_zz06_f_element.nus3audio",
+   "slots": {}
+  },
+  {
+   "name": "cursor/ganondorf-skins-0ddb",
+   "sha": "894cd74",
+   "author": "Cursor Agent",
+   "date": "2026-10-24",
+   "subject": "PR #5: Ganondorf - Otis c00, Pain c02, Jiren c03, Broly c06",
+   "slots": {
+    "ganon": [
+     0,
+     2,
+     3,
+     6
+    ]
+   }
+  },
+  {
+   "name": "cursor/luigi-swole-0ddb",
+   "sha": "1e16480",
+   "author": "Cursor Agent",
+   "date": "2026-10-24",
+   "subject": "Luigi: Swole Luigi Remastered c00 (174132)",
+   "slots": {
+    "luigi": [
+     0
+    ]
+   }
+  },
+  {
+   "name": "cursor/mario-pending-63a3",
+   "sha": "7af836f",
+   "author": "Cursor Agent",
+   "date": "2026-10-24",
+   "subject": "Mario: agregar mods descargados a pending/mario",
+   "slots": {}
+  },
+  {
+   "name": "cursor/sora-pending-0ddb",
+   "sha": "6ff9a01",
+   "author": "WuBoytH",
+   "date": "2023-07-27",
+   "subject": "Delete bgm_zz06_f_element.nus3audio",
+   "slots": {}
+  },
+  {
+   "name": "cursor/sora-skins-staging-dac2",
+   "sha": "3f5765d",
+   "author": "Cursor Agent",
+   "date": "2026-10-24",
+   "subject": "Stage mods pendientes: 2 Sora (trail) + 5 DK (donkey)",
+   "slots": {}
+  },
+  {
+   "name": "cursor/steve-alex-skins-0ddb",
+   "sha": "465b152",
+   "author": "Cursor Agent",
+   "date": "2026-10-24",
+   "subject": "Steve/Alex: Red Steve c00, Shaved Steve c04, White Alex c01 (texture-only)",
+   "slots": {
+    "pickel": [
+     0,
+     1,
+     4
+    ]
+   }
+  },
+  {
+   "name": "cursor/ui-pending-63a3",
+   "sha": "34ec086",
+   "author": "Cursor Agent",
+   "date": "2026-10-24",
+   "subject": "UI: agregar mods de menú a pending/ui",
+   "slots": {}
+  },
+  {
+   "name": "cursor/zero-suit-samus-skins-0ddb",
+   "sha": "5099641",
+   "author": "Cursor Agent",
+   "date": "2026-10-24",
+   "subject": "PR #6: ZSS - Bulma c00, Spider-Gwen c02, Lucy c06, Jill c07",
+   "slots": {
+    "szerosuit": [
+     0,
+     2,
+     7
+    ]
+   }
+  }
+ ],
+ "slots": {
+  "63": {
+   "0": {
+    "name": null,
+    "name_src": null,
+    "branch": "cursor/gamebanana-skin-additions-0ddb",
+    "subject": "Update character slot names in msg_name.xmsbt",
+    "img": "rama_bayonetta_00.webp"
+   },
+   "3": {
+    "name": "Harley Quinn",
+    "name_src": "msg_name",
+    "branch": "cursor/gamebanana-skin-additions-0ddb",
+    "subject": "Update character slot names in msg_name.xmsbt",
+    "img": "rama_bayonetta_03.webp"
+   },
+   "6": {
+    "name": null,
+    "name_src": null,
+    "branch": "cursor/gamebanana-skin-additions-0ddb",
+    "subject": "Update character slot names in msg_name.xmsbt",
+    "img": "rama_bayonetta_06.webp"
+   }
+  },
+  "11": {
+   "0": {
+    "name": "Buzz Lightyear",
+    "name_src": "msg_name",
+    "branch": "cursor/gamebanana-skin-additions-0ddb",
+    "subject": "Update character slot names in msg_name.xmsbt",
+    "img": "rama_captain_00.webp"
+   },
+   "1": {
+    "name": "Buff Perry",
+    "name_src": "msg_name",
+    "branch": "cursor/gamebanana-skin-additions-0ddb",
+    "subject": "Update character slot names in msg_name.xmsbt",
+    "img": "rama_captain_01.webp"
+   },
+   "2": {
+    "name": "Dark Falcon",
+    "name_src": "msg_name",
+    "branch": "cursor/gamebanana-skin-additions-0ddb",
+    "subject": "Update character slot names in msg_name.xmsbt",
+    "img": "rama_captain_02.webp"
+   }
+  },
+  "61": {
+   "2": {
+    "name": null,
+    "name_src": null,
+    "branch": "cursor/gamebanana-skin-additions-0ddb",
+    "subject": "Update character slot names in msg_name.xmsbt",
+    "img": "rama_cloud_02.webp"
+   }
+  },
+  "02": {
+   "0": {
+    "name": "DK Bananza",
+    "name_src": "msg_name",
+    "branch": "cursor/gamebanana-skin-additions-0ddb",
+    "subject": "Update character slot names in msg_name.xmsbt",
+    "img": "rama_donkey_00.webp"
+   },
+   "1": {
+    "name": null,
+    "name_src": null,
+    "branch": "cursor/gamebanana-skin-additions-0ddb",
+    "subject": "Update character slot names in msg_name.xmsbt",
+    "img": "rama_donkey_01.webp"
+   },
+   "2": {
+    "name": null,
+    "name_src": null,
+    "branch": "cursor/gamebanana-skin-additions-0ddb",
+    "subject": "Update character slot names in msg_name.xmsbt"
+   },
+   "3": {
+    "name": null,
+    "name_src": null,
+    "branch": "cursor/gamebanana-skin-additions-0ddb",
+    "subject": "Update character slot names in msg_name.xmsbt",
+    "img": "rama_donkey_03.webp"
+   },
+   "5": {
+    "name": null,
+    "name_src": null,
+    "branch": "cursor/gamebanana-skin-additions-0ddb",
+    "subject": "Update character slot names in msg_name.xmsbt",
+    "img": "rama_donkey_05.webp"
+   },
+   "7": {
+    "name": null,
+    "name_src": null,
+    "branch": "cursor/gamebanana-skin-additions-0ddb",
+    "subject": "Update character slot names in msg_name.xmsbt",
+    "img": "rama_donkey_07.webp"
+   }
+  },
+  "23": {
+   "0": {
+    "name": "Otis",
+    "name_src": "msg_name",
+    "branch": "cursor/gamebanana-skin-additions-0ddb",
+    "subject": "Update character slot names in msg_name.xmsbt",
+    "img": "rama_ganon_00.webp"
+   },
+   "2": {
+    "name": "Pain",
+    "name_src": "msg_name",
+    "branch": "cursor/gamebanana-skin-additions-0ddb",
+    "subject": "Update character slot names in msg_name.xmsbt",
+    "img": "rama_ganon_02.webp"
+   },
+   "3": {
+    "name": "Jiren",
+    "name_src": "msg_name",
+    "branch": "cursor/gamebanana-skin-additions-0ddb",
+    "subject": "Update character slot names in msg_name.xmsbt",
+    "img": "rama_ganon_03.webp"
+   },
+   "6": {
+    "name": "Broly",
+    "name_src": "msg_name",
+    "branch": "cursor/gamebanana-skin-additions-0ddb",
+    "subject": "Update character slot names in msg_name.xmsbt",
+    "img": "rama_ganon_06.webp"
+   }
+  },
+  "09": {
+   "0": {
+    "name": "Swole Luigi Remastered",
+    "name_src": "commit",
+    "branch": "cursor/gamebanana-skin-additions-0ddb",
+    "subject": "Update character slot names in msg_name.xmsbt",
+    "img": "rama_luigi_00.webp"
+   }
+  },
+  "77": {
+   "0": {
+    "name": "Red Steve",
+    "name_src": "commit",
+    "branch": "cursor/gamebanana-skin-additions-0ddb",
+    "subject": "Update character slot names in msg_name.xmsbt",
+    "img": "rama_pickel_00.webp"
+   },
+   "1": {
+    "name": "White Alex",
+    "name_src": "commit",
+    "branch": "cursor/gamebanana-skin-additions-0ddb",
+    "subject": "Update character slot names in msg_name.xmsbt",
+    "img": "rama_pickel_01.webp"
+   },
+   "4": {
+    "name": "Shaved Steve",
+    "name_src": "commit",
+    "branch": "cursor/gamebanana-skin-additions-0ddb",
+    "subject": "Update character slot names in msg_name.xmsbt",
+    "img": "rama_pickel_04.webp"
+   }
+  },
+  "29": {
+   "0": {
+    "name": "Bulma",
+    "name_src": "msg_name",
+    "branch": "cursor/gamebanana-skin-additions-0ddb",
+    "subject": "Update character slot names in msg_name.xmsbt",
+    "img": "rama_szerosuit_00.webp"
+   },
+   "2": {
+    "name": "Spider-Gwen",
+    "name_src": "msg_name",
+    "branch": "cursor/gamebanana-skin-additions-0ddb",
+    "subject": "Update character slot names in msg_name.xmsbt",
+    "img": "rama_szerosuit_02.webp"
+   },
+   "6": {
+    "name": "Lucy",
+    "name_src": "msg_name",
+    "branch": "cursor/gamebanana-skin-additions-0ddb",
+    "subject": "Update character slot names in msg_name.xmsbt",
+    "img": "rama_szerosuit_06.webp"
+   },
+   "7": {
+    "name": "Jill Valentine",
+    "name_src": "msg_name",
+    "branch": "cursor/gamebanana-skin-additions-0ddb",
+    "subject": "Update character slot names in msg_name.xmsbt",
+    "img": "rama_szerosuit_07.webp"
+   }
+  }
+ }
+}

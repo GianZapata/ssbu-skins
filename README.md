@@ -16,8 +16,8 @@ Antes de generar, `python3 tools/validate_catalog.py` comprueba que el catálogo
 
 No subir `node_modules/`, binarios ni CSS compilado al repo: el historial no se puede aligerar sin reescribirlo.
 
-Slots ya instalados: `python3 tools/scan_installed.py <ruta del repo del ModPack>` escribe `data/installed.json` y los retratos en `installed/*.webp` (Pillow; decodifica los `.bntx` con `tools/bntx.py`). La página los muestra en la pestaña **Instalado** y los cuenta dentro del máximo por luchador.
+Inventario de lo instalado: `python3 tools/scan_installed.py <ruta del ModPack>` (rama principal) y `python3 tools/scan_branches.py <ruta del ModPack>` (ramas sin fusionar) escriben `data/installed.json`, `data/inventory_staged.json` y los retratos en `installed/*.webp`; `data/inventory_profile.json` es la capa curada del perfil. La página muestra cada nivel con su verificación (nunca como confirmado en la consola).
 
 ## Base de datos y amigos (Firebase)
 
-Todo lo que muestra la página sale de Firestore (con la copia incrustada como respaldo): catálogo, lo instalado, tu selección, las recomendaciones de tus amigos y el estado de cada instalación. Tú entras una vez con Google (🔒) y tu selección se guarda sola; cualquiera que abra la página ve lo que eliges en vivo y puede recomendar. Activación y modelo de seguridad: `docs/FIREBASE.md`. El instalador lee con `python3 tools/db.py selection` y anota con `python3 tools/db.py status …` (contrato en `docs/SELECTION_CONTRACT.md`).
+La página tiene tres secciones —**Luchadores**, **Catálogo** y **Cambios**— y un único plan compartido: cualquiera que abra el enlace puede elegir otra apariencia para uno de los 8 trajes de un luchador y se guarda para todos (sesión anónima automática, historial y «Deshacer»). El inventario y el estado de instalación no se pueden editar desde la web. Configuración y reglas: `docs/FIREBASE.md`; lectura del plan para instalar: `python3 tools/db.py plan` (contrato en `docs/SELECTION_CONTRACT.md`).

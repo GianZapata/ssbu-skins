@@ -1,6 +1,12 @@
 {
  "source": "GianZapata/Gian-Ultimate-Modpack-private",
- "scanned_at": "2026-10-25T13:35:43Z",
+ "ref": {
+  "branch": "main",
+  "sha": "6ff9a01"
+ },
+ "verification": "parcial",
+ "scope": "Solo las carpetas de ultimate/mods de la rama main (pack de WuBoy). No incluye el perfil local ni las ramas con skins sin fusionar; no se ha comprobado en la consola.",
+ "scanned_at": "2026-10-25T21:26:21Z",
  "note": "Slots ocupados en el ModPack. info[slot]: n=nombre del costume (si el pack lo renombra), skin=tiene retrato propio, i=imagen en installed/.",
  "mods_scanned": [
   "The WuBoy Ultimate Modpack",

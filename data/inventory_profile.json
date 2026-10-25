@@ -1,0 +1,19 @@
+{
+  "_nota": "Capa «perfil local»: componentes del perfil `default` del repositorio del ModPack (rama claude/vigilant-keller-6i5s1d, catalog/profiles.json y docs/REPORT-fase1.md, 2026-10-23). Transcritos a mano de la tabla «Asignación final de slots»; los nombres de autor y mod vienen de catalog/mods.json. Ese informe dice: armado y verificado a nivel de archivos en local; NO probado en la Switch. No se inventan nombres: lo que el informe no nombra queda sin nombre.",
+  "id": "perfil",
+  "label": "Perfil local «default»",
+  "ref": "claude/vigilant-keller-6i5s1d@8adc365",
+  "document": "docs/REPORT-fase1.md (2026-10-23)",
+  "verification": "Archivos verificados en local; no probado en la Switch",
+  "slots": [
+    {"fighter": "82", "slot": 4, "name": "Ventus (Dusk)", "mod_id": 384079, "author": "Dusk (@Dusk_SSB) y colaboradores", "url": "https://gamebanana.com/mods/384079"},
+    {"fighter": "82", "slot": 5, "name": "Roxas · Organización XIII", "mod_id": 365949, "author": "Joe T.E. (JoeTE)", "url": "https://gamebanana.com/mods/365949"},
+    {"fighter": "82", "slot": 7, "name": "Roxas · Villa Crepúsculo", "mod_id": 365949, "author": "Joe T.E. (JoeTE)", "url": "https://gamebanana.com/mods/365949"},
+    {"fighter": "32", "slot": 0, "name": "Terra", "mod_id": 381503, "author": "Dusk (@Dusk_SSB) y colaboradores", "url": "https://gamebanana.com/mods/381503"},
+    {"fighter": "32", "slot": 2, "name": "Terranort", "mod_id": 381503, "author": "Dusk (@Dusk_SSB) y colaboradores", "url": "https://gamebanana.com/mods/381503"},
+    {"fighter": "02", "slot": 1, "name": "Funky Kong", "mod_id": 174250, "author": "BezBZ", "url": "https://gamebanana.com/mods/174250"},
+    {"fighter": "02", "slot": 3, "name": "Funky Kong", "mod_id": 174250, "author": "BezBZ", "url": "https://gamebanana.com/mods/174250"},
+    {"fighter": "02", "slot": 5, "name": "Funky Kong", "mod_id": 174250, "author": "BezBZ", "url": "https://gamebanana.com/mods/174250"},
+    {"fighter": "02", "slot": 7, "name": "Funky Kong", "mod_id": 174250, "author": "BezBZ", "url": "https://gamebanana.com/mods/174250"}
+  ]
+}

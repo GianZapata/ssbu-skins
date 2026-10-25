@@ -1,21 +1,24 @@
-# Puente entre el repositorio y Firestore (lo usan la Action de publicación, Grok y el instalador).
+# Puente entre el repositorio y Firestore (lo usan la Action de publicación, Grok y quien instala).
 #
-#   python3 tools/db.py seed [--only catalog|installed]   copia data/catalog.json y data/installed.json a Firestore
-#   python3 tools/db.py selection                          imprime lo que eligió el dueño (JSON, contrato de docs/SELECTION_CONTRACT.md)
-#   python3 tools/db.py status KEY installed|failed|skipped [--result TEXTO]   anota el resultado de una instalación
+#   python3 tools/db.py seed [--only catalog|installed]   copia el catálogo y el inventario a Firestore
+#   python3 tools/db.py plan                              imprime el plan compartido (un cambio por traje) para revisarlo e instalarlo
+#   python3 tools/db.py status VID installed|failed|skipped [--result TEXTO]   anota el resultado de una instalación
+#   python3 tools/db.py migrate                           pasa la selección anterior (selection/main) al plan compartido (idempotente)
 #
 # Credenciales: GOOGLE_APPLICATION_CREDENTIALS apuntando al JSON de una cuenta de servicio del proyecto
 # (Configuración del proyecto → Cuentas de servicio → Generar clave privada). Para pruebas locales,
-# FIRESTORE_EMULATOR_HOST=127.0.0.1:8080 y GOOGLE_CLOUD_PROJECT=demo-ssbu bastan. Requiere: pip install google-cloud-firestore
+# FIRESTORE_EMULATOR_HOST=127.0.0.1:8080 y GOOGLE_CLOUD_PROJECT=ssbu-441b1 bastan. Requiere: pip install google-cloud-firestore
 import argparse, datetime, json, os, sys
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import catalog_data as cd
 
+ONLINE = {'autor_explicito': 'Online: lo declara el autor', 'autor_condicionado': 'Online: con condiciones', 'tercero': 'Online: según terceros',
+          'sin_evidencia': 'Online: sin datos', 'incompatible': 'Online: incompatible'}
+
 def client():
     from google.cloud import firestore
     cfg = cd.load_firebase() or {}
-    project = os.environ.get('GOOGLE_CLOUD_PROJECT') or cfg.get('projectId')
-    return firestore.Client(project=project)
+    return firestore.Client(project=os.environ.get('GOOGLE_CLOUD_PROJECT') or cfg.get('projectId'))
 
 def now(): return datetime.datetime.now(datetime.timezone.utc)
 
@@ -30,54 +33,88 @@ def _replace(db, coll, docs):
         b.commit()
 
 def seed(db, only=None):
-    done = []
+    done = []; fighters, meta = cd.load()
     if only in (None, 'catalog'):
-        fighters, meta = cd.load()
-        _replace(db, 'catalog', {f['code']: {**f, 'order': i, 'updatedAt': now()} for i, f in enumerate(fighters)})
+        # `vids` permite a las reglas comprobar que un cambio apunta a una apariencia que existe
+        _replace(db, 'catalog', {f['code']: {**f, 'vids': [p['vid'] for p in f['picks']], 'order': i, 'updatedAt': now()} for i, f in enumerate(fighters)})
         db.collection('meta').document('catalog').set({**meta, 'updatedAt': now()})
         done.append(f'{len(fighters)} luchadores')
     if only in (None, 'installed'):
-        inst = cd.load_installed()
-        if inst:
-            _replace(db, 'installed', {c: {'slots': s, 'info': inst['info'].get(c, {}), 'updatedAt': now()} for c, s in inst['fighters'].items()})
-            db.collection('meta').document('installed').set({'scanned_at': inst['scanned_at'], 'source': inst['source'], 'updatedAt': now()})
-            done.append(f"{len(inst['fighters'])} luchadores instalados")
+        inv = cd.load_inventory(fighters)
+        if inv:
+            _replace(db, 'installed', {c: {**v, 'updatedAt': now()} for c, v in inv['fighters'].items()})
+            db.collection('meta').document('installed').set({**inv['meta'], 'updatedAt': now()})
+            done.append(f"inventario de {len(inv['fighters'])} luchadores")
     print('ok · Firestore actualizado:', ', '.join(done) or 'nada')
 
-def selection(db):
-    snap = db.collection('selection').document('main').get()
-    sel = snap.to_dict() if snap.exists else {}
+def _current(inv, code, n):
+    s = (((inv or {}).get('fighters') or {}).get(code) or {}).get('slots', {}).get(str(n)) or {}
+    if s.get('src'):
+        return {'kind': 'mod' if s.get('name') else 'unknown', 'name': s.get('name') or 'Apariencia sin identificar', 'source': s['src']}
+    return {'kind': 'original', 'name': 'Original del juego', 'source': None, 'confirmed': False}
+
+def plan(db):
+    fighters, meta = cd.load(); inv = cd.load_inventory(fighters)
+    by_vid = {p['vid']: (f, p) for f in fighters for p in f['picks']}
     status = {d.id: d.to_dict() for d in db.collection('status').stream()}
-    fighters, _ = cd.load()
-    idx = {f"{f['code']}:{p['id']}": (f, p) for f in fighters for p in f['picks']}
-    picks = sel.get('picks') or {}
-    items = []
-    for k, v in sorted(picks.items(), key=lambda kv: (kv[1].get('order') or 0)):
-        if k not in idx: continue
-        f, p = idx[k]; st = status.get(k) or {}
-        sl = v.get('slot')
-        items.append({'key': k, 'fighter': f['name'], 'roster_no': f['code'], 'mod_id': p['id'], 'name': p['name'], 'author': p['author'], 'url': p['url'],
-                      'assigned_slot': None if sl is None else f'c{sl:02d}', 'order': v.get('order'), 'dest_slot': p.get('dest'),
-                      'native_slots': p.get('slots_orig'), 'assignment': p.get('assignment'), 'audited': p.get('audited'),
-                      'wifi': p.get('wifi_status') or 'pendiente', 'dependencies': p.get('deps') or None, 'conflicts': p.get('conflicts') or None,
-                      'notes': p.get('notes') or None, 'status': st.get('status', 'wanted'), 'result': st.get('result'), 'updated_at': st.get('updated_at')})
-    out = {'schema': 2, 'owner': sel.get('ownerName'), 'catalog': (db.collection('meta').document('catalog').get().to_dict() or {}).get('generated'),
-           'target': {'game': 'Super Smash Bros. Ultimate', 'version': '13.0.5', 'loader': 'ARCropolis 4.1.1', 'modpack_repo': 'GianZapata/Gian-Ultimate-Modpack-private'},
-           'limits': {'per_fighter': 7 if sel.get('keepOrig') else 8, 'keep_original_slot': bool(sel.get('keepOrig'))},
-           'replace_slots': sel.get('repl') or {}, 'items': items}
+    rows = []
+    for d in db.collection('changes').stream():
+        c = d.to_dict(); f, p = by_vid.get(c.get('vid'), (None, None))
+        code, n = c['code'], c['slot']; fi = next((x for x in fighters if x['code'] == code), None)
+        st = status.get(c['vid']) or {}
+        rows.append({'fighter': fi['name'] if fi else code, 'roster_no': code, 'traje': n + 1, 'slot': f'c{n:02d}',
+                     'current': _current(inv, code, n),
+                     'proposal': None if not p else {'vid': p['vid'], 'mod_id': p['id'], 'name': p['name'], 'author': p['author'], 'url': p['url'],
+                                                    'online': ONLINE.get(p['wifi_status'], 'Online: sin auditar'), 'conditions': p['conditions'] or None,
+                                                    'dependencies': p['deps'] or None, 'conflicts': p['conflicts'] or None, 'native_slots': p['slots_orig'],
+                                                    'dest_hint': p['dest'], 'pack': p['pack'], 'withdrawn': p['withdrawn']},
+                     'missing_in_catalog': p is None, 'vid': c['vid'], 'proposed_at': c['at'].isoformat() if c.get('at') else None,
+                     'status': st.get('status', 'wanted'), 'result': st.get('result')})
+    rows.sort(key=lambda r: (r['roster_no'], r['traje']))
+    hist = [{'at': h['at'].isoformat() if h.get('at') else None, 'roster_no': h['code'], 'traje': h['slot'] + 1, 'from': h.get('from'), 'to': h.get('to'), 'kind': h.get('kind')}
+            for h in (d.to_dict() for d in db.collection('history').order_by('at', direction='DESCENDING').limit(50).stream())]
+    out = {'schema': 3, 'generated_at': now().isoformat(), 'catalog': meta.get('generated'),
+           'inventory': {'verification': ((inv or {}).get('meta') or {}).get('verification'), 'scanned_at': ((inv or {}).get('meta') or {}).get('scanned_at'),
+                         'sources': ((inv or {}).get('meta') or {}).get('sources'), 'note': ((inv or {}).get('meta') or {}).get('note')},
+           'target': {'game': 'Super Smash Bros. Ultimate', 'version': '13.0.5', 'loader': 'ARCropolis 4.1.1'},
+           'changes': rows, 'history': hist}
     print(json.dumps(out, ensure_ascii=False, indent=2))
 
-def set_status(db, key, status, result):
-    db.collection('status').document(key).set({'key': key, 'status': status, 'result': result, 'updated_at': now().isoformat()})
-    print('ok ·', key, '→', status)
+def set_status(db, vid, status, result):
+    db.collection('status').document(vid).set({'vid': vid, 'status': status, 'result': result, 'updated_at': now().isoformat()})
+    print('ok ·', vid, '→', status)
+
+def migrate(db):
+    """selection/main (modelo anterior: una lista por dueño con slot por skin) → un cambio por traje en `changes`.
+    No pisa lo que ya haya propuesto alguien en ese traje. Las claves antiguas «luchador:mod» se traducen a identificadores de variante."""
+    snap = db.collection('selection').document('main').get()
+    if not snap.exists: print('ok · no hay selección anterior que migrar'); return
+    fighters, _ = cd.load()
+    legacy = {}
+    for f in fighters:
+        for p in f['picks']:
+            if not p['withdrawn']: legacy.setdefault(p['legacy'], p['vid'])
+    done = skipped = 0
+    for key, v in (snap.to_dict().get('picks') or {}).items():
+        code, slot = key.split(':')[0], v.get('slot'); vid = legacy.get(key)
+        fi = next((x for x in fighters if x['code'] == code), None)
+        if vid is None or slot is None or fi is None or fi.get('mii'): skipped += 1; continue
+        ref = db.collection('changes').document(f'{code}_{slot}')
+        if ref.get().exists: skipped += 1; continue
+        ref.set({'code': code, 'slot': int(slot), 'vid': vid, 'by': 'migracion', 'at': now()})
+        db.collection('history').add({'code': code, 'slot': int(slot), 'from': None, 'to': vid, 'kind': 'migrate', 'by': 'migracion', 'at': now()})
+        done += 1
+    db.collection('meta').document('plan').set({'migrated_at': now(), 'from': 'selection/main', 'migrated': done, 'skipped': skipped})
+    print(f'ok · migrados {done} cambios; omitidos {skipped} (ya existían, sin traje o sin equivalente)')
 
 if __name__ == '__main__':
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     sp = ap.add_subparsers(dest='cmd', required=True)
     s = sp.add_parser('seed'); s.add_argument('--only', choices=['catalog', 'installed'])
-    sp.add_parser('selection')
-    t = sp.add_parser('status'); t.add_argument('key'); t.add_argument('status', choices=['installed', 'failed', 'skipped', 'wanted']); t.add_argument('--result')
+    sp.add_parser('plan'); sp.add_parser('migrate')
+    t = sp.add_parser('status'); t.add_argument('vid'); t.add_argument('status', choices=['installed', 'failed', 'skipped', 'wanted']); t.add_argument('--result')
     a = ap.parse_args(); db = client()
     if a.cmd == 'seed': seed(db, a.only)
-    elif a.cmd == 'selection': selection(db)
-    else: set_status(db, a.key, a.status, a.result)
+    elif a.cmd == 'plan': plan(db)
+    elif a.cmd == 'migrate': migrate(db)
+    else: set_status(db, a.vid, a.status, a.result)

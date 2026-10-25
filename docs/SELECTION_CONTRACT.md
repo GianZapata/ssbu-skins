@@ -1,57 +1,52 @@
-# Contrato de la selección (Firestore)
+# Contrato del plan (Firestore → instalador)
 
-Puente entre la página (móvil) y el agente que instala en la Switch (`GianZapata/Gian-Ultimate-Modpack-private`). Todo vive en Firestore (ver `docs/FIREBASE.md`); ya no hay `selection.json` en el repositorio.
+La página guarda **un plan global**: una propuesta por traje (`changes/{luchador}_{traje}`). El agente que instala (`GianZapata/Gian-Ultimate-Modpack-private`) o quien revisa a mano lo lee así:
 
-- **Quién escribe lo que se elige:** solo el dueño, desde la página (`selection/main`). Se guarda sola, sin token.
-- **Quién lo lee:** el instalador, con `python3 tools/db.py selection`, que imprime un JSON con todo lo necesario (abajo).
-- **Quién escribe el resultado:** el instalador, con `python3 tools/db.py status <clave> installed|failed|skipped --result "<ruta o motivo>"`. Llega a la página en vivo («Instalada»).
-- **Credenciales del instalador:** una cuenta de servicio (`GOOGLE_APPLICATION_CREDENTIALS`). Las reglas no dejan escribir `status` desde la página.
-
-## Qué imprime `db.py selection`
-
-```json
-{ "schema": 2, "owner": "Gian", "catalog": "<fecha del catálogo>",
-  "target": { "game": "...", "version": "13.0.5", "loader": "ARCropolis 4.1.1", "modpack_repo": "..." },
-  "limits": { "per_fighter": 8, "keep_original_slot": false },
-  "replace_slots": { "01": [1, 3] },
-  "items": [ { "key": "02:12345", "fighter": "Donkey Kong", "roster_no": "02", "mod_id": 12345, "name": "...", "author": "...", "url": "...",
-               "assigned_slot": "c03", "order": 2, "dest_slot": "c01", "native_slots": "1,4", "assignment": "...",
-               "audited": true, "wifi": "autor_explicito", "dependencies": null, "conflicts": null, "notes": "...",
-               "status": "wanted", "result": null, "updated_at": null } ] }
+```bash
+python3 tools/db.py plan                                   # JSON del plan actual
+python3 tools/db.py status <vid> installed|failed|skipped --result "<ruta o motivo>"   # anota el resultado
+python3 tools/db.py migrate                                # pasa selection/main (modelo anterior) al plan, sin pisar nada
 ```
 
-## Límites (`limits`)
+La misma estructura sale del botón **Más → Exportar el plan** de la página (`schema: 3`).
 
-`limits.per_fighter` es 8, o 7 si `keep_original_slot` es `true`. La página impide guardar más de ese máximo por luchador (los trajes Mii no cuentan). Con `keep_original_slot: true` el agente **no debe tocar el slot `c00`** del luchador, aunque el catálogo proponga `c00` como destino: en ese caso reubicar la skin en un `c01`–`c07` libre o marcarla `skipped` con el motivo en `result`.
+## Qué contiene
 
-## Lo ya instalado y `replace_slots`
+```json
+{ "schema": 3, "generated_at": "...", "catalog": "<fecha del catálogo>",
+  "inventory": { "verification": "parcial", "scanned_at": "...", "sources": [ ... ] },
+  "target": { "game": "Super Smash Bros. Ultimate", "version": "13.0.5", "loader": "ARCropolis 4.1.1" },
+  "changes": [ {
+    "fighter": "Sora", "roster_no": "82", "traje": 1, "slot": "c00",
+    "current":  { "kind": "original|mod|unknown", "name": "...", "source": "base|perfil|null", "confirmed": false },
+    "proposal": { "vid": "82:330053", "mod_id": 330053, "name": "...", "author": "...", "url": "...", "online": "Online: lo declara el autor",
+                  "conditions": null, "dependencies": null, "conflicts": null, "native_slots": "1,4", "dest_hint": "c01", "pack": null, "withdrawn": false },
+    "missing_in_catalog": false, "vid": "82:330053", "status": "wanted", "result": null } ],
+  "history": [ { "at": "...", "roster_no": "82", "traje": 1, "from": null, "to": "82:330053", "kind": "set" } ] }
+```
 
-`data/installed.json` lista, por luchador, los slots `cNN` ocupados en el ModPack (`ultimate/mods/*/fighter/<luchador>/model/body/cNN`). Lo genera `python3 tools/scan_installed.py <ruta del repo del ModPack>`, que además guarda en `installed/<luchador>_<NN>.webp` el retrato de cada slot (decodificado de `ui/replace*/chara/chara_N`) y, cuando el pack renombra el costume (`nam_chr1_<NN>_<luchador>` en `msg_name.xmsbt`), su nombre. `info[slot]` trae `n` (nombre), `skin` (tiene retrato propio: es una skin completa) e `i` (imagen).
+- **`traje` (1–8) y `slot` (`c00`–`c07`)** son el destino: la skin debe quedar en ese slot, reubicando los archivos del mod si sus `native_slots` son otros. `dest_hint` solo es orientativo.
+- **`current` nunca está confirmado en consola** (`confirmed: false`). `kind: original` significa «sin mod en el inventario revisado», `unknown` «hay un mod pero no se pudo identificar».
+- **`vid`** identifica la variante exacta (`<luchador>:<id del mod>`; si un mismo mod trae varias variantes para un luchador, la variante añade un sufijo estable).
+- `online` es lo que declara el autor, no una prueba en consola. Respeta `conditions`, `dependencies` y `conflicts`.
+- Un `pack` no nulo indica un mod compartido con otros luchadores.
 
-**Tras cada instalación, el instalador debe volver a ejecutar el escáner, subir `data/installed.json` e `installed/` al repositorio y ejecutar `python3 tools/db.py seed --only installed`** (la Action también lo hace al hacer push si existe el secreto). Un slot sin retrato puede ser solo un ajuste de modelo.
+## Inventario y su verificación
 
-La página cuenta esos slots dentro del máximo por luchador. El dueño puede marcar un slot instalado como «se quita»: eso llega en `replace_slots` (`{"<roster_no>": [1, 3]}`). Un slot **solo se puede sobrescribir si aparece ahí**; cualquier otro slot ocupado debe respetarse.
+El inventario de lo instalado (`installed/*`, `data/inventory_*.json`) se compone de tres capas, cada una con su origen:
 
-## Campos de cada ítem
+| Capa | Origen | Verificación |
+|---|---|---|
+| `base` | `tools/scan_installed.py` sobre la rama principal del ModPack | Revisado en el repositorio; no probado en la consola |
+| `perfil` | `data/inventory_profile.json` (curado a partir de la rama del perfil) | Archivos verificados en local; no probado en la Switch |
+| `staged` | `tools/scan_branches.py` sobre ramas sin fusionar | Solo «en preparación»: no se afirma que esté instalado |
 
-| Campo | Significado |
-|---|---|
-| `key` | `<roster_no>:<mod_id>`, identificador único (también el id del documento de estado) |
-| `fighter`, `roster_no` | Luchador del catálogo |
-| `mod_id`, `name`, `author`, `url` | Mod en GameBanana (`url` es la fuente de descarga) |
-| `assigned_slot` | **Slot elegido por el dueño (o asignado automáticamente) donde debe quedar la skin** (`c00`…`c07`); `null` para trajes Mii. **El instalador debe usar este slot**, reubicando los archivos del mod si sus slots originales (`native_slots`) son otros |
-| `order` | Posición de la skin dentro de su luchador, ordenada por `assigned_slot` (1…n) |
-| `dest_slot` | Slot propuesto por el auditor (solo orientativo; no manda sobre `assigned_slot`) |
-| `native_slots`, `assignment` | Slots originales del mod y estado de la asignación |
-| `audited`, `wifi` | Estado de auditoría / evidencia Wi-Fi (no es prueba en consola) |
-| `dependencies`, `conflicts`, `notes` | Avisos que el agente debe respetar al instalar |
-| `status` | `wanted` → `installed` \| `failed` \| `skipped` (lo escribe el instalador) |
-| `result`, `updated_at` | Los rellena el instalador al cambiar `status` |
+`meta/installed.verification` es `parcial` mientras no haya una comprobación en la consola. **Tras cada instalación:** reescanear (`scan_installed.py`, `scan_branches.py`), subir `data/` e `installed/` y ejecutar `python3 tools/db.py seed --only installed` (la Action lo hace en cada push si existe el secreto).
 
-## Flujo del agente (ModPack)
+## Flujo del agente
 
-1. `python3 tools/db.py selection` y procesar solo `status == "wanted"`.
-2. Descargar el mod desde `url`, respetar `assigned_slot`, `replace_slots`, `dependencies`, `conflicts` y `notes`.
-3. Colocarlo en `ultimate/mods/...` según la estructura del ModPack (y quitar lo instalado en los slots de `replace_slots` que se reutilizan).
-4. `python3 tools/db.py status <clave> installed|failed|skipped --result "<ruta o motivo>"`.
-5. Volver a escanear lo instalado (ver arriba).
+1. `python3 tools/db.py plan` y procesar solo `status == "wanted"`.
+2. Descargar desde `proposal.url`, respetar `traje`/`slot`, `dependencies`, `conflicts`, `conditions`.
+3. Instalar en `ultimate/mods/...`, quitando lo que ocupaba ese slot si corresponde.
+4. `python3 tools/db.py status <vid> installed|failed|skipped --result "..."`.
+5. Reescanear el inventario y sembrar.

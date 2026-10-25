@@ -81,7 +81,13 @@ def main(mp):
             v['info'][str(sl)] = e
     for f in os.listdir(imgdir):
         if f.endswith('.webp') and f not in keep: os.remove(os.path.join(imgdir, f))
-    out = {'source': 'GianZapata/Gian-Ultimate-Modpack-private', 'scanned_at': datetime.datetime.now(datetime.timezone.utc).strftime('%Y-%m-%dT%H:%M:%SZ'),
+    def git(*a):
+        import subprocess
+        r = subprocess.run(['git', '-C', mp, *a], capture_output=True)
+        return r.stdout.decode().strip() if r.returncode == 0 else None
+    ref = {'branch': git('rev-parse', '--abbrev-ref', 'HEAD'), 'sha': (git('rev-parse', 'HEAD') or '')[:7]}
+    out = {'source': 'GianZapata/Gian-Ultimate-Modpack-private', 'ref': ref, 'verification': 'parcial',
+           'scope': 'Solo las carpetas de ultimate/mods de la rama ' + str(ref['branch']) + ' (pack de WuBoy). No incluye el perfil local ni las ramas con skins sin fusionar; no se ha comprobado en la consola.', 'scanned_at': datetime.datetime.now(datetime.timezone.utc).strftime('%Y-%m-%dT%H:%M:%SZ'),
            'note': 'Slots ocupados en el ModPack. info[slot]: n=nombre del costume (si el pack lo renombra), skin=tiene retrato propio, i=imagen en installed/.',
            'mods_scanned': scanned,
            'fighters': {k: {'internal': v['internal'], 'slots': sorted(v['slots']), 'mods': sorted(v['mods']), 'info': v['info']} for k, v in sorted(fighters.items())}}
