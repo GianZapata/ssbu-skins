@@ -1,6 +1,6 @@
 # Contrato de auditoría (`data/catalog.json`)
 
-El bot auditor (Grok) **solo edita `data/catalog.json`**. No toca `index.html` ni `selection.json`.
+El bot auditor (Grok) **solo edita `data/catalog.json`**. No toca `index.html` ni la base de datos: la Action lo hace al hacer push.
 Después de editar, ejecutar `python3 tools/validate_catalog.py`: si falla, no se hace commit.
 
 ## Qué completa el auditor en cada entrada de `entries[]`
@@ -24,7 +24,9 @@ Reglas: el estado Wi-Fi es evidencia registrada, **no** prueba en consola. No in
 ## Quién usa qué
 
 ```
-Grok (audita)  ──▶  data/catalog.json  ──▶  build_viewer.py / GitHub Action  ──▶  index.html
-                                                                                    │ (tú eliges en el móvil)
-Agente instalador (Switch)  ◀──  selection.json  ◀────────────────────────────────┘
+Grok (audita)  ──▶  data/catalog.json  ──▶  Action: build_viewer.py + db.py seed  ──▶  index.html  +  Firestore (catalog/*)
+                                                                                         │ (el dueño elige en el móvil)
+Agente instalador (Switch)  ◀──  tools/db.py selection  ◀──  Firestore (selection/main)  ◀┘
 ```
+
+Grok **solo edita `data/catalog.json`** y hace push: la Action valida, regenera la página y copia el catálogo a Firestore (si existe el secreto `FIREBASE_SERVICE_ACCOUNT`).

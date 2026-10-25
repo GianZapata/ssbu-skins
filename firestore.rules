@@ -1,37 +1,48 @@
 rules_version = '2';
-// Salas en vivo: el dueño publica sus elecciones y los amigos publican sus recomendaciones.
-// Quien conozca el id (12 caracteres al azar) puede entrar; nadie puede listar las salas.
+// Modelo:
+//  - catalog, installed, meta, status: los escribe solo el backend (cuenta de servicio, que se salta estas reglas); lectura pública.
+//  - config/owner: el primer usuario con cuenta de Google que lo reclama es el dueño; nadie puede cambiarlo después.
+//  - selection/main: lectura pública; solo la escribe el dueño.
+//  - suggestions/{uid}: cada visitante escribe la suya; el dueño lee todas.
 service cloud.firestore {
   match /databases/{database}/documents {
     function signedIn() { return request.auth != null; }
-    function roomPath(roomId) { return /databases/$(database)/documents/rooms/$(roomId); }
-    function isOwner(roomId) {
-      return signedIn() && exists(roomPath(roomId)) && get(roomPath(roomId)).data.ownerUid == request.auth.uid;
+    function ownerPath() { return /databases/$(database)/documents/config/owner; }
+    function isOwner() {
+      return signedIn() && exists(ownerPath()) && get(ownerPath()).data.uid == request.auth.uid;
     }
+    function notAnonymous() { return request.auth.token.firebase.sign_in_provider != 'anonymous'; }
     function okName(n) { return n is string && n.size() <= 40; }
-    function okPicks(l) { return l is list && l.size() <= 400; }
-    function okRoom(d) {
-      return d.keys().hasOnly(['ownerUid', 'ownerName', 'picks', 'createdAt', 'updatedAt'])
-        && okName(d.ownerName) && okPicks(d.picks);
-    }
-    function okVote(d) {
-      return d.keys().hasOnly(['name', 'picks', 'updatedAt']) && okName(d.name) && okPicks(d.picks);
+
+    match /catalog/{code}   { allow read: if true; allow write: if false; }
+    match /installed/{code} { allow read: if true; allow write: if false; }
+    match /meta/{doc}       { allow read: if true; allow write: if false; }
+    match /status/{key}     { allow read: if true; allow write: if false; }
+
+    match /config/owner {
+      allow read: if true;
+      allow create: if signedIn() && notAnonymous()
+        && request.resource.data.keys().hasOnly(['uid', 'claimedAt'])
+        && request.resource.data.uid == request.auth.uid;
+      allow update, delete: if false;
     }
 
-    match /rooms/{roomId} {
-      allow get: if signedIn();
-      allow list: if false;
-      allow create: if signedIn() && request.resource.data.ownerUid == request.auth.uid && okRoom(request.resource.data);
-      allow update: if signedIn() && resource.data.ownerUid == request.auth.uid
-        && request.resource.data.ownerUid == request.auth.uid && okRoom(request.resource.data);
-      allow delete: if signedIn() && resource.data.ownerUid == request.auth.uid;
+    match /selection/main {
+      allow read: if true;
+      allow write: if isOwner()
+        && request.resource.data.keys().hasOnly(['ownerName', 'picks', 'repl', 'keepOrig', 'updatedAt', 'updatedMs'])
+        && okName(request.resource.data.ownerName)
+        && request.resource.data.picks is map && request.resource.data.picks.size() <= 400;
+    }
 
-      match /votes/{uid} {
-        allow get: if signedIn() && (request.auth.uid == uid || isOwner(roomId));
-        allow list: if isOwner(roomId);
-        allow create, update: if signedIn() && request.auth.uid == uid && exists(roomPath(roomId)) && okVote(request.resource.data);
-        allow delete: if signedIn() && (request.auth.uid == uid || isOwner(roomId));
-      }
+    match /suggestions/{uid} {
+      allow get: if signedIn() && (request.auth.uid == uid || isOwner());
+      allow list: if isOwner();
+      allow create, update: if signedIn() && request.auth.uid == uid
+        && request.resource.data.keys().hasOnly(['name', 'picks', 'updatedAt'])
+        && okName(request.resource.data.name)
+        && request.resource.data.picks is list && request.resource.data.picks.size() <= 400;
+      allow delete: if signedIn() && (request.auth.uid == uid || isOwner());
     }
   }
 }

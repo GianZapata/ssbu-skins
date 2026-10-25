@@ -7,3 +7,4 @@ tailwindcss-*
 __pycache__/
 .firebase/
 *-debug.log
+_dbonly_test.html

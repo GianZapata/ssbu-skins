@@ -33,6 +33,8 @@ h2{font-size:21px;margin:18px 0 12px}
 .fm{position:sticky;top:0;z-index:35;background:var(--ac);color:#1a1300;padding:calc(8px + env(safe-area-inset-top)) 12px 8px;display:flex;align-items:center;gap:8px;font-size:14px}
 .fm b{flex:1;min-width:0}
 .live{font-weight:700;font-size:13px;white-space:nowrap}
+.syncst{text-align:center;font-size:13px;color:var(--mu);padding:12px 0}
+.syncst.ok{color:var(--ok)}.syncst.err{color:var(--er)}.syncst.saving{color:var(--ac)}
 .fm button{min-height:38px;font-size:13px;padding:0 10px;background:#1a1300;color:var(--ac);border-color:#1a1300}
 body.fmode header{padding-top:10px}
 .meter{background:var(--s1);border:1px solid var(--bd);border-radius:14px;padding:10px 12px;margin-top:12px;display:flex;flex-wrap:wrap;align-items:center;gap:8px 12px}
@@ -164,7 +166,7 @@ body.lock .toast{bottom:calc(env(safe-area-inset-bottom) + 150px)}
 <div class="fm" id="sw" hidden></div>
 <div class="wrap">
 <section id="vE">
- <header><div class="ttl"><div><h1>Skins SSBU</h1><p class="sub">Tu catálogo personal</p></div><button class="ib" id="info" aria-label="Información">i</button></div>
+ <header><div class="ttl"><div><h1>Skins SSBU</h1><p class="sub">Tu catálogo personal</p></div><button class="ib" id="auth" aria-label="Entrar como dueño">🔒</button></div>
  <div class="search"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg><input id="q" type="search" placeholder="Buscar skin o luchador" autocomplete="off" enterkeyhint="search"></div>
  <div class="row2"><select id="fs2" aria-label="Luchador"></select><button id="fbtn">☰ Filtros</button></div></header>
  <div class="meter" id="meter" hidden></div>
@@ -176,13 +178,11 @@ body.lock .toast{bottom:calc(env(safe-area-inset-bottom) + 150px)}
 </section>
 <section id="vS" hidden></section>
 <section id="vP" hidden></section>
-<section id="vI" hidden></section>
 </div>
 <nav class="tabs"><div class="in">
  <button id="tE" class="on"><svg viewBox="0 0 24 24"><path d="M3 11l9-8 9 8v10a1 1 0 0 1-1 1h-5v-7H9v7H4a1 1 0 0 1-1-1z"/></svg>Explorar</button>
  <button id="tS"><svg viewBox="0 0 24 24"><path d="M6 3h12v18l-6-4-6 4z"/></svg><span id="tSl">Selección</span><span class="badge" id="bd" hidden></span></button>
  <button id="tP"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>Instalado</button>
- <button id="tI"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 11v6M12 7.5v.5"/></svg>Información</button>
 </div></nav>
 
 <div class="sheet" id="shF"><div class="in"><div class="sc">
@@ -206,8 +206,8 @@ body.lock .toast{bottom:calc(env(safe-area-inset-bottom) + 150px)}
 <div class="toast" id="toast"></div>
 
 <script>
-const F=/*DATA*/null;const META=/*META*/null;
-const REPO='GianZapata/ssbu-skins',PATHF='selection.json',BR='master',PAGE=40;
+let F=/*DATA*/null;const META=/*META*/null;
+const PAGE=40;
 const WS={autor_explicito:['g','Declarado por el autor'],autor_condicionado:['','Con condiciones'],tercero:['','Según terceros'],sin_evidencia:['n','Sin evidencia'],incompatible:['r','Incompatible']};
 const $=id=>document.getElementById(id);
 const esc=s=>String(s??'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
@@ -217,39 +217,28 @@ const key=(f,p)=>f.code+':'+p.id;
 const BM='<svg viewBox="0 0 24 24"><path d="M6 3h12v18l-6-4-6 4z"/></svg>';
 const buzz=p=>{try{navigator.vibrate&&navigator.vibrate(p)}catch(e){}};
 const gU=(f,s)=>s==='o'?META.base+'/'+f:META.base+'/'+(s==='m'?'530':'220')+'-90_'+f;
-/* Amigos: #help (yo → amigo) abre el modo ayuda; #sug (amigo → yo) trae sus recomendaciones; #sel es el formato antiguo de #sug */
-function parseHash(){const h=location.hash.replace(/^#/,''),rm=h.match(/^room=([a-z0-9]{6,32})$/);if(rm)return {type:'room',id:rm[1],by:'',raw:[]};
- const m=h.match(/^(sel|help|sug)=([^&]*)(?:&by=(.*))?$/);if(!m)return null;
- let by='';try{by=m[3]?decodeURIComponent(m[3]):''}catch(e){}
- const raw=m[2].split(',').filter(Boolean).map(x=>{const i=x.indexOf('.');if(i<1)return null;try{return decodeURIComponent(x.slice(0,i))+':'+x.slice(i+1)}catch(e){return null}}).filter(Boolean);
- return {type:m[1]==='help'?'help':'sug',by,raw}}
-const HASH=parseHash();
-if(HASH){try{history.replaceState(null,'',location.pathname+location.search)}catch(e){}}
-let room=J('ssbu_room',null);   // sala en vivo que yo creé: {id}
-const ownRoom=!!(HASH&&HASH.type==='room'&&room&&room.id===HASH.id);   // el dueño abrió su propio enlace
-let pubT=0,voteT=0;
-if(HASH&&HASH.type==='help')LS('ssbu_help',JSON.stringify({by:HASH.by||'Alguien',raw:HASH.raw}));
-if(HASH&&HASH.type==='room'&&!ownRoom){const o=J('ssbu_help',null),same=o&&o.room===HASH.id;LS('ssbu_help',JSON.stringify({by:same&&o.by||'Alguien',raw:same&&o.raw||[],room:HASH.id}))}
-let help=J('ssbu_help',null);const FM=!!help;
+/* Rol: dueño (inició sesión con Google y la base lo reconoce) o visitante (ve la selección del dueño y recomienda) */
+const OWNER=LS('ssbu_owner')==='1',FM=!OWNER;
+let help={by:LS('ssbu_ownername')||'el dueño',raw:[]};   // visitante: selección del dueño, en vivo
 const SELKEY=FM?'ssbu_fsel':'ssbu_sel_v2';
 let sel=J(SELKEY,{});
-try{const o=FM?null:J('ssbu_sel_v1',null);if(o&&!Object.keys(sel).length){Object.keys(o).forEach(k=>sel[k]={t:Date.now()});LS(SELKEY,JSON.stringify(sel))}}catch(e){}
-let sugg=J('ssbu_sugg',null);
-if(!sugg||!sugg.friends){const o=sugg;sugg={friends:{}};if(o&&o.keys&&o.keys.length)sugg.friends[o.by||'Un amigo']=o.keys}
+let liveFriends={},liveIds={},pubT=0;                      // dueño: recomendaciones de visitantes, en vivo
 let keepOrig=LS('ssbu_keep')==='1';
 let repl=J('ssbu_repl',{});const saveRepl=()=>LS('ssbu_repl',JSON.stringify(repl));
-const INST=(META.installed&&META.installed.fighters)||{};
-const INFO=(META.installed&&META.installed.info)||{};
+let INST=(META.installed&&META.installed.fighters)||{};
+let INFO=(META.installed&&META.installed.info)||{};
 const IMGDIR='installed/';
 const instInfo=(code,s)=>(INFO[code]||{})[s]||{};
-let remote={items:{},sha:null},dirty=false,view='E',shown=PAGE,cur=[],detail=null;
+let remote={items:{}},view='E',shown=PAGE,cur=[],detail=null;
 let q='',fighter=LS('ssbu_fighter')||'',au='all',fwifi=false,fsel=false,fsug=false;
-const all=[];F.forEach((f,i)=>f.picks.forEach(p=>{if(!p.withdrawn)all.push({f,p,i,k:key(f,p)})}));
-all.sort((a,b)=>(b.p.audited-a.p.audited)||(a.i-b.i));
-const idx={};F.forEach((f,i)=>f.picks.forEach(p=>idx[key(f,p)]={f,p,i,k:key(f,p)}));
-if(fighter&&!F.some(f=>f.code===fighter))fighter='';
-const saveSel=()=>{LS(SELKEY,JSON.stringify(sel));if(FM)publishVote();else publishPicks()};
-const saveSug=()=>LS('ssbu_sugg',JSON.stringify(sugg));
+const all=[],idx={};
+function buildData(){all.length=0;Object.keys(idx).forEach(k=>delete idx[k]);
+ F.forEach((f,i)=>f.picks.forEach(p=>{const k=key(f,p);idx[k]={f,p,i,k};if(!p.withdrawn)all.push({f,p,i,k})}));
+ all.sort((a,b)=>(b.p.audited-a.p.audited)||(a.i-b.i));
+ if(fighter&&!F.some(f=>f.code===fighter))fighter=''}
+buildData();
+const touch=()=>{LS(SELKEY+'_at',Date.now());publish()};
+const saveSel=()=>{LS(SELKEY,JSON.stringify(sel));touch()};
 const toast=m=>{const t=$('toast');t.textContent=m;t.style.display='block';clearTimeout(toast.h);toast.h=setTimeout(()=>t.style.display='none',3200)};
 const rs=k=>remote.items[k]&&remote.items[k].status&&remote.items[k].status!=='wanted'?remote.items[k].status:null;
 const nfil=()=>(au!=='all')+fwifi+fsel+fsug;
@@ -285,11 +274,10 @@ function reslotNote(k){const p=idx[k].p,sl=sel[k]&&sel[k].slot;if(sl==null)retur
  const nat=(String(p.slots_orig||'').match(/\d+/g)||[]).map(Number);if(!nat.length||nat.includes(sl))return '';
  return `Se reubica de ${nat.length>2?'sus slots':slotName(nat[0])} a ${slotName(sl)}`}
 const isFull=e=>!FM&&!isMii(e.p)&&used(e.f.code)>=limit();
-const allFriends=()=>({...sugg.friends,...liveFriends});
-const sugBy=k=>Object.entries(allFriends()).filter(([n,ks])=>ks.includes(k)).map(([n])=>n);
+const sugBy=k=>Object.entries(liveFriends).filter(([n,ks])=>ks.includes(k)).map(([n])=>n);
 const sgText=k=>{if(FM)return help.raw.includes(k)?help.by+' ya la tiene':'';if(sel[k])return '';const n=sugBy(k);return n.length?'Sugerida · '+(n.length>2?n[0]+' +'+(n.length-1):n.join(', ')):''};
 const isSug=k=>!!sgText(k);
-const sugAll=()=>{const m={};Object.entries(allFriends()).forEach(([n,ks])=>ks.forEach(k=>{if(idx[k]&&!sel[k])(m[k]=m[k]||[]).push(n)}));return Object.keys(m).sort((a,b)=>m[b].length-m[a].length||idx[a].i-idx[b].i)};
+const sugAll=()=>{const m={};Object.entries(liveFriends).forEach(([n,ks])=>ks.forEach(k=>{if(idx[k]&&!sel[k])(m[k]=m[k]||[]).push(n)}));return Object.keys(m).sort((a,b)=>m[b].length-m[a].length||idx[a].i-idx[b].i)};
 const barCls=(u,L)=>u>=L?'full':u>=L-2?'warn':'';
 function tileHTML(code,sn){const ins=instSlots(code).includes(sn),r=ins&&isRepl(code,sn),res=sn===0&&keepOrig,k=bySlot(code)[sn],inf=instInfo(code,sn);
  let cls='',img='',lab='libre',lbl='libre';
@@ -307,7 +295,7 @@ function paintMeter(){const m=$('meter');const f=F.find(x=>x.code===fighter);
  m.hidden=false;m.innerHTML=`<div class="mi">${meterHTML(f)}</div><button id="keep" aria-pressed="${keepOrig}">${keepOrig?'Conservo c00':'Uso c00'}</button>${tilesHTML(f.code)}`;
  $('keep').onclick=toggleKeep}
 $('meter').onclick=e=>{const b=e.target.closest('[data-slot]');if(b)openSlot(b.dataset.code,+b.dataset.slot)};
-function toggleKeep(){keepOrig=!keepOrig;LS('ssbu_keep',keepOrig?'1':'0');dirty=true;paintAll();toast(keepOrig?'Máximo 7 por luchador: conservas el original (c00)':'Máximo 8 por luchador: usas c00–c07');if(view!=='E')renderView();if(lb.k)lbSync();if(detail)dSync()}
+function toggleKeep(){keepOrig=!keepOrig;LS('ssbu_keep',keepOrig?'1':'0');touch();paintAll();toast(keepOrig?'Máximo 7 por luchador: conservas el original (c00)':'Máximo 8 por luchador: usas c00–c07');if(view!=='E')renderView();if(lb.k)lbSync();if(detail)dSync()}
 
 /* ---------- Tarjetas ---------- */
 function stat(p,k){const r=rs(k);
@@ -341,7 +329,7 @@ function paintAll(){ensureSlots();document.querySelectorAll('#grid .card').forEa
 function fillFighters(){$('fs2').innerHTML='<option value="">Todos los luchadores</option>'+F.map(f=>`<option value="${esc(f.code)}"${f.code===fighter?' selected':''}>${esc(f.name)}</option>`).join('')}
 function renderGrid(){cur=all.filter(matches);shown=PAGE;
  $('grid').innerHTML=cur.slice(0,shown).map((e,i)=>card(e,i)).join('');
- head();$('empty').hidden=!!cur.length;paintMeter();more()}
+ head();$('empty').hidden=!!cur.length;$('empty').textContent=F.length?'Nada con estos filtros.':(FBCFG?'Cargando catálogo…':'Catálogo no disponible');paintMeter();more()}
 function head(){$('h2').innerHTML=`Explorar apariencias <span class="fg" style="font-size:14px;font-weight:400">· ${cur.length}</span>`;
  $('fbtn').className=nfil()?'on':'';$('fbtn').textContent='☰ Filtros'+(nfil()?' ('+nfil()+')':'')}
 function more(){const r=cur.length-shown;$('more').hidden=r<=0;$('more').textContent='Ver más ('+r+')'}
@@ -352,7 +340,6 @@ new IntersectionObserver(es=>{if(es[0].isIntersecting&&view==='E')append()},{roo
 let qt;$('q').oninput=e=>{clearTimeout(qt);qt=setTimeout(()=>{q=e.target.value.trim().toLowerCase();renderGrid()},160)};
 $('q').onkeydown=e=>{if(e.key==='Enter')e.target.blur()};
 $('fs2').onchange=e=>{fighter=e.target.value;LS('ssbu_fighter',fighter);renderGrid();e.target.blur()};
-$('info').onclick=()=>tab('I');
 $('grid').onclick=e=>{const b=e.target.closest('[data-b]');if(b){toggle(b.dataset.b);return}
  const d=e.target.closest('[data-d]');if(d){openD(d.dataset.d);return}
  const l=e.target.closest('[data-lb]');if(l)openLB(l.dataset.lb,0)};
@@ -364,25 +351,21 @@ document.addEventListener('error',e=>{const t=e.target;if(!t||t.tagName!=='IMG')
 /* ---------- Acciones ---------- */
 function toggle(k){const e=idx[k];
  if(swap&&e.f.code===swap.code){doSwap(k);return true}
+ if(FM&&!sel[k]&&!LS('ssbu_name')){needName(()=>toggle(k));return false}
  if(!sel[k]){if(isFull(e)){toast(`${e.f.name}: ya tienes ${used(e.f.code)}/${limit()}. Quita una para añadir otra`);buzz([30,40,30]);return false}
   sel[k]={t:Date.now(),slot:FM||isMii(e.p)?null:firstFree(e.f.code)}}else delete sel[k];
- dirty=true;saveSel();buzz(15);paintAll();if(detail===k)dSync();if(lb.k===k)lbSync();if(view!=='E')renderView();return true}
+ saveSel();buzz(15);paintAll();if(detail===k)dSync();if(lb.k===k)lbSync();if(view!=='E')renderView();return true}
 function counts(){const n=Object.keys(sel).length;$('bd').hidden=!n;$('bd').textContent=n;if(FM)paintFm()}
-function paintFm(){const n=Object.keys(sel).filter(k=>idx[k]).length,b=$('fm'),live=!!help.room&&liveState!=='err';b.hidden=false;
- b.innerHTML=`<b>🤝 Ayudando a ${esc(help.by)} · ${n}</b>${live?'<span class="live">● En vivo</span>':'<button id="fmSend">Enviar</button>'}<button id="fmExit">Salir</button>`;
- if(!live)$('fmSend').onclick=sendBack;$('fmExit').onclick=exitHelp}
-async function exitHelp(){if(!confirm('¿Salir del modo ayuda? Tus recomendaciones se quedan guardadas en este dispositivo.'))return;
- clearTimeout(voteT);
- try{if(help.room){if(unsubRoom)unsubRoom();const f=await fb();await f.deleteDoc(f.doc(f.db,'rooms',help.room,'votes',f.uid))}}catch(e){}
- LS('ssbu_help',null);location.reload()}
+function paintFm(){const n=Object.keys(sel).filter(k=>idx[k]).length,b=$('fm');b.hidden=false;
+ b.innerHTML=`<b>🤝 Recomendando ${help.by==='el dueño'?'al dueño':'a '+esc(help.by)} · ${n}</b><span class="live">${dbState==='ok'?'● En vivo':dbState==='err'?'● Sin conexión':dbState==='local'?'● Sin base de datos':'● …'}</span>`}
 
 /* ---------- Pestañas ---------- */
-const secs={E:'vE',S:'vS',P:'vP',I:'vI'},scrollPos={E:0,S:0,P:0,I:0};
+const secs={E:'vE',S:'vS',P:'vP'},scrollPos={E:0,S:0,P:0};
 function tab(v){if(v===view){scrollTo(0,0);return}scrollPos[view]=scrollY;view=v;
  Object.entries(secs).forEach(([x,id])=>{$(id).hidden=x!==v;$('t'+x).classList.toggle('on',x===v)});
  renderView();scrollTo(0,scrollPos[v]||0)}
-function renderView(){if(view==='S')vSel();else if(view==='P')vInst();else if(view==='I')vInfo()}
-$('tE').onclick=()=>tab('E');$('tS').onclick=()=>tab('S');$('tP').onclick=()=>tab('P');$('tI').onclick=()=>tab('I');
+function renderView(){if(view==='S')vSel();else if(view==='P')vInst()}
+$('tE').onclick=()=>tab('E');$('tS').onclick=()=>tab('S');$('tP').onclick=()=>tab('P');
 function vSel(){
  const ks=Object.keys(sel).filter(k=>idx[k]).sort((a,b)=>idx[a].i-idx[b].i||(sel[a].slot==null)-(sel[b].slot==null)||(sel[a].slot||0)-(sel[b].slot||0)),by={};
  ks.forEach(k=>(by[idx[k].f.code]=by[idx[k].f.code]||[]).push(k));
@@ -391,15 +374,16 @@ function vSel(){
  const item=(k,s)=>{const {f,p}=idx[k];return `<div class="item"><button class="th" data-lb="${esc(k)}" aria-label="Ver fotos">${p.img?`<img alt="" loading="lazy" src="${esc(p.g&&p.g[0]?gU(p.g[0],'s'):p.img)}">`:''}</button><div class="m"><b data-d="${esc(k)}">${esc(p.name)}</b><span>${esc(f.name)}${s||FM?'':' · '+slotName(sel[k].slot)}</span><br><span class="stc">${stat(p,k)}</span>${s?sugLine(k):reslotNote(k)?`<br><span class="fg" style="font-size:12px">${esc(reslotNote(k))}</span>`:''}${s||FM||isMii(p)?'':`<div class="ia"><button class="sl2" data-sl="${esc(k)}" aria-label="Cambiar de slot">${slotName(sel[k].slot)} ▾</button><button data-mv="${esc(k)}" data-dir="-1" aria-label="Subir">▲</button><button data-mv="${esc(k)}" data-dir="1" aria-label="Bajar">▼</button><button data-sw="${esc(k)}">⇄ Cambiar</button></div>`}</div>
   ${s?`<button class="x p" data-add="${esc(k)}" aria-label="Añadir ${esc(p.name)}">＋</button>`:`<button class="x" data-b="${esc(k)}" aria-label="Quitar ${esc(p.name)}">✕</button>`}</div>`};
  const groups=Object.entries(by).map(([c,l])=>{const f=F.find(x=>x.code===c),u=used(c),L=limit();if(FM)return `<div class="grp"><h3><span>${esc(f.name)}</span><span style="color:var(--mu)">${l.length}</span></h3></div>`+l.map(k=>item(k)).join('');return `<div class="grp"><h3><span>${esc(f.name)}</span><span style="color:${u>L?'var(--er)':'var(--mu)'}">${instKept(c).length?instKept(c).length+' inst. · ':''}${u}/${L}</span></h3><div class="bar ${barCls(u,L)}"><i style="width:${Math.min(100,u/L*100)}%"></i></div><div style="display:flex;margin-top:8px">${tilesHTML(c)}</div></div>`+l.map(k=>item(k)).join('')}).join('');
- const pend=FM?ks.length>0:dirty||pending();
- $('vS').innerHTML=`<header><div class="ttl"><div><h1>${FM?'Mis recomendaciones':'Mi selección'}</h1><p class="sub">${FM?ks.length+' para '+esc(help.by):ks.length+' guardada'+(ks.length==1?'':'s')+' · máx. '+limit()+' por luchador'}</p></div><button class="ib" id="shr" aria-label="${FM?'Enviar':'Pedir ayuda a amigos'}">⇪</button></div></header>
- ${sk.length?`<div class="box" style="margin-top:12px"><h3>Recomendadas por tus amigos (${sk.length})</h3><p>Las que más amigos eligieron van primero. Toca ＋ para añadir.</p>${sk.map(k=>item(k,1)).join('')}<div class="acts" style="padding:8px 0 0"><button id="addAll">Añadir todas</button><button id="noSug">Descartar</button></div></div>`:''}
+ $('vS').innerHTML=`<header><div class="ttl"><div><h1>${FM?'Mis recomendaciones':'Mi selección'}</h1><p class="sub">${FM?ks.length+' para '+esc(help.by):ks.length+' guardada'+(ks.length==1?'':'s')+' · máx. '+limit()+' por luchador'}</p></div>${FM?'':'<button class="ib" id="shr" aria-label="Compartir la página con amigos">⇪</button>'}</div></header>
+ ${sk.length?`<div class="box" style="margin-top:12px"><h3>Recomendadas por tus amigos (${sk.length})</h3><p>Las que más amigos eligieron van primero. Toca ＋ para añadir.</p>${sk.map(k=>item(k,1)).join('')}<div class="acts" style="padding:8px 0 0"><button id="addAll">Añadir todas</button></div></div>`:''}
+ ${!FM&&Object.keys(liveFriends).length?`<div class="box"><h3>Amigos conectados</h3>${Object.entries(liveFriends).map(([n,ks])=>`<div class="opt" style="min-height:44px"><span style="flex:1">${esc(n)} · ${ks.length} recomendada${ks.length==1?'':'s'}</span><button data-fdel="${esc(n)}" style="min-height:36px">Quitar</button></div>`).join('')}</div>`:''}
  ${groups||'<p class="empty">Aún no guardaste nada.<br>Toca el marcador de una skin para añadirla.</p>'}
- <div class="send"><button class="p" id="send" ${pend?'':'disabled'}>${FM?'Enviar a '+esc(help.by)+' ('+ks.length+')':!pend?'Todo enviado ✓':tok()?'Enviar al ModPack ('+ks.length+')':'Conectar y enviar ('+ks.length+')'}</button></div>`;
- $('send').onclick=FM?sendBack:push;$('shr').onclick=FM?sendBack:(room?shareRoom:shareHelp);
- if($('addAll'))$('addAll').onclick=()=>{let n=0,skp=0;sk.forEach(k=>{if(!sel[k]){if(isFull(idx[k]))skp++;else{sel[k]={t:Date.now()};n++}}});dirty=true;saveSel();paintAll();renderView();toast(n+' añadidas'+(skp?' · '+skp+' no caben en el máximo':''))};
- if($('noSug'))$('noSug').onclick=()=>{sugg={friends:{}};saveSug();paintAll();renderView()}}
-$('vS').onclick=e=>{const t=e.target.closest('[data-slot]');if(t){openSlot(t.dataset.code,+t.dataset.slot);return}
+ <div class="syncst ${dbState}" id="syncst">${syncMsg()}</div>`;
+ if($('shr'))$('shr').onclick=shareApp;
+ if($('addAll'))$('addAll').onclick=()=>{let n=0,skp=0;sk.forEach(k=>{if(!sel[k]){if(isFull(idx[k]))skp++;else{sel[k]={t:Date.now()};n++}}});saveSel();paintAll();renderView();toast(n+' añadidas'+(skp?' · '+skp+' no caben en el máximo':''))};
+ }
+$('vS').onclick=e=>{const fd=e.target.closest('[data-fdel]');if(fd){dropFriend(fd.dataset.fdel);return}
+ const t=e.target.closest('[data-slot]');if(t){openSlot(t.dataset.code,+t.dataset.slot);return}
  const sl=e.target.closest('[data-sl]');if(sl){openSlot(idx[sl.dataset.sl].f.code,sel[sl.dataset.sl].slot,'move');return}
  const mv=e.target.closest('[data-mv]');if(mv){moveSlot(mv.dataset.mv,+mv.dataset.dir);return}
  const sw=e.target.closest('[data-sw]');if(sw){const k=sw.dataset.sw;startSwap(idx[k].f.code,sel[k].slot,k);return}
@@ -407,54 +391,11 @@ $('vS').onclick=e=>{const t=e.target.closest('[data-slot]');if(t){openSlot(t.dat
  const a=e.target.closest('[data-add]');if(a){toggle(a.dataset.add);return}
  const d=e.target.closest('[data-d]');if(d){openD(d.dataset.d);return}
  const l=e.target.closest('[data-lb]');if(l)openLB(l.dataset.lb,0)};
-function vInfoFM(){const n=Object.keys(sel).filter(k=>idx[k]).length;
- $('vI').innerHTML=`<header><h1>Ayudando a ${esc(help.by)}</h1><p class="sub">Tus recomendaciones se guardan solo en este dispositivo.</p></header>
- <div class="box" style="margin-top:12px"><h3>Cómo ayudar</h3><div class="flow"><div><b>1</b><span>Explora y toca el marcador de las skins que te gusten. Las que ${esc(help.by)} ya tiene llevan una etiqueta.</span></div><div><b>2</b><span>Toca <b style="all:unset;font-weight:700">Enviar</b> y mándale el enlace por WhatsApp o donde quieras.</span></div></div></div>
- <div class="box"><h3>Tu nombre</h3><input type="text" id="nm" placeholder="Tu nombre" value="${esc(LS('ssbu_name')||'')}" autocomplete="off"><div class="acts" style="padding:4px 0 0"><button class="p" id="shr2">Enviar a ${esc(help.by)} (${n})</button></div></div>
- <div class="box"><button id="ex2" style="width:100%">Salir del modo ayuda</button></div>`;
- $('nm').onchange=e=>{LS('ssbu_name',e.target.value.trim());publishVote()};$('shr2').onclick=sendBack;$('ex2').onclick=exitHelp}
-function vInfo(){
- if(FM){vInfoFM();return}
- const a=all.filter(e=>e.p.audited).length,n=Object.keys(sel).length;
- const gen=((META&&META.generated)||'').replace('T',' ').replace(/Z$/,'');
- $('vI').innerHTML=`<header><h1>Información</h1><p class="sub">${a} auditadas de ${all.length} · catálogo ${esc(gen)}${META&&META.timezone?' ('+esc(META.timezone)+')':''}</p></header>
- ${FBCFG?roomBox():''}
- <div class="box" style="margin-top:12px"><h3>Pedir ayuda por enlace</h3>
- <p>Sin sala en vivo: manda el enlace, tus amigos marcan las que les gusten y te devuelven otro enlace. Sus recomendaciones aparecen en Mi selección, con las más votadas primero. No necesitan cuenta ni token.</p>
- <input type="text" id="nm" placeholder="Tu nombre (se lo mostramos a tus amigos)" value="${esc(LS('ssbu_name')||'')}" autocomplete="off">
- <div class="acts" style="padding:4px 0 0"><button class="p" id="shr2">Pedir ayuda (${n} elegidas)</button></div>
- ${Object.keys(sugg.friends).length?`<p style="margin-top:12px">Ya te respondieron:</p>${Object.entries(sugg.friends).map(([nm,ks])=>`<div class="opt" style="min-height:44px"><span style="flex:1">${esc(nm)} · ${ks.length} recomendada${ks.length==1?'':'s'}</span><button data-fdel="${esc(nm)}" style="min-height:36px">Quitar</button></div>`).join('')}`:''}</div>
- <div class="box"><h3>Máximo por luchador</h3><label class="opt" style="border:0"><input type="checkbox" id="kp" ${keepOrig?'checked':''}> <span>Conservar el diseño original (c00)<br><small style="color:var(--mu)">Activado: máx. 7 (c01–c07). Desactivado: máx. 8 (c00–c07). Los trajes Mii no cuentan.</small></span></label></div>
- ${META.installed?`<div class="box"><h3>Instalado en el ModPack</h3><p>${Object.keys(INST).length} luchadores con ${Object.values(INST).reduce((n,v)=>n+v.length,0)} slots ocupados · escaneo ${esc((META.installed.scanned_at||'').replace('T',' ').replace('Z',''))}.</p><p>Míralo en la pestaña <b>Instalado</b>: cada slot con su retrato y, cuando el pack lo renombra, su nombre. Esos slots cuentan en el máximo por luchador.</p></div>`:''}
- <div class="box"><h3>Cómo funciona</h3><div class="flow">
- <div><b>1</b><span>Un bot (Grok) audita las skins y actualiza <code>data/catalog.json</code>.</span></div>
- <div><b>2</b><span>Otro agente regenera esta página con el catálogo.</span></div>
- <div><b>3</b><span>Tú guardas las que quieres: se escribe <code>selection.json</code>.</span></div>
- <div><b>4</b><span>Un agente instalador lee esa lista y las instala en la Switch.</span></div></div></div>
- <div class="box"><h3>Conexión con el ModPack</h3>
- <p>La selección se envía a <b>${REPO}</b>. Necesitas un token fine-grained con <i>Contents: read and write</i> solo en ese repo. Se guarda únicamente en este dispositivo.</p>
- <input type="password" id="tok" placeholder="${tok()?'Token guardado · pega otro para reemplazar':'github_pat_…'}" autocomplete="off">
- <div class="acts" style="padding:4px 0 0"><button class="p" id="tokS">Guardar</button><button id="tokD">Quitar</button></div></div>
- <div class="box"><h3>Respaldo</h3><p>${n} en tu selección.</p><div class="acts" style="padding:4px 0 0"><button id="copy">Copiar JSON</button><button id="clr">Vaciar selección</button></div></div>`;
- $('nm').onchange=e=>LS('ssbu_name',e.target.value.trim());
- $('shr2').onclick=()=>{LS('ssbu_name',$('nm').value.trim());shareHelp()};
- document.querySelectorAll('[data-fdel]').forEach(b=>b.onclick=async()=>{const n=b.dataset.fdel;
-  if(liveIds[n]&&room){try{const f=await fb();await f.deleteDoc(f.doc(f.db,'rooms',room.id,'votes',liveIds[n]))}catch(e){liveErr(e)}}
-  else{delete sugg.friends[n];saveSug();paintAll();renderView()}});
- if($('rmNew'))$('rmNew').onclick=()=>needName(async()=>{if(await createRoom())shareRoom()});
- if($('rmShare'))$('rmShare').onclick=shareRoom;if($('rmClose'))$('rmClose').onclick=closeRoom;
- $('kp').onchange=e=>{if(e.target.checked!==keepOrig)toggleKeep()};
- $('tokS').onclick=async()=>{const v=$('tok').value.trim();if(!v)return;LS('ssbu_tok',v);await pull();toast('Token guardado');renderView()};
- $('tokD').onclick=()=>{LS('ssbu_tok',null);toast('Token quitado');renderView()};
- $('copy').onclick=async()=>{const t=JSON.stringify(build(),null,2);try{await navigator.clipboard.writeText(t);toast('JSON copiado')}catch(e){const l=document.createElement('a');l.href=URL.createObjectURL(new Blob([t],{type:'application/json'}));l.download='selection.json';l.click()}};
- $('clr').onclick=()=>{if(confirm('¿Vaciar toda la selección?')){sel={};dirty=true;saveSel();paintAll();renderView()}}}
-
-
 /* ---------- Slots: hoja, mover y «quitar este por este» ---------- */
 let slotCtx=null,swap=null;
 const fname=code=>(F.find(f=>f.code===code)||{}).name||code;
 const markRepl=(code,sn,on)=>{const a=repl[code]||[];repl[code]=on?(a.includes(sn)?a:[...a,sn]):a.filter(x=>x!==sn);if(!repl[code].length)delete repl[code];saveRepl()};
-function afterSlotChange(){dirty=true;saveSel();paintAll();if(view!=='E')renderView();if(lb.k)lbSync();if(detail)dSync();if($('shL').classList.contains('open')&&slotCtx)openSlot(slotCtx.code,slotCtx.sn,slotCtx.mode,true)}
+function afterSlotChange(){saveSel();paintAll();if(view!=='E')renderView();if(lb.k)lbSync();if(detail)dSync();if($('shL').classList.contains('open')&&slotCtx)openSlot(slotCtx.code,slotCtx.sn,slotCtx.mode,true)}
 function openSlot(code,sn,mode,keep){if(sn==null||FM)return;slotCtx={code,sn,mode};
  const ins=instSlots(code).includes(sn),r=ins&&isRepl(code,sn),res=sn===0&&keepOrig,k=bySlot(code)[sn],inf=instInfo(code,sn);
  let body='',acts='';const act=(a,t,c)=>`<button data-act="${a}"${c?` class="${c}"`:''}>${t}</button>`;
@@ -494,7 +435,7 @@ function moveTo(k,t){if(!k||!sel[k])return;const code=idx[k].f.code,cur=sel[k].s
  else if(instKept(code).includes(t)){markRepl(code,t,true);toast(slotName(t)+': se quitará lo instalado')}
  sel[k].slot=t;slotCtx.sn=t;slotCtx.mode='';afterSlotChange()}
 function moveSlot(k,dir){if(!sel[k]||sel[k].slot==null)return;const code=idx[k].f.code,u=usable();let i=u.indexOf(sel[k].slot);
- for(i+=dir;i>=0&&i<u.length;i+=dir){const t=u[i];if(instKept(code).includes(t))continue;const occ=bySlot(code)[t];if(occ&&occ!==k)sel[occ].slot=sel[k].slot;sel[k].slot=t;dirty=true;saveSel();paintAll();if(view!=='E')renderView();return}
+ for(i+=dir;i>=0&&i<u.length;i+=dir){const t=u[i];if(instKept(code).includes(t))continue;const occ=bySlot(code)[t];if(occ&&occ!==k)sel[occ].slot=sel[k].slot;sel[k].slot=t;saveSel();paintAll();if(view!=='E')renderView();return}
  toast('No hay más slots en esa dirección')}
 function startSwap(code,sn,from){swap={code,slot:sn,from};fighter=code;LS('ssbu_fighter',fighter);fillFighters();if(view!=='E')tab('E');renderGrid();paintSw();scrollTo(0,0)}
 function paintSw(){const b=$('sw');$('fs2').disabled=!!swap;if(!swap){b.hidden=true;return}
@@ -507,7 +448,7 @@ function doSwap(k){const {code,slot,from}=swap,e=idx[k];
  const occ=bySlot(code)[slot];if(occ&&occ!==k&&sel[occ])sel[occ].slot=sel[k]&&sel[k].slot!=null?sel[k].slot:null;
  if(instSlots(code).includes(slot)&&!isRepl(code,slot)){markRepl(code,slot,true);msg+=' (se quita lo instalado)'}
  if(!sel[k])sel[k]={t:Date.now()};sel[k].slot=slot;
- swap=null;paintSw();dirty=true;saveSel();buzz(15);paintAll();renderGrid();if(view!=='E')renderView();toast(msg)}
+ swap=null;paintSw();saveSel();buzz(15);paintAll();renderGrid();if(view!=='E')renderView();toast(msg)}
 
 /* ---------- Instalado: vista general ---------- */
 let pfl=LS('ssbu_pfl')||'all';
@@ -515,7 +456,7 @@ function vInst(){
  let nf=0,ns=0,ni=0,nn=0;Object.entries(INST).forEach(([c,v])=>{nf++;ns+=v.length;v.forEach(sn=>{const i=instInfo(c,sn);if(i.skin)ni++;if(i.n)nn++})});
  const rows=F.filter(f=>{const u=used(f.code),L=limit(),ch=nSel(f.code)||(repl[f.code]||[]).length;return pfl==='free'?u<L:pfl==='full'?u>=L:pfl==='chg'?!!ch:pfl==='inst'?instSlots(f.code).length>0:true});
  const FL=[['all','Todos'],['inst','Con instalados'],['free','Con slots libres'],['full','Completos'],['chg','Con cambios']];
- $('vP').innerHTML=`<header><h1>Instalado</h1><p class="sub">${META.installed?`${nf} luchadores · ${ns} slots ocupados · ${ni} con retrato · ${nn} con nombre`:'Sin datos: falta data/installed.json'}</p></header>
+ $('vP').innerHTML=`<header><h1>Instalado</h1><p class="sub">${nf?`${nf} luchadores · ${ns} slots ocupados · ${ni} con retrato · ${nn} con nombre`:'Sin datos de lo instalado todavía'}</p></header>
  <p class="fg" style="margin:10px 0 4px">Así está cada luchador hoy. Toca un slot para verlo, reemplazarlo o quitarlo. En dorado, lo que vas a instalar.</p>
  <div class="fch">${FL.map(([k,l])=>`<button data-pfl="${k}" class="${pfl===k?'on':''}">${l}</button>`).join('')}</div>
  ${rows.map(f=>{const u=used(f.code),L=limit();return `<div class="prow"><button class="pn" data-pf="${esc(f.code)}"><span style="color:var(--tx);font-weight:700;font-size:15px">${esc(f.name)}</span><span>${u}/${L} ›</span></button>${tilesHTML(f.code)}</div>`}).join('')||'<p class="empty">Ninguno con este filtro.</p>'}`}
@@ -600,127 +541,112 @@ $('lbX').onclick=()=>{if(lb.from)lbBack();else closeOv('lb')};
 $('lbSave').onclick=()=>toggle(lb.k);
 $('lbDet').onclick=()=>{if(lb.from==='shD')lbBack();else openD(lb.k,true)};
 
-/* ---------- Amigos: compartir y recibir ---------- */
-const enc=ks=>ks.filter(k=>idx[k]).map(k=>{const i=k.indexOf(':');return encodeURIComponent(k.slice(0,i))+'.'+k.slice(i+1)}).join(',');
-const linkOf=(t,ks)=>{const by=LS('ssbu_name');return location.origin+location.pathname+'#'+t+'='+enc(ks)+(by?'&by='+encodeURIComponent(by):'')};
+/* ---------- Nombre del visitante y compartir la página ---------- */
 async function sendLink(url,text){
  if(navigator.share){try{await navigator.share({title:'Skins SSBU',text,url});return}catch(e){if(e&&e.name==='AbortError')return}}
  try{await navigator.clipboard.writeText(url);toast('Enlace copiado: pégalo en WhatsApp o donde quieras')}catch(e){prompt('Copia este enlace:',url)}}
+const shareApp=()=>sendLink(location.origin+location.pathname,'Ayúdame a elegir skins de Smash: abre la página, marca las que te gusten y yo las veo al instante.');
 let gAction=null,gNoAct=null;
 $('gOk').onclick=()=>gAction&&gAction();
 $('gNo').onclick=()=>{gNoAct?gNoAct():closeOv('shG')};
 function needName(cb){if(LS('ssbu_name'))return cb();
- $('gBody').innerHTML=`<h3>¿Cómo te llamas?</h3><p class="fg">Para que ${FM?esc(help.by):'tus amigos'} sepa de quién es el enlace.</p><input type="text" id="gname" placeholder="Tu nombre" autocomplete="off" style="width:100%;min-height:46px;border-radius:10px;border:1px solid var(--bd);background:var(--s2);padding:0 12px">`;
+ $('gBody').innerHTML=`<h3>¿Cómo te llamas?</h3><p class="fg">Para que ${esc(help.by)} sepa de quién es cada recomendación.</p><input type="text" id="gname" placeholder="Tu nombre" autocomplete="off" style="width:100%;min-height:46px;border-radius:10px;border:1px solid var(--bd);background:var(--s2);padding:0 12px">`;
  $('gOk').hidden=false;$('gNo').hidden=false;$('gOk').textContent='Continuar';$('gNo').textContent='Cancelar';gNoAct=null;
- gAction=()=>{const v=$('gname').value.trim();if(!v){$('gname').focus();return}LS('ssbu_name',v);closeOv('shG');cb()};
+ gAction=()=>{const v=$('gname').value.trim();if(!v){$('gname').focus();return}LS('ssbu_name',v.slice(0,40));closeOv('shG');cb()};
  openOv('shG');setTimeout(()=>$('gname').focus(),150)}
-function shareHelp(){needName(()=>sendLink(linkOf('help',Object.keys(sel)),'Ayúdame a elegir skins de Smash: abre el enlace, marca las que te gusten y mándame tu enlace de vuelta.'))}
-function sendBack(){const ks=Object.keys(sel).filter(k=>idx[k]);if(!ks.length){toast('Marca primero alguna skin');return}
- needName(()=>sendLink(linkOf('sug',ks),`Mis recomendaciones para ti (${ks.length} skins).`))}
-let incoming=null;
-function readHash(){if(!HASH||HASH.type!=='sug'||FM)return;const ks=[...new Set(HASH.raw)].filter(k=>idx[k]);if(ks.length)incoming={by:HASH.by||'Un amigo',keys:ks}}
-function showIncoming(){if(!incoming)return;const {by,keys}=incoming,nw=keys.filter(k=>!sel[k]);
- $('gBody').innerHTML=`<h3>${esc(by)} te recomienda ${keys.length} skin${keys.length==1?'':'s'}</h3><p class="fg">${nw.length?nw.length+' no están en tu selección. Se guardan como recomendaciones de '+esc(by)+' para que decidas.':'Todas ya están en tu selección.'}</p>${keys.slice(0,30).map(k=>{const {f,p}=idx[k];return `<div class="item" style="padding:6px 0"><div class="m"><b>${esc(p.name)}</b><span>${esc(f.name)}${sel[k]?' · ya la tienes':''}</span></div></div>`}).join('')}${keys.length>30?`<p class="fg">… y ${keys.length-30} más</p>`:''}`;
- $('gOk').hidden=!nw.length;$('gNo').hidden=false;$('gOk').textContent='Guardar recomendaciones';$('gNo').textContent=nw.length?'Descartar':'Cerrar';
- gAction=()=>{sugg.friends[incoming.by]=incoming.keys.filter(k=>!sel[k]);saveSug();incoming=null;closeOv('shG');renderGrid();tab('S');toast('Recomendaciones guardadas')};
- gNoAct=()=>{incoming=null;closeOv('shG')};openOv('shG')}
-let welcomeOpen=false;
-function showWelcome(){const n=help.raw.filter(k=>idx[k]).length;
- $('gBody').innerHTML=`<h3 id="wH">${esc(help.by)} te pidió ayuda</h3><p>Está eligiendo skins para Smash y quiere tu opinión.</p><div class="flow"><div><b>1</b><span>Explora y toca el marcador de las que te gusten${n?' ('+esc(help.by)+' ya tiene '+n+', marcadas con una etiqueta)':''}.</span></div><div><b>2</b><span>${help.room?''+esc(help.by)+' ve tus marcas al instante, no tienes que enviar nada.':'Cuando termines, toca <b style="font-weight:700">Enviar</b> arriba y mándale el enlace.'}</span></div></div>${help.room?`<input type="text" id="gname" placeholder="Tu nombre" value="${esc(LS('ssbu_name')||'')}" autocomplete="off" style="width:100%;min-height:46px;border-radius:10px;border:1px solid var(--bd);background:var(--s2);padding:0 12px;margin-top:12px">`:''}`;
- $('gOk').hidden=false;$('gOk').textContent='Empezar';$('gNo').hidden=true;welcomeOpen=true;
- gAction=()=>{if(help.room)LS('ssbu_name',(($('gname').value||'').trim())||'Amigo');welcomeOpen=false;closeOv('shG');$('gNo').hidden=false;publishVote(true)};gNoAct=null;openOv('shG')}
 
-/* ---------- Firebase: salas en vivo (opcional; sin él la página funciona igual con enlaces) ---------- */
+/* ---------- Firebase: la base de datos de todo lo que se muestra ----------
+   catalog/{luchador}, installed/{luchador}, meta/*, status/{clave}: los escribe el backend (tools/db.py); lectura pública.
+   selection/main: la escribe el dueño; todos la leen.  suggestions/{uid}: recomendaciones de visitantes.  config/owner: el dueño.
+   Sin conexión o sin Firebase, la página usa la copia incrustada y guarda en este dispositivo. */
 const FBCFG=META.firebase||null;
-let _fb=null,liveState='off',liveFriends={},liveIds={},liveInit=false,unsubVotes=null,unsubRoom=null;
-// SDK modular desde la CDN de Google, solo cuando hace falta (sala creada o unida)
+const EMU=location.hostname==='localhost'&&/[?&]fbemu/.test(location.search);   // solo para pruebas con los emuladores
+let _fb=null,dbState=FBCFG?'off':'local',lastPub='',metaCat=null,catSnap=null,metaInst=null,instSnap=null,curGen=META.generated||null,curScan=(META.installed&&META.installed.scanned_at)||null,sugInit=false;
 function fb(){if(!FBCFG)return Promise.reject(new Error('Firebase no configurado'));
  return _fb||(_fb=(async()=>{const B='https://www.gstatic.com/firebasejs/10.14.1/';
   const [app,auth,fs]=await Promise.all([import(B+'firebase-app.js'),import(B+'firebase-auth.js'),import(B+'firebase-firestore.js')]);
-  const a=app.initializeApp(FBCFG),au=auth.getAuth(a),db=fs.getFirestore(a);
-  if(location.hostname==='localhost'&&/[?&]fbemu/.test(location.search)){auth.connectAuthEmulator(au,'http://localhost:9099',{disableWarnings:true});fs.connectFirestoreEmulator(db,'localhost',8080)}
+  const a=app.initializeApp(FBCFG),au=auth.getAuth(a);
+  const db=fs.initializeFirestore(a,{localCache:fs.persistentLocalCache({tabManager:fs.persistentMultipleTabManager()})});
+  if(EMU){auth.connectAuthEmulator(au,'http://localhost:9099',{disableWarnings:true});fs.connectFirestoreEmulator(db,'localhost',8080)}
   await new Promise(r=>{const u=auth.onAuthStateChanged(au,()=>{u();r()})});
-  if(!au.currentUser)await auth.signInAnonymously(au);
-  return {...fs,db,uid:au.currentUser.uid}})().catch(e=>{_fb=null;throw e}))}
-function liveSet(st){if(liveState===st)return;liveState=st;if(FM)paintFm();if(view==='I')renderView()}
-function liveErr(e){console.warn('Firebase:',e&&e.code||e);const first=liveState!=='err';liveSet('err');
- if(first)toast(e&&e.code==='permission-denied'?'Sala en vivo: sin permiso. ¿Publicaste las reglas de Firestore?':'Sin conexión en vivo: usa el enlace')}
-const myKeys=()=>Object.keys(sel).filter(k=>idx[k]);
-const newId=()=>{const a=new Uint8Array(12);crypto.getRandomValues(a);return [...a].map(x=>'abcdefghjkmnpqrstuvwxyz23456789'[x%31]).join('')};
-// dueño
-async function createRoom(){try{const f=await fb(),id=newId();
-  await f.setDoc(f.doc(f.db,'rooms',id),{ownerUid:f.uid,ownerName:LS('ssbu_name')||'Alguien',picks:myKeys(),createdAt:f.serverTimestamp(),updatedAt:f.serverTimestamp()});
-  room={id};LS('ssbu_room',JSON.stringify(room));liveSet('ok');await watchVotes();renderView();return id}catch(e){liveErr(e);return null}}
-function publishPicks(){if(FM||!room)return;clearTimeout(pubT);pubT=setTimeout(async()=>{if(!room)return;try{const f=await fb();
-  await f.updateDoc(f.doc(f.db,'rooms',room.id),{picks:myKeys(),ownerName:LS('ssbu_name')||'Alguien',updatedAt:f.serverTimestamp()});liveSet('ok')}catch(e){liveErr(e)}},500)}
-async function watchVotes(){if(unsubVotes||!room)return;const f=await fb();
- unsubVotes=f.onSnapshot(f.collection(f.db,'rooms',room.id,'votes'),snap=>{
-  const m={},ids={};snap.forEach(d=>{const v=d.data()||{};let n=String(v.name||'Amigo').slice(0,40);if(m[n])n+=' ('+d.id.slice(0,3)+')';m[n]=(Array.isArray(v.picks)?v.picks:[]).filter(k=>idx[k]);ids[n]=d.id});
-  if(liveInit)Object.entries(m).forEach(([n,ks])=>{const old=liveFriends[n];if(!old&&ks.length)toast(`${n} entró y recomendó ${ks.length}`);else if(old&&ks.length>old.length)toast(`${n} recomendó ${ks.length-old.length} más`)});
-  liveFriends=m;liveIds=ids;liveInit=true;liveSet('ok');paintAll();if(view==='S'||view==='I')renderView()},e=>{unsubVotes=null;liveErr(e)})}
-async function closeRoom(){if(!room||!confirm('¿Cerrar la sala? Tus amigos dejarán de verte y se borran sus recomendaciones en vivo.'))return;
- clearTimeout(pubT);
- try{const f=await fb();if(unsubVotes){unsubVotes();unsubVotes=null}
-  await Promise.all(Object.values(liveIds).map(id=>f.deleteDoc(f.doc(f.db,'rooms',room.id,'votes',id))));
-  await f.deleteDoc(f.doc(f.db,'rooms',room.id))}catch(e){liveErr(e)}
- room=null;LS('ssbu_room',null);liveFriends={};liveIds={};liveInit=false;liveSet('off');paintAll();renderView()}
-function shareRoom(){if(!room)return;sendLink(location.origin+location.pathname+'#room='+room.id,'Entra a mi sala y ayúdame a elegir skins de Smash: marca las que te gusten y yo las veo al instante.')}
-function roomBox(){const live=Object.entries(liveFriends),err=liveState==='err';
- if(!room)return `<div class="box" style="margin-top:12px"><h3>Sala en vivo</h3><p>Crea una sala y comparte el enlace: tus amigos ven lo que eliges y tú ves sus recomendaciones al instante. No necesitan cuenta.</p><div class="acts" style="padding:4px 0 0"><button class="p" id="rmNew">Crear sala en vivo</button></div></div>`;
- return `<div class="box" style="margin-top:12px"><h3>Sala en vivo <span class="live" style="color:${err?'var(--er)':'var(--ok)'}">${err?'● sin conexión':'● activa'}</span></h3><p>${live.length?live.length+' amigo'+(live.length==1?'':'s')+' en la sala:':'Comparte el enlace: aquí verás a tus amigos.'}</p>${live.map(([n,ks])=>`<div class="opt" style="min-height:44px"><span style="flex:1">${esc(n)} · ${ks.length} recomendada${ks.length==1?'':'s'}</span><button data-fdel="${esc(n)}" style="min-height:36px">Quitar</button></div>`).join('')}<div class="acts" style="padding:8px 0 0"><button class="p" id="rmShare">Compartir enlace</button><button id="rmClose">Cerrar sala</button></div></div>`}
-// amigo
-async function joinRoom(){if(!FM||!help.room||unsubRoom)return;
- try{const f=await fb();
-  unsubRoom=f.onSnapshot(f.doc(f.db,'rooms',help.room),snap=>{
-   if(!snap.exists()){liveSet('err');toast('La sala se cerró. Puedes enviar tus recomendaciones con el enlace.');return}
-   const d=snap.data();help.by=d.ownerName||help.by;help.raw=Array.isArray(d.picks)?d.picks:[];LS('ssbu_help',JSON.stringify(help));
-   if(welcomeOpen&&$('wH'))$('wH').textContent=help.by+' te pidió ayuda';
-   liveSet('ok');paintAll();counts()},e=>{unsubRoom=null;liveErr(e)});
-  publishVote(true)}catch(e){liveErr(e)}}
-function publishVote(now){if(!FM||!help.room)return;clearTimeout(voteT);
- const go=async()=>{if(!FM||!help.room)return;try{const f=await fb();await f.setDoc(f.doc(f.db,'rooms',help.room,'votes',f.uid),{name:(LS('ssbu_name')||'Amigo').slice(0,40),picks:myKeys(),updatedAt:f.serverTimestamp()});liveSet('ok')}catch(e){liveErr(e)}};
- if(now)go();else voteT=setTimeout(go,500)}
-
-/* ---------- Contrato selection.json ---------- */
-function rankOf(k){const code=idx[k].f.code;const ks=Object.keys(sel).filter(x=>idx[x]&&idx[x].f.code===code).sort((a,b)=>(sel[a].slot==null)-(sel[b].slot==null)||(sel[a].slot||0)-(sel[b].slot||0));return ks.indexOf(k)+1}
-function build(){const items=[];
- Object.keys(sel).forEach(k=>{const e=idx[k];if(!e)return;const {f,p}=e,r=remote.items[k];
-  items.push({key:k,fighter:f.name,roster_no:f.code,mod_id:p.id,name:p.name,author:p.author,url:p.url,dest_slot:p.dest||null,assigned_slot:sel[k].slot!=null?slotName(sel[k].slot):null,order:rankOf(k),native_slots:p.slots_orig||null,assignment:p.assignment||null,audited:p.audited,wifi:p.wifi_status||'pendiente',dependencies:p.deps||null,conflicts:p.conflicts||null,notes:p.notes||null,
-   status:(r&&r.status)||'wanted',selected_at:(r&&r.selected_at)||new Date(sel[k].t).toISOString(),...(r&&r.status&&r.status!=='wanted'?{result:r.result||null,updated_at:r.updated_at||null}:{})})});
- Object.keys(remote.items).forEach(k=>{const r=remote.items[k];if(!sel[k]&&r.status&&r.status!=='wanted')items.push(r)});
- return {schema:1,generated_at:new Date().toISOString(),catalog:META&&META.generated||null,target:{game:'Super Smash Bros. Ultimate',version:'13.0.5',loader:'ARCropolis 4.1.1',modpack_repo:'GianZapata/Gian-Ultimate-Modpack-private'},limits:{per_fighter:limit(),keep_original_slot:keepOrig},replace_slots:repl,items}}
-function pending(){const g=(k,sl)=>k+'@'+(sl==null?'':sl);const a=Object.keys(sel).map(k=>g(k,sel[k].slot)).sort().join(),b=Object.keys(remote.items).filter(k=>(remote.items[k].status||'wanted')==='wanted').map(k=>g(k,slotNum(remote.items[k].assigned_slot))).sort().join();return a!==b}
-
-/* ---------- GitHub ---------- */
-const tok=()=>LS('ssbu_tok');
-const gh=(u,o={})=>fetch('https://api.github.com/repos/'+REPO+u,{...o,headers:{Accept:'application/vnd.github+json',...(tok()?{Authorization:'Bearer '+tok()}:{}),...(o.headers||{})}});
-const b64d=s=>new TextDecoder().decode(Uint8Array.from(atob(s.replace(/\n/g,'')),c=>c.charCodeAt(0)));
-const b64e=s=>{let r='';new TextEncoder().encode(s).forEach(c=>r+=String.fromCharCode(c));return btoa(r)};
-const applyRemote=j=>{remote.items={};(j.items||[]).forEach(e=>{remote.items[e.key]=e})};
-async function pull(first){
- if(FM)return;
- try{let r;
-  if(tok()){r=await gh('/contents/'+PATHF+'?ref='+BR);if(r.status===404){remote={items:{},sha:null};return}if(!r.ok)throw 0;const j=await r.json();remote.sha=j.sha;applyRemote(JSON.parse(b64d(j.content)))}
-  else{r=await fetch(PATHF+'?'+Date.now());if(!r.ok)return;applyRemote(await r.json())}
-  if(first&&!Object.keys(sel).length&&!dirty){Object.values(remote.items).forEach(e=>{if(idx[e.key]&&(e.status||'wanted')==='wanted')sel[e.key]={t:Date.parse(e.selected_at)||Date.now(),slot:slotNum(e.assigned_slot)}});saveSel()}
- }catch(e){}
- paintAll();if(view!=='E'&&!isTxt(document.activeElement))renderView()}
-async function push(){
- if(!tok()){tab('I');toast('Primero pega tu token');return}
- const b=$('send');b.disabled=true;b.textContent='Enviando…';
- try{await pull();
-  const body={message:`Selección de skins: ${Object.keys(sel).length} guardadas`,content:b64e(JSON.stringify(build(),null,2)+'\n'),branch:BR};if(remote.sha)body.sha=remote.sha;
-  const r=await gh('/contents/'+PATHF,{method:'PUT',body:JSON.stringify(body)});
-  if(!r.ok)throw new Error(r.status===401||r.status===403?'el token no tiene permiso de escritura':r.status===409||r.status===422?'conflicto, reintenta':'GitHub '+r.status);
-  const j=await r.json();remote.sha=j.content.sha;dirty=false;await pull();toast('Enviado ✓ Ya queda para instalar')
- }catch(e){toast('Error: '+e.message);renderView()}}
-addEventListener('beforeunload',e=>{if(dirty&&tok()){e.preventDefault();e.returnValue=''}});
-// un enlace de un amigo pegado en la misma pestaña solo cambia el #: reiniciar para procesarlo
-addEventListener('hashchange',()=>{if(/^#(sel|help|sug|room)=/.test(location.hash))location.reload()});
+  return {...fs,...auth,db,auth:au}})().catch(e=>{_fb=null;throw e}))}
+const syncMsg=()=>FM?'Tus recomendaciones se envían solas':({ok:'☁ Guardado en la nube',saving:'Guardando…',err:'⚠ Sin conexión: se guardará al volver',off:'Conectando…',local:'Solo en este dispositivo'})[dbState]||'';
+function setDb(st){if(dbState===st)return;dbState=st;if(FM)paintFm();const e=$('syncst');if(e){e.className='syncst '+st;e.textContent=syncMsg()}}
+function dbErr(e,quiet){console.warn('Firebase:',e&&e.code||e);const first=dbState!=='err';setDb('err');
+ if(first&&!quiet)toast(e&&e.code==='permission-denied'?'Sin permiso en la base de datos. ¿Entraste como dueño y están publicadas las reglas?':'Sin conexión con la base de datos')}
+const rankOf=k=>{const code=idx[k].f.code,ks=Object.keys(sel).filter(x=>idx[x]&&idx[x].f.code===code).sort((a,b)=>(sel[a].slot==null)-(sel[b].slot==null)||(sel[a].slot||0)-(sel[b].slot||0));return ks.indexOf(k)+1};
+const pubSig=()=>JSON.stringify([Object.keys(sel).filter(k=>idx[k]).sort().map(k=>[k,sel[k].slot]),repl,keepOrig]);
+const authed=async f=>{if(!f.auth.currentUser)await f.signInAnonymously(f.auth);return f.auth.currentUser.uid};
+// publicar: el dueño escribe selection/main; el visitante su documento en suggestions
+function publish(now){if(!FBCFG)return;clearTimeout(pubT);
+ const go=async()=>{const sig=pubSig();if(!now&&sig===lastPub)return;
+  if(!navigator.onLine)setDb('err');else setDb('saving');
+  try{const f=await fb();
+   if(FM){const uid=await authed(f);await f.setDoc(f.doc(f.db,'suggestions',uid),{name:(LS('ssbu_name')||'Amigo').slice(0,40),picks:Object.keys(sel).filter(k=>idx[k]),updatedAt:f.serverTimestamp()})}
+   else{const ms=+(LS(SELKEY+'_at')||Date.now()),picks={};
+    Object.keys(sel).filter(k=>idx[k]).forEach(k=>{picks[k]={t:sel[k].t||ms,slot:sel[k].slot==null?null:sel[k].slot,order:rankOf(k)}});
+    await f.setDoc(f.doc(f.db,'selection','main'),{ownerName:(LS('ssbu_name')||'Gian').slice(0,40),picks,repl,keepOrig,updatedAt:f.serverTimestamp(),updatedMs:ms})}
+   lastPub=sig;setDb('ok')}catch(e){dbErr(e,!(e&&e.code==='permission-denied'))}};   // solo avisa si es un problema de permisos; la conexión se ve en la línea de estado
+ if(now)go();else pubT=setTimeout(go,600)}
+// catálogo e instalado: la base manda si es más reciente que la copia incrustada
+function maybeApplyCatalog(){if(!catSnap||!metaCat)return;const gen=metaCat.generated||null;
+ if(F.length&&gen&&gen===curGen)return;
+ const L=[];catSnap.forEach(d=>L.push(d.data()));if(!L.length)return;
+ L.sort((a,b)=>(a.order||0)-(b.order||0));F=L.map(({order,updatedAt,...f})=>f);curGen=gen;
+ buildData();fillFighters();renderGrid();paintAll();renderView()}
+function maybeApplyInstalled(){if(!instSnap||!metaInst)return;const sc=metaInst.scanned_at||null;
+ if(Object.keys(INST).length&&sc&&sc===curScan)return;
+ const I={},N={};instSnap.forEach(d=>{const v=d.data();I[d.id]=v.slots||[];N[d.id]=v.info||{}});if(!Object.keys(I).length)return;
+ INST=I;INFO=N;curScan=sc;ensureSlots();paintAll();renderView()}
+// selección del dueño: los visitantes la ven; el dueño la sincroniza entre dispositivos (gana lo más reciente)
+function applySelection(snap){const d=snap.exists()?snap.data():null;
+ if(FM){help.by=(d&&d.ownerName)||help.by;LS('ssbu_ownername',help.by);help.raw=d?Object.keys(d.picks||{}):[];setDb('ok');paintAll();counts();return}
+ if(snap.metadata.hasPendingWrites)return;
+ const local=+(LS(SELKEY+'_at')||0);
+ if(!d){setDb('ok');if(Object.keys(sel).length)publish(true);return}
+ const ms=d.updatedMs||0;
+ if(ms>local){const np={};Object.entries(d.picks||{}).forEach(([k,v])=>{if(idx[k])np[k]={t:v.t||Date.now(),slot:v.slot==null?null:v.slot}});
+  sel=np;repl=d.repl||{};keepOrig=!!d.keepOrig;
+  LS(SELKEY,JSON.stringify(sel));LS('ssbu_repl',JSON.stringify(repl));LS('ssbu_keep',keepOrig?'1':'0');LS(SELKEY+'_at',ms);lastPub=pubSig();
+  setDb('ok');ensureSlots();paintAll();renderView()}
+ else if(ms<local)publish(true);else{lastPub=pubSig();setDb('ok')}}
+function applySuggestions(snap){const m={},ids={};
+ snap.forEach(d=>{const v=d.data()||{};let n=String(v.name||'Amigo').slice(0,40);if(m[n])n+=' ('+d.id.slice(0,3)+')';m[n]=(Array.isArray(v.picks)?v.picks:[]).filter(k=>idx[k]);ids[n]=d.id});
+ if(sugInit)Object.entries(m).forEach(([n,ks])=>{const old=liveFriends[n];if(!old&&ks.length)toast(`${n} entró y recomendó ${ks.length}`);else if(old&&ks.length>old.length)toast(`${n} recomendó ${ks.length-old.length} más`)});
+ liveFriends=m;liveIds=ids;sugInit=true;paintAll();if(view==='S')renderView()}
+function applyStatus(snap){remote.items={};snap.forEach(d=>{const v=d.data()||{};remote.items[v.key||d.id]=v});paintAll();if(view==='S')renderView()}
+async function dropFriend(name){if(!liveIds[name])return;try{const f=await fb();await f.deleteDoc(f.doc(f.db,'suggestions',liveIds[name]))}catch(e){dbErr(e)}}
+// sesión del dueño
+async function login(){try{const f=await fb();let u;
+  const tu=EMU&&window.__fbTestUser;   // prueba con emuladores: cuenta de Google simulada
+  if(tu)u=(await f.signInWithCredential(f.auth,f.GoogleAuthProvider.credential(JSON.stringify(tu)))).user;
+  else u=(await f.signInWithPopup(f.auth,new f.GoogleAuthProvider())).user;
+  const ref=f.doc(f.db,'config','owner'),s=await f.getDoc(ref);
+  if(!s.exists())await f.setDoc(ref,{uid:u.uid,claimedAt:f.serverTimestamp()});   // el primero en entrar queda como dueño
+  else if(s.data().uid!==u.uid){await f.signOut(f.auth);toast('Esta cuenta no es la del dueño');return}
+  LS('ssbu_owner','1');if(!LS('ssbu_name')&&u.displayName)LS('ssbu_name',u.displayName.split(' ')[0]);location.reload()
+ }catch(e){if(e&&(e.code==='auth/popup-closed-by-user'||e.code==='auth/cancelled-popup-request'))return;console.warn('login',e);toast('No se pudo entrar: '+((e&&e.code)||e))}}
+async function logout(){if(!confirm('¿Cerrar sesión? Dejarás de editar la selección en este dispositivo.'))return;
+ try{const f=await fb();await f.signOut(f.auth)}catch(e){}LS('ssbu_owner',null);location.reload()}
+$('auth').textContent=OWNER?'👤':'🔒';$('auth').setAttribute('aria-label',OWNER?'Cerrar sesión':'Entrar como dueño');
+$('auth').onclick=()=>OWNER?logout():login();
+async function startDb(){if(!FBCFG)return;
+ try{const f=await fb(),sub=(ref,ok)=>f.onSnapshot(ref,ok,e=>dbErr(e,true));
+  sub(f.doc(f.db,'meta','catalog'),s=>{metaCat=s.exists()?s.data():null;maybeApplyCatalog()});
+  sub(f.collection(f.db,'catalog'),s=>{catSnap=s;maybeApplyCatalog()});
+  sub(f.doc(f.db,'meta','installed'),s=>{metaInst=s.exists()?s.data():null;maybeApplyInstalled()});
+  sub(f.collection(f.db,'installed'),s=>{instSnap=s;maybeApplyInstalled()});
+  sub(f.collection(f.db,'status'),applyStatus);
+  sub(f.doc(f.db,'selection','main'),applySelection);
+  if(!FM){
+   sub(f.collection(f.db,'suggestions'),applySuggestions);
+   if(!f.auth.currentUser){console.warn('sesión del dueño caducada');LS('ssbu_owner',null);location.reload();return}                                   // la sesión caducó
+   sub(f.doc(f.db,'config','owner'),s=>{if(s.metadata.hasPendingWrites)return;   // estado provisional de una escritura que el servidor aún puede rechazar
+    if(s.exists()&&f.auth.currentUser&&s.data().uid!==f.auth.currentUser.uid){console.warn('otra cuenta es la dueña');LS('ssbu_owner',null);location.reload()}})}
+ }catch(e){dbErr(e,true)}}
 
 if(FM){document.body.classList.add('fmode');$('tSl').textContent='Elegidas';$('tP').hidden=true}
 ensureSlots();
-fillFighters();readHash();renderGrid();counts();pull(true);
-if(FM&&help.room)joinRoom();else if(room){watchVotes().catch(liveErr);publishPicks()}
-if(incoming)setTimeout(showIncoming,300);else if(FM&&HASH&&(HASH.type==='help'||HASH.type==='room'))setTimeout(showWelcome,300);
+fillFighters();renderGrid();counts();
+startDb();
 </script></body></html>
