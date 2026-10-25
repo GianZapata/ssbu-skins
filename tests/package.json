@@ -1,0 +1,16 @@
+{
+  "name": "ssbu-skins-tests",
+  "private": true,
+  "description": "Pruebas end-to-end (Playwright + emuladores de Firebase) de la web publicada",
+  "scripts": {
+    "bundle": "node build-fb-bundle.mjs",
+    "e2e": "node e2e/run-all.js"
+  },
+  "dependencies": {
+    "esbuild": "0.28.2",
+    "firebase": "10.14.1",
+    "firebase-tools": "13.35.1",
+    "photoswipe": "5.4.4",
+    "playwright": "1.63.0"
+  }
+}

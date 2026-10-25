@@ -1,0 +1,3 @@
+Pillow
+google-cloud-firestore
+selenium
