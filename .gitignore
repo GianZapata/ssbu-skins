@@ -5,3 +5,5 @@ thumbs/
 *.log
 tailwindcss-*
 __pycache__/
+.firebase/
+*-debug.log

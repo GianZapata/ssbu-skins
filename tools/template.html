@@ -32,6 +32,7 @@ h1{margin:0;font-size:30px;letter-spacing:-.5px;line-height:1.1}
 h2{font-size:21px;margin:18px 0 12px}
 .fm{position:sticky;top:0;z-index:35;background:var(--ac);color:#1a1300;padding:calc(8px + env(safe-area-inset-top)) 12px 8px;display:flex;align-items:center;gap:8px;font-size:14px}
 .fm b{flex:1;min-width:0}
+.live{font-weight:700;font-size:13px;white-space:nowrap}
 .fm button{min-height:38px;font-size:13px;padding:0 10px;background:#1a1300;color:var(--ac);border-color:#1a1300}
 body.fmode header{padding-top:10px}
 .meter{background:var(--s1);border:1px solid var(--bd);border-radius:14px;padding:10px 12px;margin-top:12px;display:flex;flex-wrap:wrap;align-items:center;gap:8px 12px}
@@ -217,14 +218,19 @@ const BM='<svg viewBox="0 0 24 24"><path d="M6 3h12v18l-6-4-6 4z"/></svg>';
 const buzz=p=>{try{navigator.vibrate&&navigator.vibrate(p)}catch(e){}};
 const gU=(f,s)=>s==='o'?META.base+'/'+f:META.base+'/'+(s==='m'?'530':'220')+'-90_'+f;
 /* Amigos: #help (yo → amigo) abre el modo ayuda; #sug (amigo → yo) trae sus recomendaciones; #sel es el formato antiguo de #sug */
-function parseHash(){const m=location.hash.replace(/^#/,'').match(/^(sel|help|sug)=([^&]*)(?:&by=(.*))?$/);if(!m)return null;
+function parseHash(){const h=location.hash.replace(/^#/,''),rm=h.match(/^room=([a-z0-9]{6,32})$/);if(rm)return {type:'room',id:rm[1],by:'',raw:[]};
+ const m=h.match(/^(sel|help|sug)=([^&]*)(?:&by=(.*))?$/);if(!m)return null;
  let by='';try{by=m[3]?decodeURIComponent(m[3]):''}catch(e){}
  const raw=m[2].split(',').filter(Boolean).map(x=>{const i=x.indexOf('.');if(i<1)return null;try{return decodeURIComponent(x.slice(0,i))+':'+x.slice(i+1)}catch(e){return null}}).filter(Boolean);
  return {type:m[1]==='help'?'help':'sug',by,raw}}
 const HASH=parseHash();
 if(HASH){try{history.replaceState(null,'',location.pathname+location.search)}catch(e){}}
+let room=J('ssbu_room',null);   // sala en vivo que yo creé: {id}
+const ownRoom=!!(HASH&&HASH.type==='room'&&room&&room.id===HASH.id);   // el dueño abrió su propio enlace
+let pubT=0,voteT=0;
 if(HASH&&HASH.type==='help')LS('ssbu_help',JSON.stringify({by:HASH.by||'Alguien',raw:HASH.raw}));
-const help=J('ssbu_help',null),FM=!!help;
+if(HASH&&HASH.type==='room'&&!ownRoom){const o=J('ssbu_help',null),same=o&&o.room===HASH.id;LS('ssbu_help',JSON.stringify({by:same&&o.by||'Alguien',raw:same&&o.raw||[],room:HASH.id}))}
+let help=J('ssbu_help',null);const FM=!!help;
 const SELKEY=FM?'ssbu_fsel':'ssbu_sel_v2';
 let sel=J(SELKEY,{});
 try{const o=FM?null:J('ssbu_sel_v1',null);if(o&&!Object.keys(sel).length){Object.keys(o).forEach(k=>sel[k]={t:Date.now()});LS(SELKEY,JSON.stringify(sel))}}catch(e){}
@@ -242,7 +248,7 @@ const all=[];F.forEach((f,i)=>f.picks.forEach(p=>{if(!p.withdrawn)all.push({f,p,
 all.sort((a,b)=>(b.p.audited-a.p.audited)||(a.i-b.i));
 const idx={};F.forEach((f,i)=>f.picks.forEach(p=>idx[key(f,p)]={f,p,i,k:key(f,p)}));
 if(fighter&&!F.some(f=>f.code===fighter))fighter='';
-const saveSel=()=>LS(SELKEY,JSON.stringify(sel));
+const saveSel=()=>{LS(SELKEY,JSON.stringify(sel));if(FM)publishVote();else publishPicks()};
 const saveSug=()=>LS('ssbu_sugg',JSON.stringify(sugg));
 const toast=m=>{const t=$('toast');t.textContent=m;t.style.display='block';clearTimeout(toast.h);toast.h=setTimeout(()=>t.style.display='none',3200)};
 const rs=k=>remote.items[k]&&remote.items[k].status&&remote.items[k].status!=='wanted'?remote.items[k].status:null;
@@ -279,10 +285,11 @@ function reslotNote(k){const p=idx[k].p,sl=sel[k]&&sel[k].slot;if(sl==null)retur
  const nat=(String(p.slots_orig||'').match(/\d+/g)||[]).map(Number);if(!nat.length||nat.includes(sl))return '';
  return `Se reubica de ${nat.length>2?'sus slots':slotName(nat[0])} a ${slotName(sl)}`}
 const isFull=e=>!FM&&!isMii(e.p)&&used(e.f.code)>=limit();
-const sugBy=k=>Object.entries(sugg.friends).filter(([n,ks])=>ks.includes(k)).map(([n])=>n);
+const allFriends=()=>({...sugg.friends,...liveFriends});
+const sugBy=k=>Object.entries(allFriends()).filter(([n,ks])=>ks.includes(k)).map(([n])=>n);
 const sgText=k=>{if(FM)return help.raw.includes(k)?help.by+' ya la tiene':'';if(sel[k])return '';const n=sugBy(k);return n.length?'Sugerida · '+(n.length>2?n[0]+' +'+(n.length-1):n.join(', ')):''};
 const isSug=k=>!!sgText(k);
-const sugAll=()=>{const m={};Object.entries(sugg.friends).forEach(([n,ks])=>ks.forEach(k=>{if(idx[k]&&!sel[k])(m[k]=m[k]||[]).push(n)}));return Object.keys(m).sort((a,b)=>m[b].length-m[a].length||idx[a].i-idx[b].i)};
+const sugAll=()=>{const m={};Object.entries(allFriends()).forEach(([n,ks])=>ks.forEach(k=>{if(idx[k]&&!sel[k])(m[k]=m[k]||[]).push(n)}));return Object.keys(m).sort((a,b)=>m[b].length-m[a].length||idx[a].i-idx[b].i)};
 const barCls=(u,L)=>u>=L?'full':u>=L-2?'warn':'';
 function tileHTML(code,sn){const ins=instSlots(code).includes(sn),r=ins&&isRepl(code,sn),res=sn===0&&keepOrig,k=bySlot(code)[sn],inf=instInfo(code,sn);
  let cls='',img='',lab='libre',lbl='libre';
@@ -361,10 +368,13 @@ function toggle(k){const e=idx[k];
   sel[k]={t:Date.now(),slot:FM||isMii(e.p)?null:firstFree(e.f.code)}}else delete sel[k];
  dirty=true;saveSel();buzz(15);paintAll();if(detail===k)dSync();if(lb.k===k)lbSync();if(view!=='E')renderView();return true}
 function counts(){const n=Object.keys(sel).length;$('bd').hidden=!n;$('bd').textContent=n;if(FM)paintFm()}
-function paintFm(){const n=Object.keys(sel).filter(k=>idx[k]).length,b=$('fm');b.hidden=false;
- b.innerHTML=`<b>🤝 Ayudando a ${esc(help.by)} · ${n}</b><button id="fmSend">Enviar</button><button id="fmExit">Salir</button>`;
- $('fmSend').onclick=sendBack;$('fmExit').onclick=exitHelp}
-function exitHelp(){if(confirm('¿Salir del modo ayuda? Tus recomendaciones se quedan guardadas en este dispositivo.')){LS('ssbu_help',null);location.reload()}}
+function paintFm(){const n=Object.keys(sel).filter(k=>idx[k]).length,b=$('fm'),live=!!help.room&&liveState!=='err';b.hidden=false;
+ b.innerHTML=`<b>🤝 Ayudando a ${esc(help.by)} · ${n}</b>${live?'<span class="live">● En vivo</span>':'<button id="fmSend">Enviar</button>'}<button id="fmExit">Salir</button>`;
+ if(!live)$('fmSend').onclick=sendBack;$('fmExit').onclick=exitHelp}
+async function exitHelp(){if(!confirm('¿Salir del modo ayuda? Tus recomendaciones se quedan guardadas en este dispositivo.'))return;
+ clearTimeout(voteT);
+ try{if(help.room){if(unsubRoom)unsubRoom();const f=await fb();await f.deleteDoc(f.doc(f.db,'rooms',help.room,'votes',f.uid))}}catch(e){}
+ LS('ssbu_help',null);location.reload()}
 
 /* ---------- Pestañas ---------- */
 const secs={E:'vE',S:'vS',P:'vP',I:'vI'},scrollPos={E:0,S:0,P:0,I:0};
@@ -386,7 +396,7 @@ function vSel(){
  ${sk.length?`<div class="box" style="margin-top:12px"><h3>Recomendadas por tus amigos (${sk.length})</h3><p>Las que más amigos eligieron van primero. Toca ＋ para añadir.</p>${sk.map(k=>item(k,1)).join('')}<div class="acts" style="padding:8px 0 0"><button id="addAll">Añadir todas</button><button id="noSug">Descartar</button></div></div>`:''}
  ${groups||'<p class="empty">Aún no guardaste nada.<br>Toca el marcador de una skin para añadirla.</p>'}
  <div class="send"><button class="p" id="send" ${pend?'':'disabled'}>${FM?'Enviar a '+esc(help.by)+' ('+ks.length+')':!pend?'Todo enviado ✓':tok()?'Enviar al ModPack ('+ks.length+')':'Conectar y enviar ('+ks.length+')'}</button></div>`;
- $('send').onclick=FM?sendBack:push;$('shr').onclick=FM?sendBack:shareHelp;
+ $('send').onclick=FM?sendBack:push;$('shr').onclick=FM?sendBack:(room?shareRoom:shareHelp);
  if($('addAll'))$('addAll').onclick=()=>{let n=0,skp=0;sk.forEach(k=>{if(!sel[k]){if(isFull(idx[k]))skp++;else{sel[k]={t:Date.now()};n++}}});dirty=true;saveSel();paintAll();renderView();toast(n+' añadidas'+(skp?' · '+skp+' no caben en el máximo':''))};
  if($('noSug'))$('noSug').onclick=()=>{sugg={friends:{}};saveSug();paintAll();renderView()}}
 $('vS').onclick=e=>{const t=e.target.closest('[data-slot]');if(t){openSlot(t.dataset.code,+t.dataset.slot);return}
@@ -402,14 +412,15 @@ function vInfoFM(){const n=Object.keys(sel).filter(k=>idx[k]).length;
  <div class="box" style="margin-top:12px"><h3>Cómo ayudar</h3><div class="flow"><div><b>1</b><span>Explora y toca el marcador de las skins que te gusten. Las que ${esc(help.by)} ya tiene llevan una etiqueta.</span></div><div><b>2</b><span>Toca <b style="all:unset;font-weight:700">Enviar</b> y mándale el enlace por WhatsApp o donde quieras.</span></div></div></div>
  <div class="box"><h3>Tu nombre</h3><input type="text" id="nm" placeholder="Tu nombre" value="${esc(LS('ssbu_name')||'')}" autocomplete="off"><div class="acts" style="padding:4px 0 0"><button class="p" id="shr2">Enviar a ${esc(help.by)} (${n})</button></div></div>
  <div class="box"><button id="ex2" style="width:100%">Salir del modo ayuda</button></div>`;
- $('nm').onchange=e=>LS('ssbu_name',e.target.value.trim());$('shr2').onclick=sendBack;$('ex2').onclick=exitHelp}
+ $('nm').onchange=e=>{LS('ssbu_name',e.target.value.trim());publishVote()};$('shr2').onclick=sendBack;$('ex2').onclick=exitHelp}
 function vInfo(){
  if(FM){vInfoFM();return}
  const a=all.filter(e=>e.p.audited).length,n=Object.keys(sel).length;
  const gen=((META&&META.generated)||'').replace('T',' ').replace(/Z$/,'');
  $('vI').innerHTML=`<header><h1>Información</h1><p class="sub">${a} auditadas de ${all.length} · catálogo ${esc(gen)}${META&&META.timezone?' ('+esc(META.timezone)+')':''}</p></header>
- <div class="box" style="margin-top:12px"><h3>Pedir ayuda a mis amigos</h3>
- <p>Manda el enlace: tus amigos ven qué ya tienes, marcan las que les gusten y te devuelven otro enlace. Sus recomendaciones aparecen en Mi selección, con las más votadas primero. No necesitan cuenta ni token.</p>
+ ${FBCFG?roomBox():''}
+ <div class="box" style="margin-top:12px"><h3>Pedir ayuda por enlace</h3>
+ <p>Sin sala en vivo: manda el enlace, tus amigos marcan las que les gusten y te devuelven otro enlace. Sus recomendaciones aparecen en Mi selección, con las más votadas primero. No necesitan cuenta ni token.</p>
  <input type="text" id="nm" placeholder="Tu nombre (se lo mostramos a tus amigos)" value="${esc(LS('ssbu_name')||'')}" autocomplete="off">
  <div class="acts" style="padding:4px 0 0"><button class="p" id="shr2">Pedir ayuda (${n} elegidas)</button></div>
  ${Object.keys(sugg.friends).length?`<p style="margin-top:12px">Ya te respondieron:</p>${Object.entries(sugg.friends).map(([nm,ks])=>`<div class="opt" style="min-height:44px"><span style="flex:1">${esc(nm)} · ${ks.length} recomendada${ks.length==1?'':'s'}</span><button data-fdel="${esc(nm)}" style="min-height:36px">Quitar</button></div>`).join('')}`:''}</div>
@@ -427,7 +438,11 @@ function vInfo(){
  <div class="box"><h3>Respaldo</h3><p>${n} en tu selección.</p><div class="acts" style="padding:4px 0 0"><button id="copy">Copiar JSON</button><button id="clr">Vaciar selección</button></div></div>`;
  $('nm').onchange=e=>LS('ssbu_name',e.target.value.trim());
  $('shr2').onclick=()=>{LS('ssbu_name',$('nm').value.trim());shareHelp()};
- document.querySelectorAll('[data-fdel]').forEach(b=>b.onclick=()=>{delete sugg.friends[b.dataset.fdel];saveSug();paintAll();renderView()});
+ document.querySelectorAll('[data-fdel]').forEach(b=>b.onclick=async()=>{const n=b.dataset.fdel;
+  if(liveIds[n]&&room){try{const f=await fb();await f.deleteDoc(f.doc(f.db,'rooms',room.id,'votes',liveIds[n]))}catch(e){liveErr(e)}}
+  else{delete sugg.friends[n];saveSug();paintAll();renderView()}});
+ if($('rmNew'))$('rmNew').onclick=()=>needName(async()=>{if(await createRoom())shareRoom()});
+ if($('rmShare'))$('rmShare').onclick=shareRoom;if($('rmClose'))$('rmClose').onclick=closeRoom;
  $('kp').onchange=e=>{if(e.target.checked!==keepOrig)toggleKeep()};
  $('tokS').onclick=async()=>{const v=$('tok').value.trim();if(!v)return;LS('ssbu_tok',v);await pull();toast('Token guardado');renderView()};
  $('tokD').onclick=()=>{LS('ssbu_tok',null);toast('Token quitado');renderView()};
@@ -609,9 +624,62 @@ function showIncoming(){if(!incoming)return;const {by,keys}=incoming,nw=keys.fil
  $('gOk').hidden=!nw.length;$('gNo').hidden=false;$('gOk').textContent='Guardar recomendaciones';$('gNo').textContent=nw.length?'Descartar':'Cerrar';
  gAction=()=>{sugg.friends[incoming.by]=incoming.keys.filter(k=>!sel[k]);saveSug();incoming=null;closeOv('shG');renderGrid();tab('S');toast('Recomendaciones guardadas')};
  gNoAct=()=>{incoming=null;closeOv('shG')};openOv('shG')}
+let welcomeOpen=false;
 function showWelcome(){const n=help.raw.filter(k=>idx[k]).length;
- $('gBody').innerHTML=`<h3>${esc(help.by)} te pidió ayuda</h3><p>Está eligiendo skins para Smash y quiere tu opinión.</p><div class="flow"><div><b>1</b><span>Explora y toca el marcador de las que te gusten${n?' ('+esc(help.by)+' ya tiene '+n+', marcadas con una etiqueta)':''}.</span></div><div><b>2</b><span>Cuando termines, toca <b style="font-weight:700">Enviar</b> arriba y mándale el enlace.</span></div></div>`;
- $('gOk').hidden=false;$('gOk').textContent='Empezar';$('gNo').hidden=true;gAction=()=>{closeOv('shG');$('gNo').hidden=false};gNoAct=null;openOv('shG')}
+ $('gBody').innerHTML=`<h3 id="wH">${esc(help.by)} te pidió ayuda</h3><p>Está eligiendo skins para Smash y quiere tu opinión.</p><div class="flow"><div><b>1</b><span>Explora y toca el marcador de las que te gusten${n?' ('+esc(help.by)+' ya tiene '+n+', marcadas con una etiqueta)':''}.</span></div><div><b>2</b><span>${help.room?''+esc(help.by)+' ve tus marcas al instante, no tienes que enviar nada.':'Cuando termines, toca <b style="font-weight:700">Enviar</b> arriba y mándale el enlace.'}</span></div></div>${help.room?`<input type="text" id="gname" placeholder="Tu nombre" value="${esc(LS('ssbu_name')||'')}" autocomplete="off" style="width:100%;min-height:46px;border-radius:10px;border:1px solid var(--bd);background:var(--s2);padding:0 12px;margin-top:12px">`:''}`;
+ $('gOk').hidden=false;$('gOk').textContent='Empezar';$('gNo').hidden=true;welcomeOpen=true;
+ gAction=()=>{if(help.room)LS('ssbu_name',(($('gname').value||'').trim())||'Amigo');welcomeOpen=false;closeOv('shG');$('gNo').hidden=false;publishVote(true)};gNoAct=null;openOv('shG')}
+
+/* ---------- Firebase: salas en vivo (opcional; sin él la página funciona igual con enlaces) ---------- */
+const FBCFG=META.firebase||null;
+let _fb=null,liveState='off',liveFriends={},liveIds={},liveInit=false,unsubVotes=null,unsubRoom=null;
+// SDK modular desde la CDN de Google, solo cuando hace falta (sala creada o unida)
+function fb(){if(!FBCFG)return Promise.reject(new Error('Firebase no configurado'));
+ return _fb||(_fb=(async()=>{const B='https://www.gstatic.com/firebasejs/10.14.1/';
+  const [app,auth,fs]=await Promise.all([import(B+'firebase-app.js'),import(B+'firebase-auth.js'),import(B+'firebase-firestore.js')]);
+  const a=app.initializeApp(FBCFG),au=auth.getAuth(a),db=fs.getFirestore(a);
+  if(location.hostname==='localhost'&&/[?&]fbemu/.test(location.search)){auth.connectAuthEmulator(au,'http://localhost:9099',{disableWarnings:true});fs.connectFirestoreEmulator(db,'localhost',8080)}
+  await new Promise(r=>{const u=auth.onAuthStateChanged(au,()=>{u();r()})});
+  if(!au.currentUser)await auth.signInAnonymously(au);
+  return {...fs,db,uid:au.currentUser.uid}})().catch(e=>{_fb=null;throw e}))}
+function liveSet(st){if(liveState===st)return;liveState=st;if(FM)paintFm();if(view==='I')renderView()}
+function liveErr(e){console.warn('Firebase:',e&&e.code||e);const first=liveState!=='err';liveSet('err');
+ if(first)toast(e&&e.code==='permission-denied'?'Sala en vivo: sin permiso. ¿Publicaste las reglas de Firestore?':'Sin conexión en vivo: usa el enlace')}
+const myKeys=()=>Object.keys(sel).filter(k=>idx[k]);
+const newId=()=>{const a=new Uint8Array(12);crypto.getRandomValues(a);return [...a].map(x=>'abcdefghjkmnpqrstuvwxyz23456789'[x%31]).join('')};
+// dueño
+async function createRoom(){try{const f=await fb(),id=newId();
+  await f.setDoc(f.doc(f.db,'rooms',id),{ownerUid:f.uid,ownerName:LS('ssbu_name')||'Alguien',picks:myKeys(),createdAt:f.serverTimestamp(),updatedAt:f.serverTimestamp()});
+  room={id};LS('ssbu_room',JSON.stringify(room));liveSet('ok');await watchVotes();renderView();return id}catch(e){liveErr(e);return null}}
+function publishPicks(){if(FM||!room)return;clearTimeout(pubT);pubT=setTimeout(async()=>{if(!room)return;try{const f=await fb();
+  await f.updateDoc(f.doc(f.db,'rooms',room.id),{picks:myKeys(),ownerName:LS('ssbu_name')||'Alguien',updatedAt:f.serverTimestamp()});liveSet('ok')}catch(e){liveErr(e)}},500)}
+async function watchVotes(){if(unsubVotes||!room)return;const f=await fb();
+ unsubVotes=f.onSnapshot(f.collection(f.db,'rooms',room.id,'votes'),snap=>{
+  const m={},ids={};snap.forEach(d=>{const v=d.data()||{};let n=String(v.name||'Amigo').slice(0,40);if(m[n])n+=' ('+d.id.slice(0,3)+')';m[n]=(Array.isArray(v.picks)?v.picks:[]).filter(k=>idx[k]);ids[n]=d.id});
+  if(liveInit)Object.entries(m).forEach(([n,ks])=>{const old=liveFriends[n];if(!old&&ks.length)toast(`${n} entró y recomendó ${ks.length}`);else if(old&&ks.length>old.length)toast(`${n} recomendó ${ks.length-old.length} más`)});
+  liveFriends=m;liveIds=ids;liveInit=true;liveSet('ok');paintAll();if(view==='S'||view==='I')renderView()},e=>{unsubVotes=null;liveErr(e)})}
+async function closeRoom(){if(!room||!confirm('¿Cerrar la sala? Tus amigos dejarán de verte y se borran sus recomendaciones en vivo.'))return;
+ clearTimeout(pubT);
+ try{const f=await fb();if(unsubVotes){unsubVotes();unsubVotes=null}
+  await Promise.all(Object.values(liveIds).map(id=>f.deleteDoc(f.doc(f.db,'rooms',room.id,'votes',id))));
+  await f.deleteDoc(f.doc(f.db,'rooms',room.id))}catch(e){liveErr(e)}
+ room=null;LS('ssbu_room',null);liveFriends={};liveIds={};liveInit=false;liveSet('off');paintAll();renderView()}
+function shareRoom(){if(!room)return;sendLink(location.origin+location.pathname+'#room='+room.id,'Entra a mi sala y ayúdame a elegir skins de Smash: marca las que te gusten y yo las veo al instante.')}
+function roomBox(){const live=Object.entries(liveFriends),err=liveState==='err';
+ if(!room)return `<div class="box" style="margin-top:12px"><h3>Sala en vivo</h3><p>Crea una sala y comparte el enlace: tus amigos ven lo que eliges y tú ves sus recomendaciones al instante. No necesitan cuenta.</p><div class="acts" style="padding:4px 0 0"><button class="p" id="rmNew">Crear sala en vivo</button></div></div>`;
+ return `<div class="box" style="margin-top:12px"><h3>Sala en vivo <span class="live" style="color:${err?'var(--er)':'var(--ok)'}">${err?'● sin conexión':'● activa'}</span></h3><p>${live.length?live.length+' amigo'+(live.length==1?'':'s')+' en la sala:':'Comparte el enlace: aquí verás a tus amigos.'}</p>${live.map(([n,ks])=>`<div class="opt" style="min-height:44px"><span style="flex:1">${esc(n)} · ${ks.length} recomendada${ks.length==1?'':'s'}</span><button data-fdel="${esc(n)}" style="min-height:36px">Quitar</button></div>`).join('')}<div class="acts" style="padding:8px 0 0"><button class="p" id="rmShare">Compartir enlace</button><button id="rmClose">Cerrar sala</button></div></div>`}
+// amigo
+async function joinRoom(){if(!FM||!help.room||unsubRoom)return;
+ try{const f=await fb();
+  unsubRoom=f.onSnapshot(f.doc(f.db,'rooms',help.room),snap=>{
+   if(!snap.exists()){liveSet('err');toast('La sala se cerró. Puedes enviar tus recomendaciones con el enlace.');return}
+   const d=snap.data();help.by=d.ownerName||help.by;help.raw=Array.isArray(d.picks)?d.picks:[];LS('ssbu_help',JSON.stringify(help));
+   if(welcomeOpen&&$('wH'))$('wH').textContent=help.by+' te pidió ayuda';
+   liveSet('ok');paintAll();counts()},e=>{unsubRoom=null;liveErr(e)});
+  publishVote(true)}catch(e){liveErr(e)}}
+function publishVote(now){if(!FM||!help.room)return;clearTimeout(voteT);
+ const go=async()=>{if(!FM||!help.room)return;try{const f=await fb();await f.setDoc(f.doc(f.db,'rooms',help.room,'votes',f.uid),{name:(LS('ssbu_name')||'Amigo').slice(0,40),picks:myKeys(),updatedAt:f.serverTimestamp()});liveSet('ok')}catch(e){liveErr(e)}};
+ if(now)go();else voteT=setTimeout(go,500)}
 
 /* ---------- Contrato selection.json ---------- */
 function rankOf(k){const code=idx[k].f.code;const ks=Object.keys(sel).filter(x=>idx[x]&&idx[x].f.code===code).sort((a,b)=>(sel[a].slot==null)-(sel[b].slot==null)||(sel[a].slot||0)-(sel[b].slot||0));return ks.indexOf(k)+1}
@@ -648,10 +716,11 @@ async function push(){
  }catch(e){toast('Error: '+e.message);renderView()}}
 addEventListener('beforeunload',e=>{if(dirty&&tok()){e.preventDefault();e.returnValue=''}});
 // un enlace de un amigo pegado en la misma pestaña solo cambia el #: reiniciar para procesarlo
-addEventListener('hashchange',()=>{if(/^#(sel|help|sug)=/.test(location.hash))location.reload()});
+addEventListener('hashchange',()=>{if(/^#(sel|help|sug|room)=/.test(location.hash))location.reload()});
 
 if(FM){document.body.classList.add('fmode');$('tSl').textContent='Elegidas';$('tP').hidden=true}
 ensureSlots();
 fillFighters();readHash();renderGrid();counts();pull(true);
-if(incoming)setTimeout(showIncoming,300);else if(FM&&HASH&&HASH.type==='help')setTimeout(showWelcome,300);
+if(FM&&help.room)joinRoom();else if(room){watchVotes().catch(liveErr);publishPicks()}
+if(incoming)setTimeout(showIncoming,300);else if(FM&&HASH&&(HASH.type==='help'||HASH.type==='room'))setTimeout(showWelcome,300);
 </script></body></html>

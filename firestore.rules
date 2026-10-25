@@ -1,0 +1,37 @@
+rules_version = '2';
+// Salas en vivo: el dueño publica sus elecciones y los amigos publican sus recomendaciones.
+// Quien conozca el id (12 caracteres al azar) puede entrar; nadie puede listar las salas.
+service cloud.firestore {
+  match /databases/{database}/documents {
+    function signedIn() { return request.auth != null; }
+    function roomPath(roomId) { return /databases/$(database)/documents/rooms/$(roomId); }
+    function isOwner(roomId) {
+      return signedIn() && exists(roomPath(roomId)) && get(roomPath(roomId)).data.ownerUid == request.auth.uid;
+    }
+    function okName(n) { return n is string && n.size() <= 40; }
+    function okPicks(l) { return l is list && l.size() <= 400; }
+    function okRoom(d) {
+      return d.keys().hasOnly(['ownerUid', 'ownerName', 'picks', 'createdAt', 'updatedAt'])
+        && okName(d.ownerName) && okPicks(d.picks);
+    }
+    function okVote(d) {
+      return d.keys().hasOnly(['name', 'picks', 'updatedAt']) && okName(d.name) && okPicks(d.picks);
+    }
+
+    match /rooms/{roomId} {
+      allow get: if signedIn();
+      allow list: if false;
+      allow create: if signedIn() && request.resource.data.ownerUid == request.auth.uid && okRoom(request.resource.data);
+      allow update: if signedIn() && resource.data.ownerUid == request.auth.uid
+        && request.resource.data.ownerUid == request.auth.uid && okRoom(request.resource.data);
+      allow delete: if signedIn() && resource.data.ownerUid == request.auth.uid;
+
+      match /votes/{uid} {
+        allow get: if signedIn() && (request.auth.uid == uid || isOwner(roomId));
+        allow list: if isOwner(roomId);
+        allow create, update: if signedIn() && request.auth.uid == uid && exists(roomPath(roomId)) && okVote(request.resource.data);
+        allow delete: if signedIn() && (request.auth.uid == uid || isOwner(roomId));
+      }
+    }
+  }
+}

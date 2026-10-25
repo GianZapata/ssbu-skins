@@ -21,3 +21,5 @@ Slots ya instalados: `python3 tools/scan_installed.py <ruta del repo del ModPack
 ## Ayuda de amigos
 
 Sin cuentas ni servidor: la página usa enlaces. En Información, «Pedir ayuda» genera un enlace `#help=…` que abre la página en **modo amigo** (lista aparte, sin tope de cupos, con «ya la tiene» en lo que tú elegiste). El amigo toca «Enviar» y te devuelve un enlace `#sug=…`; al abrirlo, sus recomendaciones aparecen en Mi selección, con las más votadas primero. Los enlaces solo llevan identificadores de skins y un nombre, nunca el token.
+
+**Sala en vivo (opcional):** con Firebase (`docs/FIREBASE.md`) el dueño crea una sala y comparte `#room=…`; las elecciones y recomendaciones se ven al instante. Hay que activar Authentication anónima y Firestore y publicar `firestore.rules` una sola vez.
