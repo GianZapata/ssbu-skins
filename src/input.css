@@ -1,0 +1,43 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    -webkit-tap-highlight-color: transparent;
+  }
+  
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer components {
+  .btn {
+    @apply px-4 py-2 rounded-xl border border-border bg-surface2 text-text cursor-pointer transition-colors hover:bg-surface1;
+  }
+  
+  .btn-primary {
+    @apply bg-accent border-accent text-black font-bold hover:bg-yellow-500;
+  }
+  
+  .badge {
+    @apply inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-medium;
+  }
+  
+  .badge-warning {
+    @apply bg-amber-950 border border-amber-800 text-amber-200;
+  }
+  
+  .badge-success {
+    @apply bg-emerald-950 border border-emerald-800 text-emerald-200;
+  }
+  
+  .badge-error {
+    @apply bg-red-950 border border-red-800 text-red-200;
+  }
+  
+  .badge-neutral {
+    @apply bg-surface2 border border-border text-muted;
+  }
+}
