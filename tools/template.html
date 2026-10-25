@@ -30,18 +30,18 @@ h1{margin:0;font-size:30px;letter-spacing:-.5px;line-height:1.1}
 #fbtn{min-width:128px;border-radius:14px;min-height:50px}
 #fbtn.on{border-color:var(--ac);color:var(--ac);background:var(--acd)}
 h2{font-size:21px;margin:18px 0 12px}
-.meter{background:var(--s1);border:1px solid var(--bd);border-radius:14px;padding:10px 12px;margin-top:12px;display:flex;align-items:center;gap:12px}
+.meter{background:var(--s1);border:1px solid var(--bd);border-radius:14px;padding:10px 12px;margin-top:12px;display:flex;flex-wrap:wrap;align-items:center;gap:8px 12px}
 .meter .mi{flex:1;min-width:0}
 .meter b{font-size:15px}.meter small{color:var(--mu);display:block}
 .bar{height:8px;border-radius:4px;background:var(--s2);overflow:hidden;margin-top:6px}
 .bar i{display:block;height:100%;background:var(--ok);width:0;transition:width .2s}
 .bar.warn i{background:var(--ac)}.bar.full i{background:var(--er)}
-.meter button{min-height:40px;font-size:13px;padding:0 10px}
+.meter #keep{min-height:40px;font-size:13px;padding:0 10px}
 .grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;align-items:stretch}
 .card{position:relative;background:var(--s1);border:1px solid var(--bd);border-radius:var(--r);overflow:hidden;display:flex;flex-direction:column}
 .card.saved{border-color:var(--ac)}
 .card .im{display:block;width:100%;aspect-ratio:4/3;background:#000;border:0;padding:0;border-radius:0;min-height:0;position:relative;overflow:hidden}
-.card .im img{display:block;width:100%;height:100%;object-fit:cover}
+.card .im img{position:absolute;inset:0;display:block;width:100%;height:100%;object-fit:cover}
 img.bad{visibility:hidden}
 .nph{position:absolute;right:8px;top:8px;background:#000b;color:#fff;border-radius:10px;font-size:12px;padding:2px 8px;pointer-events:none}
 .sgb{position:absolute;left:8px;top:8px;background:var(--ac);color:#1a1300;border-radius:10px;font-size:12px;font-weight:700;padding:2px 8px;pointer-events:none;display:none;max-width:60%;overflow:hidden;white-space:nowrap;text-overflow:ellipsis}
@@ -59,6 +59,15 @@ img.bad{visibility:hidden}
 .bm{flex:none;width:46px;height:46px;border-radius:10px;padding:0;background:none;border:2px solid #fffd;display:grid;place-items:center}
 .bm svg{width:22px;height:22px;fill:none;stroke:#fff;stroke-width:2}
 .bm.on{border-color:var(--ac);background:var(--acd)}.bm.on svg{fill:var(--ac);stroke:var(--ac)}
+.cl{color:#f0b4b0;font-size:12px;min-height:0}.cl:empty{display:none}
+.chips{display:flex;gap:4px;flex:0 0 100%;min-width:0}
+.slt{flex:1 1 0;min-width:0;min-height:40px;padding:2px 0;border-radius:8px;border:1px dashed var(--bd);background:none;display:flex;flex-direction:column;align-items:center;justify-content:center;font-size:12px;line-height:1.1;color:var(--mu)}
+.slt small{font-size:9px;opacity:.85;white-space:nowrap}
+.slt.ins{background:var(--s2);border:1px solid #556;color:var(--tx)}
+.slt.rep{border:1px dashed var(--ac);color:var(--ac)}
+.slt.sel{border:1px solid var(--ac);background:var(--acd);color:var(--ac)}
+.slt.res{background:repeating-linear-gradient(45deg,#1d222d,#1d222d 4px,#151921 4px,#151921 8px);color:#778}
+button.slt{cursor:pointer}
 .card.full:not(.saved) .bm{opacity:.35;border-style:dashed}
 .more{width:100%;margin:16px 0}
 .empty{color:var(--mu);text-align:center;padding:32px 0}
@@ -79,7 +88,7 @@ nav.tabs button.on::after{content:"";position:absolute;bottom:6px;width:48px;hei
 .opt{display:flex;align-items:center;gap:12px;min-height:48px;border-bottom:1px solid var(--bd)}
 .opt input{width:22px;height:22px;accent-color:var(--ac);flex:none}
 .dh{display:block;position:relative;width:100%;padding:0;border:0;border-radius:12px;overflow:hidden;background:#000;aspect-ratio:16/9;min-height:0}
-.dh img{width:100%;height:100%;object-fit:cover;display:block}
+.dh img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
 .thumbs{display:flex;gap:6px;overflow-x:auto;padding:8px 0;scrollbar-width:none}
 .thumbs::-webkit-scrollbar{display:none}
 .thumbs button{flex:none;width:72px;height:48px;padding:0;border-radius:8px;overflow:hidden;min-height:0;background:#000;border:2px solid transparent}
@@ -185,6 +194,8 @@ let sel=J('ssbu_sel_v2',{});
 try{const o=J('ssbu_sel_v1',null);if(o&&!Object.keys(sel).length){Object.keys(o).forEach(k=>sel[k]={t:Date.now()});LS('ssbu_sel_v2',JSON.stringify(sel))}}catch(e){}
 let sugg=J('ssbu_sugg',{by:'',keys:[]});
 let keepOrig=LS('ssbu_keep')==='1';
+let repl=J('ssbu_repl',{});const saveRepl=()=>LS('ssbu_repl',JSON.stringify(repl));
+const INST=(META.installed&&META.installed.fighters)||{};
 let remote={items:{},sha:null},dirty=false,view='E',shown=PAGE,cur=[],detail=null;
 let q='',fighter=LS('ssbu_fighter')||'',au='all',fwifi=false,fsel=false,fsug=false;
 const all=[];F.forEach((f,i)=>f.picks.forEach(p=>{if(!p.withdrawn)all.push({f,p,i,k:key(f,p)})}));
@@ -198,18 +209,34 @@ const rs=k=>remote.items[k]&&remote.items[k].status&&remote.items[k].status!=='w
 const nfil=()=>(au!=='all')+fwifi+fsel+fsug;
 
 /* ---------- Cupos por luchador (en vivo) ---------- */
-const limit=()=>keepOrig?7:8;
+const usable=()=>keepOrig?[1,2,3,4,5,6,7]:[0,1,2,3,4,5,6,7];
+const limit=()=>usable().length;
 const isMii=p=>/mii/i.test(p.assignment||'');
-const used=code=>Object.keys(sel).filter(k=>idx[k]&&idx[k].f.code===code&&!isMii(idx[k].p)).length;
+const instSlots=code=>INST[code]||[];
+const isRepl=(code,s)=>(repl[code]||[]).includes(s);
+// slots instalados que siguen ocupando cupo (dentro de los usables y no marcados como reemplazables)
+const instKept=code=>instSlots(code).filter(s=>usable().includes(s)&&!isRepl(code,s));
+const nSel=code=>Object.keys(sel).filter(k=>idx[k]&&idx[k].f.code===code&&!isMii(idx[k].p)).length;
+const used=code=>nSel(code)+instKept(code).length;
+const slotNum=d=>{const m=/^c(\d\d)$/.exec(d||'');return m?+m[1]:null};
+// aviso si el slot propuesto ya está ocupado por lo instalado
+const instClash=e=>{const s=slotNum(e.p.dest);return s!==null&&instSlots(e.f.code).includes(s)&&!isRepl(e.f.code,s)?`Slot ${e.p.dest} ya ocupado por lo instalado`:''};
 const isFull=e=>!isMii(e.p)&&used(e.f.code)>=limit();
 const isSug=k=>!sel[k]&&sugg.keys.includes(k);
 const barCls=(u,L)=>u>=L?'full':u>=L-2?'warn':'';
-function meterHTML(f){const u=used(f.code),L=limit();
- return `<b>${esc(f.name)}: ${u}/${L} cupos</b><small>${u>L?'Te pasaste del máximo: quita '+(u-L):u===L?'Completo: quita una para añadir otra':'Quedan '+(L-u)+' ('+(keepOrig?'c01–c07':'c00–c07')+')'}</small><div class="bar ${barCls(u,L)}"><i style="width:${Math.min(100,u/L*100)}%"></i></div>`}
+function slotChips(f){const ins=instSlots(f.code);if(!ins.length)return '';
+ const dests=new Set(Object.keys(sel).filter(k=>idx[k]&&idx[k].f.code===f.code).map(k=>slotNum(idx[k].p.dest)));
+ return `<div class="chips">${[0,1,2,3,4,5,6,7].map(s=>{const i=ins.includes(s),r=i&&isRepl(f.code,s),res=s===0&&keepOrig;
+  const c=res?'res':i?(r?'rep':'ins'):dests.has(s)?'sel':'';
+  const t=res?'orig.':i?(r?'reemp.':'inst.'):dests.has(s)?'elegida':'libre';
+  return i&&!res?`<button class="slt ${c}" data-slot="${s}" aria-pressed="${r}" title="Toca para ${r?'conservar':'reemplazar'}">c0${s}<small>${t}</small></button>`:`<span class="slt ${c}">c0${s}<small>${t}</small></span>`}).join('')}</div>`}
+function meterHTML(f){const u=used(f.code),L=limit(),ik=instKept(f.code).length,ns=nSel(f.code);
+ return `<b>${esc(f.name)}: ${u}/${L} cupos</b><small>${ik?ik+' instalado'+(ik>1?'s':'')+' + '+ns+' elegida'+(ns==1?'':'s')+' · ':''}${u>L?'Te pasaste del máximo: quita '+(u-L):u===L?'Completo: quita una para añadir otra':'Quedan '+(L-u)+' ('+(keepOrig?'c01–c07':'c00–c07')+')'}</small><div class="bar ${barCls(u,L)}"><i style="width:${Math.min(100,u/L*100)}%"></i></div>`}
 function paintMeter(){const m=$('meter');const f=F.find(x=>x.code===fighter);
  if(!f){m.hidden=true;return}
- m.hidden=false;m.innerHTML=`<div class="mi">${meterHTML(f)}</div><button id="keep" aria-pressed="${keepOrig}">${keepOrig?'Conservo c00':'Uso c00'}</button>`;
+ m.hidden=false;m.innerHTML=`<div class="mi">${meterHTML(f)}</div><button id="keep" aria-pressed="${keepOrig}">${keepOrig?'Conservo c00':'Uso c00'}</button>${slotChips(f)}`;
  $('keep').onclick=toggleKeep}
+$('meter').onclick=e=>{const b=e.target.closest('[data-slot]');if(!b)return;const code=fighter,s=+b.dataset.slot,a=repl[code]||[];repl[code]=a.includes(s)?a.filter(x=>x!==s):[...a,s];if(!repl[code].length)delete repl[code];saveRepl();dirty=true;paintAll();if(view!=='E')renderView();if(lb.k)lbSync();if(detail)dSync()};
 function toggleKeep(){keepOrig=!keepOrig;LS('ssbu_keep',keepOrig?'1':'0');dirty=true;paintAll();toast(keepOrig?'Máximo 7 por luchador: conservas el original (c00)':'Máximo 8 por luchador: usas c00–c07');if(view!=='E')renderView();if(lb.k)lbSync();if(detail)dSync()}
 
 /* ---------- Tarjetas ---------- */
@@ -230,13 +257,14 @@ function cardCls(e){return 'card'+(sel[e.k]?' saved':'')+(isSug(e.k)?' sg':'')+(
 function card(e,i){const {f,p,k}=e,on=!!sel[k];
  const img=p.img?`<img alt="" ${i<2?'':'loading="lazy" '}decoding="async" src="${esc(p.img)}"${p.srcset?` srcset="${esc(p.srcset)}" sizes="${SIZES}"`:''}>`:'';
  return `<div class="${cardCls(e)}" data-card="${esc(k)}"><button class="im" data-lb="${esc(k)}" aria-label="Ver fotos de ${esc(p.name)}">${img}<span class="sgb">Sugerida${sugg.by?' · '+esc(sugg.by):''}</span>${p.g&&p.g.length>1?`<span class="nph">${p.g.length} fotos</span>`:''}</button>
- <div class="cb"><div class="tx" data-d="${esc(k)}"><div class="nm">${esc(p.name)}</div><div class="fg">${esc(f.name)}</div></div>
+ <div class="cb"><div class="tx" data-d="${esc(k)}"><div class="nm">${esc(p.name)}</div><div class="fg">${esc(f.name)}</div><div class="fg cl">${esc(instClash(e)?'⚠ '+instClash(e):'')}</div></div>
  <div class="foot"><span class="stc">${stat(p,k)}</span><button class="bm ${on?'on':''}" data-b="${esc(k)}" aria-pressed="${on}" aria-label="${on?'Quitar de':'Guardar en'} mi selección: ${esc(p.name)}">${BM}</button></div></div></div>`}
 function paintCard(el){const k=el.dataset.card,e=idx[k];if(!e)return;
  const c=cardCls(e);if(el.className!==c)el.className=c;
  const b=el.querySelector('.bm'),on=!!sel[k];
  if(b.classList.contains('on')!==on){b.classList.toggle('on',on);b.setAttribute('aria-pressed',on);b.setAttribute('aria-label',(on?'Quitar de':'Guardar en')+' mi selección: '+e.p.name)}
- const s=el.querySelector('.stc'),h=stat(e.p,k);if(s.innerHTML!==h)s.innerHTML=h}
+ const s=el.querySelector('.stc'),h=stat(e.p,k);if(s.innerHTML!==h)s.innerHTML=h;
+ const cl=el.querySelector('.cl'),t=instClash(e)?'⚠ '+instClash(e):'';if(cl.textContent!==t)cl.textContent=t}
 function paintAll(){document.querySelectorAll('#grid .card').forEach(paintCard);paintMeter();counts()}
 
 /* ---------- Explorar ---------- */
@@ -278,6 +306,7 @@ function tab(v){if(v===view){scrollTo(0,0);return}scrollPos[view]=scrollY;view=v
 function renderView(){if(view==='S')vSel();else if(view==='I')vInfo()}
 $('tE').onclick=()=>tab('E');$('tS').onclick=()=>tab('S');$('tI').onclick=()=>tab('I');
 function clash(k){const {f,p}=idx[k];if(!p.dest)return '';
+ const ic=instClash(idx[k]);if(ic)return `<br><span class="st r"><i></i>${esc(ic)}</span>`;
  const o=Object.keys(sel).filter(x=>x!==k&&idx[x]&&idx[x].f.code===f.code&&idx[x].p.dest===p.dest);
  return o.length?`<br><span class="st r"><i></i>Mismo slot ${esc(p.dest)} que «${esc(idx[o[0]].p.name)}»</span>`:''}
 function vSel(){
@@ -286,7 +315,7 @@ function vSel(){
  const sk=sugg.keys.filter(k=>idx[k]&&!sel[k]);
  const item=(k,s)=>{const {f,p}=idx[k];return `<div class="item"><button class="th" data-lb="${esc(k)}" aria-label="Ver fotos">${p.img?`<img alt="" loading="lazy" src="${esc(p.g&&p.g[0]?gU(p.g[0],'s'):p.img)}">`:''}</button><div class="m"><b data-d="${esc(k)}">${esc(p.name)}</b><span>${esc(f.name)} · ${esc(p.dest||'sin destino')}</span><br><span class="stc">${stat(p,k)}</span>${s?'':clash(k)}</div>
   ${s?`<button class="x p" data-add="${esc(k)}" aria-label="Añadir ${esc(p.name)}">＋</button>`:`<button class="x" data-b="${esc(k)}" aria-label="Quitar ${esc(p.name)}">✕</button>`}</div>`};
- const groups=Object.entries(by).map(([c,l])=>{const f=F.find(x=>x.code===c),u=used(c),L=limit();return `<div class="grp"><h3><span>${esc(f.name)}</span><span style="color:${u>L?'var(--er)':'var(--mu)'}">${u}/${L}</span></h3><div class="bar ${barCls(u,L)}"><i style="width:${Math.min(100,u/L*100)}%"></i></div></div>`+l.map(k=>item(k)).join('')}).join('');
+ const groups=Object.entries(by).map(([c,l])=>{const f=F.find(x=>x.code===c),u=used(c),L=limit();return `<div class="grp"><h3><span>${esc(f.name)}</span><span style="color:${u>L?'var(--er)':'var(--mu)'}">${instKept(c).length?instKept(c).length+' inst. · ':''}${u}/${L}</span></h3><div class="bar ${barCls(u,L)}"><i style="width:${Math.min(100,u/L*100)}%"></i></div></div>`+l.map(k=>item(k)).join('')}).join('');
  const pend=dirty||pending();
  $('vS').innerHTML=`<header><div class="ttl"><div><h1>Mi selección</h1><p class="sub">${ks.length} guardada${ks.length==1?'':'s'} · máx. ${limit()} por luchador</p></div><button class="ib" id="shr" aria-label="Compartir">⇪</button></div></header>
  ${sk.length?`<div class="box" style="margin-top:12px"><h3>Sugeridas${sugg.by?' por '+esc(sugg.by):''} (${sk.length})</h3><p>Toca ＋ para añadir las que te gusten.</p>${sk.map(k=>item(k,1)).join('')}<div class="acts" style="padding:8px 0 0"><button id="addAll">Añadir todas</button><button id="noSug">Descartar</button></div></div>`:''}
@@ -308,6 +337,7 @@ function vInfo(){
  <input type="text" id="nm" placeholder="Tu nombre (opcional)" value="${esc(LS('ssbu_name')||'')}" autocomplete="off">
  <div class="acts" style="padding:4px 0 0"><button class="p" id="shr2">Compartir mi selección (${n})</button></div></div>
  <div class="box"><h3>Máximo por luchador</h3><label class="opt" style="border:0"><input type="checkbox" id="kp" ${keepOrig?'checked':''}> <span>Conservar el diseño original (c00)<br><small style="color:var(--mu)">Activado: máx. 7 (c01–c07). Desactivado: máx. 8 (c00–c07). Los trajes Mii no cuentan.</small></span></label></div>
+ ${META.installed?`<div class="box"><h3>Instalado en el ModPack</h3><p>${Object.keys(INST).length} luchadores con ${Object.values(INST).reduce((n,v)=>n+v.length,0)} slots ocupados · escaneo ${esc((META.installed.scanned_at||'').replace('T',' ').replace('Z',''))}.</p><p>Esos slots cuentan en el máximo por luchador y avisan si una skin nueva propone un slot ocupado. En el medidor de cada luchador, toca un slot instalado para marcarlo «reemplazar» y liberar su cupo.</p><p class="fg">Es ocupación de slots: no sé qué skin es cada una ni si es una skin o un ajuste de modelo.</p></div>`:''}
  <div class="box"><h3>Cómo funciona</h3><div class="flow">
  <div><b>1</b><span>Un bot (Grok) audita las skins y actualiza <code>data/catalog.json</code>.</span></div>
  <div><b>2</b><span>Otro agente regenera esta página con el catálogo.</span></div>
@@ -429,7 +459,7 @@ function build(){const items=[];
   items.push({key:k,fighter:f.name,roster_no:f.code,mod_id:p.id,name:p.name,author:p.author,url:p.url,dest_slot:p.dest||null,native_slots:p.slots_orig||null,assignment:p.assignment||null,audited:p.audited,wifi:p.wifi_status||'pendiente',dependencies:p.deps||null,conflicts:p.conflicts||null,notes:p.notes||null,
    status:(r&&r.status)||'wanted',selected_at:(r&&r.selected_at)||new Date(sel[k].t).toISOString(),...(r&&r.status&&r.status!=='wanted'?{result:r.result||null,updated_at:r.updated_at||null}:{})})});
  Object.keys(remote.items).forEach(k=>{const r=remote.items[k];if(!sel[k]&&r.status&&r.status!=='wanted')items.push(r)});
- return {schema:1,generated_at:new Date().toISOString(),catalog:META&&META.generated||null,target:{game:'Super Smash Bros. Ultimate',version:'13.0.5',loader:'ARCropolis 4.1.1',modpack_repo:'GianZapata/Gian-Ultimate-Modpack-private'},limits:{per_fighter:limit(),keep_original_slot:keepOrig},items}}
+ return {schema:1,generated_at:new Date().toISOString(),catalog:META&&META.generated||null,target:{game:'Super Smash Bros. Ultimate',version:'13.0.5',loader:'ARCropolis 4.1.1',modpack_repo:'GianZapata/Gian-Ultimate-Modpack-private'},limits:{per_fighter:limit(),keep_original_slot:keepOrig},replace_slots:repl,items}}
 function pending(){const a=Object.keys(sel).sort().join(),b=Object.keys(remote.items).filter(k=>(remote.items[k].status||'wanted')==='wanted').sort().join();return a!==b}
 
 /* ---------- GitHub ---------- */

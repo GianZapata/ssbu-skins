@@ -10,6 +10,12 @@ Puente entre este repo (selector de skins, móvil) y `GianZapata/Gian-Ultimate-M
 
 El archivo incluye `limits.per_fighter` (8, o 7 si `keep_original_slot` es `true`) y `limits.keep_original_slot`. La web impide guardar más de ese máximo por luchador (los trajes Mii no cuentan). Con `keep_original_slot: true` el agente **no debe tocar el slot `c00`** del luchador, aunque el catálogo proponga `c00` como destino: en ese caso reubicar la skin en un `c01`–`c07` libre o marcarla `skipped` con el motivo en `result`.
 
+## Lo ya instalado (`data/installed.json`) y `replace_slots`
+
+`data/installed.json` lista, por luchador, los slots `cNN` que ya están ocupados en el ModPack (`ultimate/mods/*/fighter/<luchador>/model/body/cNN`). Lo genera `python3 tools/scan_installed.py <ruta del repo del ModPack>`. **El agente instalador debe volver a ejecutarlo y subir el resultado después de cada instalación.** Es ocupación de slots: no identifica la skin ni distingue una skin de un ajuste de modelo.
+
+La web cuenta esos slots dentro del máximo por luchador y avisa si una skin propone un slot ocupado. El usuario puede marcar un slot instalado como «reemplazar»; eso llega en `replace_slots` (`{"<roster_no>": [1, 3]}`). Un slot **solo se puede sobrescribir si aparece ahí**; cualquier otro slot ocupado debe respetarse.
+
 ## Ítem
 
 | Campo | Significado |

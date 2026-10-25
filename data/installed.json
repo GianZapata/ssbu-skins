@@ -1,0 +1,1039 @@
+{
+ "source": "GianZapata/Gian-Ultimate-Modpack-private",
+ "scanned_at": "2026-10-25T11:25:09Z",
+ "note": "Slots ocupados en el ModPack; no identifica la skin ni distingue skins de ajustes de modelo.",
+ "mods_scanned": [
+  "The WuBoy Ultimate Modpack",
+  "The WuBoy Ultimate Modpack Optionals"
+ ],
+ "fighters": {
+  "01": {
+   "internal": "mario",
+   "slots": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7
+   ],
+   "mods": [
+    "The WuBoy Ultimate Modpack"
+   ]
+  },
+  "02": {
+   "internal": "donkey",
+   "slots": [
+    2,
+    4,
+    6
+   ],
+   "mods": [
+    "The WuBoy Ultimate Modpack"
+   ]
+  },
+  "03": {
+   "internal": "link",
+   "slots": [
+    2,
+    3,
+    5,
+    6,
+    7
+   ],
+   "mods": [
+    "The WuBoy Ultimate Modpack"
+   ]
+  },
+  "04": {
+   "internal": "samus",
+   "slots": [
+    5,
+    6,
+    7
+   ],
+   "mods": [
+    "The WuBoy Ultimate Modpack"
+   ]
+  },
+  "04ε": {
+   "internal": "samusd",
+   "slots": [
+    1,
+    2,
+    3,
+    6,
+    7
+   ],
+   "mods": [
+    "The WuBoy Ultimate Modpack"
+   ]
+  },
+  "05": {
+   "internal": "yoshi",
+   "slots": [
+    7
+   ],
+   "mods": [
+    "The WuBoy Ultimate Modpack"
+   ]
+  },
+  "06": {
+   "internal": "kirby",
+   "slots": [
+    1,
+    5
+   ],
+   "mods": [
+    "The WuBoy Ultimate Modpack"
+   ]
+  },
+  "07": {
+   "internal": "fox",
+   "slots": [
+    3,
+    5,
+    6,
+    7
+   ],
+   "mods": [
+    "The WuBoy Ultimate Modpack"
+   ]
+  },
+  "08": {
+   "internal": "pikachu",
+   "slots": [
+    1,
+    7
+   ],
+   "mods": [
+    "The WuBoy Ultimate Modpack"
+   ]
+  },
+  "09": {
+   "internal": "luigi",
+   "slots": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7
+   ],
+   "mods": [
+    "The WuBoy Ultimate Modpack"
+   ]
+  },
+  "10": {
+   "internal": "ness",
+   "slots": [
+    2,
+    6
+   ],
+   "mods": [
+    "The WuBoy Ultimate Modpack"
+   ]
+  },
+  "11": {
+   "internal": "captain",
+   "slots": [
+    0,
+    3,
+    4,
+    5,
+    6,
+    7
+   ],
+   "mods": [
+    "The WuBoy Ultimate Modpack"
+   ]
+  },
+  "12": {
+   "internal": "purin",
+   "slots": [
+    1,
+    4,
+    6,
+    7
+   ],
+   "mods": [
+    "The WuBoy Ultimate Modpack"
+   ]
+  },
+  "13": {
+   "internal": "peach",
+   "slots": [
+    2,
+    4,
+    5,
+    6,
+    7
+   ],
+   "mods": [
+    "The WuBoy Ultimate Modpack"
+   ]
+  },
+  "13ε": {
+   "internal": "daisy",
+   "slots": [
+    2,
+    3,
+    5,
+    6,
+    7
+   ],
+   "mods": [
+    "The WuBoy Ultimate Modpack"
+   ]
+  },
+  "14": {
+   "internal": "koopa",
+   "slots": [
+    1,
+    2,
+    3,
+    4,
+    6,
+    7
+   ],
+   "mods": [
+    "The WuBoy Ultimate Modpack"
+   ]
+  },
+  "16": {
+   "internal": "sheik",
+   "slots": [
+    0,
+    2,
+    3,
+    7
+   ],
+   "mods": [
+    "The WuBoy Ultimate Modpack"
+   ]
+  },
+  "17": {
+   "internal": "zelda",
+   "slots": [
+    3,
+    4,
+    5,
+    6,
+    7
+   ],
+   "mods": [
+    "The WuBoy Ultimate Modpack"
+   ]
+  },
+  "18": {
+   "internal": "mariod",
+   "slots": [
+    2,
+    3,
+    5
+   ],
+   "mods": [
+    "The WuBoy Ultimate Modpack"
+   ]
+  },
+  "19": {
+   "internal": "pichu",
+   "slots": [
+    1,
+    2
+   ],
+   "mods": [
+    "The WuBoy Ultimate Modpack"
+   ]
+  },
+  "20": {
+   "internal": "falco",
+   "slots": [
+    1,
+    3,
+    7
+   ],
+   "mods": [
+    "The WuBoy Ultimate Modpack"
+   ]
+  },
+  "21": {
+   "internal": "marth",
+   "slots": [
+    1,
+    3,
+    4,
+    5
+   ],
+   "mods": [
+    "The WuBoy Ultimate Modpack"
+   ]
+  },
+  "21ε": {
+   "internal": "lucina",
+   "slots": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7
+   ],
+   "mods": [
+    "The WuBoy Ultimate Modpack"
+   ]
+  },
+  "22": {
+   "internal": "younglink",
+   "slots": [
+    5,
+    7
+   ],
+   "mods": [
+    "The WuBoy Ultimate Modpack"
+   ]
+  },
+  "23": {
+   "internal": "ganon",
+   "slots": [
+    1,
+    4,
+    5,
+    7
+   ],
+   "mods": [
+    "The WuBoy Ultimate Modpack"
+   ]
+  },
+  "24": {
+   "internal": "mewtwo",
+   "slots": [
+    3,
+    7
+   ],
+   "mods": [
+    "The WuBoy Ultimate Modpack"
+   ]
+  },
+  "25": {
+   "internal": "roy",
+   "slots": [
+    2,
+    4
+   ],
+   "mods": [
+    "The WuBoy Ultimate Modpack"
+   ]
+  },
+  "25ε": {
+   "internal": "chrom",
+   "slots": [
+    2,
+    6,
+    7
+   ],
+   "mods": [
+    "The WuBoy Ultimate Modpack"
+   ]
+  },
+  "26": {
+   "internal": "gamewatch",
+   "slots": [
+    2,
+    7
+   ],
+   "mods": [
+    "The WuBoy Ultimate Modpack"
+   ]
+  },
+  "27": {
+   "internal": "metaknight",
+   "slots": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    7
+   ],
+   "mods": [
+    "The WuBoy Ultimate Modpack"
+   ]
+  },
+  "28": {
+   "internal": "pit",
+   "slots": [
+    1,
+    2,
+    5,
+    6
+   ],
+   "mods": [
+    "The WuBoy Ultimate Modpack"
+   ]
+  },
+  "28ε": {
+   "internal": "pitb",
+   "slots": [
+    4,
+    7
+   ],
+   "mods": [
+    "The WuBoy Ultimate Modpack"
+   ]
+  },
+  "29": {
+   "internal": "szerosuit",
+   "slots": [
+    1,
+    2,
+    3,
+    4,
+    5
+   ],
+   "mods": [
+    "The WuBoy Ultimate Modpack"
+   ]
+  },
+  "30": {
+   "internal": "wario",
+   "slots": [
+    1,
+    2,
+    3,
+    5,
+    6,
+    7
+   ],
+   "mods": [
+    "The WuBoy Ultimate Modpack"
+   ]
+  },
+  "31": {
+   "internal": "snake",
+   "slots": [
+    0,
+    4
+   ],
+   "mods": [
+    "The WuBoy Ultimate Modpack"
+   ]
+  },
+  "32": {
+   "internal": "ike",
+   "slots": [
+    1,
+    3,
+    4,
+    5,
+    6,
+    7
+   ],
+   "mods": [
+    "The WuBoy Ultimate Modpack"
+   ]
+  },
+  "33": {
+   "internal": "pzenigame",
+   "slots": [
+    0,
+    3
+   ],
+   "mods": [
+    "The WuBoy Ultimate Modpack"
+   ]
+  },
+  "34": {
+   "internal": "pfushigisou",
+   "slots": [
+    3
+   ],
+   "mods": [
+    "The WuBoy Ultimate Modpack"
+   ]
+  },
+  "35": {
+   "internal": "plizardon",
+   "slots": [
+    3
+   ],
+   "mods": [
+    "The WuBoy Ultimate Modpack"
+   ]
+  },
+  "36": {
+   "internal": "diddy",
+   "slots": [
+    1,
+    2,
+    4
+   ],
+   "mods": [
+    "The WuBoy Ultimate Modpack"
+   ]
+  },
+  "38": {
+   "internal": "sonic",
+   "slots": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    7
+   ],
+   "mods": [
+    "The WuBoy Ultimate Modpack"
+   ]
+  },
+  "39": {
+   "internal": "dedede",
+   "slots": [
+    3,
+    7
+   ],
+   "mods": [
+    "The WuBoy Ultimate Modpack"
+   ]
+  },
+  "40": {
+   "internal": "pikmin",
+   "slots": [
+    3
+   ],
+   "mods": [
+    "The WuBoy Ultimate Modpack"
+   ]
+  },
+  "41": {
+   "internal": "lucario",
+   "slots": [
+    1,
+    2,
+    4,
+    5,
+    6,
+    7
+   ],
+   "mods": [
+    "The WuBoy Ultimate Modpack"
+   ]
+  },
+  "42": {
+   "internal": "robot",
+   "slots": [
+    1,
+    2,
+    4,
+    7
+   ],
+   "mods": [
+    "The WuBoy Ultimate Modpack"
+   ]
+  },
+  "43": {
+   "internal": "toonlink",
+   "slots": [
+    2,
+    3,
+    5,
+    6,
+    7
+   ],
+   "mods": [
+    "The WuBoy Ultimate Modpack"
+   ]
+  },
+  "44": {
+   "internal": "wolf",
+   "slots": [
+    1,
+    3,
+    4,
+    5
+   ],
+   "mods": [
+    "The WuBoy Ultimate Modpack"
+   ]
+  },
+  "45": {
+   "internal": "murabito",
+   "slots": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7
+   ],
+   "mods": [
+    "The WuBoy Ultimate Modpack"
+   ]
+  },
+  "46": {
+   "internal": "rockman",
+   "slots": [
+    1,
+    5,
+    6
+   ],
+   "mods": [
+    "The WuBoy Ultimate Modpack"
+   ]
+  },
+  "47": {
+   "internal": "wiifit",
+   "slots": [
+    2
+   ],
+   "mods": [
+    "The WuBoy Ultimate Modpack"
+   ]
+  },
+  "48": {
+   "internal": "rosetta",
+   "slots": [
+    6
+   ],
+   "mods": [
+    "The WuBoy Ultimate Modpack"
+   ]
+  },
+  "49": {
+   "internal": "littlemac",
+   "slots": [
+    1,
+    2
+   ],
+   "mods": [
+    "The WuBoy Ultimate Modpack"
+   ]
+  },
+  "50": {
+   "internal": "gekkouga",
+   "slots": [
+    0,
+    2,
+    4,
+    6,
+    7
+   ],
+   "mods": [
+    "The WuBoy Ultimate Modpack"
+   ]
+  },
+  "51": {
+   "internal": "miifighter",
+   "slots": [
+    0
+   ],
+   "mods": [
+    "The WuBoy Ultimate Modpack"
+   ]
+  },
+  "54": {
+   "internal": "palutena",
+   "slots": [
+    7
+   ],
+   "mods": [
+    "The WuBoy Ultimate Modpack"
+   ]
+  },
+  "55": {
+   "internal": "pacman",
+   "slots": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7
+   ],
+   "mods": [
+    "The WuBoy Ultimate Modpack"
+   ]
+  },
+  "56": {
+   "internal": "reflet",
+   "slots": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7
+   ],
+   "mods": [
+    "The WuBoy Ultimate Modpack"
+   ]
+  },
+  "57": {
+   "internal": "shulk",
+   "slots": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7
+   ],
+   "mods": [
+    "The WuBoy Ultimate Modpack"
+   ]
+  },
+  "60": {
+   "internal": "ryu",
+   "slots": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7
+   ],
+   "mods": [
+    "The WuBoy Ultimate Modpack"
+   ]
+  },
+  "60ε": {
+   "internal": "ken",
+   "slots": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7
+   ],
+   "mods": [
+    "The WuBoy Ultimate Modpack"
+   ]
+  },
+  "61": {
+   "internal": "cloud",
+   "slots": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7
+   ],
+   "mods": [
+    "The WuBoy Ultimate Modpack"
+   ]
+  },
+  "62": {
+   "internal": "kamui",
+   "slots": [
+    1,
+    2,
+    3,
+    5,
+    7
+   ],
+   "mods": [
+    "The WuBoy Ultimate Modpack"
+   ]
+  },
+  "63": {
+   "internal": "bayonetta",
+   "slots": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    7
+   ],
+   "mods": [
+    "The WuBoy Ultimate Modpack"
+   ]
+  },
+  "64": {
+   "internal": "inkling",
+   "slots": [
+    4,
+    6,
+    7
+   ],
+   "mods": [
+    "The WuBoy Ultimate Modpack"
+   ]
+  },
+  "65": {
+   "internal": "ridley",
+   "slots": [
+    2,
+    3,
+    4,
+    5,
+    6,
+    7
+   ],
+   "mods": [
+    "The WuBoy Ultimate Modpack"
+   ]
+  },
+  "66": {
+   "internal": "simon",
+   "slots": [
+    6
+   ],
+   "mods": [
+    "The WuBoy Ultimate Modpack"
+   ]
+  },
+  "66ε": {
+   "internal": "richter",
+   "slots": [
+    2,
+    4,
+    7
+   ],
+   "mods": [
+    "The WuBoy Ultimate Modpack"
+   ]
+  },
+  "67": {
+   "internal": "krool",
+   "slots": [
+    3,
+    4,
+    5,
+    6,
+    7
+   ],
+   "mods": [
+    "The WuBoy Ultimate Modpack"
+   ]
+  },
+  "68": {
+   "internal": "shizue",
+   "slots": [
+    4,
+    6
+   ],
+   "mods": [
+    "The WuBoy Ultimate Modpack"
+   ]
+  },
+  "69": {
+   "internal": "gaogaen",
+   "slots": [
+    2,
+    3,
+    4,
+    5,
+    6,
+    7
+   ],
+   "mods": [
+    "The WuBoy Ultimate Modpack"
+   ]
+  },
+  "70": {
+   "internal": "packun",
+   "slots": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    6,
+    7
+   ],
+   "mods": [
+    "The WuBoy Ultimate Modpack"
+   ]
+  },
+  "71": {
+   "internal": "jack",
+   "slots": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7
+   ],
+   "mods": [
+    "The WuBoy Ultimate Modpack"
+   ]
+  },
+  "72": {
+   "internal": "brave",
+   "slots": [
+    2,
+    3,
+    4,
+    5,
+    6,
+    7
+   ],
+   "mods": [
+    "The WuBoy Ultimate Modpack"
+   ]
+  },
+  "73": {
+   "internal": "buddy",
+   "slots": [
+    1,
+    3,
+    6,
+    7
+   ],
+   "mods": [
+    "The WuBoy Ultimate Modpack"
+   ]
+  },
+  "74": {
+   "internal": "dolly",
+   "slots": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7
+   ],
+   "mods": [
+    "The WuBoy Ultimate Modpack"
+   ]
+  },
+  "75": {
+   "internal": "master",
+   "slots": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7
+   ],
+   "mods": [
+    "The WuBoy Ultimate Modpack"
+   ]
+  },
+  "76": {
+   "internal": "tantan",
+   "slots": [
+    1,
+    2,
+    3,
+    5,
+    6,
+    7
+   ],
+   "mods": [
+    "The WuBoy Ultimate Modpack"
+   ]
+  },
+  "77": {
+   "internal": "pickel",
+   "slots": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7
+   ],
+   "mods": [
+    "The WuBoy Ultimate Modpack Optionals"
+   ]
+  },
+  "78": {
+   "internal": "edge",
+   "slots": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    7
+   ],
+   "mods": [
+    "The WuBoy Ultimate Modpack"
+   ]
+  },
+  "79": {
+   "internal": "eflame",
+   "slots": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7
+   ],
+   "mods": [
+    "The WuBoy Ultimate Modpack"
+   ]
+  },
+  "80": {
+   "internal": "elight",
+   "slots": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7
+   ],
+   "mods": [
+    "The WuBoy Ultimate Modpack"
+   ]
+  },
+  "81": {
+   "internal": "demon",
+   "slots": [
+    3,
+    4,
+    5,
+    6,
+    7
+   ],
+   "mods": [
+    "The WuBoy Ultimate Modpack"
+   ]
+  },
+  "82": {
+   "internal": "trail",
+   "slots": [
+    6,
+    7
+   ],
+   "mods": [
+    "The WuBoy Ultimate Modpack"
+   ]
+  }
+ }
+}

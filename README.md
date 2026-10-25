@@ -15,3 +15,5 @@ Sin dependencias de red ni de Node: solo Python 3 (Pillow únicamente si existe 
 Antes de generar, `python3 tools/validate_catalog.py` comprueba que el catálogo cumple `docs/AUDIT_CONTRACT.md`. Contrato de la selección: `docs/SELECTION_CONTRACT.md`.
 
 No subir `node_modules/`, binarios ni CSS compilado al repo: el historial no se puede aligerar sin reescribirlo.
+
+Slots ya instalados: `python3 tools/scan_installed.py <ruta del repo del ModPack>` escribe `data/installed.json`, que la página usa para contar cupos y avisar de choques.
