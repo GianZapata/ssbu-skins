@@ -30,3 +30,7 @@ Agente instalador (Switch)  ◀──  tools/db.py plan  ◀──  Firestore (c
 ```
 
 Grok **solo edita `data/catalog.json`** y hace push: la Action valida, regenera la página y copia el catálogo a Firestore (si existe el secreto `FIREBASE_SERVICE_ACCOUNT`).
+
+## Campos que el generador conserva
+
+Además de los campos clásicos: `role` (`propuesta principal` | `alternativa`), `look_id` (identificador estable de la apariencia, se usa como `vid`), `alt_index`, `variant`, `audit_scope`, `downloads_scope`, `images_scope`, `downloads`, `rank_in_category_most_downloaded`, `shared_download_counter`, `dependency_kind`, `wifi_state_code`, `design_kind` y `native_slots` (lista). Los textos de alcance se guardan una sola vez en `meta.scopes`. Las alternativas llevan `proposed_destination: null`: el destino lo elige quien usa la web.

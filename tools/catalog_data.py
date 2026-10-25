@@ -26,6 +26,9 @@ def slug(t,n=24):
     t=unicodedata.normalize('NFKD',t or '').encode('ascii','ignore').decode().lower()
     return re.sub(r'[^a-z0-9]+','-',t).strip('-')[:n] or 'x'
 def make_vid(e):
+    lid=e.get('look_id')
+    if lid and lid not in _used:
+        _used.add(lid); return lid
     """Identificador estable de una apariencia: «luchador:mod». Si un paquete trae varios diseños para el mismo luchador,
     el segundo y siguientes llevan «~nombre» (el mod por sí solo no distingue las variantes)."""
     base=f"{e['roster_no']}:{e['mod_id']}"
@@ -34,12 +37,19 @@ def make_vid(e):
     n=2
     while v in _used: v=f"{base}~{slug(e['look_name'])}-{n}";n+=1
     _used.add(v);return v
+SC={}   # textos de alcance repetidos (auditoría, descargas, imágenes) → índice; evita incrustarlos en cada apariencia
+def intern(t):
+    if not t: return None
+    return SC.setdefault(t,len(SC))
+def native(e):
+    v=e.get('native_slots')
+    return [int(x) for x in v if isinstance(x,int) or str(x).isdigit()] if isinstance(v,list) else []
 def add(e,withdrawn=False):
     k=e['roster_no']
     if k not in F: F[k]={'code':k,'name':e['fighter'],'dlc':e.get('dlc_required'),'picks':[]}; order.append(k)
     aud=e.get('audit_status')=='verified'
     img,srcset=cover(e)
-    F[k]['picks'].append({'vid':make_vid(e),'legacy':f"{e['roster_no']}:{e['mod_id']}",'id':e['mod_id'],'name':e['look_name'],'author':e['author'],'url':e['url'],'img':img,'srcset':srcset,'g':gallery(e),
+    F[k]['picks'].append({'vid':make_vid(e),'role':'alt' if e.get('role')=='alternativa' else 'main','alt':e.get('alt_index'),'variant':e.get('variant'),'native':native(e),'dl':e.get('downloads'),'rank':e.get('rank_in_category_most_downloaded'),'dlshared':bool(e.get('shared_download_counter')),'depkind':e.get('dependency_kind'),'wcode':e.get('wifi_state_code'),'dkind':e.get('design_kind'),'sc':[intern(e.get('audit_scope')),intern(re.sub(r'; puesto \d+','',e.get('downloads_scope') or '')),intern(e.get('images_scope'))],'legacy':f"{e['roster_no']}:{e['mod_id']}",'id':e['mod_id'],'name':e['look_name'],'author':e['author'],'url':e['url'],'img':img,'srcset':srcset,'g':gallery(e),
       'audited':aud,'withdrawn':withdrawn,'wifi_status':WK.get(e.get('wifi_state'),e.get('wifi_state')) if aud else None,
       'wifi_quote':e.get('wifi_quote'),'wifi_source':e.get('wifi_source'),'wifi_source_url':e.get('wifi_evidence_url'),
       'conditions':J(e.get('conditions')),'design':e.get('design_check'),'slots_orig':e.get('native_slots_raw'),
@@ -51,9 +61,9 @@ def add(e,withdrawn=False):
 
 def load():
     """(luchadores, meta) del catálogo. Cada luchador: {code,name,dlc,picks:[...]}."""
-    global F,order,_used
+    global F,order,_used,SC
     c=json.load(open(os.path.join(R,'data','catalog.json'),encoding='utf-8'))
-    F={};order=[];_used=set()
+    F={};order=[];_used=set();SC={}
     for e in c['entries']: add(e)
     for e in c.get('withdrawn',[]):
         if 'roster_no' in e: add(e,True)
@@ -67,8 +77,11 @@ def load():
             p['pack']={'n':len(lst),'with':sorted({n for n,_ in lst if n!=fname})} if len(lst)>1 else None
     for f in F.values():
         for p in f['picks']: p.setdefault('pack',None)
-        f['mii']=all(p['mii'] for p in f['picks'])
-    meta={'generated':c.get('generated'),'timezone':c.get('timezone'),'counts':c.get('counts'),'base':BASE}
+        main=[p for p in f['picks'] if p['role']=='main' and not p['withdrawn']]
+        f['mii']=bool(main) and all(p['mii'] for p in main)
+        if f['mii']:
+            for p in f['picks']: p['mii']=True
+    meta={'generated':c.get('generated'),'timezone':c.get('timezone'),'counts':c.get('counts'),'base':BASE,'scopes':[t for t,_ in sorted(SC.items(),key=lambda x:x[1])]}
     return [F[k] for k in order],meta
 def _jload(name):
     fp=os.path.join(R,'data',name)
@@ -91,12 +104,17 @@ def load_inventory(fighters=None):
         for n in v['slots']:
             i=(v.get('info') or {}).get(str(n),{})
             slot(code,n).update({'src':'base','name':i.get('n'),'img':('installed/'+i['i']) if i.get('i') else None,'skin':bool(i.get('skin'))})
+    for x in (prof or {}).get('excluded_base_slots',[]):   # el perfil excluye ese traje del pack base: ya no cuenta como instalado
+        fs.get(x['fighter'],{}).get('slots',{}).pop(str(x['slot']),None)
     for e in (prof or {}).get('slots',[]):
-        slot(e['fighter'],e['slot']).update({'src':'perfil','name':e['name'],'img':None,'skin':True,'author':e.get('author'),'url':e.get('url'),'vid':vid_by_mod.get((e['fighter'],e['mod_id']))})
+        slot(e['fighter'],e['slot']).update({'src':'perfil','name':e['name'],'img':None,'skin':True,'author':e.get('author'),'url':e.get('url'),'version':e.get('version'),'vid':vid_by_mod.get((e['fighter'],e['mod_id']))})
     for code,sl in ((stg or {}).get('slots') or {}).items():
         for n,e in sl.items():
             slot(code,n)['staged']={'name':e.get('name'),'name_src':e.get('name_src'),'img':('installed/'+e['img']) if e.get('img') else None,'branch':e.get('branch'),'subject':e.get('subject')}
-    meta={'verification':'parcial','scanned_at':(base or {}).get('scanned_at'),
+    import hashlib
+    digest=hashlib.sha1(json.dumps(fs,sort_keys=True,ensure_ascii=False).encode()).hexdigest()[:8]
+    meta={'verification':'parcial','version':digest,'scanned_at':(base or {}).get('scanned_at'),
+          'profile':{'name':(prof or {}).get('profile'),'ref':(prof or {}).get('ref'),'components':[c['id'] for c in (prof or {}).get('components',[])],'other_profiles':(prof or {}).get('other_profiles'),'excluded_base_slots':(prof or {}).get('excluded_base_slots')},
           'sources':[
             {'id':'base','label':'Pack base de WuBoy','ref':'{branch}@{sha}'.format(**((base or {}).get('ref') or {'branch':'main','sha':'?'})),'verification':'Revisado en el repositorio','scope':(base or {}).get('scope')},
             {'id':'perfil','label':(prof or {}).get('label'),'ref':(prof or {}).get('ref'),'verification':(prof or {}).get('verification')},

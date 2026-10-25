@@ -14,17 +14,21 @@ La misma estructura sale del botón **Más → Exportar el plan** de la página 
 
 ```json
 { "schema": 3, "generated_at": "...", "catalog": "<fecha del catálogo>",
-  "inventory": { "verification": "parcial", "scanned_at": "...", "sources": [ ... ] },
+  "inventory": { "version": "156bae20", "profile": { "name": "default", "ref": "...@sha", "excluded_base_slots": [] }, "verification": "parcial", "scanned_at": "...", "sources": [ ... ] },
   "target": { "game": "Super Smash Bros. Ultimate", "version": "13.0.5", "loader": "ARCropolis 4.1.1" },
   "changes": [ {
     "fighter": "Sora", "roster_no": "82", "traje": 1, "slot": "c00",
+    "user_destination": { "traje": 1, "slot": "c00", "priority": "el destino elegido manda sobre dest_hint" },
+    "replaces": { "kind": "original|mod|unknown", "name": "...", "vid": null },
+    "relocation": { "native_slots": ["c00","c02"], "needs_move": true, "checked": false },
     "current":  { "kind": "original|mod|unknown", "name": "...", "source": "base|perfil|null", "confirmed": false },
-    "proposal": { "vid": "82:330053", "mod_id": 330053, "name": "...", "author": "...", "url": "...", "online": "Online: lo declara el autor",
+    "proposal": { "vid": "82:330053", "role": "recomendada|alternativa", "variant": null, "mod_id": 330053, "name": "...", "author": "...", "url": "...", "online": "Online: lo declara el autor",
                   "conditions": null, "dependencies": null, "conflicts": null, "native_slots": "1,4", "dest_hint": "c01", "pack": null, "withdrawn": false },
     "missing_in_catalog": false, "vid": "82:330053", "status": "wanted", "result": null } ],
   "history": [ { "at": "...", "roster_no": "82", "traje": 1, "from": null, "to": "82:330053", "kind": "set" } ] }
 ```
 
+- **`user_destination` manda sobre `dest_hint`** (la sugerencia del auditor), siempre que sea técnicamente viable. `relocation.needs_move` indica que el traje elegido no está entre los slots originales del mod; `checked: false` significa que **nadie ha comprobado** que ese mod se pueda reubicar: hay que verlo al instalar.
 - **`traje` (1–8) y `slot` (`c00`–`c07`)** son el destino: la skin debe quedar en ese slot, reubicando los archivos del mod si sus `native_slots` son otros. `dest_hint` solo es orientativo.
 - **`current` nunca está confirmado en consola** (`confirmed: false`). `kind: original` significa «sin mod en el inventario revisado», `unknown` «hay un mod pero no se pudo identificar».
 - **`vid`** identifica la variante exacta (`<luchador>:<id del mod>`; si un mismo mod trae varias variantes para un luchador, la variante añade un sufijo estable).
@@ -38,10 +42,10 @@ El inventario de lo instalado (`installed/*`, `data/inventory_*.json`) se compon
 | Capa | Origen | Verificación |
 |---|---|---|
 | `base` | `tools/scan_installed.py` sobre la rama principal del ModPack | Revisado en el repositorio; no probado en la consola |
-| `perfil` | `data/inventory_profile.json` (curado a partir de la rama del perfil) | Archivos verificados en local; no probado en la Switch |
+| `perfil` | `tools/scan_profile.py` → `data/inventory_profile.json`: composición efectiva del perfil del ModPack (`extends`, `without`, `exclude_base`); lo que el perfil excluye del pack base deja de contar como instalado | Archivos verificados en local; no probado en la Switch |
 | `staged` | `tools/scan_branches.py` sobre ramas sin fusionar | Solo «en preparación»: no se afirma que esté instalado |
 
-`meta/installed.verification` es `parcial` mientras no haya una comprobación en la consola. **Tras cada instalación:** reescanear (`scan_installed.py`, `scan_branches.py`), subir `data/` e `installed/` y ejecutar `python3 tools/db.py seed --only installed` (la Action lo hace en cada push si existe el secreto).
+`meta/installed.version` es un resumen del contenido (cambia si cambia el inventario) y va en cada exportación. Solo se refleja el perfil indicado en `profile.name`; los demás perfiles del ModPack no. `meta/installed.verification` es `parcial` mientras no haya una comprobación en la consola. **Tras cada instalación:** reescanear (`scan_installed.py`, `scan_branches.py`), subir `data/` e `installed/` y ejecutar `python3 tools/db.py seed --only installed` (la Action lo hace en cada push si existe el secreto).
 
 ## Flujo del agente
 
@@ -50,3 +54,12 @@ El inventario de lo instalado (`installed/*`, `data/inventory_*.json`) se compon
 3. Instalar en `ultimate/mods/...`, quitando lo que ocupaba ese slot si corresponde.
 4. `python3 tools/db.py status <vid> installed|failed|skipped --result "..."`.
 5. Reescanear el inventario y sembrar.
+
+## Selecciones antiguas
+
+Las selecciones del modelo anterior guardadas en un navegador **no se suben solas** al plan: la web las ofrece («Elecciones de antes») y solo se añaden si la persona lo confirma. `db.py migrate` (la selección antigua de Firestore `selection/main`) es una acción explícita del mantenedor, idempotente y que no pisa trajes ya propuestos.
+
+## Reparto de responsabilidades
+
+- **Grok:** solo `data/catalog.json` (investigación). Sus campos nuevos (`role`, `look_id`, `variant`, `audit_scope`, `downloads_scope`, `images_scope`, `alt_index`, `dependency_kind`, …) los lee `tools/catalog_data.py`; `look_id` es el `vid` estable de cada apariencia.
+- **Mantenedor del sitio:** interfaz, generador, validador, contratos, inventario, reglas e integración con Firebase.

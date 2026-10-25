@@ -21,7 +21,7 @@ Mientras no se haga, la página funciona con la copia incrustada y guarda el pla
 2. **Firestore Database → Crear base de datos** (modo producción).
 3. **Publicar las reglas** de `firestore.rules` (consola → Reglas, o `firebase deploy --only firestore:rules`).
 4. **Cuenta de servicio** para sembrar y exportar: *Configuración del proyecto → Cuentas de servicio → Generar clave privada*. Guárdala como secreto `FIREBASE_SERVICE_ACCOUNT` del repositorio (la Action siembra en cada push) o úsala en local con `GOOGLE_APPLICATION_CREDENTIALS`. No subas la clave.
-5. Primera carga: `python3 tools/db.py seed` y, si existía una selección anterior, `python3 tools/db.py migrate` (idempotente).
+5. Primera carga: `python3 tools/db.py seed`. El plan nunca se inicializa solo con selecciones antiguas de un navegador; si hace falta pasar la selección antigua de Firestore, ejecuta `python3 tools/db.py migrate` (explícito e idempotente).
 6. Recomendado: restringir la clave de API web a `https://gianzapata.github.io/*` y, si se quiere, activar App Check.
 
 ## Reglas (resumen)

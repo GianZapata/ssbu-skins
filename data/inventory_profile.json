@@ -1,19 +1,154 @@
 {
-  "_nota": "Capa «perfil local»: componentes del perfil `default` del repositorio del ModPack (rama claude/vigilant-keller-6i5s1d, catalog/profiles.json y docs/REPORT-fase1.md, 2026-10-23). Transcritos a mano de la tabla «Asignación final de slots»; los nombres de autor y mod vienen de catalog/mods.json. Ese informe dice: armado y verificado a nivel de archivos en local; NO probado en la Switch. No se inventan nombres: lo que el informe no nombra queda sin nombre.",
-  "id": "perfil",
-  "label": "Perfil local «default»",
-  "ref": "claude/vigilant-keller-6i5s1d@8adc365",
-  "document": "docs/REPORT-fase1.md (2026-10-23)",
-  "verification": "Archivos verificados en local; no probado en la Switch",
-  "slots": [
-    {"fighter": "82", "slot": 4, "name": "Ventus (Dusk)", "mod_id": 384079, "author": "Dusk (@Dusk_SSB) y colaboradores", "url": "https://gamebanana.com/mods/384079"},
-    {"fighter": "82", "slot": 5, "name": "Roxas · Organización XIII", "mod_id": 365949, "author": "Joe T.E. (JoeTE)", "url": "https://gamebanana.com/mods/365949"},
-    {"fighter": "82", "slot": 7, "name": "Roxas · Villa Crepúsculo", "mod_id": 365949, "author": "Joe T.E. (JoeTE)", "url": "https://gamebanana.com/mods/365949"},
-    {"fighter": "32", "slot": 0, "name": "Terra", "mod_id": 381503, "author": "Dusk (@Dusk_SSB) y colaboradores", "url": "https://gamebanana.com/mods/381503"},
-    {"fighter": "32", "slot": 2, "name": "Terranort", "mod_id": 381503, "author": "Dusk (@Dusk_SSB) y colaboradores", "url": "https://gamebanana.com/mods/381503"},
-    {"fighter": "02", "slot": 1, "name": "Funky Kong", "mod_id": 174250, "author": "BezBZ", "url": "https://gamebanana.com/mods/174250"},
-    {"fighter": "02", "slot": 3, "name": "Funky Kong", "mod_id": 174250, "author": "BezBZ", "url": "https://gamebanana.com/mods/174250"},
-    {"fighter": "02", "slot": 5, "name": "Funky Kong", "mod_id": 174250, "author": "BezBZ", "url": "https://gamebanana.com/mods/174250"},
-    {"fighter": "02", "slot": 7, "name": "Funky Kong", "mod_id": 174250, "author": "BezBZ", "url": "https://gamebanana.com/mods/174250"}
-  ]
+ "_nota": "Capa «perfil»: composición efectiva calculada por tools/scan_profile.py (extends + without + exclude_base) a partir de catalog/profiles.json y mods.json del ModPack. La asignación componente→slot está transcrita (COMPONENT_SLOTS). El informe del ModPack dice que se armó y verificó a nivel de archivos en local y NO se probó en la Switch.",
+ "id": "perfil",
+ "label": "Perfil local «default»",
+ "profile": "default",
+ "ref": "claude/vigilant-keller-6i5s1d@8adc365",
+ "document": "catalog/profiles.json + catalog/mods.json",
+ "scanned_at": "2026-10-25T21:47:25Z",
+ "verification": "Archivos verificados en local; no probado en la Switch",
+ "components": [
+  {
+   "id": "roxas-sora-reslot",
+   "version": "Release 2.5 (2.5.0)",
+   "target": "Sora c07 (de c08, Villa Crepusculo, familia c03/c07) y c05 (de c09, Organizacion XIII, familia c01/c05); 1 color cada uno",
+   "url": "https://gamebanana.com/mods/365949"
+  },
+  {
+   "id": "ventus-sora",
+   "version": "pending",
+   "target": "Sora c04",
+   "url": "https://gamebanana.com/mods/384079"
+  },
+  {
+   "id": "funky-dk",
+   "version": "2.0.0",
+   "target": "DK c01, c03, c05, c07",
+   "url": "https://gamebanana.com/mods/174250"
+  },
+  {
+   "id": "terra-ike",
+   "version": "pending",
+   "target": "Ike c00 y c02",
+   "url": "https://gamebanana.com/mods/381503"
+  },
+  {
+   "id": "kh-music",
+   "version": "pending",
+   "target": "bgm_kh01-05,07-09 (8 pistas)",
+   "url": "https://gamebanana.com/sounds/63158"
+  },
+  {
+   "id": "roxas-victory-pack",
+   "version": "pending",
+   "target": "bgm_zz08_f_trail (victoria de Sora); victory_7 = tema de Roxas",
+   "url": "https://gamebanana.com/mods/348627"
+  }
+ ],
+ "other_profiles": [
+  "gian-sin-musica",
+  "opt-aqua",
+  "opt-aqua-alt",
+  "opt-helmetless-ventus"
+ ],
+ "excluded_base_slots": [
+  {
+   "fighter": "82",
+   "slot": 7
+  }
+ ],
+ "exclude_base_total": 17,
+ "unmapped_components": [],
+ "slots": [
+  {
+   "fighter": "82",
+   "slot": 5,
+   "name": "Roxas · Organización XIII",
+   "component": "roxas-sora-reslot",
+   "mod_id": 365949,
+   "author": "Joe T.E. (JoeTE)",
+   "url": "https://gamebanana.com/mods/365949",
+   "version": "Release 2.5 (2.5.0)"
+  },
+  {
+   "fighter": "82",
+   "slot": 7,
+   "name": "Roxas · Villa Crepúsculo",
+   "component": "roxas-sora-reslot",
+   "mod_id": 365949,
+   "author": "Joe T.E. (JoeTE)",
+   "url": "https://gamebanana.com/mods/365949",
+   "version": "Release 2.5 (2.5.0)"
+  },
+  {
+   "fighter": "82",
+   "slot": 4,
+   "name": "Ventus (Dusk)",
+   "component": "ventus-sora",
+   "mod_id": 384079,
+   "author": "Dusk (@Dusk_SSB) + colaboradores (ver Credits.txt del archivo)",
+   "url": "https://gamebanana.com/mods/384079",
+   "version": "pending"
+  },
+  {
+   "fighter": "02",
+   "slot": 1,
+   "name": "Funky Kong",
+   "component": "funky-dk",
+   "mod_id": 174250,
+   "author": "BezBZ",
+   "url": "https://gamebanana.com/mods/174250",
+   "version": "2.0.0"
+  },
+  {
+   "fighter": "02",
+   "slot": 3,
+   "name": "Funky Kong",
+   "component": "funky-dk",
+   "mod_id": 174250,
+   "author": "BezBZ",
+   "url": "https://gamebanana.com/mods/174250",
+   "version": "2.0.0"
+  },
+  {
+   "fighter": "02",
+   "slot": 5,
+   "name": "Funky Kong",
+   "component": "funky-dk",
+   "mod_id": 174250,
+   "author": "BezBZ",
+   "url": "https://gamebanana.com/mods/174250",
+   "version": "2.0.0"
+  },
+  {
+   "fighter": "02",
+   "slot": 7,
+   "name": "Funky Kong",
+   "component": "funky-dk",
+   "mod_id": 174250,
+   "author": "BezBZ",
+   "url": "https://gamebanana.com/mods/174250",
+   "version": "2.0.0"
+  },
+  {
+   "fighter": "32",
+   "slot": 0,
+   "name": "Terra",
+   "component": "terra-ike",
+   "mod_id": 381503,
+   "author": "Dusk (@Dusk_SSB) + colaboradores (ver Credits.txt del archivo)",
+   "url": "https://gamebanana.com/mods/381503",
+   "version": "pending"
+  },
+  {
+   "fighter": "32",
+   "slot": 2,
+   "name": "Terranort",
+   "component": "terra-ike",
+   "mod_id": 381503,
+   "author": "Dusk (@Dusk_SSB) + colaboradores (ver Credits.txt del archivo)",
+   "url": "https://gamebanana.com/mods/381503",
+   "version": "pending"
+  }
+ ]
 }

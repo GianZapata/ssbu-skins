@@ -59,6 +59,9 @@ function portrait(f){if(portraitCache[f.code]!==undefined&&portraitCache[f.code]
 
 /* --- etiquetas --- */
 const ONLINE={autor_explicito:['g','Online: lo declara el autor'],autor_condicionado:['y','Online: con condiciones'],tercero:['y','Online: según terceros'],sin_evidencia:['','Online: sin datos'],incompatible:['r','Incompatible online']};
+const cond=p=>[p.conditions,p.deps&&('Necesita: '+p.deps),...(p.conflicts?p.conflicts.split(' · ').filter(c=>!/^choca con propuestas principales/.test(c)):[])].filter(Boolean);
+const scopeTxt=(p,i)=>p.sc&&p.sc[i]!=null&&META.scopes?META.scopes[p.sc[i]]:null;
+const isAlt=p=>p.role==='alt';
 const onlineOf=p=>p.audited?(ONLINE[p.wifi_status]||['','Online: sin datos']):['','Sin auditar'];
 
 /* ============================ imágenes ============================ */
@@ -159,9 +162,9 @@ function vTraje(R){const f=byCode[R.code],n=R.n;
 
 /* ============================ pantalla: Catálogo ============================ */
 function cCard(e,i,paraRaw){const p=e.p,[oc,ol0]=onlineOf(p),ol=ol0.replace('Online: lo declara el autor','Online · autor').replace('Online: con condiciones','Online · condiciones').replace('Online: según terceros','Online · terceros').replace('Online: sin datos','Online · sin datos'),pm=proposedMap()[p.vid]||[];
- return `<a class="cd" href="${href.ficha(p.vid,paraRaw)}" aria-label="${esc(p.name)}, ${esc(e.f.name)}">${imBox(p.img,p.name,{srcset:p.srcset,eager:i>=0&&i<2})}<span class="tx"><span class="nm">${esc(p.name)}</span><span class="fg">${esc(e.f.name)}</span><span class="pl"><span class="pill ${oc}">${esc(ol)}</span>${p.pack?'<span class="pill b">Paquete</span>':''}${p.mii?'<span class="pill">Mii</span>':''}${pm.map(x=>`<span class="pill y" data-prop="1">En ${trajeName(x.n)}</span>`).join('')}</span></span></a>`}
+ return `<a class="cd" href="${href.ficha(p.vid,paraRaw)}" aria-label="${esc(p.name)}, ${esc(e.f.name)}">${imBox(p.img,p.name,{srcset:p.srcset,eager:i>=0&&i<2})}<span class="tx"><span class="nm">${esc(p.name)}</span><span class="fg">${esc(e.f.name)}</span><span class="pl"><span class="pill ${oc}">${esc(ol)}</span>${p.role==='main'?'<span class="pill y">Recomendada</span>':''}${p.variant?'<span class="pill">Variante</span>':''}${p.pack?'<span class="pill b">Paquete</span>':''}${p.mii?'<span class="pill">Mii</span>':''}${pm.map(x=>`<span class="pill y" data-prop="1">En ${trajeName(x.n)}</span>`).join('')}</span></span></a>`}
 function catList(ctx){const c=S.cat,q=norm(c.q),fcode=ctx?ctx.code:c.f;
- return all.filter(e=>{const p=e.p;if(fcode&&e.f.code!==fcode)return false;if(ctx&&p.mii)return false;if(c.on&&!(p.wifi_status==='autor_explicito'||p.wifi_status==='autor_condicionado'))return false;if(c.aud&&!p.audited)return false;
+ return all.filter(e=>{const p=e.p;if(fcode&&e.f.code!==fcode)return false;if(ctx&&p.mii)return false;if(c.on&&!(p.wifi_status==='autor_explicito'||p.wifi_status==='autor_condicionado'))return false;if(c.aud&&p.role!=='main')return false;
   if(q&&!norm(p.name+' '+e.f.name+' '+p.author).split(' ').length)return false;if(q&&!q.split(/\s+/).every(w=>norm(p.name+' '+e.f.name+' '+p.author).includes(w)))return false;return true})}
 function catGrid(ctx){const l=catList(ctx);$('cg').innerHTML=l.slice(0,S.shown).map((e,i)=>cCard(e,i,ctx&&ctx.raw)).join('');$('cc').textContent=l.length+' apariencia'+(l.length==1?'':'s');
  $('ce').hidden=!!l.length;$('cm').hidden=l.length<=S.shown;$('cm').textContent='Ver más ('+(l.length-S.shown)+')';return l}
@@ -174,7 +177,7 @@ function vCatalog(R){const ctx=para(R.q.para);
  $('main').innerHTML=`${ctx?`<div class="ctx">${imBox(cu.img,cu.name,{kind:cu.kind})}<div><b>${trajeName(ctx.n)} · ${esc(byCode[ctx.code].name)}</b>Ahora: ${esc(cu.name)}</div></div>`:''}
  <div class="search"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg><input id="cq" type="search" placeholder="Buscar apariencia" value="${esc(S.cat.q)}" autocomplete="off" enterkeyhint="search" aria-label="Buscar apariencia"></div>
  ${ctx?'':`<select class="sel" id="cf" aria-label="Luchador"><option value="">Todos los luchadores</option>${F.map(f=>`<option value="${esc(f.code)}"${f.code===S.cat.f?' selected':''}>${esc(f.name)}</option>`).join('')}</select>`}
- <div class="chips" role="group" aria-label="Filtros"><button class="chip" data-chip="on" aria-pressed="${S.cat.on}">Online: lo declara el autor</button><button class="chip" data-chip="aud" aria-pressed="${S.cat.aud}">Solo revisadas</button></div>
+ <div class="chips" role="group" aria-label="Filtros"><button class="chip" data-chip="on" aria-pressed="${S.cat.on}">Online: lo declara el autor</button><button class="chip" data-chip="aud" aria-pressed="${S.cat.aud}">Recomendadas</button></div>
  <p class="mu sm" id="cc" aria-live="polite"></p><div class="cgrid" id="cg"></div><p class="empty" id="ce" hidden><span class="big">🔎</span>No hay apariencias con esos filtros</p><button class="more" id="cm" hidden></button><div id="cs" style="height:1px"></div>`;
  catGrid(ctx);
  if(catObs)catObs.disconnect();catObs=new IntersectionObserver(es=>{if(es[0].isIntersecting&&RT&&RT.v==='catalogo'&&!$('cm').hidden){S.shown+=PAGE;catGrid(ctx)}},{rootMargin:'600px'});catObs.observe($('cs'))}
@@ -196,16 +199,21 @@ function vFicha(R){const e=idx[R.vid];
  const pmv=proposedMap()[p.vid]||[];
  $('main').innerHTML=`${hero}${thumbs}
  ${p.pack?`<div class="note b"><b>Paquete compartido</b>Este mod también trae diseños para ${esc(p.pack.with.join(', '))}. Las fotos muestran todo el paquete, no solo esta apariencia.</div>`:''}
- <h2 style="margin-top:12px">${esc(p.name)}</h2><p class="mu" style="margin:0 0 8px">${esc(f.name)} · por ${esc(p.author)}</p>
- <p style="margin:0 0 6px"><span class="pill ${oc}">${esc(ol)}</span> ${p.mii?'<span class="pill">Traje Mii</span>':''}</p>
- ${p.conditions?`<div class="note y"><b>Condiciones</b>${esc(p.conditions)}</div>`:''}
- ${p.deps?`<div class="note y"><b>Necesita</b>${esc(p.deps)}</div>`:''}
- ${p.conflicts?`<div class="note y"><b>Posibles conflictos</b>${esc(p.conflicts)}</div>`:''}
+ <p class="mu sm" style="margin:6px 0 0">Fotos de la página del mod</p>
+ <h2 style="margin-top:8px">${esc(p.name)}</h2><p class="mu" style="margin:0 0 8px">${esc(f.name)} · por ${esc(p.author)}</p>
+ <p style="margin:0 0 6px">${p.role==='main'?'<span class="pill y">Recomendada</span> ':'<span class="pill">Alternativa</span> '}<span class="pill ${oc}">${esc(ol)}</span> ${p.mii?'<span class="pill">Traje Mii</span>':''}</p>
+ ${cond(p).length?`<div class="note y"><b>Condiciones</b>${cond(p).map(esc).join('<br>')}</div>`:''}
+ ${p.variant?`<div class="note b"><b>Variante</b>${esc(p.variant)}</div>`:''}
  ${p.withdrawn?'<div class="note y"><b>Retirada</b>Esta apariencia se retiró del catálogo.</div>':''}
  <div id="usebox">${useBox(f,p,ctx)}</div>
  <details><summary>Detalles y fuentes</summary><div class="dl">
   ${p.wifi_quote?`<p class="q">«${esc(p.wifi_quote)}»</p>`:''}
   <p>${p.audited?`Estado online: ${esc(ol)}. Es una declaración registrada${p.wifi_source?` (${esc(p.wifi_source)})`:''}, no una prueba en tu consola.`:'Todavía no se ha revisado esta apariencia.'} ${p.wifi_source_url?`<a href="${esc(p.wifi_source_url)}" target="_blank" rel="noopener" style="color:#8ab4ff">Ver fuente</a>`:''}</p>
+  ${p.dl!=null?`<p><b>Descargas:</b> ${p.dl.toLocaleString('es')}${p.rank?` · puesto ${p.rank} en su categoría`:''}${p.dlshared?' (contador compartido con otros luchadores)':''}${scopeTxt(p,1)?`<br><span class="mu sm">${esc(scopeTxt(p,1))}</span>`:''}</p>`:''}
+  ${scopeTxt(p,2)?`<p><b>Fotos:</b> ${esc(scopeTxt(p,2))}; si el mod es un paquete pueden mostrar otros diseños.</p>`:''}
+  ${scopeTxt(p,0)?`<p><b>Revisión:</b> ${esc(scopeTxt(p,0))}</p>`:''}
+  ${p.depkind?`<p><b>Dependencias:</b> ${esc(p.depkind)}</p>`:''}
+  ${p.conflicts?`<p><b>Choques anotados:</b> ${esc(p.conflicts)}</p>`:''}
   <p><b>Slots originales del mod:</b> ${esc(p.slots_orig||'sin especificar')}</p>
   ${p.dest?`<p><b>Destino sugerido por el análisis:</b> ${esc(p.dest)} (solo orientativo: ese traje puede estar ocupado)</p>`:''}
   ${p.design?`<p><b>Diseño:</b> ${esc(p.design)}</p>`:''}
@@ -224,6 +232,7 @@ function useBox(f,p,ctx){
  ${target?`<div class="row2"><div class="card2"><em>${target.pv&&!same?'Propuesta actual':'Actual'}</em>${imBox(target.pv&&tpp?tpp.img:target.c.img,'',{kind:target.c.kind})}<b>${esc(target.pv&&tpp?tpp.name:target.c.name)}</b></div><span class="arrow" aria-hidden="true">→</span><div class="card2 prop"><em>Nueva</em>${imBox(p.img,p.name,{})}<b>${esc(p.name)}</b></div></div>
   ${target.pv&&!same?`<p class="note y" role="status">${trajeName(sel)} ya tiene una propuesta del grupo: <b style="display:inline">${esc(tpp?tpp.name:'otra apariencia')}</b>. Si sigues, la reemplazas.</p>`:''}`:''}
  <div class="acts">${same?`<button class="p" data-clear="${keyOf(f.code,sel)}">Deshacer</button>`:`<button class="p" data-use="1" ${sel==null?'disabled':''}>${sel==null?'Elige un traje':'Usar en '+trajeName(sel)}</button>`}</div>
+ ${sel!=null&&p.native&&p.native.length&&!p.native.includes(sel)?`<p class="note y" role="status">Este mod trae trajes para ${p.native.map(n=>n+1).join(', ')}. Usarlo en el ${trajeName(sel)} exige moverlo y no está comprobado.</p>`:''}
  ${pm.length&&!same?`<p class="mu sm">Ya es una propuesta en ${pm.map(x=>trajeName(x.n)).join(', ')}.</p>`:''}`}
 
 /* ============================ pantalla: Cambios ============================ */
@@ -231,10 +240,11 @@ function changeRow(e){const f=byCode[e.code],c=curOf(e.code,e.n),pp=idx[e.vid]?i
  return `<div class="chg-row"><div class="hd"><span>${trajeName(e.n)}</span><small>${techName(e.n)}</small></div>
  <div class="row2"><div class="card2"><em>Actual</em>${imBox(c.img,c.name,{kind:c.kind})}<b>${esc(c.name)}</b></div><span class="arrow" aria-hidden="true">→</span><div class="card2 prop"><em>Propuesta</em>${imBox(pp?pp.img:null,pp?pp.name:'',{})}<b>${esc(pp?pp.name:'Apariencia ya no disponible')}</b></div></div>
  <div class="acts"><a class="btn p" href="${href.cat(e.code,e.n)}">Cambiar opción</a><button data-undo="${keyOf(e.code,e.n)}">Deshacer</button></div></div>`}
+function recBanner(){const n=legacyItems().length;return n?`<div class="note b"><b>Elecciones de antes</b>Este dispositivo guardó ${n}. <button data-m="recover" class="g" style="min-height:44px;color:#a9c8f5">Revisar</button></div>`:''}
 function vChanges(){head('Cambios',false);const es=planEntries();
- if(!es.length){$('main').innerHTML='<div class="empty"><span class="big" aria-hidden="true">🎽</span><b style="display:block;color:var(--tx);font-size:18px">Todavía no hay cambios</b><p>Elige un luchador y toca un traje para proponer otra apariencia.</p><a class="btn p" href="#/luchadores">Elegir luchador</a></div>';return}
+ if(!es.length){$('main').innerHTML='<div class="empty"><span class="big" aria-hidden="true">🎽</span><b style="display:block;color:var(--tx);font-size:18px">Todavía no hay cambios</b><p>Elige un luchador y toca un traje para proponer otra apariencia.</p><a class="btn p" href="#/luchadores">Elegir luchador</a></div>'+recBanner();return}
  const groups={};es.forEach(e=>(groups[e.code]=groups[e.code]||[]).push(e));
- $('main').innerHTML=`<p class="mu" style="margin:2px 0 0"><b style="color:var(--tx)">${es.length} cambio${es.length>1?'s':''}</b> en ${Object.keys(groups).length} luchador${Object.keys(groups).length>1?'es':''}</p>`+
+ $('main').innerHTML=recBanner()+`<p class="mu" style="margin:2px 0 0"><b style="color:var(--tx)">${es.length} cambio${es.length>1?'s':''}</b> en ${Object.keys(groups).length} luchador${Object.keys(groups).length>1?'es':''}</p>`+
   Object.entries(groups).map(([code,l])=>{const f=byCode[code];return `<div class="grp">${imBox(portrait(f),f.name,{})}<h2>${esc(f.name)}</h2></div>${l.map(changeRow).join('')}`}).join('')}
 
 /* ============================ acciones sobre el plan ============================ */
@@ -250,6 +260,7 @@ function undoKey(k){const i=k.lastIndexOf('_');clearAt(k.slice(0,i),+k.slice(i+1
 
 /* --- clic en la zona principal --- */
 $('main').addEventListener('click',e=>{const t=e.target;let b;
+ if(b=t.closest('[data-m="recover"]')){e.preventDefault();showRecover();return}
  if(b=t.closest('[data-undo]')){e.preventDefault();undoKey(b.dataset.undo);return}
  if(b=t.closest('[data-clear]')){e.preventDefault();const k=b.dataset.clear;undoKey(k);return}
  if(b=t.closest('[data-chip]')){S.cat[b.dataset.chip]=!S.cat[b.dataset.chip];b.setAttribute('aria-pressed',S.cat[b.dataset.chip]);S.shown=PAGE;saveCat();catGrid(para(RT.q.para));return}
@@ -268,9 +279,9 @@ document.addEventListener('focusin',e=>{if(isTxt(e.target))document.body.classLi
 document.addEventListener('focusout',()=>setTimeout(()=>{if(!isTxt(document.activeElement))document.body.classList.remove('typing')},50));
 
 /* ============================ menú, historial, datos, exportar ============================ */
-function showMenu(){openDlg('Más',`<div class="list"><button data-m="hist"><span class="i">🕘</span>Historial de cambios</button><button data-m="datos"><span class="i">ℹ️</span>Sobre los datos</button><button data-m="export"><span class="i">📤</span>Exportar el plan</button><button data-m="ayuda"><span class="i">❓</span>Cómo se usa</button></div>`,false)}
+function showMenu(){openDlg('Más',`<div class="list"><button data-m="hist"><span class="i">🕘</span>Historial de cambios</button><button data-m="datos"><span class="i">ℹ️</span>Sobre los datos</button><button data-m="export"><span class="i">📤</span>Exportar el plan</button><button data-m="ayuda"><span class="i">❓</span>Cómo se usa</button>${legacyItems().length?`<button data-m="recover"><span class="i">♻️</span>Elecciones de antes (${legacyItems().length})</button>`:''}</div>`,false)}
 $('menuBtn').onclick=showMenu;
-$('dlgB').addEventListener('click',e=>{const b=e.target.closest('[data-m]');if(b){({hist:showHist,datos:showDatos,export:showExport,ayuda:showAyuda})[b.dataset.m]();return}
+$('dlgB').addEventListener('click',e=>{const b=e.target.closest('[data-m]');if(b){({hist:showHist,datos:showDatos,export:showExport,ayuda:showAyuda,recover:showRecover,'recover-go':recoverGo,'recover-no':recoverNo})[b.dataset.m]();return}
  if(e.target.closest('#hUndo')){closeDlg();undoLast();return}
  if(e.target.closest('#xCopy')){const t=JSON.stringify(buildExport(),null,2);(navigator.clipboard?navigator.clipboard.writeText(t):Promise.reject()).then(()=>toast('Plan copiado'),()=>{const ta=$('xPre');ta.focus();toast('Selecciona el texto y cópialo')});return}
  if(e.target.closest('#xDown')){const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([JSON.stringify(buildExport(),null,2)],{type:'application/json'}));a.download='plan-skins.json';a.click();return}});
@@ -282,6 +293,7 @@ function showHist(){const rows=HIST.slice(0,40).map(h=>{const f=byCode[h.code],t
 function showDatos(){const m=INV&&INV.meta;const gen=(META.generated||'').replace('T',' ');
  openDlg('Sobre los datos',`<div class="note"><b>Qué es «Actual»</b>Lo que se pudo revisar en los repositorios del ModPack. No es un inventario comprobado en la consola: ${m&&m.verification?`verificación <b style="display:inline">${esc(m.verification)}</b>`:'sin verificar'}.</div>
  ${m?m.sources.map(s=>`<div class="note"><b>${esc(s.label)}</b>${esc(s.verification||'')}${s.ref?`<br><span class="mu sm">${esc(s.ref)}</span>`:''}${s.scope?`<br><span class="mu sm">${esc(s.scope)}</span>`:''}</div>`).join(''):''}
+ ${m&&m.profile&&m.profile.name?`<div class="note"><b>Perfil del ModPack</b>Se usa el perfil «${esc(m.profile.name)}» (${esc(m.profile.ref||'')}) con sus exclusiones${m.profile.excluded_base_slots&&m.profile.excluded_base_slots.length?` (quita ${m.profile.excluded_base_slots.length} traje${m.profile.excluded_base_slots.length>1?'s':''} del pack base)`:''}. Otros perfiles (${esc((m.profile.other_profiles||[]).join(', '))}) no se reflejan.<br><span class="mu sm">Versión del inventario ${esc(m.version||'')}</span></div>`:''}
  <div class="note"><b>Original</b>Un traje sin ningún mod en el inventario revisado se muestra como original. No está confirmado en la consola.</div>
  <div class="note"><b>«Online»</b>Es lo que declara el autor del mod. No es una prueba en tu consola.</div>
  <div class="note"><b>Catálogo</b>${esc(gen)} · ${F.reduce((n,f)=>n+f.picks.filter(p=>!p.withdrawn).length,0)} apariencias${m&&m.scanned_at?` · inventario del ${esc(m.scanned_at.slice(0,10))}`:''}</div>
@@ -289,11 +301,12 @@ function showDatos(){const m=INV&&INV.meta;const gen=(META.generated||'').replac
 function showAyuda(){openDlg('Cómo se usa',`<div class="steps"><div><b>1</b><span>Elige un <b>luchador</b>.</span></div><div><b>2</b><span>Toca el <b>traje</b> que quieres cambiar.</span></div><div><b>3</b><span>Elige una <b>alternativa</b> y toca «Usar en Traje…».</span></div><div><b>4</b><span>¿Te arrepientes? Toca <b>Deshacer</b>.</span></div></div>`,true)}
 function buildExport(){const es=planEntries();
  return {schema:3,generated_at:new Date().toISOString(),catalog:META.generated||null,
-  inventory:{verification:INV&&INV.meta&&INV.meta.verification,scanned_at:INV&&INV.meta&&INV.meta.scanned_at,sources:INV&&INV.meta&&INV.meta.sources},
+  inventory:{version:INV&&INV.meta&&INV.meta.version,profile:INV&&INV.meta&&INV.meta.profile,verification:INV&&INV.meta&&INV.meta.verification,scanned_at:INV&&INV.meta&&INV.meta.scanned_at,sources:INV&&INV.meta&&INV.meta.sources},
   target:{game:'Super Smash Bros. Ultimate',version:'13.0.5',loader:'ARCropolis 4.1.1'},
   changes:es.map(e=>{const f=byCode[e.code],c=curOf(e.code,e.n),p=idx[e.vid]?idx[e.vid].p:null;
    return {fighter:f.name,roster_no:e.code,traje:e.n+1,slot:'c0'+e.n,current:{kind:c.kind,name:c.name,source:c.src||null,confirmed:false},
-    proposal:p?{vid:p.vid,mod_id:p.id,name:p.name,author:p.author,url:p.url,online:onlineOf(p)[1],conditions:p.conditions||null,dependencies:p.deps||null,conflicts:p.conflicts||null,native_slots:p.slots_orig||null,dest_hint:p.dest||null,pack:p.pack,withdrawn:!!p.withdrawn}:null,
+    user_destination:{traje:e.n+1,slot:'c0'+e.n,priority:'el destino elegido manda sobre dest_hint'},replaces:{kind:c.kind,name:c.name,vid:c.vid||null},relocation:p&&p.native&&p.native.length?{native_slots:p.native.map(n=>'c0'+n),needs_move:!p.native.includes(e.n),checked:false}:null,
+    proposal:p?{vid:p.vid,role:p.role==='main'?'recomendada':'alternativa',variant:p.variant||null,mod_id:p.id,name:p.name,author:p.author,url:p.url,online:onlineOf(p)[1],conditions:p.conditions||null,dependencies:p.deps||null,conflicts:p.conflicts||null,native_slots:p.slots_orig||null,dest_hint:p.dest||null,pack:p.pack,withdrawn:!!p.withdrawn}:null,
     missing_in_catalog:!p,vid:e.vid,status:(STATUS[e.vid]||{}).status||'wanted',result:(STATUS[e.vid]||{}).result||null}}),
   history:HIST.slice(0,50).map(h=>({at:h.t?new Date(h.t).toISOString():null,roster_no:h.code,traje:h.slot+1,from:h.from,to:h.to,kind:h.kind}))}}
 function showExport(){const n=planEntries().length;
@@ -315,7 +328,7 @@ async function openGallery(p,i){const imgs=imgsOf(p);if(!imgs.length)return;
   if(slide.calculateSize){slide.calculateSize();slide.zoomAndPanToInitial();slide.applyCurrentZoomPan()}});
  // foto que falla: aviso claro con «Reintentar»
  pswp.addFilter('contentErrorElement',(el,content)=>{const d=document.createElement('div');d.className='pswp__err';d.innerHTML='<span aria-hidden="true" style="font-size:36px">🖼</span><span>No se pudo cargar esta foto</span>';
-  const b=document.createElement('button');b.textContent='Reintentar';b.onclick=()=>{try{if(content.slide)content.slide.container.innerText='';content.load(false,true)}catch(e){pswp.refreshSlideContent(content.index)}};d.appendChild(b);return d});
+  const b=document.createElement('button');b.textContent='Reintentar';b.onclick=()=>{try{if(content.slide)content.slide.container.innerText='';content.state='loading';content.displayedImageWidth=0;content.load(false,true)}catch(e){pswp.refreshSlideContent(content.index)}};d.appendChild(b);return d});
  // miniaturas visibles, con la actual marcada
  if(imgs.length>1)pswp.on('uiRegister',()=>pswp.ui.registerElement({name:'thumbs',order:9,isButton:false,appendTo:'root',html:'<div class="pswp__thumbs" role="group" aria-label="Fotos"></div>',onInit:(el,ps)=>{
   el.innerHTML=imgs.map((x,k)=>`<button aria-label="Foto ${k+1}"><img src="${esc(x.s)}" alt="" loading="lazy"></button>`).join('');
@@ -387,21 +400,22 @@ async function startDb(){if(!FBCFG){paintSync();return}
   sub(f.collection(f.db,'installed'),s=>{instSnap=s;maybeApplyInventory()});
   sub(f.collection(f.db,'status'),s=>{STATUS={};s.forEach(d=>{const v=d.data();STATUS[v.vid||d.id]=v})});
   sub(f.collection(f.db,'changes'),s=>{const m={};s.forEach(d=>{const v=d.data();m[d.id]={vid:v.vid,by:v.by,at:ts(v.at)}});PLAN=m;LS('ssbu_plan_cache',JSON.stringify(m));
-   dbState='ok';syncErr=null;paintSync();render(true);if(!planLoaded){planLoaded=true;migrateLocal()}flush()});
+   dbState='ok';syncErr=null;paintSync();render(true);planLoaded=true;flush()});
   sub(f.query(f.collection(f.db,'history'),f.orderBy('at','desc'),f.limit(40)),s=>{HIST=[];s.forEach(d=>{const v=d.data();HIST.push({code:v.code,slot:v.slot,from:v.from,to:v.to,kind:v.kind,t:ts(v.at)})})})
  }catch(e){dbErr(e,true)}}
 
-/* --- migración: selecciones del modelo anterior guardadas en este dispositivo → propuestas del plan --- */
-function migrateLocal(){if(LS('ssbu_mig3'))return;LS('ssbu_mig3','1');
- const old=J('ssbu_sel_v2',null);if(!old)return;let n=0;
+/* --- selecciones del modelo anterior (guardadas en este navegador): nunca se suben solas; se ofrecen y la persona decide --- */
+function legacyItems(){if(LS('ssbu_mig3'))return [];const old=J('ssbu_sel_v2',null);if(!old)return [];const out=[];
  Object.entries(old).forEach(([k,v])=>{if(!v||v.slot==null)return;const vid=legacyMap[k],code=k.split(':')[0],f=byCode[code];
-  if(!vid||!f||f.mii||planVid(code,v.slot))return;PEND.push({code,slot:v.slot,to:vid,exp:null,kind:'set'});n++});
- if(n){savePend();render(true);toast(`Recuperamos ${n} elecci${n>1?'ones':'ón'} de este dispositivo`);flush()}}
+  if(!vid||!f||f.mii||planVid(code,v.slot))return;out.push({code,slot:v.slot,vid})});return out}
+function showRecover(){const l=legacyItems();
+ openDlg('Elecciones de antes',l.length?`<p class="mu">Este dispositivo guardó ${l.length} elecci${l.length>1?'ones':'ón'} de la versión anterior. No se han añadido al plan: tú decides.</p>${l.map(x=>{const p=idx[x.vid].p;return `<div class="hrow">${imBox(p.img,'',{})}<div><b>${trajeName(x.slot)} · ${esc(byCode[x.code].name)}</b><br>${esc(p.name)}</div></div>`}).join('')}<div class="acts"><button class="p" data-m="recover-go">Añadir al plan compartido</button><button data-m="recover-no">No añadir</button></div>`:'<p class="empty">No hay elecciones antiguas pendientes.</p>',true)}
+function recoverGo(){const l=legacyItems();LS('ssbu_mig3','1');l.forEach(x=>enqueue({code:x.code,slot:x.slot,to:x.vid,exp:planVid(x.code,x.slot),kind:'set'}));closeDlg();toast(`${l.length} elecci${l.length>1?'ones añadidas':'ón añadida'} al plan`)}
+function recoverNo(){LS('ssbu_mig3','1');closeDlg();render(true)}
 
 /* ============================ arranque ============================ */
 PLAN=J('ssbu_plan_cache',{});
 addEventListener('popstate',()=>{if(skip){skip--;return}if(ovs.length){hideOv(ovs.pop());return}onRoute()});
 addEventListener('hashchange',()=>{if(ovs.length)return;onRoute()});
 document.addEventListener('keydown',e=>{if(e.key==='Escape'&&ovs[ovs.length-1]==='dlg')closeDlg()});
-if(!FBCFG){if(!LS('ssbu_mig3'))planLoaded=true}
-onRoute(true);paintSync();startDb();if(!FBCFG)migrateLocal();
+onRoute(true);paintSync();startDb();

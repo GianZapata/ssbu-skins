@@ -16,7 +16,7 @@ Antes de generar, `python3 tools/validate_catalog.py` comprueba que el catálogo
 
 No subir `node_modules/`, binarios ni CSS compilado al repo: el historial no se puede aligerar sin reescribirlo.
 
-Inventario de lo instalado: `python3 tools/scan_installed.py <ruta del ModPack>` (rama principal) y `python3 tools/scan_branches.py <ruta del ModPack>` (ramas sin fusionar) escriben `data/installed.json`, `data/inventory_staged.json` y los retratos en `installed/*.webp`; `data/inventory_profile.json` es la capa curada del perfil. La página muestra cada nivel con su verificación (nunca como confirmado en la consola).
+Inventario de lo instalado: `python3 tools/scan_installed.py <ruta del ModPack>` (rama principal) y `python3 tools/scan_branches.py <ruta del ModPack>` (ramas sin fusionar) escriben `data/installed.json`, `data/inventory_staged.json` y los retratos en `installed/*.webp`; `python3 tools/scan_profile.py <ruta del ModPack>` calcula la capa del perfil (composición efectiva y exclusiones) en `data/inventory_profile.json`. La página muestra cada nivel con su verificación (nunca como confirmado en la consola).
 
 ## Base de datos y amigos (Firebase)
 
