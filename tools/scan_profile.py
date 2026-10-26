@@ -29,7 +29,7 @@ COMPONENT_SLOTS = {
     'bayonetta-harley-pr7': [('63', 3, 'Harley Quinn', 360738)],
     'steve-alex-pr11': [('77', 0, 'Red Steve', 175905), ('77', 1, 'White Alex', 296845), ('77', 4, 'Shaved Steve', 296834)],
     'mario-kellytoy': [('01', 1, 'Kellytoy Mario')],
-    'luigi-swole-pr10': [('09', 0, 'Swole Luigi Remastered', 174132)],   # retirado de gian-prs el 2026-10-25; se conserva para perfiles que lo pidan
+    'luigi-swole-pr10': [('09', 0, 'Swole Luigi Remastered', 174132)],   # de vuelta en gian-prs (se retiró por un malentendido)
 }
 BASE_FILTERS = (None, 'skins')
 # Mismos alias que _CHARA_ALIASES de tools/gianpack.py (ModPack): varios internos comparten un luchador.

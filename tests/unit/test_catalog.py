@@ -104,7 +104,7 @@ class Inventario(unittest.TestCase):
         self.assertEqual(inv['fighters']['29']['slots']['7']['name'], 'Jill Valentine')
         self.assertEqual(inv['fighters']['29']['slots']['0']['name'], 'Bulma', 'Bulma desde el archivo original del autor (con One Slot Effects)')
         self.assertEqual(inv['fighters']['01']['slots']['1']['name'], 'Kellytoy Mario')
-        self.assertEqual(inv['fighters']['09']['slots']['0']['src'], 'base', 'Luigi c00 vuelve a ser el de WuBoy (Swole retirado)')
+        self.assertEqual(inv['fighters']['09']['slots']['0']['name'], 'Swole Luigi Remastered', 'Luigi c00: Swole Luigi (PR 10 cerrado, la skin se queda)')
         prof = cd._jload('inventory_profile.json')
         self.assertEqual(prof['base_filter'], 'skins')
         for x in prof['filtered_base_slots']:   # trajes de la base sin modelo propio: ya no cuentan como instalados

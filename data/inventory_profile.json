@@ -3,9 +3,9 @@
  "id": "perfil",
  "label": "Perfil local «gian-prs»",
  "profile": "gian-prs",
- "ref": "claude/vigilant-keller-6i5s1d@cda8711",
+ "ref": "claude/vigilant-keller-6i5s1d@33c1e8b",
  "document": "catalog/profiles.json + catalog/mods.json",
- "scanned_at": "2026-10-26T05:28:05Z",
+ "scanned_at": "2026-10-26T05:55:26Z",
  "verification": "Perfil armado y verificado en archivos; pruebas en consola sin conexión anotadas por componente (no certifican online)",
  "components": [
   {
@@ -124,6 +124,15 @@
    "classification": "revision estatica: geometria coherente; fisica heredada corregida en el perfil; pendiente de prueba en consola",
    "console_test": "pendiente (no probado en Switch)",
    "dlc": "Bayonetta (confirmado: todos los DLC)"
+  },
+  {
+   "id": "luigi-swole-pr10",
+   "version": "pending",
+   "target": "c00 Swole Luigi Remastered (GB 174132)",
+   "url": "https://github.com/GianZapata/Gian-Ultimate-Modpack-private/pull/10",
+   "classification": "revision estatica sin fallos P1/P2 (docs/reviews/PR-2-a-13-2026-10-24.md); pendiente de prueba en consola",
+   "console_test": "pendiente (no probado en Switch)",
+   "dlc": null
   }
  ],
  "other_profiles": [
@@ -138,6 +147,10 @@
   {
    "fighter": "01",
    "slot": 1
+  },
+  {
+   "fighter": "09",
+   "slot": 0
   },
   {
    "fighter": "33",
@@ -196,7 +209,7 @@
    "slot": 7
   }
  ],
- "exclude_base_total": 29,
+ "exclude_base_total": 33,
  "excluded_base_mods": [
   "The WuBoy Ultimate Modpack Optionals",
   "The WuBoy Ultimate Music Modpack"
@@ -628,6 +641,18 @@
    "version": "pending",
    "console_test": "pendiente (no probado en Switch)",
    "classification": "revision estatica: geometria coherente; fisica heredada corregida en el perfil; pendiente de prueba en consola"
+  },
+  {
+   "fighter": "09",
+   "slot": 0,
+   "name": "Swole Luigi Remastered",
+   "component": "luigi-swole-pr10",
+   "mod_id": 174132,
+   "author": "pending",
+   "url": "https://gamebanana.com/mods/174132",
+   "version": "pending",
+   "console_test": "pendiente (no probado en Switch)",
+   "classification": "revision estatica sin fallos P1/P2 (docs/reviews/PR-2-a-13-2026-10-24.md); pendiente de prueba en consola"
   }
  ]
 }
