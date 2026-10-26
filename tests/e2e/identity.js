@@ -34,17 +34,18 @@ module.exports = async (b, base) => {
     ok(t1.src && re.test(t1.src) && t1.ok && t1.txt === 'Original', `la primera opción de ${code === '01' ? 'Mario' : 'Sora'} muestra ${what} y la etiqueta «Original»`);
   }
   await P.goto(base + '#/luchador/82/1'); await P.waitForSelector('.cur'); ok(await P.evaluate(() => { const i = document.querySelector('.cur img'); return !!i && i.complete && i.naturalWidth > 0; }), 'la pantalla del traje también muestra la imagen del original');
-  // inventario del perfil gian-sin-musica
-  const inv = await P.evaluate(() => { const k = (c, n) => { const x = curOf(c, n); return { kind: x.kind, name: x.name, verif: x.verif, stg: !!x.staged }; }; return { sora4: k('82', 4), sora7: k('82', 7), sora6: k('82', 6), mario1: k('01', 1), mario0: k('01', 0), pyra0: k('79', 0), myth0: k('80', 0), steve0: k('77', 0), steve1: k('77', 1), ike0: k('32', 0), dk1: k('02', 1), meta: INV.meta.profile && INV.meta.profile.name, ver: INV.meta.version }; });
-  ok(inv.meta === 'gian-sin-musica', 'el inventario representa el perfil gian-sin-musica');
+  // inventario del perfil gian-prs
+  const inv = await P.evaluate(() => { const k = (c, n) => { const x = curOf(c, n); return { kind: x.kind, name: x.name, verif: x.verif, stg: !!x.staged }; }; return { sora4: k('82', 4), sora7: k('82', 7), sora6: k('82', 6), mario1: k('01', 1), mario2: k('01', 2), mario0: k('01', 0), pyra0: k('79', 0), myth0: k('80', 0), steve0: k('77', 0), steve1: k('77', 1), steve2: k('77', 2), cap0: k('11', 0), ike0: k('32', 0), dk1: k('02', 1), meta: INV.meta.profile && INV.meta.profile.name, ver: INV.meta.version }; });
+  ok(inv.meta === 'gian-prs', 'el inventario representa el perfil gian-prs');
   ok(inv.sora4.name === 'Ventus (Dusk)' && /13\.0\.5/.test(inv.sora4.verif), 'Sora c04 Ventus: nombre y prueba en consola del ModPack (13.0.5, sin conexión)');
   ok(inv.sora7.name.includes('Villa') && inv.ike0.name === 'Terra' && inv.dk1.name === 'Funky Kong', 'favoritos del perfil: Roxas, Terra y Funky Kong en sus trajes');
   ok(inv.pyra0.name === 'Aqua (Dusk)' && inv.myth0.name === 'Aqua (Dusk)', 'Aqua ocupa el traje 1 de Pyra y de Mythra');
-  ok(inv.steve0.kind === 'original' && inv.steve1.kind === 'original', 'Steve: el perfil excluye «Optionals», así que sus trajes no cuentan como instalados');
-  ok(inv.mario1.kind === 'pending' && inv.mario1.name === 'Nombre pendiente', 'Mario traje 2: se ve su retrato pero falta el nombre → «Nombre pendiente»');
+  ok(inv.steve0.name === 'Red Steve' && inv.steve1.name === 'White Alex' && inv.steve2.kind === 'original', 'Steve: solo los trajes del PR 11; «Optionals» excluido, nada de la base cuenta como instalado');
+  ok(inv.mario1.kind === 'mod' && inv.mario1.name === 'Kellytoy Mario' && inv.cap0.name === 'Buzz Lightyear', 'skins de los PR con prioridad: Kellytoy en Mario traje 2 y Buzz en Captain Falcon traje 1');
+  ok(inv.mario2.kind === 'pending' && inv.mario2.name === 'Nombre pendiente', 'Mario traje 3: se ve su retrato pero falta el nombre → «Nombre pendiente»');
   ok(inv.mario0.kind === 'original' && inv.sora6.kind === 'pending', 'originales y trajes por identificar se distinguen');
   await P.goto(base + '#/luchador/01'); await P.waitForSelector('.tgrid'); ok((await P.textContent('.tgrid')).includes('Nombre pendiente') && !/Apariencia sin identificar/.test(await P.textContent('.tgrid')), 'la pantalla del luchador usa «Nombre pendiente», sin etiquetas duplicadas');
-  await P.goto(base + '#/luchador/01/2'); await P.waitForSelector('.cur'); await P.click('details.prov summary'); ok(/Revisado en el repositorio/.test(await P.textContent('details.prov')), 'procedencia y verificación quedan en el desplegable del traje');
+  await P.goto(base + '#/luchador/01/3'); await P.waitForSelector('.cur'); await P.click('details.prov summary'); ok(/Revisado en el repositorio/.test(await P.textContent('details.prov')), 'procedencia y verificación quedan en el desplegable del traje');
   await P.goto(base + '#/luchador/82/5'); await P.waitForSelector('.cur'); await P.click('details.prov summary'); ok(/emuMMC sin conexion/.test(await P.textContent('details.prov')), 'el desplegable cita la prueba del ModPack (sin conexión, no certifica online)');
   // regresión Shadow Mewtwo
   const mw = await P.evaluate(() => { const f = F.find(f => /Mewtwo/.test(f.name)); const sm = f.picks.find(p => /Shadow Mewtwo/i.test(p.name)); return { code: f.code, vid: sm && sm.vid }; });
