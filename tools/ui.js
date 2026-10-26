@@ -46,8 +46,10 @@ let RT=null,lastHash=null;const scrollMem={};
 
 /* --- el plan efectivo: lo compartido + lo pendiente de este dispositivo --- */
 const keyOf=(c,n)=>c+'_'+n;
-function planVid(code,n){let v=(PLAN[keyOf(code,n)]||{}).vid||null;for(const o of PEND)if(o.code===code&&o.slot===n)v=o.to;return v}
-function planEntries(){const ks=new Set(Object.keys(PLAN));PEND.forEach(o=>ks.add(keyOf(o.code,o.slot)));const out=[];
+// lo ya enviado y aún no reflejado por la escucha en vivo (si no, la propuesta «parpadearía» al vaciarse la cola)
+const SENT={};
+function planVid(code,n){const k=keyOf(code,n);let v=(PLAN[k]||{}).vid||null;const sn=SENT[k];if(sn&&Date.now()-sn.t<8000)v=sn.to;for(const o of PEND)if(o.code===code&&o.slot===n)v=o.to;return v}
+function planEntries(){const ks=new Set([...Object.keys(PLAN),...Object.keys(SENT)]);PEND.forEach(o=>ks.add(keyOf(o.code,o.slot)));const out=[];
  ks.forEach(k=>{const i=k.lastIndexOf('_'),code=k.slice(0,i),n=+k.slice(i+1),vid=planVid(code,n);if(vid&&byCode[code])out.push({code,n,vid})});
  const ord=Object.keys(byCode);out.sort((a,b)=>ord.indexOf(a.code)-ord.indexOf(b.code)||a.n-b.n);return out}
 const changesOf=code=>planEntries().filter(e=>e.code===code);
@@ -414,6 +416,7 @@ async function flush(){if(flushing||!PEND.length)return;
     if(classify(e)==='perm'&&op.to&&!idx[op.to]){PEND.shift();savePend();diag('descartado',e,{op:op.code+'_'+op.slot,to:op.to});toast('Un cambio ya no es válido y se descartó');continue}
     throw e}
    PEND.shift();savePend();
+   if(!res.conflict)SENT[keyOf(op.code,op.slot)]={to:op.to,t:Date.now()};
    if(res.conflict)conflict(op,res.cur);
    render(true)}
   good()
@@ -445,7 +448,7 @@ async function startDb(){if(!FBCFG){paintSync();return}
   sub(f.doc(f.db,'meta','installed'),s=>{metaInst=s.exists()?s.data():null;maybeApplyInventory()});
   sub(f.collection(f.db,'installed'),s=>{instSnap=s;maybeApplyInventory()});
   sub(f.collection(f.db,'status'),s=>{STATUS={};s.forEach(d=>{const v=d.data();STATUS[v.vid||d.id]=v})});
-  sub(f.collection(f.db,'changes'),s=>{const m={};s.forEach(d=>{const v=d.data();m[d.id]={vid:v.vid,by:v.by,at:ts(v.at)}});PLAN=m;LS('ssbu_plan_cache',JSON.stringify(m));
+  sub(f.collection(f.db,'changes'),s=>{const m={};s.forEach(d=>{const v=d.data();m[d.id]={vid:v.vid,by:v.by,at:ts(v.at)}});PLAN=m;Object.keys(SENT).forEach(k=>{if(((m[k]||{}).vid||null)===SENT[k].to||Date.now()-SENT[k].t>=8000)delete SENT[k]});LS('ssbu_plan_cache',JSON.stringify(m));
    good();paintSync();render(true);planLoaded=true;flush()});
   sub(f.query(f.collection(f.db,'history'),f.orderBy('at','desc'),f.limit(40)),s=>{HIST=[];s.forEach(d=>{const v=d.data();HIST.push({code:v.code,slot:v.slot,from:v.from,to:v.to,kind:v.kind,t:ts(v.at)})})})
  }catch(e){fail('inicio',e)}}
