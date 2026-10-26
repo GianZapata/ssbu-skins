@@ -26,4 +26,4 @@ jobs:
           SHOTS: tests/.shots/webkit-interactions
       - uses: actions/upload-artifact@v4
         if: always()
-        with: { name: capturas, path: tests/.shots, if-no-files-found: ignore }
+        with: { name: capturas, path: tests/.shots, if-no-files-found: ignore, include-hidden-files: true }
