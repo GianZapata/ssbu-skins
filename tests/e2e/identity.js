@@ -27,6 +27,13 @@ module.exports = async (b, base) => {
   await P.goto(base + '#/luchador/03'); await P.waitForSelector('.tgrid');
   const hdr = await P.evaluate(() => document.querySelector('.fh img').getAttribute('src')); ok(hdr === 'assets/fighters/03.webp', `la cabecera de Link conserva su retrato aunque el inventario trae ${linkInv} retratos de trajes`);
   await shot(P, '08-selector'); await P.goto(base + '#/luchadores'); await P.waitForSelector('.ft'); await P.evaluate(() => scrollTo(0, 0)); await shot(P, '08-selector');
+  // el traje «Original» nunca se ve vacío: arte oficial del luchador (o su inicial si no hay retrato)
+  for (const [code, re, what] of [['01', /^assets\/fighters\/01\.webp$/, 'retrato oficial'], ['82', /^data:image\/svg\+xml/, 'su inicial (sin retrato oficial)']]) {
+    await P.goto(base + '#/luchador/' + code); await P.waitForSelector('.tgrid'); await P.waitForTimeout(300);
+    const t1 = await P.evaluate(() => { const i = document.querySelector('.tj .im img'); return { src: i && i.getAttribute('src'), ok: i && i.complete && i.naturalWidth > 0, txt: document.querySelector('.tj .nm').textContent }; });
+    ok(t1.src && re.test(t1.src) && t1.ok && t1.txt === 'Original', `la primera opción de ${code === '01' ? 'Mario' : 'Sora'} muestra ${what} y la etiqueta «Original»`);
+  }
+  await P.goto(base + '#/luchador/82/1'); await P.waitForSelector('.cur'); ok(await P.evaluate(() => { const i = document.querySelector('.cur img'); return !!i && i.complete && i.naturalWidth > 0; }), 'la pantalla del traje también muestra la imagen del original');
   // inventario del perfil gian-sin-musica
   const inv = await P.evaluate(() => { const k = (c, n) => { const x = curOf(c, n); return { kind: x.kind, name: x.name, verif: x.verif, stg: !!x.staged }; }; return { sora4: k('82', 4), sora7: k('82', 7), sora6: k('82', 6), mario1: k('01', 1), mario0: k('01', 0), pyra0: k('79', 0), myth0: k('80', 0), steve0: k('77', 0), steve1: k('77', 1), ike0: k('32', 0), dk1: k('02', 1), meta: INV.meta.profile && INV.meta.profile.name, ver: INV.meta.version }; });
   ok(inv.meta === 'gian-sin-musica', 'el inventario representa el perfil gian-sin-musica');
