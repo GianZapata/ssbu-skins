@@ -13,3 +13,5 @@ _dbonly_test.html
 _site/
 tests/.cache/
 tests/.shots/
+.vercel
+.env*
