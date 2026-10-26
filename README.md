@@ -7,10 +7,10 @@ Los estados Wi-Fi safe son los estados de evidencia registrados en el catálogo,
 ## Regenerar
 
 ```bash
-python3 tools/build_viewer.py
+npm run build
 ```
 
-Sin dependencias de red ni de Node: solo Python 3 (Pillow únicamente si existe `thumbs/`). Lee `data/catalog.json` y `tools/template.html`; escribe `index.html` en la raíz. El CSS y el JS van dentro de esa página, así que GitHub Pages no necesita CDN ni compilación.
+Vite y Tailwind arman `dist/` (y `_site/` si después se corre `python3 tools/make_site.py`). Python solo prepara el catálogo (`tools/export_boot.py`; Pillow únicamente si existe `thumbs/`). `npm run dev` abre la página en local. En Vercel el build es `npm run build` y el directorio publicado es `dist`.
 
 Antes de generar, `python3 tools/validate_catalog.py` comprueba que el catálogo cumple `docs/AUDIT_CONTRACT.md`. `python3 tools/db.py seed --only catalog` sincroniza el catálogo con Firestore (lo hace la Action con el secreto `FIREBASE_SERVICE_ACCOUNT`); el inventario solo se sincroniza a mano con `--only installed` (ver `docs/FIREBASE.md`). Los retratos de los luchadores salen de `assets/fighters/` (`tools/build_portraits.py`). Pruebas: `tests/run.sh` (ver `tests/README.md`).
 
@@ -20,6 +20,6 @@ Inventario de lo instalado: `python3 tools/scan_installed.py <ruta del ModPack>`
 
 ## Base de datos y amigos (Firebase)
 
-La página tiene tres secciones —**Luchadores**, **Catálogo** y **Cambios**— y un único plan compartido: cualquiera que abra el enlace puede elegir otra apariencia para uno de los 8 trajes de un luchador y se guarda para todos (sesión anónima automática, historial y «Deshacer»). El inventario y el estado de instalación no se pueden editar desde la web. Configuración y reglas: `docs/FIREBASE.md`; lectura del plan para instalar: `python3 tools/db.py plan` (contrato en `docs/SELECTION_CONTRACT.md`).
+La página tiene tres secciones —**Luchadores**, **Catálogo** y **Cambios**— y un único plan compartido. En un luchador se elige uno de los ocho trajes, se compara la apariencia del inventario con una propuesta y se agrega al plan (sesión anónima automática, historial y «Deshacer»). Guardar una propuesta no la instala en la consola. El inventario y el estado de instalación no se pueden editar desde la web. Configuración y reglas: `docs/FIREBASE.md`; lectura del plan para instalar: `python3 tools/db.py plan` (contrato en `docs/SELECTION_CONTRACT.md`).
 
 Antes de instalar: `python3 tools/review_plan.py` (o la Action *Revisar plan*) analiza el plan compartido y avisa de inconsistencias sin instalar nada; ver `docs/SELECTION_CONTRACT.md`.

@@ -17,7 +17,7 @@ jobs:
       - uses: actions/setup-java@v4
         with: { distribution: temurin, java-version: '21' }
       - run: pip install -r tests/requirements.txt
-      - run: cd tests && npm ci --no-audit --no-fund && npx playwright install --with-deps chromium
+      - run: cd tests && npm ci --no-audit --no-fund && npx playwright install --with-deps chromium webkit
       - name: Pruebas (catálogo, generación, emuladores, recorridos)
         run: tests/run.sh --sin-webkit
       - uses: actions/upload-artifact@v4

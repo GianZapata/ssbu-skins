@@ -1,0 +1,14 @@
+{
+  "type": "module",
+  "scripts": {
+    "boot": "python3 tools/export_boot.py",
+    "dev": "npm run boot && vite",
+    "build": "npm run boot && vite build && python3 tools/make_site.py dist",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "@tailwindcss/vite": "^4.3.3",
+    "tailwindcss": "^4.3.3",
+    "vite": "^8.3.5"
+  }
+}

@@ -8,7 +8,7 @@ python3 tools/db.py status <vid> installed|failed|skipped --result "<ruta o moti
 python3 tools/db.py migrate                                # pasa selection/main (modelo anterior) al plan, sin pisar nada
 ```
 
-La misma estructura sale del botón **Más → Exportar el plan** de la página (`schema: 3`).
+La misma estructura sale de **Exportar plan** en la página (`schema: 3`). Una propuesta guardada en el plan no está instalada en la consola: `current.confirmed` sigue en `false`.
 
 ## Qué contiene
 

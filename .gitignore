@@ -1,5 +1,7 @@
 node_modules/
 dist/
+public/boot.js
+public/js/
 artifacts/
 thumbs/
 *.log

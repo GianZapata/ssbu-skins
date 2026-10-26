@@ -24,7 +24,7 @@ Reglas: el estado Wi-Fi es evidencia registrada, **no** prueba en consola. No in
 ## Quién usa qué
 
 ```
-Grok (audita)  ──▶  data/catalog.json  ──▶  Action: validate_catalog + build_viewer + db.py seed --only catalog  ──▶  index.html  +  Firestore (catalog/*)
+Grok (audita)  ──▶  data/catalog.json  ──▶  Action: validate_catalog + npm run build + db.py seed --only catalog  ──▶  dist/  +  Firestore (catalog/*)
                                                                                          │ (cualquiera propone en el móvil: changes/*)
 Agente instalador (Switch)  ◀──  tools/db.py plan  ◀──  Firestore (changes/*, history/*)  ◀┘
 ```

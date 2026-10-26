@@ -17,7 +17,7 @@ module.exports = async (b, base) => {
   ok(ex.inventory.version && ex.inventory.profile.name === 'gian-sin-musica', 'exportación: versión y perfil del inventario');
   ok(ex.changes.every(c => c.user_destination && c.replaces && ('relocation' in c) && c.proposal.role), 'exportación: destino elegido, apariencia sustituida, reubicación y rol por cambio');
   ok(exa.proposal.role === 'alternativa' && ('variant' in exa.proposal), 'exportación: rol y variante de la propuesta');
-  await P.goto(base + '#/catalogo'); await P.waitForSelector('.cd'); await P.click('[data-chip="aud"]'); await P.waitForTimeout(250);
+  await P.goto(base + '#/catalogo'); await P.waitForSelector('.cd'); await P.click('[data-filters]'); await P.waitForSelector('[data-chip="rec"]'); await P.click('[data-chip="rec"]'); await P.click('#filtrosOk'); await P.waitForTimeout(250);
   ok(await P.evaluate(() => [...document.querySelectorAll('#cg .cd')].every(c => c.textContent.includes('Recomendada'))), 'filtro «Recomendadas» solo muestra recomendadas');
   // galería
   const pk = await P.evaluate(() => all.find(e => e.p.pack).p.vid);
@@ -41,7 +41,7 @@ module.exports = async (b, base) => {
   await tap(P, '.ft >> nth=12'); await P.waitForSelector('.tgrid'); const y1 = await P.evaluate(() => scrollMem['#/luchadores']); await P.goBack(); await P.waitForSelector('.ft'); await P.waitForTimeout(500);
   ok(y1 > 300 && Math.abs(await P.evaluate(() => scrollY) - y1) < 40, 'atrás desde un luchador: se conserva la posición de la lista');
   await P.goto(base + '#/luchador/01/1'); await P.waitForSelector('.cd'); await P.fill('#cq', 'koopa'); await P.waitForTimeout(300); await P.evaluate(() => scrollTo(0, 600)); await P.waitForTimeout(100);
-  await tap(P, '.cd'); await P.waitForSelector('.hero'); await P.goBack(); await P.waitForSelector('.cd'); await P.waitForTimeout(400);
+  await tap(P, 'a.mas'); await P.waitForSelector('.hero'); await P.goBack(); await P.waitForSelector('.cd'); await P.waitForTimeout(400);
   ok(await P.inputValue('#cq') === 'koopa', 'atrás desde una ficha: el filtro del traje se conserva');
   // accesibilidad
   await P.goto(base + '#/luchador/01'); await P.waitForSelector('.tj');
@@ -56,7 +56,7 @@ module.exports = async (b, base) => {
   // imagen caída: aviso en la tarjeta, ficha utilizable y «Reintentar» en la galería
   const F2 = await mk(b, { badImg: true }); await F2.goto(base + '#/luchador/01/1'); await F2.waitForSelector('.cd'); await F2.waitForTimeout(600);
   ok(await F2.locator('.cd .noimg').count() > 0, 'imagen caída: aviso en lugar de rectángulo vacío');
-  await tap(F2, '.cd'); await F2.waitForSelector('.hero'); ok(true, 'imagen caída en una tarjeta: el toque sigue abriendo la ficha');
+  await tap(F2, 'a.mas'); await F2.waitForSelector('.hero'); ok(true, 'imagen caída en una tarjeta: Más información sigue abriendo la ficha');
   await F2.click('.hero'); await F2.waitForSelector('.pswp__err button', { timeout: 8000 }).then(() => ok(true, 'galería: foto caída muestra «Reintentar»'), () => ok(false, 'galería: sin Reintentar')); await shot(F2, '13-foto-caida');
   await F2.context().unroute('**/images.gamebanana.com/**'); await F2.context().route('**/images.gamebanana.com/**', r => r.fulfill({ status: 200, contentType: 'image/svg+xml', body: L.svg }));
   await F2.click('.pswp__err button'); await F2.waitForFunction(() => PSWP && PSWP.currSlide.content.state === 'loaded' && PSWP.currSlide.container.querySelector('img'), null, { timeout: 6000 }).then(() => ok(true, '«Reintentar» recupera la foto'), () => ok(false, 'reintento no recupera'));

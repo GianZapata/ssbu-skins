@@ -24,9 +24,11 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with: { python-version: '3.12' }
+      - uses: actions/setup-node@v4
+        with: { node-version: '22' }
       - run: pip install Pillow
       - run: python3 tools/validate_catalog.py
-      - run: python3 tools/build_viewer.py
+      - run: npm ci --no-audit --no-fund && npm run build
       - name: Sincronizar el catálogo con Firestore (solo el catálogo)
         if: env.FIREBASE_SA != ''
         run: |
@@ -37,12 +39,6 @@ jobs:
         if: env.FIREBASE_SA != '' && github.event_name == 'workflow_dispatch' && inputs.sync_inventory
         run: |
           GOOGLE_APPLICATION_CREDENTIALS="$RUNNER_TEMP/sa.json" python3 tools/db.py seed --only installed
-      - name: Guardar index.html regenerado
-        run: |
-          git config user.name "github-actions"
-          git config user.email "actions@users.noreply.github.com"
-          git add index.html
-          git diff --cached --quiet || (git commit -m "Regenerar index.html desde el catálogo" && git pull --rebase origin master && git push origin HEAD:master)
       - name: Preparar sitio
         run: python3 tools/make_site.py _site
       - uses: actions/configure-pages@v5
