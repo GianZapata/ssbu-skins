@@ -20,6 +20,12 @@ jobs:
       - run: cd tests && npm ci --no-audit --no-fund && npx playwright install --with-deps chromium webkit
       - name: Pruebas (catálogo, generación, emuladores, recorridos)
         run: tests/run.sh --sin-webkit
+        env: { VISUAL_EN_DOCKER: '1' }
+      - name: Capturas en la imagen oficial de Playwright
+        run: docker run --rm -v "$PWD":/work -v /work/tests/node_modules -w /work/tests -e CI=1 mcr.microsoft.com/playwright:v1.63.0-jammy bash -lc 'npm ci --no-audit --no-fund && npx playwright test e2e/visual.spec.js'
       - uses: actions/upload-artifact@v4
         if: always()
         with: { name: capturas, path: tests/.shots, if-no-files-found: ignore, include-hidden-files: true }
+      - uses: actions/upload-artifact@v4
+        if: failure()
+        with: { name: diferencias-visuales, path: tests/test-results, if-no-files-found: ignore }

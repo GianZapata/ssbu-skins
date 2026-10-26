@@ -18,7 +18,9 @@ for i in $(seq 1 60); do curl -s localhost:8080 >/dev/null && break; sleep 2; do
 curl -s localhost:8080 >/dev/null || { echo "los emuladores no arrancaron (ver /tmp/ssbu-emulators.log)"; exit 1; }
 echo "== pruebas de datos y sincronización (Python)"; python3 -W ignore -m unittest discover -s tests/unit -v || RC=1
 echo "== recorridos en Chromium (emulación móvil y escritorio) + emuladores"; node tests/e2e/run-all.js || RC=1
-if [ "$(uname -s)" = "Linux" ]; then
+if [ "${VISUAL_EN_DOCKER:-}" = "1" ]; then
+  echo "== capturas de referencia en el paso de la imagen de Playwright"
+elif [ "$(uname -s)" = "Linux" ]; then
   echo "== capturas de referencia (Chromium en Linux)"; (cd tests && npx playwright test e2e/visual.spec.js) || RC=1
 else echo "== capturas de referencia omitidas fuera de Linux (la línea base es ubuntu)"; fi
 if [ "${1:-}" != "--sin-webkit" ] && command -v WebKitWebDriver >/dev/null; then

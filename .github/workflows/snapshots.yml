@@ -13,9 +13,8 @@ jobs:
       - uses: actions/setup-node@v4
         with: { node-version: '22' }
       - run: pip install -r tests/requirements.txt
-      - run: cd tests && npm ci --no-audit --no-fund && npx playwright install --with-deps chromium
       - run: python3 tools/validate_catalog.py && npm ci --no-audit --no-fund && npm run build && python3 tools/make_site.py
-      - run: cd tests && npx playwright test e2e/visual.spec.js --update-snapshots
+      - run: docker run --rm -v "$PWD":/work -v /work/tests/node_modules -w /work/tests -e CI=1 mcr.microsoft.com/playwright:v1.63.0-jammy bash -lc 'npm ci --no-audit --no-fund && npx playwright test e2e/visual.spec.js --update-snapshots'
       - name: Publicar la línea base
         run: |
           git config user.name "github-actions[bot]"
