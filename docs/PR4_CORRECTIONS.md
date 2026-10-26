@@ -4,6 +4,8 @@ Base: `aec97314351c30c28a0288678a9e0329fed17c74`. La ejecución [40243678084](ht
 
 Durante esta corrección apareció el commit remoto `07e9d5c754f137b7142f81097c6d0db6d8c8da38`. Se incorpora su ascendencia y se conserva `include-hidden-files` para las capturas de CI. Su retención temporal de ocho segundos queda sustituida por la reconciliación por marcas de datos descrita abajo: no debe ocultarse durante ese intervalo una edición remota posterior.
 
+Al entregar se comprobó que #4 ya estaba fusionado desde `2026-10-26T00:32:09Z`, mediante `eb4752f90521963c46d3d7807f5f33454b60699a`. Por ello las correcciones adicionales se entregan en un PR de seguimiento contra ese master; el PR cerrado no genera nuevas ejecuciones de synchronize al actualizar su antigua rama.
+
 ## Diagnóstico de Actual/Propuesta
 
 Es una carrera del producto, no una comprobación que deba eliminarse. `runTransaction` puede confirmar antes de entregar `onSnapshot(changes)`. Antes, `flush` retiraba la operación de `PEND` cuando `PLAN` todavía tenía la versión anterior: desaparecía la propuesta o reaparecía tras deshacer. El siguiente snapshot lo reparaba, haciendo el fallo intermitente.
@@ -55,6 +57,6 @@ CI ejecuta la suite principal y después los recorridos ampliados en Chromium y 
 
 Los calendarios de sincronización también pueden repetirse solos con `node --test tests/unit/sync_ordering.js`; los recorridos de regresión con `node tests/e2e/webkit-journeys.js`. Los resultados por comprobación se guardan en `tests/.shots/results.json` y las capturas/JSON de WebKit en el artefacto correspondiente de CI.
 
-El comentario de entrega del PR identifica el SHA final y su ejecución de CI para la comprobación independiente posterior de Codex. Esta corrección no fusiona #4 en master ni publica la web.
+El comentario de entrega del PR de seguimiento identifica el SHA final y su ejecución de CI para la comprobación independiente posterior de Codex. Estos cambios adicionales no se han fusionado en master ni publicado.
 
 Validación local final: **21 unitarias/Firestore**, **12 calendarios de sincronización**, **131 comprobaciones E2E con emuladores en Chromium**, y **69 recorridos de regresión en cada uno de Chromium y WebKit**, todos correctos. La ejecución de CI del SHA entregado se comprueba por separado.
