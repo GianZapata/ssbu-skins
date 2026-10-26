@@ -21,3 +21,5 @@ Inventario de lo instalado: `python3 tools/scan_installed.py <ruta del ModPack>`
 ## Base de datos y amigos (Firebase)
 
 La página tiene tres secciones —**Luchadores**, **Catálogo** y **Cambios**— y un único plan compartido: cualquiera que abra el enlace puede elegir otra apariencia para uno de los 8 trajes de un luchador y se guarda para todos (sesión anónima automática, historial y «Deshacer»). El inventario y el estado de instalación no se pueden editar desde la web. Configuración y reglas: `docs/FIREBASE.md`; lectura del plan para instalar: `python3 tools/db.py plan` (contrato en `docs/SELECTION_CONTRACT.md`).
+
+Antes de instalar: `python3 tools/review_plan.py` (o la Action *Revisar plan*) analiza el plan compartido y avisa de inconsistencias sin instalar nada; ver `docs/SELECTION_CONTRACT.md`.
