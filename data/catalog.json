@@ -1,5 +1,5 @@
 {
-  "generated": "2026-10-25T22:15:00-06:00",
+  "generated": "2026-10-25T22:45:00-06:00",
   "timezone": "America/Monterrey",
   "source": "GameBanana apiv11 ProfilePage + Posts, consultado 2026-10-24",
   "wifi_states": [
@@ -102,26 +102,26 @@
   ],
   "pending_fighters": [],
   "counts": {
-    "looks": 1237,
-    "unique_mods": 1216,
+    "looks": 1243,
+    "unique_mods": 1222,
     "main_proposals": 696,
-    "alternatives": 541,
+    "alternatives": 547,
     "withdrawn": 15,
     "fighters": 89,
     "fighters_with_alternatives": 85,
     "by_wifi_state": {
-      "Declaración explícita del autor sin condiciones conocidas": 978,
-      "Declaración condicionada del autor": 239,
+      "Declaración explícita del autor sin condiciones conocidas": 980,
+      "Declaración condicionada del autor": 241,
       "Afirmación de terceros sin confirmación del autor": 10,
-      "Sin evidencia localizada": 9,
+      "Sin evidencia localizada": 11,
       "Incompatible según la fuente": 1
     },
-    "with_conditions": 323,
+    "with_conditions": 327,
     "pending": {
-      "file_inspection": 1237,
-      "compatibility_13_0_5": 1237,
-      "console_test": 1237,
-      "without_proposed_destination": 565
+      "file_inspection": 1243,
+      "compatibility_13_0_5": 1243,
+      "console_test": 1243,
+      "without_proposed_destination": 571
     },
     "coverage": {
       "01": {
@@ -228,15 +228,15 @@
       },
       "16": {
         "fighter": "Sheik",
-        "looks": 15,
+        "looks": 16,
         "main": 8,
-        "alternatives": 7
+        "alternatives": 8
       },
       "17": {
         "fighter": "Zelda",
-        "looks": 15,
+        "looks": 16,
         "main": 8,
-        "alternatives": 7
+        "alternatives": 8
       },
       "18": {
         "fighter": "Dr. Mario",
@@ -474,9 +474,9 @@
       },
       "54": {
         "fighter": "Palutena",
-        "looks": 15,
+        "looks": 16,
         "main": 8,
-        "alternatives": 7
+        "alternatives": 8
       },
       "55": {
         "fighter": "Pac-Man",
@@ -522,9 +522,9 @@
       },
       "61": {
         "fighter": "Cloud",
-        "looks": 16,
+        "looks": 18,
         "main": 8,
-        "alternatives": 8
+        "alternatives": 10
       },
       "62": {
         "fighter": "Corrin",
@@ -606,9 +606,9 @@
       },
       "74": {
         "fighter": "Terry",
-        "looks": 15,
+        "looks": 16,
         "main": 8,
-        "alternatives": 7
+        "alternatives": 8
       },
       "75": {
         "fighter": "Byleth",
@@ -661,10 +661,11 @@
     },
     "quality_pass_lote1": 112,
     "quality_pass_lote2": 200,
-    "with_file_list_check": 40,
+    "with_file_list_check": 46,
     "quality_pass_lote3": 342,
     "quality_pass_lote4": 2,
-    "cover_verified": 565
+    "quality_pass_lote5": 6,
+    "cover_verified": 571
   },
   "entries": [
     {
@@ -51657,6 +51658,182 @@
       "quality_pass": "2026-10-25 lote 3 (portada/listado revisados)"
     },
     {
+      "role": "alternativa",
+      "alt_index": 8,
+      "roster_no": "16",
+      "fighter": "Sheik",
+      "mod_id": 511678,
+      "look_name": "Yuffie Kisaragi - Final Fantasy VII",
+      "author": "Regen07",
+      "url": "https://gamebanana.com/mods/511678",
+      "downloads": 1404,
+      "downloads_query_date": "2026-10-25",
+      "rank_in_category_most_downloaded": 42,
+      "shared_download_counter": false,
+      "dlc_required": false,
+      "design_check": "Yuffie (FF7 Remake) importada sobre Sheik, con shuriken en lugar de las agujas; distinta de las principales (portada revisada)",
+      "design_kind": "M",
+      "native_slots": [
+        1
+      ],
+      "proposed_destination": null,
+      "wifi_state": "Declaración explícita del autor sin condiciones conocidas",
+      "wifi_state_code": "e",
+      "wifi_source": "descripción del mod (autor)",
+      "wifi_evidence_url": "https://gamebanana.com/mods/511678",
+      "wifi_quote": "Wi-Fi Safe!",
+      "conditions": [],
+      "conflicts": [
+        "choca con propuestas principales en c01",
+        "el listado trae fighter/sheik/motion/body/c00 completo (motion_list.bin, 355 animaciones y ik/swing/update.prc), no sólo c01: puede afectar a todos los slots de Sheik; inspección de archivos pendiente"
+      ],
+      "dependencies": [
+        "config.json"
+      ],
+      "dependency_kind": "sólo recursos (sin plugins .nro mencionados)",
+      "arcropolis_versions_mentioned": [],
+      "compatibility_13_0_5": "compatibilidad no verificada",
+      "file_inspection": "archivo no inspeccionado",
+      "console_test": "prueba en consola pendiente",
+      "audit_status": "verified",
+      "design_type_by_title": null,
+      "preview_images": [
+        {
+          "base": "https://images.gamebanana.com/img/ss/mods",
+          "file": "663700935be79.jpg",
+          "file530": "530-90_663700935be79.jpg",
+          "file220": "220-90_663700935be79.jpg",
+          "file100": "100-90_663700935be79.jpg",
+          "url": "https://images.gamebanana.com/img/ss/mods/663700935be79.jpg",
+          "url530": "https://images.gamebanana.com/img/ss/mods/530-90_663700935be79.jpg",
+          "url220": "https://images.gamebanana.com/img/ss/mods/220-90_663700935be79.jpg"
+        },
+        {
+          "base": "https://images.gamebanana.com/img/ss/mods",
+          "file": "6637003cb0c3e.jpg",
+          "file100": "100-90_6637003cb0c3e.jpg",
+          "url": "https://images.gamebanana.com/img/ss/mods/6637003cb0c3e.jpg"
+        },
+        {
+          "base": "https://images.gamebanana.com/img/ss/mods",
+          "file": "6637007b66c96.jpg",
+          "file100": "100-90_6637007b66c96.jpg",
+          "url": "https://images.gamebanana.com/img/ss/mods/6637007b66c96.jpg"
+        },
+        {
+          "base": "https://images.gamebanana.com/img/ss/mods",
+          "file": "6637008167490.jpg",
+          "file100": "100-90_6637008167490.jpg",
+          "url": "https://images.gamebanana.com/img/ss/mods/6637008167490.jpg"
+        },
+        {
+          "base": "https://images.gamebanana.com/img/ss/mods",
+          "file": "663700ab6c483.jpg",
+          "file100": "100-90_663700ab6c483.jpg",
+          "url": "https://images.gamebanana.com/img/ss/mods/663700ab6c483.jpg"
+        },
+        {
+          "base": "https://images.gamebanana.com/img/ss/mods",
+          "file": "663700ac91840.jpg",
+          "file100": "100-90_663700ac91840.jpg",
+          "url": "https://images.gamebanana.com/img/ss/mods/663700ac91840.jpg"
+        },
+        {
+          "base": "https://images.gamebanana.com/img/ss/mods",
+          "file": "663700af05c58.jpg",
+          "file100": "100-90_663700af05c58.jpg",
+          "url": "https://images.gamebanana.com/img/ss/mods/663700af05c58.jpg"
+        },
+        {
+          "base": "https://images.gamebanana.com/img/ss/mods",
+          "file": "663700b0205d5.jpg",
+          "file100": "100-90_663700b0205d5.jpg",
+          "url": "https://images.gamebanana.com/img/ss/mods/663700b0205d5.jpg"
+        },
+        {
+          "base": "https://images.gamebanana.com/img/ss/mods",
+          "file": "663700b07743b.jpg",
+          "file100": "100-90_663700b07743b.jpg",
+          "url": "https://images.gamebanana.com/img/ss/mods/663700b07743b.jpg"
+        },
+        {
+          "base": "https://images.gamebanana.com/img/ss/mods",
+          "file": "663700b0d5289.jpg",
+          "file100": "100-90_663700b0d5289.jpg",
+          "url": "https://images.gamebanana.com/img/ss/mods/663700b0d5289.jpg"
+        },
+        {
+          "base": "https://images.gamebanana.com/img/ss/mods",
+          "file": "663700b563d93.jpg",
+          "file100": "100-90_663700b563d93.jpg",
+          "url": "https://images.gamebanana.com/img/ss/mods/663700b563d93.jpg"
+        },
+        {
+          "base": "https://images.gamebanana.com/img/ss/mods",
+          "file": "663700b6d0d32.jpg",
+          "file100": "100-90_663700b6d0d32.jpg",
+          "url": "https://images.gamebanana.com/img/ss/mods/663700b6d0d32.jpg"
+        },
+        {
+          "base": "https://images.gamebanana.com/img/ss/mods",
+          "file": "663700b953042.jpg",
+          "file100": "100-90_663700b953042.jpg",
+          "url": "https://images.gamebanana.com/img/ss/mods/663700b953042.jpg"
+        },
+        {
+          "base": "https://images.gamebanana.com/img/ss/mods",
+          "file": "663700ba3af3b.jpg",
+          "file100": "100-90_663700ba3af3b.jpg",
+          "url": "https://images.gamebanana.com/img/ss/mods/663700ba3af3b.jpg"
+        },
+        {
+          "base": "https://images.gamebanana.com/img/ss/mods",
+          "file": "663700bb5d57d.jpg",
+          "file100": "100-90_663700bb5d57d.jpg",
+          "url": "https://images.gamebanana.com/img/ss/mods/663700bb5d57d.jpg"
+        },
+        {
+          "base": "https://images.gamebanana.com/img/ss/mods",
+          "file": "663700bb6502b.jpg",
+          "file100": "100-90_663700bb6502b.jpg",
+          "url": "https://images.gamebanana.com/img/ss/mods/663700bb6502b.jpg"
+        },
+        {
+          "base": "https://images.gamebanana.com/img/ss/mods",
+          "file": "663700bc044f6.jpg",
+          "file100": "100-90_663700bc044f6.jpg",
+          "url": "https://images.gamebanana.com/img/ss/mods/663700bc044f6.jpg"
+        },
+        {
+          "base": "https://images.gamebanana.com/img/ss/mods",
+          "file": "663700bc35ae2.jpg",
+          "file100": "100-90_663700bc35ae2.jpg",
+          "url": "https://images.gamebanana.com/img/ss/mods/663700bc35ae2.jpg"
+        },
+        {
+          "base": "https://images.gamebanana.com/img/ss/mods",
+          "file": "663700bc716c2.jpg",
+          "file100": "100-90_663700bc716c2.jpg",
+          "url": "https://images.gamebanana.com/img/ss/mods/663700bc716c2.jpg"
+        }
+      ],
+      "native_slots_raw": "1 (el autor: «over Sheik alt c01»)",
+      "primary_slot_status": "alternativa: sin destino propuesto (el destino c00–c07 se decide al elegir)",
+      "slot_code": null,
+      "wifi_quote_auto": null,
+      "wifi_state_provisional_auto": null,
+      "is_replacement": false,
+      "audit_scope": "texto del mod, comentarios y miniaturas (archivo no inspeccionado)",
+      "notes": "El autor: «Yuffie over Sheik c01, Yuffie Shuriken over neddle, Expressions, Swing Physics, Custom PBR, UI / Render, Voice»; voz de Pocketvania (crédito del autor). Esqueleto y física: el listado trae model.nusktb en body, knife, needle y needlehave c01 y swing.prc en motion/body/c01, y además la carpeta motion/body/c00 con motion_list.bin y 355 animaciones. El autor no condiciona el Wi-Fi a nada; por la regla del lote 3 el estado sigue su declaración, pero estas animaciones de c00 (posible efecto sobre todos los slots de Sheik) quedan pendientes de inspección y de prueba en consola. Ningún comentario trata el juego en línea. Las 8 principales de Sheik no se tocaron.",
+      "look_id": "16:511678",
+      "downloads_scope": "GameBanana, orden «Most Downloaded» de la categoría Sheik (7536); puesto 42; comparado con la categoría completa (120 mods); consultado 2026-10-25",
+      "images_scope": "galería completa de la página del mod en GameBanana",
+      "images_http_check": "todas las URL de portada (3 tamaños) y de galería devolvieron HTTP 200 el 2026-10-25",
+      "cover_verified": "portada vista a 530 px el 2026-10-25 (lote 5): representa el look de la entrada; si es imagen de pack se indica en notas",
+      "quality_pass": "2026-10-25 lote 5 (alta nueva)",
+      "file_list_check": "Listado de archivos publicado por GameBanana (consultado 2026-10-25; metadato, archivo no descargado ni inspeccionado): yuffie_over_c01_sheik.rar: fighter/sheik/model body, knife, needle y needlehave c01 (cada uno con model.nusktb; body con model.nuanmb), motion/body/c00 con motion_list.bin, 355 animaciones y flip/ik/scharge/swing/swingblend/update.prc, motion/body/c01 con swing.prc, sound/bank/fighter_voice (vc_sheik_c01), ui/replace/chara (chara_0–4 y 6) y config.json"
+    },
+    {
       "roster_no": "17",
       "fighter": "Zelda",
       "dlc_required": false,
@@ -55418,6 +55595,185 @@
       "cover_verified": "portada vista en hoja de contactos (miniaturas de 220 px) el 2026-10-25 (lote 3): representa el look de la entrada; si es imagen de pack se indica en notas",
       "file_list_check": "Listado de archivos publicado por GameBanana (consultado 2026-10-25; metadato, archivo no descargado ni inspeccionado): las versiones single/full slot (Ahri y Zelda) cubren c00–c07 y también tocan a Kirby (hat de habilidad de copia); sólo la versión Echo (c12) incluye motion_list.bin. Usar las descargas marcadas como Wi-Fi Safe, como indica el autor.",
       "quality_pass": "2026-10-25 lote 3 (portada/listado revisados)"
+    },
+    {
+      "role": "alternativa",
+      "alt_index": 8,
+      "roster_no": "17",
+      "fighter": "Zelda",
+      "mod_id": 535222,
+      "look_name": "Aerith Gainsborough (Final Fantasy VII)",
+      "author": "Raijinken",
+      "url": "https://gamebanana.com/mods/535222",
+      "downloads": 2845,
+      "downloads_query_date": "2026-10-25",
+      "rank_in_category_most_downloaded": 27,
+      "shared_download_counter": false,
+      "dlc_required": false,
+      "design_check": "Aerith (FF7) importada con dos trajes: c00 clásico (vestido rosa y chaqueta roja) y c01 de Crisis Core (vestido blanco y azul). El c00 repite el diseño de la principal 17:355560 Aerith Zelda (revisado por imagen); el look que se cuenta es el de Crisis Core en c01 (portada revisada)",
+      "variant": "traje de Crisis Core c01; el traje clásico c00 repite 17:355560 y no cuenta como look distinto",
+      "design_kind": "M",
+      "native_slots": [
+        0,
+        1
+      ],
+      "proposed_destination": null,
+      "wifi_state": "Declaración condicionada del autor",
+      "wifi_state_code": "c",
+      "wifi_source": "descripción del mod (autor)",
+      "wifi_evidence_url": "https://gamebanana.com/mods/535222",
+      "wifi_quote": "The mod should be online safe, but I have not tested it myself. If there are any issues with the mod, let me know.",
+      "conditions": [
+        "Redacción no categórica y sin prueba propia: el autor dice «The mod should be online safe, but I have not tested it myself».",
+        "Un tercero (Naturalsounds, 2026-05-17) reporta que el traje de Crisis Core en c01 cierra el juego («crashing the game») y sospecha del modelo o los huesos; el c00 le funcionó. Sin respuesta del autor.",
+        "Problemas conocidos según el autor: «Minor clipping with the legs in the classic outfit» y «Shoulders appear a little unnatural in some animations in the Crisis Core outfit»."
+      ],
+      "conflicts": [
+        "choca con propuestas principales en c00, c01",
+        "trae variantes para varios slots: elegir uno (adaptación pendiente)",
+        "el autor indica que es movible de slot (reslot pendiente si choca)",
+        "trae modelo propio del Fantasma (Odin) en model/phantom/c00 y c01, uno por traje: viaja con su slot y se separa junto con él (cada traje es una carpeta aparte con su config.json)",
+        "efectos por slot (ef_zelda_c00.eff / ef_zelda_c01.eff); el autor no menciona plugin"
+      ],
+      "dependencies": [
+        "config.json"
+      ],
+      "dependency_kind": "sólo recursos (sin plugins .nro mencionados)",
+      "arcropolis_versions_mentioned": [],
+      "compatibility_13_0_5": "compatibilidad no verificada",
+      "file_inspection": "archivo no inspeccionado",
+      "console_test": "prueba en consola pendiente",
+      "audit_status": "verified",
+      "design_type_by_title": null,
+      "preview_images": [
+        {
+          "base": "https://images.gamebanana.com/img/ss/mods",
+          "file": "66bbf4c08ef8c.jpg",
+          "file530": "530-90_66bbf4c08ef8c.jpg",
+          "file220": "220-90_66bbf4c08ef8c.jpg",
+          "file100": "100-90_66bbf4c08ef8c.jpg",
+          "url": "https://images.gamebanana.com/img/ss/mods/66bbf4c08ef8c.jpg",
+          "url530": "https://images.gamebanana.com/img/ss/mods/530-90_66bbf4c08ef8c.jpg",
+          "url220": "https://images.gamebanana.com/img/ss/mods/220-90_66bbf4c08ef8c.jpg"
+        },
+        {
+          "base": "https://images.gamebanana.com/img/ss/mods",
+          "file": "66bbf6d52e33c.jpg",
+          "file100": "100-90_66bbf6d52e33c.jpg",
+          "url": "https://images.gamebanana.com/img/ss/mods/66bbf6d52e33c.jpg"
+        },
+        {
+          "base": "https://images.gamebanana.com/img/ss/mods",
+          "file": "66bbf6d55afaa.jpg",
+          "file100": "100-90_66bbf6d55afaa.jpg",
+          "url": "https://images.gamebanana.com/img/ss/mods/66bbf6d55afaa.jpg"
+        },
+        {
+          "base": "https://images.gamebanana.com/img/ss/mods",
+          "file": "66bbf635ec4e9.jpg",
+          "file100": "100-90_66bbf635ec4e9.jpg",
+          "url": "https://images.gamebanana.com/img/ss/mods/66bbf635ec4e9.jpg"
+        },
+        {
+          "base": "https://images.gamebanana.com/img/ss/mods",
+          "file": "66bbf6d545843.jpg",
+          "file100": "100-90_66bbf6d545843.jpg",
+          "url": "https://images.gamebanana.com/img/ss/mods/66bbf6d545843.jpg"
+        },
+        {
+          "base": "https://images.gamebanana.com/img/ss/mods",
+          "file": "66bbf6d539ad1.jpg",
+          "file100": "100-90_66bbf6d539ad1.jpg",
+          "url": "https://images.gamebanana.com/img/ss/mods/66bbf6d539ad1.jpg"
+        },
+        {
+          "base": "https://images.gamebanana.com/img/ss/mods",
+          "file": "66bbf6d53f1d2.jpg",
+          "file100": "100-90_66bbf6d53f1d2.jpg",
+          "url": "https://images.gamebanana.com/img/ss/mods/66bbf6d53f1d2.jpg"
+        },
+        {
+          "base": "https://images.gamebanana.com/img/ss/mods",
+          "file": "66bc03f85d96c.jpg",
+          "file100": "100-90_66bc03f85d96c.jpg",
+          "url": "https://images.gamebanana.com/img/ss/mods/66bc03f85d96c.jpg"
+        },
+        {
+          "base": "https://images.gamebanana.com/img/ss/mods",
+          "file": "66bbf636257d3.jpg",
+          "file100": "100-90_66bbf636257d3.jpg",
+          "url": "https://images.gamebanana.com/img/ss/mods/66bbf636257d3.jpg"
+        },
+        {
+          "base": "https://images.gamebanana.com/img/ss/mods",
+          "file": "66bbf6d52e26b.jpg",
+          "file100": "100-90_66bbf6d52e26b.jpg",
+          "url": "https://images.gamebanana.com/img/ss/mods/66bbf6d52e26b.jpg"
+        },
+        {
+          "base": "https://images.gamebanana.com/img/ss/mods",
+          "file": "66bbf635ead88.jpg",
+          "file100": "100-90_66bbf635ead88.jpg",
+          "url": "https://images.gamebanana.com/img/ss/mods/66bbf635ead88.jpg"
+        },
+        {
+          "base": "https://images.gamebanana.com/img/ss/mods",
+          "file": "66bbf6d539ac8.jpg",
+          "file100": "100-90_66bbf6d539ac8.jpg",
+          "url": "https://images.gamebanana.com/img/ss/mods/66bbf6d539ac8.jpg"
+        },
+        {
+          "base": "https://images.gamebanana.com/img/ss/mods",
+          "file": "66bbf6d537d99.jpg",
+          "file100": "100-90_66bbf6d537d99.jpg",
+          "url": "https://images.gamebanana.com/img/ss/mods/66bbf6d537d99.jpg"
+        },
+        {
+          "base": "https://images.gamebanana.com/img/ss/mods",
+          "file": "66bbf747c41cd.jpg",
+          "file100": "100-90_66bbf747c41cd.jpg",
+          "url": "https://images.gamebanana.com/img/ss/mods/66bbf747c41cd.jpg"
+        },
+        {
+          "base": "https://images.gamebanana.com/img/ss/mods",
+          "file": "66bbf747e03cc.jpg",
+          "file100": "100-90_66bbf747e03cc.jpg",
+          "url": "https://images.gamebanana.com/img/ss/mods/66bbf747e03cc.jpg"
+        },
+        {
+          "base": "https://images.gamebanana.com/img/ss/mods",
+          "file": "66bbf6d546077.jpg",
+          "file100": "100-90_66bbf6d546077.jpg",
+          "url": "https://images.gamebanana.com/img/ss/mods/66bbf6d546077.jpg"
+        },
+        {
+          "base": "https://images.gamebanana.com/img/ss/mods",
+          "file": "66bbf747c02b6.jpg",
+          "file100": "100-90_66bbf747c02b6.jpg",
+          "url": "https://images.gamebanana.com/img/ss/mods/66bbf747c02b6.jpg"
+        },
+        {
+          "base": "https://images.gamebanana.com/img/ss/mods",
+          "file": "66bbf747d26b8.jpg",
+          "file100": "100-90_66bbf747d26b8.jpg",
+          "url": "https://images.gamebanana.com/img/ss/mods/66bbf747d26b8.jpg"
+        }
+      ],
+      "native_slots_raw": "0 y 1 (el autor: «Goes over c00 and c01»)",
+      "primary_slot_status": "alternativa: sin destino propuesto (el destino c00–c07 se decide al elegir)",
+      "slot_code": null,
+      "wifi_quote_auto": null,
+      "wifi_state_provisional_auto": null,
+      "is_replacement": false,
+      "audit_scope": "texto del mod, comentarios y miniaturas (archivo no inspeccionado)",
+      "notes": "El autor: «Includes: Model Import, UI, Effects, Model Import for Phantom (Odin)»; trajes de Amiibolad portados a Remake (el clásico viene del traje Mii; el de Crisis Core, de Reunion). Pide no reutilizar partes ni incluirlo en modpacks sin permiso (uso personal, sólo se anota). Fantasma: el listado trae fighter/zelda/model/phantom/c00 y phantom/c01 dentro de la carpeta de cada traje, así que el Fantasma de Odin va unido a cada traje y se puede instalar sólo el c01 sin el c00. En comentarios, el autor dice que se puede mover a cualquier slot (usa Reslotter / Ultimate Mod Helper); un tercero que renombró c00 a c02 a mano obtuvo el vestido con textura negra, y otro (LinkenLann) dice que funciona en c15. El c00 clásico repite el diseño de la principal 17:355560 (LN_310, c04, Wi-Fi explícita), que se conserva. Recomendados no incluidos: voz de PhantomStrife y tema de Aerith de Zero_Icy. Las 8 principales de Zelda no se tocaron.",
+      "look_id": "17:535222",
+      "downloads_scope": "GameBanana, orden «Most Downloaded» de la categoría Zelda (7535); puesto 27; comparado con la categoría completa (236 mods); consultado 2026-10-25",
+      "images_scope": "galería completa de la página del mod en GameBanana",
+      "images_http_check": "todas las URL de portada (3 tamaños) y de galería devolvieron HTTP 200 el 2026-10-25",
+      "cover_verified": "portada vista a 530 px el 2026-10-25 (lote 5): representa el look de la entrada; muestra los dos trajes; el que cuenta es el de Crisis Core (c01)",
+      "quality_pass": "2026-10-25 lote 5 (alta nueva)",
+      "file_list_check": "Listado de archivos publicado por GameBanana (consultado 2026-10-25; metadato, archivo no descargado ni inspeccionado): aerith_c00_c01.rar: dos carpetas independientes («Zelda Aerith c00» y «Zelda Aerith c01»), cada una con fighter/zelda/model/body/cXX (modelo, texturas y model.nusktb), fighter/zelda/model/phantom/cXX (Fantasma con su propio model.nusktb), effect/fighter/zelda/ef_zelda_cXX.eff, ui/replace/chara (chara_1–4) y su config.json; sin animaciones ni voz"
     },
     {
       "roster_no": "18",
@@ -152368,6 +152724,134 @@
       "images_http_check": "todas las URL de portada (3 tamaños) y de galería devolvieron HTTP 200 el 2026-10-25"
     },
     {
+      "role": "alternativa",
+      "alt_index": 8,
+      "roster_no": "54",
+      "fighter": "Palutena",
+      "mod_id": 581172,
+      "look_name": "Aeris - FF7 Remake Version",
+      "author": "Mareeta~Rose",
+      "url": "https://gamebanana.com/mods/581172",
+      "downloads": 703,
+      "downloads_query_date": "2026-10-25",
+      "rank_in_category_most_downloaded": 110,
+      "shared_download_counter": false,
+      "dlc_required": false,
+      "design_check": "Aerith (FF7 Remake, vestido rosa y chaqueta roja) importada sobre Palutena, con su bastón; distinta de las principales de Palutena (portada revisada). Mismo personaje que 17:535222 y 17:355560, pero en otro luchador",
+      "design_kind": "M",
+      "native_slots": [
+        6
+      ],
+      "proposed_destination": null,
+      "wifi_state": "Sin evidencia localizada",
+      "wifi_state_code": null,
+      "wifi_source": "descripción del mod y comentarios revisados: sin declaración Wi-Fi del autor",
+      "wifi_evidence_url": "https://gamebanana.com/mods/581172",
+      "wifi_quote": "",
+      "conditions": [
+        "La descripción no menciona Wi-Fi y ninguno de los comentarios lo trata."
+      ],
+      "conflicts": [
+        "choca con propuestas principales en c06",
+        "cambia el nombre en pantalla (ui/message/msg_name.xmsbt y ui_chara_db.prcxml)"
+      ],
+      "dependencies": [],
+      "dependency_kind": "sólo recursos (sin plugins .nro mencionados)",
+      "arcropolis_versions_mentioned": [],
+      "compatibility_13_0_5": "compatibilidad no verificada",
+      "file_inspection": "archivo no inspeccionado",
+      "console_test": "prueba en consola pendiente",
+      "audit_status": "verified",
+      "design_type_by_title": null,
+      "preview_images": [
+        {
+          "base": "https://images.gamebanana.com/img/ss/mods",
+          "file": "67d25c0d63395.jpg",
+          "file530": "530-90_67d25c0d63395.jpg",
+          "file220": "220-90_67d25c0d63395.jpg",
+          "file100": "100-90_67d25c0d63395.jpg",
+          "url": "https://images.gamebanana.com/img/ss/mods/67d25c0d63395.jpg",
+          "url530": "https://images.gamebanana.com/img/ss/mods/530-90_67d25c0d63395.jpg",
+          "url220": "https://images.gamebanana.com/img/ss/mods/220-90_67d25c0d63395.jpg"
+        },
+        {
+          "base": "https://images.gamebanana.com/img/ss/mods",
+          "file": "67d25b7d3e790.jpg",
+          "file100": "100-90_67d25b7d3e790.jpg",
+          "url": "https://images.gamebanana.com/img/ss/mods/67d25b7d3e790.jpg"
+        },
+        {
+          "base": "https://images.gamebanana.com/img/ss/mods",
+          "file": "67d25b7d5c2a2.jpg",
+          "file100": "100-90_67d25b7d5c2a2.jpg",
+          "url": "https://images.gamebanana.com/img/ss/mods/67d25b7d5c2a2.jpg"
+        },
+        {
+          "base": "https://images.gamebanana.com/img/ss/mods",
+          "file": "67d25b7de1324.jpg",
+          "file100": "100-90_67d25b7de1324.jpg",
+          "url": "https://images.gamebanana.com/img/ss/mods/67d25b7de1324.jpg"
+        },
+        {
+          "base": "https://images.gamebanana.com/img/ss/mods",
+          "file": "67d25b7e59ba9.jpg",
+          "file100": "100-90_67d25b7e59ba9.jpg",
+          "url": "https://images.gamebanana.com/img/ss/mods/67d25b7e59ba9.jpg"
+        },
+        {
+          "base": "https://images.gamebanana.com/img/ss/mods",
+          "file": "67d25b7e87716.jpg",
+          "file100": "100-90_67d25b7e87716.jpg",
+          "url": "https://images.gamebanana.com/img/ss/mods/67d25b7e87716.jpg"
+        },
+        {
+          "base": "https://images.gamebanana.com/img/ss/mods",
+          "file": "67d25b7f12787.jpg",
+          "file100": "100-90_67d25b7f12787.jpg",
+          "url": "https://images.gamebanana.com/img/ss/mods/67d25b7f12787.jpg"
+        },
+        {
+          "base": "https://images.gamebanana.com/img/ss/mods",
+          "file": "67d25b7ee5b77.jpg",
+          "file100": "100-90_67d25b7ee5b77.jpg",
+          "url": "https://images.gamebanana.com/img/ss/mods/67d25b7ee5b77.jpg"
+        },
+        {
+          "base": "https://images.gamebanana.com/img/ss/mods",
+          "file": "67d25b7f5ecfa.jpg",
+          "file100": "100-90_67d25b7f5ecfa.jpg",
+          "url": "https://images.gamebanana.com/img/ss/mods/67d25b7f5ecfa.jpg"
+        },
+        {
+          "base": "https://images.gamebanana.com/img/ss/mods",
+          "file": "67d25b7fd81e3.jpg",
+          "file100": "100-90_67d25b7fd81e3.jpg",
+          "url": "https://images.gamebanana.com/img/ss/mods/67d25b7fd81e3.jpg"
+        },
+        {
+          "base": "https://images.gamebanana.com/img/ss/mods",
+          "file": "67d25b7e80322.jpg",
+          "file100": "100-90_67d25b7e80322.jpg",
+          "url": "https://images.gamebanana.com/img/ss/mods/67d25b7e80322.jpg"
+        }
+      ],
+      "native_slots_raw": "6 (el autor: «Goes over Palutena c06 by default»)",
+      "primary_slot_status": "alternativa: sin destino propuesto (el destino c00–c07 se decide al elegir)",
+      "slot_code": null,
+      "wifi_quote_auto": null,
+      "wifi_state_provisional_auto": null,
+      "is_replacement": false,
+      "audit_scope": "texto del mod, comentarios y miniaturas (archivo no inspeccionado)",
+      "notes": "El autor: «uses Aeris' FF7 Remake model and voice and also comes with a complete ui», con el Guard Stick de Remake; usa el nombre «Aeris» y ofrece un archivo de nombre aparte si hay interés. Un comentario (2025-03-13) pregunta por un aviso de virus; el análisis de GameBanana del archivo figura como «clean». Rol: alternativa porque no hay evidencia Wi-Fi; las principales de Palutena no se tocaron.",
+      "look_id": "54:581172",
+      "downloads_scope": "GameBanana, orden «Most Downloaded» de la categoría Palutena (7570); puesto 110; comparado con la categoría completa (177 mods); consultado 2026-10-25",
+      "images_scope": "galería completa de la página del mod en GameBanana",
+      "images_http_check": "todas las URL de portada (3 tamaños) y de galería devolvieron HTTP 200 el 2026-10-25",
+      "cover_verified": "portada vista a 530 px el 2026-10-25 (lote 5): representa el look de la entrada; si es imagen de pack se indica en notas",
+      "quality_pass": "2026-10-25 lote 5 (alta nueva)",
+      "file_list_check": "Listado de archivos publicado por GameBanana (consultado 2026-10-25; metadato, archivo no descargado ni inspeccionado): aeris_over_palutena_c06.7z: fighter/palutena/model/body/c06 (modelo, texturas, model.nusktb, model.nuanmb y lod.xmb), sound/bank/fighter_voice (vc_palutena_c06), ui/replace/chara (chara_0–4 y 6), ui/message/msg_name.xmsbt y ui/param/database/ui_chara_db.prcxml; sin config.json"
+    },
+    {
       "roster_no": "55",
       "fighter": "Pac-Man",
       "dlc_required": false,
@@ -172515,6 +172999,319 @@
       "cover_verified": "portada vista a 530 px el 2026-10-25 (lote 4): representa el look de la entrada; si es imagen de pack se indica en notas",
       "quality_pass": "2026-10-25 lote 4 (alta nueva)",
       "file_list_check": "Listado de archivos publicado por GameBanana (consultado 2026-10-25; metadato, archivo no descargado ni inspeccionado): cloud_wheelchair.7z: fighter/cloud c00 (modelo, texturas y model.nusktb; sin animaciones ni UI) y config.json"
+    },
+    {
+      "role": "alternativa",
+      "alt_index": 9,
+      "roster_no": "61",
+      "fighter": "Cloud",
+      "mod_id": 175324,
+      "look_name": "Crisis Core Cloud",
+      "author": "rubikex",
+      "url": "https://gamebanana.com/mods/175324",
+      "downloads": 3382,
+      "downloads_query_date": "2026-10-25",
+      "rank_in_category_most_downloaded": 25,
+      "shared_download_counter": false,
+      "dlc_required": false,
+      "design_check": "Cloud con uniforme de Crisis Core (suéter azul oscuro, dos hombreras y bufanda verde): modelo hecho para Smash con cinturones de Remake; distinto de Cloud base y de las principales (portada revisada). c02/c04/c06 son recolores del mismo diseño y no cuentan aparte",
+      "variant": "c00 Crisis Core; recolores opcionales c02/c04/c06",
+      "design_kind": "M",
+      "native_slots": [
+        0,
+        2,
+        4,
+        6
+      ],
+      "proposed_destination": null,
+      "wifi_state": "Declaración explícita del autor sin condiciones conocidas",
+      "wifi_state_code": "e",
+      "wifi_source": "respuesta del autor (rubikex) en comentarios, 2022-04-12",
+      "wifi_evidence_url": "https://gamebanana.com/mods/175324",
+      "wifi_quote": "Yea, it is",
+      "conditions": [],
+      "conflicts": [
+        "choca con propuestas principales en c02, c04, c06",
+        "trae variantes para varios slots: elegir uno (adaptación pendiente)",
+        "el autor indica que es movible de slot (reslot pendiente si choca)"
+      ],
+      "dependencies": [],
+      "dependency_kind": "sólo recursos (sin plugins .nro mencionados)",
+      "arcropolis_versions_mentioned": [],
+      "compatibility_13_0_5": "compatibilidad no verificada",
+      "file_inspection": "archivo no inspeccionado",
+      "console_test": "prueba en consola pendiente",
+      "audit_status": "verified",
+      "design_type_by_title": null,
+      "preview_images": [
+        {
+          "base": "https://images.gamebanana.com/img/ss/mods",
+          "file": "606023e07d02d.jpg",
+          "file530": "530-90_606023e07d02d.jpg",
+          "file220": "220-90_606023e07d02d.jpg",
+          "file100": "100-90_606023e07d02d.jpg",
+          "url": "https://images.gamebanana.com/img/ss/mods/606023e07d02d.jpg",
+          "url530": "https://images.gamebanana.com/img/ss/mods/530-90_606023e07d02d.jpg",
+          "url220": "https://images.gamebanana.com/img/ss/mods/220-90_606023e07d02d.jpg"
+        },
+        {
+          "base": "https://images.gamebanana.com/img/ss/mods",
+          "file": "60602aadad24a.jpg",
+          "file100": "100-90_60602aadad24a.jpg",
+          "url": "https://images.gamebanana.com/img/ss/mods/60602aadad24a.jpg"
+        },
+        {
+          "base": "https://images.gamebanana.com/img/ss/mods",
+          "file": "60602aae0533e.jpg",
+          "file100": "100-90_60602aae0533e.jpg",
+          "url": "https://images.gamebanana.com/img/ss/mods/60602aae0533e.jpg"
+        },
+        {
+          "base": "https://images.gamebanana.com/img/ss/mods",
+          "file": "60602aae3587c.jpg",
+          "file100": "100-90_60602aae3587c.jpg",
+          "url": "https://images.gamebanana.com/img/ss/mods/60602aae3587c.jpg"
+        },
+        {
+          "base": "https://images.gamebanana.com/img/ss/mods",
+          "file": "60602aae51930.jpg",
+          "file100": "100-90_60602aae51930.jpg",
+          "url": "https://images.gamebanana.com/img/ss/mods/60602aae51930.jpg"
+        },
+        {
+          "base": "https://images.gamebanana.com/img/ss/mods",
+          "file": "60602d573f6c3.jpg",
+          "file100": "100-90_60602d573f6c3.jpg",
+          "url": "https://images.gamebanana.com/img/ss/mods/60602d573f6c3.jpg"
+        },
+        {
+          "base": "https://images.gamebanana.com/img/ss/mods",
+          "file": "60602aaee2130.jpg",
+          "file100": "100-90_60602aaee2130.jpg",
+          "url": "https://images.gamebanana.com/img/ss/mods/60602aaee2130.jpg"
+        },
+        {
+          "base": "https://images.gamebanana.com/img/ss/mods",
+          "file": "60602aaf1212a.jpg",
+          "file100": "100-90_60602aaf1212a.jpg",
+          "url": "https://images.gamebanana.com/img/ss/mods/60602aaf1212a.jpg"
+        },
+        {
+          "base": "https://images.gamebanana.com/img/ss/mods",
+          "file": "60602aae975b1.jpg",
+          "file100": "100-90_60602aae975b1.jpg",
+          "url": "https://images.gamebanana.com/img/ss/mods/60602aae975b1.jpg"
+        },
+        {
+          "base": "https://images.gamebanana.com/img/ss/mods",
+          "file": "60602aae9dcd3.jpg",
+          "file100": "100-90_60602aae9dcd3.jpg",
+          "url": "https://images.gamebanana.com/img/ss/mods/60602aae9dcd3.jpg"
+        },
+        {
+          "base": "https://images.gamebanana.com/img/ss/mods",
+          "file": "60602aaf2cbb7.jpg",
+          "file100": "100-90_60602aaf2cbb7.jpg",
+          "url": "https://images.gamebanana.com/img/ss/mods/60602aaf2cbb7.jpg"
+        },
+        {
+          "base": "https://images.gamebanana.com/img/ss/mods",
+          "file": "60602aaf3d363.jpg",
+          "file100": "100-90_60602aaf3d363.jpg",
+          "url": "https://images.gamebanana.com/img/ss/mods/60602aaf3d363.jpg"
+        },
+        {
+          "base": "https://images.gamebanana.com/img/ss/mods",
+          "file": "60602aaf49a17.jpg",
+          "file100": "100-90_60602aaf49a17.jpg",
+          "url": "https://images.gamebanana.com/img/ss/mods/60602aaf49a17.jpg"
+        },
+        {
+          "base": "https://images.gamebanana.com/img/ss/mods",
+          "file": "60603434104cd.jpg",
+          "file100": "100-90_60603434104cd.jpg",
+          "url": "https://images.gamebanana.com/img/ss/mods/60603434104cd.jpg"
+        },
+        {
+          "base": "https://images.gamebanana.com/img/ss/mods",
+          "file": "606034345dad8.jpg",
+          "file100": "100-90_606034345dad8.jpg",
+          "url": "https://images.gamebanana.com/img/ss/mods/606034345dad8.jpg"
+        },
+        {
+          "base": "https://images.gamebanana.com/img/ss/mods",
+          "file": "60602aaf971bd.jpg",
+          "file100": "100-90_60602aaf971bd.jpg",
+          "url": "https://images.gamebanana.com/img/ss/mods/60602aaf971bd.jpg"
+        },
+        {
+          "base": "https://images.gamebanana.com/img/ss/mods",
+          "file": "60602aaeaa55f.jpg",
+          "file100": "100-90_60602aaeaa55f.jpg",
+          "url": "https://images.gamebanana.com/img/ss/mods/60602aaeaa55f.jpg"
+        },
+        {
+          "base": "https://images.gamebanana.com/img/ss/mods",
+          "file": "60602aaf62a35.jpg",
+          "file100": "100-90_60602aaf62a35.jpg",
+          "url": "https://images.gamebanana.com/img/ss/mods/60602aaf62a35.jpg"
+        },
+        {
+          "base": "https://images.gamebanana.com/img/ss/mods",
+          "file": "60602aae680f1.jpg",
+          "file100": "100-90_60602aae680f1.jpg",
+          "url": "https://images.gamebanana.com/img/ss/mods/60602aae680f1.jpg"
+        },
+        {
+          "base": "https://images.gamebanana.com/img/ss/mods",
+          "file": "60602aae334c1.jpg",
+          "file100": "100-90_60602aae334c1.jpg",
+          "url": "https://images.gamebanana.com/img/ss/mods/60602aae334c1.jpg"
+        },
+        {
+          "base": "https://images.gamebanana.com/img/ss/mods",
+          "file": "60602aaf1998f.jpg",
+          "file100": "100-90_60602aaf1998f.jpg",
+          "url": "https://images.gamebanana.com/img/ss/mods/60602aaf1998f.jpg"
+        },
+        {
+          "base": "https://images.gamebanana.com/img/ss/mods",
+          "file": "60602aaf9544e.jpg",
+          "file100": "100-90_60602aaf9544e.jpg",
+          "url": "https://images.gamebanana.com/img/ss/mods/60602aaf9544e.jpg"
+        },
+        {
+          "base": "https://images.gamebanana.com/img/ss/mods",
+          "file": "606035b503869.jpg",
+          "file100": "100-90_606035b503869.jpg",
+          "url": "https://images.gamebanana.com/img/ss/mods/606035b503869.jpg"
+        },
+        {
+          "base": "https://images.gamebanana.com/img/ss/mods",
+          "file": "606035b4e5223.jpg",
+          "file100": "100-90_606035b4e5223.jpg",
+          "url": "https://images.gamebanana.com/img/ss/mods/606035b4e5223.jpg"
+        },
+        {
+          "base": "https://images.gamebanana.com/img/ss/mods",
+          "file": "606035b49546d.jpg",
+          "file100": "100-90_606035b49546d.jpg",
+          "url": "https://images.gamebanana.com/img/ss/mods/606035b49546d.jpg"
+        }
+      ],
+      "native_slots_raw": "0, 2, 4 y 6 (el autor: «c00: Crisis Core Cloud, c02, c04, c06» recolores; «can be used on any of the FF7 Cloud slots»)",
+      "primary_slot_status": "alternativa: sin destino propuesto (el destino c00–c07 se decide al elegir)",
+      "slot_code": null,
+      "wifi_quote_auto": null,
+      "wifi_state_provisional_auto": null,
+      "is_replacement": false,
+      "audit_scope": "texto del mod, comentarios y miniaturas (archivo no inspeccionado)",
+      "notes": "Cita completa: ZamasuManzon pregunta «Hi. :) Is this Wifi safe?» (2022-04-11) y el autor responde «Yea, it is» (2022-04-12). El autor: «This mod is a true single slot and includes optional recolors», «Install with ARCropolis». Espada de Rman41 y pelo de -Pik- (créditos del autor). En comentarios el autor explica cómo pasar c00 a c06 borrando y renombrando carpetas. Rol: alternativa porque sus descargas quedan por debajo de la principal de Cloud con menos descargas; las principales no se tocaron.",
+      "look_id": "61:175324",
+      "downloads_scope": "GameBanana, orden «Most Downloaded» de la categoría Cloud (7585); puesto 25; comparado con la categoría completa (220 mods); consultado 2026-10-25",
+      "images_scope": "galería completa de la página del mod en GameBanana",
+      "images_http_check": "todas las URL de portada (3 tamaños) y de galería devolvieron HTTP 200 el 2026-10-25",
+      "cover_verified": "portada vista a 530 px el 2026-10-25 (lote 5): representa el look de la entrada; si es imagen de pack se indica en notas",
+      "quality_pass": "2026-10-25 lote 5 (alta nueva)",
+      "file_list_check": "Listado de archivos publicado por GameBanana (consultado 2026-10-25; metadato, archivo no descargado ni inspeccionado): crisis_core_cloud.7z: fighter/cloud/model/body c00, c02, c04 y c06 (modelo y texturas; sin model.nusktb ni animaciones) y ui/replace/chara; sin config.json"
+    },
+    {
+      "role": "alternativa",
+      "alt_index": 10,
+      "roster_no": "61",
+      "fighter": "Cloud",
+      "mod_id": 175327,
+      "look_name": "Zack Fair over Cloud Strife",
+      "author": "Large_Leader",
+      "url": "https://gamebanana.com/mods/175327",
+      "downloads": 1251,
+      "downloads_query_date": "2026-10-25",
+      "rank_in_category_most_downloaded": 73,
+      "shared_download_counter": false,
+      "dlc_required": false,
+      "design_check": "Zack Fair (FF7 / Crisis Core) con uniforme de SOLDIER, pelo propio de Primera y Segunda Clase y Buster Sword personalizada; distinto de Cloud base y de las principales (portada revisada). Primera y Segunda Clase se publican como dos descargas; las 4 versiones de cada una son recolores",
+      "variant": "First Class (firstclass.rar) o Second Class (secondclass.rar): elegir una; cada una ocupa c00/c02/c04/c06 con recolores",
+      "design_kind": "M",
+      "native_slots": [
+        0,
+        2,
+        4,
+        6
+      ],
+      "proposed_destination": null,
+      "wifi_state": "Sin evidencia localizada",
+      "wifi_state_code": null,
+      "wifi_source": "descripción del mod y comentarios revisados: sin declaración Wi-Fi del autor",
+      "wifi_evidence_url": "https://gamebanana.com/mods/175327",
+      "wifi_quote": "",
+      "conditions": [
+        "La descripción no menciona Wi-Fi. El autor dice en comentarios (2020-12-25) que no lo probó en consola: «I don't have a modded Switch, so I couldn't test it».",
+        "Un tercero (~aubrey~, 2022-06-18) pasó el c00 de First Class a c02 y no cargó; el autor no supo la causa. Otro (Th3Powe4, 2020-12-24) no logró usarlo en los slots de Advent Children."
+      ],
+      "conflicts": [
+        "choca con propuestas principales en c02, c04, c06",
+        "trae variantes para varios slots: elegir uno (adaptación pendiente)",
+        "reslot fuera de c00/c02/c04/c06 no probado (un intento a c02 falló)"
+      ],
+      "dependencies": [],
+      "dependency_kind": "sólo recursos (sin plugins .nro mencionados)",
+      "arcropolis_versions_mentioned": [],
+      "compatibility_13_0_5": "compatibilidad no verificada",
+      "file_inspection": "archivo no inspeccionado",
+      "console_test": "prueba en consola pendiente",
+      "audit_status": "verified",
+      "design_type_by_title": null,
+      "preview_images": [
+        {
+          "base": "https://images.gamebanana.com/img/ss/mods",
+          "file": "5fa1c13540008.jpg",
+          "file530": "530-90_5fa1c13540008.jpg",
+          "file220": "220-90_5fa1c13540008.jpg",
+          "file100": "100-90_5fa1c13540008.jpg",
+          "url": "https://images.gamebanana.com/img/ss/mods/5fa1c13540008.jpg",
+          "url530": "https://images.gamebanana.com/img/ss/mods/530-90_5fa1c13540008.jpg",
+          "url220": "https://images.gamebanana.com/img/ss/mods/220-90_5fa1c13540008.jpg"
+        },
+        {
+          "base": "https://images.gamebanana.com/img/ss/mods",
+          "file": "5fa1c1592b94f.jpg",
+          "file100": "100-90_5fa1c1592b94f.jpg",
+          "url": "https://images.gamebanana.com/img/ss/mods/5fa1c1592b94f.jpg"
+        },
+        {
+          "base": "https://images.gamebanana.com/img/ss/mods",
+          "file": "5fa1c1ec83488.jpg",
+          "file100": "100-90_5fa1c1ec83488.jpg",
+          "url": "https://images.gamebanana.com/img/ss/mods/5fa1c1ec83488.jpg"
+        },
+        {
+          "base": "https://images.gamebanana.com/img/ss/mods",
+          "file": "5fa1c1ecc040b.jpg",
+          "file100": "100-90_5fa1c1ecc040b.jpg",
+          "url": "https://images.gamebanana.com/img/ss/mods/5fa1c1ecc040b.jpg"
+        },
+        {
+          "base": "https://images.gamebanana.com/img/ss/mods",
+          "file": "5fa1c8a2708ba.jpg",
+          "file100": "100-90_5fa1c8a2708ba.jpg",
+          "url": "https://images.gamebanana.com/img/ss/mods/5fa1c8a2708ba.jpg"
+        }
+      ],
+      "native_slots_raw": "0, 2, 4 y 6 (el autor: «Replaces SOLDIER costume and comes with 4 recolors»)",
+      "primary_slot_status": "alternativa: sin destino propuesto (el destino c00–c07 se decide al elegir)",
+      "slot_code": null,
+      "wifi_quote_auto": null,
+      "wifi_state_provisional_auto": null,
+      "is_replacement": false,
+      "audit_scope": "texto del mod, comentarios y miniaturas (archivo no inspeccionado)",
+      "notes": "El autor: pelo propio de Primera y Segunda Clase (con cicatriz en Primera), cinturones y hombreras de SOLDIER y Buster Sword basada en Crisis Core y Remake; «Only works with Arcropolis»; Primera y Segunda Clase no se usan juntas («You'll have to pick between one or the other»). No cambia la voz. Descargas de GameBanana: firstclass.rar 944 y secondclass.rar 313. Otro mod de Zack en la categoría («Zack Fair, 1st & 2nd Class», 439447, puesto 3) no está en el catálogo y no se auditó. Rol: alternativa porque no hay evidencia Wi-Fi; las principales de Cloud no se tocaron.",
+      "look_id": "61:175327",
+      "downloads_scope": "GameBanana, orden «Most Downloaded» de la categoría Cloud (7585); puesto 73; comparado con la categoría completa (220 mods); consultado 2026-10-25",
+      "images_scope": "galería completa de la página del mod en GameBanana",
+      "images_http_check": "todas las URL de portada (3 tamaños) y de galería devolvieron HTTP 200 el 2026-10-25",
+      "cover_verified": "portada vista a 530 px el 2026-10-25 (lote 5): representa el look de la entrada; si es imagen de pack se indica en notas",
+      "quality_pass": "2026-10-25 lote 5 (alta nueva)",
+      "file_list_check": "Listado de archivos publicado por GameBanana (consultado 2026-10-25; metadato, archivo no descargado ni inspeccionado): firstclass.rar y secondclass.rar: cada uno con fighter/cloud/model/body c00, c02, c04 y c06 (modelo, texturas y model.nusktb) y ui/replace/chara (chara_0–7); sin animaciones, voz ni config.json"
     },
     {
       "roster_no": "62",
@@ -208200,6 +208997,194 @@
       "quality_pass": "2026-10-25 lote 2 (revisión manual)"
     },
     {
+      "role": "alternativa",
+      "alt_index": 8,
+      "roster_no": "74",
+      "fighter": "Terry",
+      "mod_id": 559818,
+      "look_name": "Tifa Lockhart (Terry)",
+      "author": "Raijinken",
+      "url": "https://gamebanana.com/mods/559818",
+      "downloads": 4517,
+      "downloads_query_date": "2026-10-25",
+      "rank_in_category_most_downloaded": 17,
+      "shared_download_counter": false,
+      "dlc_required": true,
+      "design_check": "Tifa Lockhart (FF7) importada con dos trajes: c00 clásico (camiseta blanca, tirantes, falda negra) y c01 negro (chaleco negro con cinta en el brazo, estilo Advent Children; el autor no lo nombra). El c00 repite el diseño de 74:356834 FF7R Tifa (revisado por imagen); el look que se cuenta es el traje negro de c01 (portada revisada)",
+      "variant": "traje negro c01 (estilo Advent Children); el traje clásico c00 repite 74:356834 y no cuenta como look distinto",
+      "design_kind": "M",
+      "native_slots": [
+        0,
+        1
+      ],
+      "proposed_destination": null,
+      "wifi_state": "Declaración condicionada del autor",
+      "wifi_state_code": "c",
+      "wifi_source": "descripción del mod (autor)",
+      "wifi_evidence_url": "https://gamebanana.com/mods/559818",
+      "wifi_quote": "The mod should be online safe, but I have not tested it myself. If there are any issues with the mod, let me know.",
+      "conditions": [
+        "Redacción no categórica y sin prueba propia: el autor dice «The mod should be online safe, but I have not tested it myself».",
+        "Ningún comentario trata el juego en línea."
+      ],
+      "conflicts": [
+        "choca con propuestas principales en c00, c01",
+        "trae variantes para varios slots: elegir uno (adaptación pendiente)",
+        "carpeta opcional «Victory and BGM»: bgm_zz01_f_dolly reemplaza el tema de victoria de Terry en todos sus slots (y añade 2 pistas de FF7); no es por slot"
+      ],
+      "dependencies": [
+        "config.json"
+      ],
+      "dependency_kind": "sólo recursos (sin plugins .nro mencionados)",
+      "arcropolis_versions_mentioned": [],
+      "compatibility_13_0_5": "compatibilidad no verificada",
+      "file_inspection": "archivo no inspeccionado",
+      "console_test": "prueba en consola pendiente",
+      "audit_status": "verified",
+      "design_type_by_title": null,
+      "preview_images": [
+        {
+          "base": "https://images.gamebanana.com/img/ss/mods",
+          "file": "674e371facf5f.jpg",
+          "file530": "530-90_674e371facf5f.jpg",
+          "file220": "220-90_674e371facf5f.jpg",
+          "file100": "100-90_674e371facf5f.jpg",
+          "url": "https://images.gamebanana.com/img/ss/mods/674e371facf5f.jpg",
+          "url530": "https://images.gamebanana.com/img/ss/mods/530-90_674e371facf5f.jpg",
+          "url220": "https://images.gamebanana.com/img/ss/mods/220-90_674e371facf5f.jpg"
+        },
+        {
+          "base": "https://images.gamebanana.com/img/ss/mods",
+          "file": "674ce8100f2e9.jpg",
+          "file100": "100-90_674ce8100f2e9.jpg",
+          "url": "https://images.gamebanana.com/img/ss/mods/674ce8100f2e9.jpg"
+        },
+        {
+          "base": "https://images.gamebanana.com/img/ss/mods",
+          "file": "674ce7f80dac3.jpg",
+          "file100": "100-90_674ce7f80dac3.jpg",
+          "url": "https://images.gamebanana.com/img/ss/mods/674ce7f80dac3.jpg"
+        },
+        {
+          "base": "https://images.gamebanana.com/img/ss/mods",
+          "file": "674ce818ea296.jpg",
+          "file100": "100-90_674ce818ea296.jpg",
+          "url": "https://images.gamebanana.com/img/ss/mods/674ce818ea296.jpg"
+        },
+        {
+          "base": "https://images.gamebanana.com/img/ss/mods",
+          "file": "674ce82132722.jpg",
+          "file100": "100-90_674ce82132722.jpg",
+          "url": "https://images.gamebanana.com/img/ss/mods/674ce82132722.jpg"
+        },
+        {
+          "base": "https://images.gamebanana.com/img/ss/mods",
+          "file": "674ce8258cee1.jpg",
+          "file100": "100-90_674ce8258cee1.jpg",
+          "url": "https://images.gamebanana.com/img/ss/mods/674ce8258cee1.jpg"
+        },
+        {
+          "base": "https://images.gamebanana.com/img/ss/mods",
+          "file": "674ce82c5229a.jpg",
+          "file100": "100-90_674ce82c5229a.jpg",
+          "url": "https://images.gamebanana.com/img/ss/mods/674ce82c5229a.jpg"
+        },
+        {
+          "base": "https://images.gamebanana.com/img/ss/mods",
+          "file": "674ce83047f0e.jpg",
+          "file100": "100-90_674ce83047f0e.jpg",
+          "url": "https://images.gamebanana.com/img/ss/mods/674ce83047f0e.jpg"
+        },
+        {
+          "base": "https://images.gamebanana.com/img/ss/mods",
+          "file": "674d40fdef7db.jpg",
+          "file100": "100-90_674d40fdef7db.jpg",
+          "url": "https://images.gamebanana.com/img/ss/mods/674d40fdef7db.jpg"
+        },
+        {
+          "base": "https://images.gamebanana.com/img/ss/mods",
+          "file": "674d401c2dcb7.jpg",
+          "file100": "100-90_674d401c2dcb7.jpg",
+          "url": "https://images.gamebanana.com/img/ss/mods/674d401c2dcb7.jpg"
+        },
+        {
+          "base": "https://images.gamebanana.com/img/ss/mods",
+          "file": "674e338949be9.jpg",
+          "file100": "100-90_674e338949be9.jpg",
+          "url": "https://images.gamebanana.com/img/ss/mods/674e338949be9.jpg"
+        },
+        {
+          "base": "https://images.gamebanana.com/img/ss/mods",
+          "file": "674e338972265.jpg",
+          "file100": "100-90_674e338972265.jpg",
+          "url": "https://images.gamebanana.com/img/ss/mods/674e338972265.jpg"
+        },
+        {
+          "base": "https://images.gamebanana.com/img/ss/mods",
+          "file": "674e33899950c.jpg",
+          "file100": "100-90_674e33899950c.jpg",
+          "url": "https://images.gamebanana.com/img/ss/mods/674e33899950c.jpg"
+        },
+        {
+          "base": "https://images.gamebanana.com/img/ss/mods",
+          "file": "674e33899f920.jpg",
+          "file100": "100-90_674e33899f920.jpg",
+          "url": "https://images.gamebanana.com/img/ss/mods/674e33899f920.jpg"
+        },
+        {
+          "base": "https://images.gamebanana.com/img/ss/mods",
+          "file": "674e33896cd64.jpg",
+          "file100": "100-90_674e33896cd64.jpg",
+          "url": "https://images.gamebanana.com/img/ss/mods/674e33896cd64.jpg"
+        },
+        {
+          "base": "https://images.gamebanana.com/img/ss/mods",
+          "file": "674e33899c605.jpg",
+          "file100": "100-90_674e33899c605.jpg",
+          "url": "https://images.gamebanana.com/img/ss/mods/674e33899c605.jpg"
+        },
+        {
+          "base": "https://images.gamebanana.com/img/ss/mods",
+          "file": "674e33899a840.jpg",
+          "file100": "100-90_674e33899a840.jpg",
+          "url": "https://images.gamebanana.com/img/ss/mods/674e33899a840.jpg"
+        },
+        {
+          "base": "https://images.gamebanana.com/img/ss/mods",
+          "file": "674e3389c74f8.jpg",
+          "file100": "100-90_674e3389c74f8.jpg",
+          "url": "https://images.gamebanana.com/img/ss/mods/674e3389c74f8.jpg"
+        },
+        {
+          "base": "https://images.gamebanana.com/img/ss/mods",
+          "file": "674e3389d0325.jpg",
+          "file100": "100-90_674e3389d0325.jpg",
+          "url": "https://images.gamebanana.com/img/ss/mods/674e3389d0325.jpg"
+        },
+        {
+          "base": "https://images.gamebanana.com/img/ss/mods",
+          "file": "674e3389dac17.jpg",
+          "file100": "100-90_674e3389dac17.jpg",
+          "url": "https://images.gamebanana.com/img/ss/mods/674e3389dac17.jpg"
+        }
+      ],
+      "native_slots_raw": "0 y 1 (archivo «terry_tifa_c00_c01»: dos trajes, uno por slot)",
+      "primary_slot_status": "alternativa: sin destino propuesto (el destino c00–c07 se decide al elegir)",
+      "slot_code": null,
+      "wifi_quote_auto": null,
+      "wifi_state_provisional_auto": null,
+      "is_replacement": false,
+      "audit_scope": "texto del mod, comentarios y miniaturas (archivo no inspeccionado)",
+      "notes": "El autor: «Includes: Model Import (2 costumes), UI, Moving eyes, PRM Textures, Swing Bones» y música (tema de victoria, Prelude y JENOVA Lifeclinger); «She has no expressions at this time». Problema conocido según el autor: «Minor clipping with the shoulders». Recomienda la voz de slymemo (no incluida). Un comentario agradece que use «the original version of her outfit instead of the remake», lo que confirma que c00 es el traje clásico; frente a 74:356834 (Remake) el diseño es prácticamente el mismo, y se conserva 74:356834 porque su evidencia Wi-Fi es explícita. Por eso esta entrada se cuenta por el traje negro de c01. Las 8 principales de Terry no se tocaron. También existe 11:431695 Tifa sobre Captain Falcon (otro luchador). Sin UI de narrador.",
+      "look_id": "74:559818",
+      "downloads_scope": "GameBanana, orden «Most Downloaded» de la categoría Terry (7608); puesto 17; comparado con los 250 primeros (264 mods); consultado 2026-10-25",
+      "images_scope": "galería completa de la página del mod en GameBanana",
+      "images_http_check": "todas las URL de portada (3 tamaños) y de galería devolvieron HTTP 200 el 2026-10-25",
+      "cover_verified": "portada vista a 530 px el 2026-10-25 (lote 5): representa el look de la entrada; muestra los dos trajes; el que cuenta es el negro (c01)",
+      "quality_pass": "2026-10-25 lote 5 (alta nueva)",
+      "file_list_check": "Listado de archivos publicado por GameBanana (consultado 2026-10-25; metadato, archivo no descargado ni inspeccionado): terry_tifa_c00_c01_cf738.rar: fighter/dolly model/body c00 y c01 (modelo, texturas y model.nusktb en cada uno), motion/body c00 y c01 sólo con swing.prc (física por slot), ui/replace_patch/chara (chara_1–4), config.json y carpeta «Victory and BGM» (bgm_zz01_f_dolly, bgm_ff05_ff7_jenova, bgm_ff06_ff7_prelude)"
+    },
+    {
       "roster_no": "75",
       "fighter": "Byleth",
       "dlc_required": true,
@@ -232910,6 +233895,24 @@
       ],
       "global": [
         "Dos altas pedidas por el usuario (Joe Swanson sobre DK y Wheelchair Cloud) con su estado Wi-Fi; portadas vistas y URL de imágenes con HTTP 200; listado de archivos publicado por GameBanana (metadato, sin descargar)"
+      ]
+    },
+    {
+      "fecha": "2026-10-25",
+      "lote": 5,
+      "altas": [
+        "74:559818",
+        "17:535222",
+        "61:175324",
+        "61:175327",
+        "16:511678",
+        "54:581172"
+      ],
+      "omitidos": [],
+      "global": [
+        "Seis altas pedidas por el usuario (mods de FF7) con su estado Wi-Fi; portadas vistas y URL de imágenes con HTTP 200; listado de archivos publicado por GameBanana (metadato, sin descargar)",
+        "Tifa (74:559818) y Aerith Zelda (17:535222) traen un traje que repite un look ya catalogado (74:356834 y 17:355560); se cuentan por su traje distinto (c01) y se anota en «variant»",
+        "Crisis Core Cloud (61:175324) se juzgó distinto de las entradas de Cloud (revisado por imagen); sus recolores no cuentan aparte"
       ]
     }
   ],
