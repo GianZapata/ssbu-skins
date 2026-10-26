@@ -3,6 +3,11 @@ const { test, expect } = require('@playwright/test');
 test.skip(process.platform !== 'linux', 'La línea base es Chromium en ubuntu-latest.');
 
 const mask = ['#sync'];
+const skin = '<svg xmlns="http://www.w3.org/2000/svg" width="640" height="360"><rect width="100%" height="100%" fill="#2a2418"/><text x="24" y="48" fill="#f2b632" font-size="28">apariencia</text></svg>';
+
+test.beforeEach(async ({ context }) => {
+  await context.route('**/images.gamebanana.com/**', r => r.fulfill({ status: 200, contentType: 'image/svg+xml', body: skin }));
+});
 
 async function shot(page, name) {
   await expect(page).toHaveScreenshot(name + '.png', { mask: mask.map(sel => page.locator(sel)) });
@@ -24,7 +29,8 @@ test('galeria', async ({ page }) => {
   await page.goto('/index.html#/luchador/01/1');
   await page.waitForSelector('[data-skin]');
   await page.locator('[data-skin]').first().click();
-  await page.waitForSelector('.hero');
+  await page.waitForSelector('.hero img');
+  await page.waitForFunction(() => { const i = document.querySelector('.hero img'); return !!(i && i.complete && i.naturalWidth > 0); });
   await shot(page, 'galeria');
 });
 
@@ -43,7 +49,8 @@ test('catalogo', async ({ page }) => {
 
 test('ficha', async ({ page }) => {
   await page.goto('/index.html#/apariencia/01%3A174057');
-  await page.waitForSelector('.hero, .note');
+  await page.waitForSelector('.hero img, .note');
+  await page.waitForFunction(() => { const i = document.querySelector('.hero img'); return !i || (i.complete && i.naturalWidth > 0); });
   await shot(page, 'ficha');
 });
 
