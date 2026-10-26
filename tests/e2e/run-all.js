@@ -5,7 +5,7 @@ const L = require('./lib');
   try {
     await L.wipe(); L.py('seed --only all');
     const only = process.argv[2];
-    for (const name of ['journeys', 'identity', 'ux', 'sync-errors']) {
+    for (const name of ['ack-transition', 'journeys', 'identity', 'ux', 'sync-errors']) {
       if (only && only !== name) continue;
       console.log('\n== ' + name); await L.wipe(); L.py('seed --only all'); await require('./' + name)(b, srv.url);
     }

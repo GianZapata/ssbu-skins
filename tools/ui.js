@@ -37,12 +37,24 @@ function buildData(){
 buildData();
 let INV=META.inventory||null;                         // {meta,fighters:{código:{slots:{n:{src,name,img,vid,staged}}}}}
 let PLAN={};                                          // «código_traje» → {vid,at,by}: el borrador compartido
+const confirmedPlan={},removedPlanAt={};             // commits confirmados que el listener aún no ha alcanzado
+function confirmPlan(key,vid,after){
+ if((PLAN[key]?.at||0)>after||(removedPlanAt[key]||0)>after)return;
+ confirmedPlan[key]={vid,after};if(vid)PLAN[key]={vid};else delete PLAN[key];LS('ssbu_plan_cache',JSON.stringify(PLAN))}
+function mergeChanges(m,changes){
+ for(const c of changes)if(c.type==='removed')removedPlanAt[c.doc.id]=ts(c.doc.data().at)||0;
+ for(const [key,a] of Object.entries(confirmedPlan)){
+  const value=m[key],removed=changes.find(c=>c.doc.id===key&&c.type==='removed'),removedAt=removed?(ts(removed.doc.data().at)||0):null;
+  if((value&&((value.vid===a.vid&&value.at!==null&&value.at>=a.after)||(value.at||0)>a.after))||(removedAt!==null&&(a.vid===null?removedAt>=a.after:removedAt>a.after)))delete confirmedPlan[key];
+  else if(a.vid)m[key]={vid:a.vid};else delete m[key];
+ }
+ return m}
 let PEND=J('ssbu_pend3',[]);                          // cambios hechos aquí que aún no llegaron a la base
 let HIST=[];                                          // historial reciente
 let STATUS={};                                        // estado de instalación por variante
 let lastAct=null;                                     // último cambio de esta sesión, para «Deshacer»
 const S={fq:'',cat:J('ssbu_cat',{q:'',f:'',on:false,aud:false}),tc:{q:'',on:false,aud:false},shown:PAGE,nav:0,fresh:true,dest:null,destFor:null,galI:0};
-let RT=null,lastHash=null;const scrollMem={};
+let RT=null,lastHash=null;const scrollMem={},shownMem={};
 
 /* --- el plan efectivo: lo compartido + lo pendiente de este dispositivo --- */
 const keyOf=(c,n)=>c+'_'+n;
@@ -65,7 +77,8 @@ function curOf(code,n){const f=byCode[code];if(!f)return null;
    verif:prof?(s.test?'Según el ModPack: '+s.test:'Perfil armado y verificado en archivos; sin prueba en consola anotada.'):'Revisado en el repositorio del ModPack; no probado en la consola.'};
   if(s.name)return {...base,kind:'mod',name:s.name};
   return (s.img||s.skin)?{...base,kind:'pending',name:'Nombre pendiente'}:{...base,kind:'unknown',name:'Sin identificar'}}
- return {kind:'original',name:'Original',img:null,badge:'',staged:stg,verif:'Sin ningún mod en el inventario revisado. No está comprobado en la consola.'}}
+ const ref=n===0&&f.original_ref&&f.original_ref.costume==='c00'&&f.original_ref.verified===true?f.original_ref:null;
+ return {kind:'original',name:'Original',img:ref?ref.image_url:null,reference:ref,badge:'',staged:stg,verif:'Sin ningún mod en el inventario revisado. No está comprobado en la consola.'}}
 // identidad del luchador: su retrato oficial (nunca la imagen de uno de sus trajes) o, si no hay, su inicial
 const initials=n=>n.replace(/\(.*?\)/g,'').trim().split(/[\s&.]+/).filter(Boolean).slice(0,2).map(w=>w[0]).join('').toUpperCase();
 const portrait=f=>f.portrait||null;
@@ -82,9 +95,10 @@ function ph(kind){return kind==='original'?`<span class="noimg" role="img" aria-
 function imBox(src,alt,o={}){const {kind,cls='',srcset,eager}=o;
  return `<span class="im ${cls}${!src&&kind==='original'?' orig':''}">${src?`<img src="${esc(src)}"${srcset?` srcset="${esc(srcset)}" sizes="${SIZES}"`:''} alt="${esc(alt)}" ${eager?'':'loading="lazy" '}decoding="async">`:ph(kind)}</span>`}
 // una imagen que falla se sustituye por un aviso con «Reintentar» (nunca un rectángulo vacío)
-document.addEventListener('error',e=>{const t=e.target;if(!t||t.tagName!=='IMG'||t.closest('.pswp'))return;
+document.addEventListener('error',e=>{const t=e.target;if(!t||t.tagName!=='IMG'||(t.closest('.pswp')&&!t.closest('.pswp__thumbs')))return;
  const s=t.currentSrc||t.src;if(!t.dataset.src0)t.dataset.src0=t.getAttribute('src');
  if(!t.dataset.fb&&s.includes('/530-90_')){t.dataset.fb='1';t.removeAttribute('srcset');t.removeAttribute('sizes');t.src=s.replace('/530-90_','/220-90_');return}
+ if(/\/(220|530)-90_/.test(s)){t.removeAttribute('srcset');t.removeAttribute('sizes');t.src=s.replace(/\/(220|530)-90_/,'/');return}
  const box=t.parentElement,alt=t.alt,src0=t.dataset.src0;t.remove();
  if(box.closest('a,button')){box.insertAdjacentHTML('beforeend',`<span class="noimg" role="img" aria-label="La imagen no cargó">${icon('retry')}<small>No cargó</small></span>`);return}
  box.insertAdjacentHTML('beforeend',`<button class="noimg" data-retry="${esc(src0)}" data-alt="${esc(alt)}" aria-label="La imagen no cargó. Reintentar">${icon('retry')}<small>Reintentar</small></button>`)},true);
@@ -98,7 +112,7 @@ function toast(msg,act){const t=$('toast');t.innerHTML=`<span>${esc(msg)}</span>
 const ovs=[];let skip=0,dlgOpener=null;
 function ovPush(id){ovs.push(id);try{history.pushState({ov:id},'')}catch(e){}}
 function ovDone(id){const i=ovs.lastIndexOf(id);if(i<0)return;ovs.splice(i,1);if(history.state&&history.state.ov===id){skip++;history.back()}}
-function hideOv(id){if(id==='dlg')closeDlgDom();else if(id==='gal'&&PSWP){const p=PSWP;PSWP=null;try{p.destroy()}catch(e){}}}
+function hideOv(id){if(id==='dlg')closeDlgDom();else if(id==='gal'&&PSWP){const p=PSWP;if(p.opener.isOpening)p.on('openingAnimationEnd',()=>p.close());else p.close()}}
 function closeDlgDom(){$('dlg').classList.remove('open');document.body.classList.remove('lock');if(dlgOpener&&dlgOpener.focus)try{dlgOpener.focus()}catch(e){}}
 function openDlg(title,html,back){$('dlgT').textContent=title;$('dlgB').innerHTML=html;$('dlgBack').hidden=!back;
  if(!$('dlg').classList.contains('open')){dlgOpener=document.activeElement;$('dlg').classList.add('open');document.body.classList.add('lock');ovPush('dlg')}
@@ -107,7 +121,7 @@ const closeDlg=()=>{closeDlgDom();ovDone('dlg')};
 $('dlgX').onclick=closeDlg;$('dlg').onclick=e=>{if(e.target===$('dlg'))closeDlg()};
 $('dlgBack').onclick=()=>showMenu();
 $('dlg').addEventListener('keydown',e=>{if(e.key==='Escape'){closeDlg();return}
- if(e.key!=='Tab')return;const els=[...$('dlg').querySelectorAll('button:not([hidden]),a[href],summary,input')].filter(x=>x.offsetParent!==null);if(!els.length)return;
+ if(e.key!=='Tab')return;const els=[...$('dlg').querySelectorAll('button:not([hidden]):not(:disabled),a[href],summary,input:not(:disabled),[tabindex]:not([tabindex="-1"])')].filter(x=>x.offsetParent!==null);if(!els.length)return;
  const a=els[0],z=els[els.length-1];if(e.shiftKey&&document.activeElement===a){e.preventDefault();z.focus()}else if(!e.shiftKey&&document.activeElement===z){e.preventDefault();a.focus()}});
 
 /* ============================ rutas ============================ */
@@ -126,8 +140,9 @@ function head(title,back){$('ttl').textContent=title;document.title=title+' · S
 function parentOf(R){if(R.v==='traje')return href.fighter(R.code);if(R.v==='ficha')return para(R.q.para)?href.traje(para(R.q.para).code,para(R.q.para).n):'#/catalogo';if(R.v==='luchador')return '#/luchadores';return '#/luchadores'}
 $('back').onclick=()=>{if(S.nav>0)history.back();else go(parentOf(RT),true)};
 function onRoute(force){if(!force&&location.hash===lastHash)return;const fresh=S.fresh;S.fresh=false;
- if(RT)scrollMem[RT.key]=scrollY;lastHash=location.hash;S.nav=Math.max(0,S.nav+(fresh?1:-1));
- RT=parse();RT.key=location.hash||'#/luchadores';render();
+ clearTimeout(S.ft);clearTimeout(S.ct);
+ if(RT){scrollMem[RT.key]=scrollY;shownMem[RT.key]=S.shown}lastHash=location.hash;S.nav=Math.max(0,S.nav+(fresh?1:-1));
+ RT=parse();RT.key=location.hash||'#/luchadores';S.shown=shownMem[RT.key]||PAGE;render();
  scrollTo(0,fresh?0:(scrollMem[RT.key]||0));try{$('ttl').focus({preventScroll:true})}catch(e){}}
 function render(keep){const R=RT;if(!R)return;const y=keep?scrollY:null;
  ({luchadores:vFighters,luchador:vFighter,traje:vTraje,catalogo:vCatalog,ficha:vFicha,cambios:vChanges}[R.v]||vFighters)(R);
@@ -137,6 +152,10 @@ function render(keep){const R=RT;if(!R)return;const y=keep?scrollY:null;
 // la barra inferior mide lo que mide (el texto grande la agranda): el contenido y el aviso se apoyan en su altura real
 function measureNav(){const n=document.querySelector('nav.tabs');if(!n||!n.offsetHeight)return;const h=n.offsetHeight-parseFloat(getComputedStyle(n).paddingBottom||0);document.documentElement.style.setProperty('--navh',h+'px')}
 if(window.ResizeObserver)new ResizeObserver(measureNav).observe(document.querySelector('nav.tabs'));addEventListener('resize',measureNav);addEventListener('orientationchange',()=>setTimeout(measureNav,200));
+// El desplazamiento nativo de foco no reserva las barras fijas en todos los motores.
+document.addEventListener('focusin',e=>requestAnimationFrame(()=>{const t=e.target;if(!t.isConnected||!t.closest('main'))return;
+ const r=t.getBoundingClientRect(),top=document.querySelector('.top').getBoundingClientRect().bottom+8,nav=document.querySelector('nav.tabs'),bottom=(getComputedStyle(nav).display==='none'?innerHeight:nav.getBoundingClientRect().top)-8;
+ if(r.bottom>bottom)scrollBy(0,r.bottom-bottom);else if(r.top<top)scrollBy(0,r.top-top)}));
 function paintTabs(){const n=planEntries().length,b=$('tabN');b.hidden=!n;b.textContent=n}
 
 /* ============================ pantalla: Luchadores ============================ */
@@ -162,6 +181,7 @@ function vFighter(R){const f=byCode[R.code];if(!f){head('Luchador',true);$('main
 /* ============================ pantalla: un traje = apariencia actual, propuesta y alternativas ============================ */
 const trajeCtx=R=>({code:R.code,n:R.n,raw:keyOf(R.code,R.n)});
 function provenance(c){return `<details class="prov"><summary>Procedencia y verificación</summary><div class="dl"><p>${esc(c.verif||'')}</p>
+  ${c.reference?`<p><a href="${esc(c.reference.source_page)}" target="_blank" rel="noopener">Referencia original: ${esc(c.reference.source)}</a> · ${esc(c.reference.scope)} · traje ${esc(c.reference.costume)}</p>`:''}
   ${c.badge?`<p><b>Origen:</b> ${esc(c.badge)}${c.version?` · versión ${esc(c.version)}`:''}${c.author?` · ${esc(c.author)}`:''}</p>`:''}
   ${c.url?`<p><a href="${esc(c.url)}" target="_blank" rel="noopener">Página del mod</a></p>`:''}
   ${c.staged?`<p><b>En preparación (sin confirmar):</b> ${c.staged.name?esc(c.staged.name):'una skin sin nombre'} · rama ${esc(c.staged.branch)}. Está en el repositorio del ModPack; no se ha comprobado que esté instalada.</p>`:''}</div></details>`}
@@ -193,10 +213,11 @@ function catCtx(){return RT&&RT.v==='traje'?trajeCtx(RT):null}
 function catGrid(ctx){const l=catList(ctx,catSt());$('cg').innerHTML=l.slice(0,S.shown).map((e,i)=>cCard(e,i,ctx&&ctx.raw)).join('');$('cc').textContent=l.length+' apariencia'+(l.length==1?'':'s');
  $('ce').hidden=!!l.length;$('cm').hidden=l.length<=S.shown;$('cm').textContent='Ver más ('+(l.length-S.shown)+')';return l}
 let catObs=null;
-function catWatch(ctx){S.shown=PAGE;catGrid(ctx);if(catObs)catObs.disconnect();
+function catWatch(ctx){catGrid(ctx);if(catObs)catObs.disconnect();
  catObs=new IntersectionObserver(es=>{if(es[0].isIntersecting&&RT&&(RT.v==='catalogo'||RT.v==='traje')&&!$('cm').hidden){S.shown+=PAGE;catGrid(catCtx())}},{rootMargin:'600px'});catObs.observe($('cs'))}
 function vCatalog(R){const old=para(R.q.para);if(old){location.replace(href.traje(old.code,old.n));return}   // enlaces antiguos «Elegir» → pantalla del traje
- if(R.q.f!==undefined&&!R._applied){R._applied=1;S.cat.f=R.q.f;S.cat.q='';LS('ssbu_cat',JSON.stringify(S.cat))}
+ const context=R.q.f===undefined?null:R.q.f;
+ if(S.catContext!==context){S.catContext=context;if(context!==null){S.cat.f=context;S.cat.q='';LS('ssbu_cat',JSON.stringify(S.cat))}}
  head('Catálogo',false);
  $('main').innerHTML=catBlock(S.cat,true);catWatch(null)}
 function saveCat(){LS('ssbu_cat',JSON.stringify(S.cat))}
@@ -282,13 +303,13 @@ $('main').addEventListener('click',e=>{const t=e.target;let b;
  if(b=t.closest('[data-clear]')){e.preventDefault();const k=b.dataset.clear;undoKey(k);return}
  if(b=t.closest('[data-chip]')){const st=catSt();st[b.dataset.chip]=!st[b.dataset.chip];b.setAttribute('aria-pressed',st[b.dataset.chip]);S.shown=PAGE;saveCat();catGrid(catCtx());return}
  if(b=t.closest('#cm')){S.shown+=PAGE;catGrid(catCtx());return}
- if(b=t.closest('[data-thumb]')){S.galI=+b.dataset.thumb;vFicha(RT);return}
+ if(b=t.closest('[data-thumb]')){S.galI=+b.dataset.thumb;vFicha(RT);document.querySelector(`[data-thumb="${S.galI}"]`)?.focus({preventScroll:true});return}
  if(b=t.closest('[data-gal]')){const e2=idx[RT.vid];if(e2)openGallery(e2.p,+b.dataset.gal);return}
- if(b=t.closest('[data-dest]')){S.dest=+b.dataset.dest;const e2=idx[RT.vid];$('usebox').innerHTML=useBox(e2.f,e2.p,para(RT.q.para));return}
+ if(b=t.closest('[data-dest]')){S.dest=+b.dataset.dest;const e2=idx[RT.vid];$('usebox').innerHTML=useBox(e2.f,e2.p,para(RT.q.para));document.querySelector(`[data-dest="${S.dest}"]`)?.focus({preventScroll:true});return}
  if(b=t.closest('[data-use]')){const e2=idx[RT.vid],c=para(RT.q.para),n=c?c.n:S.dest;if(n==null)return;proposeAt(e2.f.code,n,e2.p.vid);go(href.traje(e2.f.code,n),true);return}});
 $('main').addEventListener('input',e=>{const t=e.target;
- if(t.id==='fq'){S.fq=t.value;clearTimeout(S.ft);S.ft=setTimeout(()=>{const h=fList();$('fg').innerHTML=h;$('fe').hidden=!!h},120)}
- if(t.id==='cq'){catSt().q=t.value;S.shown=PAGE;saveCat();clearTimeout(S.ct);S.ct=setTimeout(()=>catGrid(catCtx()),160)}});
+ if(t.id==='fq'){S.fq=t.value;clearTimeout(S.ft);S.ft=setTimeout(()=>{if(!t.isConnected)return;const h=fList();$('fg').innerHTML=h;$('fe').hidden=!!h},120)}
+ if(t.id==='cq'){catSt().q=t.value;S.shown=PAGE;saveCat();clearTimeout(S.ct);S.ct=setTimeout(()=>{if(t.isConnected)catGrid(catCtx())},160)}});
 $('main').addEventListener('change',e=>{if(e.target.id==='cf'){S.cat.f=e.target.value;S.shown=PAGE;saveCat();catGrid(null);e.target.blur()}});
 $('main').addEventListener('keydown',e=>{if(e.key==='Enter'&&(e.target.id==='fq'||e.target.id==='cq'))e.target.blur()});
 const isTxt=el=>el&&el.matches&&el.matches('input[type=search],input[type=text]');
@@ -341,7 +362,7 @@ function loadPswp(){return pswpMod||(pswpMod=(async()=>{
 async function openGallery(p,i){const imgs=imgsOf(p);if(!imgs.length)return;
  let PhotoSwipe;try{PhotoSwipe=await loadPswp()}catch(e){toast('No se pudo abrir el visor de fotos',{label:'Reintentar',fn:()=>openGallery(p,i)});return}
  const items=imgs.map((x,k)=>({src:x.o,msrc:x.m,width:1280,height:720,alt:`${p.name} — foto ${k+1} de ${imgs.length}`}));
- const pswp=new PhotoSwipe({dataSource:items,index:i,bgOpacity:.97,loop:false,wheelToZoom:true,closeTitle:'Cerrar',zoomTitle:'Ampliar o reducir',arrowPrevTitle:'Foto anterior',arrowNextTitle:'Foto siguiente',errorMsg:'No se pudo cargar la foto',indexIndicatorSep:' / ',preloaderDelay:200});
+ const pswp=new PhotoSwipe({dataSource:items,index:i,bgOpacity:.97,loop:false,wheelToZoom:true,paddingFn:()=>({top:0,left:0,right:0,bottom:imgs.length>1?(document.querySelector('.pswp__thumbs')?.offsetHeight||72):0}),closeTitle:'Cerrar',zoomTitle:'Ampliar o reducir',arrowPrevTitle:'Foto anterior',arrowNextTitle:'Foto siguiente',errorMsg:'No se pudo cargar la foto',indexIndicatorSep:' / ',preloaderDelay:200});
  // tamaño real de cada foto al cargarla: se muestra sin deformar
  pswp.on('loadComplete',({content,slide})=>{const el=content.element;if(!el||!el.naturalWidth)return;if(content.data.width===el.naturalWidth&&content.data.height===el.naturalHeight)return;
   content.data.width=el.naturalWidth;content.data.height=el.naturalHeight;content.width=el.naturalWidth;content.height=el.naturalHeight;slide.width=el.naturalWidth;slide.height=el.naturalHeight;
@@ -355,7 +376,8 @@ async function openGallery(p,i){const imgs=imgsOf(p);if(!imgs.length)return;
   const mark=()=>[...el.children].forEach((b,k)=>{k===ps.currIndex?b.setAttribute('aria-current','true'):b.removeAttribute('aria-current');if(k===ps.currIndex&&b.scrollIntoView)b.scrollIntoView({block:'nearest',inline:'center'})});
   el.addEventListener('click',ev=>{const b=ev.target.closest('button');if(b)ps.goTo([...el.children].indexOf(b))});ps.on('change',mark);mark()}}));
  pswp.on('change',()=>{S.galI=pswp.currIndex});
- pswp.on('close',()=>{PSWP=null;ovDone('gal');if(RT&&RT.v==='ficha'){S.galI=Math.min(S.galI,imgs.length-1);vFicha(RT)}});
+ pswp.on('close',()=>ovDone('gal'));
+ pswp.on('destroy',()=>{PSWP=null;if(RT&&RT.v==='ficha'){S.galI=Math.min(S.galI,imgs.length-1);vFicha(RT);document.querySelector('.hero')?.focus({preventScroll:true})}});
  PSWP=pswp;ovPush('gal');pswp.init()}
 
 /* ============================ sincronización: Firebase ============================ */
@@ -402,17 +424,23 @@ async function flush(){if(flushing||!PEND.length)return;
  flushing=true;paintSync();
  try{const f=await fb();const uid=f.auth.currentUser.uid;
   while(PEND.length){const op=PEND[0];
+   const key=keyOf(op.code,op.slot);
    let res;
    try{res=await f.runTransaction(f.db,async tx=>{const ref=f.doc(f.db,'changes',keyOf(op.code,op.slot)),s=await tx.get(ref),cur=s.exists()?s.data().vid:null;
-    if(cur===op.to)return {noop:true};
-    if(cur!==op.exp)return {conflict:true,cur};
+    const observedAt=s.exists()?(ts(s.data().at)||0):(PLAN[key]?.at||removedPlanAt[key]||0);
+    if(cur===op.to)return {noop:true,observedAt};
+    if(cur!==op.exp)return {conflict:true,cur,observedAt};
     const h=f.doc(f.collection(f.db,'history'));
     if(op.to===null)tx.delete(ref);else tx.set(ref,{code:op.code,slot:op.slot,vid:op.to,by:uid,at:f.serverTimestamp()});
-    tx.set(h,{code:op.code,slot:op.slot,from:cur,to:op.to,kind:op.kind||(op.to===null?'clear':'set'),by:uid,at:f.serverTimestamp()});return {ok:true}})}
+    tx.set(h,{code:op.code,slot:op.slot,from:cur,to:op.to,kind:op.kind||(op.to===null?'clear':'set'),by:uid,at:f.serverTimestamp()});return {ok:true,observedAt}})}
    catch(e){ // las reglas rechazan una apariencia que ya no existe: ese cambio se descarta para no bloquear la cola.
              // Con una apariencia conocida, un rechazo apunta a configuración (reglas sin publicar): se conserva el cambio
     if(classify(e)==='perm'&&op.to&&!idx[op.to]){PEND.shift();savePend();diag('descartado',e,{op:op.code+'_'+op.slot,to:op.to});toast('Un cambio ya no es válido y se descartó');continue}
     throw e}
+   // El commit puede resolverse antes del listener. Transferir primero el resultado confirmado al plan
+   // evita perder la propuesta (o resucitarla al deshacer) entre PEND y la próxima instantánea.
+   // La frontera es la lectura del último intento de la transacción, no el orden de entrega de callbacks.
+   confirmPlan(key,res.conflict?res.cur:op.to,res.observedAt);
    PEND.shift();savePend();
    if(res.conflict)conflict(op,res.cur);
    render(true)}
@@ -445,7 +473,7 @@ async function startDb(){if(!FBCFG){paintSync();return}
   sub(f.doc(f.db,'meta','installed'),s=>{metaInst=s.exists()?s.data():null;maybeApplyInventory()});
   sub(f.collection(f.db,'installed'),s=>{instSnap=s;maybeApplyInventory()});
   sub(f.collection(f.db,'status'),s=>{STATUS={};s.forEach(d=>{const v=d.data();STATUS[v.vid||d.id]=v})});
-  sub(f.collection(f.db,'changes'),s=>{const m={};s.forEach(d=>{const v=d.data();m[d.id]={vid:v.vid,by:v.by,at:ts(v.at)}});PLAN=m;LS('ssbu_plan_cache',JSON.stringify(m));
+  sub(f.collection(f.db,'changes'),s=>{const m={};s.forEach(d=>{const v=d.data();m[d.id]={vid:v.vid,by:v.by,at:ts(v.at)}});PLAN=mergeChanges(m,s.docChanges());LS('ssbu_plan_cache',JSON.stringify(PLAN));
    good();paintSync();render(true);planLoaded=true;flush()});
   sub(f.query(f.collection(f.db,'history'),f.orderBy('at','desc'),f.limit(40)),s=>{HIST=[];s.forEach(d=>{const v=d.data();HIST.push({code:v.code,slot:v.slot,from:v.from,to:v.to,kind:v.kind,t:ts(v.at)})})})
  }catch(e){fail('inicio',e)}}

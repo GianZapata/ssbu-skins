@@ -2,8 +2,9 @@
 #   npm pack smash-ultimate-assets@0.1.1 && tar xzf smash-ultimate-assets-0.1.1.tgz
 #   python3 tools/build_portraits.py package
 # Fuente: paquete npm «smash-ultimate-assets» 0.1.1 (https://github.com/marcrd/smash-ultimate-assets, Apache-2.0 en el paquete; las imágenes son arte
-# de Nintendo, de uso comunitario). Solo cubre los 78 luchadores del lanzamiento; los 12 DLC posteriores (71–82) no tienen retrato aquí y la web
-# muestra una ficha tipográfica (nombre) hasta que se añada assets/fighters/<código>.webp a mano.
+# de Nintendo, de uso comunitario). Solo cubre los luchadores del lanzamiento.
+# Los DLC 71–82 usan las fuentes oficiales verificadas de original_refs mediante catalog_data.py;
+# este script no descarga esos renders. Solo si falta también una fuente verificada se muestran iniciales.
 import os, sys
 from PIL import Image
 R = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..')

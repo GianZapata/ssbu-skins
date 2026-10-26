@@ -17,9 +17,13 @@ jobs:
       - uses: actions/setup-java@v4
         with: { distribution: temurin, java-version: '21' }
       - run: pip install -r tests/requirements.txt
-      - run: cd tests && npm ci --no-audit --no-fund && npx playwright install --with-deps chromium
+      - run: cd tests && npm ci --no-audit --no-fund && npx playwright install --with-deps chromium webkit
       - name: Pruebas (catálogo, generación, emuladores, recorridos)
         run: tests/run.sh --sin-webkit
+      - name: Recorridos de interacción en WebKit
+        run: node tests/e2e/webkit-journeys.js
+        env:
+          SHOTS: tests/.shots/webkit-interactions
       - uses: actions/upload-artifact@v4
         if: always()
         with: { name: capturas, path: tests/.shots, if-no-files-found: ignore }

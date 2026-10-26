@@ -1,0 +1,775 @@
+{
+  "_nota": "Procedencia de los retratos locales existentes, generados por tools/build_portraits.py. Los DLC sin archivo local usan únicamente image_url de una original_ref oficial verificada; conservan su procedencia completa en portrait_source. Las referencias de traje c00 no acreditan c01–c07.",
+  "fighters": {
+    "01": {
+      "fighter": "Mario",
+      "asset": "assets/fighters/01.webp",
+      "source": "smash-ultimate-assets 0.1.1 (arte oficial de Nintendo)",
+      "source_page": "https://github.com/marcrd/smash-ultimate-assets",
+      "package_url": "https://registry.npmjs.org/smash-ultimate-assets/-/smash-ultimate-assets-0.1.1.tgz",
+      "scope": "retrato de identidad del luchador; no acredita los otros trajes",
+      "build_tool": "tools/build_portraits.py",
+      "asset_sha256": "7e85108a74c0944e4c68eb5e7928544af8a1c3ec260f24136789965c6599b00c"
+    },
+    "02": {
+      "fighter": "Donkey Kong",
+      "asset": "assets/fighters/02.webp",
+      "source": "smash-ultimate-assets 0.1.1 (arte oficial de Nintendo)",
+      "source_page": "https://github.com/marcrd/smash-ultimate-assets",
+      "package_url": "https://registry.npmjs.org/smash-ultimate-assets/-/smash-ultimate-assets-0.1.1.tgz",
+      "scope": "retrato de identidad del luchador; no acredita los otros trajes",
+      "build_tool": "tools/build_portraits.py",
+      "asset_sha256": "a824e1723a32a79174cc979ebad8964dea1b2e54cb0129bcd24d907a66465ad5"
+    },
+    "03": {
+      "fighter": "Link",
+      "asset": "assets/fighters/03.webp",
+      "source": "smash-ultimate-assets 0.1.1 (arte oficial de Nintendo)",
+      "source_page": "https://github.com/marcrd/smash-ultimate-assets",
+      "package_url": "https://registry.npmjs.org/smash-ultimate-assets/-/smash-ultimate-assets-0.1.1.tgz",
+      "scope": "retrato de identidad del luchador; no acredita los otros trajes",
+      "build_tool": "tools/build_portraits.py",
+      "asset_sha256": "8b4abd7a45451888d884309489fe19e83c51bad6eab85277f34716d3bf6471f9"
+    },
+    "04": {
+      "fighter": "Samus",
+      "asset": "assets/fighters/04.webp",
+      "source": "smash-ultimate-assets 0.1.1 (arte oficial de Nintendo)",
+      "source_page": "https://github.com/marcrd/smash-ultimate-assets",
+      "package_url": "https://registry.npmjs.org/smash-ultimate-assets/-/smash-ultimate-assets-0.1.1.tgz",
+      "scope": "retrato de identidad del luchador; no acredita los otros trajes",
+      "build_tool": "tools/build_portraits.py",
+      "asset_sha256": "7337ad742101c3151846d43058795f73543e936869af7d478585a24b50911cc2"
+    },
+    "04ε": {
+      "fighter": "Dark Samus",
+      "asset": "assets/fighters/04e.webp",
+      "source": "smash-ultimate-assets 0.1.1 (arte oficial de Nintendo)",
+      "source_page": "https://github.com/marcrd/smash-ultimate-assets",
+      "package_url": "https://registry.npmjs.org/smash-ultimate-assets/-/smash-ultimate-assets-0.1.1.tgz",
+      "scope": "retrato de identidad del luchador; no acredita los otros trajes",
+      "build_tool": "tools/build_portraits.py",
+      "asset_sha256": "de4beb6e9f64b4aa436f2439cb506e51c788522bc7f880ca89a8f3be46635514"
+    },
+    "05": {
+      "fighter": "Yoshi",
+      "asset": "assets/fighters/05.webp",
+      "source": "smash-ultimate-assets 0.1.1 (arte oficial de Nintendo)",
+      "source_page": "https://github.com/marcrd/smash-ultimate-assets",
+      "package_url": "https://registry.npmjs.org/smash-ultimate-assets/-/smash-ultimate-assets-0.1.1.tgz",
+      "scope": "retrato de identidad del luchador; no acredita los otros trajes",
+      "build_tool": "tools/build_portraits.py",
+      "asset_sha256": "ce3a32df9be7e122387ea5f43e23c8b78c4c2598fab0c028591513a398846d25"
+    },
+    "06": {
+      "fighter": "Kirby",
+      "asset": "assets/fighters/06.webp",
+      "source": "smash-ultimate-assets 0.1.1 (arte oficial de Nintendo)",
+      "source_page": "https://github.com/marcrd/smash-ultimate-assets",
+      "package_url": "https://registry.npmjs.org/smash-ultimate-assets/-/smash-ultimate-assets-0.1.1.tgz",
+      "scope": "retrato de identidad del luchador; no acredita los otros trajes",
+      "build_tool": "tools/build_portraits.py",
+      "asset_sha256": "ab0638b8d2a0d10f38b37234d08fe46b440668a35080f9058495d2d221f7257e"
+    },
+    "07": {
+      "fighter": "Fox",
+      "asset": "assets/fighters/07.webp",
+      "source": "smash-ultimate-assets 0.1.1 (arte oficial de Nintendo)",
+      "source_page": "https://github.com/marcrd/smash-ultimate-assets",
+      "package_url": "https://registry.npmjs.org/smash-ultimate-assets/-/smash-ultimate-assets-0.1.1.tgz",
+      "scope": "retrato de identidad del luchador; no acredita los otros trajes",
+      "build_tool": "tools/build_portraits.py",
+      "asset_sha256": "7a0bce35bfe279875581a27ac4b4111a504a89e76ba327c669db64da3eb2edc9"
+    },
+    "08": {
+      "fighter": "Pikachu",
+      "asset": "assets/fighters/08.webp",
+      "source": "smash-ultimate-assets 0.1.1 (arte oficial de Nintendo)",
+      "source_page": "https://github.com/marcrd/smash-ultimate-assets",
+      "package_url": "https://registry.npmjs.org/smash-ultimate-assets/-/smash-ultimate-assets-0.1.1.tgz",
+      "scope": "retrato de identidad del luchador; no acredita los otros trajes",
+      "build_tool": "tools/build_portraits.py",
+      "asset_sha256": "5f50852ba70a076e41c35848122ac4d98e653a6394aad7474aee024a2278872f"
+    },
+    "09": {
+      "fighter": "Luigi",
+      "asset": "assets/fighters/09.webp",
+      "source": "smash-ultimate-assets 0.1.1 (arte oficial de Nintendo)",
+      "source_page": "https://github.com/marcrd/smash-ultimate-assets",
+      "package_url": "https://registry.npmjs.org/smash-ultimate-assets/-/smash-ultimate-assets-0.1.1.tgz",
+      "scope": "retrato de identidad del luchador; no acredita los otros trajes",
+      "build_tool": "tools/build_portraits.py",
+      "asset_sha256": "d5acdb0eaa4917c287ef7e69e648b46d7f9fd7bd3e302700ba22d2482fb713a2"
+    },
+    "10": {
+      "fighter": "Ness",
+      "asset": "assets/fighters/10.webp",
+      "source": "smash-ultimate-assets 0.1.1 (arte oficial de Nintendo)",
+      "source_page": "https://github.com/marcrd/smash-ultimate-assets",
+      "package_url": "https://registry.npmjs.org/smash-ultimate-assets/-/smash-ultimate-assets-0.1.1.tgz",
+      "scope": "retrato de identidad del luchador; no acredita los otros trajes",
+      "build_tool": "tools/build_portraits.py",
+      "asset_sha256": "72841fffdab1a74042bb1d004d10e74b6f36d9b7e5f1b649a4545eb99342da72"
+    },
+    "11": {
+      "fighter": "Captain Falcon",
+      "asset": "assets/fighters/11.webp",
+      "source": "smash-ultimate-assets 0.1.1 (arte oficial de Nintendo)",
+      "source_page": "https://github.com/marcrd/smash-ultimate-assets",
+      "package_url": "https://registry.npmjs.org/smash-ultimate-assets/-/smash-ultimate-assets-0.1.1.tgz",
+      "scope": "retrato de identidad del luchador; no acredita los otros trajes",
+      "build_tool": "tools/build_portraits.py",
+      "asset_sha256": "18f3b9fddf4fe6796e8c24932a9f330f89a92d4ee958b41d0c805b26ec7c8ff6"
+    },
+    "12": {
+      "fighter": "Jigglypuff",
+      "asset": "assets/fighters/12.webp",
+      "source": "smash-ultimate-assets 0.1.1 (arte oficial de Nintendo)",
+      "source_page": "https://github.com/marcrd/smash-ultimate-assets",
+      "package_url": "https://registry.npmjs.org/smash-ultimate-assets/-/smash-ultimate-assets-0.1.1.tgz",
+      "scope": "retrato de identidad del luchador; no acredita los otros trajes",
+      "build_tool": "tools/build_portraits.py",
+      "asset_sha256": "3d20a4ff81d65ca48109b7a6f528a6e75be7c4052b7aab09a2e43857e7362284"
+    },
+    "13": {
+      "fighter": "Peach",
+      "asset": "assets/fighters/13.webp",
+      "source": "smash-ultimate-assets 0.1.1 (arte oficial de Nintendo)",
+      "source_page": "https://github.com/marcrd/smash-ultimate-assets",
+      "package_url": "https://registry.npmjs.org/smash-ultimate-assets/-/smash-ultimate-assets-0.1.1.tgz",
+      "scope": "retrato de identidad del luchador; no acredita los otros trajes",
+      "build_tool": "tools/build_portraits.py",
+      "asset_sha256": "456cd7c3701fe2d303bbe08567446b4665a20c1c16336e497b65818d41cc38a7"
+    },
+    "13ε": {
+      "fighter": "Daisy",
+      "asset": "assets/fighters/13e.webp",
+      "source": "smash-ultimate-assets 0.1.1 (arte oficial de Nintendo)",
+      "source_page": "https://github.com/marcrd/smash-ultimate-assets",
+      "package_url": "https://registry.npmjs.org/smash-ultimate-assets/-/smash-ultimate-assets-0.1.1.tgz",
+      "scope": "retrato de identidad del luchador; no acredita los otros trajes",
+      "build_tool": "tools/build_portraits.py",
+      "asset_sha256": "6efe725df9d03d0ae05b41b38b888d6d8ac5953cf2e7f2b4e5b15f299c38835b"
+    },
+    "14": {
+      "fighter": "Bowser",
+      "asset": "assets/fighters/14.webp",
+      "source": "smash-ultimate-assets 0.1.1 (arte oficial de Nintendo)",
+      "source_page": "https://github.com/marcrd/smash-ultimate-assets",
+      "package_url": "https://registry.npmjs.org/smash-ultimate-assets/-/smash-ultimate-assets-0.1.1.tgz",
+      "scope": "retrato de identidad del luchador; no acredita los otros trajes",
+      "build_tool": "tools/build_portraits.py",
+      "asset_sha256": "c00db2de99b6f972a3e54da7a5e38fb4b725e5549a3b8bfc83c6a06d48b52985"
+    },
+    "15": {
+      "fighter": "Ice Climbers",
+      "asset": "assets/fighters/15.webp",
+      "source": "smash-ultimate-assets 0.1.1 (arte oficial de Nintendo)",
+      "source_page": "https://github.com/marcrd/smash-ultimate-assets",
+      "package_url": "https://registry.npmjs.org/smash-ultimate-assets/-/smash-ultimate-assets-0.1.1.tgz",
+      "scope": "retrato de identidad del luchador; no acredita los otros trajes",
+      "build_tool": "tools/build_portraits.py",
+      "asset_sha256": "ef48f070ba3a4f1074e2cadae2ee65095f05e4162d6d76fef8fbc9c1828f90a8"
+    },
+    "16": {
+      "fighter": "Sheik",
+      "asset": "assets/fighters/16.webp",
+      "source": "smash-ultimate-assets 0.1.1 (arte oficial de Nintendo)",
+      "source_page": "https://github.com/marcrd/smash-ultimate-assets",
+      "package_url": "https://registry.npmjs.org/smash-ultimate-assets/-/smash-ultimate-assets-0.1.1.tgz",
+      "scope": "retrato de identidad del luchador; no acredita los otros trajes",
+      "build_tool": "tools/build_portraits.py",
+      "asset_sha256": "024479cd2f5a04757b1090d34a176562ef9255fb07a74c9c999c2febad69e757"
+    },
+    "17": {
+      "fighter": "Zelda",
+      "asset": "assets/fighters/17.webp",
+      "source": "smash-ultimate-assets 0.1.1 (arte oficial de Nintendo)",
+      "source_page": "https://github.com/marcrd/smash-ultimate-assets",
+      "package_url": "https://registry.npmjs.org/smash-ultimate-assets/-/smash-ultimate-assets-0.1.1.tgz",
+      "scope": "retrato de identidad del luchador; no acredita los otros trajes",
+      "build_tool": "tools/build_portraits.py",
+      "asset_sha256": "bb09d28d93b33132e6b1fc214ab5c69cff79531cd705ec4f753a100c128136d1"
+    },
+    "18": {
+      "fighter": "Dr. Mario",
+      "asset": "assets/fighters/18.webp",
+      "source": "smash-ultimate-assets 0.1.1 (arte oficial de Nintendo)",
+      "source_page": "https://github.com/marcrd/smash-ultimate-assets",
+      "package_url": "https://registry.npmjs.org/smash-ultimate-assets/-/smash-ultimate-assets-0.1.1.tgz",
+      "scope": "retrato de identidad del luchador; no acredita los otros trajes",
+      "build_tool": "tools/build_portraits.py",
+      "asset_sha256": "add9949ba870eb252e09f1e2334e10d6d4513af45dfc3851ca016598f43400ce"
+    },
+    "19": {
+      "fighter": "Pichu",
+      "asset": "assets/fighters/19.webp",
+      "source": "smash-ultimate-assets 0.1.1 (arte oficial de Nintendo)",
+      "source_page": "https://github.com/marcrd/smash-ultimate-assets",
+      "package_url": "https://registry.npmjs.org/smash-ultimate-assets/-/smash-ultimate-assets-0.1.1.tgz",
+      "scope": "retrato de identidad del luchador; no acredita los otros trajes",
+      "build_tool": "tools/build_portraits.py",
+      "asset_sha256": "b1678f956d8af1d927323ab4278c7e777a174dfab9619aed1eb7093d0677c466"
+    },
+    "20": {
+      "fighter": "Falco",
+      "asset": "assets/fighters/20.webp",
+      "source": "smash-ultimate-assets 0.1.1 (arte oficial de Nintendo)",
+      "source_page": "https://github.com/marcrd/smash-ultimate-assets",
+      "package_url": "https://registry.npmjs.org/smash-ultimate-assets/-/smash-ultimate-assets-0.1.1.tgz",
+      "scope": "retrato de identidad del luchador; no acredita los otros trajes",
+      "build_tool": "tools/build_portraits.py",
+      "asset_sha256": "8041ef4487cbd7a02ea337e58c2e092ca53c9aa23976cfa88f3b8c90f5fe30c8"
+    },
+    "21": {
+      "fighter": "Marth",
+      "asset": "assets/fighters/21.webp",
+      "source": "smash-ultimate-assets 0.1.1 (arte oficial de Nintendo)",
+      "source_page": "https://github.com/marcrd/smash-ultimate-assets",
+      "package_url": "https://registry.npmjs.org/smash-ultimate-assets/-/smash-ultimate-assets-0.1.1.tgz",
+      "scope": "retrato de identidad del luchador; no acredita los otros trajes",
+      "build_tool": "tools/build_portraits.py",
+      "asset_sha256": "5ab27d76f5f191ec349419920f3d36713a942b7dc1451e44801ff6ca49ffd4de"
+    },
+    "21ε": {
+      "fighter": "Lucina",
+      "asset": "assets/fighters/21e.webp",
+      "source": "smash-ultimate-assets 0.1.1 (arte oficial de Nintendo)",
+      "source_page": "https://github.com/marcrd/smash-ultimate-assets",
+      "package_url": "https://registry.npmjs.org/smash-ultimate-assets/-/smash-ultimate-assets-0.1.1.tgz",
+      "scope": "retrato de identidad del luchador; no acredita los otros trajes",
+      "build_tool": "tools/build_portraits.py",
+      "asset_sha256": "6eef246dfe3bdea3764d3520f1d111f95e17050fae61621f9824616f8a997da4"
+    },
+    "22": {
+      "fighter": "Young Link",
+      "asset": "assets/fighters/22.webp",
+      "source": "smash-ultimate-assets 0.1.1 (arte oficial de Nintendo)",
+      "source_page": "https://github.com/marcrd/smash-ultimate-assets",
+      "package_url": "https://registry.npmjs.org/smash-ultimate-assets/-/smash-ultimate-assets-0.1.1.tgz",
+      "scope": "retrato de identidad del luchador; no acredita los otros trajes",
+      "build_tool": "tools/build_portraits.py",
+      "asset_sha256": "9376ca026aa872a8b6485c1b3947d62de23ae0a5f9a0506152f12735d3de7a48"
+    },
+    "23": {
+      "fighter": "Ganondorf",
+      "asset": "assets/fighters/23.webp",
+      "source": "smash-ultimate-assets 0.1.1 (arte oficial de Nintendo)",
+      "source_page": "https://github.com/marcrd/smash-ultimate-assets",
+      "package_url": "https://registry.npmjs.org/smash-ultimate-assets/-/smash-ultimate-assets-0.1.1.tgz",
+      "scope": "retrato de identidad del luchador; no acredita los otros trajes",
+      "build_tool": "tools/build_portraits.py",
+      "asset_sha256": "fa77c36bed50d9b338742b17df756775952af6898f24fa19e1c97bd67d11063b"
+    },
+    "24": {
+      "fighter": "Mewtwo",
+      "asset": "assets/fighters/24.webp",
+      "source": "smash-ultimate-assets 0.1.1 (arte oficial de Nintendo)",
+      "source_page": "https://github.com/marcrd/smash-ultimate-assets",
+      "package_url": "https://registry.npmjs.org/smash-ultimate-assets/-/smash-ultimate-assets-0.1.1.tgz",
+      "scope": "retrato de identidad del luchador; no acredita los otros trajes",
+      "build_tool": "tools/build_portraits.py",
+      "asset_sha256": "e6e389189d01c3504a9fb605bba24a92b259835ce0ee3c1bfc88c18c8ae984f7"
+    },
+    "25": {
+      "fighter": "Roy",
+      "asset": "assets/fighters/25.webp",
+      "source": "smash-ultimate-assets 0.1.1 (arte oficial de Nintendo)",
+      "source_page": "https://github.com/marcrd/smash-ultimate-assets",
+      "package_url": "https://registry.npmjs.org/smash-ultimate-assets/-/smash-ultimate-assets-0.1.1.tgz",
+      "scope": "retrato de identidad del luchador; no acredita los otros trajes",
+      "build_tool": "tools/build_portraits.py",
+      "asset_sha256": "f928202c68dff406f3d22a1bdcf8531425cef77cee84e8ac595d47b72ac614b7"
+    },
+    "25ε": {
+      "fighter": "Chrom",
+      "asset": "assets/fighters/25e.webp",
+      "source": "smash-ultimate-assets 0.1.1 (arte oficial de Nintendo)",
+      "source_page": "https://github.com/marcrd/smash-ultimate-assets",
+      "package_url": "https://registry.npmjs.org/smash-ultimate-assets/-/smash-ultimate-assets-0.1.1.tgz",
+      "scope": "retrato de identidad del luchador; no acredita los otros trajes",
+      "build_tool": "tools/build_portraits.py",
+      "asset_sha256": "4c4e5ef4c8716557c31d81655dc0b472a75a347724a31d3a77f729ba14bbae79"
+    },
+    "26": {
+      "fighter": "Mr. Game & Watch",
+      "asset": "assets/fighters/26.webp",
+      "source": "smash-ultimate-assets 0.1.1 (arte oficial de Nintendo)",
+      "source_page": "https://github.com/marcrd/smash-ultimate-assets",
+      "package_url": "https://registry.npmjs.org/smash-ultimate-assets/-/smash-ultimate-assets-0.1.1.tgz",
+      "scope": "retrato de identidad del luchador; no acredita los otros trajes",
+      "build_tool": "tools/build_portraits.py",
+      "asset_sha256": "8959e78944d75c5f2a8ba73d708b27fb2bc1859fa9fb60e7da70b32b21352335"
+    },
+    "27": {
+      "fighter": "Meta Knight",
+      "asset": "assets/fighters/27.webp",
+      "source": "smash-ultimate-assets 0.1.1 (arte oficial de Nintendo)",
+      "source_page": "https://github.com/marcrd/smash-ultimate-assets",
+      "package_url": "https://registry.npmjs.org/smash-ultimate-assets/-/smash-ultimate-assets-0.1.1.tgz",
+      "scope": "retrato de identidad del luchador; no acredita los otros trajes",
+      "build_tool": "tools/build_portraits.py",
+      "asset_sha256": "fa0fd39f8f19b6bacc8cbd72a98e0f3c8d6412b823009a9b2dfe9242f07a3ec0"
+    },
+    "28": {
+      "fighter": "Pit",
+      "asset": "assets/fighters/28.webp",
+      "source": "smash-ultimate-assets 0.1.1 (arte oficial de Nintendo)",
+      "source_page": "https://github.com/marcrd/smash-ultimate-assets",
+      "package_url": "https://registry.npmjs.org/smash-ultimate-assets/-/smash-ultimate-assets-0.1.1.tgz",
+      "scope": "retrato de identidad del luchador; no acredita los otros trajes",
+      "build_tool": "tools/build_portraits.py",
+      "asset_sha256": "9e05315970d4fe5fc94e89a2964a3ec1af60da7888f1ad684477ddc3a5546330"
+    },
+    "28ε": {
+      "fighter": "Dark Pit",
+      "asset": "assets/fighters/28e.webp",
+      "source": "smash-ultimate-assets 0.1.1 (arte oficial de Nintendo)",
+      "source_page": "https://github.com/marcrd/smash-ultimate-assets",
+      "package_url": "https://registry.npmjs.org/smash-ultimate-assets/-/smash-ultimate-assets-0.1.1.tgz",
+      "scope": "retrato de identidad del luchador; no acredita los otros trajes",
+      "build_tool": "tools/build_portraits.py",
+      "asset_sha256": "a3237eb33650ddf33b38558fddf7b24152f6fbde98abb2411fd7038829b8b6a3"
+    },
+    "29": {
+      "fighter": "Zero Suit Samus",
+      "asset": "assets/fighters/29.webp",
+      "source": "smash-ultimate-assets 0.1.1 (arte oficial de Nintendo)",
+      "source_page": "https://github.com/marcrd/smash-ultimate-assets",
+      "package_url": "https://registry.npmjs.org/smash-ultimate-assets/-/smash-ultimate-assets-0.1.1.tgz",
+      "scope": "retrato de identidad del luchador; no acredita los otros trajes",
+      "build_tool": "tools/build_portraits.py",
+      "asset_sha256": "1a1e56ecb84ce98f30e88a37d397ede709718c79c8afa73b60d402c91fd56155"
+    },
+    "30": {
+      "fighter": "Wario",
+      "asset": "assets/fighters/30.webp",
+      "source": "smash-ultimate-assets 0.1.1 (arte oficial de Nintendo)",
+      "source_page": "https://github.com/marcrd/smash-ultimate-assets",
+      "package_url": "https://registry.npmjs.org/smash-ultimate-assets/-/smash-ultimate-assets-0.1.1.tgz",
+      "scope": "retrato de identidad del luchador; no acredita los otros trajes",
+      "build_tool": "tools/build_portraits.py",
+      "asset_sha256": "abd08a26c1a79a8b7b7b955929a792ced09032eff6ba46b88e46f41cf371f324"
+    },
+    "31": {
+      "fighter": "Snake",
+      "asset": "assets/fighters/31.webp",
+      "source": "smash-ultimate-assets 0.1.1 (arte oficial de Nintendo)",
+      "source_page": "https://github.com/marcrd/smash-ultimate-assets",
+      "package_url": "https://registry.npmjs.org/smash-ultimate-assets/-/smash-ultimate-assets-0.1.1.tgz",
+      "scope": "retrato de identidad del luchador; no acredita los otros trajes",
+      "build_tool": "tools/build_portraits.py",
+      "asset_sha256": "20de8a50e2c0ca9f8c6c4ca0b4c1efc44fecfe80a9c771709809f3b2ad67f99a"
+    },
+    "32": {
+      "fighter": "Ike",
+      "asset": "assets/fighters/32.webp",
+      "source": "smash-ultimate-assets 0.1.1 (arte oficial de Nintendo)",
+      "source_page": "https://github.com/marcrd/smash-ultimate-assets",
+      "package_url": "https://registry.npmjs.org/smash-ultimate-assets/-/smash-ultimate-assets-0.1.1.tgz",
+      "scope": "retrato de identidad del luchador; no acredita los otros trajes",
+      "build_tool": "tools/build_portraits.py",
+      "asset_sha256": "cd598b2db5c2d71f1ee69b12834950fba15ebe913c44a3887c40ff5df6365bc7"
+    },
+    "33": {
+      "fighter": "Squirtle (Pokémon Trainer)",
+      "asset": "assets/fighters/33.webp",
+      "source": "smash-ultimate-assets 0.1.1 (arte oficial de Nintendo)",
+      "source_page": "https://github.com/marcrd/smash-ultimate-assets",
+      "package_url": "https://registry.npmjs.org/smash-ultimate-assets/-/smash-ultimate-assets-0.1.1.tgz",
+      "scope": "retrato de identidad del luchador; no acredita los otros trajes",
+      "build_tool": "tools/build_portraits.py",
+      "asset_sha256": "8a12fdda2117ac840b050b04aa5ba1013b81d6c2af970f3b847439cd234574bd"
+    },
+    "34": {
+      "fighter": "Ivysaur (Pokémon Trainer)",
+      "asset": "assets/fighters/34.webp",
+      "source": "smash-ultimate-assets 0.1.1 (arte oficial de Nintendo)",
+      "source_page": "https://github.com/marcrd/smash-ultimate-assets",
+      "package_url": "https://registry.npmjs.org/smash-ultimate-assets/-/smash-ultimate-assets-0.1.1.tgz",
+      "scope": "retrato de identidad del luchador; no acredita los otros trajes",
+      "build_tool": "tools/build_portraits.py",
+      "asset_sha256": "803af0ccddcedf3514bed2ab77b9878cbe6f10f14fd793bcceba1d253be5809e"
+    },
+    "35": {
+      "fighter": "Charizard (Pokémon Trainer)",
+      "asset": "assets/fighters/35.webp",
+      "source": "smash-ultimate-assets 0.1.1 (arte oficial de Nintendo)",
+      "source_page": "https://github.com/marcrd/smash-ultimate-assets",
+      "package_url": "https://registry.npmjs.org/smash-ultimate-assets/-/smash-ultimate-assets-0.1.1.tgz",
+      "scope": "retrato de identidad del luchador; no acredita los otros trajes",
+      "build_tool": "tools/build_portraits.py",
+      "asset_sha256": "53ba0ae29ad2f900b460f98fb72ed7675b9d5efe39540fcfa976171f9af4c007"
+    },
+    "36": {
+      "fighter": "Diddy Kong",
+      "asset": "assets/fighters/36.webp",
+      "source": "smash-ultimate-assets 0.1.1 (arte oficial de Nintendo)",
+      "source_page": "https://github.com/marcrd/smash-ultimate-assets",
+      "package_url": "https://registry.npmjs.org/smash-ultimate-assets/-/smash-ultimate-assets-0.1.1.tgz",
+      "scope": "retrato de identidad del luchador; no acredita los otros trajes",
+      "build_tool": "tools/build_portraits.py",
+      "asset_sha256": "b865aee986371a0a3e2008c62364468f5040f22c05a9ebccf61436c7dbc8119c"
+    },
+    "37": {
+      "fighter": "Lucas",
+      "asset": "assets/fighters/37.webp",
+      "source": "smash-ultimate-assets 0.1.1 (arte oficial de Nintendo)",
+      "source_page": "https://github.com/marcrd/smash-ultimate-assets",
+      "package_url": "https://registry.npmjs.org/smash-ultimate-assets/-/smash-ultimate-assets-0.1.1.tgz",
+      "scope": "retrato de identidad del luchador; no acredita los otros trajes",
+      "build_tool": "tools/build_portraits.py",
+      "asset_sha256": "f90d32546a1009dbce4243acf5e72bd9908e58c97b505fa59d02ea81ee7981cf"
+    },
+    "38": {
+      "fighter": "Sonic",
+      "asset": "assets/fighters/38.webp",
+      "source": "smash-ultimate-assets 0.1.1 (arte oficial de Nintendo)",
+      "source_page": "https://github.com/marcrd/smash-ultimate-assets",
+      "package_url": "https://registry.npmjs.org/smash-ultimate-assets/-/smash-ultimate-assets-0.1.1.tgz",
+      "scope": "retrato de identidad del luchador; no acredita los otros trajes",
+      "build_tool": "tools/build_portraits.py",
+      "asset_sha256": "501c39f14e2f68149b246ac6d2f706ef80f4938bf8b7e2e6bf86cdc5f7ecdff1"
+    },
+    "39": {
+      "fighter": "King Dedede",
+      "asset": "assets/fighters/39.webp",
+      "source": "smash-ultimate-assets 0.1.1 (arte oficial de Nintendo)",
+      "source_page": "https://github.com/marcrd/smash-ultimate-assets",
+      "package_url": "https://registry.npmjs.org/smash-ultimate-assets/-/smash-ultimate-assets-0.1.1.tgz",
+      "scope": "retrato de identidad del luchador; no acredita los otros trajes",
+      "build_tool": "tools/build_portraits.py",
+      "asset_sha256": "5d63952de6fd61dc8d5daba5be058465fbc14cb8022f74df4d515e0a85cc0eb1"
+    },
+    "40": {
+      "fighter": "Olimar",
+      "asset": "assets/fighters/40.webp",
+      "source": "smash-ultimate-assets 0.1.1 (arte oficial de Nintendo)",
+      "source_page": "https://github.com/marcrd/smash-ultimate-assets",
+      "package_url": "https://registry.npmjs.org/smash-ultimate-assets/-/smash-ultimate-assets-0.1.1.tgz",
+      "scope": "retrato de identidad del luchador; no acredita los otros trajes",
+      "build_tool": "tools/build_portraits.py",
+      "asset_sha256": "9f3bd8eabef19d999ebd17a3b57375c492496d70ced994d0fed7373e8315e099"
+    },
+    "41": {
+      "fighter": "Lucario",
+      "asset": "assets/fighters/41.webp",
+      "source": "smash-ultimate-assets 0.1.1 (arte oficial de Nintendo)",
+      "source_page": "https://github.com/marcrd/smash-ultimate-assets",
+      "package_url": "https://registry.npmjs.org/smash-ultimate-assets/-/smash-ultimate-assets-0.1.1.tgz",
+      "scope": "retrato de identidad del luchador; no acredita los otros trajes",
+      "build_tool": "tools/build_portraits.py",
+      "asset_sha256": "09ee7276aedb894523746be8cebb4e856ffd9e0bf7615e81b7823617882f30e5"
+    },
+    "42": {
+      "fighter": "R.O.B.",
+      "asset": "assets/fighters/42.webp",
+      "source": "smash-ultimate-assets 0.1.1 (arte oficial de Nintendo)",
+      "source_page": "https://github.com/marcrd/smash-ultimate-assets",
+      "package_url": "https://registry.npmjs.org/smash-ultimate-assets/-/smash-ultimate-assets-0.1.1.tgz",
+      "scope": "retrato de identidad del luchador; no acredita los otros trajes",
+      "build_tool": "tools/build_portraits.py",
+      "asset_sha256": "eb2c9352c848294fa2e03897890000393798899c27fbb40b387bd7236d04371e"
+    },
+    "43": {
+      "fighter": "Toon Link",
+      "asset": "assets/fighters/43.webp",
+      "source": "smash-ultimate-assets 0.1.1 (arte oficial de Nintendo)",
+      "source_page": "https://github.com/marcrd/smash-ultimate-assets",
+      "package_url": "https://registry.npmjs.org/smash-ultimate-assets/-/smash-ultimate-assets-0.1.1.tgz",
+      "scope": "retrato de identidad del luchador; no acredita los otros trajes",
+      "build_tool": "tools/build_portraits.py",
+      "asset_sha256": "b1de4dd4cdc42ad4b8f33a16d0e1e92d1272302cb046cd46a8fee81440368342"
+    },
+    "44": {
+      "fighter": "Wolf",
+      "asset": "assets/fighters/44.webp",
+      "source": "smash-ultimate-assets 0.1.1 (arte oficial de Nintendo)",
+      "source_page": "https://github.com/marcrd/smash-ultimate-assets",
+      "package_url": "https://registry.npmjs.org/smash-ultimate-assets/-/smash-ultimate-assets-0.1.1.tgz",
+      "scope": "retrato de identidad del luchador; no acredita los otros trajes",
+      "build_tool": "tools/build_portraits.py",
+      "asset_sha256": "0203e266096b07049e80c3bcc3e72afd6f87d35f2914c60a04c72335aeb30eab"
+    },
+    "45": {
+      "fighter": "Villager",
+      "asset": "assets/fighters/45.webp",
+      "source": "smash-ultimate-assets 0.1.1 (arte oficial de Nintendo)",
+      "source_page": "https://github.com/marcrd/smash-ultimate-assets",
+      "package_url": "https://registry.npmjs.org/smash-ultimate-assets/-/smash-ultimate-assets-0.1.1.tgz",
+      "scope": "retrato de identidad del luchador; no acredita los otros trajes",
+      "build_tool": "tools/build_portraits.py",
+      "asset_sha256": "5706a7e3b8bc3f983214b87a4d917aa643b3db35ae164e3a846dbb521c42c7d5"
+    },
+    "46": {
+      "fighter": "Mega Man",
+      "asset": "assets/fighters/46.webp",
+      "source": "smash-ultimate-assets 0.1.1 (arte oficial de Nintendo)",
+      "source_page": "https://github.com/marcrd/smash-ultimate-assets",
+      "package_url": "https://registry.npmjs.org/smash-ultimate-assets/-/smash-ultimate-assets-0.1.1.tgz",
+      "scope": "retrato de identidad del luchador; no acredita los otros trajes",
+      "build_tool": "tools/build_portraits.py",
+      "asset_sha256": "ccb9b1bec73233d98f263ef52ada264a520e62db5cb3dcec63d04dfba2b98db2"
+    },
+    "47": {
+      "fighter": "Wii Fit Trainer",
+      "asset": "assets/fighters/47.webp",
+      "source": "smash-ultimate-assets 0.1.1 (arte oficial de Nintendo)",
+      "source_page": "https://github.com/marcrd/smash-ultimate-assets",
+      "package_url": "https://registry.npmjs.org/smash-ultimate-assets/-/smash-ultimate-assets-0.1.1.tgz",
+      "scope": "retrato de identidad del luchador; no acredita los otros trajes",
+      "build_tool": "tools/build_portraits.py",
+      "asset_sha256": "62f4938afd104fe6879f447151111c11951dd2b7cb57c00bd51e2b1b605c4b98"
+    },
+    "48": {
+      "fighter": "Rosalina & Luma",
+      "asset": "assets/fighters/48.webp",
+      "source": "smash-ultimate-assets 0.1.1 (arte oficial de Nintendo)",
+      "source_page": "https://github.com/marcrd/smash-ultimate-assets",
+      "package_url": "https://registry.npmjs.org/smash-ultimate-assets/-/smash-ultimate-assets-0.1.1.tgz",
+      "scope": "retrato de identidad del luchador; no acredita los otros trajes",
+      "build_tool": "tools/build_portraits.py",
+      "asset_sha256": "fb2b7e21ad53c1f4090b0befa63f13208a474eb7f4cf36c774741a850015e87d"
+    },
+    "49": {
+      "fighter": "Little Mac",
+      "asset": "assets/fighters/49.webp",
+      "source": "smash-ultimate-assets 0.1.1 (arte oficial de Nintendo)",
+      "source_page": "https://github.com/marcrd/smash-ultimate-assets",
+      "package_url": "https://registry.npmjs.org/smash-ultimate-assets/-/smash-ultimate-assets-0.1.1.tgz",
+      "scope": "retrato de identidad del luchador; no acredita los otros trajes",
+      "build_tool": "tools/build_portraits.py",
+      "asset_sha256": "db60c812249bf9dd5162d88cdb2d5d5bf11089b53c95f0ec9c74a93fab56b80e"
+    },
+    "50": {
+      "fighter": "Greninja",
+      "asset": "assets/fighters/50.webp",
+      "source": "smash-ultimate-assets 0.1.1 (arte oficial de Nintendo)",
+      "source_page": "https://github.com/marcrd/smash-ultimate-assets",
+      "package_url": "https://registry.npmjs.org/smash-ultimate-assets/-/smash-ultimate-assets-0.1.1.tgz",
+      "scope": "retrato de identidad del luchador; no acredita los otros trajes",
+      "build_tool": "tools/build_portraits.py",
+      "asset_sha256": "4e33275c015fa563864e1d027eacd06a7ddf589804f5b71168707831a71f7395"
+    },
+    "51": {
+      "fighter": "Mii Brawler",
+      "asset": "assets/fighters/51.webp",
+      "source": "smash-ultimate-assets 0.1.1 (arte oficial de Nintendo)",
+      "source_page": "https://github.com/marcrd/smash-ultimate-assets",
+      "package_url": "https://registry.npmjs.org/smash-ultimate-assets/-/smash-ultimate-assets-0.1.1.tgz",
+      "scope": "retrato de identidad del luchador; no acredita los otros trajes",
+      "build_tool": "tools/build_portraits.py",
+      "asset_sha256": "c80772105184d251bb83ceb12a2aa5daaf6ce47d1a39d116ba496e43ffb64185"
+    },
+    "52": {
+      "fighter": "Mii Swordfighter",
+      "asset": "assets/fighters/52.webp",
+      "source": "smash-ultimate-assets 0.1.1 (arte oficial de Nintendo)",
+      "source_page": "https://github.com/marcrd/smash-ultimate-assets",
+      "package_url": "https://registry.npmjs.org/smash-ultimate-assets/-/smash-ultimate-assets-0.1.1.tgz",
+      "scope": "retrato de identidad del luchador; no acredita los otros trajes",
+      "build_tool": "tools/build_portraits.py",
+      "asset_sha256": "0e2699b1d327b28a2ee0ffabd12b0af992e26dfe7d23629a1d0e407c1da304be"
+    },
+    "53": {
+      "fighter": "Mii Gunner",
+      "asset": "assets/fighters/53.webp",
+      "source": "smash-ultimate-assets 0.1.1 (arte oficial de Nintendo)",
+      "source_page": "https://github.com/marcrd/smash-ultimate-assets",
+      "package_url": "https://registry.npmjs.org/smash-ultimate-assets/-/smash-ultimate-assets-0.1.1.tgz",
+      "scope": "retrato de identidad del luchador; no acredita los otros trajes",
+      "build_tool": "tools/build_portraits.py",
+      "asset_sha256": "92977274dee379814172c73e6e875f1276f544360b71b7a9bbca5f1064901379"
+    },
+    "54": {
+      "fighter": "Palutena",
+      "asset": "assets/fighters/54.webp",
+      "source": "smash-ultimate-assets 0.1.1 (arte oficial de Nintendo)",
+      "source_page": "https://github.com/marcrd/smash-ultimate-assets",
+      "package_url": "https://registry.npmjs.org/smash-ultimate-assets/-/smash-ultimate-assets-0.1.1.tgz",
+      "scope": "retrato de identidad del luchador; no acredita los otros trajes",
+      "build_tool": "tools/build_portraits.py",
+      "asset_sha256": "5b137a39f61a0a2590c6ffe76994aeb23c7e8c5c1c4579c3c5d3b0e7e031cd23"
+    },
+    "55": {
+      "fighter": "Pac-Man",
+      "asset": "assets/fighters/55.webp",
+      "source": "smash-ultimate-assets 0.1.1 (arte oficial de Nintendo)",
+      "source_page": "https://github.com/marcrd/smash-ultimate-assets",
+      "package_url": "https://registry.npmjs.org/smash-ultimate-assets/-/smash-ultimate-assets-0.1.1.tgz",
+      "scope": "retrato de identidad del luchador; no acredita los otros trajes",
+      "build_tool": "tools/build_portraits.py",
+      "asset_sha256": "1a31a2605b827f436a141e0d42754c9c41fd0f845e4f769629586219ab43f7e3"
+    },
+    "56": {
+      "fighter": "Robin",
+      "asset": "assets/fighters/56.webp",
+      "source": "smash-ultimate-assets 0.1.1 (arte oficial de Nintendo)",
+      "source_page": "https://github.com/marcrd/smash-ultimate-assets",
+      "package_url": "https://registry.npmjs.org/smash-ultimate-assets/-/smash-ultimate-assets-0.1.1.tgz",
+      "scope": "retrato de identidad del luchador; no acredita los otros trajes",
+      "build_tool": "tools/build_portraits.py",
+      "asset_sha256": "f055ab3a91f62c9b2d6f2f7ffbc44f5c530caca99ab5476fd95ec4ae69138bb4"
+    },
+    "57": {
+      "fighter": "Shulk",
+      "asset": "assets/fighters/57.webp",
+      "source": "smash-ultimate-assets 0.1.1 (arte oficial de Nintendo)",
+      "source_page": "https://github.com/marcrd/smash-ultimate-assets",
+      "package_url": "https://registry.npmjs.org/smash-ultimate-assets/-/smash-ultimate-assets-0.1.1.tgz",
+      "scope": "retrato de identidad del luchador; no acredita los otros trajes",
+      "build_tool": "tools/build_portraits.py",
+      "asset_sha256": "c2dc82597bc38365ae01453618c49540af48bfa7d2bb21075a13c2bddf1d598b"
+    },
+    "58": {
+      "fighter": "Bowser Jr.",
+      "asset": "assets/fighters/58.webp",
+      "source": "smash-ultimate-assets 0.1.1 (arte oficial de Nintendo)",
+      "source_page": "https://github.com/marcrd/smash-ultimate-assets",
+      "package_url": "https://registry.npmjs.org/smash-ultimate-assets/-/smash-ultimate-assets-0.1.1.tgz",
+      "scope": "retrato de identidad del luchador; no acredita los otros trajes",
+      "build_tool": "tools/build_portraits.py",
+      "asset_sha256": "58cad2ddf43f2c4f5482ad404bd1cea7b51ed50812b43c10cf6beb664dbc5c2e"
+    },
+    "59": {
+      "fighter": "Duck Hunt",
+      "asset": "assets/fighters/59.webp",
+      "source": "smash-ultimate-assets 0.1.1 (arte oficial de Nintendo)",
+      "source_page": "https://github.com/marcrd/smash-ultimate-assets",
+      "package_url": "https://registry.npmjs.org/smash-ultimate-assets/-/smash-ultimate-assets-0.1.1.tgz",
+      "scope": "retrato de identidad del luchador; no acredita los otros trajes",
+      "build_tool": "tools/build_portraits.py",
+      "asset_sha256": "d87c0d703aae4c5d7af557284fe89a7e7ae97c50411ecb1ff7698de094ed22c7"
+    },
+    "60": {
+      "fighter": "Ryu",
+      "asset": "assets/fighters/60.webp",
+      "source": "smash-ultimate-assets 0.1.1 (arte oficial de Nintendo)",
+      "source_page": "https://github.com/marcrd/smash-ultimate-assets",
+      "package_url": "https://registry.npmjs.org/smash-ultimate-assets/-/smash-ultimate-assets-0.1.1.tgz",
+      "scope": "retrato de identidad del luchador; no acredita los otros trajes",
+      "build_tool": "tools/build_portraits.py",
+      "asset_sha256": "03d4ae01a728e0f9d50a76b8d33d8a1b8c369e931bbc9506932360a78200f528"
+    },
+    "60ε": {
+      "fighter": "Ken",
+      "asset": "assets/fighters/60e.webp",
+      "source": "smash-ultimate-assets 0.1.1 (arte oficial de Nintendo)",
+      "source_page": "https://github.com/marcrd/smash-ultimate-assets",
+      "package_url": "https://registry.npmjs.org/smash-ultimate-assets/-/smash-ultimate-assets-0.1.1.tgz",
+      "scope": "retrato de identidad del luchador; no acredita los otros trajes",
+      "build_tool": "tools/build_portraits.py",
+      "asset_sha256": "b2569769562eb43451b2ad0496d466be41214acb709bfc63c8cdd6a6644a1f5c"
+    },
+    "61": {
+      "fighter": "Cloud",
+      "asset": "assets/fighters/61.webp",
+      "source": "smash-ultimate-assets 0.1.1 (arte oficial de Nintendo)",
+      "source_page": "https://github.com/marcrd/smash-ultimate-assets",
+      "package_url": "https://registry.npmjs.org/smash-ultimate-assets/-/smash-ultimate-assets-0.1.1.tgz",
+      "scope": "retrato de identidad del luchador; no acredita los otros trajes",
+      "build_tool": "tools/build_portraits.py",
+      "asset_sha256": "8e8418898fae799e05f716decbca18134535758bb5ec8eda8c6071c6341b4290"
+    },
+    "62": {
+      "fighter": "Corrin",
+      "asset": "assets/fighters/62.webp",
+      "source": "smash-ultimate-assets 0.1.1 (arte oficial de Nintendo)",
+      "source_page": "https://github.com/marcrd/smash-ultimate-assets",
+      "package_url": "https://registry.npmjs.org/smash-ultimate-assets/-/smash-ultimate-assets-0.1.1.tgz",
+      "scope": "retrato de identidad del luchador; no acredita los otros trajes",
+      "build_tool": "tools/build_portraits.py",
+      "asset_sha256": "6b988f26b298e782ddde088372b67b5a92a46c258ef6f4af1916957a51e4979f"
+    },
+    "63": {
+      "fighter": "Bayonetta",
+      "asset": "assets/fighters/63.webp",
+      "source": "smash-ultimate-assets 0.1.1 (arte oficial de Nintendo)",
+      "source_page": "https://github.com/marcrd/smash-ultimate-assets",
+      "package_url": "https://registry.npmjs.org/smash-ultimate-assets/-/smash-ultimate-assets-0.1.1.tgz",
+      "scope": "retrato de identidad del luchador; no acredita los otros trajes",
+      "build_tool": "tools/build_portraits.py",
+      "asset_sha256": "bf26a6202a1c29f7c4f2d50a98852a160119ad88cb2abfb4bd4f38ed31cd129f"
+    },
+    "64": {
+      "fighter": "Inkling",
+      "asset": "assets/fighters/64.webp",
+      "source": "smash-ultimate-assets 0.1.1 (arte oficial de Nintendo)",
+      "source_page": "https://github.com/marcrd/smash-ultimate-assets",
+      "package_url": "https://registry.npmjs.org/smash-ultimate-assets/-/smash-ultimate-assets-0.1.1.tgz",
+      "scope": "retrato de identidad del luchador; no acredita los otros trajes",
+      "build_tool": "tools/build_portraits.py",
+      "asset_sha256": "213c1a9e70813ed14e5677b4187754d7001afba9203228305dde0b36389010b5"
+    },
+    "65": {
+      "fighter": "Ridley",
+      "asset": "assets/fighters/65.webp",
+      "source": "smash-ultimate-assets 0.1.1 (arte oficial de Nintendo)",
+      "source_page": "https://github.com/marcrd/smash-ultimate-assets",
+      "package_url": "https://registry.npmjs.org/smash-ultimate-assets/-/smash-ultimate-assets-0.1.1.tgz",
+      "scope": "retrato de identidad del luchador; no acredita los otros trajes",
+      "build_tool": "tools/build_portraits.py",
+      "asset_sha256": "d14b17b1e254a2fd0d18a2c99abb097ce7b90ea3941a8756a33f3b14b89364eb"
+    },
+    "66": {
+      "fighter": "Simon",
+      "asset": "assets/fighters/66.webp",
+      "source": "smash-ultimate-assets 0.1.1 (arte oficial de Nintendo)",
+      "source_page": "https://github.com/marcrd/smash-ultimate-assets",
+      "package_url": "https://registry.npmjs.org/smash-ultimate-assets/-/smash-ultimate-assets-0.1.1.tgz",
+      "scope": "retrato de identidad del luchador; no acredita los otros trajes",
+      "build_tool": "tools/build_portraits.py",
+      "asset_sha256": "24bb9a8d18b6052681ad62fedce4ee85652ee5d186b07dca8d89932480d3ba88"
+    },
+    "66ε": {
+      "fighter": "Richter",
+      "asset": "assets/fighters/66e.webp",
+      "source": "smash-ultimate-assets 0.1.1 (arte oficial de Nintendo)",
+      "source_page": "https://github.com/marcrd/smash-ultimate-assets",
+      "package_url": "https://registry.npmjs.org/smash-ultimate-assets/-/smash-ultimate-assets-0.1.1.tgz",
+      "scope": "retrato de identidad del luchador; no acredita los otros trajes",
+      "build_tool": "tools/build_portraits.py",
+      "asset_sha256": "f8988ce8a7658cb0593abb9b5882a93c5385750a93d64aa23061302e1626b9b2"
+    },
+    "67": {
+      "fighter": "King K. Rool",
+      "asset": "assets/fighters/67.webp",
+      "source": "smash-ultimate-assets 0.1.1 (arte oficial de Nintendo)",
+      "source_page": "https://github.com/marcrd/smash-ultimate-assets",
+      "package_url": "https://registry.npmjs.org/smash-ultimate-assets/-/smash-ultimate-assets-0.1.1.tgz",
+      "scope": "retrato de identidad del luchador; no acredita los otros trajes",
+      "build_tool": "tools/build_portraits.py",
+      "asset_sha256": "9e5df5c9def3c22a1f0b156a178fb8e2536e2b3711be5208eebb5e97ac10d2a4"
+    },
+    "68": {
+      "fighter": "Isabelle",
+      "asset": "assets/fighters/68.webp",
+      "source": "smash-ultimate-assets 0.1.1 (arte oficial de Nintendo)",
+      "source_page": "https://github.com/marcrd/smash-ultimate-assets",
+      "package_url": "https://registry.npmjs.org/smash-ultimate-assets/-/smash-ultimate-assets-0.1.1.tgz",
+      "scope": "retrato de identidad del luchador; no acredita los otros trajes",
+      "build_tool": "tools/build_portraits.py",
+      "asset_sha256": "8bf4fbb26953d14899d79ab9c7466dbe5bacb896c342fd7e200caf698f23dcf0"
+    },
+    "69": {
+      "fighter": "Incineroar",
+      "asset": "assets/fighters/69.webp",
+      "source": "smash-ultimate-assets 0.1.1 (arte oficial de Nintendo)",
+      "source_page": "https://github.com/marcrd/smash-ultimate-assets",
+      "package_url": "https://registry.npmjs.org/smash-ultimate-assets/-/smash-ultimate-assets-0.1.1.tgz",
+      "scope": "retrato de identidad del luchador; no acredita los otros trajes",
+      "build_tool": "tools/build_portraits.py",
+      "asset_sha256": "d45c3a94c8542428e2966dc4e363b8654733909dfd515bcd86eec4f0cd7529c8"
+    },
+    "70": {
+      "fighter": "Piranha Plant",
+      "asset": "assets/fighters/70.webp",
+      "source": "smash-ultimate-assets 0.1.1 (arte oficial de Nintendo)",
+      "source_page": "https://github.com/marcrd/smash-ultimate-assets",
+      "package_url": "https://registry.npmjs.org/smash-ultimate-assets/-/smash-ultimate-assets-0.1.1.tgz",
+      "scope": "retrato de identidad del luchador; no acredita los otros trajes",
+      "build_tool": "tools/build_portraits.py",
+      "asset_sha256": "a400542ef71bbb40599d4be1310bb5ee0b29a1f5d6c536d50e5db84be2d6960d"
+    }
+  }
+}

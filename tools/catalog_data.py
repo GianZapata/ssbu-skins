@@ -71,9 +71,19 @@ def load():
         f['mii']=bool(main) and all(p['mii'] for p in main)
         if f['mii']:
             for p in f['picks']: p['mii']=True
-    for f in F.values():   # retrato oficial del luchador (identidad), independiente de cualquier traje
+    sources_path=os.path.join(R,'assets','fighters','sources.json')
+    portrait_sources=json.load(open(sources_path,encoding='utf-8')).get('fighters',{}) if os.path.exists(sources_path) else {}
+    for f in F.values():   # identidad del luchador y referencia de traje con alcances separados
+        # La referencia conserva su procedencia y costume: una imagen c00 no acredita los otros siete trajes.
+        ref=(c.get('original_refs') or {}).get(f['code'])
+        f['original_ref']=ref
         fp='assets/fighters/'+f['code'].replace('ε','e')+'.webp'
-        f['portrait']=fp if os.path.exists(os.path.join(R,fp)) else None
+        if os.path.exists(os.path.join(R,fp)):
+            f['portrait']=fp; f['portrait_source']=portrait_sources.get(f['code'])
+        elif isinstance(ref,dict) and ref.get('verified') is True and isinstance(ref.get('image_url'),str) and ref['image_url'].startswith('https://www.smashbros.com/assets_v2/img/fighter/'):
+            f['portrait']=ref['image_url']; f['portrait_source']=ref
+        else:
+            f['portrait']=None; f['portrait_source']=None
     meta={'generated':c.get('generated'),'timezone':c.get('timezone'),'counts':c.get('counts'),'base':BASE}
     return [F[k] for k in order],meta
 def _jload(name):
