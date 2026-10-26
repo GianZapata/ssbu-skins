@@ -41,5 +41,15 @@ class ComponentSlots(unittest.TestCase):
                 self.assertIsInstance(entry[3], int)
 
 
+
+
+class PendingReplacement(unittest.TestCase):
+    def test_marks_slots_without_uninstalling(self):
+        prof = {'pending_replacement': {'_nota': 'x', 'mario': {'c00': 'original', 'c02': 'WuBoy'}, 'nadie': {'c01': '?'}}}
+        self.assertEqual(sp.pending_replacement(prof, {'mario': '01'}),
+                         [{'fighter': '01', 'slot': 0, 'current': 'original'}, {'fighter': '01', 'slot': 2, 'current': 'WuBoy'}])
+        self.assertEqual(sp.pending_replacement({}, {'mario': '01'}), [])
+
+
 if __name__ == '__main__':
     unittest.main()

@@ -103,6 +103,8 @@ def load_inventory(fighters=None):
         fs.get(x['fighter'],{}).get('slots',{}).pop(str(x['slot']),None)
     for e in (prof or {}).get('slots',[]):
         slot(e['fighter'],e['slot']).update({'src':'perfil','name':e['name'],'img':None,'skin':True,'author':e.get('author'),'url':e.get('url'),'version':e.get('version'),'test':e.get('console_test'),'vid':vid_by_mod.get((e['fighter'],e['mod_id']))})
+    for x in (prof or {}).get('pending_replacement',[]):   # el dueño lo quiere reemplazar: se marca, no se desinstala
+        slot(x['fighter'],x['slot'])['replace']=x.get('current') or 'pendiente'
     for code,sl in ((stg or {}).get('slots') or {}).items():
         for n,e in sl.items():
             slot(code,n)['staged']={'name':e.get('name'),'name_src':e.get('name_src'),'img':('installed/'+e['img']) if e.get('img') else None,'branch':e.get('branch'),'subject':e.get('subject')}

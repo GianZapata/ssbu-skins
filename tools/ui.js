@@ -61,13 +61,14 @@ function curOf(code,n){const f=byCode[code];if(!f)return null;
  if(f.mii)return {kind:'na',name:'Sin trajes de este tipo',img:null,badge:''};
  const s=INV&&INV.fighters[code]&&INV.fighters[code].slots[String(n)];
  const stg=s&&s.staged?{name:s.staged.name,img:s.staged.img,branch:(s.staged.branch||'').split('/').pop(),src:s.staged.name_src}:null;
+ const rep=s&&s.replace?{replace:s.replace}:{};   // el dueño lo quiere cambiar (pending_replacement del perfil); sigue instalado
  if(s&&s.src){
   const prof=s.src==='perfil',p=s.vid&&idx[s.vid]?idx[s.vid].p:null,img=s.img||(p&&p.img)||null,known=v=>v&&v!=='pending'?v:null;
-  const base={img,src:s.src,vid:s.vid||null,author:known(s.author),url:s.url,version:known(s.version),staged:stg,badge:prof?'Perfil':'Pack base',
+  const base={...rep,img,src:s.src,vid:s.vid||null,author:known(s.author),url:s.url,version:known(s.version),staged:stg,badge:prof?'Perfil':'Pack base',
    verif:prof?(s.test?'Según el ModPack: '+s.test:'Perfil armado y verificado en archivos; sin prueba en consola anotada.'):'Revisado en el repositorio del ModPack; no probado en la consola.'};
   if(s.name)return {...base,kind:'mod',name:s.name};
   return (s.img||s.skin)?{...base,kind:'pending',name:'Nombre pendiente'}:{...base,kind:'unknown',name:'Sin identificar'}}
- return {kind:'original',name:'Original',img:originalArt(f),badge:'',art:true,staged:stg,verif:'Sin ningún mod en el inventario revisado. No está comprobado en la consola.'}}
+ return {...rep,kind:'original',name:'Original',img:originalArt(f),badge:'',art:true,staged:stg,verif:'Sin ningún mod en el inventario revisado. No está comprobado en la consola.'}}
 // identidad del luchador: su retrato oficial (nunca la imagen de uno de sus trajes) o, si no hay, su inicial
 const initials=n=>n.replace(/\(.*?\)/g,'').trim().split(/[\s&.]+/).filter(Boolean).slice(0,2).map(w=>w[0]).join('').toUpperCase();
 const portrait=f=>f.portrait||null;
@@ -168,6 +169,7 @@ function vFighter(R){const f=byCode[R.code];if(!f){head('Luchador',true);$('main
 const trajeCtx=R=>({code:R.code,n:R.n,raw:keyOf(R.code,R.n)});
 function provenance(c){return `<details class="prov"><summary>Procedencia y verificación</summary><div class="dl"><p>${esc(c.verif||'')}</p>
   ${c.badge?`<p><b>Origen:</b> ${esc(c.badge)}${c.version?` · versión ${esc(c.version)}`:''}${c.author?` · ${esc(c.author)}`:''}</p>`:''}
+  ${c.replace?`<p class="rep"><b>Por reemplazar:</b> Gian quiere cambiar este traje; sigue instalado hasta elegir sustituto (ahora: ${esc(c.replace)}).</p>`:''}
   ${c.url?`<p><a href="${esc(c.url)}" target="_blank" rel="noopener">Página del mod</a></p>`:''}
   ${c.staged?`<p><b>En preparación (sin confirmar):</b> ${c.staged.name?esc(c.staged.name):'una skin sin nombre'} · rama ${esc(c.staged.branch)}. Está en el repositorio del ModPack; no se ha comprobado que esté instalada.</p>`:''}</div></details>`}
 function vTraje(R){const f=byCode[R.code],n=R.n;

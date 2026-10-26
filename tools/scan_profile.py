@@ -61,6 +61,15 @@ def skin_slots(base_paths, globs):
             s = next((x for x in p[3:-1] if re.fullmatch(r'c\d\d', x)), None)
             if s: out.add((SKIN_ALIASES.get(p[1], p[1]), int(s[1:])))
     return out
+def pending_replacement(profile, internal):
+    """`pending_replacement` del perfil ({interno: {cNN: lo que hay ahora}}) → [{fighter, slot, current}]. Son trajes que el
+    dueño quiere cambiar: siguen instalados, la web solo los marca."""
+    out = []
+    for fighter, slots in (profile.get('pending_replacement') or {}).items():
+        if fighter.startswith('_') or fighter not in internal: continue
+        for s, current in slots.items():
+            out.append({'fighter': internal[fighter], 'slot': int(s.lstrip('c')), 'current': current})
+    return sorted(out, key=lambda x: (x['fighter'], x['slot']))
 def filtered_base_slots(base_fighters, skins):
     """Trajes que la base ocupa (retrato, voz…) sin modelo propio: base_filter «skins» los retira → [(código, slot)]."""
     return sorted((code, n) for code, v in base_fighters.items() for n in v['slots'] if (v.get('internal'), n) not in skins)
@@ -115,7 +124,8 @@ def main():
            'verification': 'Perfil armado y verificado en archivos; pruebas en consola sin conexión anotadas por componente (no certifican online)', 'components': comps,
            'other_profiles': sorted(set(profiles) - {a.profile}), 'excluded_base_slots': [{'fighter': c, 'slot': n} for c, n in ex],
            'exclude_base_total': len(globs), 'excluded_base_mods': em, 'excluded_base_fighters': drop_f, 'partially_excluded_fighters': partial, 'unmapped_components': unmapped,
-           'base_filter': base_filter, 'filtered_base_slots': [{'fighter': c, 'slot': n} for c, n in filtered], 'slots': slots}
+           'base_filter': base_filter, 'filtered_base_slots': [{'fighter': c, 'slot': n} for c, n in filtered],
+           'pending_replacement': pending_replacement(profiles[a.profile], internal), 'slots': slots}
     json.dump(out, open(os.path.join(R, 'data', 'inventory_profile.json'), 'w', encoding='utf-8'), ensure_ascii=False, indent=1)
     print('mods excluidos:',em,'· luchadores de base retirados:',drop_f,'· parcial:',partial);print('ok · perfil', a.profile, '·', len(comps), 'componentes ·', len(slots), 'slots ·', len(ex), 'slots de base retirados (', len(filtered), 'por base_filter ) · sin asignar a slots:', unmapped)
 if __name__ == '__main__':

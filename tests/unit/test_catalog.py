@@ -94,10 +94,13 @@ class Inventario(unittest.TestCase):
         steve = inv['fighters']['77']['slots']
         self.assertEqual({k for k, s in steve.items() if s.get('src')}, {'0', '1', '4'}, 'Steve: solo los trajes del PR 11, nada de la base')
         self.assertTrue(all(s.get('src') == 'perfil' for k, s in steve.items() if s.get('src')))
-        self.assertFalse(any(s.get('src') for s in inv['fighters'].get('11', {}).get('slots', {}).values()), 'Captain Falcon: todo original (Gian quito la base y el PR 4)')
+        self.assertEqual(inv['fighters']['11']['slots']['2']['name'], 'Dark Falcon')
         self.assertEqual(inv['fighters']['29']['slots']['1']['name'], 'Naoto', 'Samus Zero c01: Naoto de WuBoy se conserva')
         self.assertEqual(inv['fighters']['63']['slots']['3']['name'], 'Harley Quinn')
-        self.assertEqual({k for k, s in inv['fighters']['02']['slots'].items() if s.get('component') == 'funky-dk-c01' or s.get('name') == 'Funky Kong'}, {'1'}, 'un unico Funky, en DK c01')
+        self.assertEqual({k for k, s in inv['fighters']['02']['slots'].items() if s.get('name') == 'Funky Kong'}, {'1', '3', '5', '7'}, 'Funky sigue en sus cuatro trajes hasta tener sustitutos')
+        rep = {(c, k) for c, f in inv['fighters'].items() for k, s in f['slots'].items() if s.get('replace')}
+        self.assertEqual(rep, {('01', k) for k in '02356'} | {('02', k) for k in '0357'} | {('11', str(k)) for k in range(8)} | {('23', k) for k in '1257'}, 'pendientes de reemplazar del perfil')
+        self.assertEqual(inv['fighters']['11']['slots']['2']['src'], 'perfil', 'marcar por reemplazar no desinstala')
         self.assertEqual(inv['fighters']['29']['slots']['7']['name'], 'Jill Valentine')
         self.assertNotEqual(inv['fighters']['29']['slots'].get('0', {}).get('src'), 'perfil', 'Bulma retirada (se veia negra)')
         self.assertEqual(inv['fighters']['01']['slots']['1']['name'], 'Kellytoy Mario')

@@ -3,9 +3,9 @@
  "id": "perfil",
  "label": "Perfil local «gian-prs»",
  "profile": "gian-prs",
- "ref": "claude/vigilant-keller-6i5s1d@a6924cb",
+ "ref": "claude/vigilant-keller-6i5s1d@914a419",
  "document": "catalog/profiles.json + catalog/mods.json",
- "scanned_at": "2026-10-26T05:00:05Z",
+ "scanned_at": "2026-10-26T05:14:17Z",
  "verification": "Perfil armado y verificado en archivos; pruebas en consola sin conexión anotadas por componente (no certifican online)",
  "components": [
   {
@@ -25,6 +25,15 @@
    "classification": "desconocido-incompatible",
    "console_test": "OK 2026-10-24 (Gian; Smash 13.0.5, ARCropolis 4.1.1, emuMMC sin conexion): Sora c04 en combate local contra Terranort. No certifica online",
    "dlc": "Sora (DLC confirmado)"
+  },
+  {
+   "id": "funky-dk",
+   "version": "2.0.0",
+   "target": "DK c01, c03, c05, c07",
+   "url": "https://gamebanana.com/mods/174250",
+   "classification": "desconocido-incompatible",
+   "console_test": "OK 2026-10-24 (Gian; Smash 13.0.5, ARCropolis 4.1.1, emuMMC sin conexion): DK c01/c03/c05/c07 en seleccion y combate local. No certifica online",
+   "dlc": null
   },
   {
    "id": "terra-ike",
@@ -54,12 +63,12 @@
    "dlc": null
   },
   {
-   "id": "funky-dk-c01",
+   "id": "captain-falcon-pr4",
    "version": "pending",
-   "target": "DK c01 (color 2)",
-   "url": "https://gamebanana.com/mods/174250",
-   "classification": "derivado de funky-dk (probado en consola en c01/c03/c05/c07)",
-   "console_test": "pendiente para esta variante (funky-dk OK 2026-10-24)",
+   "target": "c02 Dark Falcon (GB 386982, texturas sobre el modelo original) + su Blue Falcon c02",
+   "url": "https://github.com/GianZapata/Gian-Ultimate-Modpack-private/pull/4",
+   "classification": "revision estatica sin fallos P1/P2 (docs/reviews/PR-2-a-13-2026-10-24.md); pendiente de prueba en consola",
+   "console_test": "pendiente (no probado en Switch)",
    "dlc": null
   },
   {
@@ -122,58 +131,6 @@
    "slot": 1
   },
   {
-   "fighter": "01",
-   "slot": 2
-  },
-  {
-   "fighter": "01",
-   "slot": 3
-  },
-  {
-   "fighter": "01",
-   "slot": 5
-  },
-  {
-   "fighter": "01",
-   "slot": 6
-  },
-  {
-   "fighter": "11",
-   "slot": 0
-  },
-  {
-   "fighter": "11",
-   "slot": 3
-  },
-  {
-   "fighter": "11",
-   "slot": 4
-  },
-  {
-   "fighter": "11",
-   "slot": 5
-  },
-  {
-   "fighter": "11",
-   "slot": 6
-  },
-  {
-   "fighter": "11",
-   "slot": 7
-  },
-  {
-   "fighter": "23",
-   "slot": 1
-  },
-  {
-   "fighter": "23",
-   "slot": 5
-  },
-  {
-   "fighter": "23",
-   "slot": 7
-  },
-  {
    "fighter": "33",
    "slot": 0
   },
@@ -230,7 +187,7 @@
    "slot": 7
   }
  ],
- "exclude_base_total": 42,
+ "exclude_base_total": 29,
  "excluded_base_mods": [
   "The WuBoy Ultimate Modpack Optionals",
   "The WuBoy Ultimate Music Modpack"
@@ -242,58 +199,6 @@
  "unmapped_components": [],
  "base_filter": "skins",
  "filtered_base_slots": [
-  {
-   "fighter": "01",
-   "slot": 2
-  },
-  {
-   "fighter": "01",
-   "slot": 3
-  },
-  {
-   "fighter": "01",
-   "slot": 5
-  },
-  {
-   "fighter": "01",
-   "slot": 6
-  },
-  {
-   "fighter": "11",
-   "slot": 0
-  },
-  {
-   "fighter": "11",
-   "slot": 3
-  },
-  {
-   "fighter": "11",
-   "slot": 4
-  },
-  {
-   "fighter": "11",
-   "slot": 5
-  },
-  {
-   "fighter": "11",
-   "slot": 6
-  },
-  {
-   "fighter": "11",
-   "slot": 7
-  },
-  {
-   "fighter": "23",
-   "slot": 1
-  },
-  {
-   "fighter": "23",
-   "slot": 5
-  },
-  {
-   "fighter": "23",
-   "slot": 7
-  },
   {
    "fighter": "33",
    "slot": 0
@@ -343,6 +248,113 @@
    "slot": 7
   }
  ],
+ "pending_replacement": [
+  {
+   "fighter": "01",
+   "slot": 0,
+   "current": "original"
+  },
+  {
+   "fighter": "01",
+   "slot": 2,
+   "current": "WuBoy"
+  },
+  {
+   "fighter": "01",
+   "slot": 3,
+   "current": "WuBoy"
+  },
+  {
+   "fighter": "01",
+   "slot": 5,
+   "current": "WuBoy"
+  },
+  {
+   "fighter": "01",
+   "slot": 6,
+   "current": "WuBoy"
+  },
+  {
+   "fighter": "02",
+   "slot": 0,
+   "current": "original"
+  },
+  {
+   "fighter": "02",
+   "slot": 3,
+   "current": "Funky Kong (Gian quiere un unico Funky)"
+  },
+  {
+   "fighter": "02",
+   "slot": 5,
+   "current": "Funky Kong"
+  },
+  {
+   "fighter": "02",
+   "slot": 7,
+   "current": "Funky Kong"
+  },
+  {
+   "fighter": "11",
+   "slot": 0,
+   "current": "WuBoy"
+  },
+  {
+   "fighter": "11",
+   "slot": 1,
+   "current": "original"
+  },
+  {
+   "fighter": "11",
+   "slot": 2,
+   "current": "Dark Falcon (PR 4)"
+  },
+  {
+   "fighter": "11",
+   "slot": 3,
+   "current": "WuBoy"
+  },
+  {
+   "fighter": "11",
+   "slot": 4,
+   "current": "WuBoy"
+  },
+  {
+   "fighter": "11",
+   "slot": 5,
+   "current": "WuBoy"
+  },
+  {
+   "fighter": "11",
+   "slot": 6,
+   "current": "WuBoy"
+  },
+  {
+   "fighter": "11",
+   "slot": 7,
+   "current": "WuBoy"
+  },
+  {
+   "fighter": "23",
+   "slot": 1,
+   "current": "WuBoy"
+  },
+  {
+   "fighter": "23",
+   "slot": 2,
+   "current": "original (Pain excluido)"
+  },
+  {
+   "fighter": "23",
+   "slot": 5,
+   "current": "WuBoy"
+  },
+  {
+   "fighter": "23",
+   "slot": 7,
+   "current": "WuBoy"
+  }
+ ],
  "slots": [
   {
    "fighter": "82",
@@ -378,6 +390,54 @@
    "url": "https://gamebanana.com/mods/384079",
    "version": "pending",
    "console_test": "OK 2026-10-24 (Gian; Smash 13.0.5, ARCropolis 4.1.1, emuMMC sin conexion): Sora c04 en combate local contra Terranort. No certifica online",
+   "classification": "desconocido-incompatible"
+  },
+  {
+   "fighter": "02",
+   "slot": 1,
+   "name": "Funky Kong",
+   "component": "funky-dk",
+   "mod_id": 174250,
+   "author": "BezBZ",
+   "url": "https://gamebanana.com/mods/174250",
+   "version": "2.0.0",
+   "console_test": "OK 2026-10-24 (Gian; Smash 13.0.5, ARCropolis 4.1.1, emuMMC sin conexion): DK c01/c03/c05/c07 en seleccion y combate local. No certifica online",
+   "classification": "desconocido-incompatible"
+  },
+  {
+   "fighter": "02",
+   "slot": 3,
+   "name": "Funky Kong",
+   "component": "funky-dk",
+   "mod_id": 174250,
+   "author": "BezBZ",
+   "url": "https://gamebanana.com/mods/174250",
+   "version": "2.0.0",
+   "console_test": "OK 2026-10-24 (Gian; Smash 13.0.5, ARCropolis 4.1.1, emuMMC sin conexion): DK c01/c03/c05/c07 en seleccion y combate local. No certifica online",
+   "classification": "desconocido-incompatible"
+  },
+  {
+   "fighter": "02",
+   "slot": 5,
+   "name": "Funky Kong",
+   "component": "funky-dk",
+   "mod_id": 174250,
+   "author": "BezBZ",
+   "url": "https://gamebanana.com/mods/174250",
+   "version": "2.0.0",
+   "console_test": "OK 2026-10-24 (Gian; Smash 13.0.5, ARCropolis 4.1.1, emuMMC sin conexion): DK c01/c03/c05/c07 en seleccion y combate local. No certifica online",
+   "classification": "desconocido-incompatible"
+  },
+  {
+   "fighter": "02",
+   "slot": 7,
+   "name": "Funky Kong",
+   "component": "funky-dk",
+   "mod_id": 174250,
+   "author": "BezBZ",
+   "url": "https://gamebanana.com/mods/174250",
+   "version": "2.0.0",
+   "console_test": "OK 2026-10-24 (Gian; Smash 13.0.5, ARCropolis 4.1.1, emuMMC sin conexion): DK c01/c03/c05/c07 en seleccion y combate local. No certifica online",
    "classification": "desconocido-incompatible"
   },
   {
@@ -429,16 +489,16 @@
    "classification": "preparado (archivos validados); requiere el DLC Pyra/Mythra; probado en consola (offline)"
   },
   {
-   "fighter": "02",
-   "slot": 1,
-   "name": "Funky Kong",
-   "component": "funky-dk-c01",
-   "mod_id": 174250,
+   "fighter": "11",
+   "slot": 2,
+   "name": "Dark Falcon",
+   "component": "captain-falcon-pr4",
+   "mod_id": 386982,
    "author": "pending",
-   "url": "https://gamebanana.com/mods/174250",
+   "url": "https://gamebanana.com/mods/386982",
    "version": "pending",
-   "console_test": "pendiente para esta variante (funky-dk OK 2026-10-24)",
-   "classification": "derivado de funky-dk (probado en consola en c01/c03/c05/c07)"
+   "console_test": "pendiente (no probado en Switch)",
+   "classification": "revision estatica sin fallos P1/P2 (docs/reviews/PR-2-a-13-2026-10-24.md); pendiente de prueba en consola"
   },
   {
    "fighter": "77",

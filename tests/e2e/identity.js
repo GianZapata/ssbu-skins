@@ -41,11 +41,11 @@ module.exports = async (b, base) => {
   ok(inv.sora7.name.includes('Villa') && inv.ike0.name === 'Terra' && inv.dk1.name === 'Funky Kong', 'favoritos del perfil: Roxas, Terra y Funky Kong en sus trajes');
   ok(inv.pyra0.name === 'Aqua (Dusk)' && inv.myth0.name === 'Aqua (Dusk)', 'Aqua ocupa el traje 1 de Pyra y de Mythra');
   ok(inv.steve0.name === 'Red Steve' && inv.steve1.name === 'White Alex' && inv.steve2.kind === 'original', 'Steve: solo los trajes del PR 11; «Optionals» excluido, nada de la base cuenta como instalado');
-  ok(inv.mario1.kind === 'mod' && inv.mario1.name === 'Kellytoy Mario' && inv.cap2.kind === 'original', 'skins de los PR con prioridad: Kellytoy en Mario traje 2; Captain Falcon todo original');
-  ok(inv.mario2.kind === 'original' && inv.mario4.kind === 'pending' && inv.mario4.name === 'Nombre pendiente', 'Mario traje 3 quitado (original); traje 5: se ve su retrato pero falta el nombre → «Nombre pendiente»');
+  ok(inv.mario1.kind === 'mod' && inv.mario1.name === 'Kellytoy Mario' && inv.cap2.name === 'Dark Falcon' && /Por reemplazar/.test(provenance(curOf('11', 2))), 'skins de los PR con prioridad: Kellytoy en Mario traje 2 y Dark Falcon en Captain Falcon traje 3 (marcado por reemplazar, sigue instalado)');
+  ok(inv.mario2.kind === 'pending' && inv.mario2.name === 'Nombre pendiente', 'Mario traje 3: se ve su retrato pero falta el nombre → «Nombre pendiente»');
   ok(inv.mario0.kind === 'original' && inv.sora6.kind === 'pending', 'originales y trajes por identificar se distinguen');
   await P.goto(base + '#/luchador/01'); await P.waitForSelector('.tgrid'); ok((await P.textContent('.tgrid')).includes('Nombre pendiente') && !/Apariencia sin identificar/.test(await P.textContent('.tgrid')), 'la pantalla del luchador usa «Nombre pendiente», sin etiquetas duplicadas');
-  await P.goto(base + '#/luchador/01/5'); await P.waitForSelector('.cur'); await P.click('details.prov summary'); ok(/Revisado en el repositorio/.test(await P.textContent('details.prov')), 'procedencia y verificación quedan en el desplegable del traje');
+  await P.goto(base + '#/luchador/01/3'); await P.waitForSelector('.cur'); await P.click('details.prov summary'); ok(/Revisado en el repositorio/.test(await P.textContent('details.prov')), 'procedencia y verificación quedan en el desplegable del traje');
   await P.goto(base + '#/luchador/82/5'); await P.waitForSelector('.cur'); await P.click('details.prov summary'); ok(/emuMMC sin conexion/.test(await P.textContent('details.prov')), 'el desplegable cita la prueba del ModPack (sin conexión, no certifica online)');
   // regresión Shadow Mewtwo
   const mw = await P.evaluate(() => { const f = F.find(f => /Mewtwo/.test(f.name)); const sm = f.picks.find(p => /Shadow Mewtwo/i.test(p.name)); return { code: f.code, vid: sm && sm.vid }; });
