@@ -15,10 +15,10 @@ module.exports = async (b, base) => {
   ok(!/libre/i.test(await A.textContent('main')), 'A: nunca dice «libre»'); await shot(A, '02-trajes-sora');
   // «Cambiar» abre directamente las alternativas del traje, con su contexto
   const code = await A.evaluate(() => RT.code);
-  await tap(A, '.tj-a'); await A.waitForSelector('.cd');
-  ok(/#\/luchador\/82\/1$/.test(A.url()) && await A.locator('.cur').count() === 1 && await A.locator('.cmp2').count() === 0, 'A: «Cambiar» abre las alternativas del Traje 1; sin candidata solo se ve «Actual»');
+  await tap(A, '[data-slot="0"]'); await A.waitForSelector('.cd');
+  ok(/#\/luchador\/82\/1$/.test(A.url()) && await A.locator('.cur').count() === 1 && await A.locator('.cmp2').count() === 0, 'A: el Traje 1 muestra la apariencia actual, sin propuesta');
   await shot(A, '03-cambiar-traje');
-  await tap(A, '.cd'); await A.waitForSelector('[data-use]');
+  await tap(A, 'a.mas'); await A.waitForSelector('[data-use]');
   ok(await A.locator('.hero').count() === 1, 'A: la tarjeta abre una ficha con imágenes'); await shot(A, '04-ficha');
   await tap(A, '[data-use]'); await A.waitForSelector('.cmp2 .prop');
   ok(await until(A, () => PEND.length === 0 && dbState === 'ok', null), 'A: el cambio se guarda en la base (pendiente → guardado)');
@@ -35,7 +35,7 @@ module.exports = async (b, base) => {
   ok(await until(B, () => planEntries().length === 3 && PEND.length === 0, null, 15000), 'B: ve los 3 cambios');
   ok(await planOf(A) === await planOf(B), 'A y B ven exactamente el mismo plan');
   // choque en el mismo traje
-  const vids = await A.evaluate(() => byCode['04'].picks.filter(p => !p.withdrawn && !p.mii).slice(0, 2).map(p => p.vid));
+  const vids = await A.evaluate(() => { const used = new Set(planEntries().filter(e => e.code === '04').map(e => e.vid)); return byCode['04'].picks.filter(p => !p.withdrawn && !p.mii && !used.has(p.vid)).slice(0, 2).map(p => p.vid); });
   await B.context().setOffline(true);
   await B.evaluate(v => proposeAt('04', 5, v[0]), vids);
   ok(await B.evaluate(() => PEND.length) === 1 && (await B.textContent('#sync')).includes('Pendiente'), 'B sin conexión: cambio pendiente visible');

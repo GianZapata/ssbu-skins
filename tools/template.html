@@ -6,9 +6,13 @@
 <style>/*CSS*/</style></head><body>
 <header class="top"><div class="in">
 <button class="ib" id="back" hidden aria-label="Volver"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg></button>
-<h1 id="ttl" tabindex="-1">Luchadores</h1>
-<span class="sync" id="sync" role="status" aria-live="polite">Conectando…</span>
+<div class="brand"><h1 id="ttl" tabindex="-1">Luchadores</h1><span class="sync" id="sync" role="status" aria-live="polite">Conectando…</span></div>
 <button class="ib" id="menuBtn" aria-label="Más opciones" aria-haspopup="dialog"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="5" r="1.6"/><circle cx="12" cy="12" r="1.6"/><circle cx="12" cy="19" r="1.6"/></svg></button>
+<nav class="desk" aria-label="Secciones">
+<a href="#/luchadores" data-tab="luchadores">Luchadores</a>
+<a href="#/catalogo" data-tab="catalogo">Catálogo</a>
+<a href="#/cambios" data-tab="cambios">Cambios <span class="bd" id="tabN2" hidden>0</span></a>
+</nav>
 </div></header>
 <main id="main"></main>
 <nav class="tabs" aria-label="Secciones"><div class="in">

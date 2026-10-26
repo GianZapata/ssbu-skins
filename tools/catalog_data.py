@@ -71,7 +71,10 @@ def load():
         f['mii']=bool(main) and all(p['mii'] for p in main)
         if f['mii']:
             for p in f['picks']: p['mii']=True
+    refs=c.get('original_refs') or {}
     for f in F.values():   # retrato oficial del luchador (identidad), independiente de cualquier traje
+        ref=refs.get(f['code'])
+        f['original_ref']=ref if isinstance(ref,dict) else None
         fp='assets/fighters/'+f['code'].replace('ε','e')+'.webp'
         f['portrait']=fp if os.path.exists(os.path.join(R,fp)) else None
     meta={'generated':c.get('generated'),'timezone':c.get('timezone'),'counts':c.get('counts'),'base':BASE}
@@ -101,8 +104,12 @@ def load_inventory(fighters=None):
         fs.pop(code,None)
     for x in (prof or {}).get('excluded_base_slots',[]):   # el perfil excluye ese traje del pack base: ya no cuenta como instalado
         fs.get(x['fighter'],{}).get('slots',{}).pop(str(x['slot']),None)
+    for x in (prof or {}).get('filtered_base_slots',[]):   # base_filter «skins»: un traje de la base sin modelo propio no cuenta como instalado
+        fs.get(x['fighter'],{}).get('slots',{}).pop(str(x['slot']),None)
     for e in (prof or {}).get('slots',[]):
         slot(e['fighter'],e['slot']).update({'src':'perfil','name':e['name'],'img':None,'skin':True,'author':e.get('author'),'url':e.get('url'),'version':e.get('version'),'test':e.get('console_test'),'vid':vid_by_mod.get((e['fighter'],e['mod_id']))})
+    for x in (prof or {}).get('pending_replacement',[]):   # el dueño lo quiere reemplazar: se marca, no se desinstala
+        slot(x['fighter'],x['slot'])['replace']=x.get('current') or 'pendiente'
     for code,sl in ((stg or {}).get('slots') or {}).items():
         for n,e in sl.items():
             slot(code,n)['staged']={'name':e.get('name'),'name_src':e.get('name_src'),'img':('installed/'+e['img']) if e.get('img') else None,'branch':e.get('branch'),'subject':e.get('subject')}

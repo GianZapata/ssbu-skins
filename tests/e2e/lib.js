@@ -44,8 +44,10 @@ async function wipe() {
 }
 // recorrido completo por la interfaz: traje → alternativa → «Usar en Traje N»
 async function pick(p, base, code, n, name) {
-  await p.goto(base + '#/luchador/' + code + '/' + (n + 1)); await p.waitForSelector('.cd');
-  await tap(p, name ? `.cd:has-text("${name}")` : '.cd'); await p.waitForSelector('[data-use]'); await tap(p, '[data-use]'); await p.waitForSelector('.cmp2');
+  await p.goto(base + '#/luchador/' + code + '/' + (n + 1)); await p.waitForSelector('[data-skin]');
+  if (name) await tap(p, `.cd:has-text("${name}") [data-skin]`);
+  else await p.evaluate(() => { const used = new Set(planEntries().filter(e => e.code === RT.code).map(e => e.vid)); const b = [...document.querySelectorAll('[data-skin]')].find(x => !used.has(x.dataset.skin)); b.click(); });
+  await p.waitForSelector('[data-add]'); await tap(p, '[data-add]'); await p.waitForSelector('.cmp2');
 }
 const done = () => { console.log(`\n${passes} correctas, ${fails} fallos`); return fails; };
 module.exports = { chromium, ROOT, TESTS, SITE, PY, py, svg, ok, until, serve, browser, mk, tap, shot, planOf, raw, wipe, pick, done, ENV, get fails() { return fails; } };

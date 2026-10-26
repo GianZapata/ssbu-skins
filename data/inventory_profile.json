@@ -1,11 +1,11 @@
 {
- "_nota": "Capa «perfil»: composición efectiva calculada por tools/scan_profile.py (extends + without + exclude_base) a partir de catalog/profiles.json y mods.json del ModPack. La asignación componente→slot está transcrita (COMPONENT_SLOTS). Las pruebas en consola (emuMMC, sin conexión) las anota el ModPack por componente en mods.json; no certifican online.",
+ "_nota": "Capa «perfil»: composición efectiva calculada por tools/scan_profile.py (extends + without + exclude_base + base_filter) a partir de catalog/profiles.json y mods.json del ModPack. La asignación componente→slot está transcrita (COMPONENT_SLOTS). Las pruebas en consola (emuMMC, sin conexión) las anota el ModPack por componente en mods.json; no certifican online.",
  "id": "perfil",
- "label": "Perfil local «gian-sin-musica»",
- "profile": "gian-sin-musica",
- "ref": "claude/vigilant-keller-6i5s1d@8adc365",
+ "label": "Perfil local «gian-prs»",
+ "profile": "gian-prs",
+ "ref": "claude/vigilant-keller-6i5s1d@33c1e8b",
  "document": "catalog/profiles.json + catalog/mods.json",
- "scanned_at": "2026-10-25T22:05:45Z",
+ "scanned_at": "2026-10-26T05:55:26Z",
  "verification": "Perfil armado y verificado en archivos; pruebas en consola sin conexión anotadas por componente (no certifican online)",
  "components": [
   {
@@ -52,21 +52,164 @@
    "classification": "preparado (archivos validados); requiere el DLC Pyra/Mythra; probado en consola (offline)",
    "console_test": "OK 2026-10-24 (Gian; Smash 13.0.5, ARCropolis 4.1.1, emuMMC sin conexion): Pyra y Mythra c00 en combate local. No certifica online",
    "dlc": "Pyra/Mythra (Gian confirma tener los DLC, 2026-10-24)"
+  },
+  {
+   "id": "kh-music-gian",
+   "version": "pending",
+   "target": "bgm_kh02-05,07-09 (7 pistas)",
+   "url": "https://gamebanana.com/sounds/63158",
+   "classification": "desconocido-incompatible",
+   "console_test": "pendiente (no probado en Switch)",
+   "dlc": null
+  },
+  {
+   "id": "captain-falcon-pr4",
+   "version": "pending",
+   "target": "c02 Dark Falcon (GB 386982, texturas sobre el modelo original) + su Blue Falcon c02",
+   "url": "https://github.com/GianZapata/Gian-Ultimate-Modpack-private/pull/4",
+   "classification": "revision estatica sin fallos P1/P2 (docs/reviews/PR-2-a-13-2026-10-24.md); pendiente de prueba en consola",
+   "console_test": "pendiente (no probado en Switch)",
+   "dlc": null
+  },
+  {
+   "id": "steve-alex-pr11",
+   "version": "pending",
+   "target": "c00 Red Steve (GB 175905, textura), c01 White Alex (GB 296845, modelo), c04 Shaved Steve (GB 296834, textura)",
+   "url": "https://github.com/GianZapata/Gian-Ultimate-Modpack-private/pull/11",
+   "classification": "revision estatica sin fallos P1/P2 (docs/reviews/PR-2-a-13-2026-10-24.md); pendiente de prueba en consola",
+   "console_test": "pendiente (no probado en Switch)",
+   "dlc": "Steve (confirmado)"
+  },
+  {
+   "id": "mario-kellytoy",
+   "version": "1.0 (info.toml)",
+   "target": "c01 (el autor indica que se puede mover a c00-c05)",
+   "url": "https://gamebanana.com/mods/585456",
+   "classification": "pendiente de revision y de prueba en consola",
+   "console_test": "pendiente (no probado en Switch)",
+   "dlc": null
+  },
+  {
+   "id": "ganon-pr12",
+   "version": "pending",
+   "target": "c00 Otis (GB 392436), c03 Jiren (GB 320899), c06 Broly (GB 324864, con espada)",
+   "url": "https://github.com/GianZapata/Gian-Ultimate-Modpack-private/pull/12",
+   "classification": "revision estatica: asignaciones MODL/MESH/MATL coherentes (docs/reviews/PR-2-a-13-2026-10-24.md); pendiente de prueba en consola",
+   "console_test": "pendiente (no probado en Switch)",
+   "dlc": null
+  },
+  {
+   "id": "szerosuit-jill",
+   "version": "pending",
+   "target": "c07 Jill Valentine (GB 637464, con nave y Final Smash)",
+   "url": "https://github.com/GianZapata/Gian-Ultimate-Modpack-private/pull/6",
+   "classification": "derivado de szerosuit-pr6; pendiente de prueba en consola",
+   "console_test": "pendiente (no probado en Switch); Bulma y Spider-Gwen: negras en consola 2026-10-25 (Gian)",
+   "dlc": null
+  },
+  {
+   "id": "bulma-szs",
+   "version": "pending",
+   "target": "Samus Zero c00 (color 1): modelo, nave, paralizador, efecto propio (One Slot Effects), voz, retratos, nombre Bulma (indice de nombre 8)",
+   "url": "https://gamebanana.com/mods/724190",
+   "classification": "archivo original del autor; config.json comprobado contra la lista vanilla; pendiente de prueba en consola",
+   "console_test": "pendiente; la version del PR 6 se veia negra (2026-10-25)",
+   "dlc": null
+  },
+  {
+   "id": "bayonetta-harley-pr7",
+   "version": "pending",
+   "target": "c03 Harley Quinn (GB 360738)",
+   "url": "https://github.com/GianZapata/Gian-Ultimate-Modpack-private/pull/7",
+   "classification": "revision estatica: geometria coherente; fisica heredada corregida en el perfil; pendiente de prueba en consola",
+   "console_test": "pendiente (no probado en Switch)",
+   "dlc": "Bayonetta (confirmado: todos los DLC)"
+  },
+  {
+   "id": "luigi-swole-pr10",
+   "version": "pending",
+   "target": "c00 Swole Luigi Remastered (GB 174132)",
+   "url": "https://github.com/GianZapata/Gian-Ultimate-Modpack-private/pull/10",
+   "classification": "revision estatica sin fallos P1/P2 (docs/reviews/PR-2-a-13-2026-10-24.md); pendiente de prueba en consola",
+   "console_test": "pendiente (no probado en Switch)",
+   "dlc": null
   }
  ],
  "other_profiles": [
   "default",
+  "gian-sin-musica",
+  "gian-skins-kh",
   "opt-aqua",
   "opt-aqua-alt",
   "opt-helmetless-ventus"
  ],
  "excluded_base_slots": [
   {
+   "fighter": "01",
+   "slot": 1
+  },
+  {
+   "fighter": "09",
+   "slot": 0
+  },
+  {
+   "fighter": "33",
+   "slot": 0
+  },
+  {
+   "fighter": "33",
+   "slot": 3
+  },
+  {
+   "fighter": "34",
+   "slot": 3
+  },
+  {
+   "fighter": "35",
+   "slot": 3
+  },
+  {
+   "fighter": "63",
+   "slot": 3
+  },
+  {
+   "fighter": "77",
+   "slot": 0
+  },
+  {
+   "fighter": "77",
+   "slot": 1
+  },
+  {
+   "fighter": "77",
+   "slot": 2
+  },
+  {
+   "fighter": "77",
+   "slot": 3
+  },
+  {
+   "fighter": "77",
+   "slot": 4
+  },
+  {
+   "fighter": "77",
+   "slot": 5
+  },
+  {
+   "fighter": "77",
+   "slot": 6
+  },
+  {
+   "fighter": "77",
+   "slot": 7
+  },
+  {
    "fighter": "82",
    "slot": 7
   }
  ],
- "exclude_base_total": 21,
+ "exclude_base_total": 33,
  "excluded_base_mods": [
   "The WuBoy Ultimate Modpack Optionals",
   "The WuBoy Ultimate Music Modpack"
@@ -76,6 +219,164 @@
  ],
  "partially_excluded_fighters": [],
  "unmapped_components": [],
+ "base_filter": "skins",
+ "filtered_base_slots": [
+  {
+   "fighter": "33",
+   "slot": 0
+  },
+  {
+   "fighter": "33",
+   "slot": 3
+  },
+  {
+   "fighter": "34",
+   "slot": 3
+  },
+  {
+   "fighter": "35",
+   "slot": 3
+  },
+  {
+   "fighter": "77",
+   "slot": 0
+  },
+  {
+   "fighter": "77",
+   "slot": 1
+  },
+  {
+   "fighter": "77",
+   "slot": 2
+  },
+  {
+   "fighter": "77",
+   "slot": 3
+  },
+  {
+   "fighter": "77",
+   "slot": 4
+  },
+  {
+   "fighter": "77",
+   "slot": 5
+  },
+  {
+   "fighter": "77",
+   "slot": 6
+  },
+  {
+   "fighter": "77",
+   "slot": 7
+  }
+ ],
+ "pending_replacement": [
+  {
+   "fighter": "01",
+   "slot": 0,
+   "current": "original"
+  },
+  {
+   "fighter": "01",
+   "slot": 2,
+   "current": "WuBoy"
+  },
+  {
+   "fighter": "01",
+   "slot": 3,
+   "current": "WuBoy"
+  },
+  {
+   "fighter": "01",
+   "slot": 5,
+   "current": "WuBoy"
+  },
+  {
+   "fighter": "01",
+   "slot": 6,
+   "current": "WuBoy"
+  },
+  {
+   "fighter": "02",
+   "slot": 0,
+   "current": "original"
+  },
+  {
+   "fighter": "02",
+   "slot": 3,
+   "current": "Funky Kong (Gian quiere un unico Funky)"
+  },
+  {
+   "fighter": "02",
+   "slot": 5,
+   "current": "Funky Kong"
+  },
+  {
+   "fighter": "02",
+   "slot": 7,
+   "current": "Funky Kong"
+  },
+  {
+   "fighter": "11",
+   "slot": 0,
+   "current": "WuBoy"
+  },
+  {
+   "fighter": "11",
+   "slot": 1,
+   "current": "original"
+  },
+  {
+   "fighter": "11",
+   "slot": 2,
+   "current": "Dark Falcon (PR 4)"
+  },
+  {
+   "fighter": "11",
+   "slot": 3,
+   "current": "WuBoy"
+  },
+  {
+   "fighter": "11",
+   "slot": 4,
+   "current": "WuBoy"
+  },
+  {
+   "fighter": "11",
+   "slot": 5,
+   "current": "WuBoy"
+  },
+  {
+   "fighter": "11",
+   "slot": 6,
+   "current": "WuBoy"
+  },
+  {
+   "fighter": "11",
+   "slot": 7,
+   "current": "WuBoy"
+  },
+  {
+   "fighter": "23",
+   "slot": 1,
+   "current": "WuBoy"
+  },
+  {
+   "fighter": "23",
+   "slot": 2,
+   "current": "original (Pain excluido)"
+  },
+  {
+   "fighter": "23",
+   "slot": 5,
+   "current": "WuBoy"
+  },
+  {
+   "fighter": "23",
+   "slot": 7,
+   "current": "WuBoy"
+  }
+ ],
  "slots": [
   {
    "fighter": "82",
@@ -208,6 +509,150 @@
    "version": "pending",
    "console_test": "OK 2026-10-24 (Gian; Smash 13.0.5, ARCropolis 4.1.1, emuMMC sin conexion): Pyra y Mythra c00 en combate local. No certifica online",
    "classification": "preparado (archivos validados); requiere el DLC Pyra/Mythra; probado en consola (offline)"
+  },
+  {
+   "fighter": "11",
+   "slot": 2,
+   "name": "Dark Falcon",
+   "component": "captain-falcon-pr4",
+   "mod_id": 386982,
+   "author": "pending",
+   "url": "https://gamebanana.com/mods/386982",
+   "version": "pending",
+   "console_test": "pendiente (no probado en Switch)",
+   "classification": "revision estatica sin fallos P1/P2 (docs/reviews/PR-2-a-13-2026-10-24.md); pendiente de prueba en consola"
+  },
+  {
+   "fighter": "77",
+   "slot": 0,
+   "name": "Red Steve",
+   "component": "steve-alex-pr11",
+   "mod_id": 175905,
+   "author": "pending",
+   "url": "https://gamebanana.com/mods/175905",
+   "version": "pending",
+   "console_test": "pendiente (no probado en Switch)",
+   "classification": "revision estatica sin fallos P1/P2 (docs/reviews/PR-2-a-13-2026-10-24.md); pendiente de prueba en consola"
+  },
+  {
+   "fighter": "77",
+   "slot": 1,
+   "name": "White Alex",
+   "component": "steve-alex-pr11",
+   "mod_id": 296845,
+   "author": "pending",
+   "url": "https://gamebanana.com/mods/296845",
+   "version": "pending",
+   "console_test": "pendiente (no probado en Switch)",
+   "classification": "revision estatica sin fallos P1/P2 (docs/reviews/PR-2-a-13-2026-10-24.md); pendiente de prueba en consola"
+  },
+  {
+   "fighter": "77",
+   "slot": 4,
+   "name": "Shaved Steve",
+   "component": "steve-alex-pr11",
+   "mod_id": 296834,
+   "author": "pending",
+   "url": "https://gamebanana.com/mods/296834",
+   "version": "pending",
+   "console_test": "pendiente (no probado en Switch)",
+   "classification": "revision estatica sin fallos P1/P2 (docs/reviews/PR-2-a-13-2026-10-24.md); pendiente de prueba en consola"
+  },
+  {
+   "fighter": "01",
+   "slot": 1,
+   "name": "Kellytoy Mario",
+   "component": "mario-kellytoy",
+   "mod_id": 585456,
+   "author": "Teaboy (@TeaboyAllStars) segun info.toml del archivo (el PR 14 lo atribuia a Teazu)",
+   "url": "https://gamebanana.com/mods/585456",
+   "version": "1.0 (info.toml)",
+   "console_test": "pendiente (no probado en Switch)",
+   "classification": "pendiente de revision y de prueba en consola"
+  },
+  {
+   "fighter": "23",
+   "slot": 0,
+   "name": "Otis",
+   "component": "ganon-pr12",
+   "mod_id": 392436,
+   "author": "pending",
+   "url": "https://gamebanana.com/mods/392436",
+   "version": "pending",
+   "console_test": "pendiente (no probado en Switch)",
+   "classification": "revision estatica: asignaciones MODL/MESH/MATL coherentes (docs/reviews/PR-2-a-13-2026-10-24.md); pendiente de prueba en consola"
+  },
+  {
+   "fighter": "23",
+   "slot": 3,
+   "name": "Jiren",
+   "component": "ganon-pr12",
+   "mod_id": 320899,
+   "author": "pending",
+   "url": "https://gamebanana.com/mods/320899",
+   "version": "pending",
+   "console_test": "pendiente (no probado en Switch)",
+   "classification": "revision estatica: asignaciones MODL/MESH/MATL coherentes (docs/reviews/PR-2-a-13-2026-10-24.md); pendiente de prueba en consola"
+  },
+  {
+   "fighter": "23",
+   "slot": 6,
+   "name": "Broly",
+   "component": "ganon-pr12",
+   "mod_id": 324864,
+   "author": "pending",
+   "url": "https://gamebanana.com/mods/324864",
+   "version": "pending",
+   "console_test": "pendiente (no probado en Switch)",
+   "classification": "revision estatica: asignaciones MODL/MESH/MATL coherentes (docs/reviews/PR-2-a-13-2026-10-24.md); pendiente de prueba en consola"
+  },
+  {
+   "fighter": "29",
+   "slot": 7,
+   "name": "Jill Valentine",
+   "component": "szerosuit-jill",
+   "mod_id": 637464,
+   "author": "pending",
+   "url": "https://gamebanana.com/mods/637464",
+   "version": "pending",
+   "console_test": "pendiente (no probado en Switch); Bulma y Spider-Gwen: negras en consola 2026-10-25 (Gian)",
+   "classification": "derivado de szerosuit-pr6; pendiente de prueba en consola"
+  },
+  {
+   "fighter": "29",
+   "slot": 0,
+   "name": "Bulma",
+   "component": "bulma-szs",
+   "mod_id": 724190,
+   "author": "pending",
+   "url": "https://gamebanana.com/mods/724190",
+   "version": "pending",
+   "console_test": "pendiente; la version del PR 6 se veia negra (2026-10-25)",
+   "classification": "archivo original del autor; config.json comprobado contra la lista vanilla; pendiente de prueba en consola"
+  },
+  {
+   "fighter": "63",
+   "slot": 3,
+   "name": "Harley Quinn",
+   "component": "bayonetta-harley-pr7",
+   "mod_id": 360738,
+   "author": "pending",
+   "url": "https://gamebanana.com/mods/360738",
+   "version": "pending",
+   "console_test": "pendiente (no probado en Switch)",
+   "classification": "revision estatica: geometria coherente; fisica heredada corregida en el perfil; pendiente de prueba en consola"
+  },
+  {
+   "fighter": "09",
+   "slot": 0,
+   "name": "Swole Luigi Remastered",
+   "component": "luigi-swole-pr10",
+   "mod_id": 174132,
+   "author": "pending",
+   "url": "https://gamebanana.com/mods/174132",
+   "version": "pending",
+   "console_test": "pendiente (no probado en Switch)",
+   "classification": "revision estatica sin fallos P1/P2 (docs/reviews/PR-2-a-13-2026-10-24.md); pendiente de prueba en consola"
   }
  ]
 }

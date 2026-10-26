@@ -1,5 +1,7 @@
 node_modules/
 dist/
+public/boot.js
+public/js/
 artifacts/
 thumbs/
 *.log
@@ -11,3 +13,5 @@ _dbonly_test.html
 _site/
 tests/.cache/
 tests/.shots/
+.vercel
+.env*

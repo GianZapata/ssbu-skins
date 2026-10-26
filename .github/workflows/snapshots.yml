@@ -1,0 +1,25 @@
+name: Capturas
+on:
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: '3.12' }
+      - uses: actions/setup-node@v4
+        with: { node-version: '22' }
+      - run: pip install -r tests/requirements.txt
+      - run: python3 tools/validate_catalog.py && npm ci --no-audit --no-fund && npm run build && python3 tools/make_site.py
+      - run: docker run --rm -v "$PWD":/work -v /work/tests/node_modules -w /work/tests -e CI=1 mcr.microsoft.com/playwright:v1.63.0-jammy bash -lc 'npm ci --no-audit --no-fund && npx playwright test e2e/visual.spec.js --update-snapshots'
+      - name: Publicar la línea base
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add tests/e2e/visual.spec.js-snapshots
+          git diff --cached --quiet && echo "sin cambios" && exit 0
+          git commit -m "Actualiza las capturas del selector."
+          git push
