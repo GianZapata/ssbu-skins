@@ -21,7 +21,8 @@ COMPONENT_SLOTS = {
     'funky-dk': [('02', n, 'Funky Kong') for n in (1, 3, 5, 7)],
     'aqua-pyra-reslot': [('79', 0, 'Aqua (Dusk)'), ('80', 0, 'Aqua (Dusk)')],   # el par c00 de Pyra/Mythra; Rex (element/diver) comparte modelo y no es un luchador del catálogo
     'funky-dk-c01': [('02', 1, 'Funky Kong')],   # un único Funky desde el 2026-10-25
-    'szerosuit-jill': [('29', 7, 'Jill Valentine', 637464)],   # Bulma y Spider-Gwen retiradas (se veían negras)
+    'szerosuit-jill': [('29', 7, 'Jill Valentine', 637464)],   # Bulma y Spider-Gwen del PR 6 retiradas (se veían negras)
+    'bulma-szs': [('29', 0, 'Bulma')],   # archivo original del autor + plugin One Slot Effects 13.0.5
     'captain-falcon-pr4': [('11', 2, 'Dark Falcon', 386982)],   # retirado de gian-prs el 2026-10-25 (todo Captain Falcon original)
     'ganon-pr12': [('23', 0, 'Otis', 392436), ('23', 3, 'Jiren', 320899), ('23', 6, 'Broly', 324864)],   # Pain c02 fuera (incompleto)
     'szerosuit-pr6': [('29', 0, 'Bulma', 724190), ('29', 2, 'Spider-Gwen', 174461), ('29', 7, 'Jill Valentine', 637464)],

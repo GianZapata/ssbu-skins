@@ -3,9 +3,9 @@
  "id": "perfil",
  "label": "Perfil local «gian-prs»",
  "profile": "gian-prs",
- "ref": "claude/vigilant-keller-6i5s1d@914a419",
+ "ref": "claude/vigilant-keller-6i5s1d@cda8711",
  "document": "catalog/profiles.json + catalog/mods.json",
- "scanned_at": "2026-10-26T05:14:17Z",
+ "scanned_at": "2026-10-26T05:28:05Z",
  "verification": "Perfil armado y verificado en archivos; pruebas en consola sin conexión anotadas por componente (no certifican online)",
  "components": [
   {
@@ -105,6 +105,15 @@
    "url": "https://github.com/GianZapata/Gian-Ultimate-Modpack-private/pull/6",
    "classification": "derivado de szerosuit-pr6; pendiente de prueba en consola",
    "console_test": "pendiente (no probado en Switch); Bulma y Spider-Gwen: negras en consola 2026-10-25 (Gian)",
+   "dlc": null
+  },
+  {
+   "id": "bulma-szs",
+   "version": "pending",
+   "target": "Samus Zero c00 (color 1): modelo, nave, paralizador, efecto propio (One Slot Effects), voz, retratos, nombre Bulma (indice de nombre 8)",
+   "url": "https://gamebanana.com/mods/724190",
+   "classification": "archivo original del autor; config.json comprobado contra la lista vanilla; pendiente de prueba en consola",
+   "console_test": "pendiente; la version del PR 6 se veia negra (2026-10-25)",
    "dlc": null
   },
   {
@@ -595,6 +604,18 @@
    "version": "pending",
    "console_test": "pendiente (no probado en Switch); Bulma y Spider-Gwen: negras en consola 2026-10-25 (Gian)",
    "classification": "derivado de szerosuit-pr6; pendiente de prueba en consola"
+  },
+  {
+   "fighter": "29",
+   "slot": 0,
+   "name": "Bulma",
+   "component": "bulma-szs",
+   "mod_id": 724190,
+   "author": "pending",
+   "url": "https://gamebanana.com/mods/724190",
+   "version": "pending",
+   "console_test": "pendiente; la version del PR 6 se veia negra (2026-10-25)",
+   "classification": "archivo original del autor; config.json comprobado contra la lista vanilla; pendiente de prueba en consola"
   },
   {
    "fighter": "63",

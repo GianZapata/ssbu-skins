@@ -102,7 +102,7 @@ class Inventario(unittest.TestCase):
         self.assertEqual(rep, {('01', k) for k in '02356'} | {('02', k) for k in '0357'} | {('11', str(k)) for k in range(8)} | {('23', k) for k in '1257'}, 'pendientes de reemplazar del perfil')
         self.assertEqual(inv['fighters']['11']['slots']['2']['src'], 'perfil', 'marcar por reemplazar no desinstala')
         self.assertEqual(inv['fighters']['29']['slots']['7']['name'], 'Jill Valentine')
-        self.assertNotEqual(inv['fighters']['29']['slots'].get('0', {}).get('src'), 'perfil', 'Bulma retirada (se veia negra)')
+        self.assertEqual(inv['fighters']['29']['slots']['0']['name'], 'Bulma', 'Bulma desde el archivo original del autor (con One Slot Effects)')
         self.assertEqual(inv['fighters']['01']['slots']['1']['name'], 'Kellytoy Mario')
         self.assertEqual(inv['fighters']['09']['slots']['0']['src'], 'base', 'Luigi c00 vuelve a ser el de WuBoy (Swole retirado)')
         prof = cd._jload('inventory_profile.json')
