@@ -20,6 +20,11 @@ jobs:
       - run: cd tests && npm ci --no-audit --no-fund && npx playwright install --with-deps chromium webkit
       - name: Pruebas (catálogo, generación, emuladores, recorridos)
         run: tests/run.sh --sin-webkit
+      - name: Regresiones de interacción en Chromium
+        run: node tests/e2e/webkit-journeys.js
+        env:
+          E2E_ENGINE: chromium
+          SHOTS: tests/.shots/chromium-interactions
       - name: Recorridos de interacción en WebKit
         run: node tests/e2e/webkit-journeys.js
         env:

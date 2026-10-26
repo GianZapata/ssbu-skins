@@ -51,7 +51,7 @@ tests/run.sh --sin-webkit
 node tests/e2e/webkit-journeys.js
 ```
 
-CI ejecuta ambos comandos sobre `_site`, la misma carpeta que se publica. La suite principal arranca sus propios emuladores y rechaza un servicio previo en8080; no mata otros emuladores. Las pruebas de seed usan un proyecto de emulador separado. Todas las escrituras de las pruebas son locales, sin secretos ni escrituras en Firebase de producción.
+CI ejecuta la suite principal y después los recorridos ampliados en Chromium y WebKit sobre `_site`, la misma carpeta que se publica. La suite principal arranca sus propios emuladores y rechaza un servicio previo en8080; no mata otros emuladores. Las pruebas de seed usan un proyecto de emulador separado. Todas las escrituras de las pruebas son locales, sin secretos ni escrituras en Firebase de producción.
 
 Los calendarios de sincronización también pueden repetirse solos con `node --test tests/unit/sync_ordering.js`; los recorridos de regresión con `node tests/e2e/webkit-journeys.js`. Los resultados por comprobación se guardan en `tests/.shots/results.json` y las capturas/JSON de WebKit en el artefacto correspondiente de CI.
 
