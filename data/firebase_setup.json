@@ -1,0 +1,6 @@
+{
+  "_nota": "Lo que tools/firebase_setup.py deja configurado en el proyecto de Firebase. Los dominios se SUMAN a los que ya hay (nunca se quitan). Los despliegues de prueba de Vercel (ssbu-skins-<hash>-….vercel.app) no se pueden autorizar con comodines: solo guarda el plan compartido el dominio de producción.",
+  "authorized_domains": ["ssbu-skins.vercel.app", "localhost"],
+  "anonymous_auth": true,
+  "rules_file": "firestore.rules"
+}
