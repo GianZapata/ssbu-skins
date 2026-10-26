@@ -1,5 +1,5 @@
 {
-  "generated": "2026-10-25T16:15:54-06:00",
+  "generated": "2026-10-25T22:15:00-06:00",
   "timezone": "America/Monterrey",
   "source": "GameBanana apiv11 ProfilePage + Posts, consultado 2026-10-24",
   "wifi_states": [
@@ -102,26 +102,26 @@
   ],
   "pending_fighters": [],
   "counts": {
-    "looks": 1235,
-    "unique_mods": 1214,
+    "looks": 1237,
+    "unique_mods": 1216,
     "main_proposals": 696,
-    "alternatives": 539,
+    "alternatives": 541,
     "withdrawn": 15,
     "fighters": 89,
     "fighters_with_alternatives": 85,
     "by_wifi_state": {
       "Declaración explícita del autor sin condiciones conocidas": 978,
-      "Declaración condicionada del autor": 238,
+      "Declaración condicionada del autor": 239,
       "Afirmación de terceros sin confirmación del autor": 10,
-      "Sin evidencia localizada": 8,
+      "Sin evidencia localizada": 9,
       "Incompatible según la fuente": 1
     },
-    "with_conditions": 321,
+    "with_conditions": 323,
     "pending": {
-      "file_inspection": 1235,
-      "compatibility_13_0_5": 1235,
-      "console_test": 1235,
-      "without_proposed_destination": 563
+      "file_inspection": 1237,
+      "compatibility_13_0_5": 1237,
+      "console_test": 1237,
+      "without_proposed_destination": 565
     },
     "coverage": {
       "01": {
@@ -132,9 +132,9 @@
       },
       "02": {
         "fighter": "Donkey Kong",
-        "looks": 15,
+        "looks": 16,
         "main": 8,
-        "alternatives": 7
+        "alternatives": 8
       },
       "03": {
         "fighter": "Link",
@@ -522,9 +522,9 @@
       },
       "61": {
         "fighter": "Cloud",
-        "looks": 15,
+        "looks": 16,
         "main": 8,
-        "alternatives": 7
+        "alternatives": 8
       },
       "62": {
         "fighter": "Corrin",
@@ -661,9 +661,10 @@
     },
     "quality_pass_lote1": 112,
     "quality_pass_lote2": 200,
-    "with_file_list_check": 38,
+    "with_file_list_check": 40,
     "quality_pass_lote3": 342,
-    "cover_verified": 563
+    "quality_pass_lote4": 2,
+    "cover_verified": 565
   },
   "entries": [
     {
@@ -7035,6 +7036,175 @@
       "cover_verified": "portada vista en hoja de contactos (miniaturas de 220 px) el 2026-10-25: representa el look de la entrada",
       "quality_pass": "2026-10-25 lote 1 (portada y texto revisados)",
       "images_http_check": "todas las URL de portada (3 tamaños) y de galería devolvieron HTTP 200 el 2026-10-25"
+    },
+    {
+      "role": "alternativa",
+      "alt_index": 8,
+      "roster_no": "02",
+      "fighter": "Donkey Kong",
+      "mod_id": 378405,
+      "look_name": "Joe Swanson",
+      "author": "Bry_Dawg02",
+      "url": "https://gamebanana.com/mods/378405",
+      "downloads": 10092,
+      "downloads_query_date": "2026-10-25",
+      "rank_in_category_most_downloaded": 8,
+      "shared_download_counter": false,
+      "design_check": "Joe Swanson (Family Guy) en silla de ruedas: modelo importado (Family Guy: Back to the Multiverse), con UI y voz propias; distinto de las principales (portada revisada)",
+      "design_kind": "M",
+      "native_slots": [
+        4
+      ],
+      "proposed_destination": null,
+      "wifi_state": "Sin evidencia localizada",
+      "wifi_state_code": null,
+      "wifi_source": "descripción del mod y comentarios revisados: sin declaración Wi-Fi del autor",
+      "wifi_evidence_url": "https://gamebanana.com/mods/378405",
+      "wifi_quote": "",
+      "conditions": [
+        "La descripción no menciona Wi-Fi. Dos comentarios lo preguntan («Wifi Safe?», iQz, 2022-09-06; «Looking at the files it looks fine but to be sure, is this Wifi Safe», DankTapeworm, 2022-06-12) y ninguno tiene respuesta del autor."
+      ],
+      "conflicts": [
+        "choca con propuestas principales en c04",
+        "el autor indica que es movible de slot (reslot pendiente si choca)"
+      ],
+      "dependencies": [
+        "file addition",
+        "config.json"
+      ],
+      "dependency_kind": "sólo recursos (sin plugins .nro mencionados)",
+      "arcropolis_versions_mentioned": [
+        "3.0+"
+      ],
+      "compatibility_13_0_5": "compatibilidad no verificada",
+      "file_inspection": "archivo no inspeccionado",
+      "console_test": "prueba en consola pendiente",
+      "audit_status": "verified",
+      "dlc_required": false,
+      "design_type_by_title": null,
+      "preview_images": [
+        {
+          "base": "https://images.gamebanana.com/img/ss/mods",
+          "file": "664e948ca0a28.jpg",
+          "file530": "530-90_664e948ca0a28.jpg",
+          "file220": "220-90_664e948ca0a28.jpg",
+          "file100": "100-90_664e948ca0a28.jpg",
+          "url": "https://images.gamebanana.com/img/ss/mods/664e948ca0a28.jpg",
+          "url530": "https://images.gamebanana.com/img/ss/mods/530-90_664e948ca0a28.jpg",
+          "url220": "https://images.gamebanana.com/img/ss/mods/220-90_664e948ca0a28.jpg"
+        },
+        {
+          "base": "https://images.gamebanana.com/img/ss/mods",
+          "file": "664e948e2d5f5.jpg",
+          "file100": "100-90_664e948e2d5f5.jpg",
+          "url": "https://images.gamebanana.com/img/ss/mods/664e948e2d5f5.jpg"
+        },
+        {
+          "base": "https://images.gamebanana.com/img/ss/mods",
+          "file": "664e948e4d8da.jpg",
+          "file100": "100-90_664e948e4d8da.jpg",
+          "url": "https://images.gamebanana.com/img/ss/mods/664e948e4d8da.jpg"
+        },
+        {
+          "base": "https://images.gamebanana.com/img/ss/mods",
+          "file": "664e948e84f3e.jpg",
+          "file100": "100-90_664e948e84f3e.jpg",
+          "url": "https://images.gamebanana.com/img/ss/mods/664e948e84f3e.jpg"
+        },
+        {
+          "base": "https://images.gamebanana.com/img/ss/mods",
+          "file": "664e948eb2d26.jpg",
+          "file100": "100-90_664e948eb2d26.jpg",
+          "url": "https://images.gamebanana.com/img/ss/mods/664e948eb2d26.jpg"
+        },
+        {
+          "base": "https://images.gamebanana.com/img/ss/mods",
+          "file": "664e948eaeff4.jpg",
+          "file100": "100-90_664e948eaeff4.jpg",
+          "url": "https://images.gamebanana.com/img/ss/mods/664e948eaeff4.jpg"
+        },
+        {
+          "base": "https://images.gamebanana.com/img/ss/mods",
+          "file": "628711dd3afa1.jpg",
+          "file100": "100-90_628711dd3afa1.jpg",
+          "url": "https://images.gamebanana.com/img/ss/mods/628711dd3afa1.jpg"
+        },
+        {
+          "base": "https://images.gamebanana.com/img/ss/mods",
+          "file": "628711dc8b84b.jpg",
+          "file100": "100-90_628711dc8b84b.jpg",
+          "url": "https://images.gamebanana.com/img/ss/mods/628711dc8b84b.jpg"
+        },
+        {
+          "base": "https://images.gamebanana.com/img/ss/mods",
+          "file": "628711dd375fe.jpg",
+          "file100": "100-90_628711dd375fe.jpg",
+          "url": "https://images.gamebanana.com/img/ss/mods/628711dd375fe.jpg"
+        },
+        {
+          "base": "https://images.gamebanana.com/img/ss/mods",
+          "file": "628711dd6e510.jpg",
+          "file100": "100-90_628711dd6e510.jpg",
+          "url": "https://images.gamebanana.com/img/ss/mods/628711dd6e510.jpg"
+        },
+        {
+          "base": "https://images.gamebanana.com/img/ss/mods",
+          "file": "628711dc768e0.jpg",
+          "file100": "100-90_628711dc768e0.jpg",
+          "url": "https://images.gamebanana.com/img/ss/mods/628711dc768e0.jpg"
+        },
+        {
+          "base": "https://images.gamebanana.com/img/ss/mods",
+          "file": "628711dcd34d9.jpg",
+          "file100": "100-90_628711dcd34d9.jpg",
+          "url": "https://images.gamebanana.com/img/ss/mods/628711dcd34d9.jpg"
+        },
+        {
+          "base": "https://images.gamebanana.com/img/ss/mods",
+          "file": "628711dce977f.jpg",
+          "file100": "100-90_628711dce977f.jpg",
+          "url": "https://images.gamebanana.com/img/ss/mods/628711dce977f.jpg"
+        },
+        {
+          "base": "https://images.gamebanana.com/img/ss/mods",
+          "file": "628711dd69708.jpg",
+          "file100": "100-90_628711dd69708.jpg",
+          "url": "https://images.gamebanana.com/img/ss/mods/628711dd69708.jpg"
+        },
+        {
+          "base": "https://images.gamebanana.com/img/ss/mods",
+          "file": "628711dd0dbee.jpg",
+          "file100": "100-90_628711dd0dbee.jpg",
+          "url": "https://images.gamebanana.com/img/ss/mods/628711dd0dbee.jpg"
+        },
+        {
+          "base": "https://images.gamebanana.com/img/ss/mods",
+          "file": "628711dd139a9.jpg",
+          "file100": "100-90_628711dd139a9.jpg",
+          "url": "https://images.gamebanana.com/img/ss/mods/628711dd139a9.jpg"
+        },
+        {
+          "base": "https://images.gamebanana.com/img/ss/mods",
+          "file": "628711d02cc0a.jpg",
+          "file100": "100-90_628711d02cc0a.jpg",
+          "url": "https://images.gamebanana.com/img/ss/mods/628711d02cc0a.jpg"
+        }
+      ],
+      "native_slots_raw": "4 (el autor: «Over Donkey Kong c04»)",
+      "primary_slot_status": "alternativa: sin destino propuesto (el destino c00–c07 se decide al elegir)",
+      "slot_code": null,
+      "wifi_quote_auto": null,
+      "wifi_state_provisional_auto": null,
+      "is_replacement": false,
+      "audit_scope": "texto del mod, comentarios y miniaturas (archivo no inspeccionado)",
+      "notes": "El autor: «Mod includes: Full UI, Import, Voice», «ONLY WORKS IN ARCROPOLIS 3.0+», «USES FILE ADDITION (Change the c04's to any slot on the Config,json to move slots)»; lo repite en una respuesta a un comentario. Dos descargas: ver 2 (donkey_kong_-_joe_swanson_ver_2_c04_.zip, «Main Download», 2024-05-22) y «Old» (joe_swanson_c04__2e44a.zip). Un comentario de 2022-08-23 reporta ojos y boca en blanco tras una actualización de ARCropolis; la ver 2 es posterior, pero no consta que lo corrija. Rol: alternativa porque no hay evidencia Wi-Fi; por descargas (puesto 8) entraría entre las 8 principales de DK, que no se tocaron. El slot c04 declarado no implica que esté libre en el modpack.",
+      "look_id": "02:378405",
+      "downloads_scope": "GameBanana, orden «Most Downloaded» de la categoría Donkey Kong (7532); puesto 8; comparado con la categoría completa (134 mods); consultado 2026-10-25",
+      "images_scope": "galería completa de la página del mod en GameBanana",
+      "images_http_check": "todas las URL de portada (3 tamaños) y de galería devolvieron HTTP 200 el 2026-10-25",
+      "cover_verified": "portada vista a 530 px el 2026-10-25 (lote 4): representa el look de la entrada; si es imagen de pack se indica en notas",
+      "quality_pass": "2026-10-25 lote 4 (alta nueva)",
+      "file_list_check": "Listado de archivos publicado por GameBanana (consultado 2026-10-25; metadato, archivo no descargado ni inspeccionado): donkey_kong_-_joe_swanson_ver_2_c04_.zip: fighter/donkey c04 (modelo y texturas; sin esqueleto ni animaciones), sound/bank/fighter_voice (vc_donkey_c04), ui/replace/chara (chara_0–4 y 6) y config.json; joe_swanson_c04__2e44a.zip («Old»): misma estructura en c04"
     },
     {
       "roster_no": "03",
@@ -172265,6 +172435,88 @@
       "images_http_check": "todas las URL de portada (3 tamaños) y de galería devolvieron HTTP 200 el 2026-10-25"
     },
     {
+      "role": "alternativa",
+      "alt_index": 8,
+      "roster_no": "61",
+      "fighter": "Cloud",
+      "mod_id": 495263,
+      "look_name": "Wheelchair Cloud",
+      "author": "mayyyy :3",
+      "url": "https://gamebanana.com/mods/495263",
+      "downloads": 2349,
+      "downloads_query_date": "2026-10-25",
+      "rank_in_category_most_downloaded": 38,
+      "shared_download_counter": false,
+      "design_check": "Wheelchair Cloud: Cloud (FF7) en silla de ruedas, modelo de la silla de Dead Rising 2; distinto de las principales (portada revisada)",
+      "design_kind": "M",
+      "native_slots": [
+        0
+      ],
+      "proposed_destination": null,
+      "wifi_state": "Declaración condicionada del autor",
+      "wifi_state_code": "c",
+      "wifi_source": "descripción del mod (autor)",
+      "wifi_evidence_url": "https://gamebanana.com/mods/495263",
+      "wifi_quote": "Goes over c00 appears to be wifi safe but I only tested a few matches",
+      "conditions": [
+        "Redacción no categórica y prueba limitada: el autor dice «appears to be wifi safe but I only tested a few matches».",
+        "Un tercero (basilez, 2024-07-30) reporta que en otros slots no funciona y la silla sale sin color; el autor responde que hay que cambiar «c00» en config.json."
+      ],
+      "conflicts": [
+        "el autor indica que es movible de slot (reslot pendiente si choca)"
+      ],
+      "dependencies": [
+        "config.json"
+      ],
+      "dependency_kind": "sólo recursos (sin plugins .nro mencionados)",
+      "arcropolis_versions_mentioned": [],
+      "compatibility_13_0_5": "compatibilidad no verificada",
+      "file_inspection": "archivo no inspeccionado",
+      "console_test": "prueba en consola pendiente",
+      "audit_status": "verified",
+      "dlc_required": false,
+      "design_type_by_title": null,
+      "preview_images": [
+        {
+          "base": "https://images.gamebanana.com/img/ss/mods",
+          "file": "65c94167ebc6e.jpg",
+          "file530": "530-90_65c94167ebc6e.jpg",
+          "file220": "220-90_65c94167ebc6e.jpg",
+          "file100": "100-90_65c94167ebc6e.jpg",
+          "url": "https://images.gamebanana.com/img/ss/mods/65c94167ebc6e.jpg",
+          "url530": "https://images.gamebanana.com/img/ss/mods/530-90_65c94167ebc6e.jpg",
+          "url220": "https://images.gamebanana.com/img/ss/mods/220-90_65c94167ebc6e.jpg"
+        },
+        {
+          "base": "https://images.gamebanana.com/img/ss/mods",
+          "file": "65c94167c3cc4.jpg",
+          "file100": "100-90_65c94167c3cc4.jpg",
+          "url": "https://images.gamebanana.com/img/ss/mods/65c94167c3cc4.jpg"
+        },
+        {
+          "base": "https://images.gamebanana.com/img/ss/mods",
+          "file": "65c9419f4dd5b.jpg",
+          "file100": "100-90_65c9419f4dd5b.jpg",
+          "url": "https://images.gamebanana.com/img/ss/mods/65c9419f4dd5b.jpg"
+        }
+      ],
+      "native_slots_raw": "0 (el autor: «Goes over c00»)",
+      "primary_slot_status": "alternativa: sin destino propuesto (el destino c00–c07 se decide al elegir)",
+      "slot_code": null,
+      "wifi_quote_auto": null,
+      "wifi_state_provisional_auto": null,
+      "is_replacement": false,
+      "audit_scope": "texto del mod, comentarios y miniaturas (archivo no inspeccionado)",
+      "notes": "Sin UI propia (el autor: «Includes no UI»); un tercero publicó una UI aparte con narrador (https://gamebanana.com/mods/647902, no auditada). Modelo de la silla: Dead Rising 2 (The Models Resource, https://www.models-resource.com/pc_computer/deadrising2/model/16081/, crédito del autor). En créditos el autor figura como «haiiii :3». Ninguna principal de Cloud propone c00 en el catálogo (el c00 de Kingdom Hearts Cloud se anuló), pero eso no implica que c00 esté libre en el modpack.",
+      "look_id": "61:495263",
+      "downloads_scope": "GameBanana, orden «Most Downloaded» de la categoría Cloud (7585); puesto 38; comparado con los 150 primeros (220 mods); consultado 2026-10-25",
+      "images_scope": "galería completa de la página del mod en GameBanana",
+      "images_http_check": "todas las URL de portada (3 tamaños) y de galería devolvieron HTTP 200 el 2026-10-25",
+      "cover_verified": "portada vista a 530 px el 2026-10-25 (lote 4): representa el look de la entrada; si es imagen de pack se indica en notas",
+      "quality_pass": "2026-10-25 lote 4 (alta nueva)",
+      "file_list_check": "Listado de archivos publicado por GameBanana (consultado 2026-10-25; metadato, archivo no descargado ni inspeccionado): cloud_wheelchair.7z: fighter/cloud c00 (modelo, texturas y model.nusktb; sin animaciones ni UI) y config.json"
+    },
+    {
       "roster_no": "62",
       "fighter": "Corrin",
       "dlc_required": false,
@@ -232647,6 +232899,17 @@
       "notas_portada": [
         "01:500619",
         "14:419643"
+      ]
+    },
+    {
+      "fecha": "2026-10-25",
+      "lote": 4,
+      "altas": [
+        "02:378405",
+        "61:495263"
+      ],
+      "global": [
+        "Dos altas pedidas por el usuario (Joe Swanson sobre DK y Wheelchair Cloud) con su estado Wi-Fi; portadas vistas y URL de imágenes con HTTP 200; listado de archivos publicado por GameBanana (metadato, sin descargar)"
       ]
     }
   ],
