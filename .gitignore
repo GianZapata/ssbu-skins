@@ -15,3 +15,11 @@ tests/.cache/
 tests/.shots/
 .vercel
 .env*
+.serena/
+.atl/
+tests/test-results/
+.DS_Store
+.idea/
+.vscode/
+.pytest_cache/
+.pytest_cache/
