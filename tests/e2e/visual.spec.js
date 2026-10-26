@@ -5,7 +5,7 @@ test.skip(process.platform !== 'linux', 'La línea base es Chromium en ubuntu-la
 const mask = ['#sync'];
 
 async function shot(page, name) {
-  await expect(page).toHaveScreenshot(name + '.png', { mask: page.locator(mask.join(',')) });
+  await expect(page).toHaveScreenshot(name + '.png', { mask: mask.map(sel => page.locator(sel)) });
 }
 
 test('luchadores', async ({ page }) => {
