@@ -20,7 +20,10 @@ COMPONENT_SLOTS = {
     'terra-ike': [('32', 0, 'Terra'), ('32', 2, 'Terranort')],
     'funky-dk': [('02', n, 'Funky Kong') for n in (1, 3, 5, 7)],
     'aqua-pyra-reslot': [('79', 0, 'Aqua (Dusk)'), ('80', 0, 'Aqua (Dusk)')],   # el par c00 de Pyra/Mythra; Rex (element/diver) comparte modelo y no es un luchador del catálogo
-    'captain-falcon-pr4': [('11', 0, 'Buzz Lightyear', 680362), ('11', 1, 'Buff Perry', 676382), ('11', 2, 'Dark Falcon', 386982)],
+    'captain-falcon-pr4': [('11', 2, 'Dark Falcon', 386982)],   # desde el 2026-10-25 solo Dark Falcon (Buzz y Perry retirados)
+    'ganon-pr12': [('23', 0, 'Otis', 392436), ('23', 3, 'Jiren', 320899), ('23', 6, 'Broly', 324864)],   # Pain c02 fuera (incompleto)
+    'szerosuit-pr6': [('29', 0, 'Bulma', 724190), ('29', 2, 'Spider-Gwen', 174461), ('29', 7, 'Jill Valentine', 637464)],
+    'bayonetta-harley-pr7': [('63', 3, 'Harley Quinn', 360738)],
     'steve-alex-pr11': [('77', 0, 'Red Steve', 175905), ('77', 1, 'White Alex', 296845), ('77', 4, 'Shaved Steve', 296834)],
     'mario-kellytoy': [('01', 1, 'Kellytoy Mario')],
     'luigi-swole-pr10': [('09', 0, 'Swole Luigi Remastered', 174132)],   # retirado de gian-prs el 2026-10-25; se conserva para perfiles que lo pidan

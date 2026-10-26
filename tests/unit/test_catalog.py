@@ -94,7 +94,10 @@ class Inventario(unittest.TestCase):
         steve = inv['fighters']['77']['slots']
         self.assertEqual({k for k, s in steve.items() if s.get('src')}, {'0', '1', '4'}, 'Steve: solo los trajes del PR 11, nada de la base')
         self.assertTrue(all(s.get('src') == 'perfil' for k, s in steve.items() if s.get('src')))
-        self.assertEqual(inv['fighters']['11']['slots']['0']['name'], 'Buzz Lightyear')
+        self.assertEqual(inv['fighters']['11']['slots']['2']['name'], 'Dark Falcon')
+        self.assertEqual(inv['fighters']['11']['slots']['0']['src'], 'base', 'Captain c00 vuelve a ser el de WuBoy (Buzz retirado)')
+        self.assertEqual(inv['fighters']['29']['slots']['1']['name'], 'Naoto', 'Samus Zero c01: Naoto de WuBoy se conserva')
+        self.assertEqual(inv['fighters']['63']['slots']['3']['name'], 'Harley Quinn')
         self.assertEqual(inv['fighters']['01']['slots']['1']['name'], 'Kellytoy Mario')
         self.assertEqual(inv['fighters']['09']['slots']['0']['src'], 'base', 'Luigi c00 vuelve a ser el de WuBoy (Swole retirado)')
         prof = cd._jload('inventory_profile.json')

@@ -3,9 +3,9 @@
  "id": "perfil",
  "label": "Perfil local «gian-prs»",
  "profile": "gian-prs",
- "ref": "claude/vigilant-keller-6i5s1d@cb0f18d",
+ "ref": "claude/vigilant-keller-6i5s1d@3fd1a8c",
  "document": "catalog/profiles.json + catalog/mods.json",
- "scanned_at": "2026-10-26T04:11:49Z",
+ "scanned_at": "2026-10-26T04:41:51Z",
  "verification": "Perfil armado y verificado en archivos; pruebas en consola sin conexión anotadas por componente (no certifican online)",
  "components": [
   {
@@ -65,7 +65,7 @@
   {
    "id": "captain-falcon-pr4",
    "version": "pending",
-   "target": "c00 Buzz Lightyear (GB 680362), c01 Buff Perry (GB 676382), c02 Dark Falcon (GB 386982, solo texturas); texturas del Blue Falcon solo en c01-c02",
+   "target": "c02 Dark Falcon (GB 386982, texturas sobre el modelo original) + su Blue Falcon c02",
    "url": "https://github.com/GianZapata/Gian-Ultimate-Modpack-private/pull/4",
    "classification": "revision estatica sin fallos P1/P2 (docs/reviews/PR-2-a-13-2026-10-24.md); pendiente de prueba en consola",
    "console_test": "pendiente (no probado en Switch)",
@@ -88,6 +88,33 @@
    "classification": "pendiente de revision y de prueba en consola",
    "console_test": "pendiente (no probado en Switch)",
    "dlc": null
+  },
+  {
+   "id": "ganon-pr12",
+   "version": "pending",
+   "target": "c00 Otis (GB 392436), c03 Jiren (GB 320899), c06 Broly (GB 324864, con espada)",
+   "url": "https://github.com/GianZapata/Gian-Ultimate-Modpack-private/pull/12",
+   "classification": "revision estatica: asignaciones MODL/MESH/MATL coherentes (docs/reviews/PR-2-a-13-2026-10-24.md); pendiente de prueba en consola",
+   "console_test": "pendiente (no probado en Switch)",
+   "dlc": null
+  },
+  {
+   "id": "szerosuit-pr6",
+   "version": "pending",
+   "target": "c00 Bulma (GB 724190, con nave y paralizador), c02 Spider-Gwen (GB 174461), c07 Jill Valentine (GB 637464, con nave y Final Smash)",
+   "url": "https://github.com/GianZapata/Gian-Ultimate-Modpack-private/pull/6",
+   "classification": "revision estatica: 162 asignaciones MODL/MESH/MATL coherentes (docs/reviews/PR-2-a-13-2026-10-24.md); pendiente de prueba en consola",
+   "console_test": "pendiente (no probado en Switch)",
+   "dlc": null
+  },
+  {
+   "id": "bayonetta-harley-pr7",
+   "version": "pending",
+   "target": "c03 Harley Quinn (GB 360738)",
+   "url": "https://github.com/GianZapata/Gian-Ultimate-Modpack-private/pull/7",
+   "classification": "revision estatica: geometria coherente; fisica heredada corregida en el perfil; pendiente de prueba en consola",
+   "console_test": "pendiente (no probado en Switch)",
+   "dlc": "Bayonetta (confirmado: todos los DLC)"
   }
  ],
  "other_profiles": [
@@ -104,8 +131,8 @@
    "slot": 1
   },
   {
-   "fighter": "11",
-   "slot": 0
+   "fighter": "29",
+   "slot": 2
   },
   {
    "fighter": "33",
@@ -121,6 +148,10 @@
   },
   {
    "fighter": "35",
+   "slot": 3
+  },
+  {
+   "fighter": "63",
    "slot": 3
   },
   {
@@ -160,7 +191,7 @@
    "slot": 7
   }
  ],
- "exclude_base_total": 29,
+ "exclude_base_total": 33,
  "excluded_base_mods": [
   "The WuBoy Ultimate Modpack Optionals",
   "The WuBoy Ultimate Music Modpack"
@@ -356,30 +387,6 @@
   },
   {
    "fighter": "11",
-   "slot": 0,
-   "name": "Buzz Lightyear",
-   "component": "captain-falcon-pr4",
-   "mod_id": 680362,
-   "author": "pending",
-   "url": "https://gamebanana.com/mods/680362",
-   "version": "pending",
-   "console_test": "pendiente (no probado en Switch)",
-   "classification": "revision estatica sin fallos P1/P2 (docs/reviews/PR-2-a-13-2026-10-24.md); pendiente de prueba en consola"
-  },
-  {
-   "fighter": "11",
-   "slot": 1,
-   "name": "Buff Perry",
-   "component": "captain-falcon-pr4",
-   "mod_id": 676382,
-   "author": "pending",
-   "url": "https://gamebanana.com/mods/676382",
-   "version": "pending",
-   "console_test": "pendiente (no probado en Switch)",
-   "classification": "revision estatica sin fallos P1/P2 (docs/reviews/PR-2-a-13-2026-10-24.md); pendiente de prueba en consola"
-  },
-  {
-   "fighter": "11",
    "slot": 2,
    "name": "Dark Falcon",
    "component": "captain-falcon-pr4",
@@ -437,6 +444,90 @@
    "version": "1.0 (info.toml)",
    "console_test": "pendiente (no probado en Switch)",
    "classification": "pendiente de revision y de prueba en consola"
+  },
+  {
+   "fighter": "23",
+   "slot": 0,
+   "name": "Otis",
+   "component": "ganon-pr12",
+   "mod_id": 392436,
+   "author": "pending",
+   "url": "https://gamebanana.com/mods/392436",
+   "version": "pending",
+   "console_test": "pendiente (no probado en Switch)",
+   "classification": "revision estatica: asignaciones MODL/MESH/MATL coherentes (docs/reviews/PR-2-a-13-2026-10-24.md); pendiente de prueba en consola"
+  },
+  {
+   "fighter": "23",
+   "slot": 3,
+   "name": "Jiren",
+   "component": "ganon-pr12",
+   "mod_id": 320899,
+   "author": "pending",
+   "url": "https://gamebanana.com/mods/320899",
+   "version": "pending",
+   "console_test": "pendiente (no probado en Switch)",
+   "classification": "revision estatica: asignaciones MODL/MESH/MATL coherentes (docs/reviews/PR-2-a-13-2026-10-24.md); pendiente de prueba en consola"
+  },
+  {
+   "fighter": "23",
+   "slot": 6,
+   "name": "Broly",
+   "component": "ganon-pr12",
+   "mod_id": 324864,
+   "author": "pending",
+   "url": "https://gamebanana.com/mods/324864",
+   "version": "pending",
+   "console_test": "pendiente (no probado en Switch)",
+   "classification": "revision estatica: asignaciones MODL/MESH/MATL coherentes (docs/reviews/PR-2-a-13-2026-10-24.md); pendiente de prueba en consola"
+  },
+  {
+   "fighter": "29",
+   "slot": 0,
+   "name": "Bulma",
+   "component": "szerosuit-pr6",
+   "mod_id": 724190,
+   "author": "pending",
+   "url": "https://gamebanana.com/mods/724190",
+   "version": "pending",
+   "console_test": "pendiente (no probado en Switch)",
+   "classification": "revision estatica: 162 asignaciones MODL/MESH/MATL coherentes (docs/reviews/PR-2-a-13-2026-10-24.md); pendiente de prueba en consola"
+  },
+  {
+   "fighter": "29",
+   "slot": 2,
+   "name": "Spider-Gwen",
+   "component": "szerosuit-pr6",
+   "mod_id": 174461,
+   "author": "pending",
+   "url": "https://gamebanana.com/mods/174461",
+   "version": "pending",
+   "console_test": "pendiente (no probado en Switch)",
+   "classification": "revision estatica: 162 asignaciones MODL/MESH/MATL coherentes (docs/reviews/PR-2-a-13-2026-10-24.md); pendiente de prueba en consola"
+  },
+  {
+   "fighter": "29",
+   "slot": 7,
+   "name": "Jill Valentine",
+   "component": "szerosuit-pr6",
+   "mod_id": 637464,
+   "author": "pending",
+   "url": "https://gamebanana.com/mods/637464",
+   "version": "pending",
+   "console_test": "pendiente (no probado en Switch)",
+   "classification": "revision estatica: 162 asignaciones MODL/MESH/MATL coherentes (docs/reviews/PR-2-a-13-2026-10-24.md); pendiente de prueba en consola"
+  },
+  {
+   "fighter": "63",
+   "slot": 3,
+   "name": "Harley Quinn",
+   "component": "bayonetta-harley-pr7",
+   "mod_id": 360738,
+   "author": "pending",
+   "url": "https://gamebanana.com/mods/360738",
+   "version": "pending",
+   "console_test": "pendiente (no probado en Switch)",
+   "classification": "revision estatica: geometria coherente; fisica heredada corregida en el perfil; pendiente de prueba en consola"
   }
  ]
 }
