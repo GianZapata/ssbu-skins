@@ -39,23 +39,18 @@ const SSBU = (() => {
 
   function planVid(code, n, ctx) {
     const plan = ctx.PLAN || {};
-    const sent = ctx.SENT || {};
     const pend = ctx.PEND || [];
-    const now = ctx.now;
     const k = keyOf(code, n);
     let v = (plan[k] || {}).vid || null;
-    const sn = sent[k];
-    if (sn && now - sn.t < 8000) v = sn.to;
     for (const o of pend) if (o.code === code && o.slot === n) v = o.to;
     return v;
   }
 
   function planEntries(ctx) {
     const plan = ctx.PLAN || {};
-    const sent = ctx.SENT || {};
     const pend = ctx.PEND || [];
     const byCode = ctx.byCode || {};
-    const ks = new Set([...Object.keys(plan), ...Object.keys(sent)]);
+    const ks = new Set(Object.keys(plan));
     pend.forEach(o => ks.add(keyOf(o.code, o.slot)));
     const out = [];
     ks.forEach(k => {
@@ -119,20 +114,22 @@ const SSBU = (() => {
     const slots = inv && inv.fighters && inv.fighters[code] && inv.fighters[code].slots;
     const s = slots && slots[String(n)];
     const stg = s && s.staged ? { name: s.staged.name, img: s.staged.img, branch: (s.staged.branch || '').split('/').pop(), src: s.staged.name_src } : null;
+    const rep = s && s.replace ? { replace: s.replace } : {};
+    const reference = n === 0 && f.original_ref && f.original_ref.costume === 'c00' && f.original_ref.verified === true ? f.original_ref : null;
     if (s && s.src) {
       const prof = s.src === 'perfil';
       const p = s.vid && idx[s.vid] ? idx[s.vid].p : null;
       const img = s.img || (p && p.img) || null;
       const known = v => v && v !== 'pending' ? v : null;
       const base = {
-        img, src: s.src, vid: s.vid || null, author: known(s.author), url: s.url, version: known(s.version), staged: stg,
+        ...rep, img, src: s.src, vid: s.vid || null, author: known(s.author), url: s.url, version: known(s.version), staged: stg,
         badge: prof ? 'Perfil' : 'Pack base',
         verif: prof ? (s.test ? 'Según el ModPack: ' + s.test : 'Perfil armado y verificado en archivos; sin prueba en consola anotada.') : 'Revisado en el repositorio del ModPack; no probado en la consola.',
       };
       if (s.name) return { ...base, kind: 'mod', name: s.name };
       return (s.img || s.skin) ? { ...base, kind: 'pending', name: 'Nombre pendiente' } : { ...base, kind: 'unknown', name: 'Sin identificar' };
     }
-    return { kind: 'original', name: 'Original', img: originalArt(f), badge: '', art: true, staged: stg, verif: 'Sin ningún mod en el inventario revisado. No está comprobado en la consola.' };
+    return { ...rep, kind: 'original', name: 'Original', img: originalArt(f), reference, badge: '', art: true, staged: stg, verif: 'Sin ningún mod en el inventario revisado. No está comprobado en la consola.' };
   }
 
   function assignBlock(entries, code, slot, vid) {

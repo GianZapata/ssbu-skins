@@ -13,7 +13,7 @@ tests/run.sh --sin-webkit    # sin la auditoría de WebKit
 | Capa | Dónde | Qué comprueba |
 |---|---|---|
 | Dominio | `tests/unit/test_domain.mjs` | plan efectivo, filtros, apariencia actual, bloqueo de duplicados y restauración de filtros (`node --test`) |
-| Datos | `tests/unit/test_catalog.py` | totales del catálogo ampliado (89 luchadores · 1225 activas = 697 + 528 · 13 retiradas), identificadores persistentes (no cambian al reordenar ni renombrar; un id publicado no puede desaparecer), campos `role/variant/audit_scope/downloads_scope/images_scope`, retratos, inventario del perfil |
+| Datos | `tests/unit/test_catalog.py` | totales del catálogo ampliado (89 luchadores · 1245 activas = 696 + 549 · 16 retiradas · 1224 mods), identificadores persistentes (no cambian al reordenar ni renombrar; un id publicado no puede desaparecer), campos `role/variant/audit_scope/downloads_scope/images_scope`, retratos, inventario del perfil |
 | Sincronización | `tests/unit/test_seed.py` (emulador) | `seed --only catalog` e `--only installed` son independientes; ningún `seed` toca `changes`, `history` ni `status`; los campos de investigación llegan a Firestore |
 | Recorridos | `tests/e2e/*.js` (Playwright + emuladores) | selector de ocho trajes, propuesta y reemplazo, foco durante un snapshot, galería, Atrás, exportación, datos incompletos, anchos, choques y cola sin conexión, reglas de seguridad, retratos, inventario, selecciones antiguas y errores de configuración |
 | Capturas | `tests/e2e/visual.spec.js` | comparación de píxeles en Chromium sobre Linux. En macOS no se generan. Para actualizar la línea base: la Action «Capturas» (`workflow_dispatch`) |

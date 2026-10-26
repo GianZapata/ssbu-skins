@@ -21,21 +21,19 @@ function pick(over) {
   };
 }
 
-test('planVid: pendiente gana, SENT reciente cubre el hueco y lo viejo no', () => {
+test('planVid: lo pendiente gana al plan y una marca enviada no lo tapa', () => {
   const now = 10_000;
   const ctx = {
     PLAN: { '01_2': { vid: '01:remoto' } },
-    SENT: { '01_2': { to: '01:enviado', t: now - 1000 }, '01_0': { to: '01:viejo', t: now - 9000 } },
     PEND: [{ code: '01', slot: 2, to: '01:local' }],
     now,
     byCode,
   };
   assert.equal(SSBU.planVid('01', 2, ctx), '01:local');
-  assert.equal(SSBU.planVid('01', 2, { PLAN: { '01_2': { vid: '01:remoto' } }, SENT: {}, PEND: [], now, byCode }), '01:remoto');
+  assert.equal(SSBU.planVid('01', 2, { PLAN: { '01_2': { vid: '01:remoto' } }, PEND: [], now, byCode }), '01:remoto');
   assert.equal(SSBU.planVid('01', 0, { ...ctx, PEND: [] }), null);
-  const sent = { PLAN: {}, SENT: ctx.SENT, PEND: [], now, byCode };
-  assert.equal(SSBU.planVid('01', 2, sent), '01:enviado');
-  assert.equal(SSBU.planVid('01', 0, sent), null);
+  const sent = { PLAN: { '01_2': { vid: '01:confirmado' } }, SENT: { '01_2': { to: '01:enviado', t: now - 1000 } }, PEND: [], now, byCode };
+  assert.equal(SSBU.planVid('01', 2, sent), '01:confirmado');
 });
 
 test('planEntries ignora un traje vaciado y ordena por el catálogo', () => {
@@ -96,6 +94,9 @@ test('curOf distingue original, mod, pendiente, desconocido, Mii y preparación'
   assert.equal(SSBU.curOf('82', 0, ctx).img.startsWith('data:image/svg+xml'), true);
   assert.equal(SSBU.curOf('01', 1, ctx).kind, 'mod');
   assert.equal(SSBU.curOf('01', 1, ctx).name, 'Gorra');
+  const marked = SSBU.curOf('01', 1, { byCode, idx, INV: { fighters: { '01': { slots: { 1: { src: 'perfil', name: 'Kellytoy', replace: 'WuBoy' } } } } } });
+  assert.equal(marked.kind, 'mod');
+  assert.equal(marked.replace, 'WuBoy');
   assert.equal(SSBU.curOf('01', 2, ctx).kind, 'pending');
   assert.equal(SSBU.curOf('01', 3, ctx).kind, 'unknown');
   assert.match(SSBU.curOf('01', 3, ctx).verif, /emuMMC sin conexion/);

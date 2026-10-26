@@ -14,7 +14,7 @@ module.exports = async (b, base) => {
   await until(P, v => planEntries().some(e => e.vid === v), alt.vid);
   const ex = await P.evaluate(() => buildExport()); const exa = ex.changes.find(c => c.proposal && c.proposal.vid);
   ok(exa.relocation && exa.relocation.needs_move === true && exa.relocation.checked === false, 'exportación: reubicación marcada como no comprobada');
-  ok(ex.inventory.version && ex.inventory.profile.name === 'gian-sin-musica', 'exportación: versión y perfil del inventario');
+  ok(ex.inventory.version && ex.inventory.profile.name === 'gian-prs', 'exportación: versión y perfil del inventario');
   ok(ex.changes.every(c => c.user_destination && c.replaces && ('relocation' in c) && c.proposal.role), 'exportación: destino elegido, apariencia sustituida, reubicación y rol por cambio');
   ok(exa.proposal.role === 'alternativa' && ('variant' in exa.proposal), 'exportación: rol y variante de la propuesta');
   await P.goto(base + '#/catalogo'); await P.waitForSelector('.cd'); await P.click('[data-filters]'); await P.waitForSelector('[data-chip="rec"]'); await P.click('[data-chip="rec"]'); await P.click('#filtrosOk'); await P.waitForTimeout(250);

@@ -37,6 +37,18 @@ function buildData(){
 buildData();
 let INV=META.inventory||null;                         // {meta,fighters:{código:{slots:{n:{src,name,img,vid,staged}}}}}
 let PLAN={};                                          // «código_traje» → {vid,at,by}: el borrador compartido
+const confirmedPlan={},removedPlanAt={};             // commits confirmados que el listener aún no ha alcanzado
+function confirmPlan(key,vid,after){
+ if((PLAN[key]?.at||0)>after||(removedPlanAt[key]||0)>after)return;
+ confirmedPlan[key]={vid,after};if(vid)PLAN[key]={vid};else delete PLAN[key];LS('ssbu_plan_cache',JSON.stringify(PLAN))}
+function mergeChanges(m,changes){
+ for(const c of changes)if(c.type==='removed')removedPlanAt[c.doc.id]=ts(c.doc.data().at)||0;
+ for(const [key,a] of Object.entries(confirmedPlan)){
+  const value=m[key],removed=changes.find(c=>c.doc.id===key&&c.type==='removed'),removedAt=removed?(ts(removed.doc.data().at)||0):null;
+  if((value&&((value.vid===a.vid&&value.at!==null&&value.at>=a.after)||(value.at||0)>a.after))||(removedAt!==null&&(a.vid===null?removedAt>=a.after:removedAt>a.after)))delete confirmedPlan[key];
+  else if(a.vid)m[key]={vid:a.vid};else delete m[key];
+ }
+ return m}
 let PEND=J('ssbu_pend3',[]);                          // cambios hechos aquí que aún no llegaron a la base
 let HIST=[];                                          // historial reciente
 let STATUS={};                                        // estado de instalación por variante
@@ -44,10 +56,10 @@ let lastAct=null;                                     // último cambio de esta 
 const S={fq:'',cat:SSBU.migrateCat(J('ssbu_cat',null)),tc:SSBU.emptyCat(),shown:PAGE,nav:0,fresh:true,dest:null,destFor:null,galI:0,mode:'galeria',cand:null};
 let RT=null,lastHash=null;const scrollMem={};
 const keyOf=SSBU.keyOf;
-const SENT={};
-function planCtx(){return {PLAN,SENT,PEND,byCode,now:Date.now()}}
-function planVid(code,n){return SSBU.planVid(code,n,planCtx())}
-function planEntries(){return SSBU.planEntries(planCtx())}
+function planVid(code,n){let v=(PLAN[keyOf(code,n)]||{}).vid||null;for(const o of PEND)if(o.code===code&&o.slot===n)v=o.to;return v}
+function planEntries(){const ks=new Set(Object.keys(PLAN));PEND.forEach(o=>ks.add(keyOf(o.code,o.slot)));const out=[];
+ ks.forEach(k=>{const i=k.lastIndexOf('_'),code=k.slice(0,i),n=+k.slice(i+1),vid=planVid(code,n);if(vid&&byCode[code])out.push({code,n,vid})});
+ const ord=Object.keys(byCode);out.sort((a,b)=>ord.indexOf(a.code)-ord.indexOf(b.code)||a.n-b.n);return out}
 const changesOf=code=>planEntries().filter(e=>e.code===code);
 function proposedMap(){const m={};planEntries().forEach(e=>(m[e.vid]=m[e.vid]||[]).push(e));return m}
 function curOf(code,n){return SSBU.curOf(code,n,{byCode,INV,idx})}
@@ -195,6 +207,8 @@ function vFighter(R){const f=byCode[R.code];if(!f){head('Luchador',true);$('main
 
 const trajeCtx=R=>({code:R.code,n:slotOf(R),raw:keyOf(R.code,slotOf(R))});
 function provenance(c){return `<details class="prov"><summary>Procedencia y verificación</summary><div class="dl"><p>${esc(c.verif||'')}</p>
+  ${c.replace?`<p class="rep"><b>Por reemplazar:</b> Gian quiere cambiar este traje; sigue instalado hasta elegir sustituto (ahora: ${esc(c.replace)}).</p>`:''}
+  ${c.reference?`<p><a href="${esc(c.reference.source_page)}" target="_blank" rel="noopener" aria-label="Referencia original: ${esc(c.reference.source)}">Referencia original: ${esc(c.reference.source)}</a> · ${esc(c.reference.scope)} · traje ${esc(c.reference.costume)}</p>`:''}
   ${c.badge?`<p><b>Origen:</b> ${esc(c.badge)}${c.version?` · versión ${esc(c.version)}`:''}${c.author?` · ${esc(c.author)}`:''}</p>`:''}
   ${c.url?`<p><a href="${esc(c.url)}" target="_blank" rel="noopener">Página del mod</a></p>`:''}
   ${c.staged?`<p><b>En preparación (sin confirmar):</b> ${c.staged.name?esc(c.staged.name):'una skin sin nombre'} · rama ${esc(c.staged.branch)}. Está en el repositorio del ModPack; no se ha comprobado que esté instalada.</p>`:''}</div></details>`}
@@ -335,8 +349,8 @@ $('main').addEventListener('click',e=>{const t=e.target;let b;
  if(b=t.closest('[data-dest]')){S.dest=+b.dataset.dest;const e2=idx[RT.vid];$('usebox').innerHTML=useBox(e2.f,e2.p,para(RT.q.para));return}
  if(b=t.closest('[data-use]')){const e2=idx[RT.vid],c=para(RT.q.para),n=c?c.n:S.dest;if(n==null||!e2)return;if(proposeAt(e2.f.code,n,e2.p.vid)!==false)go(href.traje(e2.f.code,n),true);return}});
 $('main').addEventListener('input',e=>{const t=e.target;
- if(t.id==='fq'){S.fq=t.value;clearTimeout(S.ft);S.ft=setTimeout(()=>{const h=fList();$('fg').innerHTML=h;$('fe').hidden=!!h},120)}
- if(t.id==='cq'){catSt().q=t.value;S.shown=PAGE;saveCat();clearTimeout(S.ct);S.ct=setTimeout(()=>catGrid(catCtx()),160)}});
+ if(t.id==='fq'){S.fq=t.value;clearTimeout(S.ft);S.ft=setTimeout(()=>{if(!t.isConnected)return;const h=fList();$('fg').innerHTML=h;$('fe').hidden=!!h},120)}
+ if(t.id==='cq'){catSt().q=t.value;S.shown=PAGE;saveCat();clearTimeout(S.ct);S.ct=setTimeout(()=>{if(t.isConnected)catGrid(catCtx())},160)}});
 $('main').addEventListener('change',e=>{if(e.target.id==='cf'){S.cat.f=e.target.value;S.shown=PAGE;saveCat();catGrid(catCtx())}});
 $('main').addEventListener('keydown',e=>{if(e.key==='Enter'&&(e.target.id==='fq'||e.target.id==='cq'))e.target.blur();moveRadio(e)});
 const isTxt=el=>el&&el.matches&&el.matches('input[type=search],input[type=text]');
@@ -454,19 +468,24 @@ async function flush(){if(flushing||!PEND.length)return;
  flushing=true;paintSync();
  try{const f=await fb();const uid=f.auth.currentUser.uid;
   while(PEND.length){const op=PEND[0];
+   const key=keyOf(op.code,op.slot);
    let res;
-   try{res=await f.runTransaction(f.db,async tx=>{const ref=f.doc(f.db,'changes',keyOf(op.code,op.slot)),s=await tx.get(ref),cur=s.exists()?s.data().vid:null;
-    if(cur===op.to)return {noop:true};
-    if(cur!==op.exp)return {conflict:true,cur};
+   try{res=await f.runTransaction(f.db,async tx=>{const ref=f.doc(f.db,'changes',key),s=await tx.get(ref),cur=s.exists()?s.data().vid:null;
+    const observedAt=s.exists()?(ts(s.data().at)||0):(PLAN[key]?.at||removedPlanAt[key]||0);
+    if(cur===op.to)return {noop:true,observedAt};
+    if(cur!==op.exp)return {conflict:true,cur,observedAt};
     const h=f.doc(f.collection(f.db,'history'));
     if(op.to===null)tx.delete(ref);else tx.set(ref,{code:op.code,slot:op.slot,vid:op.to,by:uid,at:f.serverTimestamp()});
-    tx.set(h,{code:op.code,slot:op.slot,from:cur,to:op.to,kind:op.kind||(op.to===null?'clear':'set'),by:uid,at:f.serverTimestamp()});return {ok:true}})}
+    tx.set(h,{code:op.code,slot:op.slot,from:cur,to:op.to,kind:op.kind||(op.to===null?'clear':'set'),by:uid,at:f.serverTimestamp()});return {ok:true,observedAt}})}
    catch(e){ // las reglas rechazan una apariencia que ya no existe: ese cambio se descarta para no bloquear la cola.
              // Con una apariencia conocida, un rechazo apunta a configuración (reglas sin publicar): se conserva el cambio
     if(classify(e)==='perm'&&op.to&&!idx[op.to]){PEND.shift();savePend();diag('descartado',e,{op:op.code+'_'+op.slot,to:op.to});toast('Un cambio ya no es válido y se descartó');continue}
     throw e}
+   // El commit puede resolverse antes del listener. El plan confirmado entra antes de soltar la cola,
+   // así una instantánea vieja no borra la propuesta ni la revive al deshacer.
+   confirmPlan(key,res.conflict?res.cur:op.to,res.observedAt);
    PEND.shift();savePend();
-   if(!res.conflict){SENT[keyOf(op.code,op.slot)]={to:op.to,t:Date.now()};noteSaved(op)}
+   if(!res.conflict)noteSaved(op);
    if(res.conflict)conflict(op,res.cur);
    render(true)}
   good()
@@ -500,7 +519,7 @@ async function startDb(){if(!FBCFG){paintSync();return}
   sub(f.doc(f.db,'meta','installed'),s=>{metaInst=s.exists()?s.data():null;maybeApplyInventory()});
   sub(f.collection(f.db,'installed'),s=>{instSnap=s;maybeApplyInventory()});
   sub(f.collection(f.db,'status'),s=>{STATUS={};s.forEach(d=>{const v=d.data();STATUS[v.vid||d.id]=v})});
-  sub(f.collection(f.db,'changes'),s=>{const m={};s.forEach(d=>{const v=d.data();m[d.id]={vid:v.vid,by:v.by,at:ts(v.at)}});const same=stable(PLAN)===stable(m);PLAN=m;Object.keys(SENT).forEach(k=>{if(((m[k]||{}).vid||null)===SENT[k].to||Date.now()-SENT[k].t>=8000)delete SENT[k]});LS('ssbu_plan_cache',JSON.stringify(m));
+  sub(f.collection(f.db,'changes'),s=>{const m={};s.forEach(d=>{const v=d.data();m[d.id]={vid:v.vid,by:v.by,at:ts(v.at)}});const next=mergeChanges(m,s.docChanges());const same=stable(PLAN)===stable(next);PLAN=next;LS('ssbu_plan_cache',JSON.stringify(PLAN));
    good();paintSync();if(!same)render(true);planLoaded=true;flush()});
   sub(f.query(f.collection(f.db,'history'),f.orderBy('at','desc'),f.limit(40)),s=>{HIST=[];s.forEach(d=>{const v=d.data();HIST.push({code:v.code,slot:v.slot,from:v.from,to:v.to,kind:v.kind,t:ts(v.at)})})})
  }catch(e){if(gen===dbGen)fail('inicio',e)}}

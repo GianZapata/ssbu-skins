@@ -8,7 +8,7 @@ RC=0
 echo "== catálogo y generación"; python3 tools/validate_catalog.py || exit 1
 if [ ! -x node_modules/.bin/vite ]; then npm ci --no-audit --no-fund || exit 1; fi
 npm run build && python3 tools/make_site.py || exit 1
-echo "== dominio"; node --test tests/unit/test_domain.mjs || exit 1
+echo "== dominio"; node --test tests/unit/test_domain.mjs tests/unit/sync_ordering.js || exit 1
 echo "== dependencias de las pruebas"; (cd tests && npm ci --no-audit --no-fund >/dev/null && node build-fb-bundle.mjs) || exit 1
 echo "== emuladores de Firebase (Auth + Firestore, reglas de firestore.rules)"
 export JAVA_TOOL_OPTIONS="${JAVA_TOOL_OPTIONS:--Xmx3g}"

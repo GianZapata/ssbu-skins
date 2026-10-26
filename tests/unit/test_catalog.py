@@ -19,17 +19,21 @@ class Totals(unittest.TestCase):
         picks = [p for f in fighters for p in f['picks']]
         active = [p for p in picks if not p['withdrawn']]
         self.assertEqual(len(fighters), 89)
-        self.assertEqual(len(active), 1225)
-        self.assertEqual(sum(p['role'] == 'propuesta principal' for p in active), 697)
-        self.assertEqual(sum(p['role'] == 'alternativa' for p in active), 528)
+        self.assertEqual(len(active), meta['counts']['looks'])
+        self.assertEqual(meta['counts']['looks'], 1245)
+        self.assertEqual(meta['counts']['unique_mods'], 1224)
+        self.assertEqual(sum(p['role'] == 'propuesta principal' for p in active), meta['counts']['main_proposals'])
+        self.assertEqual(meta['counts']['main_proposals'], 696)
+        self.assertEqual(sum(p['role'] == 'alternativa' for p in active), meta['counts']['alternatives'])
+        self.assertEqual(meta['counts']['alternatives'], 549)
+        self.assertEqual(len(CAT['withdrawn']), meta['counts']['withdrawn'])
+        self.assertEqual(meta['counts']['withdrawn'], 16)
         self.assertEqual(len(picks) - len(active), len(CAT['withdrawn']))
-        self.assertEqual(meta['counts']['looks'], len(active))
         self.assertEqual(len({p['vid'] for p in picks}), len(picks), 'identificadores únicos')
 
     def test_el_informe_antiguo_no_es_el_catalogo(self):
-        # 697 activas + 12 retiradas = 709 era la versión publicada anterior; el catálogo ampliado trae 1225 activas
         self.assertNotEqual(len(CAT['entries']), 709)
-        self.assertEqual(len(CAT['entries']), 1225)
+        self.assertEqual(len(CAT['entries']), CAT['counts']['looks'])
 
 class Campos(unittest.TestCase):
     def test_se_conservan_los_campos_de_investigacion(self):
@@ -63,7 +67,7 @@ class Validador(unittest.TestCase):
             return subprocess.run([sys.executable, os.path.join(R, 'tools', 'validate_catalog.py'), '--catalog', cp, '--lock', lp], capture_output=True, text=True)
     def test_el_catalogo_actual_es_valido(self):
         r = subprocess.run([sys.executable, os.path.join(R, 'tools', 'validate_catalog.py')], capture_output=True, text=True, cwd=R)
-        self.assertEqual(r.returncode, 0, r.stdout + r.stderr); self.assertIn('1225 entradas', r.stdout)
+        self.assertEqual(r.returncode, 0, r.stdout + r.stderr); self.assertIn(f"{CAT['counts']['looks']} entradas", r.stdout)
     def test_renombrar_un_id_publicado_falla(self):
         lock = json.load(open(os.path.join(R, 'data', 'ids.lock.json')))['ids']
         c = copy.deepcopy(CAT); c['entries'][0]['look_id'] = '01:999999'
@@ -87,12 +91,28 @@ class Retratos(unittest.TestCase):
             self.assertNotIn('installed/', f['portrait'] or ''); self.assertNotIn('gamebanana', f['portrait'] or '')
 
 class Inventario(unittest.TestCase):
-    def test_perfil_gian_sin_musica_y_exclusiones(self):
+    def test_perfil_gian_prs_y_exclusiones(self):
         fighters, _ = cd.load(); inv = cd.load_inventory(fighters)
-        self.assertEqual(inv['meta']['profile']['name'], 'gian-sin-musica')
+        self.assertEqual(inv['meta']['profile']['name'], 'gian-prs')
         self.assertIn('77', inv['meta']['profile']['excluded_base_fighters'])
         steve = inv['fighters']['77']['slots']
-        self.assertTrue(all(not s.get('src') for s in steve.values()), 'Steve solo tiene ramas en preparación, nada instalado')
+        self.assertEqual({k for k, s in steve.items() if s.get('src')}, {'0', '1', '4'}, 'Steve: solo los trajes del PR 11, nada de la base')
+        self.assertTrue(all(s.get('src') == 'perfil' for k, s in steve.items() if s.get('src')))
+        self.assertEqual(inv['fighters']['11']['slots']['2']['name'], 'Dark Falcon')
+        self.assertEqual(inv['fighters']['29']['slots']['1']['name'], 'Naoto', 'Samus Zero c01: Naoto de WuBoy se conserva')
+        self.assertEqual(inv['fighters']['63']['slots']['3']['name'], 'Harley Quinn')
+        self.assertEqual({k for k, s in inv['fighters']['02']['slots'].items() if s.get('name') == 'Funky Kong'}, {'1', '3', '5', '7'}, 'Funky sigue en sus cuatro trajes hasta tener sustitutos')
+        rep = {(c, k) for c, f in inv['fighters'].items() for k, s in f['slots'].items() if s.get('replace')}
+        self.assertEqual(rep, {('01', k) for k in '02356'} | {('02', k) for k in '0357'} | {('11', str(k)) for k in range(8)} | {('23', k) for k in '1257'}, 'pendientes de reemplazar del perfil')
+        self.assertEqual(inv['fighters']['11']['slots']['2']['src'], 'perfil', 'marcar por reemplazar no desinstala')
+        self.assertEqual(inv['fighters']['29']['slots']['7']['name'], 'Jill Valentine')
+        self.assertEqual(inv['fighters']['29']['slots']['0']['name'], 'Bulma', 'Bulma desde el archivo original del autor (con One Slot Effects)')
+        self.assertEqual(inv['fighters']['01']['slots']['1']['name'], 'Kellytoy Mario')
+        self.assertEqual(inv['fighters']['09']['slots']['0']['name'], 'Swole Luigi Remastered', 'Luigi c00: Swole Luigi (PR 10 cerrado, la skin se queda)')
+        prof = cd._jload('inventory_profile.json')
+        self.assertEqual(prof['base_filter'], 'skins')
+        for x in prof['filtered_base_slots']:
+            self.assertNotEqual(inv['fighters'].get(x['fighter'], {}).get('slots', {}).get(str(x['slot']), {}).get('src'), 'base')
         self.assertEqual(inv['fighters']['79']['slots']['0']['name'], 'Aqua (Dusk)')
         self.assertEqual(inv['fighters']['80']['slots']['0']['name'], 'Aqua (Dusk)')
         self.assertNotIn('7', {k for k, s in inv['fighters']['82']['slots'].items() if s.get('src') == 'base'}, 'Sora c07 de base queda excluido por el perfil')
