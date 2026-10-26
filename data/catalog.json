@@ -1,5 +1,5 @@
 {
-  "generated": "2026-10-25T22:45:00-06:00",
+  "generated": "2026-10-25T23:15:00-06:00",
   "timezone": "America/Monterrey",
   "source": "GameBanana apiv11 ProfilePage + Posts, consultado 2026-10-24",
   "wifi_states": [
@@ -102,26 +102,26 @@
   ],
   "pending_fighters": [],
   "counts": {
-    "looks": 1243,
-    "unique_mods": 1222,
+    "looks": 1245,
+    "unique_mods": 1224,
     "main_proposals": 696,
-    "alternatives": 547,
-    "withdrawn": 15,
+    "alternatives": 549,
+    "withdrawn": 16,
     "fighters": 89,
     "fighters_with_alternatives": 85,
     "by_wifi_state": {
       "Declaración explícita del autor sin condiciones conocidas": 980,
       "Declaración condicionada del autor": 241,
       "Afirmación de terceros sin confirmación del autor": 10,
-      "Sin evidencia localizada": 11,
+      "Sin evidencia localizada": 13,
       "Incompatible según la fuente": 1
     },
-    "with_conditions": 327,
+    "with_conditions": 329,
     "pending": {
-      "file_inspection": 1243,
-      "compatibility_13_0_5": 1243,
-      "console_test": 1243,
-      "without_proposed_destination": 571
+      "file_inspection": 1241,
+      "compatibility_13_0_5": 1245,
+      "console_test": 1245,
+      "without_proposed_destination": 573
     },
     "coverage": {
       "01": {
@@ -624,9 +624,9 @@
       },
       "77": {
         "fighter": "Steve",
-        "looks": 15,
+        "looks": 17,
         "main": 8,
-        "alternatives": 7
+        "alternatives": 9
       },
       "78": {
         "fighter": "Sephiroth",
@@ -661,11 +661,12 @@
     },
     "quality_pass_lote1": 112,
     "quality_pass_lote2": 200,
-    "with_file_list_check": 46,
+    "with_file_list_check": 50,
     "quality_pass_lote3": 342,
     "quality_pass_lote4": 2,
     "quality_pass_lote5": 6,
-    "cover_verified": 571
+    "quality_pass_lote6": 2,
+    "cover_verified": 573
   },
   "entries": [
     {
@@ -215581,7 +215582,7 @@
       "wifi_quote": "Goes over c05. Wi-Fi safe.",
       "wifi_quote_auto": "«…Smash eyes and all necessary UI files. Goes over c05. Wi-Fi safe. All of my mods are free to…»",
       "conditions": [],
-      "file_inspection": "archivo no inspeccionado",
+      "file_inspection": "listado del archivo revisado el 2026-10-25 (descargado de GameBanana, MD5 verificado); archivos no abiertos ni probados",
       "console_test": "prueba en consola pendiente",
       "compatibility_13_0_5": "compatibilidad no verificada",
       "dependencies": [],
@@ -215591,13 +215592,14 @@
       "notes": "",
       "is_replacement": false,
       "role": "propuesta principal",
-      "audit_scope": "texto del mod, comentarios y miniaturas (archivo no inspeccionado)",
+      "audit_scope": "texto del mod, comentarios, miniaturas y listado del archivo descargado (MD5 verificado)",
       "look_id": "77:317177",
       "downloads_scope": "GameBanana, orden «Most Downloaded» de la categoría Steve (7612); puesto 4; comparado con los 100 primeros (259 mods); consultado 2026-10-24",
       "images_scope": "galería completa de la página del mod en GameBanana",
       "cover_verified": "portada vista en hoja de contactos (miniaturas de 220 px) el 2026-10-25: representa el look de la entrada",
       "quality_pass": "2026-10-25 lote 1 (portada y texto revisados)",
-      "images_http_check": "todas las URL de portada (3 tamaños) y de galería devolvieron HTTP 200 el 2026-10-25"
+      "images_http_check": "todas las URL de portada (3 tamaños) y de galería devolvieron HTTP 200 el 2026-10-25",
+      "file_list_check": "Listado del archivo descargado de GameBanana el 2026-10-25 (MD5 coincide con _sMd5Checksum; sólo se listó, no se abrió ningún archivo): creeper_ce298.zip (613 635 B, MD5 7883ee177ed98f2f4127fba94ef91dea): sólo fighter/pickel/model/body/c05 (texturas, model.numatb/numdlb/numshb/numshexb/nuhlpb/nusktb/nusrcmdlb/xmb y dark/light/metamon_model.numatb) y ui/replace_patch/chara (chara_0–4 y 6, pickel_05); sin motion, param, sonido ni config.json"
     },
     {
       "roster_no": "77",
@@ -216557,7 +216559,7 @@
           "url220": null
         }
       ],
-      "file_inspection": "archivo no inspeccionado",
+      "file_inspection": "listado del archivo revisado el 2026-10-25 (descargado de GameBanana, MD5 verificado); archivos no abiertos ni probados",
       "console_test": "prueba en consola pendiente",
       "compatibility_13_0_5": "compatibilidad no verificada",
       "dependencies": [],
@@ -216584,13 +216586,14 @@
       "design_check": "distinto, con reserva: gallina de Minecraft (se parece a la montura de Chicken Jockey)",
       "primary_slot_status": "choca con otra selección en su slot nativo: reslot sin procedimiento documentado",
       "role": "propuesta principal",
-      "audit_scope": "texto del mod, comentarios y miniaturas (archivo no inspeccionado)",
+      "audit_scope": "texto del mod, comentarios, miniaturas y listado del archivo descargado (MD5 verificado)",
       "look_id": "77:306118",
       "downloads_scope": "GameBanana, orden «Most Downloaded» de la categoría Steve (7612); puesto 20; comparado con los 100 primeros (259 mods); consultado 2026-10-24",
       "images_scope": "galería completa de la página del mod en GameBanana",
       "cover_verified": "portada vista en hoja de contactos (miniaturas de 220 px) el 2026-10-25: representa el look de la entrada",
       "quality_pass": "2026-10-25 lote 1 (portada y texto revisados)",
-      "images_http_check": "todas las URL de portada (3 tamaños) y de galería devolvieron HTTP 200 el 2026-10-25"
+      "images_http_check": "todas las URL de portada (3 tamaños) y de galería devolvieron HTTP 200 el 2026-10-25",
+      "file_list_check": "Listado del archivo descargado de GameBanana el 2026-10-25 (MD5 coincide con _sMd5Checksum; sólo se listó, no se abrió ningún archivo): chicken.zip (546 304 B, MD5 41dadc661d23ad7b19f22ab116d9a54f): sólo fighter/pickel/model/body/c07 (def_pickel_001_col/emi, model.numatb/numdlb/numshb/numshexb; sin nusktb) y ui/replace_patch/chara (chara_0–4 y 6, pickel_07); sin motion, param, sonido ni config.json"
     },
     {
       "role": "alternativa",
@@ -216965,7 +216968,7 @@
       "wifi_state_provisional_auto": null,
       "is_replacement": false,
       "audit_scope": "texto del mod, comentarios y miniaturas (archivo no inspeccionado)",
-      "notes": "El autor no especifica el slot de origen.",
+      "notes": "El autor no especifica el slot de origen. Otra fuente del mismo look: 331475 «Villager (from Minecraft)» de Reyitos (c03, Wi-Fi «Yes.» del autor en comentarios); no se cuenta aparte y queda en withdrawn[] con sus datos (2026-10-25).",
       "look_id": "77:360833",
       "downloads_scope": "GameBanana, orden «Most Downloaded» de la categoría Steve (7612); puesto 37; comparado con los 100 primeros (259 mods); consultado 2026-10-24",
       "images_scope": "galería completa de la página del mod en GameBanana",
@@ -217417,6 +217420,192 @@
       "quality_pass": "2026-10-25 lote 1 (revisión manual)",
       "cover_verified": "portada vista en hoja de contactos (miniaturas de 220 px) el 2026-10-25: representa el look de la entrada",
       "images_http_check": "todas las URL de portada (3 tamaños) y de galería devolvieron HTTP 200 el 2026-10-25"
+    },
+    {
+      "role": "alternativa",
+      "alt_index": 8,
+      "roster_no": "77",
+      "fighter": "Steve",
+      "mod_id": 175943,
+      "look_name": "Herobrine over Steve",
+      "author": "$99 Man",
+      "url": "https://gamebanana.com/mods/175943",
+      "downloads": 5145,
+      "downloads_query_date": "2026-10-25",
+      "rank_in_category_most_downloaded": 6,
+      "shared_download_counter": false,
+      "dlc_required": true,
+      "design_check": "distinto, con reserva: Herobrine (Steve con ojos blancos); es una retextura del Steve base: el archivo sólo cambia def_pickel_001_col y eye_pickel_w_col de c00, sin modelo propio. Un comentario lo describe como «steves eyes recolored with some glow effect» (portada revisada)",
+      "design_kind": "T",
+      "native_slots": [
+        0
+      ],
+      "proposed_destination": null,
+      "wifi_state": "Sin evidencia localizada",
+      "wifi_state_code": null,
+      "wifi_source": "descripción del mod, comentarios (con respuestas) y actualizaciones revisados: sin declaración Wi-Fi del autor",
+      "wifi_evidence_url": "https://gamebanana.com/mods/175943",
+      "wifi_quote": "",
+      "conditions": [
+        "La descripción no menciona Wi-Fi. Un comentario lo pregunta («Is it Wifi safe?», Kankarki, 2023-06-20) y no tiene respuesta. La única actualización («ui added!», 2020-10-14) sólo dice «finally added the ui!»."
+      ],
+      "conflicts": [
+        "choca con propuestas principales en c00",
+        "sin icono de stock (chara_2): un tercero (basilez, 2024-07-29) lo movió a c02 y le salió el icono de otro traje"
+      ],
+      "dependencies": [],
+      "dependency_kind": "sólo recursos (sin plugins .nro mencionados)",
+      "arcropolis_versions_mentioned": [],
+      "native_slots_raw": "0 (según el listado del archivo: fighter/pickel/model/body/c00 y UI chara_*_pickel_00; el autor no lo indica)",
+      "primary_slot_status": "alternativa: sin destino propuesto (el destino c00–c07 se decide al elegir)",
+      "slot_code": null,
+      "wifi_quote_auto": null,
+      "wifi_state_provisional_auto": null,
+      "is_replacement": false,
+      "audit_scope": "texto del mod, comentarios (con respuestas), actualizaciones, miniaturas y listado del archivo descargado (MD5 verificado)",
+      "notes": "El autor no indica slot; el archivo trae c00. Sólo texturas (sin modelo, esqueleto, animaciones ni config.json). Terceros: «random crashes» con el mod (Fan of Simon Pegg, 2024-05-02; no queda claro si los causa el mod) y un caso de 2020 con ARCropolis que se cerraba («UMM still works, barely»). Otro tercero sugiere ponerlo sobre Zombie usando model.numdlb/numshb de Steve. En el modpack, el PR #11 (abierto, sin mergear) pone Red Steve (175905) en c00. Rol: alternativa porque no hay evidencia Wi-Fi; por descargas (puesto 6) entraría entre las 8 principales de Steve, que no se tocaron.",
+      "look_id": "77:175943",
+      "downloads_scope": "GameBanana, orden «Most Downloaded» de la categoría Steve (7612); puesto 6; comparado con la categoría completa (259 mods); consultado 2026-10-25",
+      "images_scope": "galería completa de la página del mod en GameBanana",
+      "images_http_check": "todas las URL de portada (3 tamaños) y de galería devolvieron HTTP 200 el 2026-10-25",
+      "cover_verified": "portada vista el 2026-10-25 (lote 6): representa el look de la entrada",
+      "quality_pass": "2026-10-25 lote 6 (alta nueva)",
+      "file_list_check": "Listado del archivo descargado de GameBanana el 2026-10-25 (MD5 coincide con _sMd5Checksum; sólo se listó, no se abrió ningún archivo): herobrine_1be72.rar (RAR5, 502 639 B, MD5 90ef319efdd3d65c3e2d811876d0dfa1): fighter/pickel/model/body/c00 con def_pickel_001_col.nutexb y eye_pickel_w_col.nutexb, y ui/replace_patch/chara (chara_0, 1, 3, 4, 5 y 6, pickel_00); sin chara_2, motion, param, sonido ni config.json",
+      "compatibility_13_0_5": "compatibilidad no verificada",
+      "file_inspection": "listado del archivo revisado el 2026-10-25 (descargado de GameBanana, MD5 verificado); archivos no abiertos ni probados",
+      "console_test": "prueba en consola pendiente",
+      "audit_status": "verified",
+      "design_type_by_title": null,
+      "preview_images": [
+        {
+          "base": "https://images.gamebanana.com/img/ss/mods",
+          "file": "5f8692c653825.jpg",
+          "file530": "530-90_5f8692c653825.jpg",
+          "file220": "220-90_5f8692c653825.jpg",
+          "file100": "100-90_5f8692c653825.jpg",
+          "url": "https://images.gamebanana.com/img/ss/mods/5f8692c653825.jpg",
+          "url530": "https://images.gamebanana.com/img/ss/mods/530-90_5f8692c653825.jpg",
+          "url220": "https://images.gamebanana.com/img/ss/mods/220-90_5f8692c653825.jpg"
+        },
+        {
+          "base": "https://images.gamebanana.com/img/ss/mods",
+          "file": "5f86928f1c4f2.jpg",
+          "file100": "100-90_5f86928f1c4f2.jpg",
+          "url": "https://images.gamebanana.com/img/ss/mods/5f86928f1c4f2.jpg"
+        },
+        {
+          "base": "https://images.gamebanana.com/img/ss/mods",
+          "file": "5f86928f2c008.jpg",
+          "file100": "100-90_5f86928f2c008.jpg",
+          "url": "https://images.gamebanana.com/img/ss/mods/5f86928f2c008.jpg"
+        },
+        {
+          "base": "https://images.gamebanana.com/img/ss/mods",
+          "file": "5f86928fc92c4.jpg",
+          "file100": "100-90_5f86928fc92c4.jpg",
+          "url": "https://images.gamebanana.com/img/ss/mods/5f86928fc92c4.jpg"
+        },
+        {
+          "base": "https://images.gamebanana.com/img/ss/mods",
+          "file": "5f8780380ae93.jpg",
+          "file100": "100-90_5f8780380ae93.jpg",
+          "url": "https://images.gamebanana.com/img/ss/mods/5f8780380ae93.jpg"
+        },
+        {
+          "base": "https://images.gamebanana.com/img/ss/mods",
+          "file": "5f87803864ef7.jpg",
+          "file100": "100-90_5f87803864ef7.jpg",
+          "url": "https://images.gamebanana.com/img/ss/mods/5f87803864ef7.jpg"
+        }
+      ]
+    },
+    {
+      "role": "alternativa",
+      "alt_index": 9,
+      "roster_no": "77",
+      "fighter": "Steve",
+      "mod_id": 579591,
+      "look_name": "Lego Batman",
+      "author": "Walfou",
+      "url": "https://gamebanana.com/mods/579591",
+      "downloads": 1452,
+      "downloads_query_date": "2026-10-25",
+      "rank_in_category_most_downloaded": 43,
+      "shared_download_counter": false,
+      "dlc_required": true,
+      "design_check": "Batman estilo LEGO (minifigura con capucha y capa), modelo propio; distinto de las principales (portada revisada)",
+      "design_kind": "M",
+      "native_slots": [
+        0,
+        1
+      ],
+      "proposed_destination": null,
+      "wifi_state": "Sin evidencia localizada",
+      "wifi_state_code": null,
+      "wifi_source": "descripción del mod, comentarios (con respuestas) y actualizaciones revisados: sin declaración Wi-Fi del autor",
+      "wifi_evidence_url": "https://gamebanana.com/mods/579591",
+      "wifi_quote": "",
+      "conditions": [
+        "La descripción no menciona Wi-Fi y ninguno de los 4 comentarios lo trata. No hay actualizaciones."
+      ],
+      "conflicts": [
+        "choca con propuestas principales en c00, c01",
+        "el archivo también reemplaza el cuerpo de c01 (Alex), aunque la descripción sólo dice c00: misma malla y textura, con numatb y nusktb de c01; la UI sólo es de pickel_00 (para dejarlo sólo en c00 habría que quitar la carpeta body/c01)",
+        "también cambia la vagoneta (model/trolley/c00, texturas) y las alas (model/wing/c00, malla) de c00"
+      ],
+      "dependencies": [],
+      "dependency_kind": "sólo recursos (sin plugins .nro mencionados)",
+      "arcropolis_versions_mentioned": [],
+      "native_slots_raw": "0 (el autor: «Lego Batman model replacing Steve C00»); el archivo trae además body/c01",
+      "primary_slot_status": "alternativa: sin destino propuesto (el destino c00–c07 se decide al elegir)",
+      "slot_code": null,
+      "wifi_quote_auto": null,
+      "wifi_state_provisional_auto": null,
+      "is_replacement": false,
+      "audit_scope": "texto del mod, comentarios (con respuestas), actualizaciones, miniaturas y listado del archivo descargado (MD5 verificado)",
+      "notes": "El autor: «Lego Batman model replacing Steve C00», «Custom UI and stock icons». Sin animaciones, param, sonido ni config.json. Un comentario pide un mod de voz (no incluido). Análisis de GameBanana: «ok». En el modpack, el PR #11 (abierto, sin mergear) pone Red Steve (175905) en c00 y White Alex (296845) en c01: los dos chocan con este archivo. Rol: alternativa porque no hay evidencia Wi-Fi; las principales de Steve no se tocaron.",
+      "look_id": "77:579591",
+      "downloads_scope": "GameBanana, orden «Most Downloaded» de la categoría Steve (7612); puesto 43; comparado con la categoría completa (259 mods); consultado 2026-10-25",
+      "images_scope": "galería completa de la página del mod en GameBanana",
+      "images_http_check": "todas las URL de portada (3 tamaños) y de galería devolvieron HTTP 200 el 2026-10-25",
+      "cover_verified": "portada vista el 2026-10-25 (lote 6): representa el look de la entrada",
+      "quality_pass": "2026-10-25 lote 6 (alta nueva)",
+      "file_list_check": "Listado del archivo descargado de GameBanana el 2026-10-25 (MD5 coincide con _sMd5Checksum; sólo se listó, no se abrió ningún archivo): lego_batman.rar (RAR5, 1 683 374 B, MD5 30db77ad35460c3bcc552369ecfbf57b): fighter/pickel/model/body/c00 y c01 (def_pickel_001_col.nutexb y model.nuhlpb/numatb/numdlb/numshb/numshexb/nusktb; malla y textura iguales por CRC, numatb y nusktb distintos), model/trolley/c00 (def_trolley_001_col y _prm), model/wing/c00 (model.numdlb y numshb) y ui/replace_patch/chara (chara_1, 2, 3, 4 y 7, pickel_00); sin motion, param, sonido ni config.json",
+      "compatibility_13_0_5": "compatibilidad no verificada",
+      "file_inspection": "listado del archivo revisado el 2026-10-25 (descargado de GameBanana, MD5 verificado); archivos no abiertos ni probados",
+      "console_test": "prueba en consola pendiente",
+      "audit_status": "verified",
+      "design_type_by_title": null,
+      "preview_images": [
+        {
+          "base": "https://images.gamebanana.com/img/ss/mods",
+          "file": "67c9ee0df2251.jpg",
+          "file530": "530-90_67c9ee0df2251.jpg",
+          "file220": "220-90_67c9ee0df2251.jpg",
+          "file100": "100-90_67c9ee0df2251.jpg",
+          "url": "https://images.gamebanana.com/img/ss/mods/67c9ee0df2251.jpg",
+          "url530": "https://images.gamebanana.com/img/ss/mods/530-90_67c9ee0df2251.jpg",
+          "url220": "https://images.gamebanana.com/img/ss/mods/220-90_67c9ee0df2251.jpg"
+        },
+        {
+          "base": "https://images.gamebanana.com/img/ss/mods",
+          "file": "67c98471b6de1.jpg",
+          "file100": "100-90_67c98471b6de1.jpg",
+          "url": "https://images.gamebanana.com/img/ss/mods/67c98471b6de1.jpg"
+        },
+        {
+          "base": "https://images.gamebanana.com/img/ss/mods",
+          "file": "67c984713aff2.jpg",
+          "file100": "100-90_67c984713aff2.jpg",
+          "url": "https://images.gamebanana.com/img/ss/mods/67c984713aff2.jpg"
+        },
+        {
+          "base": "https://images.gamebanana.com/img/ss/mods",
+          "file": "67c98471d15be.jpg",
+          "file100": "100-90_67c98471d15be.jpg",
+          "url": "https://images.gamebanana.com/img/ss/mods/67c98471d15be.jpg"
+        }
+      ]
     },
     {
       "roster_no": "78",
@@ -233769,6 +233958,16 @@
       "author": "Shuli / Ferret",
       "reason": "Retirado de Ivysaur (2026-10-25): el listado de archivos publicado en GameBanana sólo contiene fighter/pzenigame c04 (Squirtle); no modifica a Ivysaur. Se mantiene como alternativa de Squirtle (33:586935).",
       "withdrawn_on": "2026-10-25"
+    },
+    {
+      "roster_no": "77",
+      "fighter": "Steve",
+      "mod_id": 331475,
+      "look_name": "Villager (from Minecraft)",
+      "url": "https://gamebanana.com/mods/331475",
+      "author": "Reyitos",
+      "reason": "No se añade como look aparte (2026-10-25): es el mismo diseño que la alternativa 77:360833 Villager de Jory Satana (aldeano de Minecraft con túnica marrón; portadas comparadas), así que es otra fuente del mismo look y se conserva el identificador existente. Datos de esta fuente: 4080 descargas (puesto 9 en Steve); el autor dice «This mod goes over 03 (Tennis Alex)» y el README lo repite; Wi-Fi: el autor respondió «Yes.» (2021-10-28) a «Wifi Safe?» de Justntime97, lo que sería «Declaración explícita del autor sin condiciones conocidas». Listado del archivo descargado (minecraftvillager_e9cb5.zip, MD5 fd7f08083a11e2ccdd1354797fcd77ea verificado; sólo listado): fighter/pickel/model/body/c03 (col, emi, eye, numdlb, numshb, nusktb), sound/bank/fighter/se_pickel_c03.nus3audio, ui/replace_patch/chara (chara_0–4 y 6, pickel_03), ui/message/msg_name.msbt y ui/param/database/ui_chara_db.prc completos (no parches xmsbt/prcxml; son de 2021 y pueden chocar con otros mods que cambien nombres o con versiones nuevas del juego), info.toml, preview.webp y README; sin motion, param de luchador ni config.json. Terceros (2021-10-28 y 2021-11-15) dicen que no les funcionó la descarga de GameBanana y sí la de Mediafire; el autor dijo «Yeah.» (2022-04-25) a si funciona en ARC 2.1.0.",
+      "withdrawn_on": "2026-10-25"
     }
   ],
   "role_field": {
@@ -233913,6 +234112,22 @@
         "Seis altas pedidas por el usuario (mods de FF7) con su estado Wi-Fi; portadas vistas y URL de imágenes con HTTP 200; listado de archivos publicado por GameBanana (metadato, sin descargar)",
         "Tifa (74:559818) y Aerith Zelda (17:535222) traen un traje que repite un look ya catalogado (74:356834 y 17:355560); se cuentan por su traje distinto (c01) y se anota en «variant»",
         "Crisis Core Cloud (61:175324) se juzgó distinto de las entradas de Cloud (revisado por imagen); sus recolores no cuentan aparte"
+      ]
+    },
+    {
+      "fecha": "2026-10-25",
+      "lote": 6,
+      "altas": [
+        "77:175943",
+        "77:579591"
+      ],
+      "omitidos": [
+        331475
+      ],
+      "global": [
+        "Dos altas de Steve pedidas por el usuario (alternativas sin evidencia Wi-Fi); portadas vistas y URL de imágenes con HTTP 200; archivos descargados de GameBanana con MD5 verificado y sólo listados",
+        "Villager 331475 (Reyitos) es el mismo look que 77:360833: no se cuenta aparte y queda en withdrawn[] con sus datos (incluida la respuesta «Yes.» del autor sobre Wi-Fi)",
+        "Creeper 77:317177 y Chicken 77:306118: listado del archivo revisado (sólo modelo de su slot y UI)"
       ]
     }
   ],
