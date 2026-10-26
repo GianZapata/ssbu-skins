@@ -24,13 +24,21 @@ function serve() { // servidor estático mínimo sobre SITE; devuelve {url, clos
   return new Promise(res => srv.listen(0, '127.0.0.1', () => { const port = srv.address().port; res({ url: `http://localhost:${port}/index.html?fbemu`, close: () => srv.close() }); }));
 }
 async function browser() { return chromium.launch(); }
-async function mk(b, { w = 390, h = 844, mobile = true, badImg = false, noFirebase = false } = {}) {
+async function mk(b, { w = 390, h = 844, mobile = true, badImg = false, noFirebase = false, deferChanges = false } = {}) {
   const ctx = await b.newContext({ viewport: { width: w, height: h }, isMobile: mobile, hasTouch: mobile, deviceScaleFactor: mobile ? 2 : 1 });
   await ctx.route('**/images.gamebanana.com/**', r => badImg ? r.abort() : r.fulfill({ status: 200, contentType: 'image/svg+xml', body: svg }));
   await ctx.route('**/cdn.jsdelivr.net/npm/photoswipe@5.4.4/dist/**', r => { const f = r.request().url().split('/').pop(); const fp = path.join(TESTS, 'node_modules/photoswipe/dist', f);
     r.fulfill({ status: 200, contentType: f.endsWith('css') ? 'text/css' : 'text/javascript', headers: { 'access-control-allow-origin': '*' }, body: fs.readFileSync(fp) }); });
   await ctx.route('https://www.gstatic.com/firebasejs/10.14.1/firebase-app.js', r => r.fulfill({ status: 200, contentType: 'text/javascript', headers: { 'access-control-allow-origin': '*' }, body: FB }));
-  for (const f of ['firebase-auth.js', 'firebase-firestore.js']) await ctx.route('https://www.gstatic.com/firebasejs/10.14.1/' + f, r => r.fulfill({ status: 200, contentType: 'text/javascript', headers: { 'access-control-allow-origin': '*' }, body: "export * from './firebase-app.js';" }));
+  for (const f of ['firebase-auth.js', 'firebase-firestore.js']) await ctx.route('https://www.gstatic.com/firebasejs/10.14.1/' + f, r => r.fulfill({ status: 200, contentType: 'text/javascript', headers: { 'access-control-allow-origin': '*' }, body: (deferChanges && f === 'firebase-auth.js' ? "export {getAuth,onAuthStateChanged,connectAuthEmulator,signInAnonymously,signOut} from './firebase-app.js';" : "export * from './firebase-app.js';") + (deferChanges && f === 'firebase-firestore.js' ? `
+import {onSnapshot as observe} from './firebase-app.js';
+export function onSnapshot(ref, next, ...rest) {
+  if(ref.type !== 'collection' || ref.id !== 'changes') return observe(ref, next, ...rest);
+  return observe(ref, snapshot => {
+    if(globalThis.__holdChanges) (globalThis.__changeDeliveries ||= []).push(() => next(snapshot));
+    else next(snapshot);
+  }, ...rest);
+}` : '') }));
   const p = await ctx.newPage(); p.ctx = ctx; p.errs = []; p.on('pageerror', e => p.errs.push(e.message)); return p;
 }
 const tap = (p, sel) => p.locator(sel).first().click();
