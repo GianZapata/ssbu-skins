@@ -87,12 +87,20 @@ class Retratos(unittest.TestCase):
             self.assertNotIn('installed/', f['portrait'] or ''); self.assertNotIn('gamebanana', f['portrait'] or '')
 
 class Inventario(unittest.TestCase):
-    def test_perfil_gian_sin_musica_y_exclusiones(self):
+    def test_perfil_gian_prs_y_exclusiones(self):
         fighters, _ = cd.load(); inv = cd.load_inventory(fighters)
-        self.assertEqual(inv['meta']['profile']['name'], 'gian-sin-musica')
+        self.assertEqual(inv['meta']['profile']['name'], 'gian-prs')
         self.assertIn('77', inv['meta']['profile']['excluded_base_fighters'])
         steve = inv['fighters']['77']['slots']
-        self.assertTrue(all(not s.get('src') for s in steve.values()), 'Steve solo tiene ramas en preparación, nada instalado')
+        self.assertEqual({k for k, s in steve.items() if s.get('src')}, {'0', '1', '4'}, 'Steve: solo los trajes del PR 11, nada de la base')
+        self.assertTrue(all(s.get('src') == 'perfil' for k, s in steve.items() if s.get('src')))
+        self.assertEqual(inv['fighters']['11']['slots']['0']['name'], 'Buzz Lightyear')
+        self.assertEqual(inv['fighters']['01']['slots']['1']['name'], 'Kellytoy Mario')
+        self.assertEqual(inv['fighters']['09']['slots']['0']['src'], 'base', 'Luigi c00 vuelve a ser el de WuBoy (Swole retirado)')
+        prof = cd._jload('inventory_profile.json')
+        self.assertEqual(prof['base_filter'], 'skins')
+        for x in prof['filtered_base_slots']:   # trajes de la base sin modelo propio: ya no cuentan como instalados
+            self.assertNotEqual(inv['fighters'].get(x['fighter'], {}).get('slots', {}).get(str(x['slot']), {}).get('src'), 'base')
         self.assertEqual(inv['fighters']['79']['slots']['0']['name'], 'Aqua (Dusk)')
         self.assertEqual(inv['fighters']['80']['slots']['0']['name'], 'Aqua (Dusk)')
         self.assertNotIn('7', {k for k, s in inv['fighters']['82']['slots'].items() if s.get('src') == 'base'}, 'Sora c07 de base queda excluido por el perfil')
