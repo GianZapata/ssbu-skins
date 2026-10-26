@@ -3,9 +3,9 @@
  "id": "perfil",
  "label": "Perfil local «gian-prs»",
  "profile": "gian-prs",
- "ref": "claude/vigilant-keller-6i5s1d@3fd1a8c",
+ "ref": "claude/vigilant-keller-6i5s1d@a6924cb",
  "document": "catalog/profiles.json + catalog/mods.json",
- "scanned_at": "2026-10-26T04:41:51Z",
+ "scanned_at": "2026-10-26T05:00:05Z",
  "verification": "Perfil armado y verificado en archivos; pruebas en consola sin conexión anotadas por componente (no certifican online)",
  "components": [
   {
@@ -25,15 +25,6 @@
    "classification": "desconocido-incompatible",
    "console_test": "OK 2026-10-24 (Gian; Smash 13.0.5, ARCropolis 4.1.1, emuMMC sin conexion): Sora c04 en combate local contra Terranort. No certifica online",
    "dlc": "Sora (DLC confirmado)"
-  },
-  {
-   "id": "funky-dk",
-   "version": "2.0.0",
-   "target": "DK c01, c03, c05, c07",
-   "url": "https://gamebanana.com/mods/174250",
-   "classification": "desconocido-incompatible",
-   "console_test": "OK 2026-10-24 (Gian; Smash 13.0.5, ARCropolis 4.1.1, emuMMC sin conexion): DK c01/c03/c05/c07 en seleccion y combate local. No certifica online",
-   "dlc": null
   },
   {
    "id": "terra-ike",
@@ -63,12 +54,12 @@
    "dlc": null
   },
   {
-   "id": "captain-falcon-pr4",
+   "id": "funky-dk-c01",
    "version": "pending",
-   "target": "c02 Dark Falcon (GB 386982, texturas sobre el modelo original) + su Blue Falcon c02",
-   "url": "https://github.com/GianZapata/Gian-Ultimate-Modpack-private/pull/4",
-   "classification": "revision estatica sin fallos P1/P2 (docs/reviews/PR-2-a-13-2026-10-24.md); pendiente de prueba en consola",
-   "console_test": "pendiente (no probado en Switch)",
+   "target": "DK c01 (color 2)",
+   "url": "https://gamebanana.com/mods/174250",
+   "classification": "derivado de funky-dk (probado en consola en c01/c03/c05/c07)",
+   "console_test": "pendiente para esta variante (funky-dk OK 2026-10-24)",
    "dlc": null
   },
   {
@@ -99,12 +90,12 @@
    "dlc": null
   },
   {
-   "id": "szerosuit-pr6",
+   "id": "szerosuit-jill",
    "version": "pending",
-   "target": "c00 Bulma (GB 724190, con nave y paralizador), c02 Spider-Gwen (GB 174461), c07 Jill Valentine (GB 637464, con nave y Final Smash)",
+   "target": "c07 Jill Valentine (GB 637464, con nave y Final Smash)",
    "url": "https://github.com/GianZapata/Gian-Ultimate-Modpack-private/pull/6",
-   "classification": "revision estatica: 162 asignaciones MODL/MESH/MATL coherentes (docs/reviews/PR-2-a-13-2026-10-24.md); pendiente de prueba en consola",
-   "console_test": "pendiente (no probado en Switch)",
+   "classification": "derivado de szerosuit-pr6; pendiente de prueba en consola",
+   "console_test": "pendiente (no probado en Switch); Bulma y Spider-Gwen: negras en consola 2026-10-25 (Gian)",
    "dlc": null
   },
   {
@@ -131,8 +122,56 @@
    "slot": 1
   },
   {
-   "fighter": "29",
+   "fighter": "01",
    "slot": 2
+  },
+  {
+   "fighter": "01",
+   "slot": 3
+  },
+  {
+   "fighter": "01",
+   "slot": 5
+  },
+  {
+   "fighter": "01",
+   "slot": 6
+  },
+  {
+   "fighter": "11",
+   "slot": 0
+  },
+  {
+   "fighter": "11",
+   "slot": 3
+  },
+  {
+   "fighter": "11",
+   "slot": 4
+  },
+  {
+   "fighter": "11",
+   "slot": 5
+  },
+  {
+   "fighter": "11",
+   "slot": 6
+  },
+  {
+   "fighter": "11",
+   "slot": 7
+  },
+  {
+   "fighter": "23",
+   "slot": 1
+  },
+  {
+   "fighter": "23",
+   "slot": 5
+  },
+  {
+   "fighter": "23",
+   "slot": 7
   },
   {
    "fighter": "33",
@@ -191,7 +230,7 @@
    "slot": 7
   }
  ],
- "exclude_base_total": 33,
+ "exclude_base_total": 42,
  "excluded_base_mods": [
   "The WuBoy Ultimate Modpack Optionals",
   "The WuBoy Ultimate Music Modpack"
@@ -203,6 +242,58 @@
  "unmapped_components": [],
  "base_filter": "skins",
  "filtered_base_slots": [
+  {
+   "fighter": "01",
+   "slot": 2
+  },
+  {
+   "fighter": "01",
+   "slot": 3
+  },
+  {
+   "fighter": "01",
+   "slot": 5
+  },
+  {
+   "fighter": "01",
+   "slot": 6
+  },
+  {
+   "fighter": "11",
+   "slot": 0
+  },
+  {
+   "fighter": "11",
+   "slot": 3
+  },
+  {
+   "fighter": "11",
+   "slot": 4
+  },
+  {
+   "fighter": "11",
+   "slot": 5
+  },
+  {
+   "fighter": "11",
+   "slot": 6
+  },
+  {
+   "fighter": "11",
+   "slot": 7
+  },
+  {
+   "fighter": "23",
+   "slot": 1
+  },
+  {
+   "fighter": "23",
+   "slot": 5
+  },
+  {
+   "fighter": "23",
+   "slot": 7
+  },
   {
    "fighter": "33",
    "slot": 0
@@ -290,54 +381,6 @@
    "classification": "desconocido-incompatible"
   },
   {
-   "fighter": "02",
-   "slot": 1,
-   "name": "Funky Kong",
-   "component": "funky-dk",
-   "mod_id": 174250,
-   "author": "BezBZ",
-   "url": "https://gamebanana.com/mods/174250",
-   "version": "2.0.0",
-   "console_test": "OK 2026-10-24 (Gian; Smash 13.0.5, ARCropolis 4.1.1, emuMMC sin conexion): DK c01/c03/c05/c07 en seleccion y combate local. No certifica online",
-   "classification": "desconocido-incompatible"
-  },
-  {
-   "fighter": "02",
-   "slot": 3,
-   "name": "Funky Kong",
-   "component": "funky-dk",
-   "mod_id": 174250,
-   "author": "BezBZ",
-   "url": "https://gamebanana.com/mods/174250",
-   "version": "2.0.0",
-   "console_test": "OK 2026-10-24 (Gian; Smash 13.0.5, ARCropolis 4.1.1, emuMMC sin conexion): DK c01/c03/c05/c07 en seleccion y combate local. No certifica online",
-   "classification": "desconocido-incompatible"
-  },
-  {
-   "fighter": "02",
-   "slot": 5,
-   "name": "Funky Kong",
-   "component": "funky-dk",
-   "mod_id": 174250,
-   "author": "BezBZ",
-   "url": "https://gamebanana.com/mods/174250",
-   "version": "2.0.0",
-   "console_test": "OK 2026-10-24 (Gian; Smash 13.0.5, ARCropolis 4.1.1, emuMMC sin conexion): DK c01/c03/c05/c07 en seleccion y combate local. No certifica online",
-   "classification": "desconocido-incompatible"
-  },
-  {
-   "fighter": "02",
-   "slot": 7,
-   "name": "Funky Kong",
-   "component": "funky-dk",
-   "mod_id": 174250,
-   "author": "BezBZ",
-   "url": "https://gamebanana.com/mods/174250",
-   "version": "2.0.0",
-   "console_test": "OK 2026-10-24 (Gian; Smash 13.0.5, ARCropolis 4.1.1, emuMMC sin conexion): DK c01/c03/c05/c07 en seleccion y combate local. No certifica online",
-   "classification": "desconocido-incompatible"
-  },
-  {
    "fighter": "32",
    "slot": 0,
    "name": "Terra",
@@ -386,16 +429,16 @@
    "classification": "preparado (archivos validados); requiere el DLC Pyra/Mythra; probado en consola (offline)"
   },
   {
-   "fighter": "11",
-   "slot": 2,
-   "name": "Dark Falcon",
-   "component": "captain-falcon-pr4",
-   "mod_id": 386982,
+   "fighter": "02",
+   "slot": 1,
+   "name": "Funky Kong",
+   "component": "funky-dk-c01",
+   "mod_id": 174250,
    "author": "pending",
-   "url": "https://gamebanana.com/mods/386982",
+   "url": "https://gamebanana.com/mods/174250",
    "version": "pending",
-   "console_test": "pendiente (no probado en Switch)",
-   "classification": "revision estatica sin fallos P1/P2 (docs/reviews/PR-2-a-13-2026-10-24.md); pendiente de prueba en consola"
+   "console_test": "pendiente para esta variante (funky-dk OK 2026-10-24)",
+   "classification": "derivado de funky-dk (probado en consola en c01/c03/c05/c07)"
   },
   {
    "fighter": "77",
@@ -483,39 +526,15 @@
   },
   {
    "fighter": "29",
-   "slot": 0,
-   "name": "Bulma",
-   "component": "szerosuit-pr6",
-   "mod_id": 724190,
-   "author": "pending",
-   "url": "https://gamebanana.com/mods/724190",
-   "version": "pending",
-   "console_test": "pendiente (no probado en Switch)",
-   "classification": "revision estatica: 162 asignaciones MODL/MESH/MATL coherentes (docs/reviews/PR-2-a-13-2026-10-24.md); pendiente de prueba en consola"
-  },
-  {
-   "fighter": "29",
-   "slot": 2,
-   "name": "Spider-Gwen",
-   "component": "szerosuit-pr6",
-   "mod_id": 174461,
-   "author": "pending",
-   "url": "https://gamebanana.com/mods/174461",
-   "version": "pending",
-   "console_test": "pendiente (no probado en Switch)",
-   "classification": "revision estatica: 162 asignaciones MODL/MESH/MATL coherentes (docs/reviews/PR-2-a-13-2026-10-24.md); pendiente de prueba en consola"
-  },
-  {
-   "fighter": "29",
    "slot": 7,
    "name": "Jill Valentine",
-   "component": "szerosuit-pr6",
+   "component": "szerosuit-jill",
    "mod_id": 637464,
    "author": "pending",
    "url": "https://gamebanana.com/mods/637464",
    "version": "pending",
-   "console_test": "pendiente (no probado en Switch)",
-   "classification": "revision estatica: 162 asignaciones MODL/MESH/MATL coherentes (docs/reviews/PR-2-a-13-2026-10-24.md); pendiente de prueba en consola"
+   "console_test": "pendiente (no probado en Switch); Bulma y Spider-Gwen: negras en consola 2026-10-25 (Gian)",
+   "classification": "derivado de szerosuit-pr6; pendiente de prueba en consola"
   },
   {
    "fighter": "63",

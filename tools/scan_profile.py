@@ -20,7 +20,9 @@ COMPONENT_SLOTS = {
     'terra-ike': [('32', 0, 'Terra'), ('32', 2, 'Terranort')],
     'funky-dk': [('02', n, 'Funky Kong') for n in (1, 3, 5, 7)],
     'aqua-pyra-reslot': [('79', 0, 'Aqua (Dusk)'), ('80', 0, 'Aqua (Dusk)')],   # el par c00 de Pyra/Mythra; Rex (element/diver) comparte modelo y no es un luchador del catálogo
-    'captain-falcon-pr4': [('11', 2, 'Dark Falcon', 386982)],   # desde el 2026-10-25 solo Dark Falcon (Buzz y Perry retirados)
+    'funky-dk-c01': [('02', 1, 'Funky Kong')],   # un único Funky desde el 2026-10-25
+    'szerosuit-jill': [('29', 7, 'Jill Valentine', 637464)],   # Bulma y Spider-Gwen retiradas (se veían negras)
+    'captain-falcon-pr4': [('11', 2, 'Dark Falcon', 386982)],   # retirado de gian-prs el 2026-10-25 (todo Captain Falcon original)
     'ganon-pr12': [('23', 0, 'Otis', 392436), ('23', 3, 'Jiren', 320899), ('23', 6, 'Broly', 324864)],   # Pain c02 fuera (incompleto)
     'szerosuit-pr6': [('29', 0, 'Bulma', 724190), ('29', 2, 'Spider-Gwen', 174461), ('29', 7, 'Jill Valentine', 637464)],
     'bayonetta-harley-pr7': [('63', 3, 'Harley Quinn', 360738)],
