@@ -67,10 +67,13 @@ function curOf(code,n){const f=byCode[code];if(!f)return null;
    verif:prof?(s.test?'Según el ModPack: '+s.test:'Perfil armado y verificado en archivos; sin prueba en consola anotada.'):'Revisado en el repositorio del ModPack; no probado en la consola.'};
   if(s.name)return {...base,kind:'mod',name:s.name};
   return (s.img||s.skin)?{...base,kind:'pending',name:'Nombre pendiente'}:{...base,kind:'unknown',name:'Sin identificar'}}
- return {kind:'original',name:'Original',img:null,badge:'',staged:stg,verif:'Sin ningún mod en el inventario revisado. No está comprobado en la consola.'}}
+ return {kind:'original',name:'Original',img:originalArt(f),badge:'',art:true,staged:stg,verif:'Sin ningún mod en el inventario revisado. No está comprobado en la consola.'}}
 // identidad del luchador: su retrato oficial (nunca la imagen de uno de sus trajes) o, si no hay, su inicial
 const initials=n=>n.replace(/\(.*?\)/g,'').trim().split(/[\s&.]+/).filter(Boolean).slice(0,2).map(w=>w[0]).join('').toUpperCase();
 const portrait=f=>f.portrait||null;
+// «Original»: no hay foto de cada color original, así que se muestra el arte oficial del luchador (o su inicial si no hay retrato)
+const monoSvg=f=>'data:image/svg+xml,'+encodeURIComponent(`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect width="100" height="100" fill="#262c3a"/><text x="50" y="62" font-family="system-ui,sans-serif" font-size="40" font-weight="800" fill="#a3aabc" text-anchor="middle">${initials(f.name)}</text></svg>`);
+const originalArt=f=>f.portrait||monoSvg(f);
 const Avatar=(f,cls='')=>`<span class="im av ${cls}">${f.portrait?`<img src="${esc(f.portrait)}" alt="" decoding="async">`:`<span class="mono" aria-hidden="true">${esc(initials(f.name))}</span>`}</span>`;
 
 /* --- etiquetas --- */
@@ -82,7 +85,7 @@ const onlineOf=p=>p.audited?(ONLINE[p.wifi_status]||['','Online: sin datos']):['
 /* ============================ imágenes ============================ */
 function ph(kind){return kind==='original'?`<span class="noimg" role="img" aria-label="Original del juego">${icon('pad')}</span>`:kind==='pending'?`<span class="noimg" role="img" aria-label="Sin foto del traje">${icon('image')}</span>`:`<span class="noimg" role="img" aria-label="Sin imagen">${icon('image')}<small>Sin imagen</small></span>`}
 function imBox(src,alt,o={}){const {kind,cls='',srcset,eager}=o;
- return `<span class="im ${cls}${!src&&kind==='original'?' orig':''}">${src?`<img src="${esc(src)}"${srcset?` srcset="${esc(srcset)}" sizes="${SIZES}"`:''} alt="${esc(alt)}" ${eager?'':'loading="lazy" '}decoding="async">`:ph(kind)}</span>`}
+ return `<span class="im ${cls}${kind==='original'&&src?' av':''}">${src?`<img src="${esc(src)}"${srcset?` srcset="${esc(srcset)}" sizes="${SIZES}"`:''} alt="${esc(alt)}" ${eager?'':'loading="lazy" '}decoding="async">`:ph(kind)}</span>`}
 // una imagen que falla se sustituye por un aviso con «Reintentar» (nunca un rectángulo vacío)
 document.addEventListener('error',e=>{const t=e.target;if(!t||t.tagName!=='IMG'||t.closest('.pswp'))return;
  const s=t.currentSrc||t.src;if(!t.dataset.src0)t.dataset.src0=t.getAttribute('src');
