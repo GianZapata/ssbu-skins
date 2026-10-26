@@ -12,11 +12,11 @@ python3 tools/build_viewer.py
 
 Sin dependencias de red ni de Node: solo Python 3 (Pillow únicamente si existe `thumbs/`). Lee `data/catalog.json` y `tools/template.html`; escribe `index.html` en la raíz. El CSS y el JS van dentro de esa página, así que GitHub Pages no necesita CDN ni compilación.
 
-Antes de generar, `python3 tools/validate_catalog.py` comprueba que el catálogo cumple `docs/AUDIT_CONTRACT.md`. `python3 tools/db.py seed` copia el catálogo y lo instalado a Firestore (lo hace la Action con el secreto `FIREBASE_SERVICE_ACCOUNT`).
+Antes de generar, `python3 tools/validate_catalog.py` comprueba que el catálogo cumple `docs/AUDIT_CONTRACT.md`. `python3 tools/db.py seed --only catalog` sincroniza el catálogo con Firestore (lo hace la Action con el secreto `FIREBASE_SERVICE_ACCOUNT`); el inventario solo se sincroniza a mano con `--only installed` (ver `docs/FIREBASE.md`). Los retratos de los luchadores salen de `assets/fighters/` (`tools/build_portraits.py`). Pruebas: `tests/run.sh` (ver `tests/README.md`).
 
 No subir `node_modules/`, binarios ni CSS compilado al repo: el historial no se puede aligerar sin reescribirlo.
 
-Inventario de lo instalado: `python3 tools/scan_installed.py <ruta del ModPack>` (rama principal) y `python3 tools/scan_branches.py <ruta del ModPack>` (ramas sin fusionar) escriben `data/installed.json`, `data/inventory_staged.json` y los retratos en `installed/*.webp`; `data/inventory_profile.json` es la capa curada del perfil. La página muestra cada nivel con su verificación (nunca como confirmado en la consola).
+Inventario de lo instalado: `python3 tools/scan_installed.py <ruta del ModPack>` (rama principal) y `python3 tools/scan_branches.py <ruta del ModPack>` (ramas sin fusionar) escriben `data/installed.json`, `data/inventory_staged.json` y los retratos en `installed/*.webp`; `python3 tools/scan_profile.py <ruta del ModPack>` calcula la capa del perfil (composición efectiva y exclusiones) en `data/inventory_profile.json`. La página muestra cada nivel con su verificación (nunca como confirmado en la consola).
 
 ## Base de datos y amigos (Firebase)
 

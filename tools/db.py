@@ -1,6 +1,9 @@
 # Puente entre el repositorio y Firestore (lo usan la Action de publicación, Grok y quien instala).
 #
-#   python3 tools/db.py seed [--only catalog|installed]   copia el catálogo y el inventario a Firestore
+#   python3 tools/db.py seed --only catalog               copia SOLO el catálogo (lo hace la Action en cada push; es lo que cambia la investigación)
+#   python3 tools/db.py seed --only installed             copia SOLO el inventario: acción manual, después de revisarlo (nunca automática)
+#   python3 tools/db.py seed --only all                   las dos cosas
+#   (seed no toca nunca changes, history ni status)
 #   python3 tools/db.py plan                              imprime el plan compartido (un cambio por traje) para revisarlo e instalarlo
 #   python3 tools/db.py status VID installed|failed|skipped [--result TEXTO]   anota el resultado de una instalación
 #   python3 tools/db.py migrate                           pasa la selección anterior (selection/main) al plan compartido (idempotente)
@@ -34,12 +37,12 @@ def _replace(db, coll, docs):
 
 def seed(db, only=None):
     done = []; fighters, meta = cd.load()
-    if only in (None, 'catalog'):
+    if only in ('all', 'catalog'):
         # `vids` permite a las reglas comprobar que un cambio apunta a una apariencia que existe
         _replace(db, 'catalog', {f['code']: {**f, 'vids': [p['vid'] for p in f['picks']], 'order': i, 'updatedAt': now()} for i, f in enumerate(fighters)})
         db.collection('meta').document('catalog').set({**meta, 'updatedAt': now()})
         done.append(f'{len(fighters)} luchadores')
-    if only in (None, 'installed'):
+    if only in ('all', 'installed'):
         inv = cd.load_inventory(fighters)
         if inv:
             _replace(db, 'installed', {c: {**v, 'updatedAt': now()} for c, v in inv['fighters'].items()})
@@ -64,7 +67,7 @@ def plan(db):
         st = status.get(c['vid']) or {}
         rows.append({'fighter': fi['name'] if fi else code, 'roster_no': code, 'traje': n + 1, 'slot': f'c{n:02d}',
                      'current': _current(inv, code, n),
-                     'proposal': None if not p else {'vid': p['vid'], 'mod_id': p['id'], 'name': p['name'], 'author': p['author'], 'url': p['url'],
+                     'proposal': None if not p else {'vid': p['vid'], 'role': p['role'], 'variant': p['variant'], 'mod_id': p['id'], 'name': p['name'], 'author': p['author'], 'url': p['url'],
                                                     'online': ONLINE.get(p['wifi_status'], 'Online: sin auditar'), 'conditions': p['conditions'] or None,
                                                     'dependencies': p['deps'] or None, 'conflicts': p['conflicts'] or None, 'native_slots': p['slots_orig'],
                                                     'dest_hint': p['dest'], 'pack': p['pack'], 'withdrawn': p['withdrawn']},
@@ -110,7 +113,7 @@ def migrate(db):
 if __name__ == '__main__':
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     sp = ap.add_subparsers(dest='cmd', required=True)
-    s = sp.add_parser('seed'); s.add_argument('--only', choices=['catalog', 'installed'])
+    s = sp.add_parser('seed'); s.add_argument('--only', choices=['catalog', 'installed', 'all'], required=True, help='qué sincronizar; el inventario nunca se sincroniza sin pedirlo')
     sp.add_parser('plan'); sp.add_parser('migrate')
     t = sp.add_parser('status'); t.add_argument('vid'); t.add_argument('status', choices=['installed', 'failed', 'skipped', 'wanted']); t.add_argument('--result')
     a = ap.parse_args(); db = client()
