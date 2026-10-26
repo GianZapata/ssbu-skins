@@ -1,0 +1,27 @@
+name: Revisar plan
+# Revisión previa a instalar: lee el plan compartido (changes de Firestore, por la API REST pública: no necesita secretos),
+# lo cruza con el catálogo y el inventario y publica el informe en el resumen de la ejecución. No instala ni escribe nada.
+on:
+  workflow_dispatch:
+    inputs:
+      strict:
+        description: 'Fallar si hay errores (⛔)'
+        type: boolean
+        default: false
+permissions:
+  contents: read
+jobs:
+  revisar:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: '3.12' }
+      - run: pip install Pillow
+      - name: Revisar el plan
+        run: |
+          python3 tools/review_plan.py --out informe.md --json informe.json ${{ inputs.strict && '--strict' || '' }}
+          cat informe.md >> "$GITHUB_STEP_SUMMARY"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with: { name: revision-del-plan, path: 'informe.*' }

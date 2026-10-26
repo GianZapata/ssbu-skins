@@ -63,3 +63,14 @@ Las selecciones del modelo anterior guardadas en un navegador **no se suben sola
 
 - **Grok:** solo `data/catalog.json` (investigación). Sus campos nuevos (`role`, `look_id`, `variant`, `audit_scope`, `downloads_scope`, `images_scope`, `alt_index`, `dependency_kind`, …) los lee `tools/catalog_data.py`; `look_id` es el `vid` estable de cada apariencia.
 - **Mantenedor del sitio:** interfaz, generador, validador, contratos, inventario, reglas e integración con Firebase.
+
+## Revisión previa a instalar (flujo automático)
+
+Cuando quieras instalar, no hace falta exportar a mano: **pídele a Claude «revisa el plan»**. Lanza la Action *Revisar plan* (o `python3 tools/review_plan.py`), que:
+
+1. lee el plan compartido de Firestore (API REST pública; las reglas permiten leer, no hacen falta secretos),
+2. cruza cada cambio con el catálogo y el inventario (perfil `gian-sin-musica`),
+3. publica un informe con **⛔ errores** (no instalar: apariencia retirada o inexistente, traje Mii, id de otro luchador, incompatible online), **⚠️ avisos** (reemplaza un favorito del perfil, hay que mover el mod de slot, plugin necesario, online con condiciones o sin confirmar, conflictos anotados, Pyra/Mythra sin coordinar, mismo mod en varios trajes, inventario de otra versión) y **ℹ️ notas** (mod compartido, skin ya preparada en una rama, variante concreta, vaivenes en el historial),
+4. no instala ni modifica nada.
+
+Alternativas: `python3 tools/review_plan.py --source admin` (con credenciales o emulador) o `--source file exportacion.json` (la exportación de la web). Con `--strict` termina con código 1 si hay errores. La instalación sigue siendo manual y la hace quien tiene el ModPack, con el informe delante.
