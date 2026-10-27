@@ -145,3 +145,12 @@ test('migrateCat restaura recomendadas y el filtro antiguo de online', () => {
   assert.equal(st.tercero, false);
   assert.deepEqual(SSBU.migrateCat(null), SSBU.emptyCat());
 });
+
+test('originalArt: cada traje usa su render original; sin él, el retrato del luchador', () => {
+  const f = { ...mario, costumes: ['assets/costumes/01-1.webp', null, 'assets/costumes/01-3.webp'] };
+  assert.equal(SSBU.originalArt(f, 2), 'assets/costumes/01-3.webp');
+  assert.equal(SSBU.originalArt(f, 1), 'assets/fighters/01.webp');
+  assert.equal(SSBU.originalArt(mario, 4), 'assets/fighters/01.webp');
+  const cur = SSBU.curOf('01', 2, { byCode: { '01': f }, INV: null, idx: {} });
+  assert.equal(cur.kind, 'original'); assert.equal(cur.img, 'assets/costumes/01-3.webp');
+});
