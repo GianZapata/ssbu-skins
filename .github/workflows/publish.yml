@@ -1,7 +1,9 @@
-name: Publicar página
+name: Sincronizar Firestore
+# La web se publica en Vercel (build: npm run build → dist). Esta Action ya NO publica nada: solo valida el catálogo y lo copia a Firestore.
 on:
   push:
     branches: [master]
+    paths: ['data/catalog.json', 'data/ids.lock.json', 'tools/catalog_data.py', 'tools/db.py', 'assets/fighters/**', '.github/workflows/publish.yml']
   workflow_dispatch:
     inputs:
       sync_inventory:
@@ -9,14 +11,12 @@ on:
         type: boolean
         default: false
 permissions:
-  contents: write
-  pages: write
-  id-token: write
+  contents: read
 concurrency:
-  group: pages
+  group: firestore-sync
   cancel-in-progress: false
 jobs:
-  build:
+  sync:
     runs-on: ubuntu-latest
     env:
       FIREBASE_SA: ${{ secrets.FIREBASE_SERVICE_ACCOUNT }}
@@ -24,11 +24,8 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with: { python-version: '3.12' }
-      - uses: actions/setup-node@v4
-        with: { node-version: '22' }
       - run: pip install Pillow
       - run: python3 tools/validate_catalog.py
-      - run: npm ci --no-audit --no-fund && npm run build
       - name: Sincronizar el catálogo con Firestore (solo el catálogo)
         if: env.FIREBASE_SA != ''
         run: |
@@ -37,20 +34,7 @@ jobs:
           GOOGLE_APPLICATION_CREDENTIALS="$RUNNER_TEMP/sa.json" python3 tools/db.py seed --only catalog
       - name: Sincronizar el inventario con Firestore (manual)
         if: env.FIREBASE_SA != '' && github.event_name == 'workflow_dispatch' && inputs.sync_inventory
-        run: |
-          GOOGLE_APPLICATION_CREDENTIALS="$RUNNER_TEMP/sa.json" python3 tools/db.py seed --only installed
-      - name: Preparar sitio
-        run: python3 tools/make_site.py _site
-      - uses: actions/configure-pages@v5
-        with: { enablement: true }
-      - uses: actions/upload-pages-artifact@v3
-        with: { path: _site }
-  deploy:
-    needs: build
-    runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.d.outputs.page_url }}
-    steps:
-      - id: d
-        uses: actions/deploy-pages@v4
+        run: GOOGLE_APPLICATION_CREDENTIALS="$RUNNER_TEMP/sa.json" python3 tools/db.py seed --only installed
+      - name: Sin secreto
+        if: env.FIREBASE_SA == ''
+        run: echo "::warning::Falta el secreto FIREBASE_SERVICE_ACCOUNT, el catálogo no se sincronizó con Firestore."

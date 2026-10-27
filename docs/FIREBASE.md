@@ -13,24 +13,21 @@ Proyecto: `ssbu-441b1`. La página es estática; todo lo que se comparte vive en
 
 El inventario y el estado de instalación **no** los puede tocar la web: la edición pública está limitada a `changes` e `history`.
 
-## Estado comprobado del proyecto real (`ssbu-441b1`)
+## Hosting: Vercel (GitHub Pages ya no se usa)
 
-Lo único que se ha podido comprobar de verdad es lo que dice el historial de la Action *Publicar página*:
+La web se publica en **Vercel** (`ssbu-skins.vercel.app`; build `npm run build`, salida `dist`, ver `vercel.json`). Cada rama o PR genera además un despliegue de prueba (`ssbu-skins-<hash>-….vercel.app`): esos dominios **no se pueden autorizar en Firebase** (no admite comodines), así que en ellos la web funciona pero no guarda el plan compartido («Servicio no disponible»). Solo el dominio de producción guarda.
 
-- **Comprobado** (ejecución 40238983640, 2026-10-25 22:11 UTC, `workflow_dispatch` sobre `1bd34f5`): el secreto `FIREBASE_SERVICE_ACCOUNT` existe y es válido; el paso «Sincronizar el catálogo con Firestore» **se ejecutó** (no se omitió) y terminó con `ok · Firestore actualizado: 89 luchadores, inventario de 83 luchadores`. Es decir, la base de datos Firestore existe y la cuenta de servicio puede escribir en ella. Esa ejecución usó el `seed` antiguo (catálogo **e** inventario, ambos de la versión publicada de `master`: 697 apariencias y el inventario anterior).
-- **No comprobado** desde aquí (hace falta la consola de Firebase o abrir la web publicada): que las **reglas de `firestore.rules` estén publicadas**, que la **autenticación anónima** esté habilitada y que `gianzapata.github.io` esté en los dominios autorizados. Si falta alguno, la web lo muestra como «Servicio no disponible» y deja el detalle en *Más → Estado y diagnóstico* (el cambio no se pierde: queda en el dispositivo).
-- Al fusionar esta rama, la Action sincroniza **solo el catálogo** (1225 apariencias). El inventario que hay hoy en Firestore es el anterior (sin el perfil `gian-sin-musica`) hasta que alguien ejecute la sincronización manual del inventario (ver más arriba).
+Las Actions de GitHub ya no publican la página: **Sincronizar Firestore** valida el catálogo y lo copia a Firestore; **Configurar Firebase** y **Revisar plan** son manuales.
 
-## Pendiente de configurar fuera del repositorio (una sola vez)
+## Configuración de Firebase: automática o a mano
 
-Mientras no se haga, la página funciona con la copia incrustada y guarda el plan en el dispositivo («Solo en este dispositivo» / «Sin conexión»).
+Lo que hace falta en `ssbu-441b1` (una sola vez): acceso **anónimo** activado, **`ssbu-skins.vercel.app`** entre los dominios autorizados, **reglas** de `firestore.rules` publicadas y el catálogo sembrado.
 
-1. **Authentication → Sign-in method → habilitar «Anónimo»** y, en *Settings → Authorized domains*, añadir `gianzapata.github.io`. 
-2. **Firestore Database → Crear base de datos** (modo producción).
-3. **Publicar las reglas** de `firestore.rules` (consola → Reglas, o `firebase deploy --only firestore:rules`).
-4. **Cuenta de servicio** para sembrar y exportar: *Configuración del proyecto → Cuentas de servicio → Generar clave privada*. Guárdala como secreto `FIREBASE_SERVICE_ACCOUNT` del repositorio (la Action siembra en cada push) o úsala en local con `GOOGLE_APPLICATION_CREDENTIALS`. No subas la clave.
-5. Primera carga: `python3 tools/db.py seed --only all` (catálogo + inventario; después el catálogo se sincroniza solo y el inventario solo a mano). El plan nunca se inicializa solo con selecciones antiguas de un navegador; si hace falta pasar la selección antigua de Firestore, ejecuta `python3 tools/db.py migrate` (explícito e idempotente).
-6. Recomendado: restringir la clave de API web a `https://gianzapata.github.io/*` y, si se quiere, activar App Check.
+- **Comprobar (sin secretos):** *Actions → Configurar Firebase → Run workflow → comprobar* (o `python3 tools/firebase_setup.py check`). Intenta lo mismo que un visitante —entrar sin cuenta y leer el catálogo— y dice qué falta.
+- **Aplicar:** *Configurar Firebase → aplicar* (o `python3 tools/firebase_setup.py apply`). Usa la cuenta de servicio del secreto `FIREBASE_SERVICE_ACCOUNT` para activar el acceso anónimo, **sumar** los dominios de `data/firebase_setup.json` (nunca quita ninguno) y publicar las reglas. Para que pueda, a esa cuenta de servicio hay que darle en Google Cloud → IAM el rol **Administrador de Firebase** (o los dos: *Administrador de Firebase Authentication* y *Administrador de reglas de seguridad de Firebase*). Si le falta uno, el informe dice cuál; el paso se hace entonces a mano en la consola.
+- **Estado conocido:** el secreto existe y escribe en Firestore (ejecución del 2026-10-25 de la Action: `ok · Firestore actualizado: 89 luchadores…`), así que la base existe. Reglas y acceso anónimo no estaban comprobados.
+
+La clave de API web no es un secreto (identifica el proyecto); si la restringes por dominio, incluye `https://ssbu-skins.vercel.app/*`.
 
 ## Reglas (resumen)
 

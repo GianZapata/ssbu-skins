@@ -1,0 +1,35 @@
+name: Configurar Firebase
+# Manual. «comprobar» no necesita secretos: dice qué falta viendo lo mismo que un visitante.
+# «aplicar» usa la cuenta de servicio (secreto FIREBASE_SERVICE_ACCOUNT): activa el acceso anónimo, autoriza los dominios de
+# data/firebase_setup.json (Vercel) y publica firestore.rules. Si a la cuenta le falta un permiso, el informe dice cuál.
+on:
+  workflow_dispatch:
+    inputs:
+      accion:
+        description: 'comprobar (sin secretos) o aplicar (configura Firebase)'
+        type: choice
+        options: [comprobar, aplicar]
+        default: comprobar
+permissions:
+  contents: read
+jobs:
+  firebase:
+    runs-on: ubuntu-latest
+    env:
+      FIREBASE_SA: ${{ secrets.FIREBASE_SERVICE_ACCOUNT }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: '3.12' }
+      - run: pip install google-auth requests
+      - name: Comprobar
+        if: inputs.accion == 'comprobar'
+        run: |
+          python3 tools/firebase_setup.py check --out informe.md || RC=$?
+          cat informe.md >> "$GITHUB_STEP_SUMMARY"; exit ${RC:-0}
+      - name: Aplicar
+        if: inputs.accion == 'aplicar'
+        run: |
+          printf '%s' "$FIREBASE_SA" > "$RUNNER_TEMP/sa.json"
+          GOOGLE_APPLICATION_CREDENTIALS="$RUNNER_TEMP/sa.json" python3 tools/firebase_setup.py apply --out informe.md || RC=$?
+          cat informe.md >> "$GITHUB_STEP_SUMMARY"; exit ${RC:-0}

@@ -10,9 +10,9 @@ Los estados Wi-Fi safe son los estados de evidencia registrados en el catálogo,
 npm run build
 ```
 
-Vite y Tailwind arman `dist/` (y `_site/` si después se corre `python3 tools/make_site.py`). Python solo prepara el catálogo (`tools/export_boot.py`; Pillow únicamente si existe `thumbs/`). `npm run dev` abre la página en local. En Vercel el build es `npm run build` y el directorio publicado es `dist`.
+Vite y Tailwind arman `dist/` (y `_site/` si después se corre `python3 tools/make_site.py`). Python solo prepara el catálogo (`tools/export_boot.py`; Pillow únicamente si existe `thumbs/`). `npm run dev` abre la página en local. La web se publica en Vercel (`ssbu-skins.vercel.app`): el build es `npm run build` y el directorio publicado es `dist`. GitHub Pages ya no se usa.
 
-Antes de generar, `python3 tools/validate_catalog.py` comprueba que el catálogo cumple `docs/AUDIT_CONTRACT.md`. `python3 tools/db.py seed --only catalog` sincroniza el catálogo con Firestore (lo hace la Action con el secreto `FIREBASE_SERVICE_ACCOUNT`); el inventario solo se sincroniza a mano con `--only installed` (ver `docs/FIREBASE.md`). Los retratos de los luchadores salen de `assets/fighters/` (`tools/build_portraits.py`). Pruebas: `tests/run.sh` (ver `tests/README.md`).
+Antes de generar, `python3 tools/validate_catalog.py` comprueba que el catálogo cumple `docs/AUDIT_CONTRACT.md`. `python3 tools/db.py seed --only catalog` sincroniza el catálogo con Firestore (lo hace la Action *Sincronizar Firestore* con el secreto `FIREBASE_SERVICE_ACCOUNT`); el inventario solo se sincroniza a mano con `--only installed` (ver `docs/FIREBASE.md`). Los retratos de los luchadores salen de `assets/fighters/` (`tools/build_portraits.py`). Pruebas: `tests/run.sh` (ver `tests/README.md`).
 
 No subir `node_modules/`, binarios ni CSS compilado al repo: el historial no se puede aligerar sin reescribirlo.
 
@@ -23,3 +23,5 @@ Inventario de lo instalado: `python3 tools/scan_installed.py <ruta del ModPack>`
 La página tiene tres secciones —**Luchadores**, **Catálogo** y **Cambios**— y un único plan compartido. En un luchador se elige uno de los ocho trajes, se compara la apariencia del inventario con una propuesta y se agrega al plan (sesión anónima automática, historial y «Deshacer»). Guardar una propuesta no la instala en la consola. El inventario y el estado de instalación no se pueden editar desde la web. Configuración y reglas: `docs/FIREBASE.md`; lectura del plan para instalar: `python3 tools/db.py plan` (contrato en `docs/SELECTION_CONTRACT.md`).
 
 Antes de instalar: `python3 tools/review_plan.py` (o la Action *Revisar plan*) analiza el plan compartido y avisa de inconsistencias sin instalar nada; ver `docs/SELECTION_CONTRACT.md`.
+
+Configurar o comprobar Firebase (acceso anónimo, dominio de Vercel, reglas): `python3 tools/firebase_setup.py check|apply` o la Action *Configurar Firebase*; ver `docs/FIREBASE.md`.

@@ -1,0 +1,21 @@
+name: Trajes originales
+# Baja los renders oficiales de los 8 trajes originales de cada luchador (assets/costumes + data/original_costumes.json) y los sube a la rama donde se ejecute.
+on: workflow_dispatch
+permissions:
+  contents: write
+jobs:
+  trajes:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: '3.12' }
+      - run: pip install pillow
+      - run: python3 tools/build_costumes.py
+      - name: Subir trajes
+        if: always()
+        run: |
+          git config user.name "github-actions[bot]"; git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/costumes data/original_costumes.json
+          git diff --cached --quiet && { echo "sin cambios"; exit 0; }
+          git commit -m "Trajes originales de los luchadores (renders oficiales)"; git push
