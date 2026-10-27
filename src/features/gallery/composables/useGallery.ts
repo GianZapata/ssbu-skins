@@ -24,7 +24,7 @@ export const openGallery = async (name: string, imgs: Shot[], index: number, hos
   const pswp = new PhotoSwipe({
     dataSource: items,
     index,
-    bgOpacity: 0.97,
+    bgOpacity: 1,
     loop: false,
     wheelToZoom: true,
     returnFocus: false,

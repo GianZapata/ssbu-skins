@@ -2,29 +2,20 @@
 import { computed } from 'vue'
 import { route, tick } from './composables/useApp'
 import AppShell from './layouts/AppShell.vue'
-import CatalogPage from './pages/CatalogPage.vue'
-import ChangesPage from './pages/ChangesPage.vue'
-import FichaPage from './pages/FichaPage.vue'
 import FighterPage from './pages/FighterPage.vue'
 import FightersPage from './pages/FightersPage.vue'
 
+/* La hoja de detalle se abre sobre Luchador y el resumen sobre Luchadores. */
 const name = computed(() => {
   tick.value
   const view = route.value.v
-  if (view === 'traje' || view === 'luchador') return 'fighter'
-  if (view === 'ficha') return 'ficha'
-  if (view === 'catalogo') return 'catalogo'
-  if (view === 'cambios') return 'cambios'
-  return 'luchadores'
+  return view === 'traje' || view === 'luchador' || view === 'ficha' ? 'fighter' : 'luchadores'
 })
 </script>
 
 <template>
   <AppShell>
-    <FightersPage v-if="name === 'luchadores'" />
-    <FighterPage v-else-if="name === 'fighter'" />
-    <CatalogPage v-else-if="name === 'catalogo'" />
-    <FichaPage v-else-if="name === 'ficha'" />
-    <ChangesPage v-else />
+    <FighterPage v-if="name === 'fighter'" />
+    <FightersPage v-else />
   </AppShell>
 </template>
