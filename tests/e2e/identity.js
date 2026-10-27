@@ -22,14 +22,14 @@ module.exports = async (b, base) => {
   const bad = tiles.filter(t => t.src && !/^assets\/fighters\/[\w]+\.webp$/.test(t.src));
   ok(tiles.length === 89 && bad.length === 0, 'todos los retratos del selector son oficiales (assets/fighters), ninguno es la imagen de un traje o de GameBanana');
   ok(tiles.filter(t => t.src).every(t => t.ok), 'los retratos oficiales cargan (archivos publicados)');
-  ok(tiles.filter(t => t.mono).length === 12 && tiles.filter(t => t.mono).every(t => +t.c >= 71), '12 luchadores DLC (71–82) muestran su inicial mientras no haya retrato oficial');
+  ok(tiles.filter(t => t.src && t.src.startsWith('assets/fighters/')).length === 89, 'los 89 luchadores (incluyendo DLC 71–82) tienen su retrato oficial publicado');
   ok(tiles.find(t => t.c === '03').src === 'assets/fighters/03.webp', 'Link usa su propio retrato (regresión «Lightning como Link»)');
   const linkInv = await P.evaluate(() => Object.values((INV.fighters['03'] || { slots: {} }).slots).filter(s => s.img).length);
   await P.goto(base + '#/luchador/03'); await P.waitForSelector('.tgrid');
   const hdr = await P.evaluate(() => document.querySelector('.fh img').getAttribute('src')); ok(hdr === 'assets/fighters/03.webp', `la cabecera de Link conserva su retrato aunque el inventario trae ${linkInv} retratos de trajes`);
   await shot(P, '08-selector'); await P.goto(base + '#/luchadores'); await P.waitForSelector('.ft'); await P.evaluate(() => scrollTo(0, 0)); await shot(P, '08-selector');
-  // el traje «Original» nunca se ve vacío: arte oficial del luchador (o su inicial si no hay retrato)
-  for (const [code, re, what] of [['01', /^assets\/fighters\/01\.webp$/, 'retrato oficial'], ['82', /^data:image\/svg\+xml/, 'su inicial (sin retrato oficial)']]) {
+  // el traje «Original» nunca se ve vacío: arte oficial del luchador
+  for (const [code, re, what] of [['01', /^assets\/fighters\/01\.webp$/, 'retrato oficial de Mario'], ['82', /^assets\/fighters\/82\.webp$/, 'retrato oficial de Sora']]) {
     await P.goto(base + '#/luchador/' + code); await P.waitForSelector('.tgrid'); await P.waitForTimeout(300);
     const t1 = await P.evaluate(() => { const i = document.querySelector('.tj .im img'); return { src: i && i.getAttribute('src'), ok: i && i.complete && i.naturalWidth > 0, txt: document.querySelector('.tj .nm').textContent }; });
     ok(t1.src && re.test(t1.src) && t1.ok && t1.txt === 'Original', `la primera opción de ${code === '01' ? 'Mario' : 'Sora'} muestra ${what} y la etiqueta «Original»`);
