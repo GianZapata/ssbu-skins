@@ -3,7 +3,7 @@ name: Sincronizar Firestore
 on:
   push:
     branches: [master]
-    paths: ['data/catalog.json', 'data/ids.lock.json', 'tools/catalog_data.py', 'tools/db.py', '.github/workflows/publish.yml']
+    paths: ['data/catalog.json', 'data/ids.lock.json', 'tools/catalog_data.py', 'tools/db.py', 'assets/fighters/**', '.github/workflows/publish.yml']
   workflow_dispatch:
     inputs:
       sync_inventory:
@@ -37,4 +37,4 @@ jobs:
         run: GOOGLE_APPLICATION_CREDENTIALS="$RUNNER_TEMP/sa.json" python3 tools/db.py seed --only installed
       - name: Sin secreto
         if: env.FIREBASE_SA == ''
-        run: echo "::warning::Falta el secreto FIREBASE_SERVICE_ACCOUNT: el catálogo no se sincronizó con Firestore."
+        run: echo "::warning::Falta el secreto FIREBASE_SERVICE_ACCOUNT, el catálogo no se sincronizó con Firestore."
