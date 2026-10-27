@@ -3,7 +3,7 @@ name: Sincronizar Firestore
 on:
   push:
     branches: [master]
-    paths: ['data/catalog.json', 'data/ids.lock.json', 'tools/catalog_data.py', 'tools/db.py', 'assets/fighters/**', '.github/workflows/publish.yml']
+    paths: ['data/catalog.json', 'data/ids.lock.json', 'tools/catalog_data.py', 'tools/db.py', 'assets/fighters/**', 'assets/costumes/**', 'data/original_costumes.json', '.github/workflows/publish.yml']
   workflow_dispatch:
     inputs:
       sync_inventory:

@@ -100,8 +100,8 @@ const SSBU = (() => {
     return 'data:image/svg+xml,' + encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect width="100" height="100" fill="#262c3a"/><text x="50" y="62" font-family="system-ui,sans-serif" font-size="40" font-weight="800" fill="#a3aabc" text-anchor="middle">' + initials(f.name) + '</text></svg>');
   }
 
-  function originalArt(f) {
-    return (f && f.portrait) || monoSvg(f || { name: '' });
+  function originalArt(f, n) {
+    return (f && f.costumes && f.costumes[n]) || (f && f.portrait) || monoSvg(f || { name: '' });
   }
 
   function curOf(code, n, ctx) {
@@ -129,7 +129,7 @@ const SSBU = (() => {
       if (s.name) return { ...base, kind: 'mod', name: s.name };
       return (s.img || s.skin) ? { ...base, kind: 'pending', name: 'Nombre pendiente' } : { ...base, kind: 'unknown', name: 'Sin identificar' };
     }
-    return { ...rep, kind: 'original', name: 'Original', img: originalArt(f), reference, badge: '', art: true, staged: stg, verif: 'Sin ningún mod en el inventario revisado. No está comprobado en la consola.' };
+    return { ...rep, kind: 'original', name: 'Original', img: originalArt(f, n), reference, badge: '', art: true, staged: stg, verif: 'Sin ningún mod en el inventario revisado. No está comprobado en la consola.' };
   }
 
   function assignBlock(entries, code, slot, vid) {
