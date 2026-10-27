@@ -1,0 +1,20 @@
+name: Retratos DLC
+# Baja los 12 retratos oficiales de los DLC (71–82) que faltan en assets/fighters y los sube a la rama donde se ejecute.
+on: workflow_dispatch
+permissions:
+  contents: write
+jobs:
+  retratos:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: '3.12' }
+      - run: pip install pillow
+      - run: python3 tools/build_portraits.py dlc
+      - name: Subir retratos
+        run: |
+          git config user.name "github-actions[bot]"; git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/fighters
+          git diff --cached --quiet && { echo "sin cambios"; exit 0; }
+          git commit -m "Retratos oficiales de los DLC (71–82)"; git push
