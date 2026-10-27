@@ -36,8 +36,7 @@ test('galeria', async ({ page }) => {
 
 test('comparar', async ({ page }) => {
   await page.goto('/index.html#/luchador/01/1');
-  await page.waitForSelector('[data-mode="comparar"]');
-  await page.click('[data-mode="comparar"]');
+  await page.waitForSelector('.cur, .cmp2');
   await shot(page, 'comparar');
 });
 
@@ -68,10 +67,10 @@ test('vacio', async ({ page }) => {
   await shot(page, 'vacio');
 });
 
-test('menu', async ({ page }) => {
-  await page.goto('/index.html#/luchadores');
-  await page.waitForSelector('#menuBtn');
-  await page.click('#menuBtn');
+test('filtros', async ({ page }) => {
+  await page.goto('/index.html#/catalogo');
+  await page.waitForSelector('[data-filters]');
+  await page.click('[data-filters]');
   await page.waitForSelector('#dlg.open');
   await shot(page, 'menu');
 });

@@ -5,7 +5,7 @@ module.exports = async (b, base) => {
   ok(await until(A, () => dbState === 'ok', null), 'A: se conecta solo (sesión anónima automática, sin login ni nombre)');
   ok((await A.textContent('#sync')).includes('Guardado'), 'A: estado visible «Guardado»');
   ok(await A.evaluate(() => !document.body.innerText.match(/token|GitHub|Mi selección|Conectar y enviar/i)), 'A: sin «Mi selección», tokens ni «Conectar y enviar»');
-  ok(await A.locator('nav.tabs a').allTextContents().then(t => t.map(x => x.replace(/\d+$/, '')).join() === 'Luchadores,Catálogo,Cambios'), 'A: tres secciones: Luchadores, Catálogo, Cambios');
+  ok(await A.locator('#fq').count() === 1 && await A.locator('nav.tabs').count() === 0, 'A: la entrada es buscar luchador, sin barra inferior');
   // buscar y reconocer lo actual
   await A.fill('#fq', 'sora'); await A.waitForTimeout(250);
   ok(await A.locator('.ft').count() === 1, 'A: la búsqueda de luchador filtra'); await shot(A, '01-luchadores-busqueda');

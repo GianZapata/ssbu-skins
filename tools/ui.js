@@ -16,11 +16,11 @@ const IC={search:'<circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/>',back:'
  swap:'<path d="M7 7h12l-3-3M17 17H5l3 3"/>',pad:'<path d="M6 8h12a3 3 0 013 3v3a3 3 0 01-5.2 2L14 14h-4l-1.8 2A3 3 0 013 14v-3a3 3 0 013-3z"/><path d="M8 11v2M7 12h2"/>',
  image:'<rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="9" cy="10" r="1.6"/><path d="M21 16l-5-5-8 8"/>',retry:'<path d="M20 11a8 8 0 10-2.3 5.7"/><path d="M20 4v7h-7"/>',zoom:'<circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4M11 8v6M8 11h6"/>',
  clock:'<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/>',info:'<circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 8v.01"/>',share:'<path d="M12 15V4M8 8l4-4 4 4"/><path d="M5 13v6h14v-6"/>',help:'<circle cx="12" cy="12" r="9"/><path d="M9.5 9.5a2.5 2.5 0 114 2c-.9.6-1.5 1-1.5 2M12 17v.01"/>',
- undo:'<path d="M9 14L4 9l5-5"/><path d="M4 9h10a6 6 0 010 12h-3"/>',check:'<path d="M5 12l5 5 9-10"/>',plus:'<path d="M12 5v14M5 12h14"/>',wrench:'<path d="M14 6a4 4 0 005 5l-9 9a2.5 2.5 0 01-4-4l9-9"/>',close:'<path d="M6 6l12 12M18 6L6 18"/>'};
+ undo:'<path d="M9 14L4 9l5-5"/><path d="M4 9h10a6 6 0 010 12h-3"/>',check:'<path d="M5 12l5 5 9-10"/>',plus:'<path d="M12 5v14M5 12h14"/>',wrench:'<path d="M14 6a4 4 0 005 5l-9 9a2.5 2.5 0 01-4-4l9-9"/>',close:'<path d="M6 6l12 12M18 6L6 18"/>',expand:'<path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"/>',arrow:'<path d="M5 12h14M13 6l6 6-6 6"/>'};
 const icon=(n,c='')=>`<svg class="ic ${c}" viewBox="0 0 24 24" aria-hidden="true" focusable="false">${IC[n]||''}</svg>`;
 const Pill=(t,k='')=>`<span class="pill ${k}">${esc(t)}</span>`;
 const Btn=(label,{k='',ic='',attrs=''}={})=>`<button class="btn ${k}" ${attrs}>${ic?icon(ic):''}<span>${esc(label)}</span></button>`;
-const LinkBtn=(label,h,{k='',ic='',ext=false}={})=>`<a class="btn ${k}" href="${esc(h)}"${ext?' target="_blank" rel="noopener"':''}>${ic?icon(ic):''}<span>${esc(label)}</span></a>`;
+const LinkBtn=(label,h,{k='',ic='',ext=false,attrs=''}={})=>`<a class="btn ${k}" href="${esc(h)}"${ext?' target="_blank" rel="noopener"':''} ${attrs}>${ic?icon(ic):''}<span>${esc(label)}</span></a>`;
 const Note=(title,body,k='')=>`<div class="note ${k}"><b>${esc(title)}</b>${body}</div>`;
 const Empty=(ic,title,sub='')=>`<div class="empty">${icon(ic,'big')}<b>${esc(title)}</b>${sub?`<p>${sub}</p>`:''}</div>`;
 const SIZES='(min-width:1000px) 250px,(min-width:700px) 240px,calc((100vw - 40px) / 2)';
@@ -81,10 +81,11 @@ document.addEventListener('error',e=>{const t=e.target;if(!t||t.tagName!=='IMG'|
  if(!t.dataset.fb&&s.includes('/530-90_')){t.dataset.fb='1';t.removeAttribute('srcset');t.removeAttribute('sizes');t.src=s.replace('/530-90_','/220-90_');return}
  if(!t.dataset.origTried&&t.dataset.orig&&t.getAttribute('src')!==t.dataset.orig){t.dataset.origTried='1';t.removeAttribute('srcset');t.removeAttribute('sizes');t.src=t.dataset.orig;return}
  const box=t.parentElement,alt=t.alt,src0=t.dataset.src0;t.remove();
- if(box.closest('a,button')){box.insertAdjacentHTML('beforeend',`<span class="noimg" role="img" aria-label="La imagen no cargó">${icon('retry')}<small>No cargó</small></span>`);return}
+ if(box.closest('a,button')){box.insertAdjacentHTML('beforeend',`<span class="noimg" role="img" aria-label="No se pudo cargar la foto">${icon('image')}</span>`);const host=box.closest('button.hero,a.hero');if(host&&host.parentElement&&!host.parentElement.querySelector('[data-retry]'))host.insertAdjacentHTML('afterend',`<button type="button" class="btn" data-retry="${esc(src0)}" data-alt="${esc(alt)}">Reintentar</button>`);return}
  box.insertAdjacentHTML('beforeend',`<button class="noimg" data-retry="${esc(src0)}" data-alt="${esc(alt)}" aria-label="La imagen no cargó. Reintentar">${icon('retry')}<small>Reintentar</small></button>`)},true);
 document.addEventListener('click',e=>{const b=e.target.closest('[data-retry]');if(!b)return;e.preventDefault();e.stopPropagation();
- const box=b.parentElement,src=b.dataset.retry,alt=b.dataset.alt;b.remove();
+ const src=b.dataset.retry,alt=b.dataset.alt;const host=b.previousElementSibling;const box=(host&&host.querySelector&&host.querySelector('.im'))||b.parentElement;b.remove();
+ const old=box.querySelector('.noimg');if(old)old.remove();
  const im=new Image();im.alt=alt;im.decoding='async';im.dataset.src0=src;im.dataset.fb='1';im.src=src+(src.startsWith('http')?(src.includes('?')?'&':'?')+'r='+Date.now():'');box.appendChild(im)},true);
 
 /* ============================ avisos y hojas ============================ */
@@ -99,7 +100,7 @@ function hideOv(id){if(id==='dlg')closeDlgDom();else if(id==='gal'&&PSWP){const 
 function closeDlgDom(){$('dlg').classList.remove('open');document.body.classList.remove('lock');if(dlgOpener&&dlgOpener.focus)try{dlgOpener.focus()}catch(e){}}
 function openDlg(title,html,back){$('dlgT').textContent=title;$('dlgB').innerHTML=html;$('dlgBack').hidden=!back;
  if(!$('dlg').classList.contains('open')){dlgOpener=document.activeElement;$('dlg').classList.add('open');document.body.classList.add('lock');ovPush('dlg')}
- setTimeout(()=>{const f=$('dlg').querySelector('.bd2 button,.bd2 a,#dlgX');if(f)f.focus()},30)}
+ const f=$('dlg').querySelector('.bd2 .btn.p,.bd2 button,.bd2 a,#dlgX');if(f)f.focus()}
 const closeDlg=()=>{closeDlgDom();ovDone('dlg')};
 $('dlgX').onclick=closeDlg;$('dlg').onclick=e=>{if(e.target===$('dlg'))closeDlg()};
 $('dlgBack').onclick=()=>showMenu();
@@ -119,7 +120,7 @@ const para=q=>{const m=/^(.+)_([0-7])$/.exec(q||'');return m&&byCode[m[1]]?{code
 const href={fighter:c=>`#/luchador/${enc(c)}`,traje:(c,n)=>`#/luchador/${enc(c)}/${n+1}`,cat:(c,n)=>`#/catalogo?f=${enc(c)}&para=${enc(keyOf(c,n))}`,ficha:(vid,p)=>`#/apariencia/${enc(vid)}${p?'?para='+enc(p.raw||p):''}`};
 function go(h,replace){S.fresh=true;if(replace)location.replace(h);else location.hash=h.replace(/^#/,'')}
 document.addEventListener('click',e=>{const a=e.target.closest('a[href^="#/"]');if(a)S.fresh=true},true);
-function head(title,back){$('ttl').textContent=title;document.title=title+' · Skins SSBU';$('back').hidden=!back}
+function head(title,back,portrait){$('ttl').textContent=title;document.title=title+' · Skins SSBU';$('back').hidden=!back;const ava=$('ava');if(!ava)return;if(portrait){ava.hidden=false;ava.innerHTML=portrait}else{ava.hidden=true;ava.innerHTML=''}}
 function parentOf(R){if(R.v==='ficha')return para(R.q.para)?href.traje(para(R.q.para).code,para(R.q.para).n):'#/catalogo';return '#/luchadores'}
 $('back').onclick=()=>{if(S.nav>0)history.back();else go(parentOf(RT),true)};
 function viewId(R){if(!R)return '';if(R.v==='luchador'||R.v==='traje')return 'fighter:'+R.code;if(R.v==='ficha')return 'ficha:'+R.vid;return R.v}
@@ -141,9 +142,12 @@ function onRoute(force){if(!force&&location.hash===lastHash)return;const fresh=S
  render(false);scrollTo(0,fresh?0:(scrollMem[RT.key]||0));try{$('ttl').focus({preventScroll:true})}catch(e){}}
 function measureNav(){const n=document.querySelector('nav.tabs');if(n&&n.offsetHeight){const h=n.offsetHeight-parseFloat(getComputedStyle(n).paddingBottom||0);document.documentElement.style.setProperty('--navh',h+'px')}const top=document.querySelector('.top');if(top&&top.offsetHeight)document.documentElement.style.setProperty('--bar',top.offsetHeight+'px')}
 if(window.ResizeObserver){const ro=new ResizeObserver(measureNav);const tabs=document.querySelector('nav.tabs'),top=document.querySelector('.top');if(tabs)ro.observe(tabs);if(top)ro.observe(top)}addEventListener('resize',measureNav);addEventListener('orientationchange',()=>setTimeout(measureNav,200));
-function paintTabs(){const n=planEntries().length;document.querySelectorAll('#tabN,#tabN2').forEach(b=>{b.hidden=!n;b.textContent=String(n)});
- const tab={luchadores:'luchadores',luchador:'luchadores',traje:'luchadores',catalogo:'catalogo',ficha:'catalogo',cambios:'cambios'}[RT&&RT.v];
- document.querySelectorAll('nav.tabs a, nav.desk a').forEach(a=>a.getAttribute('data-tab')===tab?a.setAttribute('aria-current','page'):a.removeAttribute('aria-current'))}
+function paintTabs(){const n=planEntries().length;document.querySelectorAll('#tabN2').forEach(b=>{b.hidden=!n;b.textContent=String(n)});
+ const tab={luchadores:'luchadores',luchador:'luchadores',traje:'luchadores',catalogo:'luchadores',ficha:'luchadores',cambios:'cambios'}[RT&&RT.v];
+ document.querySelectorAll('nav.desk a').forEach(a=>a.getAttribute('data-tab')===tab?a.setAttribute('aria-current','page'):a.removeAttribute('aria-current'));
+ const bar=$('picked');if(!bar)return;const show=n>0&&RT&&RT.v==='luchadores';bar.hidden=!show;document.body.classList.toggle('has-picked',show);
+ bar.setAttribute('aria-label','Ver skins elegidas, '+n);const num=$('pickedN');if(num)num.textContent=String(n);
+ const faces=$('pickedFaces');if(faces)faces.innerHTML=planEntries().slice(0,3).map(e=>{const p=idx[e.vid]&&idx[e.vid].p;const src=p?(smallSrc(p)||p.img):null;return `<span class="face">${src?`<img src="${esc(src)}" alt="">`:''}</span>`}).join('')}
 function paintLive(){paintTabs();if(!RT)return;
  if(RT.v==='luchadores'){paintFighterCounts();return}
  if(RT.v==='luchador'||RT.v==='traje'){const f=byCode[RT.code];if(!f||f.mii)return;paintSum(f);paintSlots(f);paintStage();paintCatBadges();return}
@@ -154,21 +158,26 @@ function paintLive(){paintTabs();if(!RT)return;
 const FILTERS=[['rec','Recomendadas'],['autor_explicito','Declarada por el autor'],['autor_condicionado','Con condiciones'],['tercero','Según terceros'],['sin_evidencia','Sin evidencia'],['incompatible','Incompatible'],['unaudited','Sin auditar'],['avail','Disponibles']];
 function filtersOn(st){return !!(st&&(st.q||st.f||SSBU.FILTER_KEYS.some(k=>st[k])))}
 function activeHtml(st){return FILTERS.filter(([k])=>st[k]).map(([k,lab])=>`<button type="button" class="chip on" data-off="${k}" aria-label="Quitar filtro ${esc(lab)}">${esc(lab)}</button>`).join('')}
-function originLine(c){if(!c)return '';if(c.kind==='original')return 'Original del juego. No está comprobado en la consola.';if(c.kind==='pending')return 'Retrato en el inventario, nombre pendiente. No está comprobado en la consola.';if(c.kind==='unknown')return 'Hay un mod en el inventario y no se pudo identificar.';if(c.kind==='na')return 'Sin trajes de este tipo.';return (c.badge?c.badge+' · ':'')+'Inventario revisado. No está comprobado en la consola.'}
+function originLine(c){if(!c)return '';if(c.kind==='original')return 'Original del juego. No está comprobado en la consola.';if(c.kind==='pending')return 'Retrato guardado, nombre pendiente. No está comprobado en la consola.';if(c.kind==='unknown')return 'Hay un mod y no se pudo identificar.';if(c.kind==='na')return 'Sin trajes de este tipo.';return (c.badge?c.badge+' · ':'')+'Revisado en el repositorio. No está comprobado en la consola.'}
 
 function fTile(f){const n=changesOf(f.code).length;
- return `<a class="ft ${n?'has':''}" href="${href.fighter(f.code)}" aria-label="${esc(f.name)}${n?`, ${n} ${n>1?'propuestas':'propuesta'}`:''}">${n?`<span class="cnt" aria-hidden="true">${n}</span>`:''}${Avatar(f)}<b>${esc(f.name)}</b></a>`}
+ const label=n?`${f.name}, ${n} ${n>1?'skins elegidas':'skin elegida'}`:f.name;
+ return `<a class="ft${n?' has':''}" href="${href.fighter(f.code)}" aria-label="${esc(label)}">${Avatar(f)}${n?`<span class="cnt" aria-hidden="true">${n}</span>`:''}<b>${esc(f.name)}</b></a>`}
 function fList(){const q=norm(S.fq);return F.filter(f=>!q||norm(f.name).includes(q)).map(fTile).join('')}
 function vFighters(){head('Luchadores',false);const h=fList();
- const list=F.length?`<div class="fgrid" id="fg">${h}</div><div id="fe" ${h?'hidden':''}>${Empty('search','Ningún luchador con ese nombre','Prueba con otra parte del nombre.')}</div>`:`<div class="fgrid" id="fg" aria-busy="true">${'<span class="ft sk"></span>'.repeat(9)}<span class="sr">Cargando luchadores</span></div><div id="fe" hidden></div>`;
+ const list=F.length?`<div class="fgrid" id="fg">${h}</div><div id="fe" ${h?'hidden':''}>${Empty('search','Sin resultados')}</div>`:`<div class="fgrid" id="fg" aria-busy="true">${'<span class="ft sk"></span>'.repeat(9)}<span class="sr">Cargando luchadores</span></div><div id="fe" hidden></div>`;
  $('main').innerHTML=`<div data-view="luchadores"><div class="search">${icon('search')}<input id="fq" type="search" placeholder="Buscar luchador" value="${esc(S.fq)}" autocomplete="off" enterkeyhint="search" aria-label="Buscar luchador"></div>${list}</div>`}
-function paintFighterCounts(){document.querySelectorAll('.ft').forEach(a=>{const hrefA=a.getAttribute('href')||'';const code=decodeURIComponent(hrefA.split('/').pop());const n=changesOf(code).length;a.classList.toggle('has',!!n);let c=a.querySelector('.cnt');if(n&&!c)a.insertAdjacentHTML('afterbegin',`<span class="cnt" aria-hidden="true">${n}</span>`);else if(n&&c)c.textContent=n;else if(c)c.remove();const f=byCode[code];if(f)a.setAttribute('aria-label',f.name+(n?`, ${n} ${n>1?'propuestas':'propuesta'}`:''))})}
+function paintFighterCounts(){document.querySelectorAll('.ft').forEach(a=>{const hrefA=a.getAttribute('href')||'';const code=decodeURIComponent(hrefA.split('/').pop());const n=changesOf(code).length;a.classList.toggle('has',!!n);let c=a.querySelector('.cnt');if(n&&!c)a.insertAdjacentHTML('afterbegin',`<span class="cnt" aria-hidden="true">${n}</span>`);else if(n&&c)c.textContent=n;else if(c)c.remove();const f=byCode[code];if(f)a.setAttribute('aria-label',f.name+(n?`, ${n} ${n>1?'skins elegidas':'skin elegida'}`:''))})}
 
 function slotBtn(f,n){const c=curOf(f.code,n)||{name:'',kind:'unknown',img:null};const pv=planVid(f.code,n);const pp=pv&&idx[pv]?idx[pv].p:null;const sel=slotOf(RT)===n;
- const name=pv?(pp?pp.name:'Apariencia ya no disponible'):c.name;const img=pv?(pp?smallSrc(pp):null):c.img;const prep=!!(c.staged&&!pv);
- return `<button type="button" class="tj${pv?' chg':''}" role="radio" data-slot="${n}" aria-checked="${sel}" tabindex="${sel?0:-1}" aria-label="${trajeName(n)}, ${techName(n)}, ${esc(name)}${pv?', con propuesta':''}${prep?', en preparación':''}"><span class="imwrap">${imBox(img,name,{kind:pv?null:c.kind})}</span><span class="tj-tx"><span class="tj-h"><b>${trajeName(n)}</b><small>${techName(n)}</small></span><span class="nm">${esc(name)}</span>${pv?'<span class="stg">Propuesta</span>':''}${prep?'<span class="stg">En preparación</span>':''}</span></button>`}
+ const curName=c.name||'skin sin nombre';const newName=pv?(pp?pp.name:'skin sin nombre'):'';
+ const label=pv?`${trajeName(n)}: ${curName} cambia a ${newName}`:`${trajeName(n)}: ${c.kind==='original'?'original':curName}`;
+ const curImg=imBox(c.img,curName,{kind:c.kind,eager:sel});
+ const face=pv?`<span class="split"><span class="old">${curImg}</span><span class="neu">${imBox(pp?smallSrc(pp):null,newName,{eager:sel})}</span><span class="arr" aria-hidden="true">${icon('arrow')}</span></span>`:curImg;
+ const x=pv?`<button type="button" class="tj-x" tabindex="-1" data-undo="${keyOf(f.code,n)}" aria-label="Quitar skin de ${trajeName(n)}"><span>${icon('close')}</span></button>`:'';
+ return `<span class="tj-wrap${pv?' chg':''}">${x}<button type="button" class="tj" role="radio" data-slot="${n}" aria-checked="${sel}" tabindex="${sel?0:-1}" aria-label="${esc(label)}">${face}<span class="tj-n">${trajeName(n)}</span><span class="sr">${esc(pv?newName:curName)}</span></button></span>`}
 function paintSlots(f){const el=$('slots');if(!el)return;const had=document.activeElement&&el.contains(document.activeElement);el.innerHTML=[0,1,2,3,4,5,6,7].map(i=>slotBtn(f,i)).join('');if(had){const b=el.querySelector('[aria-checked="true"]');if(b)b.focus()}}
-function paintSum(f){const el=$('sum');if(!el)return;const n=changesOf(f.code).length;el.textContent=f.mii?'Sin trajes de este tipo':n+' de 8 trajes con propuesta'}
+function paintSum(f){const el=$('sum');if(!el)return;const n=changesOf(f.code).length;el.textContent=f.mii?'Sin trajes de este tipo':n+' de 8 trajes con skin elegida'}
 function selectSlot(n){if(!RT||!byCode[RT.code])return;S.cand=null;S.galI=0;const h=href.traje(RT.code,n);if((location.hash||'#/luchadores')===h){paintLive();return}S.fresh=true;location.hash=h.slice(1)}
 function bigImg(src,alt,kind){return imBox(src,alt,{kind,cls:'c',eager:true})}
 function galleryBody(c,cand){if(!cand)return `<div class="cur">${bigImg(c.img,c.name,c.kind)}<div><em>Actual</em><b class="nm">${esc(c.name)}</b>${c.badge?Pill(c.badge):''}${c.staged?Pill('En preparación','b'):''}<p class="mu sm">${esc(originLine(c))}</p></div></div>`;
@@ -177,32 +186,32 @@ function galleryBody(c,cand){if(!cand)return `<div class="cur">${bigImg(c.img,c.
  const thumbs=imgs.length>1?`<div class="thumbs" role="group" aria-label="Fotos">${imgs.map((x,k)=>`<button type="button" data-thumb="${k}" aria-label="Foto ${k+1}" ${k===i?'aria-current="true"':''}><img src="${esc(x.s)}" data-orig="${esc(x.o)}" alt="" loading="lazy" decoding="async"></button>`).join('')}</div>`:'';
  const [oc,ol]=onlineShort(cand);
  return `${hero}${thumbs}<h2 class="ttl2">${esc(cand.name)}</h2><p class="mu by">por ${esc(cand.author)}</p><p class="pl">${Pill(ol,oc)}</p>${cand.pack?`<div class="note b"><b>Paquete compartido</b>Las fotos pueden mostrar otros luchadores del paquete: ${esc(cand.pack.with.join(', '))}.</div>`:''}`}
-function compareBody(n,c,pv,pp,cand){const right=cand||(pv?pp:null);const rightName=cand?cand.name:(pv?(pp?pp.name:'Apariencia ya no disponible'):'');
- if(!pv&&!cand)return `<div class="cur">${bigImg(c.img,c.name,c.kind)}<div><em>Actual</em><b>${esc(c.name)}</b><p class="mu sm">${esc(originLine(c))}</p></div></div><p class="note">No hay propuesta para este traje.</p>`;
- const label=cand?'Elegida':'Propuesta';const img=cand?smallSrc(cand):(pp?smallSrc(pp):null);
- const warn=cand&&pv&&cand.vid!==pv?`<p class="note y" role="status">Reemplazar la propuesta quita «${esc(pp?pp.name:'la anterior')}» de este traje. No mueve las demás.</p>`:'';
+function compareBody(n,c,pv,pp,cand){const right=cand||(pv?pp:null);const rightName=cand?cand.name:(pv?(pp?pp.name:'Skin sin nombre'):'');
+ if(!pv&&!cand)return `<div class="cur">${bigImg(c.img,c.name,c.kind)}<div><em>Actual</em><b>${esc(c.name)}</b><p class="mu sm">${esc(originLine(c))}</p></div></div>`;
+ const label=cand?'Elegida':'Nueva';const imgs=cand?imgsOf(cand):[];const img=cand?smallSrc(cand):(pp?smallSrc(pp):null);
+ const rightFace=imgs.length?`<button type="button" class="hero" data-gal="0" aria-label="Ampliar foto">${imBox(imgs[0].m,rightName,{cls:'c',eager:true,orig:imgs[0].o})}<span class="zoom">${icon('zoom')}Ampliar foto</span></button>`:bigImg(img,rightName,null);
+ const warn=cand&&pv&&cand.vid!==pv?`<p class="note y" role="status">Reemplazar quita «${esc(pp?pp.name:'la anterior')}» de este traje. No mueve las demás.</p>`:'';
  const who=cand||pp;const conds=who&&cond(who).length?`<div class="note y"><b>Condiciones</b>${cond(who).map(esc).join('<br>')}</div>`:'';
  const native=who&&who.native&&who.native.length&&!who.native.includes(n)?`<p class="note y" role="status">El mod trae los trajes ${who.native.map(x=>x+1).join(', ')}. En el ${trajeName(n)} hay que moverlo y no está comprobado.</p>`:'';
- return `<div class="cmp2"><div class="card2"><em>Actual</em>${bigImg(c.img,c.name,c.kind)}<b>${esc(c.name)}</b><p class="mu sm">${esc(originLine(c))}</p></div><div class="card2 prop"><em>${label}</em>${bigImg(img,rightName,null)}<b>${esc(rightName)}</b>${who?Pill(onlineShort(who)[1],onlineShort(who)[0]):''}</div></div>${warn}${conds}${native}`}
-function actionsHtml(f,n,pv,pp,cand){const planLink=changesOf(f.code).length?LinkBtn('Revisar plan','#/cambios',{ic:'swap'}):'';
+ return `<div class="cmp2"><div class="card2"><em>Actual</em>${bigImg(c.img,c.name,c.kind)}<b>${esc(c.name)}</b></div><div class="card2 prop"><em>${label}</em>${rightFace}<b>${esc(rightName)}</b></div><span class="swap-arrow" aria-hidden="true">${icon('arrow')}</span></div>${warn}${conds}${native}`}
+function actionsHtml(f,n,pv,pp,cand){const planLink=changesOf(f.code).length?LinkBtn('Elegidas','#/cambios',{ic:'swap'}):'';
  if(cand){const block=SSBU.assignBlock(planEntries(),f.code,n,cand.vid);
-  if(block.kind==='duplicate')return `<div class="note y" role="status"><b>Ya está en el ${trajeName(block.other)}</b>Esta apariencia no se duplica en otro traje. Elige otra, o revisa la que ya está.</div><div class="acts">${Btn('Ver '+trajeName(block.other),{k:'p',attrs:`data-goto-slot="${block.other}"`})}${Btn('Elegir otra',{attrs:'data-clear-cand="1"'})}</div>`;
-  if(block.kind==='same')return `<div class="acts">${Btn('Quitar propuesta',{k:'p',ic:'undo',attrs:`data-undo="${keyOf(f.code,n)}"`})}${planLink}</div>`;
-  const label=block.kind==='replace'?'Reemplazar propuesta · '+trajeName(n):'Agregar al plan · '+trajeName(n);
-  const warn=block.kind==='replace'?`<p class="note y" role="status">${trajeName(n)} ya tiene una propuesta${pp?': '+esc(pp.name):''}. Si sigues, la reemplazas.</p>`:'';
+  if(block.kind==='duplicate')return `<div class="note y" role="status"><b>Ya está en el ${trajeName(block.other)}</b>Esta skin no se duplica en otro traje. Elige otra, o revisa la que ya está.</div><div class="acts">${Btn('Ver '+trajeName(block.other),{k:'p',attrs:`data-goto-slot="${block.other}"`})}${Btn('Elegir otra',{attrs:'data-clear-cand="1"'})}</div>`;
+  if(block.kind==='same')return `<div class="acts">${Btn('Quitar',{k:'p',ic:'close',attrs:`data-undo="${keyOf(f.code,n)}" aria-label="Quitar skin de ${trajeName(n)}"`})}${planLink}</div>`;
+  const label=block.kind==='replace'?'Reemplazar en '+trajeName(n):'Usar en '+trajeName(n);
+  const warn=block.kind==='replace'?`<p class="note y" role="status">${trajeName(n)} ya tiene una skin${pp?': '+esc(pp.name):''}. Si sigues, la reemplazas.</p>`:'';
   const before=cond(cand).length?`<div class="note y"><b>Antes de agregar</b>${cond(cand).map(esc).join('<br>')}</div>`:'';
   return `${warn}${before}<div class="acts">${Btn(label,{k:'p',ic:'check',attrs:'data-add="1"'})}${planLink}</div>`}
- if(pv)return `<div class="acts">${Btn('Quitar propuesta',{ic:'undo',attrs:`data-undo="${keyOf(f.code,n)}"`})}${Btn('Explorar skins',{k:'p',attrs:'data-explore="1"'})}${planLink}</div>`;
- return `<div class="acts">${Btn('Explorar skins',{k:'p',attrs:'data-explore="1"'})}</div>`}
-function stageHtml(){const f=byCode[RT.code];const n=slotOf(RT);const c=curOf(f.code,n)||{kind:'unknown',name:'Sin identificar',img:null};const pv=planVid(f.code,n);const pp=pv&&idx[pv]?idx[pv].p:null;const cand=S.cand&&idx[S.cand]?idx[S.cand].p:null;const mode=S.mode==='comparar'?'comparar':'galeria';
- const modes=`<div class="modes" role="radiogroup" aria-label="Modo de visualización"><button type="button" role="radio" data-mode="galeria" aria-checked="${mode==='galeria'}" tabindex="${mode==='galeria'?0:-1}">Galería</button><button type="button" role="radio" data-mode="comparar" aria-checked="${mode==='comparar'}" tabindex="${mode==='comparar'?0:-1}">Comparar</button></div>`;
- const body=mode==='comparar'?compareBody(n,c,pv,pp,cand):galleryBody(c,cand);
- return `<p class="mu sm" id="slotLabel">${trajeName(n)} · ${techName(n)}</p>${modes}${body}${provenance(c)}${actionsHtml(f,n,pv,pp,cand)}`}
+ if(pv)return `<div class="acts">${Btn('Quitar',{ic:'close',attrs:`data-undo="${keyOf(f.code,n)}" aria-label="Quitar skin de ${trajeName(n)}"`})}${planLink}</div>`;
+ return ''}
+function stageHtml(){const f=byCode[RT.code];const n=slotOf(RT);const c=curOf(f.code,n)||{kind:'unknown',name:'Sin identificar',img:null};const pv=planVid(f.code,n);const pp=pv&&idx[pv]?idx[pv].p:null;const cand=S.cand&&idx[S.cand]?idx[S.cand].p:null;
+ const body=compareBody(n,c,pv,pp,cand);
+ return `<p class="sr" id="slotLabel">${trajeName(n)}</p>${body}${provenance(c)}${actionsHtml(f,n,pv,pp,cand)}`}
 function paintStage(){const el=$('stage');if(!el)return;const active=document.activeElement;const mode=active&&active.dataset&&active.dataset.mode;const inside=!!(active&&el.contains(active));el.innerHTML=stageHtml();if(mode){const b=el.querySelector(`[data-mode="${mode}"]`);if(b)b.focus();return}if(inside){const b=el.querySelector('[data-gal]')||el.querySelector('[aria-checked="true"]');if(b)b.focus()}}
 function vFighter(R){const f=byCode[R.code];if(!f){head('Luchador',true);$('main').innerHTML=Empty('search','No encontramos ese luchador');return}
- if(f.mii){if(R.v==='traje'){go(href.fighter(f.code),true);return}head(f.name,true);$('main').innerHTML=`<div data-view="${viewId(R)}"><div class="fh">${Avatar(f)}<div><h2>${esc(f.name)}</h2><p class="sum" id="sum">Sin trajes de este tipo</p></div></div>${Note('Trajes Mii','Estos luchadores no usan los ocho trajes habituales, así que aquí no se proponen cambios.')}</div>`;return}
- head(f.name,true);
- $('main').innerHTML=`<div data-view="${viewId(R)}" class="fighter"><div class="fh">${Avatar(f)}<div><h2>${esc(f.name)}</h2><p class="sum" id="sum"></p></div></div><div class="work"><div class="tgrid" id="slots" role="radiogroup" aria-label="Trajes de ${esc(f.name)}"></div><div class="stage-col"><div id="stage"></div><div id="explore"><h2 class="sec">Skins</h2>${catBlock(catSt(),false)}</div></div></div></div>`;
+ if(f.mii){if(R.v==='traje'){go(href.fighter(f.code),true);return}head(f.name,true,Avatar(f));$('main').innerHTML=`<div data-view="${viewId(R)}">${Note('Trajes Mii','Estos luchadores no usan los ocho trajes habituales.')}</div>`;return}
+ head(f.name,true,Avatar(f));
+ $('main').innerHTML=`<div data-view="${viewId(R)}" class="fighter"><div class="work"><div class="tgrid" id="slots" role="radiogroup" aria-label="Trajes"></div><div class="stage-col"><div id="stage"></div><div id="explore">${catBlock(catSt(),false)}</div></div></div></div>`;
  paintSum(f);paintSlots(f);paintStage();catWatch(catCtx())}
 
 const trajeCtx=R=>({code:R.code,n:slotOf(R),raw:keyOf(R.code,slotOf(R))});
@@ -216,18 +225,20 @@ function provenance(c){return `<details class="prov"><summary>Procedencia y veri
 function skinPills(p,where){const [oc,ol]=onlineShort(p);const pm=where||proposedMap()[p.vid]||[];
  return `<span class="pl"><span class="pill ${oc}">${esc(ol)}</span>${!isAlt(p)?'<span class="pill y">Recomendada</span>':''}${p.variant?'<span class="pill">Variante</span>':''}${p.pack?'<span class="pill b">Paquete</span>':''}${p.withdrawn?'<span class="pill r">Retirada</span>':''}${p.mii?'<span class="pill">Mii</span>':''}${pm.map(x=>`<span class="pill y" data-prop="1">En ${trajeName(x.n)}</span>`).join('')}</span>`}
 function cCard(e,i){const p=e.p;return `<a class="cd" data-vid="${esc(p.vid)}" href="${href.ficha(p.vid,null)}" aria-label="${esc(p.name)}, ${esc(e.f.name)}">${imBox(p.img,p.name,{srcset:p.srcset,eager:i<2})}<span class="tx"><span class="nm">${esc(p.name)}</span><span class="fg">${esc(e.f.name)}</span>${skinPills(p)}</span></a>`}
-function skinCard(e,i){const p=e.p;const on=S.cand===p.vid;return `<article class="cd${on?' on':''}" data-vid="${esc(p.vid)}"><button type="button" class="skin" data-skin="${esc(p.vid)}" aria-pressed="${on}" aria-label="Elegir apariencia ${esc(p.name)}">${imBox(smallSrc(p)||p.img,p.name,{srcset:p.srcset,eager:i<2})}<span class="tx"><span class="nm">${esc(p.name)}</span><span class="fg">${esc(p.author||e.f.name)}</span>${skinPills(p)}</span><span class="picklab">${on?'Elegida':'Elegir apariencia'}</span></button><a class="mas" href="${href.ficha(p.vid,{raw:keyOf(e.f.code,slotOf(RT))})}">Más información</a></article>`}
+function skinCard(e,i){const p=e.p;const n=slotOf(RT);const saved=planVid(e.f.code,n);const on=S.cand?S.cand===p.vid:saved===p.vid;
+ const label=on?`${p.name}, elegida para ${trajeName(n)}`:`${p.name}, usar en ${trajeName(n)}`;
+ return `<article class="cd${on?' on':''}" data-vid="${esc(p.vid)}"><button type="button" class="skin" data-skin="${esc(p.vid)}" aria-pressed="${on}" aria-label="${esc(label)}">${imBox(smallSrc(p)||p.img,p.name,{srcset:p.srcset,eager:i<2})}${on?`<span class="chk" aria-hidden="true">${icon('check')}</span>`:''}<span class="nm">${esc(p.name)}</span></button><a class="mas" href="${href.ficha(p.vid,{raw:keyOf(e.f.code,n)})}" aria-label="Ver detalle de ${esc(p.name)}">${icon('expand')}</a></article>`}
 function catList(ctx,st){return SSBU.catList(all,ctx,st||S.cat)}
-function catBlock(st,withFighter){return `<div class="search">${icon('search')}<input id="cq" type="search" placeholder="Buscar apariencia" value="${esc(st.q)}" autocomplete="off" enterkeyhint="search" aria-label="Buscar apariencia"></div>
+function catBlock(st,withFighter){const emptyTitle=onFighter()?'Sin skins por ahora':'Sin resultados';return `<div class="search">${icon('search')}<input id="cq" type="search" placeholder="${onFighter()?'Buscar skin':'Buscar skin'}" value="${esc(st.q)}" autocomplete="off" enterkeyhint="search" aria-label="${onFighter()?'Buscar skin':'Buscar skin'}"></div>
  ${withFighter?`<select class="sel" id="cf" aria-label="Luchador"><option value="">Todos los luchadores</option>${F.map(f=>`<option value="${esc(f.code)}"${f.code===st.f?' selected':''}>${esc(f.name)}</option>`).join('')}</select>`:''}
  <div class="filterbar">${Btn('Filtros',{attrs:'data-filters="1" aria-haspopup="dialog"'})}${Btn('Limpiar filtros',{k:'g',attrs:'data-clear-filters="1"'})}</div>
  <div class="chips" id="activeChips" aria-label="Filtros activos">${activeHtml(st)}</div>
- <p class="mu sm" id="cc" aria-live="polite"></p><div class="cgrid" id="cg"></div><div id="ce" hidden>${Empty('search','Ninguna apariencia coincide','Prueba con otras palabras o quita un filtro.')}<div class="acts">${Btn('Limpiar filtros',{k:'p',attrs:'data-clear-filters="1"'})}</div></div><button type="button" class="more" id="cm" hidden></button><div id="cs" style="height:1px"></div>`}
+ <p class="mu sm" id="cc" aria-live="polite"></p><div class="cgrid" id="cg"></div><div id="ce" hidden>${Empty('search',emptyTitle)}<div class="acts">${Btn('Limpiar filtros',{k:'p',attrs:'data-clear-filters="1"'})}</div></div><button type="button" class="more" id="cm" hidden></button><div id="cs" style="height:1px"></div>`}
 function catSt(){return onFighter()?S.tc:S.cat}
 function catCtx(){return onFighter()?trajeCtx(RT):null}
 function catGrid(ctx){const st=catSt();const l=catList(ctx,st);const box=$('cg');if(!box)return l;
  box.innerHTML=l.slice(0,S.shown).map((e,i)=>ctx?skinCard(e,i):cCard(e,i)).join('');
- if($('cc'))$('cc').textContent=l.length+' apariencia'+(l.length===1?'':'s');
+ if($('cc'))$('cc').textContent=l.length+' '+(l.length===1?'skin':'skins');
  if($('ce')){$('ce').hidden=!!l.length;const b=$('ce').querySelector('[data-clear-filters]');if(b)b.hidden=!filtersOn(st)}
  document.querySelectorAll('.filterbar [data-clear-filters]').forEach(b=>{b.hidden=!filtersOn(st)});
  if($('cm')){$('cm').hidden=l.length<=S.shown;$('cm').textContent='Ver más ('+Math.max(l.length-S.shown,0)+')'}
@@ -247,13 +258,13 @@ function clearFilters(){const st=catSt();const fresh=SSBU.emptyCat();Object.keys
 
 function imgsOf(p){return p.g&&p.g.length?p.g.map(f=>({o:gU(f,'o'),m:gU(f,'m'),s:gU(f,'s')})):(p.img?[{o:p.img,m:p.img,s:p.img}]:[])}
 function destTile(f,n,sel){const c=curOf(f.code,n),pv=planVid(f.code,n),pp=pv&&idx[pv]?idx[pv].p:null;
- return `<button type="button" data-dest="${n}" aria-pressed="${sel===n}" class="${pv?'has':''}" aria-label="${trajeName(n)}, ${techName(n)}, ahora ${esc(c.name)}${pv?', ya tiene una propuesta':''}">${imBox(pv&&pp?smallSrc(pp):c.img,c.name,{kind:c.kind})}<span>${n+1}<small> ${techName(n)}</small></span></button>`}
+ return `<button type="button" data-dest="${n}" aria-pressed="${sel===n}" class="${pv?'has':''}" aria-label="${trajeName(n)}, ahora ${esc(c.name)}${pv?', ya tiene una skin':''}">${imBox(pv&&pp?smallSrc(pp):c.img,c.name,{kind:c.kind})}<span>${trajeName(n)}</span></button>`}
 function vFicha(R){const e=idx[R.vid];
  if(!e){head('Apariencia',true);$('main').innerHTML=`<div data-view="${viewId(R)}">${Empty('search','Esta apariencia ya no está en el catálogo')}</div>`;return}
  const {f,p}=e,ctx=para(R.q.para),[oc,ol]=onlineOf(p),imgs=imgsOf(p);
  if(S.destFor!==R.key){S.destFor=R.key;S.dest=ctx?ctx.n:null;S.galI=0}
  head(f.name,true);
- const hero=imgs.length?`<button type="button" class="hero" data-gal="${S.galI}" aria-label="Ampliar las fotos de ${esc(p.name)}">${imBox(imgs[S.galI].m,p.name+' — foto '+(S.galI+1),{cls:'c',eager:true,orig:imgs[S.galI].o})}<span class="zoom">${icon('zoom')}Ampliar</span><span class="n">${S.galI+1} / ${imgs.length}</span></button>`:`<div class="hero"><span class="noimg" role="img" aria-label="Sin fotos">${icon('image')}<small>Este diseño no tiene fotos</small></span></div>`;
+ const hero=imgs.length?`<button type="button" class="hero" data-gal="${S.galI}" aria-label="Ampliar foto">${imBox(imgs[S.galI].m,p.name+' — foto '+(S.galI+1)+' de '+imgs.length,{cls:'c',eager:true,orig:imgs[S.galI].o})}<span class="zoom">${icon('zoom')}Ampliar foto</span><span class="n">${S.galI+1} / ${imgs.length}</span></button>`:`<div class="hero"><span class="noimg" role="img" aria-label="No se pudo cargar la foto">${icon('image')}</span></div>`;
  const thumbs=imgs.length>1?`<div class="thumbs" role="group" aria-label="Fotos">${imgs.map((x,i)=>`<button type="button" data-thumb="${i}" aria-label="Foto ${i+1}" ${i===S.galI?'aria-current="true"':''}><img src="${esc(x.s)}" data-orig="${esc(x.o)}" alt="" loading="lazy" decoding="async"></button>`).join('')}</div>`:'';
  $('main').innerHTML=`<div data-view="${viewId(R)}">${hero}${thumbs}
  ${p.pack?`<div class="note b"><b>Paquete compartido</b>Este mod también trae diseños para ${esc(p.pack.with.join(', '))}. Las fotos muestran todo el paquete, no solo esta apariencia.</div>`:''}
@@ -276,49 +287,50 @@ function vFicha(R){const e=idx[R.vid];
   ${p.design?`<p><b>Diseño:</b> ${esc(p.design)}</p>`:''}
   <p><b>Compatibilidad:</b> ${esc(p.compat||'no verificada')} · ${esc(p.console_test||'sin prueba en consola')}</p>
   ${p.file_note?`<p><b>Archivos:</b> ${esc(p.file_note)}</p>`:''}${p.notes?`<p><b>Notas:</b> ${esc(p.notes)}</p>`:''}
-  <p>${LinkBtn('Abrir en GameBanana',p.url,{ic:'share',ext:true})}</p>
+  <p>${LinkBtn('GameBanana',p.url,{ic:'share',ext:true,attrs:'aria-label="GameBanana, se abre en una pestaña nueva"'})}</p>
   <p class="mu sm">Identificador: ${esc(p.vid)}</p></div></details></div>`}
 function useBox(f,p,ctx){
  if(p.mii)return '<div class="note"><b>Traje Mii</b>Los Mii no usan los ocho trajes, así que esta apariencia no se puede asignar a un traje.</div>';
- if(p.withdrawn)return '<div class="note y"><b>Retirada</b>Esta apariencia ya no se puede agregar al plan.</div>';
+ if(p.withdrawn)return '<div class="note y"><b>Retirada</b>Esta skin ya no se puede elegir.</div>';
  const sel=ctx?ctx.n:S.dest;const block=sel!=null?SSBU.assignBlock(planEntries(),f.code,sel,p.vid):null;
  const target=sel!=null?{c:curOf(f.code,sel),pv:planVid(f.code,sel)}:null;const tpp=target&&target.pv&&idx[target.pv]?idx[target.pv].p:null;
  let act;
- if(block&&block.kind==='duplicate')act=`<p class="note y" role="status">Esta apariencia ya está en el ${trajeName(block.other)}. No se duplica.</p><div class="acts">${LinkBtn('Ver '+trajeName(block.other),href.traje(f.code,block.other),{k:'p'})}</div>`;
- else if(block&&block.kind==='same')act=`<div class="acts">${Btn('Quitar propuesta',{k:'p',ic:'undo',attrs:`data-clear="${keyOf(f.code,sel)}"`})}</div>`;
- else{const label=sel==null?'Elige un traje':(block&&block.kind==='replace'?'Reemplazar propuesta · '+trajeName(sel):'Agregar al plan · '+trajeName(sel));
-  act=`${block&&block.kind==='replace'?`<p class="note y" role="status">${trajeName(sel)} ya tiene una propuesta: <b style="display:inline">${esc(tpp?tpp.name:'otra apariencia')}</b>. Si sigues, la reemplazas.</p>`:''}<div class="acts">${Btn(label,{k:'p',ic:'check',attrs:`data-use="1" ${sel==null?'disabled':''}`})}</div>`}
+ if(block&&block.kind==='duplicate')act=`<p class="note y" role="status">Esta skin ya está en el ${trajeName(block.other)}. No se duplica.</p><div class="acts">${LinkBtn('Ver '+trajeName(block.other),href.traje(f.code,block.other),{k:'p'})}</div>`;
+ else if(block&&block.kind==='same')act=`<div class="acts">${Btn('Quitar',{k:'p',ic:'close',attrs:`data-clear="${keyOf(f.code,sel)}" aria-label="Quitar skin de ${trajeName(sel)}"`})}</div>`;
+ else{const label=sel==null?'Elige un traje':(block&&block.kind==='replace'?'Reemplazar en '+trajeName(sel):'Usar en '+trajeName(sel));
+  act=`${block&&block.kind==='replace'?`<p class="note y" role="status">${trajeName(sel)} ya tiene una skin: <b style="display:inline">${esc(tpp?tpp.name:'otra')}</b>. Si sigues, la reemplazas.</p>`:''}<div class="acts">${Btn(label,{k:'p',ic:'check',attrs:`data-use="1" ${sel==null?'disabled':''}`})}</div>`}
  return `<h2 class="sec">${ctx?'Destino: '+trajeName(ctx.n):'¿En qué traje?'}</h2>
   ${ctx?'':`<div class="dest" role="group" aria-label="Elegir traje">${[0,1,2,3,4,5,6,7].map(n=>destTile(f,n,sel)).join('')}</div>`}
-  ${target?`<div class="row2"><div class="card2"><em>${target.pv&&!(block&&block.kind==='same')?'Propuesta actual':'Actual'}</em>${imBox(target.pv&&tpp?smallSrc(tpp):target.c.img,'',{kind:target.c.kind})}<b>${esc(target.pv&&tpp?tpp.name:target.c.name)}</b></div><span class="arrow" aria-hidden="true">→</span><div class="card2 prop"><em>Nueva</em>${imBox(smallSrc(p),p.name,{})}<b>${esc(p.name)}</b></div></div>`:''}
+  ${target?`<div class="row2"><div class="card2"><em>Actual</em>${imBox(target.pv&&tpp?smallSrc(tpp):target.c.img,'',{kind:target.c.kind})}<b>${esc(target.pv&&tpp?tpp.name:target.c.name)}</b></div><span class="arrow" aria-hidden="true">${icon('arrow')}</span><div class="card2 prop"><em>Nueva</em>${imBox(smallSrc(p),p.name,{})}<b>${esc(p.name)}</b></div></div>`:''}
   ${cond(p).length?`<div class="note y"><b>Antes de agregar</b>${cond(p).map(esc).join('<br>')}</div>`:''}
   ${act}
   ${sel!=null&&p.native&&p.native.length&&!p.native.includes(sel)?`<p class="note y" role="status">Este mod trae trajes para ${p.native.map(n=>n+1).join(', ')}. Usarlo en el ${trajeName(sel)} exige moverlo y no está comprobado.</p>`:''}`}
 
 function changeRow(e){const f=byCode[e.code],c=curOf(e.code,e.n),pp=idx[e.vid]?idx[e.vid].p:null;
  const extra=pp&&cond(pp).length?`<p class="note y"><b>Condiciones</b>${cond(pp).map(esc).join('<br>')}</p>`:'';
- const miss=!pp?'<p class="note y">Esta apariencia ya no está en el catálogo.</p>':'';
- return `<div class="chg-row"><div class="hd"><span>${trajeName(e.n)}</span><small>${techName(e.n)}</small></div>
-  <div class="row2"><div class="card2"><em>Inventario</em>${imBox(c.img,c.name,{kind:c.kind})}<b>${esc(c.name)}</b></div><span class="arrow" aria-hidden="true">→</span><div class="card2 prop"><em>Propuesta</em>${imBox(pp?smallSrc(pp):null,pp?pp.name:'',{})}<b>${esc(pp?pp.name:'Apariencia ya no disponible')}</b>${pp?Pill(onlineShort(pp)[1],onlineShort(pp)[0]):''}</div></div>
-  ${extra}${miss}<div class="acts">${LinkBtn('Cambiar opción',href.traje(e.code,e.n),{k:'p',ic:'swap'})}${Btn('Quitar propuesta',{ic:'undo',attrs:`data-undo="${keyOf(e.code,e.n)}"`})}</div></div>`}
+ const miss=!pp?'<p class="note y">Esta skin ya no está.</p>':'';
+ const who=f?f.name:'';const from=c.name||'skin sin nombre';const to=pp?pp.name:'Skin sin nombre';
+ const label=who+', '+trajeName(e.n)+': '+from+' cambia a '+to;
+ const quitar='Quitar skin de '+trajeName(e.n)+' de '+who;
+ return `<div class="chg-row"><button type="button" class="chg-go" data-go="${href.traje(e.code,e.n)}" aria-label="${esc(label)}">${imBox(c.img,c.name,{kind:c.kind})}<span class="arr" aria-hidden="true">${icon('arrow')}</span>${imBox(pp?smallSrc(pp):null,to,'')}<span class="chg-tx"><span>${trajeName(e.n)}</span><b>${esc(to)}</b><small>${esc(from)}</small></span></button>${Btn('Quitar',{ic:'close',attrs:'data-undo="'+keyOf(e.code,e.n)+'" aria-label="'+esc(quitar)+'"'})}${extra}${miss}</div>`}
 function recBanner(){const n=legacyItems().length;return n?`<div class="note b"><b>Elecciones de antes</b>Este dispositivo guardó ${n}. <button type="button" data-m="recover" class="btn g">Revisar</button></div>`:''}
 function changesBody(){const es=planEntries();
- if(!es.length)return Empty('swap','Todavía no hay propuestas','Elige un luchador y un traje para agregar una apariencia al plan.')+`<div class="acts">${LinkBtn('Elegir luchador','#/luchadores',{k:'p',ic:'people'})}</div>`;
- const groups={};es.forEach(e=>(groups[e.code]=groups[e.code]||[]).push(e));const sync=syncInfo()[1];
- return `<p class="sum" id="planSum"><b>${es.length} ${es.length===1?'propuesta':'propuestas'}</b> · ${Object.keys(groups).length} ${Object.keys(groups).length===1?'luchador':'luchadores'}</p><p class="mu sm" id="planSync">Sincronización: ${esc(sync)}. Una propuesta guardada no está instalada en la consola.</p>`+Object.entries(groups).map(([code,l])=>{const f=byCode[code];return `<div class="grp">${Avatar(f,'sm')}<h2>${esc(f.name)}</h2></div>${l.map(changeRow).join('')}`}).join('')}
-function vChanges(){head('Cambios',false);$('main').innerHTML=`<div data-view="cambios"><div class="acts">${Btn('Exportar plan',{k:'p',ic:'share',attrs:'data-export="1"'})}</div>${recBanner()}<div id="planBody">${changesBody()}</div></div>`}
+ if(!es.length)return Empty('plus','Nada elegido')+`<div class="acts">${LinkBtn('Elegir luchador','#/luchadores',{k:'p'})}</div>`;
+ const groups={};es.forEach(e=>(groups[e.code]=groups[e.code]||[]).push(e));
+ return Object.entries(groups).map(([code,l])=>{const f=byCode[code];return `<div class="grp">${Avatar(f,'sm')}<h2>${esc(f.name)}</h2></div>${l.map(changeRow).join('')}`}).join('')}
+function vChanges(){head('Elegidas',true);$('main').innerHTML=`<div data-view="cambios"><div class="acts">${Btn('Exportar',{k:'p',ic:'share',attrs:'data-export="1"'})}</div>${recBanner()}<div id="planBody">${changesBody()}</div></div>`}
 function paintChanges(){const body=$('planBody');if(body)body.innerHTML=changesBody()}
 
 function enqueue(op){PEND.push(op);savePend();paintSync();render(true);flush()}
 const savePend=()=>LS('ssbu_pend3',JSON.stringify(PEND));
 let toastSlot=null;
-function toastProposal(n,saved){toastSlot=n;const body=saved?'El cambio se registró en el plan compartido. Todavía no se ha instalado en la consola.':'Quedó pendiente en este dispositivo. Todavía no se ha instalado en la consola.';toast('Propuesta agregada al Traje '+(n+1)+'. '+body,{label:'Deshacer',fn:undoLast,plan:true})}
-function noteSaved(op){if(!op||op.to==null||toastSlot!==op.slot)return;const t=$('toast');if(!t.classList.contains('on')||!t.textContent.startsWith('Propuesta agregada'))return;toastProposal(op.slot,true)}
+function toastProposal(n,saved){toastSlot=n;const body=saved?'El cambio se registró. Todavía no se ha instalado en la consola.':'Quedó pendiente en este dispositivo. Todavía no se ha instalado en la consola.';toast('Skin elegida en el '+trajeName(n)+'. '+body,{label:'Deshacer',fn:undoLast,plan:true})}
+function noteSaved(op){if(!op||op.to==null||toastSlot!==op.slot)return;const t=$('toast');if(!t.classList.contains('on')||!t.textContent.startsWith('Skin elegida'))return;toastProposal(op.slot,true)}
 function proposeAt(code,n,vid){if(!SSBU.validSlot(n))return;const prev=planVid(code,n);const block=SSBU.assignBlock(planEntries(),code,n,vid);
- if(block.kind==='duplicate'){toast('Esa apariencia ya está en el '+trajeName(block.other)+'. Elige otra, o revisa ese traje.',{label:'Ver traje',fn:()=>go(href.traje(code,block.other))});return false}
+ if(block.kind==='duplicate'){toast('Esa skin ya está en el '+trajeName(block.other)+'. Elige otra, o revisa ese traje.',{label:'Ver traje',fn:()=>go(href.traje(code,block.other))});return false}
  if(block.kind==='same'||block.kind==='bad-slot')return false;const op=SSBU.setOp(code,n,vid,prev);if(!op)return false;
  S.mode='comparar';S.cand=null;enqueue(op);lastAct={code,slot:n,from:prev,to:vid};buzz(15);toastProposal(n,false);return true}
-function clearAt(code,n){const prev=planVid(code,n);const op=SSBU.clearOp(code,n,prev);if(!op)return;enqueue(op);lastAct={code,slot:n,from:prev,to:null};buzz(15);toast(trajeName(n)+' · '+byCode[code].name+': propuesta quitada.',{label:'Deshacer',fn:undoLast})}
+function clearAt(code,n){const prev=planVid(code,n);const op=SSBU.clearOp(code,n,prev);if(!op)return;enqueue(op);lastAct={code,slot:n,from:prev,to:null};buzz(15);toast('Skin quitada del '+trajeName(n)+'.',{label:'Deshacer',fn:undoLast})}
 function undoLast(){if(!lastAct)return;const a=lastAct;lastAct=null;enqueue({code:a.code,slot:a.slot,to:a.from,exp:a.to,kind:'undo'});toast('Deshecho')}
 function undoKey(k){const i=k.lastIndexOf('_');clearAt(k.slice(0,i),+k.slice(i+1))}
 
@@ -331,6 +343,7 @@ function moveRadio(e){const keys=['ArrowRight','ArrowLeft','ArrowDown','ArrowUp'
 $('main').addEventListener('click',e=>{const t=e.target;let b;
  if(b=t.closest('[data-m="recover"]')){e.preventDefault();showRecover();return}
  if(b=t.closest('[data-undo]')){e.preventDefault();undoKey(b.dataset.undo);return}
+  if(b=t.closest('[data-go]')){e.preventDefault();go(b.dataset.go);return}
  if(b=t.closest('[data-clear]')){e.preventDefault();undoKey(b.dataset.clear);return}
  if(b=t.closest('[data-off]')){toggleFilter(b.dataset.off,null);return}
  if(b=t.closest('[data-clear-filters]')){clearFilters();return}
@@ -338,7 +351,7 @@ $('main').addEventListener('click',e=>{const t=e.target;let b;
  if(b=t.closest('[data-export]')){showExport();return}
  if(b=t.closest('[data-slot]')){selectSlot(+b.dataset.slot);return}
  if(b=t.closest('[data-mode]')){S.mode=b.dataset.mode;paintStage();return}
- if(b=t.closest('[data-skin]')){S.cand=b.dataset.skin;S.galI=0;S.mode='galeria';paintStage();document.querySelectorAll('[data-skin]').forEach(x=>{const on=x.dataset.skin===S.cand;x.setAttribute('aria-pressed',on?'true':'false');const card=x.closest('.cd');if(card)card.classList.toggle('on',on);const lab=x.querySelector('.picklab');if(lab)lab.textContent=on?'Elegida':'Elegir apariencia'});return}
+ if(b=t.closest('[data-skin]')){S.cand=b.dataset.skin;S.galI=0;S.mode='galeria';paintStage();catGrid(catCtx());return}
  if(b=t.closest('[data-add]')){if(S.cand)proposeAt(RT.code,slotOf(RT),S.cand);return}
  if(b=t.closest('[data-explore]')){const s=$('cq');if(s){s.focus();s.scrollIntoView({block:'center'})}return}
  if(b=t.closest('[data-clear-cand]')){S.cand=null;S.galI=0;paintStage();document.querySelectorAll('[data-skin]').forEach(x=>{x.setAttribute('aria-pressed','false');const card=x.closest('.cd');if(card)card.classList.remove('on')});return}
@@ -359,16 +372,19 @@ document.addEventListener('focusout',()=>setTimeout(()=>{if(!isTxt(document.acti
 
 /* ============================ menú, historial, datos, exportar ============================ */
 function showMenu(){const rl=legacyItems().length,row=(m,ic,t)=>`<button data-m="${m}">${icon(ic)}<span>${t}</span></button>`;
- openDlg('Más',`<div class="list">${row('hist','clock','Historial de cambios')}${row('datos','info','Sobre los datos')}${row('export','share','Exportar plan')}${row('ayuda','help','Cómo se usa')}${row('diag','wrench','Estado y diagnóstico')}${rl?row('recover','undo',`Elecciones de antes (${rl})`):''}</div>`,false)}
+ openDlg('Más',`<div class="list">${row('hist','clock','Historial')}${row('datos','info','Sobre los datos')}<a href="#/catalogo">${icon('grid')}<span>Catálogo</span></a>${row('export','share','Exportar')}${row('ayuda','help','Cómo se usa')}${row('diag','wrench','Estado y diagnóstico')}${rl?row('recover','undo',`Elecciones de antes (${rl})`):''}</div>`,false)}
 $('menuBtn').onclick=showMenu;
+if($('picked'))$('picked').onclick=()=>go('#/cambios');
+if($('saveRetry'))$('saveRetry').onclick=()=>{nextTry=0;flush()};
 $('dlgB').addEventListener('click',e=>{
  if(e.target.closest('#filtrosOk')){closeDlg();return}
+ if(e.target.closest('a[href^="#/"]')){closeDlg();return}
  const chip=e.target.closest('[data-chip]');if(chip){toggleFilter(chip.dataset.chip,chip);return}
  const b=e.target.closest('[data-m]');if(b){({hist:showHist,datos:showDatos,export:showExport,ayuda:showAyuda,diag:showDiag,recover:showRecover,'recover-go':recoverGo,'recover-no':recoverNo})[b.dataset.m]();return}
  if(e.target.closest('#dgCopy')){const t=JSON.stringify(window.__ssbuDiag(),null,1);(navigator.clipboard?navigator.clipboard.writeText(t):Promise.reject()).then(()=>toast('Diagnóstico copiado'),()=>toast('No se pudo copiar'));return}
  if(e.target.closest('#dgRetry')){nextTry=0;syncKind=null;paintSync();startDb();flush();toast('Reintentando…');return}
  if(e.target.closest('#hUndo')){closeDlg();undoLast();return}
- if(e.target.closest('#xCopy')){const t=JSON.stringify(buildExport(),null,2);(navigator.clipboard?navigator.clipboard.writeText(t):Promise.reject()).then(()=>toast('Plan copiado'),()=>{const ta=$('xPre');ta.focus();toast('Selecciona el texto y cópialo')});return}
+ if(e.target.closest('#xCopy')){const t=JSON.stringify(buildExport(),null,2);(navigator.clipboard?navigator.clipboard.writeText(t):Promise.reject()).then(()=>toast('Copiado'),()=>{const ta=$('xPre');ta.focus();toast('Selecciona el texto y cópialo')});return}
  if(e.target.closest('#xDown')){const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([JSON.stringify(buildExport(),null,2)],{type:'application/json'}));a.download='plan-skins.json';a.click();return}});
 const ago=t=>{if(!t)return '';const s=Math.max(0,(Date.now()-t)/1000);return s<60?'ahora':s<3600?`hace ${Math.round(s/60)} min`:s<86400?`hace ${Math.round(s/3600)} h`:`hace ${Math.round(s/86400)} d`};
 function showHist(){const rows=HIST.slice(0,40).map(h=>{const f=byCode[h.code],to=h.to&&idx[h.to]?idx[h.to].p:null,fr=h.from&&idx[h.from]?idx[h.from].p:null;
@@ -383,7 +399,7 @@ function showDatos(){const m=INV&&INV.meta;const gen=(META.generated||'').replac
  <div class="note"><b>«Online»</b>Es lo que declara el autor del mod. No es una prueba en tu consola.</div>
  <div class="note"><b>Catálogo</b>${esc(gen)} · ${F.reduce((n,f)=>n+f.picks.filter(p=>!p.withdrawn).length,0)} apariencias${m&&m.scanned_at?` · inventario del ${esc(m.scanned_at.slice(0,10))}`:''}</div>
  <div class="note"><b>Cambios compartidos</b>Todos editan el mismo plan. Cada cambio queda en el historial. Después se revisa y se instala a mano.</div>`,true)}
-function showAyuda(){openDlg('Cómo se usa',`<div class="steps"><div><b>1</b><span>Elige un <b>luchador</b>.</span></div><div><b>2</b><span>Elige uno de los <b>ocho trajes</b>.</span></div><div><b>3</b><span>Toca <b>Elegir apariencia</b> y luego <b>Agregar al plan</b>.</span></div><div><b>4</b><span>Revisa el plan y, si quieres, <b>deshaz</b> la propuesta. Guardar no instala nada en la consola.</span></div></div>`,true)}
+function showAyuda(){openDlg('Cómo se usa',`<div class="steps"><div><b>1</b><span>Elige un <b>luchador</b>.</span></div><div><b>2</b><span>Elige uno de los <b>ocho trajes</b>.</span></div><div><b>3</b><span>Toca una <b>skin</b> y luego <b>Usar en Traje N</b>.</span></div><div><b>4</b><span>Revisa <b>Elegidas</b>. Guardar no instala nada en la consola.</span></div></div>`,true)}
 function buildExport(){const es=planEntries();
  return {schema:3,generated_at:new Date().toISOString(),catalog:META.generated||null,
   inventory:{version:INV&&INV.meta&&INV.meta.version,profile:INV&&INV.meta&&INV.meta.profile,verification:INV&&INV.meta&&INV.meta.verification,scanned_at:INV&&INV.meta&&INV.meta.scanned_at,sources:INV&&INV.meta&&INV.meta.sources},
@@ -395,7 +411,7 @@ function buildExport(){const es=planEntries();
     missing_in_catalog:!p,vid:e.vid,status:(STATUS[e.vid]||{}).status||'wanted',result:(STATUS[e.vid]||{}).result||null}}),
   history:HIST.slice(0,50).map(h=>({at:h.t?new Date(h.t).toISOString():null,roster_no:h.code,traje:h.slot+1,from:h.from,to:h.to,kind:h.kind}))}}
 function showExport(){const n=planEntries().length;
- openDlg('Exportar el plan',`<p>Plan actual: <b>${n} ${n==1?'propuesta':'propuestas'}</b>. Incluye traje de destino, apariencia, variante y condiciones. No instala nada.</p><div class="acts row">${Btn('Copiar',{k:'p',attrs:'id="xCopy"'})}${Btn('Descargar',{attrs:'id="xDown"'})}</div><pre class="json" id="xPre" tabindex="0">${esc(JSON.stringify(buildExport(),null,2).slice(0,1800))}${n?'…':''}</pre>`,true)}
+ openDlg('Exportar',`<p><b>${n} ${n==1?'skin elegida':'skins elegidas'}</b>. Incluye traje, skin, variante y condiciones. No instala nada.</p><div class="acts row">${Btn('Copiar',{k:'p',attrs:'id="xCopy"'})}${Btn('Descargar',{attrs:'id="xDown"'})}</div><pre class="json" id="xPre" tabindex="0">${esc(JSON.stringify(buildExport(),null,2).slice(0,1800))}${n?'…':''}</pre>`,true)}
 
 /* ============================ galería (PhotoSwipe, carga diferida) ============================ */
 const PSWP_BASE='https://cdn.jsdelivr.net/npm/photoswipe@5.4.4/dist/';
@@ -457,7 +473,8 @@ function syncInfo(){const n=PEND.length;
  if(dbState==='ok')return ['ok','Guardado ✓'];
  if(dbState==='local')return ['','Solo en este dispositivo'];
  return ['','Conectando…']}
-function paintSync(){const [c,t]=syncInfo(),e=$('sync');e.className='sync '+c;e.textContent=t}
+function paintSync(){const [c,t]=syncInfo(),e=$('sync');e.className='sync '+c;e.textContent=t;paintSaveErr()}
+function paintSaveErr(){const el=$('saveErr');if(!el)return;const show=syncKind==='service';el.hidden=!show;if(!show)return;const op=PEND[0];const name=op&&op.to&&idx[op.to]?idx[op.to].p.name:'';const n=el.querySelector('[data-err-name]');if(n)n.textContent=name?('Skin que no se pudo guardar: '+name):'La elección sigue aquí. No se guardó.';}
 function fail(where,e){const k=diag(where,e);syncKind=k==='offline'?'offline':'service';if(dbState!=='ok')dbState='err';
  backoff=syncKind==='offline'?15000:Math.min(backoff*2,300000);nextTry=Date.now()+backoff;paintSync();return k}
 function good(){syncKind=null;dbState='ok';lastOkAt=Date.now();lastOk=new Date(lastOkAt).toISOString();backoff=15000;nextTry=0}

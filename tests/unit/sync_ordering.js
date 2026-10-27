@@ -7,7 +7,7 @@ const fs = require('node:fs');
 const path = require('node:path');
 const vm = require('node:vm');
 
-const source = fs.readFileSync(process.env.SSBU_UI_SOURCE || path.resolve(__dirname, '../../tools/ui.js'), 'utf8');
+const source = fs.readFileSync(process.env.SSBU_UI_SOURCE || path.resolve(__dirname, '../../src/features/plan/services/sync.ts'), 'utf8');
 function between(start, end) {
   const a = source.indexOf(start), b = source.indexOf(end, a);
   assert.ok(a >= 0 && b > a, `cannot extract application section ${start}`);

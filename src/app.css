@@ -1,22 +1,1154 @@
-@import "tailwindcss";
+/* ==========================================================================
+   Skins SSBU — Sistema Visual Canónico (Elegir skins Smash)
+   Tokens: Fondo #0B0F17 | S1 #121826 | S2 #1A2233 | S3 #232D42
+           Línea #2A3550 | Línea activa #3A4766 | Texto #EEF2F8 | Texto 2 #A9B4C8
+           Acento #F2B632 | Sobre acento #1A1200
+   ========================================================================== */
 
-@theme {
-  --color-bg: #0d0f14;
-  --color-s1: #151921;
-  --color-s2: #1d222d;
-  --color-s3: #262c3a;
-  --color-bd: #2c3240;
-  --color-tx: #f1f2f6;
-  --color-mu: #a3aabc;
-  --color-ac: #f2b632;
-  --color-acd: #3a2d0c;
-  --color-ok: #34c26b;
-  --color-er: #e0574f;
-  --color-wa: #e8a33d;
-  --color-ink: #1a1300;
-  --radius-card: 16px;
-  --radius-ctl: 12px;
-  --font-sans: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+:root {
+  --bg: #0b0f17;
+  --s1: #121826;
+  --s2: #1a2233;
+  --s3: #232d42;
+  --bd: #2a3550;
+  --bd-active: #3a4766;
+  --tx: #eef2f8;
+  --tx-mu: #a9b4c8;
+  --ac: #f2b632;
+  --ac-ink: #1a1200;
+  --danger: #e0574f;
+  --r-chip: 8px;
+  --r-btn: 12px;
+  --r-btn-p: 14px;
+  --r-card: 16px;
 }
 
-@import "../tools/ui.css";
+html, body, #app {
+  background: var(--bg);
+  color: var(--tx);
+  max-width: 100%;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  overflow-x: hidden;
+  margin: 0;
+}
+
+body.modal-open {
+  overflow: hidden;
+}
+
+main {
+  box-sizing: border-box;
+  padding-bottom: calc(76px + env(safe-area-inset-bottom, 16px));
+}
+
+@media (min-width: 1024px) {
+  main {
+    padding-bottom: 40px;
+  }
+}
+
+img {
+  max-width: 100%;
+}
+
+/* ============================ Contención Tipográfica ============================ */
+h1, h2, h3, h4, h5, h6 {
+  font-family: inherit;
+  color: var(--tx);
+  letter-spacing: -0.01em;
+}
+
+h1 {
+  font-size: 22px;
+  line-height: 28px;
+  font-weight: 700;
+  margin: 0 0 12px 0;
+}
+
+h2 {
+  font-size: 20px;
+  line-height: 28px;
+  font-weight: 700;
+  margin: 0 0 8px 0;
+}
+
+#ttl {
+  margin: 0;
+  font-size: 20px;
+  line-height: 28px;
+  font-weight: 700;
+}
+
+#dlgT, #dlg .hd h2 {
+  font-size: 20px !important;
+  line-height: 28px !important;
+  font-weight: 700 !important;
+  margin: 0 !important;
+  flex: 1;
+}
+
+[data-view^="ficha:"] h2 {
+  font-size: 20px;
+  line-height: 28px;
+  font-weight: 700;
+  margin: 12px 0 6px 0;
+}
+
+[data-view="cambios"] h2 {
+  font-size: 18px;
+  line-height: 24px;
+  font-weight: 700;
+  margin: 16px 0 8px 0;
+  color: var(--tx);
+}
+
+/* ============================ Cabecera ============================ */
+header.top {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  background: var(--bg);
+  border-bottom: 1px solid var(--bd);
+}
+
+header.top .bar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 56px;
+  padding: 8px 16px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+header.top .brand {
+  flex: 1;
+  min-width: 0;
+}
+
+.fh {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  overflow: hidden;
+  display: inline-block;
+  background: var(--s2);
+  border: 1px solid var(--bd);
+  flex: none;
+}
+
+.fh img, .ft img, .im img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+#sync {
+  display: block;
+  color: var(--tx-mu);
+  font-size: 12px;
+  font-weight: 600;
+}
+
+#sync.ok {
+  opacity: 0;
+  pointer-events: none;
+  height: 0;
+  overflow: hidden;
+  transition: opacity 0.3s;
+}
+
+/* ============================ Botones y Controles ============================ */
+button, .q-btn, a.mas, .tj, .ib, input, select {
+  font-family: inherit;
+  box-sizing: border-box;
+}
+
+:focus-visible {
+  outline: 3px solid var(--tx);
+  outline-offset: 2px;
+}
+
+/* Botón base */
+.btn {
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 0 16px;
+  border-radius: var(--r-btn);
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: none;
+  background: var(--s3);
+  color: var(--tx);
+  border: 1px solid var(--bd-active);
+  transition: background 0.15s, border-color 0.15s;
+}
+
+.btn:hover {
+  background: #2b364e;
+  border-color: #4f5f84;
+}
+
+/* Botón principal */
+.btn.p {
+  background: var(--ac);
+  color: var(--ac-ink);
+  border: 0;
+  border-radius: var(--r-btn-p);
+  padding: 0 20px;
+  font-weight: 700;
+  font-size: 16px;
+}
+
+.btn.p:hover {
+  background: #f5c24d;
+}
+
+.btn:disabled, .btn[disabled] {
+  opacity: 0.45;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+/* Botón de icono */
+.ib {
+  min-width: 44px;
+  min-height: 44px;
+  width: 44px;
+  height: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: 0;
+  border-radius: 12px;
+  color: var(--tx);
+  cursor: pointer;
+  padding: 0;
+  flex: none;
+  transition: background 0.15s, color 0.15s;
+}
+
+.ib:hover {
+  background: var(--s2);
+}
+
+.ib svg.ic {
+  display: block;
+}
+
+/* Entradas */
+input, select {
+  width: 100%;
+  min-height: 44px;
+  background: var(--s2);
+  color: var(--tx);
+  border: 1px solid var(--bd);
+  border-radius: 12px;
+  padding: 0 14px;
+  font-size: 15px;
+}
+
+input:focus, select:focus {
+  border-color: var(--ac);
+  outline: none;
+}
+
+/* ============================ Navegación de Escritorio ============================ */
+nav.desk {
+  display: none;
+  gap: 8px;
+  padding: 0 16px 10px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+@media (min-width: 1024px) {
+  nav.desk {
+    display: flex;
+  }
+}
+
+nav.desk a {
+  display: inline-flex;
+  align-items: center;
+  height: 40px;
+  padding: 0 16px;
+  border-radius: 12px;
+  color: var(--tx-mu);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 14px;
+  transition: background 0.15s, color 0.15s;
+}
+
+nav.desk a:hover {
+  background: var(--s2);
+  color: var(--tx);
+}
+
+/* ============================ Cuadrícula de Luchadores ============================ */
+.fgrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px 12px;
+}
+
+@media (min-width: 700px) {
+  .fgrid {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 16px 14px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .fgrid {
+    grid-template-columns: repeat(7, minmax(0, 1fr));
+    gap: 16px;
+    max-width: 1100px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+.ft {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  color: inherit;
+  text-decoration: none;
+  background: transparent;
+  border-radius: var(--r-card);
+  overflow: visible;
+  text-align: center;
+  position: relative;
+}
+
+.ft .im {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  background: var(--s2);
+  border: 1px solid var(--bd);
+  border-radius: var(--r-card);
+  overflow: hidden;
+  display: block;
+  transition: border-color 0.15s, transform 0.15s;
+}
+
+.ft:hover .im {
+  border-color: var(--bd-active);
+  transform: translateY(-2px);
+}
+
+.ft b {
+  font-size: 13px;
+  line-height: 18px;
+  font-weight: 600;
+  color: var(--tx);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: block;
+  padding: 0 2px;
+}
+
+.ft .cnt {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  min-width: 22px;
+  height: 22px;
+  padding: 0 6px;
+  border-radius: 11px;
+  background: var(--ac);
+  color: var(--ac-ink);
+  font-size: 12px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  z-index: 2;
+}
+
+/* ============================ Tira de Trajes ============================ */
+.tgrid {
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  max-width: 100%;
+  padding: 4px 0 10px 0;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+}
+
+.tj {
+  position: relative;
+  flex: 0 0 76px;
+  width: 76px;
+  height: 76px;
+  scroll-snap-align: start;
+  background: var(--s2);
+  color: inherit;
+  border: 1px solid var(--bd);
+  border-radius: 12px;
+  overflow: hidden;
+  padding: 0;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: border-color 0.15s, outline 0.15s;
+}
+
+.tj .im {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 0;
+}
+
+.tj-n {
+  position: absolute;
+  left: 4px;
+  bottom: 4px;
+  padding: 2px 6px;
+  border-radius: 6px;
+  background: rgba(11, 15, 23, 0.86);
+  color: var(--tx);
+  font-size: 11px;
+  line-height: 14px;
+  font-weight: 600;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.tj .nm {
+  display: none;
+}
+
+.tj[aria-checked="true"] {
+  outline: 3px solid var(--ac);
+  outline-offset: 2px;
+  border-color: var(--ac);
+}
+
+/* ============================ Comparación (Stage) ============================ */
+#stage {
+  margin-top: 14px;
+  margin-bottom: 20px;
+}
+
+.cur {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  background: var(--s1);
+  border: 1px solid var(--bd);
+  border-radius: var(--r-card);
+  padding: 14px 16px;
+}
+
+.cur .im {
+  width: 76px;
+  height: 76px;
+  aspect-ratio: 1;
+  border-radius: 12px;
+  overflow: hidden;
+  flex: none;
+  background: var(--s2);
+}
+
+.cur em {
+  font-style: normal;
+  font-size: 12px;
+  line-height: 16px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--tx-mu);
+  display: block;
+  margin-bottom: 4px;
+}
+
+.cur .nm {
+  font-size: 16px;
+  line-height: 22px;
+  font-weight: 700;
+  color: var(--tx);
+  display: block;
+}
+
+.cur p {
+  margin: 4px 0 0 0;
+  font-size: 13px;
+  line-height: 18px;
+  color: var(--tx-mu);
+}
+
+.cmp2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin: 12px 0;
+  position: relative;
+}
+
+.cmp2 .card2 {
+  background: var(--s1);
+  border: 1px solid var(--bd);
+  border-radius: var(--r-card);
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-width: 0;
+  box-sizing: border-box;
+}
+
+.cmp2 .card2.prop {
+  border: 2px solid var(--ac);
+  background: #141c2c;
+}
+
+.cmp2 .card2 em {
+  font-style: normal;
+  font-size: 12px;
+  line-height: 16px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--tx-mu);
+  display: block;
+}
+
+.cmp2 .card2.prop em {
+  color: var(--ac);
+}
+
+.cmp2 .card2 .im, .cmp2 .hero {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  max-height: 180px;
+  border-radius: 12px;
+  overflow: hidden;
+  background: var(--s2);
+  display: block;
+  border: 0;
+  padding: 0;
+  position: relative;
+}
+
+.cmp2 .card2 b {
+  font-size: 15px;
+  line-height: 20px;
+  font-weight: 700;
+  color: var(--tx);
+  overflow-wrap: anywhere;
+}
+
+.note-replace {
+  margin: 4px 0 0 0;
+  font-size: 13px;
+  line-height: 18px;
+  color: var(--ac);
+  font-weight: 600;
+}
+
+/* ============================ Cuadrícula de Skins (Catálogo) ============================ */
+.cgrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  margin-top: 14px;
+}
+
+@media (min-width: 700px) {
+  .cgrid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 14px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .cgrid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 16px;
+  }
+}
+
+.cd {
+  position: relative;
+  background: var(--s1);
+  border: 1px solid var(--bd);
+  border-radius: var(--r-card);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  color: inherit;
+  text-decoration: none;
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+
+.cd.on, .cd:has(button.skin[aria-pressed="true"]) {
+  box-shadow: 0 0 0 3px var(--ac);
+  border-color: var(--ac);
+}
+
+.skin {
+  display: block;
+  width: 100%;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  text-align: left;
+  padding: 0;
+  cursor: pointer;
+}
+
+.cd .im {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  background: var(--s2);
+  display: block;
+  overflow: hidden;
+}
+
+.cd .nm {
+  display: block;
+  padding: 10px 12px 12px;
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 600;
+  color: var(--tx);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.cd .tx {
+  padding: 10px 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.cd .tx span:last-child {
+  font-size: 12px;
+  color: var(--tx-mu);
+}
+
+.mas {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--tx);
+  background: rgba(11, 15, 23, 0.72);
+  border-radius: 0 0 0 12px;
+  cursor: pointer;
+  text-decoration: none;
+  z-index: 2;
+  transition: background 0.15s;
+}
+
+.mas:hover {
+  background: rgba(11, 15, 23, 0.92);
+}
+
+/* ============================ Ficha de Apariencia ============================ */
+.hero {
+  position: relative;
+  display: block;
+  width: 100%;
+  max-height: 400px;
+  aspect-ratio: 16 / 10;
+  border-radius: var(--r-card);
+  overflow: hidden;
+  background: var(--s1);
+  border: 1px solid var(--bd);
+  color: inherit;
+  cursor: pointer;
+  padding: 0;
+  margin-bottom: 12px;
+}
+
+.hero img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  background: var(--s1);
+  display: block;
+}
+
+.hero .n {
+  position: absolute;
+  right: 8px;
+  bottom: 8px;
+  padding: 3px 8px;
+  border-radius: 8px;
+  background: rgba(11, 15, 23, 0.86);
+  color: var(--tx);
+  font-size: 12px;
+  font-weight: 600;
+  z-index: 2;
+}
+
+#usebox {
+  background: var(--s1);
+  border: 1px solid var(--bd);
+  border-radius: var(--r-card);
+  padding: 16px;
+  margin: 16px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.dest {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 8px;
+  margin: 8px 0;
+}
+
+.dest button {
+  min-height: 44px;
+  padding: 8px 4px;
+  border-radius: 10px;
+  background: var(--s2);
+  color: var(--tx);
+  border: 1px solid var(--bd);
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  font-family: inherit;
+  transition: background 0.15s, border-color 0.15s;
+}
+
+.dest button:hover {
+  background: var(--s3);
+  border-color: var(--bd-active);
+}
+
+.dest button[aria-pressed="true"] {
+  background: var(--ac);
+  color: var(--ac-ink);
+  border-color: var(--ac);
+  font-weight: 700;
+}
+
+.row2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin: 8px 0;
+}
+
+.row2 .card2 {
+  background: var(--s2);
+  border: 1px solid var(--bd);
+  border-radius: 12px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  min-width: 0;
+}
+
+.row2 .card2.prop {
+  border-color: var(--ac);
+}
+
+.row2 .card2 .im {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  max-height: 120px;
+  border-radius: 8px;
+  overflow: hidden;
+  background: var(--s1);
+}
+
+.row2 .card2 em {
+  font-style: normal;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--tx-mu);
+}
+
+.row2 .card2.prop em {
+  color: var(--ac);
+}
+
+.row2 .card2 b {
+  font-size: 14px;
+  line-height: 18px;
+  font-weight: 600;
+  color: var(--tx);
+  overflow-wrap: anywhere;
+}
+
+/* ============================ Diálogos y Modales ============================ */
+#dlg {
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  background: rgba(0, 0, 0, 0.62);
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+#dlg[hidden] {
+  display: none;
+}
+
+#dlg .box {
+  width: min(560px, 100%);
+  max-height: 86vh;
+  overflow-y: auto;
+  background: var(--s1);
+  color: var(--tx);
+  border: 1px solid var(--bd);
+  border-bottom: 0;
+  border-radius: 16px 16px 0 0;
+  padding: 16px;
+  box-sizing: border-box;
+}
+
+#dlg .hd {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  min-height: 48px;
+  margin-bottom: 12px;
+}
+
+#dlgB .list {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+#dlgB .list button, #dlgB .list a {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  min-height: 48px;
+  padding: 12px 16px;
+  box-sizing: border-box;
+  background: var(--s2);
+  border: 1px solid var(--bd);
+  border-radius: 12px;
+  color: var(--tx);
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: 600;
+  font-family: inherit;
+  text-align: left;
+  cursor: pointer;
+  transition: background 0.15s, border-color 0.15s;
+}
+
+#dlgB .list button:hover, #dlgB .list a:hover {
+  background: var(--s3);
+  border-color: var(--bd-active);
+}
+
+/* Chips de filtros */
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 12px 0;
+}
+
+.chip {
+  min-height: 38px;
+  padding: 0 14px;
+  border-radius: var(--r-chip);
+  background: var(--s3);
+  color: var(--tx);
+  border: 1px solid var(--bd-active);
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: inherit;
+  transition: background 0.15s, color 0.15s, border-color 0.15s;
+}
+
+.chip:hover {
+  background: #2b364e;
+  border-color: #4f5f84;
+}
+
+.chip[aria-pressed="true"], .chip.on {
+  background: var(--ac);
+  color: var(--ac-ink);
+  border-color: var(--ac);
+  font-weight: 700;
+}
+
+/* ============================ Cambios (Elegidas) ============================ */
+.chg-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 14px;
+  background: var(--s2);
+  border: 1px solid var(--bd);
+  border-radius: 14px;
+  margin-bottom: 8px;
+}
+
+.chg-row a {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  flex: 1;
+  min-width: 0;
+  color: var(--tx);
+  text-decoration: none;
+}
+
+.chg-row a span {
+  font-size: 12px;
+  line-height: 16px;
+  color: var(--tx-mu);
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.chg-row a b {
+  font-size: 15px;
+  line-height: 20px;
+  font-weight: 700;
+  color: var(--tx);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.chg-row a small {
+  font-size: 12px;
+  line-height: 16px;
+  color: var(--tx-mu);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.chg-row .im {
+  width: 56px;
+  height: 56px;
+  aspect-ratio: 1;
+  border-radius: 10px;
+  overflow: hidden;
+  border: 2px solid var(--ac);
+  flex: none;
+  background: var(--s1);
+}
+
+.chg-row .btn {
+  flex: none;
+}
+
+/* ============================ Notificaciones y Flotantes ============================ */
+.picked {
+  position: fixed;
+  left: 16px;
+  right: 16px;
+  bottom: 20px;
+  z-index: 40;
+  height: 56px;
+  max-width: 480px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 16px;
+  background: var(--s2);
+  border: 1px solid var(--bd-active);
+  border-radius: var(--r-card);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6);
+  color: var(--tx);
+  cursor: pointer;
+}
+
+.picked[hidden] {
+  display: none;
+}
+
+.picked .picked-txt {
+  font-size: 15px;
+  font-weight: 600;
+}
+
+#pickedN {
+  min-width: 26px;
+  height: 26px;
+  padding: 0 8px;
+  border-radius: 13px;
+  background: var(--ac);
+  color: var(--ac-ink);
+  font-size: 13px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#toast {
+  position: fixed;
+  left: 16px;
+  right: 16px;
+  bottom: 24px;
+  z-index: 50;
+  max-width: 480px;
+  margin: 0 auto;
+  background: var(--s2);
+  border: 1px solid var(--bd-active);
+  border-radius: 14px;
+  padding: 12px 16px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6);
+  display: none;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  font-size: 14px;
+}
+
+#toast.on {
+  display: flex;
+}
+
+.note {
+  background: var(--s2);
+  border: 1px solid var(--bd);
+  border-radius: 12px;
+  padding: 12px 14px;
+  margin: 8px 0;
+  font-size: 13px;
+  line-height: 19px;
+  color: var(--tx-mu);
+}
+
+.note b {
+  color: var(--tx);
+  display: block;
+  margin-bottom: 2px;
+}
+
+.note.y {
+  background: #241d0d;
+  border-color: #6b5420;
+  color: #f6d28a;
+}
+
+.note.y b {
+  color: var(--ac);
+}
+
+.hrow {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--bd);
+  font-size: 14px;
+}
+
+.noimg, .mono {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 72px;
+  background: var(--s3);
+  color: var(--tx-mu);
+  font-size: 13px;
+}
+
+.pill {
+  display: inline-block;
+  margin: 2px;
+  padding: 2px 8px;
+  border-radius: 999px;
+  background: var(--s3);
+  font-size: 12px;
+  color: var(--tx-mu);
+  border: 1px solid var(--bd);
+}
+
+.empty {
+  text-align: center;
+  padding: 32px 16px;
+  color: var(--tx-mu);
+  font-size: 15px;
+}
+
+.empty b {
+  display: block;
+  font-size: 17px;
+  color: var(--tx);
+  margin-bottom: 10px;
+}
+
+/* ============================ PhotoSwipe y Accesibilidad ============================ */
+.pswp__err {
+  color: var(--tx);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: center;
+}
+
+.pswp__thumbs {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  padding: 8px;
+}
+
+.pswp__thumbs button {
+  width: 72px;
+  height: 48px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+}
+
+.pswp__thumbs img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+}

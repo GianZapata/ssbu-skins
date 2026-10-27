@@ -49,8 +49,8 @@ module.exports = async (b, base) => {
   const small = await P.evaluate(() => [...document.querySelectorAll('button,a.btn,.tj-a,nav.tabs a,.ib,.tj-cta')].filter(e => e.offsetParent).filter(e => { const r = e.getBoundingClientRect(); return r.height < 44 || r.width < 44; }).map(e => e.className + e.textContent.slice(0, 10)));
   ok(small.length === 0, 'objetivos táctiles ≥44px ' + JSON.stringify(small.slice(0, 4)));
   await P.keyboard.press('Tab'); ok(await P.evaluate(() => document.activeElement !== document.body), 'teclado: el foco avanza');
-  await P.evaluate(() => showMenu()); await P.waitForSelector('#dlg.open'); await P.waitForTimeout(150);
-  ok(await P.evaluate(() => document.getElementById('dlg').contains(document.activeElement)), 'menú: el foco entra en el diálogo'); await shot(P, '12-menu');
+  await P.evaluate(() => showFilters()); await P.waitForSelector('#dlg.open'); await P.waitForTimeout(150);
+  ok(await P.evaluate(() => document.getElementById('dlg').contains(document.activeElement)), 'diálogo: el foco entra en el diálogo'); await shot(P, '12-menu');
   await P.keyboard.press('Escape'); await P.waitForTimeout(300); ok(await P.evaluate(() => !document.getElementById('dlg').classList.contains('open')), 'Escape cierra el diálogo');
   ok(await P.evaluate(() => document.documentElement.scrollWidth <= innerWidth), 'sin desplazamiento horizontal en móvil');
   // imagen caída: aviso en la tarjeta, ficha utilizable y «Reintentar» en la galería

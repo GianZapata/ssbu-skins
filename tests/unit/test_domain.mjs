@@ -3,7 +3,7 @@ import fs from 'node:fs';
 import test from 'node:test';
 import vm from 'node:vm';
 
-const src = fs.readFileSync(new URL('../../tools/domain.js', import.meta.url), 'utf8');
+const src = fs.readFileSync(new URL('../../src/shared/helpers/domain.ts', import.meta.url), 'utf8');
 const sandbox = {};
 sandbox.globalThis = sandbox;
 vm.runInNewContext(src, sandbox);

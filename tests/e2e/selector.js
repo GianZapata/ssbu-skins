@@ -15,12 +15,12 @@ module.exports = async (b, base) => {
   await P.setViewportSize({ width: 320, height: 700 });
   await P.goto(base + '#/luchadores'); await P.waitForSelector('.ft'); await until(P, () => dbState === 'ok', null);
   const header = await P.evaluate(samples => samples.every(s => {
-    const sync = document.getElementById('sync'), menu = document.getElementById('menuBtn');
+    const sync = document.getElementById('sync'), ttl = document.getElementById('ttl');
     sync.textContent = s;
-    const a = menu.getBoundingClientRect(), c = sync.getBoundingClientRect();
-    return c.right <= a.left + 1 && a.right <= innerWidth + 1 && c.left >= 0 && a.top < innerHeight;
+    const c = sync.getBoundingClientRect();
+    return c.right <= innerWidth + 1 && c.left >= 0 && c.top < innerHeight;
   }), syncSamples);
-  ok(header, 'cabecera a 320px: el menú sigue en la fila con los estados de sincronización');
+  ok(header, 'cabecera a 320px: los estados de sincronización no desbordan');
   await P.evaluate(() => { lastAct = { code: '01', slot: 0, from: null, to: '01:x' }; showHist(); }); await P.waitForSelector('#hUndo');
   const histBtn = await P.evaluate(() => { const el = document.getElementById('hUndo'); if (!el) return null; const bg = getComputedStyle(el).backgroundColor; return { cls: el.className, bg }; });
   ok(!!histBtn && /\bbtn\b/.test(histBtn.cls) && /\bp\b/.test(histBtn.cls), 'historial: la acción primaria usa el botón p');
@@ -34,17 +34,17 @@ module.exports = async (b, base) => {
   ok(await P.locator('#slots [role="radio"]').count() === 8, 'E2E-01: ocho trajes');
   const vid = await chooseFree(P); ok(!!vid, 'E2E-01: hay una skin para Mario');
   await P.waitForSelector('[data-add]');
-  ok(/Agregar al plan · Traje 3/.test(await P.textContent('[data-add]')), 'E2E-01: la acción nombra el Traje 3');
+  ok(/Usar en Traje 3/.test(await P.textContent('[data-add]')), 'E2E-01: la acción nombra el Traje 3');
   await tap(P, '[data-add]'); await P.waitForSelector('.cmp2 .prop');
   ok(/Todavía no se ha instalado en la consola/.test(await P.textContent('#toast')), 'E2E-01: el aviso no dice que ya está instalada');
   ok(await until(P, (v) => PEND.length === 0 && planVid('01', 2) === v, vid), 'E2E-01: la propuesta queda en el traje 3');
   await P.goto(base + '#/cambios'); await P.waitForSelector('.chg-row');
-  ok(/c02/.test(await P.textContent('main')) && /Exportar plan/.test(await P.textContent('main')), 'E2E-01: Cambios muestra c02 y Exportar plan');
+  ok(/Traje 3/.test(await P.textContent('main')) && /Exportar/.test(await P.textContent('main')), 'E2E-01: Elegidas muestra el Traje 3 y Exportar');
 
   await P.goto(base + '#/luchador/01/3'); await P.waitForSelector('[data-skin]');
   const vid2 = await chooseFree(P);
   await P.waitForSelector('[data-add]');
-  ok(/Reemplazar propuesta · Traje 3/.test(await P.textContent('[data-add]')), 'E2E-02: reemplazar es explícito');
+  ok(/Reemplazar en Traje 3/.test(await P.textContent('[data-add]')), 'E2E-02: reemplazar es explícito');
   await tap(P, '[data-add]');
   ok(await until(P, v => planVid('01', 2) === v && planEntries().filter(e => e.code === '01' && e.n === 2).length === 1, vid2), 'E2E-02: queda una sola propuesta en ese traje');
 
@@ -146,13 +146,15 @@ module.exports = async (b, base) => {
     await P.goto(base + '#/luchador/01'); await P.waitForSelector('.tgrid'); await P.waitForTimeout(100);
     const fit = await P.evaluate(() => {
       const desk = getComputedStyle(document.querySelector('nav.desk')).display !== 'none';
-      const tabs = document.querySelector('nav.tabs').offsetHeight > 0;
-      const nav = document.querySelector('nav.tabs').getBoundingClientRect();
+      const tabs = document.querySelector('nav.tabs');
+      const bar = document.querySelector('.picked');
+      const barOn = !!(bar && !bar.hidden && bar.getBoundingClientRect().height > 0);
+      const nav = barOn ? bar.getBoundingClientRect() : null;
       const last = [...document.querySelectorAll('main button,main a')].filter(e => e.offsetParent).pop();
       if (last) last.focus();
       const fr = last ? last.getBoundingClientRect() : null;
-      const covered = !!(fr && tabs && fr.bottom > nav.top + 1 && fr.top < nav.bottom);
-      return document.documentElement.scrollWidth <= innerWidth + 1 && (innerWidth >= 1024 ? desk && !tabs : tabs && !desk) && !covered;
+      const covered = !!(fr && nav && fr.bottom > nav.top + 1 && fr.top < nav.bottom);
+      return document.documentElement.scrollWidth <= innerWidth + 1 && !tabs && (innerWidth >= 1024 ? desk : !desk) && !covered;
     });
     ok(fit, 'E2E-12: cabe y el foco no queda bajo la barra a ' + w + 'px');
   }

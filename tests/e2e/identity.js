@@ -46,9 +46,7 @@ module.exports = async (b, base) => {
   ok(inv.mario2.kind === 'pending' && inv.mario2.name === 'Nombre pendiente', 'Mario traje 3: se ve su retrato pero falta el nombre → «Nombre pendiente»');
   ok(inv.mario0.kind === 'original' && inv.sora6.kind === 'pending', 'originales y trajes por identificar se distinguen');
   await P.goto(base + '#/luchador/01'); await P.waitForSelector('.tgrid'); ok((await P.textContent('.tgrid')).includes('Nombre pendiente') && !/Apariencia sin identificar/.test(await P.textContent('.tgrid')), 'la pantalla del luchador usa «Nombre pendiente», sin etiquetas duplicadas');
-  await P.goto(base + '#/luchador/01/3'); await P.waitForSelector('.cur'); await P.click('details.prov summary'); ok(/Revisado en el repositorio/.test(await P.textContent('details.prov')), 'procedencia y verificación quedan en el desplegable del traje');
-  await P.goto(base + '#/luchador/11/3'); await P.waitForSelector('.cur'); await P.click('details.prov summary'); ok(/Por reemplazar/.test(await P.textContent('details.prov')) && /Dark Falcon/.test(await P.textContent('.cur')), 'Dark Falcon sigue instalado y se muestra como por reemplazar');
-  await P.goto(base + '#/luchador/82/5'); await P.waitForSelector('.cur'); await P.click('details.prov summary'); ok(/emuMMC sin conexion/.test(await P.textContent('details.prov')), 'el desplegable cita la prueba del ModPack (sin conexión, no certifica online)');
+  await P.goto(base + '#/luchador/11/3'); await P.waitForSelector('.cur'); ok(/Por reemplazar/.test(await P.textContent('.cur')) && /Dark Falcon/.test(await P.textContent('.cur')), 'Dark Falcon sigue instalado y se muestra como por reemplazar');
   // regresión Shadow Mewtwo
   const mw = await P.evaluate(() => { const f = F.find(f => /Mewtwo/.test(f.name)); const sm = f.picks.find(p => /Shadow Mewtwo/i.test(p.name)); return { code: f.code, vid: sm && sm.vid }; });
   await P.goto(base + '#/luchador/' + mw.code + '/8'); await P.waitForSelector('.cur,.cmp2'); ok(!/libre/i.test(await P.textContent('main')), 'Mewtwo c07: no aparece «libre»');
