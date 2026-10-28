@@ -2,9 +2,10 @@
 # Uso: python3 tools/scan_drive.py "<ruta a My Drive/SSBU_mods>" [--out data/drive.json] [--rehash]
 # Estructura esperada: <raíz>/<luchador>/<modid>_<slug>/{LINK.txt, NOTA.txt, original/, modificado/}; `_plugins` es la carpeta de plugins.
 # Los binarios viven en el Drive; git guarda este manifiesto (el historial lo da cada commit, por eso no lleva fecha).
-# Slots: solo se leen los .zip (zipfile). Los .rar, .7z y los zip partidos quedan como `listed: false` con su motivo.
+# Slots: los .zip se leen con zipfile y los .rar/.7z con `7zz l` (solo lista, nunca extrae). Sin 7zz, o si falla, y en los zip partidos, queda `listed: false` con su motivo.
+# Por archivo listado: `files_count` y `non_slot` (rutas de efectos, motion, param, .prc, config.json, ui_chara_db, msg_name o bgm que no llevan slot cNN: candidatos a archivos globales).
 # El MD5 se reutiliza del manifiesto anterior si el archivo tiene la misma ruta y el mismo tamaño (--rehash lo recalcula todo).
-import argparse, hashlib, json, os, re, sys, zipfile
+import argparse, hashlib, json, os, re, shutil, subprocess, sys, zipfile
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from scan_installed import INTERNAL
 R = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..')
@@ -40,20 +41,48 @@ def text(path):
     if not os.path.isfile(path): return None
     return open(path, encoding='utf-8-sig', errors='replace').read().strip() or None
 
-def zip_slots(path):
-    """Slots que trae un .zip según sus rutas (c00-c99 y retratos chara_N_<luchador>_NN)."""
-    found = set()
-    with zipfile.ZipFile(path) as z:
-        for n in z.namelist():
-            for rx in SLOT_RES: found.update(int(x) for x in rx.findall('/' + n))
-    return sorted(found)
+NON_SLOT = re.compile(r'(^|/)(effect|motion|param|stream;|bgm)(/|$)|\.(prc|eff)$|(^|/)(config\.json|ui_chara_db\.prcxml|msg_name\.xmsbt)$|(^|/)bgm_', re.I)
+
+def analyze(names):
+    """names: rutas de archivos (sin carpetas). Devuelve slots, files_count y non_slot (sin la carpeta raíz común)."""
+    names = [n.replace('\\', '/') for n in names]
+    roots = {n.split('/')[0] for n in names}
+    if len(roots) == 1 and all('/' in n for n in names): names = [n.split('/', 1)[1] for n in names]
+    found = set(); glob = set()
+    for n in names:
+        hit = {int(x) for rx in SLOT_RES for x in rx.findall('/' + n)}
+        found |= hit
+        if not hit and NON_SLOT.search(n): glob.add(n)
+    return {'slots': sorted(found), 'files_count': len(names), 'non_slot': sorted(glob)[:40]}
+
+def zip_info(path):
+    """Slots (c00-c99 y retratos chara_N_<luchador>_NN) y archivos no slotteados de un .zip."""
+    with zipfile.ZipFile(path) as z: return analyze([n for n in z.namelist() if not n.endswith('/')])
+
+def sevenzip_names(path, exe):
+    """Archivos (sin carpetas) de un .rar/.7z según `7zz l -slt`; None si no se pudo listar. Solo lista."""
+    try: r = subprocess.run([exe, 'l', '-ba', '-slt', '--', path], capture_output=True, text=True, encoding='utf-8', errors='replace', timeout=120)
+    except (subprocess.TimeoutExpired, OSError): return None
+    if r.returncode != 0: return None
+    names = []
+    for block in r.stdout.split('\n\n'):
+        f = dict(l.split(' = ', 1) for l in block.splitlines() if ' = ' in l)
+        if 'Path' not in f: continue
+        if f.get('Folder') == '+' or f.get('Attributes', '')[:1] in ('D', 'd'): continue
+        names.append(f['Path'])
+    return names
 
 def inspect(path, name):
     low = name.lower()
     if PART.search(low): return {'listed': False, 'slots': [], 'unlisted_reason': 'zip partido en partes'}
-    if low.endswith(('.rar', '.7z')): return {'listed': False, 'slots': [], 'unlisted_reason': 'rar/7z sin herramienta para listar'}
+    if low.endswith(('.rar', '.7z')):
+        exe = shutil.which('7zz')
+        if not exe: return {'listed': False, 'slots': [], 'unlisted_reason': 'rar/7z sin herramienta para listar'}
+        names = sevenzip_names(path, exe)
+        if names is None: return {'listed': False, 'slots': [], 'unlisted_reason': 'rar/7z no se pudo listar'}
+        return {'listed': True, **analyze(names)}
     if low.endswith('.zip'):
-        try: return {'listed': True, 'slots': zip_slots(path)}
+        try: return {'listed': True, **zip_info(path)}
         except zipfile.BadZipFile: return {'listed': False, 'slots': [], 'unlisted_reason': 'zip dañado o incompleto'}
     return {'listed': False, 'slots': [], 'unlisted_reason': NOT_MOD}
 

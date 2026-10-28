@@ -24,7 +24,7 @@ La carpeta del luchador va en inglés y en `snake_case` (`zero_suit_samus`, `cap
 3. Revisa el diff de `data/drive.json`: slots (`slots`, `touches_c00`), archivos sin listar (`listed: false` y su motivo) y si el mod ya está en el catálogo (`catalog`).
 4. Commit y PR. Al fusionar en `master`, la Action *Sincronizar Firestore* corre `db.py seed --only drive` y la web lo puede leer.
 
-Los slots solo se leen de los `.zip`. Los `.rar`, los `.7z` y los zip partidos (`.zip.part01`) quedan como `listed: false` hasta tener una herramienta para listarlos.
+Los slots de los `.zip` se leen con `zipfile` y los de los `.rar` y `.7z` con `7zz l` (sevenzip: `brew install sevenzip`); solo lista, nunca extrae. Cada archivo listado lleva `files_count` y `non_slot`: rutas de efectos, `motion`, `param`, `.prc`, `config.json`, `ui_chara_db.prcxml`, `msg_name.xmsbt` o música que no llevan slot `cNN`, o sea, candidatos a archivos globales. Si no hay `7zz` o falla, el archivo queda como `listed: false` con su motivo (`rar/7z sin herramienta para listar` o `rar/7z no se pudo listar`), igual que los zip partidos (`.zip.part01`).
 
 ## Escribir en Firestore a mano
 

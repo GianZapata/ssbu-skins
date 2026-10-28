@@ -2,8 +2,45 @@
 import hashlib, json, os, subprocess, sys, tempfile, unittest, zipfile
 R = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..'))
 
-def scan(root, out, *extra):
-    return subprocess.run([sys.executable, os.path.join(R, 'tools', 'scan_drive.py'), root, '--out', out, *extra], capture_output=True, text=True)
+def scan(root, out, *extra, path=None):
+    """path: PATH del proceso hijo. Por defecto uno sin 7zz, para que las pruebas no dependan de la herramienta real."""
+    env = {**os.environ, 'PATH': path if path is not None else os.devnull}
+    return subprocess.run([sys.executable, os.path.join(R, 'tools', 'scan_drive.py'), root, '--out', out, *extra], capture_output=True, text=True, env=env)
+
+LISTADO = """Path = Mod X (c00-c02)
+Folder = +
+Attributes = D
+
+Path = Mod X (c00-c02)/fighter/falco/model/body/c00/a.nutexb
+Folder = -
+Attributes = A
+
+Path = Mod X (c00-c02)/fighter/falco/model/body/c02/a.nutexb
+Folder = -
+Attributes = A
+
+Path = Mod X (c00-c02)/ui/replace/chara/chara_0/chara_0_falco_01.bntx
+Folder = -
+Attributes = A
+
+Path = Mod X (c00-c02)/effect/fighter/falco/ef_falco.eff
+Folder = -
+Attributes = A
+
+Path = Mod X (c00-c02)/effect/fighter/falco/ef_falco_c02.eff
+Folder = -
+Attributes = A
+
+Path = Mod X (c00-c02)/ui/param/database/ui_chara_db.prcxml
+Folder = -
+Attributes = A
+"""
+
+def fake_7zz(dirpath, body, code=0):
+    """Deja un `7zz` falso en dirpath: imprime `body` y sale con `code`. Devuelve el PATH que lo contiene."""
+    exe = os.path.join(dirpath, '7zz'); os.makedirs(dirpath, exist_ok=True)
+    open(exe, 'w').write(f"#!/bin/sh\n/bin/cat <<'EOF'\n{body}EOF\nexit {code}\n"); os.chmod(exe, 0o755)
+    return dirpath
 
 def write_zip(path, names):
     with zipfile.ZipFile(path, 'w') as z:
@@ -58,6 +95,32 @@ class Drive(unittest.TestCase):
         self.assertIn('sin archivos: terry/609500_vegeta (1)', r.stderr); self.assertIn('mod 609500 repetido', r.stderr)
         c = self.load()['counts']
         self.assertEqual((c['other'], c['unlisted']), (1, 3))   # la nota no cuenta como archivo sin listar
+
+    def test_rar_se_lista_con_7zz(self):
+        bin_ = fake_7zz(os.path.join(self.tmp.name, 'bin'), LISTADO)
+        r = scan(self.root, self.out, path=bin_); self.assertEqual(r.returncode, 0, r.stderr)
+        rar = self.mod(self.load(), 'terry/609500_vegeta')['files'][0]
+        self.assertEqual((rar['listed'], rar['slots'], rar['touches_c00'], rar['files_count']), (True, [0, 1, 2], True, 6))
+        self.assertNotIn('unlisted_reason', rar)
+        # un efecto sin slot y el ui_chara_db son candidatos a globales; el efecto con _c02 pertenece a su slot
+        self.assertEqual(rar['non_slot'], ['effect/fighter/falco/ef_falco.eff', 'ui/param/database/ui_chara_db.prcxml'])
+
+    def test_rar_sin_7zz_o_con_fallo(self):
+        r = scan(self.root, self.out); self.assertEqual(r.returncode, 0, r.stderr)
+        rar = self.mod(self.load(), 'terry/609500_vegeta')['files'][0]
+        self.assertEqual((rar['listed'], rar['unlisted_reason'], rar['touches_c00']), (False, 'rar/7z sin herramienta para listar', None))
+        self.assertNotIn('files_count', rar)
+        bin_ = fake_7zz(os.path.join(self.tmp.name, 'bin2'), 'ERROR: no es un archivo\n', code=2)
+        r = scan(self.root, self.out, path=bin_); self.assertEqual(r.returncode, 0, r.stderr)
+        rar = self.mod(self.load(), 'terry/609500_vegeta')['files'][0]
+        self.assertEqual((rar['listed'], rar['unlisted_reason']), (False, 'rar/7z no se pudo listar'))
+
+    def test_zip_trae_files_count_y_non_slot(self):
+        z = os.path.join(self.root, 'falco', '174558_falco_n64', 'original', 'skin.zip')
+        write_zip(z, ['mod/fighter/falco/model/body/c00/a.nutexb', 'mod/config.json', 'mod/sound/bgm_x.nus3audio', 'mod/motion/body/c03/swing.prc'])
+        scan(self.root, self.out)
+        e = next(f for f in self.mod(self.load(), 'falco/174558_falco_n64')['files'] if f['path'] == 'original/skin.zip')
+        self.assertEqual((e['slots'], e['files_count']), ([0, 3], 4)); self.assertEqual(e['non_slot'], ['config.json', 'sound/bgm_x.nus3audio'])
 
     def test_determinista(self):
         scan(self.root, self.out); a = open(self.out, encoding='utf-8').read()

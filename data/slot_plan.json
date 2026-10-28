@@ -270,6 +270,484 @@
     }
    },
    "nota": "Propuesta pendiente de aprobar. El Steve de WuBoy está excluido del perfil."
+  },
+  "01": {
+   "slots": {
+    "0": {
+     "state": "mod",
+     "name": "Moogle",
+     "mod_id": 374147,
+     "source": "drive",
+     "reslot_from": null,
+     "file": "mario/374147_moogle_over_mario/original/moogle_over_mario_453b1.7z",
+     "approved": false,
+     "nota": "trae ef_mario.eff sin slot: afecta a todos los Mario"
+    },
+    "2": {
+     "state": "mod",
+     "name": "Moogle",
+     "mod_id": 374147,
+     "source": "drive",
+     "reslot_from": null,
+     "file": "mario/374147_moogle_over_mario/original/moogle_over_mario_453b1.7z",
+     "approved": false,
+     "nota": "trae ef_mario.eff sin slot: afecta a todos los Mario"
+    }
+   },
+   "nota": "Pendiente: el look de Moogle de c01 no entra porque c01 es Kellytoy (el autor de Kellytoy dice que se puede mover a c00–c05)."
+  },
+  "09": {
+   "slots": {
+    "6": {
+     "state": "mod",
+     "name": "Rayman (efectos)",
+     "mod_id": 391570,
+     "source": "drive",
+     "reslot_from": null,
+     "file": "luigi/391570_rayman_wiiu_trophy/original/luigi-c06_-_rayman_update_-_effects_8b55e.zip",
+     "approved": false
+    },
+    "7": {
+     "state": "mod",
+     "name": "Rayman",
+     "mod_id": 391570,
+     "source": "drive",
+     "reslot_from": null,
+     "file": "luigi/391570_rayman_wiiu_trophy/original/luigi-c07_-_rayman.zip",
+     "approved": false,
+     "nota": "reemplaza a Mr. L de WuBoy"
+    }
+   }
+  },
+  "14": {
+   "slots": {
+    "5": {
+     "state": "mod",
+     "name": "Kurama [Linked]",
+     "mod_id": 386111,
+     "source": "drive",
+     "reslot_from": null,
+     "file": "bowser/386111_kurama_linked_susano_o_armor_jp_voice_new/original/kuramalinkedandsusanooarmor.zip",
+     "approved": false
+    },
+    "6": {
+     "state": "mod",
+     "name": "Susano'o Armor",
+     "mod_id": 386111,
+     "source": "drive",
+     "reslot_from": null,
+     "file": "bowser/386111_kurama_linked_susano_o_armor_jp_voice_new/original/kuramalinkedandsusanooarmor.zip",
+     "approved": false,
+     "nota": "reemplaza a Dry Bowser de WuBoy"
+    }
+   }
+  },
+  "18": {
+   "slots": {
+    "1": {
+     "state": "mod",
+     "name": "Timeless River",
+     "mod_id": 384627,
+     "source": "drive",
+     "reslot_from": null,
+     "file": "dr_mario/384627_timeless_river_dr_mario/original/timeless_river_doctor_c01.7z",
+     "approved": false
+    },
+    "7": {
+     "state": "mod",
+     "name": "Timeless River",
+     "mod_id": 384627,
+     "source": "drive",
+     "reslot_from": null,
+     "file": "dr_mario/384627_timeless_river_dr_mario/original/timeless_river_doctor_c07.7z",
+     "approved": false
+    }
+   }
+  },
+  "02": {
+   "slots": {
+    "3": {
+     "state": "mod",
+     "name": "Pirate Funky Kong",
+     "mod_id": 357706,
+     "source": "drive",
+     "reslot_from": null,
+     "file": "dk/357706_pirate_funky_kong/original/pirate_funky_kong.zip",
+     "approved": false,
+     "nota": "reemplaza uno de los Funky Kong del perfil (Gian quiere un único Funky)"
+    }
+   }
+  },
+  "03": {
+   "slots": {
+    "4": {
+     "state": "mod",
+     "name": "Goblin Slayer",
+     "mod_id": 342215,
+     "source": "drive",
+     "reslot_from": null,
+     "file": "link/342215_goblin_slayer_over_link/original/goblin_slayer_release_100.zip",
+     "approved": false
+    }
+   }
+  },
+  "16": {
+   "slots": {
+    "0": {
+     "state": "mod",
+     "name": "Larxene",
+     "mod_id": 367390,
+     "source": "drive",
+     "reslot_from": null,
+     "file": "sheik/367390_larxene_over_sheik/original/larxene_over_sheik.7z",
+     "approved": false
+    },
+    "1": {
+     "state": "mod",
+     "name": "Larxene",
+     "mod_id": 367390,
+     "source": "drive",
+     "reslot_from": null,
+     "file": "sheik/367390_larxene_over_sheik/original/larxene_over_sheik.7z",
+     "approved": false
+    }
+   }
+  },
+  "17": {
+   "slots": {
+    "1": {
+     "state": "mod",
+     "name": "Jean Grey",
+     "mod_id": 346851,
+     "source": "drive",
+     "reslot_from": null,
+     "file": "zelda/346851_jean_grey_over_zelda/original/jean_grey_release_100.zip",
+     "approved": false
+    }
+   }
+  },
+  "29": {
+   "slots": {
+    "0": {
+     "state": "mod",
+     "name": "Bulma",
+     "mod_id": 724190,
+     "source": "drive",
+     "reslot_from": null,
+     "file": "zero_suit_samus/724190_bulma/original/bulma_over_zss.zip",
+     "approved": false,
+     "nota": "necesita One Slot Effects"
+    },
+    "2": {
+     "state": "mod",
+     "name": "Jinx",
+     "mod_id": 397431,
+     "source": "drive",
+     "reslot_from": null,
+     "file": "zero_suit_samus/397431_jinx/original/jinxvanilla_9797c.rar",
+     "approved": false,
+     "nota": "hay 3 variantes: arcanegun, newui y vanilla; falta elegir"
+    }
+   },
+   "nota": "Pendiente: Spider-Gwen (c07) choca con Jill Valentine (perfil, c07). Opciones: elegir una, o reslotear Gwen a c06 (libre; ojo: se veía negra al moverla sin sus texturas)."
+  },
+  "07": {
+   "slots": {
+    "3": {
+     "state": "mod",
+     "name": "Gohan",
+     "mod_id": 450327,
+     "source": "drive",
+     "reslot_from": null,
+     "file": "fox/450327_gohan/original/fox03_-_gohan_updated_model.zip",
+     "approved": false
+    }
+   }
+  },
+  "20": {
+   "slots": {
+    "0": {
+     "state": "mod",
+     "name": "N64 Falco",
+     "mod_id": 174558,
+     "source": "drive",
+     "reslot_from": null,
+     "file": "falco/174558_falco_n64_skin_voice_sfx/original/falco-n64skin---v-1-4b.zip",
+     "approved": false,
+     "nota": "el sonido N64 va en otro archivo (falcon64sound)"
+    },
+    "1": {
+     "state": "mod",
+     "name": "N64 Falco",
+     "mod_id": 174558,
+     "source": "drive",
+     "reslot_from": null,
+     "file": "falco/174558_falco_n64_skin_voice_sfx/original/falco-n64skin---v-1-4b.zip",
+     "approved": false
+    },
+    "2": {
+     "state": "mod",
+     "name": "N64 Falco",
+     "mod_id": 174558,
+     "source": "drive",
+     "reslot_from": null,
+     "file": "falco/174558_falco_n64_skin_voice_sfx/original/falco-n64skin---v-1-4b.zip",
+     "approved": false
+    }
+   }
+  },
+  "69": {
+   "slots": {
+    "4": {
+     "state": "mod",
+     "name": "Freddie Freaker",
+     "mod_id": 443660,
+     "source": "drive",
+     "reslot_from": null,
+     "file": "incineroar/443660_freddie_freaker_over_incineroar/original/freddie_freaker.rar",
+     "approved": false,
+     "nota": "freakervictory.rar es un tema de victoria global: opcional"
+    }
+   }
+  },
+  "11": {
+   "slots": {},
+   "nota": "Pendiente: Garnet (c02) choca con Dark Falcon (perfil, PR #4, c02). Opciones: elegir una, o reslotear Garnet a c01 (trae motion y config.json, riesgo wifi)."
+  },
+  "21": {
+   "slots": {
+    "3": {
+     "state": "mod",
+     "name": "Sigurd",
+     "mod_id": 442940,
+     "source": "drive",
+     "reslot_from": null,
+     "file": "marth/442940_sigurd_marth/original/sigurd_marth.zip",
+     "approved": false
+    }
+   }
+  },
+  "60": {
+   "slots": {
+    "5": {
+     "state": "mod",
+     "name": "Goku SSJ",
+     "mod_id": 487736,
+     "source": "drive",
+     "reslot_from": null,
+     "file": "ryu/487736_goku_transformation_pack/original/son_goku_ss1-ssg-ssb_ryu_c05-06-07_.rar",
+     "approved": false,
+     "nota": "trae el tema de victoria de Ryu (global, todos sus slots)"
+    },
+    "6": {
+     "state": "mod",
+     "name": "Goku SSG",
+     "mod_id": 487736,
+     "source": "drive",
+     "reslot_from": null,
+     "file": "ryu/487736_goku_transformation_pack/original/son_goku_ss1-ssg-ssb_ryu_c05-06-07_.rar",
+     "approved": false,
+     "nota": "trae el tema de victoria de Ryu (global); reemplaza a Wallace de WuBoy"
+    },
+    "7": {
+     "state": "mod",
+     "name": "Goku SSB",
+     "mod_id": 487736,
+     "source": "drive",
+     "reslot_from": null,
+     "file": "ryu/487736_goku_transformation_pack/original/son_goku_ss1-ssg-ssb_ryu_c05-06-07_.rar",
+     "approved": false,
+     "nota": "trae el tema de victoria de Ryu (global)"
+    }
+   }
+  },
+  "60ε": {
+   "slots": {
+    "0": {
+     "state": "mod",
+     "name": "Goku base",
+     "mod_id": 498005,
+     "source": "drive",
+     "reslot_from": null,
+     "file": "ken/498005_goku/original/goku_over_ken_c00-c07_.rar",
+     "approved": false,
+     "nota": "reemplaza todas las skins de WuBoy de Ken"
+    },
+    "1": {
+     "state": "mod",
+     "name": "Goku SSJ",
+     "mod_id": 498005,
+     "source": "drive",
+     "reslot_from": null,
+     "file": "ken/498005_goku/original/goku_over_ken_c00-c07_.rar",
+     "approved": false
+    },
+    "2": {
+     "state": "mod",
+     "name": "Goku SSJ3",
+     "mod_id": 498005,
+     "source": "drive",
+     "reslot_from": null,
+     "file": "ken/498005_goku/original/goku_over_ken_c00-c07_.rar",
+     "approved": false
+    },
+    "3": {
+     "state": "mod",
+     "name": "Goku SSG",
+     "mod_id": 498005,
+     "source": "drive",
+     "reslot_from": null,
+     "file": "ken/498005_goku/original/goku_over_ken_c00-c07_.rar",
+     "approved": false
+    },
+    "4": {
+     "state": "mod",
+     "name": "Goku base azul",
+     "mod_id": 498005,
+     "source": "drive",
+     "reslot_from": null,
+     "file": "ken/498005_goku/original/goku_over_ken_c00-c07_.rar",
+     "approved": false
+    },
+    "5": {
+     "state": "mod",
+     "name": "Goku SSB",
+     "mod_id": 498005,
+     "source": "drive",
+     "reslot_from": null,
+     "file": "ken/498005_goku/original/goku_over_ken_c00-c07_.rar",
+     "approved": false
+    },
+    "6": {
+     "state": "mod",
+     "name": "Goku UI Omen",
+     "mod_id": 498005,
+     "source": "drive",
+     "reslot_from": null,
+     "file": "ken/498005_goku/original/goku_over_ken_c00-c07_.rar",
+     "approved": false
+    },
+    "7": {
+     "state": "mod",
+     "name": "Goku MUI",
+     "mod_id": 498005,
+     "source": "drive",
+     "reslot_from": null,
+     "file": "ken/498005_goku/original/goku_over_ken_c00-c07_.rar",
+     "approved": false
+    }
+   }
+  },
+  "63": {
+   "slots": {
+    "2": {
+     "state": "mod",
+     "name": "Morrigan",
+     "mod_id": 501311,
+     "source": "drive",
+     "reslot_from": null,
+     "file": "bayonetta/501311_morrigan_mvc3_design/original/morrigan_single_slot_c02_bayo_2_even_slots_only.zip",
+     "approved": false,
+     "nota": "usa el archivo de un solo slot (pares, Bayonetta 2); comprobar que no traiga ef_bayonetta.eff global"
+    }
+   }
+  },
+  "72": {
+   "slots": {
+    "2": {
+     "state": "mod",
+     "name": "Trunks (Androides)",
+     "mod_id": 175735,
+     "source": "drive",
+     "reslot_from": null,
+     "file": "hero/175735_trunks/original/trunks_brave.zip",
+     "approved": false,
+     "nota": "WuBoy ya tiene un Trunks en c02: puede ser el mismo mod"
+    },
+    "6": {
+     "state": "mod",
+     "name": "Trunks (Futuro)",
+     "mod_id": 175735,
+     "source": "drive",
+     "reslot_from": null,
+     "file": "hero/175735_trunks/original/trunks_brave.zip",
+     "approved": false
+    }
+   }
+  },
+  "81": {
+   "slots": {
+    "3": {
+     "state": "mod",
+     "name": "Perfect Cell",
+     "mod_id": 303197,
+     "source": "drive",
+     "reslot_from": null,
+     "file": "kazuya/303197_perfect_cell/original/cell_kazuya_c03_.zip",
+     "approved": false
+    },
+    "6": {
+     "state": "mod",
+     "name": "Goku Ultra Instinto",
+     "mod_id": 463039,
+     "source": "drive",
+     "reslot_from": null,
+     "file": "kazuya/463039_goku_ultra_instinct/original/goku_kazuya_c06_.rar",
+     "approved": false
+    }
+   }
+  },
+  "10": {
+   "slots": {
+    "3": {
+     "state": "mod",
+     "name": "Kid Buu",
+     "mod_id": 560241,
+     "source": "drive",
+     "reslot_from": null,
+     "file": "ness/560241_kid_buu/original/kid_buu_ness_c03_.zip",
+     "approved": false,
+     "nota": "trae el tema de victoria de Ness (global, todos sus slots)"
+    }
+   }
+  },
+  "25ε": {
+   "slots": {
+    "1": {
+     "state": "mod",
+     "name": "Raiden",
+     "mod_id": 387553,
+     "source": "drive",
+     "reslot_from": null,
+     "file": "chrom/387553_raiden/original/raiden_00efb.zip",
+     "approved": false,
+     "nota": "usar el config.json de config_cc198.zip; trae un tema de victoria (global)"
+    },
+    "2": {
+     "state": "mod",
+     "name": "Raiden",
+     "mod_id": 387553,
+     "source": "drive",
+     "reslot_from": null,
+     "file": "chrom/387553_raiden/original/raiden_00efb.zip",
+     "approved": false,
+     "nota": "usar el config.json de config_cc198.zip; trae un tema de victoria (global)"
+    }
+   },
+   "nota": "Pendiente: Squall (c00–c07, 8 voces JP) está partido en 2 partes; hay que unirlo, ver qué look trae cada slot y elegir slots (libres: c00, c03, c04, c05)."
+  },
+  "44": {
+   "slots": {
+    "1": {
+     "state": "mod",
+     "name": "Vegeta",
+     "mod_id": 421286,
+     "source": "drive",
+     "reslot_from": null,
+     "file": "wolf/421286_vegeta/original/wolf_vegeta_c01_.rar",
+     "approved": false
+    }
+   }
   }
  }
 }

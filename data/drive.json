@@ -5,10 +5,10 @@
   "mods": 38,
   "files": 58,
   "bytes": 1101914570,
-  "listed": 31,
-  "unlisted": 25,
+  "listed": 54,
+  "unlisted": 2,
   "other": 2,
-  "touches_c00": 7
+  "touches_c00": 13
  },
  "mods": [
   {
@@ -28,10 +28,17 @@
      "kind": "original",
      "bytes": 10785525,
      "md5": "a3a380786ae8770f58511f5aa181e384",
-     "listed": false,
-     "slots": [],
-     "unlisted_reason": "rar/7z sin herramienta para listar",
-     "touches_c00": null
+     "listed": true,
+     "slots": [
+      0,
+      1,
+      2
+     ],
+     "files_count": 115,
+     "non_slot": [
+      "Moogle over Mario (c00-c02)/effect/fighter/mario/ef_mario.eff"
+     ],
+     "touches_c00": true
     }
    ]
   },
@@ -55,6 +62,10 @@
      "listed": true,
      "slots": [
       3
+     ],
+     "files_count": 17,
+     "non_slot": [
+      "config.json"
      ],
      "touches_c00": false
     }
@@ -81,6 +92,8 @@
      "slots": [
       4
      ],
+     "files_count": 16,
+     "non_slot": [],
      "touches_c00": false
     }
    ]
@@ -112,6 +125,8 @@
      "slots": [
       3
      ],
+     "files_count": 30,
+     "non_slot": [],
      "touches_c00": false
     }
    ]
@@ -137,6 +152,10 @@
      "slots": [
       6
      ],
+     "files_count": 24,
+     "non_slot": [
+      "config.json"
+     ],
      "touches_c00": false
     },
     {
@@ -148,6 +167,8 @@
      "slots": [
       7
      ],
+     "files_count": 30,
+     "non_slot": [],
      "touches_c00": false
     },
     {
@@ -159,6 +180,8 @@
      "slots": [
       7
      ],
+     "files_count": 1,
+     "non_slot": [],
      "touches_c00": false
     }
    ]
@@ -190,6 +213,12 @@
      "slots": [
       3
      ],
+     "files_count": 23,
+     "non_slot": [
+      "stream;/sound/bgm/bgm_z11_f_ness.nus3audio",
+      "ui/message/msg_name.xmsbt",
+      "ui/param/database/ui_chara_db.prcxml"
+     ],
      "touches_c00": false
     }
    ]
@@ -214,6 +243,10 @@
      "listed": true,
      "slots": [
       2
+     ],
+     "files_count": 39,
+     "non_slot": [
+      "config.json"
      ],
      "touches_c00": false
     }
@@ -241,6 +274,8 @@
       5,
       6
      ],
+     "files_count": 4,
+     "non_slot": [],
      "touches_c00": false
     },
     {
@@ -252,6 +287,10 @@
      "slots": [
       5,
       6
+     ],
+     "files_count": 40,
+     "non_slot": [
+      "config.json"
      ],
      "touches_c00": false
     }
@@ -274,10 +313,14 @@
      "kind": "original",
      "bytes": 13959291,
      "md5": "d096e9bee487f2a94dd4848e9f4b7200",
-     "listed": false,
-     "slots": [],
-     "unlisted_reason": "rar/7z sin herramienta para listar",
-     "touches_c00": null
+     "listed": true,
+     "slots": [
+      0,
+      1
+     ],
+     "files_count": 93,
+     "non_slot": [],
+     "touches_c00": true
     }
    ]
   },
@@ -302,6 +345,8 @@
      "slots": [
       1
      ],
+     "files_count": 25,
+     "non_slot": [],
      "touches_c00": false
     }
    ]
@@ -323,20 +368,26 @@
      "kind": "original",
      "bytes": 772500,
      "md5": "22310ba6220ca2e2854f3ac9d346c9a5",
-     "listed": false,
-     "slots": [],
-     "unlisted_reason": "rar/7z sin herramienta para listar",
-     "touches_c00": null
+     "listed": true,
+     "slots": [
+      1
+     ],
+     "files_count": 17,
+     "non_slot": [],
+     "touches_c00": false
     },
     {
      "path": "original/timeless_river_doctor_c07.7z",
      "kind": "original",
      "bytes": 772500,
      "md5": "c752f9ffde0034d6775170b78a075747",
-     "listed": false,
-     "slots": [],
-     "unlisted_reason": "rar/7z sin herramienta para listar",
-     "touches_c00": null
+     "listed": true,
+     "slots": [
+      7
+     ],
+     "files_count": 17,
+     "non_slot": [],
+     "touches_c00": false
     }
    ]
   },
@@ -363,6 +414,8 @@
       1,
       2
      ],
+     "files_count": 21,
+     "non_slot": [],
      "touches_c00": true
     },
     {
@@ -381,6 +434,8 @@
       6,
       7
      ],
+     "files_count": 18,
+     "non_slot": [],
      "touches_c00": true
     },
     {
@@ -390,6 +445,8 @@
      "md5": "10ddd587618d3dc7f478f1c660954783",
      "listed": true,
      "slots": [],
+     "files_count": 1,
+     "non_slot": [],
      "touches_c00": false
     }
    ]
@@ -415,6 +472,10 @@
      "slots": [
       3
      ],
+     "files_count": 18,
+     "non_slot": [
+      "config.json"
+     ],
      "touches_c00": false
     }
    ]
@@ -436,10 +497,15 @@
      "kind": "original",
      "bytes": 79123089,
      "md5": "a94d9826e02483dc3205af57c71c641a",
-     "listed": false,
-     "slots": [],
-     "unlisted_reason": "rar/7z sin herramienta para listar",
-     "touches_c00": null
+     "listed": true,
+     "slots": [
+      5,
+      6,
+      7
+     ],
+     "files_count": 93,
+     "non_slot": [],
+     "touches_c00": false
     }
    ]
   },
@@ -466,10 +532,13 @@
      "kind": "original",
      "bytes": 9609996,
      "md5": "66915cc2a53b20ca02c86974d8d12c8d",
-     "listed": false,
-     "slots": [],
-     "unlisted_reason": "rar/7z sin herramienta para listar",
-     "touches_c00": null
+     "listed": true,
+     "slots": [
+      0
+     ],
+     "files_count": 27,
+     "non_slot": [],
+     "touches_c00": true
     }
    ]
   },
@@ -536,6 +605,10 @@
      "md5": "926a6a4ccb411392b4fabc84c43208fb",
      "listed": true,
      "slots": [],
+     "files_count": 1,
+     "non_slot": [
+      "config.json"
+     ],
      "touches_c00": false
     },
     {
@@ -547,6 +620,13 @@
      "slots": [
       1,
       2
+     ],
+     "files_count": 147,
+     "non_slot": [
+      "config.json",
+      "stream;/sound/bgm/bgm_z61_f_lucina.nus3audio",
+      "ui/message/msg_name.xmsbt",
+      "ui/param/database/ui_chara_db.prcxml"
      ],
      "touches_c00": false
     }
@@ -569,20 +649,26 @@
      "kind": "original",
      "bytes": 2348790,
      "md5": "e41b7601390a2cb6925beef2c8243f4b",
-     "listed": false,
-     "slots": [],
-     "unlisted_reason": "rar/7z sin herramienta para listar",
-     "touches_c00": null
+     "listed": true,
+     "slots": [
+      7
+     ],
+     "files_count": 19,
+     "non_slot": [],
+     "touches_c00": false
     },
     {
      "path": "original/szerosuit_-_gwen_c07.rar",
      "kind": "original",
      "bytes": 2659098,
      "md5": "aed5c4a801a0bff0a56f57f50e3dfb51",
-     "listed": false,
-     "slots": [],
-     "unlisted_reason": "rar/7z sin herramienta para listar",
-     "touches_c00": null
+     "listed": true,
+     "slots": [
+      7
+     ],
+     "files_count": 20,
+     "non_slot": [],
+     "touches_c00": false
     }
    ]
   },
@@ -603,30 +689,39 @@
      "kind": "original",
      "bytes": 25244605,
      "md5": "0c7e6b23d34578073526c148ce1b00fa",
-     "listed": false,
-     "slots": [],
-     "unlisted_reason": "rar/7z sin herramienta para listar",
-     "touches_c00": null
+     "listed": true,
+     "slots": [
+      2
+     ],
+     "files_count": 27,
+     "non_slot": [],
+     "touches_c00": false
     },
     {
      "path": "original/jinxnewui.rar",
      "kind": "original",
      "bytes": 1342855,
      "md5": "af36f57f5f48483a754ee1d27ad3546f",
-     "listed": false,
-     "slots": [],
-     "unlisted_reason": "rar/7z sin herramienta para listar",
-     "touches_c00": null
+     "listed": true,
+     "slots": [
+      2
+     ],
+     "files_count": 6,
+     "non_slot": [],
+     "touches_c00": false
     },
     {
      "path": "original/jinxvanilla_9797c.rar",
      "kind": "original",
      "bytes": 16139476,
      "md5": "e06f07777a73bf2cc2a641b1464a2067",
-     "listed": false,
-     "slots": [],
-     "unlisted_reason": "rar/7z sin herramienta para listar",
-     "touches_c00": null
+     "listed": true,
+     "slots": [
+      2
+     ],
+     "files_count": 27,
+     "non_slot": [],
+     "touches_c00": false
     }
    ]
   },
@@ -650,6 +745,12 @@
      "listed": true,
      "slots": [
       0
+     ],
+     "files_count": 69,
+     "non_slot": [
+      "config.json",
+      "ui/message/msg_name.xmsbt",
+      "ui/param/database/ui_chara_db.prcxml"
      ],
      "touches_c00": true
     }
@@ -678,10 +779,13 @@
      "kind": "original",
      "bytes": 26962801,
      "md5": "6202fead406506077a9df3673a616174",
-     "listed": false,
-     "slots": [],
-     "unlisted_reason": "rar/7z sin herramienta para listar",
-     "touches_c00": null
+     "listed": true,
+     "slots": [
+      1
+     ],
+     "files_count": 25,
+     "non_slot": [],
+     "touches_c00": false
     }
    ]
   },
@@ -702,10 +806,26 @@
      "kind": "original",
      "bytes": 29797295,
      "md5": "e5d1238c93a008729fa684be2369b199",
-     "listed": false,
-     "slots": [],
-     "unlisted_reason": "rar/7z sin herramienta para listar",
-     "touches_c00": null
+     "listed": true,
+     "slots": [
+      5,
+      6,
+      7
+     ],
+     "files_count": 54,
+     "non_slot": [
+      "Goku SS1/ui/message/msg_name.xmsbt",
+      "Goku SS1/ui/param/database/ui_chara_db.prcxml",
+      "Goku SSB/ui/message/msg_name.xmsbt",
+      "Goku SSB/ui/param/database/ui_chara_db.prcxml",
+      "Goku SSG/SSG Goku/stream;/sound/bgm/bgm_z81_f_ryu.nus3audio",
+      "Goku SSG/SSG Goku/ui/message/msg_name.xmsbt",
+      "Goku SSG/SSG Goku/ui/param/database/ui_chara_db.prcxml",
+      "Goku SSG/stream;/sound/bgm/bgm_z81_f_ryu.nus3audio",
+      "Goku SSG/ui/message/msg_name.xmsbt",
+      "Goku SSG/ui/param/database/ui_chara_db.prcxml"
+     ],
+     "touches_c00": false
     }
    ]
   },
@@ -732,10 +852,23 @@
      "kind": "original",
      "bytes": 53510757,
      "md5": "f6f50302e99ecf39ba429a11a7e2ccf3",
-     "listed": false,
-     "slots": [],
-     "unlisted_reason": "rar/7z sin herramienta para listar",
-     "touches_c00": null
+     "listed": true,
+     "slots": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+     ],
+     "files_count": 287,
+     "non_slot": [
+      "config.json",
+      "ui/message/msg_name.xmsbt"
+     ],
+     "touches_c00": true
     }
    ]
   },
@@ -767,6 +900,10 @@
       6,
       7
      ],
+     "files_count": 282,
+     "non_slot": [
+      "effect/fighter/bayonetta/ef_bayonetta.eff"
+     ],
      "touches_c00": true
     },
     {
@@ -784,6 +921,10 @@
       5,
       6,
       7
+     ],
+     "files_count": 282,
+     "non_slot": [
+      "effect/fighter/bayonetta/ef_bayonetta.eff"
      ],
      "touches_c00": true
     },
@@ -803,6 +944,10 @@
       6,
       7
      ],
+     "files_count": 282,
+     "non_slot": [
+      "effect/fighter/bayonetta/ef_bayonetta.eff"
+     ],
      "touches_c00": true
     },
     {
@@ -814,6 +959,8 @@
      "slots": [
       2
      ],
+     "files_count": 35,
+     "non_slot": [],
      "touches_c00": false
     },
     {
@@ -825,6 +972,8 @@
      "slots": [
       3
      ],
+     "files_count": 35,
+     "non_slot": [],
      "touches_c00": false
     }
    ]
@@ -846,20 +995,28 @@
      "kind": "original",
      "bytes": 45290,
      "md5": "1828e9ee51c4418f52aa1e65ab040e60",
-     "listed": false,
+     "listed": true,
      "slots": [],
-     "unlisted_reason": "rar/7z sin herramienta para listar",
-     "touches_c00": null
+     "files_count": 2,
+     "non_slot": [
+      "stream;/sound/bgm/bgm_z91_f_gaogaen.nus3audio"
+     ],
+     "touches_c00": false
     },
     {
      "path": "original/freddie_freaker.rar",
      "kind": "original",
      "bytes": 8240219,
      "md5": "9799e11aa83809e53e7ae4df4620b47c",
-     "listed": false,
-     "slots": [],
-     "unlisted_reason": "rar/7z sin herramienta para listar",
-     "touches_c00": null
+     "listed": true,
+     "slots": [
+      4
+     ],
+     "files_count": 26,
+     "non_slot": [
+      "config.json"
+     ],
+     "touches_c00": false
     }
    ]
   },
@@ -891,6 +1048,8 @@
       2,
       6
      ],
+     "files_count": 30,
+     "non_slot": [],
      "touches_c00": false
     }
    ]
@@ -916,6 +1075,8 @@
      "slots": [
       6
      ],
+     "files_count": 19,
+     "non_slot": [],
      "touches_c00": false
     }
    ]
@@ -937,20 +1098,26 @@
      "kind": "original",
      "bytes": 10007628,
      "md5": "1259977cabf0f51f2f3522f8b390858e",
-     "listed": false,
-     "slots": [],
-     "unlisted_reason": "rar/7z sin herramienta para listar",
-     "touches_c00": null
+     "listed": true,
+     "slots": [
+      7
+     ],
+     "files_count": 27,
+     "non_slot": [],
+     "touches_c00": false
     },
     {
      "path": "original/74_terry_-_gohan_terry_cape.rar",
      "kind": "original",
      "bytes": 10327551,
      "md5": "5b86fee9bbb0fbab1762f1453f828086",
-     "listed": false,
-     "slots": [],
-     "unlisted_reason": "rar/7z sin herramienta para listar",
-     "touches_c00": null
+     "listed": true,
+     "slots": [
+      7
+     ],
+     "files_count": 27,
+     "non_slot": [],
+     "touches_c00": false
     }
    ]
   },
@@ -1010,6 +1177,10 @@
      "slots": [
       1
      ],
+     "files_count": 34,
+     "non_slot": [
+      "config.json"
+     ],
      "touches_c00": false
     },
     {
@@ -1017,10 +1188,22 @@
      "kind": "original",
      "bytes": 52779411,
      "md5": "bc09c8614ae23ab3edf415f0e140710b",
-     "listed": false,
-     "slots": [],
-     "unlisted_reason": "rar/7z sin herramienta para listar",
-     "touches_c00": null
+     "listed": true,
+     "slots": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+     ],
+     "files_count": 221,
+     "non_slot": [
+      "config.json"
+     ],
+     "touches_c00": true
     }
    ]
   },
@@ -1041,20 +1224,33 @@
      "kind": "original",
      "bytes": 53947600,
      "md5": "14ed315f266488ad37689098c88b6552",
-     "listed": false,
-     "slots": [],
-     "unlisted_reason": "rar/7z sin herramienta para listar",
-     "touches_c00": null
+     "listed": true,
+     "slots": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+     ],
+     "files_count": 203,
+     "non_slot": [],
+     "touches_c00": true
     },
     {
      "path": "original/gogeta_ssj4_-_terry_c07_v13.rar",
      "kind": "original",
      "bytes": 8879924,
      "md5": "41ec39eb7a84b0316e5c2293e10a6adc",
-     "listed": false,
-     "slots": [],
-     "unlisted_reason": "rar/7z sin herramienta para listar",
-     "touches_c00": null
+     "listed": true,
+     "slots": [
+      7
+     ],
+     "files_count": 26,
+     "non_slot": [],
+     "touches_c00": false
     }
    ]
   },
@@ -1075,10 +1271,18 @@
      "kind": "original",
      "bytes": 21817339,
      "md5": "6f4cbb6dc98e805c2c5195b4e0685cb5",
-     "listed": false,
-     "slots": [],
-     "unlisted_reason": "rar/7z sin herramienta para listar",
-     "touches_c00": null
+     "listed": true,
+     "slots": [
+      2,
+      3
+     ],
+     "files_count": 32,
+     "non_slot": [
+      "config.json",
+      "ui/message/msg_name.xmsbt",
+      "ui/param/database/ui_chara_db.prcxml"
+     ],
+     "touches_c00": false
     }
    ]
   },
@@ -1109,6 +1313,8 @@
      "slots": [
       7
      ],
+     "files_count": 12,
+     "non_slot": [],
      "touches_c00": false
     }
    ]
@@ -1140,6 +1346,8 @@
      "slots": [
       5
      ],
+     "files_count": 41,
+     "non_slot": [],
      "touches_c00": false
     }
    ]
@@ -1171,6 +1379,8 @@
      "slots": [
       0
      ],
+     "files_count": 25,
+     "non_slot": [],
      "touches_c00": true
     }
    ]
@@ -1202,6 +1412,8 @@
      "slots": [
       3
      ],
+     "files_count": 13,
+     "non_slot": [],
      "touches_c00": false
     }
    ]
@@ -1229,10 +1441,15 @@
      "kind": "original",
      "bytes": 4146849,
      "md5": "45114c6104e3ce01666d5dee105b45e3",
-     "listed": false,
-     "slots": [],
-     "unlisted_reason": "rar/7z sin herramienta para listar",
-     "touches_c00": null
+     "listed": true,
+     "slots": [
+      6
+     ],
+     "files_count": 17,
+     "non_slot": [
+      "config.json"
+     ],
+     "touches_c00": false
     }
    ]
   },
@@ -1255,6 +1472,8 @@
      "md5": "3a0563a2a561b4a597aecea463d7b2f2",
      "listed": true,
      "slots": [],
+     "files_count": 5,
+     "non_slot": [],
      "touches_c00": false
     }
    ]
