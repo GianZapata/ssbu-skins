@@ -42,7 +42,7 @@ Pie de la ficha a 320 px, filas de Elegidas, nombres y carga en Luchadores, reco
 - `chain_strategy`: `feature-branch-chain` (elegida por el usuario).
 - El tracker sale de `test/firestore-ack-race`, no de `master`: el catálogo actual vive en esa rama.
 - Un solo hijo. `useApp.ts` y `tests/e2e/local.spec.js` mezclan historial, hojas y exploración; partirlos dejaría commits que no pasan. Recomendación: `size:exception`.
-- Conteo corrido: se anota al cerrar el commit.
+- Conteo corrido: 1224 (1033 altas, 191 bajas) en `93a3ae5`. Supera 400. `size:exception`.
 
 ## Tasks
 
@@ -50,9 +50,9 @@ Pie de la ficha a 320 px, filas de Elegidas, nombres y carga en Luchadores, reco
 
 - Route: directo. Una máquina de estado en `useApp.ts` más su test. El diseño ya está cerrado en el plan.
 - Riesgo: alto (navegación). Verificación del autor y el test de Playwright.
-- [ ] La carga inicial deja `history.state.depth` en 0 y no suma `S.nav`.
-- [ ] Atrás desde `#/catalogo` abierto directo lleva a Luchadores sin `history.back()`.
-- [ ] Ir a Instaladas y volver regresa al Catálogo. Adelante vuelve a Instaladas.
+- [x] La carga inicial deja `history.state.depth` en 0 y no suma `S.nav`.
+- [x] Atrás desde `#/catalogo` abierto directo lleva a Luchadores sin `history.back()`.
+- [x] Ir a Instaladas y volver regresa al Catálogo. Adelante vuelve a Instaladas.
 - [ ] `replace` (swap) no incrementa la profundidad.
 - Checks: `tests/e2e/local.spec.js` del historial. RED observado antes del cambio.
 
@@ -60,7 +60,7 @@ Pie de la ficha a 320 px, filas de Elegidas, nombres y carga en Luchadores, reco
 
 - Route: directo, mismo módulo de rutas que T1.
 - Riesgo: alto. La ficha y Elegidas comparten el historial.
-- [ ] Abrir Elegidas desde un luchador no desmonta esa página ni borra la candidata.
+- [x] Abrir Elegidas desde un luchador no desmonta esa página ni borra la candidata.
 - [ ] La ficha abierta desde el catálogo mantiene el catálogo debajo.
 - [ ] Un enlace directo a la ficha o a Elegidas tiene un fondo de respaldo.
 - Checks: Playwright. `underCatalog` deja de decidir la página.
@@ -69,23 +69,23 @@ Pie de la ficha a 320 px, filas de Elegidas, nombres y carga en Luchadores, reco
 
 - Route: delegado si toca más de un módulo de comportamiento. Superficies: `candidate.ts`, `stage.ts`, `useSkinSheet.ts`, `useFighterPage.ts`, `useCatalogPage.ts`, ficha.
 - Riesgo: alto (escribe el plan si se equivoca).
-- [ ] Abrir el detalle desde el luchador no cambia la candidata.
-- [ ] La ficha del catálogo no ofrece «Usar en Traje 1». Ofrece «Elegir traje» y la candidata acompaña al traje tocado.
-- [ ] El plan solo cambia con el botón del traje.
+- [x] Abrir el detalle desde el luchador no cambia la candidata.
+- [x] La ficha del catálogo no ofrece «Usar en Traje 1». Ofrece «Elegir traje» y la candidata acompaña al traje tocado.
+- [x] El plan solo cambia con el botón del traje.
 - Checks: unitarios de dominio si la elección es pura; si no, Playwright. Comparar el plan completo, no solo su cantidad.
 
 ### T4. Cabecera y buscador fijo
 
 - Route: directo en `AppShell.vue`, `useReveal.ts` y `app.css`.
 - Riesgo: medio.
-- [ ] En móvil la cabecera se oculta al bajar y el buscador fijo queda debajo, no tapado.
+- [x] En móvil la cabecera se oculta al bajar y el buscador fijo queda debajo, no tapado.
 - Checks: Playwright a 390. `prefers-reduced-motion` no anima.
 
 ### T5. Sync y plan local
 
 - Route: directo en `sync.ts`.
 - Riesgo: alto (persistencia).
-- [ ] `paintSync` no reescribe `#sync`.
+- [x] `paintSync` no reescribe `#sync`.
 - [ ] Sin Firebase, recargar conserva la elección guardada en `ssbu_plan_cache`.
 - Checks: prueba aislada del modo local o Playwright con Firebase bloqueado.
 
@@ -93,18 +93,18 @@ Pie de la ficha a 320 px, filas de Elegidas, nombres y carga en Luchadores, reco
 
 - Route: delegado. Superficies: `GridDensity`, `useCatalogPage.ts`, `useInstalledPage.ts`.
 - Riesgo: medio. No escribe propuestas.
-- [ ] `?pj=` filtra. La búsqueda sigue en memoria. El tamaño vive en `localStorage`.
+- [x] `?pj=` filtra. La búsqueda sigue en memoria. El tamaño vive en `localStorage`.
 - [ ] Con «Todos», el catálogo agrupa por luchador. Con personaje, una sola cuadrícula.
-- [ ] Se quita el agrupado por franquicia de la UI.
+- [x] Se quita el agrupado por franquicia de la UI.
 - Checks: unitario del filtrado si queda puro; si no, Playwright.
 
 ### T7. Barra, hoja y tarjetas
 
 - Route: delegado. Superficies: `ExploreBar`, `FighterPickSheet`, páginas, `app.css`, `Destinations`.
 - Riesgo: medio. UI.
-- [ ] Tres columnas por defecto y un botón para ampliar a dos.
+- [x] Tres columnas por defecto y un botón para ampliar a dos.
 - [ ] Hoja con Todos, búsqueda, retratos y conteo. Se cierra con Atrás.
-- [ ] Contador, limpiar (conserva el tamaño) y nombres en dos líneas.
+- [x] Contador, limpiar (conserva el tamaño) y nombres en dos líneas.
 - [ ] Instaladas leen «Mario · Traje 2» primero.
 - [ ] Cambiar el tamaño conserva la tarjeta visible.
 - Checks: Playwright 390, 360 y 320. Capturas.
@@ -124,13 +124,13 @@ El usuario puede, a 320 px, elegir Mario, combinar una búsqueda, abrir una skin
 
 ## Progress
 
-- T1 a T7 están en el árbol de trabajo, sin commit. `chain_strategy` sigue pendiente: no se cierra ninguna tarea hasta elegir la cadena y hacer el commit de esa unidad.
+- Cadena `feature-branch-chain`. Commit `93a3ae5` en `feat/exploracion-movil-01-exploracion` (1224 líneas, `size:exception`). Tracker `feat/exploracion-movil` en `test/firestore-ack-race`. Sin push.
 - T1: RED `depth === null`. Luego PASS del enlace directo y de Volver/Adelante.
 - T2: RED, la candidata desaparecía al abrir Elegidas. Luego PASS.
 - T3: RED, el catálogo no tenía «Elegir traje». Luego PASS. Mirar el detalle no mueve la candidata.
 - T4 y T5: PASS de cabecera oculta y de la clase `sync-word`. El guardado de `ssbu_plan_cache` está en el `flush` local; esta app tiene Firebase configurado, así que esa rama no se ejecutó aquí.
 - T6 y T7: PASS de 3 columnas, filtro Mario, búsqueda «Dry», «1 apariencia», limpiar sin tocar el plan ni el tamaño. Playwright local completo: 12 PASS. Unitarios: 10 PASS. `vue-tsc` ok.
-- T8 pendiente: capturas, métricas de toques y skins visibles, y los commits.
+- T8 pendiente: capturas, métricas de toques y skins visibles. Siguen abiertos el `replace` de profundidad, el fondo de la ficha, el plan local sin Firebase, el agrupado con «Todos», el cierre de la hoja con Atrás, «Mario · Traje 2» y el ancla al cambiar el tamaño.
 
 ## Chain
 
@@ -150,3 +150,4 @@ Capturas de T8. El PR del tracker y el del hijo quedan para cuando se pida subir
 
 - 2026-10-28: documento creado antes del primer cambio de código. Estrategia de entrega `ask-on-risk`. Cadena sin elegir.
 - 2026-10-28: implementación de T1–T7 en el árbol, sin commit. Espejo Engram `odd/exploracion-movil-catalogo/tasks` (id 7306), actualizado con este estado.
+- 2026-10-28: cadena `feature-branch-chain`. Commit `93a3ae5214a9ef5e41b799dd572babedb1317473`.
