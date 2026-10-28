@@ -80,6 +80,17 @@ class Plan:
         used = {d['mod_id'] for d in ((self.sp['fighters'].get(c) or {}).get('slots') or {}).values() if d.get('source') == 'drive' and d.get('mod_id')}
         return sorted((m for i, m in self.mods.get(c, {}).items() if i not in used), key=lambda m: (not del_usuario(m), m['mod_id']))   # primero los que mandó Gian
 
+    def docs(self):
+        """Un documento por luchador para Firestore (colección slot_plan): los mismos datos que el informe."""
+        keys = ('state', 'name', 'mod_id', 'source', 'reslot_from', 'file', 'nota')
+        out = {}
+        for pos, c in self.order:
+            fp = self.sp['fighters'].get(c) or {}
+            slots = [{'slot': r['slot'], 'hoy': r['hoy'], 'plan': r['plan'], 'estado': r['estado'], **({k: r['d'].get(k) for k in keys} if r['d'] else {})} for r in self.rows(c)]
+            un = [{'mod_id': m['mod_id'], 'slug': m['slug'], 'origin': m.get('origin'), 'slots': self.native(m)} for m in self.unassigned(c)]
+            out[c] = {'code': c, 'name': self.names.get(c, c), 'priority': pos, 'nota': fp.get('nota'), 'slots': slots, 'unassigned': un}
+        return out
+
     def native(self, m):
         s = {x for f in m['files'] if f['listed'] for x in f['slots'] if x < 8}
         return sorted(s) if any(f['listed'] for f in m['files']) else None

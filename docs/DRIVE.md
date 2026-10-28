@@ -61,6 +61,7 @@ Los reportes de triage del Drive están en `docs/drive/` (`PENDIENTES_SLOTS.md`,
 ```bash
 python3 tools/slot_plan.py            # regenera docs/SLOTS.md (no editarlo a mano)
 python3 tools/slot_plan.py --check    # además valida las decisiones
+python3 tools/db.py seed --only slots --dry-run   # qué cambiaría en Firestore (colección slot_plan)
 ```
 
 `docs/SLOTS.md` cruza lo que hay hoy (WuBoy, componentes del perfil, skin original) con las decisiones y lista, por luchador y en orden de prioridad, los slots resueltos y los abiertos, más los mods del Drive sin asignar. `--check` falla (exit 1) si un mod no está en `drive.json`, si `reslot_from` no coincide con los slots que trae el archivo, si falta `reslot_from` en un mod fuera de su slot nativo, si una decisión `wuboy` o `profile` no existe en el inventario, si hay un slot fuera de 0–7 o repetido. Avisa (exit 0) de archivos sin listar, de skins de WuBoy que se reemplazan y de mods del Drive sin asignar en luchadores con decisiones aprobadas.

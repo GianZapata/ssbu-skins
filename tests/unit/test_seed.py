@@ -58,4 +58,12 @@ class Seed(unittest.TestCase):
         self.fs.collection('drive').document('zz').set({'code': 'zz', 'mods': []})
         self.assertEqual(db('seed', '--only', 'all').returncode, 0)
         self.assertTrue(self.fs.collection('drive').document('zz').get().exists)
+    def test_7_plan_de_slots(self):
+        before = {c: self.count(c) for c in ('catalog', 'installed', 'changes', 'history', 'status', 'drive')}
+        r = db('seed', '--only', 'slots', '--dry-run'); self.assertEqual(r.returncode, 0, r.stderr); self.assertEqual(self.count('slot_plan'), 0)
+        r = db('seed', '--only', 'slots'); self.assertEqual(r.returncode, 0, r.stderr)
+        docs = {d.id: d.to_dict() for d in self.fs.collection('slot_plan').stream()}
+        self.assertGreater(len(docs), 30); self.assertTrue(all(len(v['slots']) == 8 for v in docs.values()))
+        self.assertEqual(self.fs.collection('meta').document('slot_plan').get().to_dict()['fighters'], len(docs))
+        self.assertEqual({c: self.count(c) for c in before}, before)
 if __name__ == '__main__': unittest.main()

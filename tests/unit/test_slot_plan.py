@@ -94,4 +94,16 @@ class SlotPlan(unittest.TestCase):
         self.plan(extra={'03': {'slots': {'0': d('Original', 'vanilla', 'vanilla')}}})
         self.assertIn('mod 100 skin_link del Drive sin asignar', self.run_tool('--check').stderr)
 
+    def test_docs_para_firestore(self):
+        self.plan({'1': d('Kellytoy', source='profile'), '2': d('Mario Rojo', 'wuboy', 'wuboy', approved=False)})
+        sys.path.insert(0, os.path.join(R, 'tools')); import slot_plan
+        docs = slot_plan.Plan(self.dir).docs()
+        self.assertEqual(list(docs), ['03', '01', '10', '74'])   # orden de prioridad y luego «Otros»
+        self.assertTrue(all(len(v['slots']) == 8 for v in docs.values()))
+        m = docs['01']['slots']
+        self.assertEqual((m[1]['estado'], m[1]['source'], m[2]['estado'], m[2]['state'], m[0]['estado']), ('aprobado', 'profile', 'propuesto', 'wuboy', 'sin decidir'))
+        self.assertNotIn('state', m[0])   # sin decisión no hay campos de decisión
+        self.assertEqual([u['mod_id'] for u in docs['03']['unassigned']], [101, 100])   # lo del usuario primero; la ui no cuenta
+        self.assertEqual((docs['03']['priority'], docs['74']['priority']), (1, None))
+
 if __name__ == '__main__': unittest.main()

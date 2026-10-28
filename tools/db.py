@@ -4,6 +4,7 @@
 #   python3 tools/db.py seed --only installed             copia SOLO el inventario: acción manual, después de revisarlo (nunca automática)
 #   python3 tools/db.py seed --only all                   las dos cosas
 #   python3 tools/db.py seed --only drive                 copia el manifiesto del Drive (data/drive.json, de tools/scan_drive.py); `all` no lo incluye
+#   python3 tools/db.py seed --only slots                 copia el plan de slots (data/slot_plan.json, cruzado con WuBoy, el perfil y el Drive); `all` no lo incluye
 #   python3 tools/db.py seed --only ... --dry-run         no escribe: dice qué documentos se crearían, cambiarían o borrarían
 #   (seed no toca nunca changes, history ni status)
 #   python3 tools/db.py backup [--out data/plan_backup]   copia a JSON lo que solo vive en Firestore (changes, history, status, meta, selection); solo lee
@@ -81,6 +82,12 @@ def seed(db, only=None, dry=False):
             _replace(db, 'drive', docs, dry)
             if not dry: db.collection('meta').document('drive').set({'source': drive['source'], 'counts': drive['counts'], 'updatedAt': now()})
             done.append(f"Drive: {drive['counts']['mods']} mods en {len(docs)} documentos")
+    if only == 'slots':
+        import slot_plan
+        pl = slot_plan.Plan(os.path.join(cd.R, 'data')); _, (n, a, p, o) = pl.render()
+        _replace(db, 'slot_plan', {c: {**v, 'updatedAt': now()} for c, v in pl.docs().items()}, dry)
+        if not dry: db.collection('meta').document('slot_plan').set({'fighters': n, 'approved': a, 'proposed': p, 'undecided': o, 'updatedAt': now()})
+        done.append(f'plan de slots: {n} luchadores ({a} aprobados, {p} propuestos, {o} sin decidir)')
     print('ok · simulación, no se escribió nada:' if dry else 'ok · Firestore actualizado:', ', '.join(done) or 'nada')
 
 BACKUP = ('changes', 'history', 'status', 'meta', 'selection')
@@ -158,7 +165,7 @@ def migrate(db):
 if __name__ == '__main__':
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     sp = ap.add_subparsers(dest='cmd', required=True)
-    s = sp.add_parser('seed'); s.add_argument('--only', choices=['catalog', 'installed', 'all', 'drive'], required=True, help='qué sincronizar; el inventario nunca se sincroniza sin pedirlo')
+    s = sp.add_parser('seed'); s.add_argument('--only', choices=['catalog', 'installed', 'all', 'drive', 'slots'], required=True, help='qué sincronizar; el inventario nunca se sincroniza sin pedirlo')
     s.add_argument('--dry-run', action='store_true', help='no escribe: muestra qué documentos se crean, cambian o borran')
     b = sp.add_parser('backup'); b.add_argument('--out', default=os.path.join(cd.R, 'data', 'plan_backup'))
     sp.add_parser('plan'); sp.add_parser('migrate')
