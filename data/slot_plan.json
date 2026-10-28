@@ -1670,14 +1670,14 @@
      "nota": "se quita la skin de WuBoy"
     },
     "3": {
-     "state": "vanilla",
-     "name": "Original",
-     "mod_id": null,
-     "source": "vanilla",
+     "state": "mod",
+     "name": "2B (lencería)",
+     "mod_id": 392802,
+     "source": "drive",
      "reslot_from": null,
-     "file": null,
+     "file": "lucina/392802_2b_alts_for_mastaklo/original/2b_alts_for_mastaklo_s_2b.zip.part01",
      "approved": false,
-     "nota": "se quita la skin de WuBoy"
+     "nota": "alt de 2B; zip partido: unir part01 + part02. Requiere el 2B de c00"
     },
     "4": {
      "state": "vanilla",
@@ -1720,7 +1720,7 @@
      "nota": "se quita la skin de WuBoy"
     }
    },
-   "nota": "2B alts: 2 de 7 trajes (c01 armadura gris, c06 blanco), por decisión de Gian."
+   "nota": "2B alts: 3 de 7 trajes (c01 armadura gris, c03 lencería, c06 blanco), por decisión de Gian (excepción a la regla de 2 looks)."
   },
   "75": {
    "slots": {

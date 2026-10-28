@@ -263,14 +263,14 @@ _Pendiente: Garnet (c02) choca con Dark Falcon (perfil, PR #4, c02). Opciones: e
 
 ## 16. Lucina (21ε)
 
-_2B alts: 2 de 7 trajes (c01 armadura gris, c06 blanco), por decisión de Gian._
+_2B alts: 3 de 7 trajes (c01 armadura gris, c03 lencería, c06 blanco), por decisión de Gian (excepción a la regla de 2 looks)._
 
 | Slot | Hoy | Plan | Estado |
 |---|---|---|---|
 | c00 | WuBoy «Yu» | 2B (mastaklo) (GB 362052) · reemplaza a «Yu» de WuBoy | propuesto |
 | c01 | WuBoy | 2B (armadura gris) (GB 392802) · alt de 2B; zip partido: unir part01 + part02 (MD5 33d759d9…). Requiere el 2B de c00 | propuesto |
 | c02 | WuBoy | original | propuesto |
-| c03 | WuBoy | original | propuesto |
+| c03 | WuBoy | 2B (lencería) (GB 392802) · alt de 2B; zip partido: unir part01 + part02. Requiere el 2B de c00 | propuesto |
 | c04 | WuBoy | original | propuesto |
 | c05 | WuBoy | original | propuesto |
 | c06 | WuBoy | 2B (traje blanco) (GB 392802) · alt de 2B; zip partido: unir part01 + part02. Requiere el 2B de c00 | propuesto |
