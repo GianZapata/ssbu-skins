@@ -2,15 +2,149 @@
  "source": "Google Drive · SSBU_mods",
  "note": "Manifiesto de los mods descargados en el Drive (los binarios no se versionan). Slots leídos solo de los .zip; nada de esto está instalado ni probado en consola.",
  "counts": {
-  "mods": 38,
-  "files": 58,
-  "bytes": 1101914570,
-  "listed": 31,
-  "unlisted": 25,
-  "other": 2,
-  "touches_c00": 7
+  "mods": 83,
+  "files": 117,
+  "bytes": 2242511947,
+  "listed": 110,
+  "unlisted": 4,
+  "other": 3,
+  "touches_c00": 38,
+  "origins": {
+   "búsqueda": 11,
+   "búsqueda + enlace del usuario": 6,
+   "desconocido": 18,
+   "enlace del usuario": 48
+  }
  },
  "mods": [
+  {
+   "mod_id": 174057,
+   "slug": "dry_bones_v3_1_update",
+   "folder": "mario/174057_dry_bones_v3_1_update",
+   "fighter_folder": "mario",
+   "code": "01",
+   "internal": "mario",
+   "kind": "skin",
+   "origin": "enlace del usuario",
+   "plugin": false,
+   "link": "URL: https://gamebanana.com/mods/174057\nNombre: Dry Bones (v3.1 Update)\nAutor: Happy190\nCategoría GB: Mario\nFighter carpeta: mario\nSlots nativos: c00, c01, c02, c03, c04, c05, c06, c07\nExtras: config.json, motion/, ui, voice/sound\nWifi: Declaración explícita del autor sin condiciones conocidas\nCita wifi: «alts Voice Mod Animation Edit when Shield Broken (WiFi Safe) Ink Maps Custom Victory Animations (CSK Collecti»\nOrigen: enlace del usuario\nEstado archivo: archivo inspeccionado\nEstado consola: prueba en consola pendiente\nFighters internos: mario\n\nArchivos (MD5):\n  dry_bones_v3-1_all_slots.zip: AAEEDF35D454B96EF70E0747BF860085\n  dry_bones_v3-1_single_slot_c01.zip: F3CD0CD8799F2ABC3AD2C6E989BB54A3\n  dry_bones_v3-1_animations_only_all_slots.zip: 19C63DA4AF65A59D237FA50C145A2788\n  dry_bones_v3-1_animations_only_single_slot_c01.zip: E4A32EC61A268740CAC23194B9A0F8E4",
+   "note": null,
+   "catalog": [
+    {
+     "look_name": "Dry Bones (v3.1 Update)",
+     "role": "propuesta principal",
+     "proposed_destination": 1
+    }
+   ],
+   "files": [
+    {
+     "path": "original/dry_bones_v3-1_all_slots.zip",
+     "kind": "original",
+     "bytes": 63402155,
+     "md5": "aaeedf35d454b96ef70e0747bf860085",
+     "listed": true,
+     "slots": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+     ],
+     "files_count": 294,
+     "non_slot": [
+      "config.json"
+     ],
+     "touches_c00": true
+    },
+    {
+     "path": "original/dry_bones_v3-1_animations_only_all_slots.zip",
+     "kind": "original",
+     "bytes": 3486614,
+     "md5": "19c63da4af65a59d237fa50c145a2788",
+     "listed": true,
+     "slots": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+     ],
+     "files_count": 88,
+     "non_slot": [],
+     "touches_c00": true
+    },
+    {
+     "path": "original/dry_bones_v3-1_animations_only_single_slot_c01.zip",
+     "kind": "original",
+     "bytes": 438212,
+     "md5": "e4a32ec61a268740cac23194b9a0f8e4",
+     "listed": true,
+     "slots": [
+      1
+     ],
+     "files_count": 11,
+     "non_slot": [],
+     "touches_c00": false
+    },
+    {
+     "path": "original/dry_bones_v3-1_single_slot_c01.zip",
+     "kind": "original",
+     "bytes": 6543281,
+     "md5": "f3cd0cd8799f2abc3ad2c6e989bb54a3",
+     "listed": true,
+     "slots": [
+      1
+     ],
+     "files_count": 34,
+     "non_slot": [
+      "config.json"
+     ],
+     "touches_c00": false
+    }
+   ]
+  },
+  {
+   "mod_id": 324701,
+   "slug": "wheelchair_mario",
+   "folder": "mario/324701_wheelchair_mario",
+   "fighter_folder": "mario",
+   "code": "01",
+   "internal": "mario",
+   "kind": "skin",
+   "origin": "enlace del usuario",
+   "plugin": false,
+   "link": "URL: https://gamebanana.com/mods/324701\nNombre: Wheelchair Mario\nAutor: JJ314\nCategoría GB: Mario\nFighter carpeta: mario\nSlots nativos: c02, c03\nExtras: ui\nWifi: Declaración explícita del autor sin condiciones conocidas\nCita wifi: «d c03 (overall colors from romhack) Comes with UI Wifi-Safe Tested with Arcropolis https://gamebanana.com/mod»\nOrigen: enlace del usuario\nEstado archivo: archivo inspeccionado\nEstado consola: prueba en consola pendiente\nFighters internos: mario\n\nArchivos (MD5):\n  marioinawheelchair_e965b.zip: D6916D12563E60070FE0AD2B8E464312",
+   "note": null,
+   "catalog": [
+    {
+     "look_name": "Wheelchair Mario",
+     "role": "propuesta principal",
+     "proposed_destination": 2
+    }
+   ],
+   "files": [
+    {
+     "path": "original/marioinawheelchair_e965b.zip",
+     "kind": "original",
+     "bytes": 9097883,
+     "md5": "d6916d12563e60070fe0ad2b8e464312",
+     "listed": true,
+     "slots": [
+      2,
+      3
+     ],
+     "files_count": 58,
+     "non_slot": [],
+     "touches_c00": false
+    }
+   ]
+  },
   {
    "mod_id": 374147,
    "slug": "moogle_over_mario",
@@ -18,6 +152,8 @@
    "fighter_folder": "mario",
    "code": "01",
    "internal": "mario",
+   "kind": "skin",
+   "origin": "búsqueda + enlace del usuario",
    "plugin": false,
    "link": "https://gamebanana.com/mods/374147",
    "note": null,
@@ -28,10 +164,133 @@
      "kind": "original",
      "bytes": 10785525,
      "md5": "a3a380786ae8770f58511f5aa181e384",
-     "listed": false,
-     "slots": [],
-     "unlisted_reason": "rar/7z sin herramienta para listar",
-     "touches_c00": null
+     "listed": true,
+     "slots": [
+      0,
+      1,
+      2
+     ],
+     "files_count": 115,
+     "non_slot": [
+      "Moogle over Mario (c00-c02)/effect/fighter/mario/ef_mario.eff"
+     ],
+     "touches_c00": true
+    }
+   ]
+  },
+  {
+   "mod_id": 464212,
+   "slug": "paper_mario",
+   "folder": "mario/464212_paper_mario",
+   "fighter_folder": "mario",
+   "code": "01",
+   "internal": "mario",
+   "kind": "skin",
+   "origin": "enlace del usuario",
+   "plugin": false,
+   "link": "URL: https://gamebanana.com/mods/464212\nNombre: Paper Mario\nAutor: Hero-Zero\nCategoría GB: Mario\nFighter carpeta: mario\nSlots nativos: c00\nExtras: motion/, nusktb, param/.prc, ui\nWifi: Sin evidencia localizada\nCita wifi: «(sin mención wifi/online en la descripción del autor)»\nOrigen: enlace del usuario\nEstado archivo: archivo inspeccionado\nEstado consola: prueba en consola pendiente\nFighters internos: mario\n\nArchivos (MD5):\n  paper_mario_6442b.zip: B37A41B6AAC943E96A84D7054DB4AA7B",
+   "note": null,
+   "catalog": null,
+   "files": [
+    {
+     "path": "original/paper_mario_6442b.zip",
+     "kind": "original",
+     "bytes": 9869345,
+     "md5": "b37a41b6aac943e96a84d7054db4aa7b",
+     "listed": true,
+     "slots": [
+      0
+     ],
+     "files_count": 366,
+     "non_slot": [],
+     "touches_c00": true
+    }
+   ]
+  },
+  {
+   "mod_id": 585456,
+   "slug": "kellytoy_mario",
+   "folder": "mario/585456_kellytoy_mario",
+   "fighter_folder": "mario",
+   "code": "01",
+   "internal": "mario",
+   "kind": "skin",
+   "origin": "enlace del usuario",
+   "plugin": false,
+   "link": "URL: https://gamebanana.com/mods/585456\nNombre: Kellytoy Mario\nAutor: Teazu\nCategoría GB: Mario\nFighter carpeta: mario\nSlots nativos: c01\nExtras: ui, voice/sound\nWifi: Declaración explícita del autor sin condiciones conocidas\nCita wifi: «n be moved to other slots (c00-c05) via renaming. Wi-Fi safe! Please note that this mod isn't intended to be s»\nOrigen: enlace del usuario\nEstado archivo: archivo inspeccionado\nEstado consola: prueba en consola pendiente\nFighters internos: mario\n\nArchivos (MD5):\n  kellytoy_mario.rar: B21E65513F37CEBFC68F6B0B56CB8E9C",
+   "note": null,
+   "catalog": null,
+   "files": [
+    {
+     "path": "original/kellytoy_mario.rar",
+     "kind": "original",
+     "bytes": 3875050,
+     "md5": "b21e65513f37cebfc68f6b0b56cb8e9c",
+     "listed": true,
+     "slots": [
+      1
+     ],
+     "files_count": 37,
+     "non_slot": [],
+     "touches_c00": false
+    }
+   ]
+  },
+  {
+   "mod_id": 174249,
+   "slug": "venom",
+   "folder": "dk/174249_venom",
+   "fighter_folder": "dk",
+   "code": "02",
+   "internal": "donkey",
+   "kind": "skin",
+   "origin": "enlace del usuario",
+   "plugin": false,
+   "link": "URL: https://gamebanana.com/mods/174249\nNombre: Venom\nAutor: mastaklo\nCategoría GB: Donkey Kong\nFighter carpeta: dk\nSlots nativos: c07\nExtras: ui\nWifi: Sin evidencia localizada\nCita wifi: «(sin mención wifi/online en la descripción del autor)»\nOrigen: enlace del usuario\nEstado archivo: archivo inspeccionado\nEstado consola: prueba en consola pendiente\nFighters internos: donkey\n\nArchivos (MD5):\n  donkey-c07-venom.rar: 7AC985AB3EF19764778905EDA77BCE94",
+   "note": null,
+   "catalog": null,
+   "files": [
+    {
+     "path": "original/donkey-c07-venom.rar",
+     "kind": "original",
+     "bytes": 2954081,
+     "md5": "7ac985ab3ef19764778905eda77bce94",
+     "listed": true,
+     "slots": [
+      7
+     ],
+     "files_count": 13,
+     "non_slot": [],
+     "touches_c00": false
+    }
+   ]
+  },
+  {
+   "mod_id": 326115,
+   "slug": "donkey_kong_donkey_kong_64",
+   "folder": "dk/326115_donkey_kong_donkey_kong_64",
+   "fighter_folder": "dk",
+   "code": "02",
+   "internal": "donkey",
+   "kind": "skin",
+   "origin": "enlace del usuario",
+   "plugin": false,
+   "link": "URL: https://gamebanana.com/mods/326115\nNombre: Donkey Kong (Donkey Kong 64)\nAutor: Ghost1683759\nCategoría GB: Donkey Kong\nFighter carpeta: dk\nSlots nativos: c05\nExtras: ui\nWifi: Sin evidencia localizada\nCita wifi: «(sin mención wifi/online en la descripción del autor)»\nOrigen: enlace del usuario\nEstado archivo: archivo inspeccionado\nEstado consola: prueba en consola pendiente\nFighters internos: donkey\n\nArchivos (MD5):\n  donkey_kong_donkey_kong_64_.zip: 0E06216032C6CE73C2E7D060A6D4AC2D",
+   "note": null,
+   "catalog": null,
+   "files": [
+    {
+     "path": "original/donkey_kong_donkey_kong_64_.zip",
+     "kind": "original",
+     "bytes": 1125181,
+     "md5": "0e06216032c6ce73c2e7d060a6d4ac2d",
+     "listed": true,
+     "slots": [
+      5
+     ],
+     "files_count": 11,
+     "non_slot": [],
+     "touches_c00": false
     }
    ]
   },
@@ -42,6 +301,8 @@
    "fighter_folder": "dk",
    "code": "02",
    "internal": "donkey",
+   "kind": "skin",
+   "origin": "búsqueda + enlace del usuario",
    "plugin": false,
    "link": "https://gamebanana.com/mods/357706",
    "note": null,
@@ -56,6 +317,212 @@
      "slots": [
       3
      ],
+     "files_count": 17,
+     "non_slot": [
+      "config.json"
+     ],
+     "touches_c00": false
+    }
+   ]
+  },
+  {
+   "mod_id": 378405,
+   "slug": "joe_swanson",
+   "folder": "dk/378405_joe_swanson",
+   "fighter_folder": "dk",
+   "code": "02",
+   "internal": "donkey",
+   "kind": "skin",
+   "origin": "enlace del usuario",
+   "plugin": false,
+   "link": "URL: https://gamebanana.com/mods/378405\nNombre: Joe Swanson\nAutor: Bry_Dawg02\nCategoría GB: Donkey Kong\nFighter carpeta: dk\nSlots nativos: c04\nExtras: config.json, ui, voice/sound\nWifi: Sin evidencia localizada\nCita wifi: «(sin mención wifi/online en la descripción del autor)»\nOrigen: enlace del usuario\nEstado archivo: archivo inspeccionado\nEstado consola: prueba en consola pendiente\nFighters internos: donkey\n\nArchivos (MD5):\n  donkey_kong_-_joe_swanson_ver_2_c04_.zip: AF4D297FF10B9C28E237A17027AEAB44\n  joe_swanson_c04__2e44a.zip: 83878853589B7EDDE5934DB746F08138",
+   "note": null,
+   "catalog": [
+    {
+     "look_name": "Joe Swanson",
+     "role": "alternativa",
+     "proposed_destination": null
+    }
+   ],
+   "files": [
+    {
+     "path": "original/donkey_kong_-_joe_swanson_ver_2_c04_.zip",
+     "kind": "original",
+     "bytes": 1438055,
+     "md5": "af4d297ff10b9c28e237a17027aeab44",
+     "listed": true,
+     "slots": [
+      4
+     ],
+     "files_count": 39,
+     "non_slot": [
+      "config.json"
+     ],
+     "touches_c00": false
+    },
+    {
+     "path": "original/joe_swanson_c04__2e44a.zip",
+     "kind": "original",
+     "bytes": 1374874,
+     "md5": "83878853589b7edde5934db746f08138",
+     "listed": true,
+     "slots": [
+      4
+     ],
+     "files_count": 21,
+     "non_slot": [
+      "config.json"
+     ],
+     "touches_c00": false
+    }
+   ]
+  },
+  {
+   "mod_id": 383485,
+   "slug": "tank_left_4_dead",
+   "folder": "dk/383485_tank_left_4_dead",
+   "fighter_folder": "dk",
+   "code": "02",
+   "internal": "donkey",
+   "kind": "skin",
+   "origin": "enlace del usuario",
+   "plugin": false,
+   "link": "URL: https://gamebanana.com/mods/383485\nNombre: Tank (Left 4 Dead)\nAutor: BindyCot\nCategoría GB: Donkey Kong\nFighter carpeta: dk\nSlots nativos: c02\nExtras: ui, voice/sound\nWifi: Declaración explícita del autor sin condiciones conocidas\nCita wifi: «onkey Kong's c02 Slot This mod is also completely Wifi Safe! This mod comes with: - Custom UI - Custom voice»\nOrigen: enlace del usuario\nEstado archivo: archivo inspeccionado\nEstado consola: prueba en consola pendiente\nFighters internos: donkey\n\nArchivos (MD5):\n  tank_left_4_dead_.zip: 9C81FC2EF1AB247A276E8FC3F204F59D",
+   "note": null,
+   "catalog": [
+    {
+     "look_name": "Tank (Left 4 Dead)",
+     "role": "alternativa",
+     "proposed_destination": null
+    }
+   ],
+   "files": [
+    {
+     "path": "original/tank_left_4_dead_.zip",
+     "kind": "original",
+     "bytes": 8300640,
+     "md5": "9c81fc2ef1ab247a276e8fc3f204f59d",
+     "listed": true,
+     "slots": [
+      2
+     ],
+     "files_count": 14,
+     "non_slot": [],
+     "touches_c00": false
+    }
+   ]
+  },
+  {
+   "mod_id": 396125,
+   "slug": "omega",
+   "folder": "dk/396125_omega",
+   "fighter_folder": "dk",
+   "code": "02",
+   "internal": "donkey",
+   "kind": "skin",
+   "origin": "enlace del usuario",
+   "plugin": false,
+   "link": "URL: https://gamebanana.com/mods/396125\nNombre: Omega\nAutor: WTails358\nCategoría GB: Donkey Kong\nFighter carpeta: dk\nSlots nativos: c02\nExtras: nusktb, ui, voice/sound\nWifi: Sin evidencia localizada\nCita wifi: «(sin mención wifi/online en la descripción del autor)»\nOrigen: enlace del usuario\nEstado archivo: archivo inspeccionado\nEstado consola: prueba en consola pendiente\nFighters internos: donkey\n\nArchivos (MD5):\n  omega_f73c5.rar: 44B22289EB4EBED267690CB583F43C6F",
+   "note": null,
+   "catalog": null,
+   "files": [
+    {
+     "path": "original/omega_f73c5.rar",
+     "kind": "original",
+     "bytes": 6630644,
+     "md5": "44b22289eb4ebed267690cb583f43c6f",
+     "listed": true,
+     "slots": [
+      2
+     ],
+     "files_count": 20,
+     "non_slot": [],
+     "touches_c00": false
+    }
+   ]
+  },
+  {
+   "mod_id": 579593,
+   "slug": "ssj4_donkey_kong",
+   "folder": "dk/579593_ssj4_donkey_kong",
+   "fighter_folder": "dk",
+   "code": "02",
+   "internal": "donkey",
+   "kind": "skin",
+   "origin": "enlace del usuario",
+   "plugin": false,
+   "link": "URL: https://gamebanana.com/mods/579593\nNombre: SSJ4 Donkey Kong\nAutor: superevan5\nCategoría GB: Donkey Kong\nFighter carpeta: dk\nSlots nativos: c01\nExtras: config.json, nusktb, ui\nWifi: Sin evidencia localizada\nCita wifi: «(sin mención wifi/online en la descripción del autor)»\nOrigen: enlace del usuario\nEstado archivo: archivo inspeccionado\nEstado consola: prueba en consola pendiente\nFighters internos: donkey\n\nArchivos (MD5):\n  ssj4_donkey_kong.zip: 75B65ED6DEA79B9875CBD60230A2F5DF",
+   "note": null,
+   "catalog": null,
+   "files": [
+    {
+     "path": "original/ssj4_donkey_kong.zip",
+     "kind": "original",
+     "bytes": 10757536,
+     "md5": "75b65ed6dea79b9875cbd60230a2f5df",
+     "listed": true,
+     "slots": [
+      1
+     ],
+     "files_count": 40,
+     "non_slot": [
+      "config.json"
+     ],
+     "touches_c00": false
+    }
+   ]
+  },
+  {
+   "mod_id": 595992,
+   "slug": "donkey_kong_bananza_smash_ultimate_style",
+   "folder": "dk/595992_donkey_kong_bananza_smash_ultimate_style",
+   "fighter_folder": "dk",
+   "code": "02",
+   "internal": "donkey",
+   "kind": "skin",
+   "origin": "enlace del usuario",
+   "plugin": false,
+   "link": "URL: https://gamebanana.com/mods/595992\nNombre: Donkey Kong Bananza (Smash Ultimate Style)\nAutor: Anivernage\nCategoría GB: Donkey Kong\nFighter carpeta: dk\nSlots nativos: c00, c01, c02\nExtras: config.json, nusktb, ui\nWifi: Declaración explícita del autor sin condiciones conocidas\nCita wifi: «ong Bananza (DK is more expressive than ever!) UI Wifi-Safe Enjoy this mod as much as I enjoyed working on it»\nOrigen: enlace del usuario\nEstado archivo: archivo inspeccionado\nEstado consola: prueba en consola pendiente\nFighters internos: donkey\n\nArchivos (MD5):\n  dkbananza_smashstyle.rar: CD677C9891C9066D8D8F9BB2A548A718\n  rare_dk_bananza_outfit.rar: 166DC13EE3CF061C28F3C85A951054D6",
+   "note": null,
+   "catalog": [
+    {
+     "look_name": "Donkey Kong Bananza (Smash Ultimate Sty…",
+     "role": "propuesta principal",
+     "proposed_destination": 7
+    }
+   ],
+   "files": [
+    {
+     "path": "original/dkbananza_smashstyle.rar",
+     "kind": "original",
+     "bytes": 86446517,
+     "md5": "cd677c9891c9066d8d8f9bb2a548a718",
+     "listed": true,
+     "slots": [
+      0,
+      1,
+      2
+     ],
+     "files_count": 142,
+     "non_slot": [
+      "config.json"
+     ],
+     "touches_c00": true
+    },
+    {
+     "path": "original/rare_dk_bananza_outfit.rar",
+     "kind": "original",
+     "bytes": 44861758,
+     "md5": "166dc13ee3cf061c28f3c85a951054d6",
+     "listed": true,
+     "slots": [
+      1,
+      2
+     ],
+     "files_count": 90,
+     "non_slot": [
+      "config.json"
+     ],
      "touches_c00": false
     }
    ]
@@ -67,6 +534,8 @@
    "fighter_folder": "link",
    "code": "03",
    "internal": "link",
+   "kind": "skin",
+   "origin": "búsqueda",
    "plugin": false,
    "link": "https://gamebanana.com/mods/342215",
    "note": null,
@@ -81,6 +550,37 @@
      "slots": [
       4
      ],
+     "files_count": 16,
+     "non_slot": [],
+     "touches_c00": false
+    }
+   ]
+  },
+  {
+   "mod_id": 628791,
+   "slug": "link_female",
+   "folder": "link/628791_link_female",
+   "fighter_folder": "link",
+   "code": "03",
+   "internal": "link",
+   "kind": "skin",
+   "origin": "enlace del usuario",
+   "plugin": false,
+   "link": "URL: https://gamebanana.com/mods/628791\nNombre: Link (Female)\nAutor: Hanxulz\nFighter (carpeta GB / archive): Link / link\nSlots nativos (archivo): c05\nExtras: voice/sound, ui\nWifi: Sin evidencia localizada\nCita: «(sin mención wifi/online en la descripción del autor)»\nMD5:\n- ssbu_link_female_.rar: 464685113cf27bb8b66d3e20cc6b56ad OK=True\nEstado: archivo inspeccionado (lista); prueba en consola pendiente\nNotas: Female Link c05 + sound + UI.\nDescargado: 2026-10-28 (box → Drive only; PC no tocada)",
+   "note": null,
+   "catalog": null,
+   "files": [
+    {
+     "path": "original/ssbu_link_female_.rar",
+     "kind": "original",
+     "bytes": 19727231,
+     "md5": "464685113cf27bb8b66d3e20cc6b56ad",
+     "listed": true,
+     "slots": [
+      5
+     ],
+     "files_count": 48,
+     "non_slot": [],
      "touches_c00": false
     }
    ]
@@ -92,6 +592,8 @@
    "fighter_folder": "fox",
    "code": "07",
    "internal": "fox",
+   "kind": "skin",
+   "origin": "desconocido",
    "plugin": false,
    "link": "https://gamebanana.com/mods/450327",
    "note": null,
@@ -112,6 +614,8 @@
      "slots": [
       3
      ],
+     "files_count": 30,
+     "non_slot": [],
      "touches_c00": false
     }
    ]
@@ -123,6 +627,8 @@
    "fighter_folder": "luigi",
    "code": "09",
    "internal": "luigi",
+   "kind": "skin",
+   "origin": "búsqueda",
    "plugin": false,
    "link": "https://gamebanana.com/mods/391570",
    "note": null,
@@ -137,6 +643,10 @@
      "slots": [
       6
      ],
+     "files_count": 24,
+     "non_slot": [
+      "config.json"
+     ],
      "touches_c00": false
     },
     {
@@ -148,6 +658,8 @@
      "slots": [
       7
      ],
+     "files_count": 30,
+     "non_slot": [],
      "touches_c00": false
     },
     {
@@ -159,6 +671,8 @@
      "slots": [
       7
      ],
+     "files_count": 1,
+     "non_slot": [],
      "touches_c00": false
     }
    ]
@@ -170,6 +684,8 @@
    "fighter_folder": "ness",
    "code": "10",
    "internal": "ness",
+   "kind": "skin",
+   "origin": "desconocido",
    "plugin": false,
    "link": "https://gamebanana.com/mods/560241",
    "note": null,
@@ -190,6 +706,12 @@
      "slots": [
       3
      ],
+     "files_count": 23,
+     "non_slot": [
+      "stream;/sound/bgm/bgm_z11_f_ness.nus3audio",
+      "ui/message/msg_name.xmsbt",
+      "ui/param/database/ui_chara_db.prcxml"
+     ],
      "touches_c00": false
     }
    ]
@@ -201,6 +723,8 @@
    "fighter_folder": "captain_falcon",
    "code": "11",
    "internal": "captain",
+   "kind": "skin",
+   "origin": "búsqueda + enlace del usuario",
    "plugin": false,
    "link": "https://gamebanana.com/mods/466057",
    "note": null,
@@ -215,6 +739,114 @@
      "slots": [
       2
      ],
+     "files_count": 39,
+     "non_slot": [
+      "config.json"
+     ],
+     "touches_c00": false
+    }
+   ]
+  },
+  {
+   "mod_id": 676382,
+   "slug": "buff_perry_the_platypus_phineas_and_ferb",
+   "folder": "captain_falcon/676382_buff_perry_the_platypus_phineas_and_ferb",
+   "fighter_folder": "captain_falcon",
+   "code": "11",
+   "internal": "captain",
+   "kind": "skin",
+   "origin": "enlace del usuario",
+   "plugin": false,
+   "link": "URL: https://gamebanana.com/mods/676382\nNombre: Buff Perry the Platypus (Phineas and Ferb)\nAutor: RagerGokuda\nCategoría GB: Captain Falcon\nFighter carpeta: captain_falcon\nSlots nativos: c01\nExtras: nusktb, ui\nWifi: Sin evidencia localizada\nCita wifi: «(sin mención wifi/online en la descripción del autor)»\nOrigen: enlace del usuario\nEstado archivo: archivo inspeccionado\nEstado consola: prueba en consola pendiente\nFighters internos: captain\n\nArchivos (MD5):\n  buff_perry.rar: 5EB24A8EEAFCDAEEC5CA9FDDEF493DEC\n  buff_perry_cell_shading.rar: 8D559C581BEEB3634D09F0567827144B",
+   "note": null,
+   "catalog": null,
+   "files": [
+    {
+     "path": "original/buff_perry.rar",
+     "kind": "original",
+     "bytes": 1052319,
+     "md5": "5eb24a8eeafcdaeec5ca9fddef493dec",
+     "listed": true,
+     "slots": [
+      1
+     ],
+     "files_count": 14,
+     "non_slot": [],
+     "touches_c00": false
+    },
+    {
+     "path": "original/buff_perry_cell_shading.rar",
+     "kind": "original",
+     "bytes": 1052232,
+     "md5": "8d559c581beeb3634d09f0567827144b",
+     "listed": true,
+     "slots": [
+      1
+     ],
+     "files_count": 14,
+     "non_slot": [],
+     "touches_c00": false
+    }
+   ]
+  },
+  {
+   "mod_id": 680362,
+   "slug": "buzz_lightyear",
+   "folder": "captain_falcon/680362_buzz_lightyear",
+   "fighter_folder": "captain_falcon",
+   "code": "11",
+   "internal": "captain",
+   "kind": "skin",
+   "origin": "enlace del usuario",
+   "plugin": false,
+   "link": "URL: https://gamebanana.com/mods/680362\nNombre: Buzz Lightyear\nAutor: AberrancedGames\nCategoría GB: Captain Falcon\nFighter carpeta: captain_falcon\nSlots nativos: c00\nExtras: nusktb, ui\nWifi: Sin evidencia localizada\nCita wifi: «(sin mención wifi/online en la descripción del autor)»\nOrigen: enlace del usuario\nEstado archivo: archivo inspeccionado\nEstado consola: prueba en consola pendiente\nFighters internos: captain\n\nArchivos (MD5):\n  buzz_c04d2.zip: BCDB1B000873553F78983F4805197809",
+   "note": null,
+   "catalog": null,
+   "files": [
+    {
+     "path": "original/buzz_c04d2.zip",
+     "kind": "original",
+     "bytes": 8519113,
+     "md5": "bcdb1b000873553f78983f4805197809",
+     "listed": true,
+     "slots": [
+      0
+     ],
+     "files_count": 37,
+     "non_slot": [],
+     "touches_c00": true
+    }
+   ]
+  },
+  {
+   "mod_id": 692548,
+   "slug": "all_might_over_captain_falcon",
+   "folder": "captain_falcon/692548_all_might_over_captain_falcon",
+   "fighter_folder": "captain_falcon",
+   "code": "11",
+   "internal": "captain",
+   "kind": "skin",
+   "origin": "enlace del usuario",
+   "plugin": false,
+   "link": "URL: https://gamebanana.com/mods/692548\nNombre: All Might over Captain Falcon\nAutor: TheMonkGB\nCategoría GB: Captain Falcon\nFighter carpeta: captain_falcon\nSlots nativos: c01\nExtras: config.json, effect, motion/, nusktb, param/.prc, ui, voice/sound\nWifi: Declaración condicionada del autor\nCita wifi: «don't want to use it) The mod should be Wifi-Safe (tested via the replay method on Yuzu).»\nOrigen: enlace del usuario\nEstado archivo: archivo inspeccionado\nEstado consola: prueba en consola pendiente\nFighters internos: captain\n\nArchivos (MD5):\n  all_might_over_falcon.zip: 1537E4C2977CE375B5E08184FDA1957E",
+   "note": null,
+   "catalog": null,
+   "files": [
+    {
+     "path": "original/all_might_over_falcon.zip",
+     "kind": "original",
+     "bytes": 24361713,
+     "md5": "1537e4c2977ce375b5e08184fda1957e",
+     "listed": true,
+     "slots": [
+      1
+     ],
+     "files_count": 55,
+     "non_slot": [
+      "config.json",
+      "stream;/sound/bgm/bgm_z10_f_captain.nus3audio",
+      "stream;/sound/bgm/bgm_z10_f_captain.nus3bank"
+     ],
      "touches_c00": false
     }
    ]
@@ -226,6 +858,8 @@
    "fighter_folder": "bowser",
    "code": "14",
    "internal": "koopa",
+   "kind": "skin",
+   "origin": "búsqueda + enlace del usuario",
    "plugin": false,
    "link": "https://gamebanana.com/mods/386111",
    "note": null,
@@ -241,6 +875,8 @@
       5,
       6
      ],
+     "files_count": 4,
+     "non_slot": [],
      "touches_c00": false
     },
     {
@@ -253,6 +889,10 @@
       5,
       6
      ],
+     "files_count": 40,
+     "non_slot": [
+      "config.json"
+     ],
      "touches_c00": false
     }
    ]
@@ -264,6 +904,8 @@
    "fighter_folder": "sheik",
    "code": "16",
    "internal": "sheik",
+   "kind": "skin",
+   "origin": "búsqueda",
    "plugin": false,
    "link": "https://gamebanana.com/mods/367390",
    "note": null,
@@ -274,10 +916,52 @@
      "kind": "original",
      "bytes": 13959291,
      "md5": "d096e9bee487f2a94dd4848e9f4b7200",
-     "listed": false,
-     "slots": [],
-     "unlisted_reason": "rar/7z sin herramienta para listar",
-     "touches_c00": null
+     "listed": true,
+     "slots": [
+      0,
+      1
+     ],
+     "files_count": 93,
+     "non_slot": [],
+     "touches_c00": true
+    }
+   ]
+  },
+  {
+   "mod_id": 511678,
+   "slug": "yuffie_kisaragi_final_fantasy_vii",
+   "folder": "sheik/511678_yuffie_kisaragi_final_fantasy_vii",
+   "fighter_folder": "sheik",
+   "code": "16",
+   "internal": "sheik",
+   "kind": "skin",
+   "origin": "enlace del usuario",
+   "plugin": false,
+   "link": "URL: https://gamebanana.com/mods/511678\nNombre: Yuffie Kisaragi - Final Fantasy VII\nAutor: Regen07\nCategoría GB: Sheik\nFighter carpeta: sheik\nSlots nativos: c00, c01\nExtras: config.json, motion/, nusktb, param/.prc, ui, voice/sound\nWifi: Declaración explícita del autor sin condiciones conocidas\nCita wifi: «Wi-Fi Safe!»\nOrigen: enlace del usuario\nEstado archivo: archivo inspeccionado\nEstado consola: prueba en consola pendiente\nFighters internos: sheik\n\nArchivos (MD5):\n  yuffie_over_c01_sheik.rar: 5B60D52EC170DEFEF5698D184D21E96A",
+   "note": null,
+   "catalog": [
+    {
+     "look_name": "Yuffie Kisaragi - Final Fantasy VII",
+     "role": "alternativa",
+     "proposed_destination": null
+    }
+   ],
+   "files": [
+    {
+     "path": "original/yuffie_over_c01_sheik.rar",
+     "kind": "original",
+     "bytes": 61754621,
+     "md5": "5b60d52ec170defef5698d184d21e96a",
+     "listed": true,
+     "slots": [
+      0,
+      1
+     ],
+     "files_count": 464,
+     "non_slot": [
+      "config.json"
+     ],
+     "touches_c00": true
     }
    ]
   },
@@ -288,6 +972,8 @@
    "fighter_folder": "zelda",
    "code": "17",
    "internal": "zelda",
+   "kind": "skin",
+   "origin": "búsqueda + enlace del usuario",
    "plugin": false,
    "link": "https://gamebanana.com/mods/346851",
    "note": null,
@@ -302,7 +988,48 @@
      "slots": [
       1
      ],
+     "files_count": 25,
+     "non_slot": [],
      "touches_c00": false
+    }
+   ]
+  },
+  {
+   "mod_id": 535222,
+   "slug": "aerith_gainsborough_final_fantasy_vii",
+   "folder": "zelda/535222_aerith_gainsborough_final_fantasy_vii",
+   "fighter_folder": "zelda",
+   "code": "17",
+   "internal": "zelda",
+   "kind": "skin",
+   "origin": "enlace del usuario",
+   "plugin": false,
+   "link": "URL: https://gamebanana.com/mods/535222\nNombre: Aerith Gainsborough (Final Fantasy VII)\nAutor: Raijinken\nCategoría GB: Zelda\nFighter carpeta: zelda\nSlots nativos: c00, c01\nExtras: config.json, effect, nusktb, ui\nWifi: Declaración condicionada del autor\nCita wifi: «rt for Phantom (Odin) The mod should be online safe, but I have not tested it myself. If th»\nOrigen: enlace del usuario\nEstado archivo: archivo inspeccionado\nEstado consola: prueba en consola pendiente\nFighters internos: zelda\n\nArchivos (MD5):\n  aerith_c00_c01.rar: C9904FFB93CC434E7A2B06AAAEF64812",
+   "note": null,
+   "catalog": [
+    {
+     "look_name": "Aerith Gainsborough (Final Fantasy VII)",
+     "role": "alternativa",
+     "proposed_destination": null
+    }
+   ],
+   "files": [
+    {
+     "path": "original/aerith_c00_c01.rar",
+     "kind": "original",
+     "bytes": 52956470,
+     "md5": "c9904ffb93cc434e7a2b06aaaef64812",
+     "listed": true,
+     "slots": [
+      0,
+      1
+     ],
+     "files_count": 141,
+     "non_slot": [
+      "Zelda Aerith c00/config.json",
+      "Zelda Aerith c01/config.json"
+     ],
+     "touches_c00": true
     }
    ]
   },
@@ -313,6 +1040,8 @@
    "fighter_folder": "dr_mario",
    "code": "18",
    "internal": "mariod",
+   "kind": "skin",
+   "origin": "búsqueda",
    "plugin": false,
    "link": "https://gamebanana.com/mods/384627",
    "note": null,
@@ -323,20 +1052,26 @@
      "kind": "original",
      "bytes": 772500,
      "md5": "22310ba6220ca2e2854f3ac9d346c9a5",
-     "listed": false,
-     "slots": [],
-     "unlisted_reason": "rar/7z sin herramienta para listar",
-     "touches_c00": null
+     "listed": true,
+     "slots": [
+      1
+     ],
+     "files_count": 17,
+     "non_slot": [],
+     "touches_c00": false
     },
     {
      "path": "original/timeless_river_doctor_c07.7z",
      "kind": "original",
      "bytes": 772500,
      "md5": "c752f9ffde0034d6775170b78a075747",
-     "listed": false,
-     "slots": [],
-     "unlisted_reason": "rar/7z sin herramienta para listar",
-     "touches_c00": null
+     "listed": true,
+     "slots": [
+      7
+     ],
+     "files_count": 17,
+     "non_slot": [],
+     "touches_c00": false
     }
    ]
   },
@@ -347,6 +1082,8 @@
    "fighter_folder": "falco",
    "code": "20",
    "internal": "falco",
+   "kind": "skin",
+   "origin": "búsqueda",
    "plugin": false,
    "link": "https://gamebanana.com/mods/174558",
    "note": null,
@@ -363,6 +1100,8 @@
       1,
       2
      ],
+     "files_count": 21,
+     "non_slot": [],
      "touches_c00": true
     },
     {
@@ -381,6 +1120,8 @@
       6,
       7
      ],
+     "files_count": 18,
+     "non_slot": [],
      "touches_c00": true
     },
     {
@@ -390,6 +1131,8 @@
      "md5": "10ddd587618d3dc7f478f1c660954783",
      "listed": true,
      "slots": [],
+     "files_count": 1,
+     "non_slot": [],
      "touches_c00": false
     }
    ]
@@ -401,6 +1144,8 @@
    "fighter_folder": "marth",
    "code": "21",
    "internal": "marth",
+   "kind": "skin",
+   "origin": "búsqueda",
    "plugin": false,
    "link": "https://gamebanana.com/mods/442940",
    "note": null,
@@ -415,7 +1160,94 @@
      "slots": [
       3
      ],
+     "files_count": 18,
+     "non_slot": [
+      "config.json"
+     ],
      "touches_c00": false
+    }
+   ]
+  },
+  {
+   "mod_id": 362052,
+   "slug": "2b",
+   "folder": "lucina/362052_2b",
+   "fighter_folder": "lucina",
+   "code": "21ε",
+   "internal": "lucina",
+   "kind": "skin",
+   "origin": "búsqueda",
+   "plugin": false,
+   "link": "URL: https://gamebanana.com/mods/362052\nNombre: 2B\nAutor: mastaklo\nLuchador Drive: lucina\nSlots nativos: c00\n\nWifi: Declaración condicionada del autor\nCita textual: «Uses exo skeleton so should be wifi safe. Didnt tested it myself tho.»\n\nArchivos (MD5 OK vs GameBanana apiv11):\n- lucina-c00-2b-by-mastaklo.rar  17134391 bytes  MD5 d7edd77adea1b9f32723912ea8c04c70  (dl/783214)\n\nInspección (archivo no inspeccionado en consola; lista 7z):\n- fighter/lucina/model/body/c00 (texturas + model.nusktb / nuhlpb / num*)\n- fighter/lucina/motion/body/c00/swing.prc\n- ui/replace/chara/chara_1..4 lucina_00.bntx\n- config.json + info.toml + preview.webp\n- Presente: motion (swing.prc), param/prc (sí), ui, config.json, model.nusktb (exo skeleton). Sin voice/, sin sound/, sin effect/.\n- Nota autor: para mover de slot hay que editar config.json (texture addition path).\n\nYa en catálogo ssbu-skins como propuesta principal de Lucina.\nprueba en consola pendiente",
+   "note": null,
+   "catalog": [
+    {
+     "look_name": "2B",
+     "role": "propuesta principal",
+     "proposed_destination": 0
+    }
+   ],
+   "files": [
+    {
+     "path": "original/lucina-c00-2b-by-mastaklo.rar",
+     "kind": "original",
+     "bytes": 17134391,
+     "md5": "d7edd77adea1b9f32723912ea8c04c70",
+     "listed": true,
+     "slots": [
+      0
+     ],
+     "files_count": 29,
+     "non_slot": [
+      "config.json"
+     ],
+     "touches_c00": true
+    }
+   ]
+  },
+  {
+   "mod_id": 392802,
+   "slug": "2b_alts_for_mastaklo",
+   "folder": "lucina/392802_2b_alts_for_mastaklo",
+   "fighter_folder": "lucina",
+   "code": "21ε",
+   "internal": "lucina",
+   "kind": "skin",
+   "origin": "enlace del usuario",
+   "plugin": false,
+   "link": "URL: https://gamebanana.com/mods/392802\nNombre: Alternate 2b Outfits for mastaklo's 2b\nAutor: korbopoyo\nFighter (carpeta GB / archive): Lucina / lucina\nSlots nativos (archivo): c00, c01, c02, c03, c04, c05, c06, c07\nExtras: motion/, param/.prc, ui\nWifi: Sin evidencia localizada\nCita: «(sin mención wifi; requiere mastaklo 362052, cuya declaración es condicionada)»\nMD5:\n- 2b_alts_for_mastaklo_s_2b.zip: 33d759d9799e897f0a0a4ec31f286193 OK=True\nEstado: archivo inspeccionado (lista); prueba en consola pendiente\nNotas: Requiere base mastaklo 362052 (2B Lucina). Alts c01-c07 según autor; el zip también contiene rutas c00. Trae motion/ y .prc. UI rough.\nDescargado: 2026-10-28 (box → Drive only; PC no tocada)",
+   "note": null,
+   "catalog": null,
+   "files": [
+    {
+     "path": "original/2b_alts_for_mastaklo_s_2b.zip.part01",
+     "kind": "original",
+     "bytes": 99614720,
+     "md5": "820294a65c75aa93b430ac02b99cf977",
+     "listed": false,
+     "slots": [],
+     "unlisted_reason": "zip partido en partes",
+     "touches_c00": null
+    },
+    {
+     "path": "original/2b_alts_for_mastaklo_s_2b.zip.part02",
+     "kind": "original",
+     "bytes": 53070275,
+     "md5": "ee24384d2368b1937770c6209500cd82",
+     "listed": false,
+     "slots": [],
+     "unlisted_reason": "zip partido en partes",
+     "touches_c00": null
+    },
+    {
+     "path": "original/PARTES.txt",
+     "kind": "original",
+     "bytes": 325,
+     "md5": "716dfcc8f57a9fa30dd32ae24967a7b2",
+     "listed": false,
+     "slots": [],
+     "unlisted_reason": "no es un archivo de mod",
+     "touches_c00": null
     }
    ]
   },
@@ -426,6 +1258,8 @@
    "fighter_folder": "ganondorf",
    "code": "23",
    "internal": "ganon",
+   "kind": "skin",
+   "origin": "búsqueda",
    "plugin": false,
    "link": "https://gamebanana.com/mods/174353",
    "note": null,
@@ -436,10 +1270,137 @@
      "kind": "original",
      "bytes": 79123089,
      "md5": "a94d9826e02483dc3205af57c71c641a",
-     "listed": false,
-     "slots": [],
-     "unlisted_reason": "rar/7z sin herramienta para listar",
-     "touches_c00": null
+     "listed": true,
+     "slots": [
+      5,
+      6,
+      7
+     ],
+     "files_count": 93,
+     "non_slot": [],
+     "touches_c00": false
+    }
+   ]
+  },
+  {
+   "mod_id": 320899,
+   "slug": "jiren",
+   "folder": "ganondorf/320899_jiren",
+   "fighter_folder": "ganondorf",
+   "code": "23",
+   "internal": "ganon",
+   "kind": "skin",
+   "origin": "enlace del usuario",
+   "plugin": false,
+   "link": "URL: https://gamebanana.com/mods/320899\nNombre: Jiren\nAutor: Ghost1683759\nCategoría GB: Ganondorf\nFighter carpeta: ganondorf\nSlots nativos: c07\nExtras: ui\nWifi: Sin evidencia localizada\nCita wifi: «(sin mención wifi/online en la descripción del autor)»\nOrigen: enlace del usuario\nEstado archivo: archivo inspeccionado\nEstado consola: prueba en consola pendiente\nFighters internos: ganon\n\nArchivos (MD5):\n  jiren_over_ganondorf.zip: B28E3D2B8A89A3DB8C8C77333F8BCF4C",
+   "note": null,
+   "catalog": null,
+   "files": [
+    {
+     "path": "original/jiren_over_ganondorf.zip",
+     "kind": "original",
+     "bytes": 2056159,
+     "md5": "b28e3d2b8a89a3db8c8c77333f8bcf4c",
+     "listed": true,
+     "slots": [
+      7
+     ],
+     "files_count": 11,
+     "non_slot": [],
+     "touches_c00": false
+    }
+   ]
+  },
+  {
+   "mod_id": 324864,
+   "slug": "broly_dbs",
+   "folder": "ganondorf/324864_broly_dbs",
+   "fighter_folder": "ganondorf",
+   "code": "23",
+   "internal": "ganon",
+   "kind": "skin",
+   "origin": "enlace del usuario",
+   "plugin": false,
+   "link": "URL: https://gamebanana.com/mods/324864\nNombre: Broly (DBS)\nAutor: Ghost1683759\nCategoría GB: Ganondorf\nFighter carpeta: ganondorf\nSlots nativos: c06\nExtras: ui\nWifi: Sin evidencia localizada\nCita wifi: «(sin mención wifi/online en la descripción del autor)»\nOrigen: enlace del usuario\nEstado archivo: archivo inspeccionado\nEstado consola: prueba en consola pendiente\nFighters internos: ganon\n\nArchivos (MD5):\n  broly_dbs_over_ganondorf.zip: 168CA89A6BE6655312C35287C6DF73D2",
+   "note": null,
+   "catalog": null,
+   "files": [
+    {
+     "path": "original/broly_dbs_over_ganondorf.zip",
+     "kind": "original",
+     "bytes": 3792633,
+     "md5": "168ca89a6be6655312c35287c6df73d2",
+     "listed": true,
+     "slots": [
+      6
+     ],
+     "files_count": 17,
+     "non_slot": [],
+     "touches_c00": false
+    }
+   ]
+  },
+  {
+   "mod_id": 392436,
+   "slug": "otis_back_at_the_barnyard",
+   "folder": "ganondorf/392436_otis_back_at_the_barnyard",
+   "fighter_folder": "ganondorf",
+   "code": "23",
+   "internal": "ganon",
+   "kind": "skin",
+   "origin": "enlace del usuario",
+   "plugin": false,
+   "link": "URL: https://gamebanana.com/mods/392436\nNombre: Otis (Back at the Barnyard)\nAutor: cosmicist\nCategoría GB: Ganondorf\nFighter carpeta: ganondorf\nSlots nativos: c00\nExtras: nusktb, ui, voice/sound\nWifi: Sin evidencia localizada\nCita wifi: «(sin mención wifi/online en la descripción del autor)»\nOrigen: enlace del usuario\nEstado archivo: archivo inspeccionado\nEstado consola: prueba en consola pendiente\nFighters internos: ganon\n\nArchivos (MD5):\n  perhapscow.zip: 3BF8FE695A5768258D0E0A0427751422",
+   "note": null,
+   "catalog": null,
+   "files": [
+    {
+     "path": "original/perhapscow.zip",
+     "kind": "original",
+     "bytes": 2764992,
+     "md5": "3bf8fe695a5768258d0e0a0427751422",
+     "listed": true,
+     "slots": [
+      0
+     ],
+     "files_count": 19,
+     "non_slot": [],
+     "touches_c00": true
+    }
+   ]
+  },
+  {
+   "mod_id": 401033,
+   "slug": "pain_naruto_shippuden",
+   "folder": "ganondorf/401033_pain_naruto_shippuden",
+   "fighter_folder": "ganondorf",
+   "code": "23",
+   "internal": "ganon",
+   "kind": "skin",
+   "origin": "enlace del usuario",
+   "plugin": false,
+   "link": "URL: https://gamebanana.com/mods/401033\nNombre: Pain (Naruto Shippuden)\nAutor: BeyondSmash\nCategoría GB: Ganondorf\nFighter carpeta: ganondorf\nSlots nativos: c00\nExtras: config.json, effect, motion/, nusktb, param/.prc, ui, voice/sound\nWifi: Sin evidencia localizada\nCita wifi: «(sin mención wifi/online en la descripción del autor)»\nOrigen: enlace del usuario\nEstado archivo: archivo inspeccionado\nEstado consola: prueba en consola pendiente\nFighters internos: ganon\n\nArchivos (MD5):\n  pain_99c70.zip: 2A77E50B1738635AF025D11FC2B29F7B",
+   "note": null,
+   "catalog": null,
+   "files": [
+    {
+     "path": "original/pain_99c70.zip",
+     "kind": "original",
+     "bytes": 9152565,
+     "md5": "2a77e50b1738635af025d11fc2b29f7b",
+     "listed": true,
+     "slots": [
+      0
+     ],
+     "files_count": 37,
+     "non_slot": [
+      "config.json",
+      "effect/fighter/ganon/trail_c00/tex_ganon_final_sword1.nutexb",
+      "effect/fighter/ganon/trail_c00/tex_ganon_final_sword2.nutexb",
+      "effect/fighter/ganon/trail_c00/tex_ganon_sword1.nutexb",
+      "effect/fighter/ganon/trail_c00/tex_ganon_sword2.nutexb"
+     ],
+     "touches_c00": true
     }
    ]
   },
@@ -450,6 +1411,8 @@
    "fighter_folder": "ganondorf",
    "code": "23",
    "internal": "ganon",
+   "kind": "skin",
+   "origin": "desconocido",
    "plugin": false,
    "link": "https://gamebanana.com/mods/406732",
    "note": null,
@@ -466,10 +1429,13 @@
      "kind": "original",
      "bytes": 9609996,
      "md5": "66915cc2a53b20ca02c86974d8d12c8d",
-     "listed": false,
-     "slots": [],
-     "unlisted_reason": "rar/7z sin herramienta para listar",
-     "touches_c00": null
+     "listed": true,
+     "slots": [
+      0
+     ],
+     "files_count": 27,
+     "non_slot": [],
+     "touches_c00": true
     }
    ]
   },
@@ -480,6 +1446,8 @@
    "fighter_folder": "chrom",
    "code": "25ε",
    "internal": "chrom",
+   "kind": "skin",
+   "origin": "enlace del usuario",
    "plugin": false,
    "link": "https://gamebanana.com/mods/175495",
    "note": null,
@@ -524,6 +1492,8 @@
    "fighter_folder": "chrom",
    "code": "25ε",
    "internal": "chrom",
+   "kind": "skin",
+   "origin": "desconocido",
    "plugin": false,
    "link": "https://gamebanana.com/mods/387553",
    "note": null,
@@ -536,6 +1506,10 @@
      "md5": "926a6a4ccb411392b4fabc84c43208fb",
      "listed": true,
      "slots": [],
+     "files_count": 1,
+     "non_slot": [
+      "config.json"
+     ],
      "touches_c00": false
     },
     {
@@ -548,6 +1522,13 @@
       1,
       2
      ],
+     "files_count": 147,
+     "non_slot": [
+      "config.json",
+      "stream;/sound/bgm/bgm_z61_f_lucina.nus3audio",
+      "ui/message/msg_name.xmsbt",
+      "ui/param/database/ui_chara_db.prcxml"
+     ],
      "touches_c00": false
     }
    ]
@@ -559,6 +1540,8 @@
    "fighter_folder": "zero_suit_samus",
    "code": "29",
    "internal": "szerosuit",
+   "kind": "skin",
+   "origin": "enlace del usuario",
    "plugin": false,
    "link": "https://gamebanana.com/mods/174461",
    "note": null,
@@ -569,20 +1552,26 @@
      "kind": "original",
      "bytes": 2348790,
      "md5": "e41b7601390a2cb6925beef2c8243f4b",
-     "listed": false,
-     "slots": [],
-     "unlisted_reason": "rar/7z sin herramienta para listar",
-     "touches_c00": null
+     "listed": true,
+     "slots": [
+      7
+     ],
+     "files_count": 19,
+     "non_slot": [],
+     "touches_c00": false
     },
     {
      "path": "original/szerosuit_-_gwen_c07.rar",
      "kind": "original",
      "bytes": 2659098,
      "md5": "aed5c4a801a0bff0a56f57f50e3dfb51",
-     "listed": false,
-     "slots": [],
-     "unlisted_reason": "rar/7z sin herramienta para listar",
-     "touches_c00": null
+     "listed": true,
+     "slots": [
+      7
+     ],
+     "files_count": 20,
+     "non_slot": [],
+     "touches_c00": false
     }
    ]
   },
@@ -593,6 +1582,8 @@
    "fighter_folder": "zero_suit_samus",
    "code": "29",
    "internal": "szerosuit",
+   "kind": "skin",
+   "origin": "búsqueda",
    "plugin": false,
    "link": "https://gamebanana.com/mods/397431",
    "note": null,
@@ -603,30 +1594,117 @@
      "kind": "original",
      "bytes": 25244605,
      "md5": "0c7e6b23d34578073526c148ce1b00fa",
-     "listed": false,
-     "slots": [],
-     "unlisted_reason": "rar/7z sin herramienta para listar",
-     "touches_c00": null
+     "listed": true,
+     "slots": [
+      2
+     ],
+     "files_count": 27,
+     "non_slot": [],
+     "touches_c00": false
     },
     {
      "path": "original/jinxnewui.rar",
      "kind": "original",
      "bytes": 1342855,
      "md5": "af36f57f5f48483a754ee1d27ad3546f",
-     "listed": false,
-     "slots": [],
-     "unlisted_reason": "rar/7z sin herramienta para listar",
-     "touches_c00": null
+     "listed": true,
+     "slots": [
+      2
+     ],
+     "files_count": 6,
+     "non_slot": [],
+     "touches_c00": false
     },
     {
      "path": "original/jinxvanilla_9797c.rar",
      "kind": "original",
      "bytes": 16139476,
      "md5": "e06f07777a73bf2cc2a641b1464a2067",
-     "listed": false,
-     "slots": [],
-     "unlisted_reason": "rar/7z sin herramienta para listar",
-     "touches_c00": null
+     "listed": true,
+     "slots": [
+      2
+     ],
+     "files_count": 27,
+     "non_slot": [],
+     "touches_c00": false
+    }
+   ]
+  },
+  {
+   "mod_id": 637464,
+   "slug": "jill_valentine",
+   "folder": "zero_suit_samus/637464_jill_valentine",
+   "fighter_folder": "zero_suit_samus",
+   "code": "29",
+   "internal": "szerosuit",
+   "kind": "skin",
+   "origin": "enlace del usuario",
+   "plugin": false,
+   "link": "URL: https://gamebanana.com/mods/637464\nNombre: Jill Valentine\nAutor: Raijinken\nCategoría GB: Zero Suit Samus\nFighter carpeta: zero_suit_samus\nSlots nativos: c00\nExtras: config.json, nusktb, ui, voice/sound\nWifi: Declaración explícita del autor sin condiciones conocidas\nCita wifi: «Online safe This Jill is based on her original Resident Evil»\nOrigen: enlace del usuario\nEstado archivo: archivo inspeccionado\nEstado consola: prueba en consola pendiente\nFighters internos: samus, szerosuit\nSeparabilidad: multi-fighter: ['samus', 'zero_suit_samus']\n\nArchivos (MD5):\n  zerosuitsamus_jill_c00.rar: A3D44294D65931E817152572A9A9979E\n  jill_model_for_final_smash_samus_c00_.rar: 62ACC7B8581359F087544EA5690B23B7",
+   "note": null,
+   "catalog": null,
+   "files": [
+    {
+     "path": "original/jill_model_for_final_smash_samus_c00_.rar",
+     "kind": "original",
+     "bytes": 2543408,
+     "md5": "62acc7b8581359f087544ea5690b23b7",
+     "listed": true,
+     "slots": [
+      0
+     ],
+     "files_count": 12,
+     "non_slot": [],
+     "touches_c00": true
+    },
+    {
+     "path": "original/zerosuitsamus_jill_c00.rar",
+     "kind": "original",
+     "bytes": 20380549,
+     "md5": "a3d44294d65931e817152572a9a9979e",
+     "listed": true,
+     "slots": [
+      0
+     ],
+     "files_count": 107,
+     "non_slot": [
+      "config.json",
+      "stream;/sound/bgm/bgm_z24_f_zerosamus.nus3audio"
+     ],
+     "touches_c00": true
+    }
+   ]
+  },
+  {
+   "mod_id": 690283,
+   "slug": "comm_lucy_cyberpunk_edgerunners",
+   "folder": "zero_suit_samus/690283_comm_lucy_cyberpunk_edgerunners",
+   "fighter_folder": "zero_suit_samus",
+   "code": "29",
+   "internal": "szerosuit",
+   "kind": "skin",
+   "origin": "enlace del usuario",
+   "plugin": false,
+   "link": "URL: https://gamebanana.com/mods/690283\nNombre: (COMM) Lucy - Cyberpunk: Edgerunners\nAutor: AutomatixYoshi\nCategoría GB: Zero Suit Samus\nFighter carpeta: zero_suit_samus\nSlots nativos: c01\nExtras: config.json, nusktb, param/.prc, ui\nWifi: Sin evidencia localizada\nCita wifi: «(sin mención wifi/online en la descripción del autor)»\nOrigen: enlace del usuario\nEstado archivo: archivo inspeccionado\nEstado consola: prueba en consola pendiente\nFighters internos: szerosuit\n\nArchivos (MD5):\n  zero_suit_samus_c01_-_lucy.zip: 738607A1632B3F341907EDE8E24EC325",
+   "note": null,
+   "catalog": null,
+   "files": [
+    {
+     "path": "original/zero_suit_samus_c01_-_lucy.zip",
+     "kind": "original",
+     "bytes": 19562062,
+     "md5": "738607a1632b3f341907ede8e24ec325",
+     "listed": true,
+     "slots": [
+      1
+     ],
+     "files_count": 23,
+     "non_slot": [
+      "config.json",
+      "ui/message/msg_name.xmsbt",
+      "ui/param/database/ui_chara_db.prcxml"
+     ],
+     "touches_c00": false
     }
    ]
   },
@@ -637,6 +1715,8 @@
    "fighter_folder": "zero_suit_samus",
    "code": "29",
    "internal": "szerosuit",
+   "kind": "skin",
+   "origin": "enlace del usuario",
    "plugin": false,
    "link": "https://gamebanana.com/mods/724190",
    "note": null,
@@ -651,6 +1731,12 @@
      "slots": [
       0
      ],
+     "files_count": 69,
+     "non_slot": [
+      "config.json",
+      "ui/message/msg_name.xmsbt",
+      "ui/param/database/ui_chara_db.prcxml"
+     ],
      "touches_c00": true
     }
    ]
@@ -662,6 +1748,8 @@
    "fighter_folder": "wolf",
    "code": "44",
    "internal": "wolf",
+   "kind": "skin",
+   "origin": "desconocido",
    "plugin": false,
    "link": "https://gamebanana.com/mods/421286",
    "note": null,
@@ -678,10 +1766,51 @@
      "kind": "original",
      "bytes": 26962801,
      "md5": "6202fead406506077a9df3673a616174",
-     "listed": false,
-     "slots": [],
-     "unlisted_reason": "rar/7z sin herramienta para listar",
-     "touches_c00": null
+     "listed": true,
+     "slots": [
+      1
+     ],
+     "files_count": 25,
+     "non_slot": [],
+     "touches_c00": false
+    }
+   ]
+  },
+  {
+   "mod_id": 581172,
+   "slug": "aeris_ff7_remake_version",
+   "folder": "palutena/581172_aeris_ff7_remake_version",
+   "fighter_folder": "palutena",
+   "code": "54",
+   "internal": "palutena",
+   "kind": "skin",
+   "origin": "enlace del usuario",
+   "plugin": false,
+   "link": "URL: https://gamebanana.com/mods/581172\nNombre: Aeris - FF7 Remake Version\nAutor: Mareeta~Rose\nCategoría GB: Palutena\nFighter carpeta: palutena\nSlots nativos: c06\nExtras: nusktb, param/.prc, ui, voice/sound\nWifi: Sin evidencia localizada\nCita wifi: «(sin mención wifi/online en la descripción del autor)»\nOrigen: enlace del usuario\nEstado archivo: archivo inspeccionado\nEstado consola: prueba en consola pendiente\nFighters internos: palutena\n\nArchivos (MD5):\n  aeris_over_palutena_c06.7z: 520403254BCEBFDD0CA729687057FB31",
+   "note": null,
+   "catalog": [
+    {
+     "look_name": "Aeris - FF7 Remake Version",
+     "role": "alternativa",
+     "proposed_destination": null
+    }
+   ],
+   "files": [
+    {
+     "path": "original/aeris_over_palutena_c06.7z",
+     "kind": "original",
+     "bytes": 15625345,
+     "md5": "520403254bcebfdd0ca729687057fb31",
+     "listed": true,
+     "slots": [
+      6
+     ],
+     "files_count": 55,
+     "non_slot": [
+      "ui/message/msg_name.xmsbt",
+      "ui/param/database/ui_chara_db.prcxml"
+     ],
+     "touches_c00": false
     }
    ]
   },
@@ -692,6 +1821,8 @@
    "fighter_folder": "ryu",
    "code": "60",
    "internal": "ryu",
+   "kind": "skin",
+   "origin": "desconocido",
    "plugin": false,
    "link": "https://gamebanana.com/mods/487736",
    "note": null,
@@ -702,10 +1833,26 @@
      "kind": "original",
      "bytes": 29797295,
      "md5": "e5d1238c93a008729fa684be2369b199",
-     "listed": false,
-     "slots": [],
-     "unlisted_reason": "rar/7z sin herramienta para listar",
-     "touches_c00": null
+     "listed": true,
+     "slots": [
+      5,
+      6,
+      7
+     ],
+     "files_count": 54,
+     "non_slot": [
+      "Goku SS1/ui/message/msg_name.xmsbt",
+      "Goku SS1/ui/param/database/ui_chara_db.prcxml",
+      "Goku SSB/ui/message/msg_name.xmsbt",
+      "Goku SSB/ui/param/database/ui_chara_db.prcxml",
+      "Goku SSG/SSG Goku/stream;/sound/bgm/bgm_z81_f_ryu.nus3audio",
+      "Goku SSG/SSG Goku/ui/message/msg_name.xmsbt",
+      "Goku SSG/SSG Goku/ui/param/database/ui_chara_db.prcxml",
+      "Goku SSG/stream;/sound/bgm/bgm_z81_f_ryu.nus3audio",
+      "Goku SSG/ui/message/msg_name.xmsbt",
+      "Goku SSG/ui/param/database/ui_chara_db.prcxml"
+     ],
+     "touches_c00": false
     }
    ]
   },
@@ -716,6 +1863,8 @@
    "fighter_folder": "ken",
    "code": "60ε",
    "internal": "ken",
+   "kind": "skin",
+   "origin": "desconocido",
    "plugin": false,
    "link": "https://gamebanana.com/mods/498005",
    "note": null,
@@ -732,10 +1881,249 @@
      "kind": "original",
      "bytes": 53510757,
      "md5": "f6f50302e99ecf39ba429a11a7e2ccf3",
-     "listed": false,
-     "slots": [],
-     "unlisted_reason": "rar/7z sin herramienta para listar",
-     "touches_c00": null
+     "listed": true,
+     "slots": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+     ],
+     "files_count": 287,
+     "non_slot": [
+      "config.json",
+      "ui/message/msg_name.xmsbt"
+     ],
+     "touches_c00": true
+    }
+   ]
+  },
+  {
+   "mod_id": 175324,
+   "slug": "crisis_core_cloud",
+   "folder": "cloud/175324_crisis_core_cloud",
+   "fighter_folder": "cloud",
+   "code": "61",
+   "internal": "cloud",
+   "kind": "skin",
+   "origin": "enlace del usuario",
+   "plugin": false,
+   "link": "URL: https://gamebanana.com/mods/175324\nNombre: Crisis Core Cloud\nAutor: rubikex\nCategoría GB: Cloud\nFighter carpeta: cloud\nSlots nativos: c00, c02, c04, c06\nExtras: ui\nWifi: Sin evidencia localizada\nCita wifi: «(sin mención wifi/online en la descripción del autor)»\nOrigen: enlace del usuario\nEstado archivo: archivo inspeccionado\nEstado consola: prueba en consola pendiente\nFighters internos: cloud\n\nArchivos (MD5):\n  crisis_core_cloud.7z: A7332BFB4DF7C9F85FA1578F7460E22E",
+   "note": null,
+   "catalog": [
+    {
+     "look_name": "Crisis Core Cloud",
+     "role": "alternativa",
+     "proposed_destination": null
+    }
+   ],
+   "files": [
+    {
+     "path": "original/crisis_core_cloud.7z",
+     "kind": "original",
+     "bytes": 32102318,
+     "md5": "a7332bfb4df7c9f85fa1578f7460e22e",
+     "listed": true,
+     "slots": [
+      0,
+      2,
+      4,
+      6
+     ],
+     "files_count": 159,
+     "non_slot": [],
+     "touches_c00": true
+    }
+   ]
+  },
+  {
+   "mod_id": 175327,
+   "slug": "zack_fair_over_cloud_strife",
+   "folder": "cloud/175327_zack_fair_over_cloud_strife",
+   "fighter_folder": "cloud",
+   "code": "61",
+   "internal": "cloud",
+   "kind": "skin",
+   "origin": "enlace del usuario",
+   "plugin": false,
+   "link": "URL: https://gamebanana.com/mods/175327\nNombre: Zack Fair over Cloud Strife\nAutor: Large_Leader\nCategoría GB: Cloud\nFighter carpeta: cloud\nSlots nativos: c00, c02, c04, c06\nExtras: nusktb, ui\nWifi: Sin evidencia localizada\nCita wifi: «(sin mención wifi/online en la descripción del autor)»\nOrigen: enlace del usuario\nEstado archivo: archivo inspeccionado\nEstado consola: prueba en consola pendiente\nFighters internos: cloud\n\nArchivos (MD5):\n  firstclass.rar: 4A8F18728B75B64320CC1EAD310C83D2\n  secondclass.rar: 993E781C6EE4281601C8374A852DBE57",
+   "note": null,
+   "catalog": [
+    {
+     "look_name": "Zack Fair over Cloud Strife",
+     "role": "alternativa",
+     "proposed_destination": null
+    }
+   ],
+   "files": [
+    {
+     "path": "original/firstclass.rar",
+     "kind": "original",
+     "bytes": 67210649,
+     "md5": "4a8f18728b75b64320cc1ead310c83d2",
+     "listed": true,
+     "slots": [
+      0,
+      2,
+      4,
+      6
+     ],
+     "files_count": 181,
+     "non_slot": [],
+     "touches_c00": true
+    },
+    {
+     "path": "original/secondclass.rar",
+     "kind": "original",
+     "bytes": 66853009,
+     "md5": "993e781c6ee4281601c8374a852dbe57",
+     "listed": true,
+     "slots": [
+      0,
+      2,
+      4,
+      6
+     ],
+     "files_count": 175,
+     "non_slot": [],
+     "touches_c00": true
+    }
+   ]
+  },
+  {
+   "mod_id": 495263,
+   "slug": "wheelchair_cloud",
+   "folder": "cloud/495263_wheelchair_cloud",
+   "fighter_folder": "cloud",
+   "code": "61",
+   "internal": "cloud",
+   "kind": "skin",
+   "origin": "enlace del usuario",
+   "plugin": false,
+   "link": "URL: https://gamebanana.com/mods/495263\nNombre: Wheelchair Cloud\nAutor: mayyyy :3\nCategoría GB: Cloud\nFighter carpeta: cloud\nSlots nativos: c00\nExtras: config.json, nusktb\nWifi: Declaración condicionada del autor\nCita wifi: «appears to be wifi safe but I only tested a few matches»\nOrigen: enlace del usuario\nEstado archivo: archivo inspeccionado\nEstado consola: prueba en consola pendiente\nFighters internos: cloud\n\nArchivos (MD5):\n  cloud_wheelchair.7z: AA0BD047E12F4C3A4A9173B177501EE7",
+   "note": null,
+   "catalog": [
+    {
+     "look_name": "Wheelchair Cloud",
+     "role": "alternativa",
+     "proposed_destination": null
+    }
+   ],
+   "files": [
+    {
+     "path": "original/cloud_wheelchair.7z",
+     "kind": "original",
+     "bytes": 14978354,
+     "md5": "aa0bd047e12f4c3a4a9173b177501ee7",
+     "listed": true,
+     "slots": [
+      0
+     ],
+     "files_count": 40,
+     "non_slot": [
+      "(c00) wheelchair cloud/config.json"
+     ],
+     "touches_c00": true
+    }
+   ]
+  },
+  {
+   "mod_id": 174947,
+   "slug": "2b_corrin_v21",
+   "folder": "corrin/174947_2b_corrin_v21",
+   "fighter_folder": "corrin",
+   "code": "62",
+   "internal": "kamui",
+   "kind": "skin",
+   "origin": "enlace del usuario",
+   "plugin": false,
+   "link": "URL: https://gamebanana.com/mods/174947\nNombre: 2B CORRIN V.2.1\nAutor: Faketsumi\nFighter (carpeta GB / archive): Corrin / kamui\nSlots nativos (archivo): c07\nExtras: ui, effect\nWifi: Sin evidencia localizada\nCita: «(sin mención wifi/online en la descripción del autor)»\nMD5:\n- 2b_corrin_by_fake_v10.rar: f6c110332741081a12af45272051d74b OK=True\n- 2b_corrin_short_hair_v11.zip: 75a83f7400db847a365531c1be5c864e OK=True\nEstado: archivo inspeccionado (lista); prueba en consola pendiente\nNotas: Dos archivos: v10 rar + short_hair v11 zip. Solo slot c07 (kamui=Corrin).\nDescargado: 2026-10-28 (box → Drive only; PC no tocada)",
+   "note": null,
+   "catalog": null,
+   "files": [
+    {
+     "path": "original/2b_corrin_by_fake_v10.rar",
+     "kind": "original",
+     "bytes": 11457862,
+     "md5": "f6c110332741081a12af45272051d74b",
+     "listed": true,
+     "slots": [
+      7
+     ],
+     "files_count": 46,
+     "non_slot": [
+      "2B Corrin by Fake/root/effect/fighter/kamui/ef_kamui.eff",
+      "2B Corrin by Fake/root/effect/fighter/kamui/trail/tex_kamui_spear.nutexb",
+      "2B Corrin by Fake/root/effect/fighter/kamui/trail/tex_kamui_spear_01.nutexb",
+      "2B Corrin by Fake/root/effect/fighter/kamui/trail/tex_kamui_spear_02.nutexb",
+      "2B Corrin by Fake/root/effect/fighter/kamui/trail/tex_kamui_spear_03.nutexb",
+      "2B Corrin by Fake/root/effect/fighter/kamui/trail/tex_kamui_spear_04.nutexb",
+      "2B Corrin by Fake/root/effect/fighter/kamui/trail/tex_kamui_spear_05.nutexb",
+      "2B Corrin by Fake/root/effect/fighter/kamui/trail/tex_kamui_spear_06.nutexb",
+      "2B Corrin by Fake/root/effect/fighter/kamui/trail/tex_kamui_spear_07.nutexb",
+      "2B Corrin by Fake/root/effect/fighter/kamui/trail/tex_kamui_spear_08.nutexb",
+      "2B Corrin by Fake/root/effect/fighter/kamui/trail/tex_kamui_sword1.nutexb",
+      "2B Corrin by Fake/root/effect/fighter/kamui/trail/tex_kamui_sword2.nutexb"
+     ],
+     "touches_c00": false
+    },
+    {
+     "path": "original/2b_corrin_short_hair_v11.zip",
+     "kind": "original",
+     "bytes": 12706622,
+     "md5": "75a83f7400db847a365531c1be5c864e",
+     "listed": true,
+     "slots": [
+      7
+     ],
+     "files_count": 45,
+     "non_slot": [
+      "effect/fighter/kamui/ef_kamui.eff",
+      "effect/fighter/kamui/trail/tex_kamui_spear.nutexb",
+      "effect/fighter/kamui/trail/tex_kamui_spear_01.nutexb",
+      "effect/fighter/kamui/trail/tex_kamui_spear_02.nutexb",
+      "effect/fighter/kamui/trail/tex_kamui_spear_03.nutexb",
+      "effect/fighter/kamui/trail/tex_kamui_spear_04.nutexb",
+      "effect/fighter/kamui/trail/tex_kamui_spear_05.nutexb",
+      "effect/fighter/kamui/trail/tex_kamui_spear_06.nutexb",
+      "effect/fighter/kamui/trail/tex_kamui_spear_07.nutexb",
+      "effect/fighter/kamui/trail/tex_kamui_spear_08.nutexb",
+      "effect/fighter/kamui/trail/tex_kamui_sword1.nutexb",
+      "effect/fighter/kamui/trail/tex_kamui_sword2.nutexb"
+     ],
+     "touches_c00": false
+    }
+   ]
+  },
+  {
+   "mod_id": 360738,
+   "slug": "harley_quinn_over_bayonetta",
+   "folder": "bayonetta/360738_harley_quinn_over_bayonetta",
+   "fighter_folder": "bayonetta",
+   "code": "63",
+   "internal": "bayonetta",
+   "kind": "skin",
+   "origin": "enlace del usuario",
+   "plugin": false,
+   "link": "URL: https://gamebanana.com/mods/360738\nNombre: Harley Quinn over Bayonetta\nAutor: CowboyBebop3075\nCategoría GB: Bayonetta\nFighter carpeta: bayonetta\nSlots nativos: c03\nExtras: nusktb, ui, voice/sound\nWifi: Sin evidencia localizada\nCita wifi: «(sin mención wifi/online en la descripción del autor)»\nOrigen: enlace del usuario\nEstado archivo: archivo inspeccionado\nEstado consola: prueba en consola pendiente\nFighters internos: bayonetta\n\nArchivos (MD5):\n  harley_quinn_bayonetta_.zip: 2D6F8C0871A9AE9B65980E803660D6C5",
+   "note": null,
+   "catalog": null,
+   "files": [
+    {
+     "path": "original/harley_quinn_bayonetta_.zip",
+     "kind": "original",
+     "bytes": 11005084,
+     "md5": "2d6f8c0871a9ae9b65980e803660d6c5",
+     "listed": true,
+     "slots": [
+      3
+     ],
+     "files_count": 23,
+     "non_slot": [],
+     "touches_c00": false
     }
    ]
   },
@@ -746,6 +2134,8 @@
    "fighter_folder": "bayonetta",
    "code": "63",
    "internal": "bayonetta",
+   "kind": "skin",
+   "origin": "búsqueda + enlace del usuario",
    "plugin": false,
    "link": "https://gamebanana.com/mods/501311",
    "note": null,
@@ -767,6 +2157,10 @@
       6,
       7
      ],
+     "files_count": 282,
+     "non_slot": [
+      "effect/fighter/bayonetta/ef_bayonetta.eff"
+     ],
      "touches_c00": true
     },
     {
@@ -784,6 +2178,10 @@
       5,
       6,
       7
+     ],
+     "files_count": 282,
+     "non_slot": [
+      "effect/fighter/bayonetta/ef_bayonetta.eff"
      ],
      "touches_c00": true
     },
@@ -803,6 +2201,10 @@
       6,
       7
      ],
+     "files_count": 282,
+     "non_slot": [
+      "effect/fighter/bayonetta/ef_bayonetta.eff"
+     ],
      "touches_c00": true
     },
     {
@@ -814,6 +2216,8 @@
      "slots": [
       2
      ],
+     "files_count": 35,
+     "non_slot": [],
      "touches_c00": false
     },
     {
@@ -825,6 +2229,8 @@
      "slots": [
       3
      ],
+     "files_count": 35,
+     "non_slot": [],
      "touches_c00": false
     }
    ]
@@ -836,6 +2242,8 @@
    "fighter_folder": "incineroar",
    "code": "69",
    "internal": "gaogaen",
+   "kind": "skin",
+   "origin": "búsqueda",
    "plugin": false,
    "link": "https://gamebanana.com/mods/443660",
    "note": null,
@@ -846,20 +2254,28 @@
      "kind": "original",
      "bytes": 45290,
      "md5": "1828e9ee51c4418f52aa1e65ab040e60",
-     "listed": false,
+     "listed": true,
      "slots": [],
-     "unlisted_reason": "rar/7z sin herramienta para listar",
-     "touches_c00": null
+     "files_count": 2,
+     "non_slot": [
+      "stream;/sound/bgm/bgm_z91_f_gaogaen.nus3audio"
+     ],
+     "touches_c00": false
     },
     {
      "path": "original/freddie_freaker.rar",
      "kind": "original",
      "bytes": 8240219,
      "md5": "9799e11aa83809e53e7ae4df4620b47c",
-     "listed": false,
-     "slots": [],
-     "unlisted_reason": "rar/7z sin herramienta para listar",
-     "touches_c00": null
+     "listed": true,
+     "slots": [
+      4
+     ],
+     "files_count": 26,
+     "non_slot": [
+      "config.json"
+     ],
+     "touches_c00": false
     }
    ]
   },
@@ -870,6 +2286,8 @@
    "fighter_folder": "hero",
    "code": "72",
    "internal": "brave",
+   "kind": "skin",
+   "origin": "desconocido",
    "plugin": false,
    "link": "https://gamebanana.com/mods/175735",
    "note": null,
@@ -891,6 +2309,8 @@
       2,
       6
      ],
+     "files_count": 30,
+     "non_slot": [],
      "touches_c00": false
     }
    ]
@@ -902,6 +2322,8 @@
    "fighter_folder": "terry",
    "code": "74",
    "internal": "dolly",
+   "kind": "skin",
+   "origin": "desconocido",
    "plugin": false,
    "link": "https://gamebanana.com/mods/333706",
    "note": null,
@@ -916,6 +2338,8 @@
      "slots": [
       6
      ],
+     "files_count": 19,
+     "non_slot": [],
      "touches_c00": false
     }
    ]
@@ -927,6 +2351,8 @@
    "fighter_folder": "terry",
    "code": "74",
    "internal": "dolly",
+   "kind": "skin",
+   "origin": "desconocido",
    "plugin": false,
    "link": "https://gamebanana.com/mods/434439",
    "note": null,
@@ -937,20 +2363,26 @@
      "kind": "original",
      "bytes": 10007628,
      "md5": "1259977cabf0f51f2f3522f8b390858e",
-     "listed": false,
-     "slots": [],
-     "unlisted_reason": "rar/7z sin herramienta para listar",
-     "touches_c00": null
+     "listed": true,
+     "slots": [
+      7
+     ],
+     "files_count": 27,
+     "non_slot": [],
+     "touches_c00": false
     },
     {
      "path": "original/74_terry_-_gohan_terry_cape.rar",
      "kind": "original",
      "bytes": 10327551,
      "md5": "5b86fee9bbb0fbab1762f1453f828086",
-     "listed": false,
-     "slots": [],
-     "unlisted_reason": "rar/7z sin herramienta para listar",
-     "touches_c00": null
+     "listed": true,
+     "slots": [
+      7
+     ],
+     "files_count": 27,
+     "non_slot": [],
+     "touches_c00": false
     }
    ]
   },
@@ -961,6 +2393,8 @@
    "fighter_folder": "terry",
    "code": "74",
    "internal": "dolly",
+   "kind": "skin",
+   "origin": "desconocido",
    "plugin": false,
    "link": null,
    "note": null,
@@ -980,6 +2414,8 @@
    "fighter_folder": "terry",
    "code": "74",
    "internal": "dolly",
+   "kind": "skin",
+   "origin": "desconocido",
    "plugin": false,
    "link": "https://gamebanana.com/mods/437327",
    "note": null,
@@ -1010,6 +2446,10 @@
      "slots": [
       1
      ],
+     "files_count": 34,
+     "non_slot": [
+      "config.json"
+     ],
      "touches_c00": false
     },
     {
@@ -1017,10 +2457,22 @@
      "kind": "original",
      "bytes": 52779411,
      "md5": "bc09c8614ae23ab3edf415f0e140710b",
-     "listed": false,
-     "slots": [],
-     "unlisted_reason": "rar/7z sin herramienta para listar",
-     "touches_c00": null
+     "listed": true,
+     "slots": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+     ],
+     "files_count": 221,
+     "non_slot": [
+      "config.json"
+     ],
+     "touches_c00": true
     }
    ]
   },
@@ -1031,6 +2483,8 @@
    "fighter_folder": "terry",
    "code": "74",
    "internal": "dolly",
+   "kind": "skin",
+   "origin": "desconocido",
    "plugin": false,
    "link": "https://gamebanana.com/mods/446815",
    "note": "Ambos archivos son originales del autor.\nElegido: gogeta_ssj4_-_terry_c07_v13.rar (solo c07). Choca con Gohan 434439 en c07.",
@@ -1041,20 +2495,74 @@
      "kind": "original",
      "bytes": 53947600,
      "md5": "14ed315f266488ad37689098c88b6552",
-     "listed": false,
-     "slots": [],
-     "unlisted_reason": "rar/7z sin herramienta para listar",
-     "touches_c00": null
+     "listed": true,
+     "slots": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+     ],
+     "files_count": 203,
+     "non_slot": [],
+     "touches_c00": true
     },
     {
      "path": "original/gogeta_ssj4_-_terry_c07_v13.rar",
      "kind": "original",
      "bytes": 8879924,
      "md5": "41ec39eb7a84b0316e5c2293e10a6adc",
-     "listed": false,
-     "slots": [],
-     "unlisted_reason": "rar/7z sin herramienta para listar",
-     "touches_c00": null
+     "listed": true,
+     "slots": [
+      7
+     ],
+     "files_count": 26,
+     "non_slot": [],
+     "touches_c00": false
+    }
+   ]
+  },
+  {
+   "mod_id": 559818,
+   "slug": "tifa_lockhart_terry",
+   "folder": "terry/559818_tifa_lockhart_terry",
+   "fighter_folder": "terry",
+   "code": "74",
+   "internal": "dolly",
+   "kind": "skin",
+   "origin": "enlace del usuario",
+   "plugin": false,
+   "link": "URL: https://gamebanana.com/mods/559818\nNombre: Tifa Lockhart (Terry)\nAutor: Raijinken\nCategoría GB: Terry\nFighter carpeta: terry\nSlots nativos: c00, c01\nExtras: config.json, motion/, nusktb, param/.prc, ui\nWifi: Declaración condicionada del autor\nCita wifi: «e else hasn't already The mod should be online safe, but I have not tested it myself. If th»\nOrigen: enlace del usuario\nEstado archivo: archivo inspeccionado\nEstado consola: prueba en consola pendiente\nFighters internos: dolly\n\nArchivos (MD5):\n  terry_tifa_c00_c01_cf738.rar: 90CFFB81F7EF367001C9929DEF03E1B2",
+   "note": null,
+   "catalog": [
+    {
+     "look_name": "Tifa Lockhart (Terry)",
+     "role": "alternativa",
+     "proposed_destination": null
+    }
+   ],
+   "files": [
+    {
+     "path": "original/terry_tifa_c00_c01_cf738.rar",
+     "kind": "original",
+     "bytes": 41730991,
+     "md5": "90cffb81f7ef367001c9929def03e1b2",
+     "listed": true,
+     "slots": [
+      0,
+      1
+     ],
+     "files_count": 143,
+     "non_slot": [
+      "Terry Tifa c00 c01/config.json",
+      "Victory and BGM/bgm_ff05_ff7_jenova.nus3audio",
+      "Victory and BGM/bgm_ff06_ff7_prelude.nus3audio",
+      "Victory and BGM/bgm_zz01_f_dolly.nus3audio"
+     ],
+     "touches_c00": true
     }
    ]
   },
@@ -1065,6 +2573,8 @@
    "fighter_folder": "terry",
    "code": "74",
    "internal": "dolly",
+   "kind": "skin",
+   "origin": "desconocido",
    "plugin": false,
    "link": "https://gamebanana.com/mods/609500",
    "note": null,
@@ -1075,10 +2585,53 @@
      "kind": "original",
      "bytes": 21817339,
      "md5": "6f4cbb6dc98e805c2c5195b4e0685cb5",
-     "listed": false,
-     "slots": [],
-     "unlisted_reason": "rar/7z sin herramienta para listar",
-     "touches_c00": null
+     "listed": true,
+     "slots": [
+      2,
+      3
+     ],
+     "files_count": 32,
+     "non_slot": [
+      "config.json",
+      "ui/message/msg_name.xmsbt",
+      "ui/param/database/ui_chara_db.prcxml"
+     ],
+     "touches_c00": false
+    }
+   ]
+  },
+  {
+   "mod_id": 175943,
+   "slug": "herobrine_over_steve",
+   "folder": "steve/175943_herobrine_over_steve",
+   "fighter_folder": "steve",
+   "code": "77",
+   "internal": "pickel",
+   "kind": "skin",
+   "origin": "enlace del usuario",
+   "plugin": false,
+   "link": "URL: https://gamebanana.com/mods/175943\nNombre: Herobrine over Steve\nAutor: $99 Man\nCategoría GB: Steve\nFighter carpeta: steve\nSlots nativos: c00\nExtras: ui\nWifi: Sin evidencia localizada\nCita wifi: «(sin mención wifi/online en la descripción del autor)»\nOrigen: enlace del usuario\nEstado archivo: archivo inspeccionado\nEstado consola: prueba en consola pendiente\nFighters internos: pickel\n\nArchivos (MD5):\n  herobrine_1be72.rar: 90EF319EFDD3D65C3E2D811876D0DFA1",
+   "note": null,
+   "catalog": [
+    {
+     "look_name": "Herobrine over Steve",
+     "role": "alternativa",
+     "proposed_destination": null
+    }
+   ],
+   "files": [
+    {
+     "path": "original/herobrine_1be72.rar",
+     "kind": "original",
+     "bytes": 502639,
+     "md5": "90ef319efdd3d65c3e2d811876d0dfa1",
+     "listed": true,
+     "slots": [
+      0
+     ],
+     "files_count": 8,
+     "non_slot": [],
+     "touches_c00": true
     }
    ]
   },
@@ -1089,6 +2642,8 @@
    "fighter_folder": "steve",
    "code": "77",
    "internal": "pickel",
+   "kind": "skin",
+   "origin": "enlace del usuario",
    "plugin": false,
    "link": "https://gamebanana.com/mods/306118",
    "note": null,
@@ -1109,6 +2664,8 @@
      "slots": [
       7
      ],
+     "files_count": 12,
+     "non_slot": [],
      "touches_c00": false
     }
    ]
@@ -1120,6 +2677,8 @@
    "fighter_folder": "steve",
    "code": "77",
    "internal": "pickel",
+   "kind": "skin",
+   "origin": "enlace del usuario",
    "plugin": false,
    "link": "https://gamebanana.com/mods/317177",
    "note": null,
@@ -1140,6 +2699,8 @@
      "slots": [
       5
      ],
+     "files_count": 41,
+     "non_slot": [],
      "touches_c00": false
     }
    ]
@@ -1151,6 +2712,8 @@
    "fighter_folder": "steve",
    "code": "77",
    "internal": "pickel",
+   "kind": "skin",
+   "origin": "desconocido",
    "plugin": false,
    "link": "https://gamebanana.com/mods/323894",
    "note": null,
@@ -1171,7 +2734,280 @@
      "slots": [
       0
      ],
+     "files_count": 25,
+     "non_slot": [],
      "touches_c00": true
+    }
+   ]
+  },
+  {
+   "mod_id": 331475,
+   "slug": "villager_from_minecraft",
+   "folder": "steve/331475_villager_from_minecraft",
+   "fighter_folder": "steve",
+   "code": "77",
+   "internal": "pickel",
+   "kind": "skin",
+   "origin": "enlace del usuario",
+   "plugin": false,
+   "link": "URL: https://gamebanana.com/mods/331475\nNombre: Villager (from Minecraft)\nAutor: Reyitos\nCategoría GB: Steve\nFighter carpeta: steve\nSlots nativos: c03\nExtras: nusktb, param/.prc, ui, voice/sound\nWifi: Sin evidencia localizada\nCita wifi: «(sin mención wifi/online en la descripción del autor)»\nOrigen: enlace del usuario\nEstado archivo: archivo inspeccionado\nEstado consola: prueba en consola pendiente\nFighters internos: pickel\n\nArchivos (MD5):\n  minecraftvillager_e9cb5.zip: FD7F08083A11E2CCDD1354797FCD77EA",
+   "note": null,
+   "catalog": null,
+   "files": [
+    {
+     "path": "original/minecraftvillager_e9cb5.zip",
+     "kind": "original",
+     "bytes": 4921658,
+     "md5": "fd7f08083a11e2ccdd1354797fcd77ea",
+     "listed": true,
+     "slots": [
+      3
+     ],
+     "files_count": 18,
+     "non_slot": [
+      "Villager/ui/param/database/ui_chara_db.prc"
+     ],
+     "touches_c00": false
+    }
+   ]
+  },
+  {
+   "mod_id": 579591,
+   "slug": "lego_batman",
+   "folder": "steve/579591_lego_batman",
+   "fighter_folder": "steve",
+   "code": "77",
+   "internal": "pickel",
+   "kind": "skin",
+   "origin": "enlace del usuario",
+   "plugin": false,
+   "link": "URL: https://gamebanana.com/mods/579591\nNombre: Lego Batman\nAutor: Walfou\nCategoría GB: Steve\nFighter carpeta: steve\nSlots nativos: c00, c01\nExtras: nusktb, ui\nWifi: Sin evidencia localizada\nCita wifi: «(sin mención wifi/online en la descripción del autor)»\nOrigen: enlace del usuario\nEstado archivo: archivo inspeccionado\nEstado consola: prueba en consola pendiente\nFighters internos: pickel\n\nArchivos (MD5):\n  lego_batman.rar: 30DB77AD35460C3BCC552369ECFBF57B",
+   "note": null,
+   "catalog": [
+    {
+     "look_name": "Lego Batman",
+     "role": "alternativa",
+     "proposed_destination": null
+    }
+   ],
+   "files": [
+    {
+     "path": "original/lego_batman.rar",
+     "kind": "original",
+     "bytes": 1683374,
+     "md5": "30db77ad35460c3bcc552369ecfbf57b",
+     "listed": true,
+     "slots": [
+      0,
+      1
+     ],
+     "files_count": 23,
+     "non_slot": [],
+     "touches_c00": true
+    }
+   ]
+  },
+  {
+   "mod_id": 487151,
+   "slug": "sandbag_over_sephiroth",
+   "folder": "sephiroth/487151_sandbag_over_sephiroth",
+   "fighter_folder": "sephiroth",
+   "code": "78",
+   "internal": "edge",
+   "kind": "skin",
+   "origin": "enlace del usuario",
+   "plugin": false,
+   "link": "URL: https://gamebanana.com/mods/487151\nNombre: Sandbag over Sephiroth\nAutor: EmeraldHunterX\nFighter (carpeta GB / archive): Sephiroth / edge\nSlots nativos (archivo): c00\nExtras: voice/sound, ui\nWifi: Sin evidencia localizada\nCita: «(sin mención wifi/online en la descripción del autor)»\nMD5:\n- sandbag_over_sephiroth_emerald20xx_.zip: 5ff37efa06c06dbb0dbe65ac994fc245 OK=True\nEstado: archivo inspeccionado (lista); prueba en consola pendiente\nNotas: Sandbag replace + bat over sword + silent voice + UI.\nDescargado: 2026-10-28 (box → Drive only; PC no tocada)",
+   "note": null,
+   "catalog": null,
+   "files": [
+    {
+     "path": "original/sandbag_over_sephiroth_emerald20xx_.zip",
+     "kind": "original",
+     "bytes": 2077957,
+     "md5": "5ff37efa06c06dbb0dbe65ac994fc245",
+     "listed": true,
+     "slots": [
+      0
+     ],
+     "files_count": 22,
+     "non_slot": [],
+     "touches_c00": true
+    }
+   ]
+  },
+  {
+   "mod_id": 503576,
+   "slug": "sephirot_clown",
+   "folder": "sephiroth/503576_sephirot_clown",
+   "fighter_folder": "sephiroth",
+   "code": "78",
+   "internal": "edge",
+   "kind": "skin",
+   "origin": "enlace del usuario",
+   "plugin": false,
+   "link": "URL: https://gamebanana.com/mods/503576\nNombre: Sephirot Clown\nAutor: Sfyri\nFighter (carpeta GB / archive): Sephiroth / edge\nSlots nativos (archivo): c00\nExtras: ninguno detectado\nWifi: Declaración explícita del autor sin condiciones conocidas\nCita: «Wi-Fi Safe»\nMD5:\n- sephirot_clown.zip: cdc49914d74d1f94183d012615553c2f OK=True\nEstado: archivo inspeccionado (lista); prueba en consola pendiente\nNotas: Solo c00 skin (model).\nDescargado: 2026-10-28 (box → Drive only; PC no tocada)",
+   "note": null,
+   "catalog": null,
+   "files": [
+    {
+     "path": "original/sephirot_clown.zip",
+     "kind": "original",
+     "bytes": 1814498,
+     "md5": "cdc49914d74d1f94183d012615553c2f",
+     "listed": true,
+     "slots": [
+      0
+     ],
+     "files_count": 9,
+     "non_slot": [],
+     "touches_c00": true
+    }
+   ]
+  },
+  {
+   "mod_id": 555584,
+   "slug": "ariana_grande",
+   "folder": "sephiroth/555584_ariana_grande",
+   "fighter_folder": "sephiroth",
+   "code": "78",
+   "internal": "edge",
+   "kind": "skin",
+   "origin": "enlace del usuario",
+   "plugin": false,
+   "link": "URL: https://gamebanana.com/mods/555584\nNombre: Ariana Grande\nAutor: Sckiredzu\nFighter (carpeta GB / archive): Sephiroth / edge\nSlots nativos (archivo): c01, c02\nExtras: voice/sound, ui\nWifi: Sin evidencia localizada\nCita: «(sin mención wifi/online en la descripción del autor)»\nMD5:\n- sephiana.zip: e7464fb28fcddfa62331920dd98a9118 OK=True\nEstado: archivo inspeccionado (lista); prueba en consola pendiente\nNotas: Autor: Goes over C01 and C02. Voice, UI, stock icons.\nDescargado: 2026-10-28 (box → Drive only; PC no tocada)",
+   "note": null,
+   "catalog": null,
+   "files": [
+    {
+     "path": "original/sephiana.zip",
+     "kind": "original",
+     "bytes": 24419365,
+     "md5": "e7464fb28fcddfa62331920dd98a9118",
+     "listed": true,
+     "slots": [
+      1,
+      2
+     ],
+     "files_count": 72,
+     "non_slot": [
+      "config.json"
+     ],
+     "touches_c00": false
+    }
+   ]
+  },
+  {
+   "mod_id": 592795,
+   "slug": "darth_luigi",
+   "folder": "sephiroth/592795_darth_luigi",
+   "fighter_folder": "sephiroth",
+   "code": "78",
+   "internal": "edge",
+   "kind": "skin",
+   "origin": "enlace del usuario",
+   "plugin": false,
+   "link": "URL: https://gamebanana.com/mods/592795\nNombre: Darth Luigi\nAutor: The_Evil_King_Bowser\nFighter (carpeta GB / archive): Sephiroth / edge\nSlots nativos (archivo): c00, c01\nExtras: param/.prc, voice/sound, ui, effect\nWifi: Sin evidencia localizada\nCita: «(sin mención wifi/online en la descripción del autor)»\nMD5:\n- darth_luigi.zip: f440945d1519d944c303a6253d144bc0 OK=True\nEstado: archivo inspeccionado (lista); prueba en consola pendiente\nNotas: edge=Sephiroth. Incluye effects, sound/voice, UI, param .prc. Custom final smash / themes.\nDescargado: 2026-10-28 (box → Drive only; PC no tocada)",
+   "note": null,
+   "catalog": null,
+   "files": [
+    {
+     "path": "original/darth_luigi.zip",
+     "kind": "original",
+     "bytes": 43090295,
+     "md5": "f440945d1519d944c303a6253d144bc0",
+     "listed": true,
+     "slots": [
+      0,
+      1
+     ],
+     "files_count": 55,
+     "non_slot": [
+      "Darth Luigi's Final Smash/config.json",
+      "Darth Luigi/config.json",
+      "Darth Luigi/stream;/sound/bgm/bgm_zz05_f_edge.nus3audio",
+      "Darth Luigi/stream;/sound/bgm/bgm_zz05_f_edge.nus3bank",
+      "Darth Luigi/ui/message/msg_name.xmsbt",
+      "Darth Luigi/ui/param/database/ui_chara_db.prcxml"
+     ],
+     "touches_c00": true
+    }
+   ]
+  },
+  {
+   "mod_id": 672428,
+   "slug": "ultimate_sukuna_pack",
+   "folder": "sephiroth/672428_ultimate_sukuna_pack",
+   "fighter_folder": "sephiroth",
+   "code": "78",
+   "internal": "edge",
+   "kind": "skin",
+   "origin": "enlace del usuario",
+   "plugin": false,
+   "link": "URL: https://gamebanana.com/mods/672428\nNombre: Ultimate Sukuna pack\nAutor: RagerGokuda\nFighter (carpeta GB / archive): Sephiroth / edge\nSlots nativos (archivo): c00, c01, c02, c03\nExtras: voice/sound, ui\nWifi: Sin evidencia localizada\nCita: «(sin mención wifi/online en la descripción del autor)»\nMD5:\n- ryomen_sukuna_pack.rar: 459a0c33d6621a7e491d69f93b5e57ee OK=True\nEstado: archivo inspeccionado (lista); prueba en consola pendiente\nNotas: Pack multi-slot c00-c03 + voice + UI.\nDescargado: 2026-10-28 (box → Drive only; PC no tocada)",
+   "note": null,
+   "catalog": null,
+   "files": [
+    {
+     "path": "original/ryomen_sukuna_pack.rar",
+     "kind": "original",
+     "bytes": 11474282,
+     "md5": "459a0c33d6621a7e491d69f93b5e57ee",
+     "listed": true,
+     "slots": [
+      0,
+      1,
+      2,
+      3
+     ],
+     "files_count": 64,
+     "non_slot": [
+      "config.json"
+     ],
+     "touches_c00": true
+    }
+   ]
+  },
+  {
+   "mod_id": 291700,
+   "slug": "a2_2b_9s",
+   "folder": "pyra_mythra/291700_a2_2b_9s",
+   "fighter_folder": "pyra_mythra",
+   "code": "79",
+   "internal": "eflame",
+   "kind": "skin",
+   "origin": "búsqueda",
+   "plugin": false,
+   "link": "URL: https://gamebanana.com/mods/291700\nNombre: A2/2B/9S\nAutor: Demonslayerx8\nLuchador Drive: pyra_mythra (Pyra=eflame, Mythra=elight, compartido=element)\nSlots nativos: c07 (ambos) + element/diver c07\n\nWifi: Declaración explícita del autor sin condiciones conocidas\nCita textual: «Both A2 and 2B have added physic bones, so they are wifi safe.»\n\nArchivos (MD5 OK vs GameBanana apiv11):\n- install_2b-a2-9s_final__98120.rar  64907853 bytes  MD5 c50234c608005a0ab51a349019cf4ad4  (dl/617395)\n- install_wolfs_gravestone_a2_sword_a.rar  6842299 bytes  MD5 761a799fa108d7f99734e005b22536b0  (dl/583294)  [alt espada A2 / Genshin Wolf's Gravestone]\n\nInspección (archivo no inspeccionado en consola; lista 7z):\n- A2 = fighter/eflame/.../c07 (body + esword) + motion/body/c07/swing.prc + voice/sound se_eflame_c07 + vc_eflame_c07 + UI eflame_*_07\n- 2B = fighter/elight/.../c07 (body + esword) + motion/body/c07/swing.prc + voice/sound se_elight_c07 + vc_elight_c07 + UI elight_*_07\n- 9S = fighter/element/model/diver/c07 (modelo compartido Pyra/Mythra «diver»; NO es un tercer luchador). Incluye model.nusktb.\n- También: UI series_0/1_xenoblade.bntx; chara_10_*_only_00.bntx\n- Presente: motion (swing.prc), param/prc (sí, swing.prc), voice, sound, ui, model.nusktb (physics bones). Sin effect/. Sin config.json en el pack principal.\n- Separabilidad Pyra vs Mythra: SÍ a nivel de carpetas eflame/ vs elight/ (model, motion, voice, sound, UI por personaje). NO totalmente: element/diver/c07 es compartido y las series UI de Xenoblade también. El alt de espada solo toca eflame/esword/c07 (+ UI parcial).\n- Requisitos autor: ARCropolis 2.0.0-beta7 o 0.9.6; «Will not work on 1.1.3 properly due to shared files.»\n\nprueba en consola pendiente",
+   "note": null,
+   "catalog": null,
+   "files": [
+    {
+     "path": "original/install_2b-a2-9s_final__98120.rar",
+     "kind": "original",
+     "bytes": 64907853,
+     "md5": "c50234c608005a0ab51a349019cf4ad4",
+     "listed": true,
+     "slots": [
+      0,
+      7
+     ],
+     "files_count": 111,
+     "non_slot": [],
+     "touches_c00": true
+    },
+    {
+     "path": "original/install_wolfs_gravestone_a2_sword_a.rar",
+     "kind": "original",
+     "bytes": 6842299,
+     "md5": "761a799fa108d7f99734e005b22536b0",
+     "listed": true,
+     "slots": [
+      7
+     ],
+     "files_count": 12,
+     "non_slot": [],
+     "touches_c00": false
     }
    ]
   },
@@ -1182,6 +3018,8 @@
    "fighter_folder": "kazuya",
    "code": "81",
    "internal": "demon",
+   "kind": "skin",
+   "origin": "desconocido",
    "plugin": false,
    "link": "https://gamebanana.com/mods/303197",
    "note": null,
@@ -1202,6 +3040,8 @@
      "slots": [
       3
      ],
+     "files_count": 13,
+     "non_slot": [],
      "touches_c00": false
     }
    ]
@@ -1213,6 +3053,8 @@
    "fighter_folder": "kazuya",
    "code": "81",
    "internal": "demon",
+   "kind": "skin",
+   "origin": "desconocido",
    "plugin": false,
    "link": "https://gamebanana.com/mods/463039",
    "note": null,
@@ -1229,10 +3071,179 @@
      "kind": "original",
      "bytes": 4146849,
      "md5": "45114c6104e3ce01666d5dee105b45e3",
-     "listed": false,
+     "listed": true,
+     "slots": [
+      6
+     ],
+     "files_count": 17,
+     "non_slot": [
+      "config.json"
+     ],
+     "touches_c00": false
+    }
+   ]
+  },
+  {
+   "mod_id": 334311,
+   "slug": "vanitas",
+   "folder": "sora/334311_vanitas",
+   "fighter_folder": "sora",
+   "code": "82",
+   "internal": "trail",
+   "kind": "skin",
+   "origin": "enlace del usuario",
+   "plugin": false,
+   "link": "URL: https://gamebanana.com/mods/334311\nNombre: Vanitas\nAutor: LN_310\nCategoría GB: Sora\nFighter carpeta: sora\nSlots nativos: c01\nExtras: effect, motion/, nusktb, param/.prc, ui, voice/sound\nWifi: Declaración explícita del autor sin condiciones conocidas\nCita wifi: «is is an Arcropolis Mod, goes over C01 (KH2 Alt). Wifi Safe Enjoy! https://gamebanana.com/mods/334311 Key Aut»\nOrigen: enlace del usuario\nEstado archivo: archivo inspeccionado\nEstado consola: prueba en consola pendiente\nFighters internos: trail\n\nArchivos (MD5):\n  sora_c01_vanitas_2406c.7z: A410140DF49A109D043F9E184E874ED6",
+   "note": null,
+   "catalog": [
+    {
+     "look_name": "Vanitas",
+     "role": "propuesta principal",
+     "proposed_destination": 0
+    }
+   ],
+   "files": [
+    {
+     "path": "original/sora_c01_vanitas_2406c.7z",
+     "kind": "original",
+     "bytes": 19661265,
+     "md5": "a410140df49a109d043f9e184e874ed6",
+     "listed": true,
+     "slots": [
+      1
+     ],
+     "files_count": 36,
+     "non_slot": [
+      "effect/fighter/no element change version/ef_trail.eff",
+      "effect/fighter/trail/ef_cmn_rainbow01.bftex",
+      "effect/fighter/trail/ef_trail.eff",
+      "effect/fighter/trail/trail/tex_trail_appeal1.nutexb",
+      "effect/fighter/trail/trail/tex_trail_as1.nutexb",
+      "effect/fighter/trail/trail/tex_trail_keyblade1.nutexb",
+      "effect/fighter/trail/trail/tex_trail_keyblade2.nutexb",
+      "effect/fighter/trail/trail/tex_trail_keyblade3.nutexb"
+     ],
+     "touches_c00": false
+    }
+   ]
+  },
+  {
+   "mod_id": 471722,
+   "slug": "xion_over_sora_reloaded",
+   "folder": "sora/471722_xion_over_sora_reloaded",
+   "fighter_folder": "sora",
+   "code": "82",
+   "internal": "trail",
+   "kind": "skin",
+   "origin": "enlace del usuario",
+   "plugin": false,
+   "link": "URL: https://gamebanana.com/mods/471722\nNombre: Xion over Sora: Reloaded\nAutor: -Dusk-\nCategoría GB: Sora\nFighter carpeta: sora\nSlots nativos: c00, c01, c02, c03, c04, c05, c06, c07\nExtras: motion/, nusktb, param/.prc, ui\nWifi: Declaración explícita del autor sin condiciones conocidas\nCita wifi: «Wi-Fi Safe Enjoy!»\nOrigen: enlace del usuario\nEstado archivo: archivo inspeccionado\nEstado consola: prueba en consola pendiente\nFighters internos: trail\n\nArchivos (MD5):\n  xion_over_sora_fcfc1.7z: 591E974079DA49AF0958CF3B198EC3C2",
+   "note": null,
+   "catalog": [
+    {
+     "look_name": "Xion over Sora: Reloaded",
+     "role": "alternativa",
+     "proposed_destination": null
+    }
+   ],
+   "files": [
+    {
+     "path": "original/xion_over_sora_fcfc1.7z",
+     "kind": "original",
+     "bytes": 22905183,
+     "md5": "591e974079da49af0958cf3b198ec3c2",
+     "listed": true,
+     "slots": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+     ],
+     "files_count": 246,
+     "non_slot": [],
+     "touches_c00": true
+    }
+   ]
+  },
+  {
+   "mod_id": 431072,
+   "slug": "better_ready_to_fight_banner",
+   "folder": "_ui/431072_better_ready_to_fight_banner",
+   "fighter_folder": "_ui",
+   "code": null,
+   "internal": null,
+   "kind": "ui",
+   "origin": "enlace del usuario",
+   "plugin": false,
+   "link": "URL: https://gamebanana.com/mods/431072\nNombre: Better READY-TO-FIGHT Banner\nAutor: Devory\nCategoría GB: Character Select Layouts\nFighter carpeta: _ui\nSlots nativos: (n/a)\nExtras: ui\nWifi: Declaración explícita del autor sin condiciones conocidas\nCita wifi: «This mod is WIFI- SAFE as it only changes this part of the UI and no in game elements are affected»\nOrigen: enlace del usuario\nEstado archivo: archivo inspeccionado\nEstado consola: prueba en consola pendiente\nFighters internos: (n/a)\nNOTA: no es skin de fighter (CSS/UI/banner).\n\nArchivos (MD5):\n  ui_better_ready-to-fight_v2.7z: 9524336C88A1CFD1A4DC2E1EBA623795\n  ui_better_ready-to-fight.7z: 60CF910CDD8E164E2605DCE4D17739E7\n  ui_better_ready-to-fight_espanol.7z: 2DF837B5348D45D61C4CD70001E71897",
+   "note": null,
+   "catalog": null,
+   "files": [
+    {
+     "path": "original/ui_better_ready-to-fight.7z",
+     "kind": "original",
+     "bytes": 706629,
+     "md5": "60cf910cdd8e164e2605dce4d17739e7",
+     "listed": true,
      "slots": [],
-     "unlisted_reason": "rar/7z sin herramienta para listar",
-     "touches_c00": null
+     "files_count": 3,
+     "non_slot": [],
+     "touches_c00": false
+    },
+    {
+     "path": "original/ui_better_ready-to-fight_espanol.7z",
+     "kind": "original",
+     "bytes": 704904,
+     "md5": "2df837b5348d45d61c4cd70001e71897",
+     "listed": true,
+     "slots": [],
+     "files_count": 2,
+     "non_slot": [],
+     "touches_c00": false
+    },
+    {
+     "path": "original/ui_better_ready-to-fight_v2.7z",
+     "kind": "original",
+     "bytes": 707519,
+     "md5": "9524336c88a1cfd1a4dc2e1eba623795",
+     "listed": true,
+     "slots": [],
+     "files_count": 3,
+     "non_slot": [],
+     "touches_c00": false
+    }
+   ]
+  },
+  {
+   "mod_id": 491735,
+   "slug": "sorted_by_series_css_my_own_take",
+   "folder": "_ui/491735_sorted_by_series_css_my_own_take",
+   "fighter_folder": "_ui",
+   "code": null,
+   "internal": null,
+   "kind": "ui",
+   "origin": "enlace del usuario",
+   "plugin": false,
+   "link": "URL: https://gamebanana.com/mods/491735\nNombre: Sorted By Series CSS (My Own Take)\nAutor: Zentroid\nCategoría GB: Character Select Layouts\nFighter carpeta: _ui\nSlots nativos: (n/a)\nExtras: param/.prc, ui\nWifi: Declaración explícita del autor sin condiciones conocidas\nCita wifi: «zed by Series. And before anyone asks yes this is Wifi Safe, anything on the menu's will always be wifi safe»\nOrigen: enlace del usuario\nEstado archivo: archivo inspeccionado\nEstado consola: prueba en consola pendiente\nFighters internos: (n/a)\nNOTA: no es skin de fighter (CSS/UI/banner).\n\nArchivos (MD5):\n  sort_by_series_css.rar: ADB916E7EFE79FC2D755C63E97C1475B",
+   "note": null,
+   "catalog": null,
+   "files": [
+    {
+     "path": "original/sort_by_series_css.rar",
+     "kind": "original",
+     "bytes": 409819,
+     "md5": "adb916e7efe79fc2d755c63e97c1475b",
+     "listed": true,
+     "slots": [],
+     "files_count": 4,
+     "non_slot": [
+      "ui/param/database/ui_chara_db.prc"
+     ],
+     "touches_c00": false
     }
    ]
   },
@@ -1243,6 +3254,8 @@
    "fighter_folder": "_plugins",
    "code": null,
    "internal": null,
+   "kind": "plugin",
+   "origin": "desconocido",
    "plugin": true,
    "link": "https://gamebanana.com/mods/549058",
    "note": null,
@@ -1255,6 +3268,8 @@
      "md5": "3a0563a2a561b4a597aecea463d7b2f2",
      "listed": true,
      "slots": [],
+     "files_count": 5,
+     "non_slot": [],
      "touches_c00": false
     }
    ]
