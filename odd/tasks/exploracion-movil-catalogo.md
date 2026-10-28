@@ -34,7 +34,7 @@ Pie de la ficha a 320 px, filas de Elegidas, nombres y carga en Luchadores, reco
 - Vue 3 + Quasar. Script de un `.vue` nuevo: imports y composable.
 - Enums de string para conjuntos cerrados de la app.
 - Tests con el cambio. Playwright local en 390, 360 y 320.
-- No Pint. No push ni PR hasta que se elija la cadena.
+- No Pint. No push ni PR hasta que se pida.
 
 ## Delivery
 
@@ -105,7 +105,7 @@ Pie de la ficha a 320 px, filas de Elegidas, nombres y carga en Luchadores, reco
 - [x] Tres columnas por defecto y un botón para ampliar a dos.
 - [ ] Hoja con Todos, búsqueda, retratos y conteo. Se cierra con Atrás.
 - [x] Contador, limpiar (conserva el tamaño) y nombres en dos líneas.
-- [ ] Instaladas leen «Mario · Traje 2» primero.
+- [x] Instaladas leen «Mario · Traje 2» primero.
 - [ ] Cambiar el tamaño conserva la tarjeta visible.
 - Checks: Playwright 390, 360 y 320. Capturas.
 
@@ -113,7 +113,7 @@ Pie de la ficha a 320 px, filas de Elegidas, nombres y carga en Luchadores, reco
 
 - Route: directo.
 - Riesgo: medio.
-- [ ] `vue-tsc`, unitarios y Playwright local en verde.
+- [x] `vue-tsc`, unitarios y Playwright local en verde.
 - [ ] Recorridos y visual actualizados (sin «Agrupar por franquicia»).
 - [ ] Métricas antes/después y capturas en `/tmp/ssbu-shots/explore-after/`.
 - [ ] Self-check TS de los archivos de esta feature. `impeccable detect` una vez.
@@ -130,7 +130,8 @@ El usuario puede, a 320 px, elegir Mario, combinar una búsqueda, abrir una skin
 - T3: RED, el catálogo no tenía «Elegir traje». Luego PASS. Mirar el detalle no mueve la candidata.
 - T4 y T5: PASS de cabecera oculta y de la clase `sync-word`. El guardado de `ssbu_plan_cache` está en el `flush` local; esta app tiene Firebase configurado, así que esa rama no se ejecutó aquí.
 - T6 y T7: PASS de 3 columnas, filtro Mario, búsqueda «Dry», «1 apariencia», limpiar sin tocar el plan ni el tamaño. Playwright local completo: 12 PASS. Unitarios: 10 PASS. `vue-tsc` ok.
-- T8 pendiente: capturas, métricas de toques y skins visibles. Siguen abiertos el `replace` de profundidad, el fondo de la ficha, el plan local sin Firebase, el agrupado con «Todos», el cierre de la hoja con Atrás, «Mario · Traje 2» y el ancla al cambiar el tamaño.
+- Capturas en `/tmp/ssbu-shots/explore-after/`. A 390×844 entran 9 skins de catálogo y 9 instaladas sin scroll. A 360×740 y 320×700, 9 de catálogo y 6 instaladas. Mario en Instaladas son 2 toques. Sin filtro la primera línea es «Mario · Traje 2»; con Mario, «Traje 2». La hoja se cierra al elegir. Kellytoy (Traje 2) sigue sin imagen. No hay comparación con las capturas anteriores.
+- Siguen abiertos el `replace` de profundidad, el fondo de la ficha, el plan local sin Firebase, el agrupado con «Todos», el cierre de la hoja con Atrás, el ancla al cambiar el tamaño, recorridos, visual e `impeccable detect`.
 
 ## Chain
 
@@ -144,10 +145,11 @@ El hijo no se sube ni abre PR hasta que se pida.
 
 ## Next
 
-Capturas de T8. El PR del tracker y el del hijo quedan para cuando se pida subir.
+Cerrar los checks que siguen abiertos. El PR del tracker y el del hijo quedan para cuando se pida subir.
 
 ## Log
 
 - 2026-10-28: documento creado antes del primer cambio de código. Estrategia de entrega `ask-on-risk`. Cadena sin elegir.
 - 2026-10-28: implementación de T1–T7 en el árbol, sin commit. Espejo Engram `odd/exploracion-movil-catalogo/tasks` (id 7306), actualizado con este estado.
 - 2026-10-28: cadena `feature-branch-chain`. Commit `93a3ae5214a9ef5e41b799dd572babedb1317473`.
+- 2026-10-28: capturas posteriores en `/tmp/ssbu-shots/explore-after/`. Docs `8d90a90`.
