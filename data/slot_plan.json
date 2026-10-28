@@ -701,13 +701,14 @@
   "16": {
    "slots": {
     "0": {
-     "state": "mod",
-     "name": "Yuffie",
-     "mod_id": 511678,
-     "source": "drive",
+     "state": "vanilla",
+     "name": "Original",
+     "mod_id": null,
+     "source": "vanilla",
      "reslot_from": null,
-     "file": "sheik/511678_yuffie_kisaragi_final_fantasy_vii/original/yuffie_over_c01_sheik.rar",
-     "approved": false
+     "file": null,
+     "approved": false,
+     "nota": "se quita la skin de WuBoy"
     },
     "1": {
      "state": "mod",
@@ -716,7 +717,8 @@
      "source": "drive",
      "reslot_from": null,
      "file": "sheik/511678_yuffie_kisaragi_final_fantasy_vii/original/yuffie_over_c01_sheik.rar",
-     "approved": false
+     "approved": false,
+     "nota": "el mod trae un solo look (c01). Cambia las animaciones base de Sheik (motion/body/c00): afecta a todos sus trajes, riesgo wifi"
     },
     "2": {
      "state": "vanilla",
@@ -765,7 +767,8 @@
      "file": null,
      "approved": false
     }
-   }
+   },
+   "nota": "Yuffie: un solo look, en su slot original (c01)."
   },
   "17": {
    "slots": {
@@ -910,14 +913,13 @@
      "nota": "se quita la skin de WuBoy"
     },
     "6": {
-     "state": "mod",
-     "name": "Spider-Gwen",
-     "mod_id": 174461,
-     "source": "drive",
-     "reslot_from": 7,
-     "file": "zero_suit_samus/174461_spider_gwen/original/szerosuit_-_gwen_c07.rar",
-     "approved": false,
-     "nota": "se veía negra al moverla sin sus texturas"
+     "state": "vanilla",
+     "name": "Original",
+     "mod_id": null,
+     "source": "vanilla",
+     "reslot_from": null,
+     "file": null,
+     "approved": false
     },
     "7": {
      "state": "mod",
@@ -930,7 +932,7 @@
      "nota": "trae el tema de victoria de ZSS (global)"
     }
    },
-   "nota": "Pendiente: Spider-Gwen (c07) choca con Jill Valentine (perfil, c07). Opciones: elegir una, o reslotear Gwen a c06 (libre; ojo: se veía negra al moverla sin sus texturas)."
+   "nota": "Spider-Gwen fuera: viene como parches .pad con un Install.bat de Windows, no como mod de ARCropolis."
   },
   "07": {
    "slots": {
@@ -2213,10 +2215,10 @@
      "name": "Darth Luigi",
      "mod_id": 592795,
      "source": "drive",
-     "reslot_from": 0,
+     "reslot_from": 1,
      "file": "sephiroth/592795_darth_luigi/original/darth_luigi.zip",
      "approved": false,
-     "nota": "trae un tema de victoria de Sephiroth (global)"
+     "nota": "todo el mod está en c01 (el video del Final Smash, aparte, en c00). Trae tema de victoria y narración de Sephiroth (globales, chocan con WuBoy)"
     },
     "7": {
      "state": "vanilla",

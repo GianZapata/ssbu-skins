@@ -20,7 +20,7 @@ Orígenes de los mods del Drive: usuario 48 · búsqueda 11 · búsqueda + usuar
 | 8 | Sheik (16) | 0/8 | 7 | 1 | 0 | 0 |
 | 9 | Zelda (17) | 0/8 | 8 | 0 | 0 | 0 |
 | 10 | Ganondorf (23) | 8/8 | 0 | 0 | 3 | 3 |
-| 11 | Zero Suit Samus (29) | 0/8 | 8 | 0 | 0 | 0 |
+| 11 | Zero Suit Samus (29) | 0/8 | 8 | 0 | 1 | 1 |
 | 12 | Fox (07) | 0/8 | 4 | 4 | 0 | 0 |
 | 13 | Falco (20) | 0/8 | 4 | 4 | 0 | 0 |
 | 14 | Incineroar (69) | 0/8 | 6 | 2 | 0 | 0 |
@@ -147,10 +147,12 @@ _El mod trae 2 looks (Kurama y Susano'o); solo Kurama. Dry Bowser y Dark Bowser 
 
 ## 8. Sheik (16)
 
+_Yuffie: un solo look, en su slot original (c01)._
+
 | Slot | Hoy | Plan | Estado |
 |---|---|---|---|
-| c00 | WuBoy | Yuffie (GB 511678) | propuesto |
-| c01 | original | Yuffie (GB 511678) | propuesto |
+| c00 | WuBoy | original | propuesto |
+| c01 | original | Yuffie (GB 511678) · el mod trae un solo look (c01). Cambia las animaciones base de Sheik (motion/body/c00): afecta a todos sus trajes, riesgo wifi | propuesto |
 | c02 | WuBoy | original | propuesto |
 | c03 | WuBoy | original | propuesto |
 | c04 | original | Larxene (GB 367390) · reslot desde c00 | propuesto |
@@ -194,7 +196,7 @@ Mods del Drive sin asignar:
 
 ## 11. Zero Suit Samus (29)
 
-_Pendiente: Spider-Gwen (c07) choca con Jill Valentine (perfil, c07). Opciones: elegir una, o reslotear Gwen a c06 (libre; ojo: se veía negra al moverla sin sus texturas)._
+_Spider-Gwen fuera: viene como parches .pad con un Install.bat de Windows, no como mod de ARCropolis._
 
 | Slot | Hoy | Plan | Estado |
 |---|---|---|---|
@@ -204,8 +206,14 @@ _Pendiente: Spider-Gwen (c07) choca con Jill Valentine (perfil, c07). Opciones: 
 | c03 | WuBoy | original | propuesto |
 | c04 | WuBoy | original | propuesto |
 | c05 | WuBoy | original | propuesto |
-| c06 | original | Spider-Gwen (GB 174461) · reslot desde c07 · se veía negra al moverla sin sus texturas | propuesto |
+| c06 | original | original | propuesto |
 | c07 | perfil · Jill Valentine | Jill Valentine (GB 637464) · reslot desde c00 · trae el tema de victoria de ZSS (global) | propuesto |
+
+Mods del Drive sin asignar:
+
+| Mod | Nombre | Origen | Slots nativos | Wifi | Toca c00 |
+|---|---|---|---|---|---|
+| 174461 | spider_gwen | usuario | c07 | — | no |
 
 ## 12. Fox (07)
 
@@ -451,7 +459,7 @@ Mods del Drive sin asignar:
 | c02 | WuBoy | Ariana Grande (GB 555584) | propuesto |
 | c03 | WuBoy «Jin» | Ultimate Sukuna (GB 672428) · pack de 4 looks (c00–c03); aquí solo el de c03 | propuesto |
 | c04 | WuBoy «Vergil» | Sandbag (GB 487151) · reslot desde c00 | propuesto |
-| c05 | WuBoy | Darth Luigi (GB 592795) · reslot desde c00 · trae un tema de victoria de Sephiroth (global) | propuesto |
+| c05 | WuBoy | Darth Luigi (GB 592795) · reslot desde c01 · todo el mod está en c01 (el video del Final Smash, aparte, en c00). Trae tema de victoria y narración de Sephiroth (globales, chocan con WuBoy) | propuesto |
 | c06 | original | original | sin decidir |
 | c07 | WuBoy | original | propuesto |
 
