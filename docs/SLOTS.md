@@ -2,7 +2,7 @@
 
 _Generado por `tools/slot_plan.py` a partir de `data/slot_plan.json`, `installed.json`, `inventory_profile.json` y `drive.json`; no editar a mano. Nada de esto está instalado ni probado en consola._
 
-**39 luchadores · 16 slots aprobados · 202 propuestos · 94 sin decidir (de 312)**
+**39 luchadores · 15 slots aprobados · 206 propuestos · 91 sin decidir (de 312)**
 
 Orígenes de los mods del Drive: usuario 48 · búsqueda 11 · búsqueda + usuario 6 · auditoría/previo 18. _usuario = lo mandó Gian por enlace; búsqueda = lo encontró el asistente en la investigación wifi-safe; auditoría/previo = ya estaba en el Drive (espejo de D:\) sin registro de origen._
 
@@ -19,13 +19,13 @@ Orígenes de los mods del Drive: usuario 48 · búsqueda 11 · búsqueda + usuar
 | 7 | Link (03) | 0/8 | 6 | 2 | 0 | 0 |
 | 8 | Sheik (16) | 0/8 | 7 | 1 | 0 | 0 |
 | 9 | Zelda (17) | 0/8 | 8 | 0 | 0 | 0 |
-| 10 | Ganondorf (23) | 8/8 | 0 | 0 | 4 | 4 |
+| 10 | Ganondorf (23) | 8/8 | 0 | 0 | 3 | 3 |
 | 11 | Zero Suit Samus (29) | 0/8 | 8 | 0 | 0 | 0 |
 | 12 | Fox (07) | 0/8 | 4 | 4 | 0 | 0 |
 | 13 | Falco (20) | 0/8 | 4 | 4 | 0 | 0 |
 | 14 | Incineroar (69) | 0/8 | 6 | 2 | 0 | 0 |
 | 15 | Captain Falcon (11) | 0/8 | 8 | 0 | 0 | 0 |
-| 16 | Lucina (21ε) | 0/8 | 8 | 0 | 1 | 1 |
+| 16 | Lucina (21ε) | 0/8 | 8 | 0 | 0 | 0 |
 | 17 | Marth (21) | 0/8 | 4 | 4 | 0 | 0 |
 | 18 | Byleth (75) | 0/8 | 8 | 0 | 0 | 0 |
 | 19 | Palutena (54) | 0/8 | 2 | 6 | 0 | 0 |
@@ -39,16 +39,16 @@ Orígenes de los mods del Drive: usuario 48 · búsqueda 11 · búsqueda + usuar
 | 26 | Ken (60ε) | 0/8 | 0 | 8 | 1 | 0 |
 | 27 | Cloud (61) | 0/8 | 8 | 0 | 0 | 0 |
 | 28 | Sephiroth (78) | 0/8 | 7 | 1 | 0 | 0 |
-| 29 | Bayonetta (63) | 0/8 | 6 | 2 | 1 | 1 |
+| 29 | Bayonetta (63) | 0/8 | 7 | 1 | 0 | 0 |
 | 30 | Hero (72) | 0/8 | 6 | 2 | 0 | 0 |
 | 31 | Steve (77) | 0/8 | 8 | 0 | 1 | 0 |
 | 32 | Kazuya (81) | 0/8 | 5 | 3 | 0 | 0 |
-| 33 | Sora (82) | 0/8 | 5 | 3 | 1 | 1 |
+| 33 | Sora (82) | 0/8 | 6 | 2 | 0 | 0 |
 | — | Ness (10) | 0/8 | 3 | 5 | 0 | 0 |
-| — | Chrom (25ε) | 0/8 | 4 | 4 | 1 | 1 |
+| — | Chrom (25ε) | 0/8 | 5 | 3 | 0 | 0 |
 | — | Wolf (44) | 0/8 | 4 | 4 | 0 | 0 |
 | — | Corrin (62) | 0/8 | 5 | 3 | 0 | 0 |
-| — | Terry (74) | 8/8 | 0 | 0 | 1 | 1 |
+| — | Terry (74) | 7/8 | 1 | 0 | 0 | 0 |
 
 ## 1. Mario (01)
 
@@ -173,8 +173,6 @@ _El mod trae 2 looks (Kurama y Susano'o); solo Kurama. Dry Bowser y Dark Bowser 
 
 ## 10. Ganondorf (23)
 
-_Pendiente: Pain (401033, lo mandó Gian) no tiene slot; trae effect, motion, param y config.json (riesgo wifi). Candidatos: c04 o c01 reslot desde c00._
-
 | Slot | Hoy | Plan | Estado |
 |---|---|---|---|
 | c00 | perfil · Otis | perfil · Otis | aprobado |
@@ -184,7 +182,7 @@ _Pendiente: Pain (401033, lo mandó Gian) no tiene slot; trae effect, motion, pa
 | c04 | WuBoy | WuBoy | aprobado |
 | c05 | WuBoy | ExDeath (GB 174353) · solo la carpeta c05 | aprobado |
 | c06 | perfil · Broly | perfil · Broly | aprobado |
-| c07 | WuBoy «Thanos» | WuBoy «Thanos» | aprobado |
+| c07 | WuBoy «Thanos» | Pain (Naruto) (GB 401033) · reslot desde c00 · reemplaza a Thanos de WuBoy, por decisión de Gian. Trae effect, motion, param y config.json: riesgo wifi | aprobado |
 
 Mods del Drive sin asignar:
 
@@ -193,7 +191,6 @@ Mods del Drive sin asignar:
 | 320899 | jiren | usuario | c07 | — | no |
 | 324864 | broly_dbs | usuario | c06 | — | no |
 | 392436 | otis_back_at_the_barnyard | usuario | c00 | — | sí |
-| 401033 | pain_naruto_shippuden | usuario | c00 | — | sí |
 
 ## 11. Zero Suit Samus (29)
 
@@ -266,24 +263,18 @@ _Pendiente: Garnet (c02) choca con Dark Falcon (perfil, PR #4, c02). Opciones: e
 
 ## 16. Lucina (21ε)
 
-_2B alts (392802) excluida: mujer con más de 2 looks._
+_2B alts: 2 de 7 trajes (c01 armadura gris, c06 blanco), por decisión de Gian._
 
 | Slot | Hoy | Plan | Estado |
 |---|---|---|---|
 | c00 | WuBoy «Yu» | 2B (mastaklo) (GB 362052) · reemplaza a «Yu» de WuBoy | propuesto |
-| c01 | WuBoy | original | propuesto |
+| c01 | WuBoy | 2B (armadura gris) (GB 392802) · alt de 2B; zip partido: unir part01 + part02 (MD5 33d759d9…). Requiere el 2B de c00 | propuesto |
 | c02 | WuBoy | original | propuesto |
 | c03 | WuBoy | original | propuesto |
 | c04 | WuBoy | original | propuesto |
 | c05 | WuBoy | original | propuesto |
-| c06 | WuBoy | original | propuesto |
+| c06 | WuBoy | 2B (traje blanco) (GB 392802) · alt de 2B; zip partido: unir part01 + part02. Requiere el 2B de c00 | propuesto |
 | c07 | WuBoy | original | propuesto |
-
-Mods del Drive sin asignar:
-
-| Mod | Nombre | Origen | Slots nativos | Wifi | Toca c00 |
-|---|---|---|---|---|---|
-| 392802 | 2b_alts_for_mastaklo | usuario | sin listar | — | ? |
 
 ## 17. Marth (21)
 
@@ -466,11 +457,11 @@ Mods del Drive sin asignar:
 
 ## 29. Bayonetta (63)
 
-_Morrigan (501311) excluida: mujer con más de 2 looks (8)._
+_Morrigan: solo el primer look (c00), por decisión de Gian._
 
 | Slot | Hoy | Plan | Estado |
 |---|---|---|---|
-| c00 | original | original | sin decidir |
+| c00 | original | Morrigan (GB 501311) · solo el primer look (c00, pelo verde) del set completo; comprobar ef_bayonetta.eff global | propuesto |
 | c01 | WuBoy «Kat» | WuBoy «Kat» | propuesto |
 | c02 | WuBoy | original | propuesto |
 | c03 | perfil · Harley Quinn | Harley Quinn (GB 360738) | propuesto |
@@ -478,12 +469,6 @@ _Morrigan (501311) excluida: mujer con más de 2 looks (8)._
 | c05 | WuBoy | original | propuesto |
 | c06 | original | original | sin decidir |
 | c07 | WuBoy | original | propuesto |
-
-Mods del Drive sin asignar:
-
-| Mod | Nombre | Origen | Slots nativos | Wifi | Toca c00 |
-|---|---|---|---|---|---|
-| 501311 | morrigan_mvc3_design | búsqueda + usuario | c00, c01, c02, c03, c04, c05, c06, c07 | — | sí |
 
 ## 30. Hero (72)
 
@@ -534,11 +519,11 @@ Mods del Drive sin asignar:
 
 ## 33. Sora (82)
 
-_Xion (471722) excluida: mujer con más de 2 looks (8)._
+_Xion: un solo look (c00), por decisión de Gian._
 
 | Slot | Hoy | Plan | Estado |
 |---|---|---|---|
-| c00 | original | original | sin decidir |
+| c00 | original | Xion (GB 471722) · un solo look (c00); los 8 slots del pack se ven iguales en sus retratos | propuesto |
 | c01 | original | Vanitas (GB 334311) · trae efectos ef_trail sin slot (globales) | propuesto |
 | c02 | original | original | sin decidir |
 | c03 | original | original | sin decidir |
@@ -546,12 +531,6 @@ _Xion (471722) excluida: mujer con más de 2 looks (8)._
 | c05 | perfil · Roxas · Organización XIII | perfil · Roxas · Organización XIII | propuesto |
 | c06 | WuBoy | original | propuesto |
 | c07 | perfil · Roxas · Villa Crepúsculo | perfil · Roxas · Villa Crepúsculo | propuesto |
-
-Mods del Drive sin asignar:
-
-| Mod | Nombre | Origen | Slots nativos | Wifi | Toca c00 |
-|---|---|---|---|---|---|
-| 471722 | xion_over_sora_reloaded | usuario | c00, c01, c02, c03, c04, c05, c06, c07 | explícita | sí |
 
 ## Otros
 
@@ -571,11 +550,11 @@ Mods del Drive sin asignar:
 
 ### Chrom (25ε)
 
-_Pendiente: Squall (c00–c07, 8 voces JP) está partido en 2 partes; hay que unirlo y elegir slots._
+_Squall: un solo look (c00), por decisión de Gian. Raiden en c01._
 
 | Slot | Hoy | Plan | Estado |
 |---|---|---|---|
-| c00 | original | original | sin decidir |
+| c00 | original | Squall (negro) (GB 175495) · un solo look (c00, ropa negra); zip partido: unir part01 + part02 (MD5 691946b0…) | propuesto |
 | c01 | original | Raiden (GB 387553) · el mod trae 2 looks; solo uno. Usar el config.json de config_cc198.zip; trae un tema de victoria (global) | propuesto |
 | c02 | WuBoy | original | propuesto |
 | c03 | original | original | sin decidir |
@@ -583,12 +562,6 @@ _Pendiente: Squall (c00–c07, 8 voces JP) está partido en 2 partes; hay que un
 | c05 | original | original | sin decidir |
 | c06 | WuBoy | original | propuesto |
 | c07 | WuBoy | original | propuesto |
-
-Mods del Drive sin asignar:
-
-| Mod | Nombre | Origen | Slots nativos | Wifi | Toca c00 |
-|---|---|---|---|---|---|
-| 175495 | kingdom_hearts_squall | usuario | sin listar | — | ? |
 
 ### Wolf (44)
 
@@ -618,21 +591,15 @@ Mods del Drive sin asignar:
 
 ### Terry (74)
 
-_Los packs de 8 slots (Gogeta 437327, Gogeta SSJ4 446815, Goku Mid 502537, Yang Xiao Long 346216) quedan pendientes; aquí solo entra el look suelto que ya se eligió (Gogeta SSJ en c01, Gogeta SSJ4 en c07). Pendiente: Tifa (559818, lo mandó Gian, c00–c01) compite con Gohan (de auditoría) por c00. Pendiente: Tifa (559818, lo mandó Gian, mujer con 2 looks) compite con Gohan por c00; Vegeta aprobado con 2 looks (regla: 1 por mod). Pendiente: Tifa (559818, lo mandó Gian, mujer con 2 looks) compite con Gohan por c00; Vegeta aprobado con 2 looks (regla: 1 por mod)._
+_Tifa: un traje (el segundo, c01) en c03, en lugar de Vegeta SSB. Gogeta y SSJ4 completos siguen pendientes._
 
 | Slot | Hoy | Plan | Estado |
 |---|---|---|---|
 | c00 | original | Gohan (sin capa) (GB 434439) · reslot desde c07 | aprobado |
 | c01 | WuBoy | Gogeta SSJ (GB 437327) | aprobado |
 | c02 | WuBoy | Vegeta SSJ (GB 609500) · necesita One Slot Effects | aprobado |
-| c03 | WuBoy | Vegeta SSB (GB 609500) · necesita One Slot Effects | aprobado |
+| c03 | WuBoy | Tifa (segundo traje) (GB 559818) · reslot desde c01 · reemplaza a Vegeta SSB (Vegeta queda con 1 look). Trae música (tema de victoria y 2 pistas, globales) | propuesto |
 | c04 | WuBoy «All Might» | WuBoy «All Might» | aprobado |
 | c05 | WuBoy «Jotaro» | WuBoy «Jotaro» | aprobado |
 | c06 | WuBoy | Goku Black (GB 333706) | aprobado |
 | c07 | WuBoy | Gogeta SSJ4 (GB 446815) | aprobado |
-
-Mods del Drive sin asignar:
-
-| Mod | Nombre | Origen | Slots nativos | Wifi | Toca c00 |
-|---|---|---|---|---|---|
-| 559818 | tifa_lockhart_terry | usuario | c00, c01 | condicionada | sí |
