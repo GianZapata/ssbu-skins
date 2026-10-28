@@ -8,6 +8,10 @@ R = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..')
 WIFI = {'Declaración explícita': 'explícita', 'Declaración condicionada': 'condicionada', 'Afirmación de terceros': 'terceros',
         'Sin evidencia': 'sin evidencia', 'Incompatible': 'incompatible'}
 ESTADO = {True: 'aprobado', False: 'propuesto'}
+ORIGEN = {'enlace del usuario': 'usuario', 'búsqueda': 'búsqueda', 'búsqueda + enlace del usuario': 'búsqueda + usuario', 'desconocido': 'auditoría/previo'}
+def origen(m): return ORIGEN.get(m.get('origin'), m.get('origin') or '—')
+def del_usuario(m): return 'usuario' in origen(m)
+def es_skin(m): return m.get('kind', 'plugin' if m.get('plugin') else 'skin') == 'skin'
 def cell(t): return str(t).replace('|', '/')   # un | rompería la tabla
 
 def load(data, name, dups=None):
@@ -34,7 +38,7 @@ class Plan:
         for e in cat.get('entries') or []: self.wifi.setdefault((e['roster_no'], e['mod_id']), e.get('wifi_state'))
         self.mods = {}   # código -> {mod_id: mod}; si el mod está repetido en carpetas, gana el que tiene más archivos
         for m in self.drive['mods']:
-            if m['plugin'] or not m['code'] or not m['mod_id']: continue
+            if not es_skin(m) or not m['code'] or not m['mod_id']: continue
             cur = self.mods.setdefault(m['code'], {}).get(m['mod_id'])
             if cur is None or len(m['files']) > len(cur['files']): self.mods[m['code']][m['mod_id']] = m
         self.order = []   # [(posición, código)] con las posiciones de la lista de prioridad; «Otros» sin posición
@@ -74,7 +78,7 @@ class Plan:
 
     def unassigned(self, c):
         used = {d['mod_id'] for d in ((self.sp['fighters'].get(c) or {}).get('slots') or {}).values() if d.get('source') == 'drive' and d.get('mod_id')}
-        return [m for i, m in sorted(self.mods.get(c, {}).items()) if i not in used]
+        return sorted((m for i, m in self.mods.get(c, {}).items() if i not in used), key=lambda m: (not del_usuario(m), m['mod_id']))   # primero los que mandó Gian
 
     def native(self, m):
         s = {x for f in m['files'] if f['listed'] for x in f['slots'] if x < 8}
@@ -125,6 +129,14 @@ class Plan:
     @staticmethod
     def slots_txt(sl): return ', '.join(f'c{x:02d}' for x in sl) or 'ningún slot'
 
+    def origenes_txt(self):
+        n = {}
+        for m in self.drive['mods']: n[origen(m)] = n.get(origen(m), 0) + 1
+        orden = [*ORIGEN.values(), '—']
+        cuenta = ' · '.join(f'{k if k != "—" else "sin registro"} {n[k]}' for k in orden if k in n)
+        return (f'Orígenes de los mods del Drive: {cuenta}. _usuario = lo mandó Gian por enlace; búsqueda = lo encontró el asistente en la investigación wifi-safe; '
+                'auditoría/previo = ya estaba en el Drive (espejo de D:\\) sin registro de origen._')
+
     def render(self):
         stat = {}
         for _, c in self.order:
@@ -132,10 +144,11 @@ class Plan:
         A, P, O = (sum(v[i] for v in stat.values()) for i in range(3))
         L = ['# Plan de slots', '', '_Generado por `tools/slot_plan.py` a partir de `data/slot_plan.json`, `installed.json`, `inventory_profile.json` y `drive.json`; no editar a mano. Nada de esto está instalado ni probado en consola._', '',
              f'**{len(self.order)} luchadores · {A} slots aprobados · {P} propuestos · {O} sin decidir (de {8 * len(self.order)})**', '',
+             self.origenes_txt(), '',
              '«Hoy» es lo que hay en el perfil (WuBoy, componentes del perfil o la skin original); «Plan» es la decisión, si ya existe.', '',
-             '| # | Luchador | Aprobados | Propuestos | Sin decidir | Drive sin asignar |', '|---|---|---|---|---|---|']
+             '| # | Luchador | Aprobados | Propuestos | Sin decidir | Drive sin asignar | Del usuario sin asignar |', '|---|---|---|---|---|---|---|']
         for pos, c in self.order:
-            a, p, o = stat[c]; L.append(f'| {pos or "—"} | {self.names.get(c, c)} ({c}) | {a}/8 | {p} | {o} | {len(self.unassigned(c))} |')
+            a, p, o = stat[c]; L.append(f'| {pos or "—"} | {self.names.get(c, c)} ({c}) | {a}/8 | {p} | {o} | {len(self.unassigned(c))} | {sum(map(del_usuario, self.unassigned(c)))} |')
         otros = False
         for pos, c in self.order:
             if pos is None and not otros: L += ['', '## Otros', '']; otros = True
@@ -146,9 +159,9 @@ class Plan:
             for r in self.rows(c): L.append(f'| c{r["slot"]:02d} | {cell(r["hoy"])} | {cell(r["plan"])} | {r["estado"]} |')
             un = self.unassigned(c)
             if un:
-                L += ['', 'Mods del Drive sin asignar:', '', '| Mod | Nombre | Slots nativos | Wifi | Toca c00 |', '|---|---|---|---|---|']
+                L += ['', 'Mods del Drive sin asignar:', '', '| Mod | Nombre | Origen | Slots nativos | Wifi | Toca c00 |', '|---|---|---|---|---|---|']
                 for m in un:
-                    n = self.native(m); L.append(f'| {m["mod_id"]} | {m["slug"]} | {self.slots_txt(n) if n else "sin listar"} | {self.wifi_short(c, m["mod_id"])} | {self.c00(m)} |')
+                    n = self.native(m); L.append(f'| {m["mod_id"]} | {m["slug"]} | {origen(m)} | {self.slots_txt(n) if n else "sin listar"} | {self.wifi_short(c, m["mod_id"])} | {self.c00(m)} |')
         return '\n'.join(L) + '\n', (len(self.order), A, P, O)
 
 if __name__ == '__main__':

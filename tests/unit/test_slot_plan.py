@@ -16,10 +16,12 @@ class SlotPlan(unittest.TestCase):
         self.write('inventory_profile.json', {'excluded_base_fighters': ['74'], 'excluded_base_slots': [{'fighter': '01', 'slot': 3}],
                                               'slots': [{'fighter': '01', 'slot': 1, 'name': 'Kellytoy'}]})
         self.write('drive.json', {'mods': [
-            {'mod_id': 100, 'slug': 'skin_link', 'folder': 'link/100_skin_link', 'code': '03', 'plugin': False, 'files': [f('original/a.zip', [4]), f('original/b.rar', [], False)]},
-            {'mod_id': 200, 'slug': 'ness_mod', 'folder': 'ness/200_ness_mod', 'code': '10', 'plugin': False, 'files': [f('original/n.zip', [3])]},
-            {'mod_id': 200, 'slug': 'ness_mod', 'folder': 'ness/200_ness_mod (1)', 'code': '10', 'plugin': False, 'files': []},
-            {'mod_id': 300, 'slug': 'terry_mod', 'folder': 'terry/300_terry_mod', 'code': '74', 'plugin': False, 'files': [f('original/t.zip', [5])]}]})
+            {'mod_id': 100, 'slug': 'skin_link', 'folder': 'link/100_skin_link', 'code': '03', 'plugin': False, 'kind': 'skin', 'origin': 'búsqueda', 'files': [f('original/a.zip', [4]), f('original/b.rar', [], False)]},
+            {'mod_id': 101, 'slug': 'skin_link_usuario', 'folder': 'link/101_skin_link_usuario', 'code': '03', 'plugin': False, 'kind': 'skin', 'origin': 'enlace del usuario', 'files': [f('original/c.zip', [5])]},
+            {'mod_id': 200, 'slug': 'ness_mod', 'folder': 'ness/200_ness_mod', 'code': '10', 'plugin': False, 'kind': 'skin', 'origin': 'desconocido', 'files': [f('original/n.zip', [3])]},
+            {'mod_id': 200, 'slug': 'ness_mod', 'folder': 'ness/200_ness_mod (1)', 'code': '10', 'plugin': False, 'kind': 'skin', 'origin': 'desconocido', 'files': []},
+            {'mod_id': 300, 'slug': 'terry_mod', 'folder': 'terry/300_terry_mod', 'code': '74', 'plugin': False, 'files': [f('original/t.zip', [5])]},   # versión antigua del manifiesto: sin kind ni origin
+            {'mod_id': 400, 'slug': 'banner_ui', 'folder': '_ui/400_banner_ui', 'code': '03', 'plugin': False, 'kind': 'ui', 'origin': 'enlace del usuario', 'files': [f('original/u.zip', [])]}]})   # kind ui con código: igual no es una skin
         self.plan({'1': d('Kellytoy', source='profile')})
 
     def tearDown(self): self.tmp.cleanup()
@@ -45,10 +47,21 @@ class SlotPlan(unittest.TestCase):
         self.run_tool(); m = self.md()
         self.assertIn('| c03 | original | original | sin decidir |', m.split('## 2. Mario (01)')[1].split('##')[0])   # slot excluido del perfil
         link = m.split('## 1. Link (03)')[1].split('## 2.')[0]
-        self.assertIn('| 100 | skin_link | c04 | explícita | ? |', link)   # un archivo sin listar: no se sabe si toca c00
+        self.assertIn('| 100 | skin_link | búsqueda | c04 | explícita | ? |', link)   # un archivo sin listar: no se sabe si toca c00
         self.assertEqual(m.count('| 200 | ness_mod |'), 1)     # mod repetido en dos carpetas: una sola fila
         terry = m.split('### Terry (74)')[1]
         self.assertIn('| c01 | original | original | sin decidir |', terry)   # luchador excluido de WuBoy
+
+    def test_origen_orden_y_resumen(self):
+        self.run_tool(); m = self.md(); link = m.split('## 1. Link (03)')[1].split('## 2.')[0]
+        self.assertIn('| 101 | skin_link_usuario | usuario | c05 | — | no |', link)
+        self.assertLess(link.index('| 101 |'), link.index('| 100 |'))   # los que mandó Gian, primero aunque tengan id mayor
+        self.assertNotIn('banner_ui', m)                               # kind ui: no es una skin sin asignar
+        self.assertIn('| 1 | Link (03) | 0/8 | 0 | 8 | 2 | 1 |', m)     # Drive sin asignar 2, del usuario 1
+        self.assertIn('| 2 | Mario (01) | 1/8 | 0 | 7 | 0 | 0 |', m)         # sin mods en el Drive: ceros
+        self.assertIn('Orígenes de los mods del Drive: usuario 2 · búsqueda 1 · auditoría/previo 2 · sin registro 1.', m)
+        self.assertIn('auditoría/previo = ya estaba en el Drive', m)
+        self.assertIn('| 300 | terry_mod | — | c05 |', m)               # sin origen: «—»
 
     def test_determinista(self):
         self.run_tool(); a = self.md(); self.run_tool(); self.assertEqual(a, self.md())

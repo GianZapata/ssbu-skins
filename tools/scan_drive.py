@@ -1,6 +1,7 @@
 # Escanea la carpeta de mods del Drive y escribe data/drive.json: qué archivos hay, su MD5 y qué slots traen.
 # Uso: python3 tools/scan_drive.py "<ruta a My Drive/SSBU_mods>" [--out data/drive.json] [--rehash]
-# Estructura esperada: <raíz>/<luchador>/<modid>_<slug>/{LINK.txt, NOTA.txt, original/, modificado/}; `_plugins` es la carpeta de plugins.
+# Estructura esperada: <raíz>/<luchador>/<modid>_<slug>/{LINK.txt, NOTA.txt, original/, modificado/}; `_plugins` es la carpeta de plugins y `_ui` la de UI/CSS (no son luchadores).
+# Por mod: `kind` ('skin', 'plugin' o 'ui') y `origin`, la columna «origen» de ORIGENES.md en la raíz (enlace del usuario, búsqueda, búsqueda + enlace del usuario o desconocido; null si no hay fila).
 # Los binarios viven en el Drive; git guarda este manifiesto (el historial lo da cada commit, por eso no lleva fecha).
 # Slots: los .zip se leen con zipfile y los .rar/.7z con `7zz l` (solo lista, nunca extrae). Sin 7zz, o si falla, y en los zip partidos, queda `listed: false` con su motivo.
 # Por archivo listado: `files_count` y `non_slot` (rutas de efectos, motion, param, .prc, config.json, ui_chara_db, msg_name o bgm que no llevan slot cNN: candidatos a archivos globales).
@@ -23,8 +24,11 @@ FOLDERS = {
  'bowser_jr':'koopajr','duck_hunt':'duckhunt','ryu':'ryu','ken':'ken','cloud':'cloud','corrin':'kamui','bayonetta':'bayonetta','inkling':'inkling',
  'ridley':'ridley','simon':'simon','richter':'richter','king_k_rool':'krool','k_rool':'krool','isabelle':'shizue','incineroar':'gaogaen',
  'piranha_plant':'packun','joker':'jack','hero':'brave','banjo':'buddy','banjo_and_kazooie':'buddy','terry':'dolly','byleth':'master','min_min':'tantan',
- 'steve':'pickel','sephiroth':'edge','pyra':'eflame','mythra':'elight','kazuya':'demon','sora':'trail'}
+ 'steve':'pickel','sephiroth':'edge','pyra':'eflame','mythra':'elight','kazuya':'demon','sora':'trail',
+ 'pyra_mythra':'eflame'}   # pyra_mythra comparte slots con Mythra (elight, código 80): el manifiesto la guarda bajo Pyra (79)
 PLUGINS = '_plugins'
+UI = '_ui'   # UI/CSS/banners: no son skins ni luchadores
+NO_FIGHTER = {PLUGINS, UI}
 SKIP = {'_respaldos'}
 SLOT_RES = [re.compile(r'/c(\d\d)/'), re.compile(r'_c(\d\d)[._]'), re.compile(r'chara_\d+_\w+?_(\d\d)\.bntx$')]
 MOD = re.compile(r'^(\d+)_(.+)$')
@@ -102,6 +106,17 @@ def files(mod_dir, mod_rel, cache, rehash):
             out.append(e)
     return sorted(out, key=lambda e: e['path'])
 
+def load_origins(root):
+    """ORIGENES.md de la raíz -> {(mod_id, carpeta del luchador): origen}; None si no existe. Si una clave se repite gana la primera fila."""
+    p = os.path.join(root, 'ORIGENES.md')
+    if not os.path.isfile(p): return None
+    out = {}
+    for line in open(p, encoding='utf-8-sig', errors='replace'):
+        if not re.match(r'^\|\s*\d+\s*\|', line): continue
+        c = [x.strip() for x in line.strip().strip('|').split('|')]
+        if len(c) >= 5: out.setdefault((int(c[0]), c[2]), c[3])
+    return out
+
 def load_catalog():
     p = os.path.join(R, 'data', 'catalog.json')
     if not os.path.isfile(p): return {}
@@ -112,18 +127,21 @@ def load_catalog():
 
 def scan(root, prev=None, rehash=False):
     cache = {(m['folder'], f['path']): f for m in (prev or {}).get('mods', []) for f in m['files']}
-    cat = load_catalog(); mods = []
+    cat = load_catalog(); mods = []; origins = load_origins(root); used = set()
     for ff in sorted(os.listdir(root)):
         fdir = os.path.join(root, ff)
         if ff.startswith('.') or ff in SKIP or not os.path.isdir(fdir): continue
-        internal = None if ff == PLUGINS else FOLDERS.get(ff)
+        internal = None if ff in NO_FIGHTER else FOLDERS.get(ff)
         code = INTERNAL.get(internal) if internal else None
-        if ff != PLUGINS and code is None: print(f'aviso: carpeta de luchador desconocida: {ff}', file=sys.stderr)
+        if ff not in NO_FIGHTER and code is None: print(f'aviso: carpeta de luchador desconocida: {ff}', file=sys.stderr)
         for md in sorted(os.listdir(fdir)):
             mdir = os.path.join(fdir, md)
             if md.startswith('.') or not os.path.isdir(mdir): continue
             m = MOD.match(md); mod_id = int(m.group(1)) if m else None; rel = f'{ff}/{md}'
+            origin = (origins or {}).get((mod_id, ff)); used.add((mod_id, ff))
+            if origins is not None and mod_id and origin is None: print(f'aviso: el mod {mod_id} ({rel}) no tiene fila en ORIGENES.md', file=sys.stderr)
             mods.append({'mod_id': mod_id, 'slug': m.group(2) if m else md, 'folder': rel, 'fighter_folder': ff, 'code': code, 'internal': internal,
+                         'kind': 'plugin' if ff == PLUGINS else 'ui' if ff == UI else 'skin', 'origin': origin,
                          'plugin': ff == PLUGINS, 'link': text(os.path.join(mdir, 'LINK.txt')), 'note': text(os.path.join(mdir, 'NOTA.txt')),
                          'catalog': cat.get((code, mod_id)) if code and mod_id else None, 'files': files(mdir, rel, cache, rehash)})
     mods.sort(key=lambda x: (x['code'] or '~', x['mod_id'] or 0, x['folder']))
@@ -132,9 +150,13 @@ def scan(root, prev=None, rehash=False):
         if not x['files']: print(f"aviso: carpeta de mod sin archivos: {x['folder']}", file=sys.stderr)
         if x['mod_id'] and (x['code'], x['mod_id']) in seen: print(f"aviso: mod {x['mod_id']} repetido en {seen[(x['code'], x['mod_id'])]} y {x['folder']}", file=sys.stderr)
         seen.setdefault((x['code'], x['mod_id']), x['folder'])
+    for k in sorted(set(origins or {}) - used): print(f'aviso: ORIGENES.md lista el mod {k[0]} ({k[1]}) y no está en el Drive', file=sys.stderr)
+    orig = {}
+    for x in mods: orig[x['origin'] or 'sin registro'] = orig.get(x['origin'] or 'sin registro', 0) + 1
     fl = [f for x in mods for f in x['files']]; other = [f for f in fl if f.get('unlisted_reason') == NOT_MOD]
     counts = {'mods': len(mods), 'files': len(fl), 'bytes': sum(f['bytes'] for f in fl), 'listed': sum(f['listed'] for f in fl),
-              'unlisted': sum(not f['listed'] for f in fl) - len(other), 'other': len(other), 'touches_c00': sum(bool(f['touches_c00']) for f in fl)}
+              'unlisted': sum(not f['listed'] for f in fl) - len(other), 'other': len(other), 'touches_c00': sum(bool(f['touches_c00']) for f in fl),
+              'origins': dict(sorted(orig.items()))}
     return {'source': 'Google Drive · SSBU_mods',
             'note': 'Manifiesto de los mods descargados en el Drive (los binarios no se versionan). Slots leídos solo de los .zip; nada de esto está instalado ni probado en consola.',
             'counts': counts, 'mods': mods}
@@ -149,4 +171,4 @@ if __name__ == '__main__':
     out = scan(a.root, prev, a.rehash)
     with open(a.out, 'w', encoding='utf-8') as f: f.write(json.dumps(out, ensure_ascii=False, indent=1) + '\n')
     c = out['counts']
-    print(f"ok · {a.out}: {c['mods']} mods, {c['files']} archivos ({c['bytes'] / 1e6:.1f} MB), {c['listed']} listados, {c['unlisted']} sin listar, {c['other']} notas, {c['touches_c00']} tocan c00")
+    print(f"ok · {a.out}: {c['mods']} mods, {c['files']} archivos ({c['bytes'] / 1e6:.1f} MB), {c['listed']} listados, {c['unlisted']} sin listar, {c['other']} notas, {c['touches_c00']} tocan c00; orígenes: " + ', '.join(f'{k} {v}' for k, v in c['origins'].items()))

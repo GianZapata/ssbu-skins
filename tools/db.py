@@ -53,10 +53,10 @@ def _replace(db, coll, docs, dry=False):
         b.commit()
 
 def _drive_docs(drive):
-    """Un documento por luchador; los plugins y las carpetas sin luchador reconocido van aparte."""
+    """Un documento por luchador; los plugins, la UI y las carpetas sin luchador reconocido van aparte."""
     docs = {}
     for m in drive['mods']:
-        k = 'plugins' if m.get('plugin') else m['code'] or 'sin_luchador'
+        k = 'plugins' if m.get('kind', 'plugin' if m.get('plugin') else 'skin') != 'skin' else m['code'] or 'sin_luchador'
         docs.setdefault(k, {'code': m['code'] if k == m['code'] else None, 'mods': []})['mods'].append(m)
     return {k: {**v, 'updatedAt': now()} for k, v in docs.items()}
 

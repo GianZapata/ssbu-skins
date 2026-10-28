@@ -1,4 +1,4 @@
-"""Manifiesto del Drive (tools/scan_drive.py) sobre un Drive falso: slots de los .zip, archivos sin listar, MD5 con caché y salida determinista."""
+"""Manifiesto del Drive (tools/scan_drive.py) sobre un Drive falso: slots de los .zip, archivos sin listar, MD5 con caché, origen (ORIGENES.md), kind y salida determinista."""
 import hashlib, json, os, subprocess, sys, tempfile, unittest, zipfile
 R = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..'))
 
@@ -87,6 +87,31 @@ class Drive(unittest.TestCase):
         self.assertFalse(any(m['fighter_folder'] == '_respaldos' for m in d['mods']))
         self.assertEqual(d['counts']['touches_c00'], 1); self.assertEqual(d['counts']['mods'], 4)
         self.assertNotIn(self.tmp.name, open(self.out, encoding='utf-8').read())
+        self.assertEqual((falco['kind'], falco['origin'], d['counts']['origins']), ('skin', None, {'sin registro': 4}))   # sin ORIGENES.md: sin origen y sin avisos
+        self.assertNotIn('ORIGENES', r.stderr)
+
+    def test_origen_kind_y_avisos(self):
+        for d in ('_ui/431072_banner/original', '_plugins/549058_ose/original'):
+            os.makedirs(os.path.join(self.root, d)); write_zip(os.path.join(self.root, d, 'a.zip'), ['x/ui/a.bntx'])
+        open(os.path.join(self.root, 'ORIGENES.md'), 'w', encoding='utf-8-sig').write(
+            '# ORIGENES\n\n| modid | nombre | fighter | origen | wifi | Drive |\n|---|---|---|---|---|---|\n'
+            '| 174558 | falco n64 | falco | búsqueda | — | [carpeta](x) |\n'
+            '| 609500 | Vegeta | terry | enlace del usuario | — | [carpeta](x) |\n'
+            '| 431072 | Banner | _ui | enlace del usuario | Declaración explícita | [carpeta](x) |\n'
+            '| 549058 | One Slot Effects | _plugins | desconocido | — | [carpeta](x) |\n'
+            '| 999 | fantasma | mario | desconocido | — | [carpeta](x) |\n')
+        r = scan(self.root, self.out); self.assertEqual(r.returncode, 0, r.stderr)
+        d = self.load()
+        self.assertEqual({m['folder']: m['origin'] for m in d['mods']}, {
+            'falco/174558_falco_n64': 'búsqueda', 'terry/609500_vegeta': 'enlace del usuario', 'chrom/175495_squall': None, 'luchador_raro/1_algo': None,
+            '_ui/431072_banner': 'enlace del usuario', '_plugins/549058_ose': 'desconocido'})
+        self.assertEqual(d['counts']['origins'], {'búsqueda': 1, 'enlace del usuario': 2, 'desconocido': 1, 'sin registro': 2})
+        ui, plug = self.mod(d, '_ui/431072_banner'), self.mod(d, '_plugins/549058_ose')
+        self.assertEqual((ui['kind'], ui['code'], ui['plugin']), ('ui', None, False)); self.assertEqual((plug['kind'], plug['plugin']), ('plugin', True))
+        self.assertEqual(self.mod(d, 'falco/174558_falco_n64')['kind'], 'skin')
+        self.assertNotIn('carpeta de luchador desconocida: _ui', r.stderr)            # _ui no es un luchador
+        self.assertIn('el mod 175495 (chrom/175495_squall) no tiene fila en ORIGENES.md', r.stderr)
+        self.assertIn('ORIGENES.md lista el mod 999 (mario) y no está en el Drive', r.stderr)
 
     def test_notas_carpetas_vacias_y_repetidos(self):
         open(os.path.join(self.root, 'chrom', '175495_squall', 'original', 'PARTES.txt'), 'w').write('unir partes')
@@ -135,5 +160,15 @@ class Drive(unittest.TestCase):
         scan(self.root, self.out); self.assertEqual(self.mod(self.load(), 'terry/609500_vegeta')['files'][0]['md5'], old)
         scan(self.root, self.out, '--rehash')   # …y --rehash lo recalcula
         self.assertEqual(self.mod(self.load(), 'terry/609500_vegeta')['files'][0]['md5'], hashlib.md5(b'RAR?').hexdigest())
+
+class DriveDocs(unittest.TestCase):
+    """tools/db.py: a qué documento de Firestore va cada mod (plugins y UI juntos; los de una versión antigua del manifiesto, sin kind, por su bandera plugin)."""
+    def test_plugins_y_ui_van_aparte(self):
+        sys.path.insert(0, os.path.join(R, 'tools')); import db
+        m = lambda **k: {'mod_id': 1, 'code': None, 'files': [], **k}
+        docs = db._drive_docs({'mods': [m(code='20', kind='skin'), m(code='20'), m(kind='skin'), m(kind='plugin', plugin=True), m(kind='ui'), m(plugin=True)]})
+        self.assertEqual(sorted(docs), ['20', 'plugins', 'sin_luchador'])
+        self.assertEqual((len(docs['20']['mods']), len(docs['plugins']['mods']), len(docs['sin_luchador']['mods'])), (2, 3, 1))
+        self.assertEqual((docs['20']['code'], docs['plugins']['code']), ('20', None))
 
 if __name__ == '__main__': unittest.main()
