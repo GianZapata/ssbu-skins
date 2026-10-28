@@ -1,0 +1,1262 @@
+{
+ "source": "Google Drive · SSBU_mods",
+ "note": "Manifiesto de los mods descargados en el Drive (los binarios no se versionan). Slots leídos solo de los .zip; nada de esto está instalado ni probado en consola.",
+ "counts": {
+  "mods": 38,
+  "files": 58,
+  "bytes": 1101914570,
+  "listed": 31,
+  "unlisted": 27,
+  "touches_c00": 7
+ },
+ "mods": [
+  {
+   "mod_id": 374147,
+   "slug": "moogle_over_mario",
+   "folder": "mario/374147_moogle_over_mario",
+   "fighter_folder": "mario",
+   "code": "01",
+   "internal": "mario",
+   "plugin": false,
+   "link": "https://gamebanana.com/mods/374147",
+   "note": null,
+   "catalog": null,
+   "files": [
+    {
+     "path": "original/moogle_over_mario_453b1.7z",
+     "kind": "original",
+     "bytes": 10785525,
+     "md5": "a3a380786ae8770f58511f5aa181e384",
+     "listed": false,
+     "slots": [],
+     "unlisted_reason": "rar/7z sin herramienta para listar",
+     "touches_c00": null
+    }
+   ]
+  },
+  {
+   "mod_id": 357706,
+   "slug": "pirate_funky_kong",
+   "folder": "dk/357706_pirate_funky_kong",
+   "fighter_folder": "dk",
+   "code": "02",
+   "internal": "donkey",
+   "plugin": false,
+   "link": "https://gamebanana.com/mods/357706",
+   "note": null,
+   "catalog": null,
+   "files": [
+    {
+     "path": "original/pirate_funky_kong.zip",
+     "kind": "original",
+     "bytes": 27047593,
+     "md5": "8d48e8edf05ae44ab49199e8f2c3f24d",
+     "listed": true,
+     "slots": [
+      3
+     ],
+     "touches_c00": false
+    }
+   ]
+  },
+  {
+   "mod_id": 342215,
+   "slug": "goblin_slayer_over_link",
+   "folder": "link/342215_goblin_slayer_over_link",
+   "fighter_folder": "link",
+   "code": "03",
+   "internal": "link",
+   "plugin": false,
+   "link": "https://gamebanana.com/mods/342215",
+   "note": null,
+   "catalog": null,
+   "files": [
+    {
+     "path": "original/goblin_slayer_release_100.zip",
+     "kind": "original",
+     "bytes": 11202685,
+     "md5": "9f03165603348355ec052b2ec11b6f9d",
+     "listed": true,
+     "slots": [
+      4
+     ],
+     "touches_c00": false
+    }
+   ]
+  },
+  {
+   "mod_id": 450327,
+   "slug": "gohan",
+   "folder": "fox/450327_gohan",
+   "fighter_folder": "fox",
+   "code": "07",
+   "internal": "fox",
+   "plugin": false,
+   "link": "https://gamebanana.com/mods/450327",
+   "note": null,
+   "catalog": [
+    {
+     "look_name": "Gohan over Fox",
+     "role": "propuesta principal",
+     "proposed_destination": 3
+    }
+   ],
+   "files": [
+    {
+     "path": "original/fox03_-_gohan_updated_model.zip",
+     "kind": "original",
+     "bytes": 6763849,
+     "md5": "1d07d369b64b270e004af8ea28368802",
+     "listed": true,
+     "slots": [
+      3
+     ],
+     "touches_c00": false
+    }
+   ]
+  },
+  {
+   "mod_id": 391570,
+   "slug": "rayman_wiiu_trophy",
+   "folder": "luigi/391570_rayman_wiiu_trophy",
+   "fighter_folder": "luigi",
+   "code": "09",
+   "internal": "luigi",
+   "plugin": false,
+   "link": "https://gamebanana.com/mods/391570",
+   "note": null,
+   "catalog": null,
+   "files": [
+    {
+     "path": "original/luigi-c06_-_rayman_update_-_effects_8b55e.zip",
+     "kind": "original",
+     "bytes": 5689256,
+     "md5": "49639fb992b782f030acf7e65f559b9c",
+     "listed": true,
+     "slots": [
+      6
+     ],
+     "touches_c00": false
+    },
+    {
+     "path": "original/luigi-c07_-_rayman.zip",
+     "kind": "original",
+     "bytes": 2922441,
+     "md5": "6da06dd0a0c4d82ba802efa9344d521a",
+     "listed": true,
+     "slots": [
+      7
+     ],
+     "touches_c00": false
+    },
+    {
+     "path": "original/sound_1935f.zip",
+     "kind": "original",
+     "bytes": 712071,
+     "md5": "3a91da2adea38bacb63100d7ff80e50d",
+     "listed": true,
+     "slots": [
+      7
+     ],
+     "touches_c00": false
+    }
+   ]
+  },
+  {
+   "mod_id": 560241,
+   "slug": "kid_buu",
+   "folder": "ness/560241_kid_buu",
+   "fighter_folder": "ness",
+   "code": "10",
+   "internal": "ness",
+   "plugin": false,
+   "link": "https://gamebanana.com/mods/560241",
+   "note": null,
+   "catalog": [
+    {
+     "look_name": "KID BUU",
+     "role": "alternativa",
+     "proposed_destination": null
+    }
+   ],
+   "files": [
+    {
+     "path": "original/kid_buu_ness_c03_.zip",
+     "kind": "original",
+     "bytes": 2632071,
+     "md5": "4fc3842bc764f09ddb65d84fd200bb13",
+     "listed": true,
+     "slots": [
+      3
+     ],
+     "touches_c00": false
+    }
+   ]
+  },
+  {
+   "mod_id": 466057,
+   "slug": "garnet_over_captain_falcon",
+   "folder": "captain_falcon/466057_garnet_over_captain_falcon",
+   "fighter_folder": "captain_falcon",
+   "code": "11",
+   "internal": "captain",
+   "plugin": false,
+   "link": "https://gamebanana.com/mods/466057",
+   "note": null,
+   "catalog": null,
+   "files": [
+    {
+     "path": "original/garnet_over_captain_falcon_c02.zip",
+     "kind": "original",
+     "bytes": 8626484,
+     "md5": "c47b298b1ab8468b124fd096ad354e8a",
+     "listed": true,
+     "slots": [
+      2
+     ],
+     "touches_c00": false
+    }
+   ]
+  },
+  {
+   "mod_id": 386111,
+   "slug": "kurama_linked_susano_o_armor_jp_voice_new",
+   "folder": "bowser/386111_kurama_linked_susano_o_armor_jp_voice_new",
+   "fighter_folder": "bowser",
+   "code": "14",
+   "internal": "koopa",
+   "plugin": false,
+   "link": "https://gamebanana.com/mods/386111",
+   "note": null,
+   "catalog": null,
+   "files": [
+    {
+     "path": "original/actualkuramajpvoices.zip",
+     "kind": "original",
+     "bytes": 1567974,
+     "md5": "2e3b8245f5d1c35da7455e211e0475e9",
+     "listed": true,
+     "slots": [
+      5,
+      6
+     ],
+     "touches_c00": false
+    },
+    {
+     "path": "original/kuramalinkedandsusanooarmor.zip",
+     "kind": "original",
+     "bytes": 3529979,
+     "md5": "0e82a609436e0212a8402d20f6d7e22d",
+     "listed": true,
+     "slots": [
+      5,
+      6
+     ],
+     "touches_c00": false
+    }
+   ]
+  },
+  {
+   "mod_id": 367390,
+   "slug": "larxene_over_sheik",
+   "folder": "sheik/367390_larxene_over_sheik",
+   "fighter_folder": "sheik",
+   "code": "16",
+   "internal": "sheik",
+   "plugin": false,
+   "link": "https://gamebanana.com/mods/367390",
+   "note": null,
+   "catalog": null,
+   "files": [
+    {
+     "path": "original/larxene_over_sheik.7z",
+     "kind": "original",
+     "bytes": 13959291,
+     "md5": "d096e9bee487f2a94dd4848e9f4b7200",
+     "listed": false,
+     "slots": [],
+     "unlisted_reason": "rar/7z sin herramienta para listar",
+     "touches_c00": null
+    }
+   ]
+  },
+  {
+   "mod_id": 346851,
+   "slug": "jean_grey_over_zelda",
+   "folder": "zelda/346851_jean_grey_over_zelda",
+   "fighter_folder": "zelda",
+   "code": "17",
+   "internal": "zelda",
+   "plugin": false,
+   "link": "https://gamebanana.com/mods/346851",
+   "note": null,
+   "catalog": null,
+   "files": [
+    {
+     "path": "original/jean_grey_release_100.zip",
+     "kind": "original",
+     "bytes": 11052817,
+     "md5": "af0ef00ec33b0099723a324717161d33",
+     "listed": true,
+     "slots": [
+      1
+     ],
+     "touches_c00": false
+    }
+   ]
+  },
+  {
+   "mod_id": 384627,
+   "slug": "timeless_river_dr_mario",
+   "folder": "dr_mario/384627_timeless_river_dr_mario",
+   "fighter_folder": "dr_mario",
+   "code": "18",
+   "internal": "mariod",
+   "plugin": false,
+   "link": "https://gamebanana.com/mods/384627",
+   "note": null,
+   "catalog": null,
+   "files": [
+    {
+     "path": "original/timeless_river_doctor_c01.7z",
+     "kind": "original",
+     "bytes": 772500,
+     "md5": "22310ba6220ca2e2854f3ac9d346c9a5",
+     "listed": false,
+     "slots": [],
+     "unlisted_reason": "rar/7z sin herramienta para listar",
+     "touches_c00": null
+    },
+    {
+     "path": "original/timeless_river_doctor_c07.7z",
+     "kind": "original",
+     "bytes": 772500,
+     "md5": "c752f9ffde0034d6775170b78a075747",
+     "listed": false,
+     "slots": [],
+     "unlisted_reason": "rar/7z sin herramienta para listar",
+     "touches_c00": null
+    }
+   ]
+  },
+  {
+   "mod_id": 174558,
+   "slug": "falco_n64_skin_voice_sfx",
+   "folder": "falco/174558_falco_n64_skin_voice_sfx",
+   "fighter_folder": "falco",
+   "code": "20",
+   "internal": "falco",
+   "plugin": false,
+   "link": "https://gamebanana.com/mods/174558",
+   "note": null,
+   "catalog": null,
+   "files": [
+    {
+     "path": "original/falco-n64skin---v-1-4b.zip",
+     "kind": "original",
+     "bytes": 2971547,
+     "md5": "ccc3b447e89645fa2f06e69a614127f1",
+     "listed": true,
+     "slots": [
+      0,
+      1,
+      2
+     ],
+     "touches_c00": true
+    },
+    {
+     "path": "original/falcon64sound---v1-4d.zip",
+     "kind": "original",
+     "bytes": 23675274,
+     "md5": "d9c8698f2e23b6e7c361b5604175c8c7",
+     "listed": true,
+     "slots": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+     ],
+     "touches_c00": true
+    },
+    {
+     "path": "original/falcon64sqb---v1-4c.zip",
+     "kind": "original",
+     "bytes": 1160,
+     "md5": "10ddd587618d3dc7f478f1c660954783",
+     "listed": true,
+     "slots": [],
+     "touches_c00": false
+    }
+   ]
+  },
+  {
+   "mod_id": 442940,
+   "slug": "sigurd_marth",
+   "folder": "marth/442940_sigurd_marth",
+   "fighter_folder": "marth",
+   "code": "21",
+   "internal": "marth",
+   "plugin": false,
+   "link": "https://gamebanana.com/mods/442940",
+   "note": null,
+   "catalog": null,
+   "files": [
+    {
+     "path": "original/sigurd_marth.zip",
+     "kind": "original",
+     "bytes": 12083066,
+     "md5": "079dc1a3288601a7ac87b997a98aa547",
+     "listed": true,
+     "slots": [
+      3
+     ],
+     "touches_c00": false
+    }
+   ]
+  },
+  {
+   "mod_id": 174353,
+   "slug": "exdeath",
+   "folder": "ganondorf/174353_exdeath",
+   "fighter_folder": "ganondorf",
+   "code": "23",
+   "internal": "ganon",
+   "plugin": false,
+   "link": "https://gamebanana.com/mods/174353",
+   "note": null,
+   "catalog": null,
+   "files": [
+    {
+     "path": "original/install_exdeath_final_.rar",
+     "kind": "original",
+     "bytes": 79123089,
+     "md5": "a94d9826e02483dc3205af57c71c641a",
+     "listed": false,
+     "slots": [],
+     "unlisted_reason": "rar/7z sin herramienta para listar",
+     "touches_c00": null
+    }
+   ]
+  },
+  {
+   "mod_id": 406732,
+   "slug": "pikadorf",
+   "folder": "ganondorf/406732_pikadorf",
+   "fighter_folder": "ganondorf",
+   "code": "23",
+   "internal": "ganon",
+   "plugin": false,
+   "link": "https://gamebanana.com/mods/406732",
+   "note": null,
+   "catalog": [
+    {
+     "look_name": "Pikadorf",
+     "role": "propuesta principal",
+     "proposed_destination": 5
+    }
+   ],
+   "files": [
+    {
+     "path": "original/pikadorf_c00_.7z",
+     "kind": "original",
+     "bytes": 9609996,
+     "md5": "66915cc2a53b20ca02c86974d8d12c8d",
+     "listed": false,
+     "slots": [],
+     "unlisted_reason": "rar/7z sin herramienta para listar",
+     "touches_c00": null
+    }
+   ]
+  },
+  {
+   "mod_id": 175495,
+   "slug": "kingdom_hearts_squall",
+   "folder": "chrom/175495_kingdom_hearts_squall",
+   "fighter_folder": "chrom",
+   "code": "25ε",
+   "internal": "chrom",
+   "plugin": false,
+   "link": "https://gamebanana.com/mods/175495",
+   "note": null,
+   "catalog": null,
+   "files": [
+    {
+     "path": "original/SQUALL_PARTES.txt",
+     "kind": "original",
+     "bytes": 443,
+     "md5": "885861d223b694a44ba7e13529699184",
+     "listed": false,
+     "slots": [],
+     "unlisted_reason": "no es un archivo de mod",
+     "touches_c00": null
+    },
+    {
+     "path": "original/kingdom_hearts_squall_c9f79.zip.part01",
+     "kind": "original",
+     "bytes": 94371840,
+     "md5": "787330d961a5f9506c7cf853314fb9ee",
+     "listed": false,
+     "slots": [],
+     "unlisted_reason": "zip partido en partes",
+     "touches_c00": null
+    },
+    {
+     "path": "original/kingdom_hearts_squall_c9f79.zip.part02",
+     "kind": "original",
+     "bytes": 52082287,
+     "md5": "b5956a22e9cacff75075237595bed69f",
+     "listed": false,
+     "slots": [],
+     "unlisted_reason": "zip partido en partes",
+     "touches_c00": null
+    }
+   ]
+  },
+  {
+   "mod_id": 387553,
+   "slug": "raiden",
+   "folder": "chrom/387553_raiden",
+   "fighter_folder": "chrom",
+   "code": "25ε",
+   "internal": "chrom",
+   "plugin": false,
+   "link": "https://gamebanana.com/mods/387553",
+   "note": null,
+   "catalog": null,
+   "files": [
+    {
+     "path": "original/config_cc198.zip",
+     "kind": "original",
+     "bytes": 367,
+     "md5": "926a6a4ccb411392b4fabc84c43208fb",
+     "listed": true,
+     "slots": [],
+     "touches_c00": false
+    },
+    {
+     "path": "original/raiden_00efb.zip",
+     "kind": "original",
+     "bytes": 21135243,
+     "md5": "4c83e3261b462e38ee35a2023fccdb96",
+     "listed": true,
+     "slots": [
+      1,
+      2
+     ],
+     "touches_c00": false
+    }
+   ]
+  },
+  {
+   "mod_id": 174461,
+   "slug": "spider_gwen",
+   "folder": "zero_suit_samus/174461_spider_gwen",
+   "fighter_folder": "zero_suit_samus",
+   "code": "29",
+   "internal": "szerosuit",
+   "plugin": false,
+   "link": "https://gamebanana.com/mods/174461",
+   "note": null,
+   "catalog": null,
+   "files": [
+    {
+     "path": "original/spidergwen_decompressed_szerosuit_c_8e3cd.rar",
+     "kind": "original",
+     "bytes": 2348790,
+     "md5": "e41b7601390a2cb6925beef2c8243f4b",
+     "listed": false,
+     "slots": [],
+     "unlisted_reason": "rar/7z sin herramienta para listar",
+     "touches_c00": null
+    },
+    {
+     "path": "original/szerosuit_-_gwen_c07.rar",
+     "kind": "original",
+     "bytes": 2659098,
+     "md5": "aed5c4a801a0bff0a56f57f50e3dfb51",
+     "listed": false,
+     "slots": [],
+     "unlisted_reason": "rar/7z sin herramienta para listar",
+     "touches_c00": null
+    }
+   ]
+  },
+  {
+   "mod_id": 397431,
+   "slug": "jinx",
+   "folder": "zero_suit_samus/397431_jinx",
+   "fighter_folder": "zero_suit_samus",
+   "code": "29",
+   "internal": "szerosuit",
+   "plugin": false,
+   "link": "https://gamebanana.com/mods/397431",
+   "note": null,
+   "catalog": null,
+   "files": [
+    {
+     "path": "original/jinxarcanegun_3b9da.rar",
+     "kind": "original",
+     "bytes": 25244605,
+     "md5": "0c7e6b23d34578073526c148ce1b00fa",
+     "listed": false,
+     "slots": [],
+     "unlisted_reason": "rar/7z sin herramienta para listar",
+     "touches_c00": null
+    },
+    {
+     "path": "original/jinxnewui.rar",
+     "kind": "original",
+     "bytes": 1342855,
+     "md5": "af36f57f5f48483a754ee1d27ad3546f",
+     "listed": false,
+     "slots": [],
+     "unlisted_reason": "rar/7z sin herramienta para listar",
+     "touches_c00": null
+    },
+    {
+     "path": "original/jinxvanilla_9797c.rar",
+     "kind": "original",
+     "bytes": 16139476,
+     "md5": "e06f07777a73bf2cc2a641b1464a2067",
+     "listed": false,
+     "slots": [],
+     "unlisted_reason": "rar/7z sin herramienta para listar",
+     "touches_c00": null
+    }
+   ]
+  },
+  {
+   "mod_id": 724190,
+   "slug": "bulma",
+   "folder": "zero_suit_samus/724190_bulma",
+   "fighter_folder": "zero_suit_samus",
+   "code": "29",
+   "internal": "szerosuit",
+   "plugin": false,
+   "link": "https://gamebanana.com/mods/724190",
+   "note": null,
+   "catalog": null,
+   "files": [
+    {
+     "path": "original/bulma_over_zss.zip",
+     "kind": "original",
+     "bytes": 51443934,
+     "md5": "8ef9a1cd82f94f39cc49925ef9b3f4a8",
+     "listed": true,
+     "slots": [
+      0
+     ],
+     "touches_c00": true
+    }
+   ]
+  },
+  {
+   "mod_id": 421286,
+   "slug": "vegeta",
+   "folder": "wolf/421286_vegeta",
+   "fighter_folder": "wolf",
+   "code": "44",
+   "internal": "wolf",
+   "plugin": false,
+   "link": "https://gamebanana.com/mods/421286",
+   "note": null,
+   "catalog": [
+    {
+     "look_name": "Vegeta over Wolf",
+     "role": "propuesta principal",
+     "proposed_destination": 3
+    }
+   ],
+   "files": [
+    {
+     "path": "original/wolf_vegeta_c01_.rar",
+     "kind": "original",
+     "bytes": 26962801,
+     "md5": "6202fead406506077a9df3673a616174",
+     "listed": false,
+     "slots": [],
+     "unlisted_reason": "rar/7z sin herramienta para listar",
+     "touches_c00": null
+    }
+   ]
+  },
+  {
+   "mod_id": 487736,
+   "slug": "goku_transformation_pack",
+   "folder": "ryu/487736_goku_transformation_pack",
+   "fighter_folder": "ryu",
+   "code": "60",
+   "internal": "ryu",
+   "plugin": false,
+   "link": "https://gamebanana.com/mods/487736",
+   "note": null,
+   "catalog": null,
+   "files": [
+    {
+     "path": "original/son_goku_ss1-ssg-ssb_ryu_c05-06-07_.rar",
+     "kind": "original",
+     "bytes": 29797295,
+     "md5": "e5d1238c93a008729fa684be2369b199",
+     "listed": false,
+     "slots": [],
+     "unlisted_reason": "rar/7z sin herramienta para listar",
+     "touches_c00": null
+    }
+   ]
+  },
+  {
+   "mod_id": 498005,
+   "slug": "goku",
+   "folder": "ken/498005_goku",
+   "fighter_folder": "ken",
+   "code": "60ε",
+   "internal": "ken",
+   "plugin": false,
+   "link": "https://gamebanana.com/mods/498005",
+   "note": null,
+   "catalog": [
+    {
+     "look_name": "Goku (Dragon Ball)",
+     "role": "propuesta principal",
+     "proposed_destination": 0
+    }
+   ],
+   "files": [
+    {
+     "path": "original/goku_over_ken_c00-c07_.rar",
+     "kind": "original",
+     "bytes": 53510757,
+     "md5": "f6f50302e99ecf39ba429a11a7e2ccf3",
+     "listed": false,
+     "slots": [],
+     "unlisted_reason": "rar/7z sin herramienta para listar",
+     "touches_c00": null
+    }
+   ]
+  },
+  {
+   "mod_id": 501311,
+   "slug": "morrigan_mvc3_design",
+   "folder": "bayonetta/501311_morrigan_mvc3_design",
+   "fighter_folder": "bayonetta",
+   "code": "63",
+   "internal": "bayonetta",
+   "plugin": false,
+   "link": "https://gamebanana.com/mods/501311",
+   "note": null,
+   "catalog": null,
+   "files": [
+    {
+     "path": "original/morrigan_all_slots_bayo_1_slot_compatible.zip",
+     "kind": "original",
+     "bytes": 87415990,
+     "md5": "6556d8127f5e2485d152ee6637883218",
+     "listed": true,
+     "slots": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+     ],
+     "touches_c00": true
+    },
+    {
+     "path": "original/morrigan_all_slots_bayo_2_slot_compatible.zip",
+     "kind": "original",
+     "bytes": 87984943,
+     "md5": "45d1775386e13f6f6e2a985e6047d772",
+     "listed": true,
+     "slots": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+     ],
+     "touches_c00": true
+    },
+    {
+     "path": "original/morrigan_all_slots_complete_set.zip",
+     "kind": "original",
+     "bytes": 87674527,
+     "md5": "d677e70eb7e382035134cfa338d63255",
+     "listed": true,
+     "slots": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+     ],
+     "touches_c00": true
+    },
+    {
+     "path": "original/morrigan_single_slot_c02_bayo_2_even_slots_only.zip",
+     "kind": "original",
+     "bytes": 10703525,
+     "md5": "63458ebc994f8cdd7edeef992ecb90fa",
+     "listed": true,
+     "slots": [
+      2
+     ],
+     "touches_c00": false
+    },
+    {
+     "path": "original/morrigan_single_slot_c03_bayo_1_odd_slots_only.zip",
+     "kind": "original",
+     "bytes": 10641186,
+     "md5": "0c02dfc69406b9167e30a8eb82ffa4ab",
+     "listed": true,
+     "slots": [
+      3
+     ],
+     "touches_c00": false
+    }
+   ]
+  },
+  {
+   "mod_id": 443660,
+   "slug": "freddie_freaker_over_incineroar",
+   "folder": "incineroar/443660_freddie_freaker_over_incineroar",
+   "fighter_folder": "incineroar",
+   "code": "69",
+   "internal": "gaogaen",
+   "plugin": false,
+   "link": "https://gamebanana.com/mods/443660",
+   "note": null,
+   "catalog": null,
+   "files": [
+    {
+     "path": "original/freakervictory.rar",
+     "kind": "original",
+     "bytes": 45290,
+     "md5": "1828e9ee51c4418f52aa1e65ab040e60",
+     "listed": false,
+     "slots": [],
+     "unlisted_reason": "rar/7z sin herramienta para listar",
+     "touches_c00": null
+    },
+    {
+     "path": "original/freddie_freaker.rar",
+     "kind": "original",
+     "bytes": 8240219,
+     "md5": "9799e11aa83809e53e7ae4df4620b47c",
+     "listed": false,
+     "slots": [],
+     "unlisted_reason": "rar/7z sin herramienta para listar",
+     "touches_c00": null
+    }
+   ]
+  },
+  {
+   "mod_id": 175735,
+   "slug": "trunks",
+   "folder": "hero/175735_trunks",
+   "fighter_folder": "hero",
+   "code": "72",
+   "internal": "brave",
+   "plugin": false,
+   "link": "https://gamebanana.com/mods/175735",
+   "note": null,
+   "catalog": [
+    {
+     "look_name": "Trunks",
+     "role": "propuesta principal",
+     "proposed_destination": 2
+    }
+   ],
+   "files": [
+    {
+     "path": "original/trunks_brave.zip",
+     "kind": "original",
+     "bytes": 8810959,
+     "md5": "1c4540df614285f057d5dae3e980f3a8",
+     "listed": true,
+     "slots": [
+      2,
+      6
+     ],
+     "touches_c00": false
+    }
+   ]
+  },
+  {
+   "mod_id": 333706,
+   "slug": "goku_black",
+   "folder": "terry/333706_goku_black",
+   "fighter_folder": "terry",
+   "code": "74",
+   "internal": "dolly",
+   "plugin": false,
+   "link": "https://gamebanana.com/mods/333706",
+   "note": null,
+   "catalog": null,
+   "files": [
+    {
+     "path": "original/goku_black.zip",
+     "kind": "original",
+     "bytes": 7129973,
+     "md5": "63775759c034893d87c98d86dded9914",
+     "listed": true,
+     "slots": [
+      6
+     ],
+     "touches_c00": false
+    }
+   ]
+  },
+  {
+   "mod_id": 434439,
+   "slug": "gohan",
+   "folder": "terry/434439_gohan",
+   "fighter_folder": "terry",
+   "code": "74",
+   "internal": "dolly",
+   "plugin": false,
+   "link": "https://gamebanana.com/mods/434439",
+   "note": null,
+   "catalog": null,
+   "files": [
+    {
+     "path": "original/74_terry_-_gohan_terry.rar",
+     "kind": "original",
+     "bytes": 10007628,
+     "md5": "1259977cabf0f51f2f3522f8b390858e",
+     "listed": false,
+     "slots": [],
+     "unlisted_reason": "rar/7z sin herramienta para listar",
+     "touches_c00": null
+    },
+    {
+     "path": "original/74_terry_-_gohan_terry_cape.rar",
+     "kind": "original",
+     "bytes": 10327551,
+     "md5": "5b86fee9bbb0fbab1762f1453f828086",
+     "listed": false,
+     "slots": [],
+     "unlisted_reason": "rar/7z sin herramienta para listar",
+     "touches_c00": null
+    }
+   ]
+  },
+  {
+   "mod_id": 437327,
+   "slug": "gogeta",
+   "folder": "terry/437327_gogeta",
+   "fighter_folder": "terry",
+   "code": "74",
+   "internal": "dolly",
+   "plugin": false,
+   "link": null,
+   "note": null,
+   "catalog": [
+    {
+     "look_name": "Gogeta (Dragon Ball)",
+     "role": "alternativa",
+     "proposed_destination": null
+    }
+   ],
+   "files": []
+  },
+  {
+   "mod_id": 437327,
+   "slug": "gogeta (1)",
+   "folder": "terry/437327_gogeta (1)",
+   "fighter_folder": "terry",
+   "code": "74",
+   "internal": "dolly",
+   "plugin": false,
+   "link": "https://gamebanana.com/mods/437327",
+   "note": null,
+   "catalog": [
+    {
+     "look_name": "Gogeta (Dragon Ball)",
+     "role": "alternativa",
+     "proposed_destination": null
+    }
+   ],
+   "files": [
+    {
+     "path": "modificado/CAMBIOS.txt",
+     "kind": "modificado",
+     "bytes": 324,
+     "md5": "4d8cb87c4971c796d1334f6ed7c2ea6f",
+     "listed": false,
+     "slots": [],
+     "unlisted_reason": "no es un archivo de mod",
+     "touches_c00": null
+    },
+    {
+     "path": "modificado/gogeta_dbz_ssj_c01.zip",
+     "kind": "modificado",
+     "bytes": 10273457,
+     "md5": "06136a21c662b1475cf9d150bb6dd68e",
+     "listed": true,
+     "slots": [
+      1
+     ],
+     "touches_c00": false
+    },
+    {
+     "path": "original/gogeta_over_terry_c00-c07__ac24e.rar",
+     "kind": "original",
+     "bytes": 52779411,
+     "md5": "bc09c8614ae23ab3edf415f0e140710b",
+     "listed": false,
+     "slots": [],
+     "unlisted_reason": "rar/7z sin herramienta para listar",
+     "touches_c00": null
+    }
+   ]
+  },
+  {
+   "mod_id": 446815,
+   "slug": "gogeta_ssj4",
+   "folder": "terry/446815_gogeta_ssj4",
+   "fighter_folder": "terry",
+   "code": "74",
+   "internal": "dolly",
+   "plugin": false,
+   "link": "https://gamebanana.com/mods/446815",
+   "note": "Ambos archivos son originales del autor.\nElegido: gogeta_ssj4_-_terry_c07_v13.rar (solo c07). Choca con Gohan 434439 en c07.",
+   "catalog": null,
+   "files": [
+    {
+     "path": "original/gogeta_ssj4_-_terry_c00-c07_v13.rar",
+     "kind": "original",
+     "bytes": 53947600,
+     "md5": "14ed315f266488ad37689098c88b6552",
+     "listed": false,
+     "slots": [],
+     "unlisted_reason": "rar/7z sin herramienta para listar",
+     "touches_c00": null
+    },
+    {
+     "path": "original/gogeta_ssj4_-_terry_c07_v13.rar",
+     "kind": "original",
+     "bytes": 8879924,
+     "md5": "41ec39eb7a84b0316e5c2293e10a6adc",
+     "listed": false,
+     "slots": [],
+     "unlisted_reason": "rar/7z sin herramienta para listar",
+     "touches_c00": null
+    }
+   ]
+  },
+  {
+   "mod_id": 609500,
+   "slug": "vegeta",
+   "folder": "terry/609500_vegeta",
+   "fighter_folder": "terry",
+   "code": "74",
+   "internal": "dolly",
+   "plugin": false,
+   "link": "https://gamebanana.com/mods/609500",
+   "note": null,
+   "catalog": null,
+   "files": [
+    {
+     "path": "original/skin_terry_c02-c03_vegeta.rar",
+     "kind": "original",
+     "bytes": 21817339,
+     "md5": "6f4cbb6dc98e805c2c5195b4e0685cb5",
+     "listed": false,
+     "slots": [],
+     "unlisted_reason": "rar/7z sin herramienta para listar",
+     "touches_c00": null
+    }
+   ]
+  },
+  {
+   "mod_id": 306118,
+   "slug": "chicken",
+   "folder": "steve/306118_chicken",
+   "fighter_folder": "steve",
+   "code": "77",
+   "internal": "pickel",
+   "plugin": false,
+   "link": "https://gamebanana.com/mods/306118",
+   "note": null,
+   "catalog": [
+    {
+     "look_name": "Chicken",
+     "role": "propuesta principal",
+     "proposed_destination": 3
+    }
+   ],
+   "files": [
+    {
+     "path": "original/chicken.zip",
+     "kind": "original",
+     "bytes": 546304,
+     "md5": "41dadc661d23ad7b19f22ab116d9a54f",
+     "listed": true,
+     "slots": [
+      7
+     ],
+     "touches_c00": false
+    }
+   ]
+  },
+  {
+   "mod_id": 317177,
+   "slug": "creeper",
+   "folder": "steve/317177_creeper",
+   "fighter_folder": "steve",
+   "code": "77",
+   "internal": "pickel",
+   "plugin": false,
+   "link": "https://gamebanana.com/mods/317177",
+   "note": null,
+   "catalog": [
+    {
+     "look_name": "Creeper",
+     "role": "propuesta principal",
+     "proposed_destination": 5
+    }
+   ],
+   "files": [
+    {
+     "path": "original/creeper_ce298.zip",
+     "kind": "original",
+     "bytes": 613635,
+     "md5": "7883ee177ed98f2f4127fba94ef91dea",
+     "listed": true,
+     "slots": [
+      5
+     ],
+     "touches_c00": false
+    }
+   ]
+  },
+  {
+   "mod_id": 323894,
+   "slug": "steviroth",
+   "folder": "steve/323894_steviroth",
+   "fighter_folder": "steve",
+   "code": "77",
+   "internal": "pickel",
+   "plugin": false,
+   "link": "https://gamebanana.com/mods/323894",
+   "note": null,
+   "catalog": [
+    {
+     "look_name": "Steviroth",
+     "role": "propuesta principal",
+     "proposed_destination": 0
+    }
+   ],
+   "files": [
+    {
+     "path": "original/steviroth.zip",
+     "kind": "original",
+     "bytes": 600713,
+     "md5": "02f64195ff1cd5a5104dececf6e0ad7f",
+     "listed": true,
+     "slots": [
+      0
+     ],
+     "touches_c00": true
+    }
+   ]
+  },
+  {
+   "mod_id": 303197,
+   "slug": "perfect_cell",
+   "folder": "kazuya/303197_perfect_cell",
+   "fighter_folder": "kazuya",
+   "code": "81",
+   "internal": "demon",
+   "plugin": false,
+   "link": "https://gamebanana.com/mods/303197",
+   "note": null,
+   "catalog": [
+    {
+     "look_name": "Perfect Cell",
+     "role": "propuesta principal",
+     "proposed_destination": 3
+    }
+   ],
+   "files": [
+    {
+     "path": "original/cell_kazuya_c03_.zip",
+     "kind": "original",
+     "bytes": 6646592,
+     "md5": "03fbe7ddbe27c9220eb3b910b8613ca7",
+     "listed": true,
+     "slots": [
+      3
+     ],
+     "touches_c00": false
+    }
+   ]
+  },
+  {
+   "mod_id": 463039,
+   "slug": "goku_ultra_instinct",
+   "folder": "kazuya/463039_goku_ultra_instinct",
+   "fighter_folder": "kazuya",
+   "code": "81",
+   "internal": "demon",
+   "plugin": false,
+   "link": "https://gamebanana.com/mods/463039",
+   "note": null,
+   "catalog": [
+    {
+     "look_name": "Ultra Instinct Son Goku",
+     "role": "propuesta principal",
+     "proposed_destination": 6
+    }
+   ],
+   "files": [
+    {
+     "path": "original/goku_kazuya_c06_.rar",
+     "kind": "original",
+     "bytes": 4146849,
+     "md5": "45114c6104e3ce01666d5dee105b45e3",
+     "listed": false,
+     "slots": [],
+     "unlisted_reason": "rar/7z sin herramienta para listar",
+     "touches_c00": null
+    }
+   ]
+  },
+  {
+   "mod_id": 549058,
+   "slug": "one_slot_effects",
+   "folder": "_plugins/549058_one_slot_effects",
+   "fighter_folder": "_plugins",
+   "code": null,
+   "internal": null,
+   "plugin": true,
+   "link": "https://gamebanana.com/mods/549058",
+   "note": null,
+   "catalog": null,
+   "files": [
+    {
+     "path": "original/one_slot_eff_13-0-5.zip",
+     "kind": "original",
+     "bytes": 139672,
+     "md5": "3a0563a2a561b4a597aecea463d7b2f2",
+     "listed": true,
+     "slots": [],
+     "touches_c00": false
+    }
+   ]
+  }
+ ]
+}

@@ -1,6 +1,6 @@
 """Sincronización con Firestore (requiere el emulador en 127.0.0.1:8080 y google-cloud-firestore): el catálogo y el inventario son independientes
 y ninguna siembra toca changes, history ni status."""
-import os, subprocess, sys, unittest, urllib.request
+import json, os, subprocess, sys, unittest, urllib.request
 R = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..'))
 ENV = {**os.environ, 'FIRESTORE_EMULATOR_HOST': '127.0.0.1:8080', 'GOOGLE_CLOUD_PROJECT': 'ssbu-441b1'}
 def up():
@@ -40,4 +40,22 @@ class Seed(unittest.TestCase):
         p = d['picks'][0]
         for k in ('role', 'variant', 'audit_scope', 'downloads_scope', 'images_scope', 'look_id'): self.assertIn(k, p)
         self.assertIn(p['vid'], d['vids'])
+    @unittest.skipUnless(os.path.isfile(os.path.join(R, 'data', 'drive.json')), 'no hay data/drive.json')
+    def test_5_drive_dry_run_no_escribe_y_seed_no_toca_lo_demas(self):
+        before = {c: self.count(c) for c in ('catalog', 'installed', 'changes', 'history', 'status')}
+        r = db('seed', '--only', 'drive', '--dry-run'); self.assertEqual(r.returncode, 0, r.stderr)
+        self.assertIn('drive:', r.stdout); self.assertEqual(self.count('drive'), 0)
+        self.assertFalse(self.fs.collection('meta').document('drive').get().exists)
+        r = db('seed', '--only', 'drive'); self.assertEqual(r.returncode, 0, r.stderr)
+        drive = json.load(open(os.path.join(R, 'data', 'drive.json'), encoding='utf-8'))
+        docs = {d.id: d.to_dict() for d in self.fs.collection('drive').stream()}
+        self.assertEqual(sum(len(d['mods']) for d in docs.values()), drive['counts']['mods'])
+        self.assertEqual(self.fs.collection('meta').document('drive').get().to_dict()['counts'], drive['counts'])
+        self.assertEqual({c: self.count(c) for c in before}, before)
+        r = db('seed', '--only', 'drive', '--dry-run')   # recién sembrado: nada que crear, cambiar ni borrar
+        self.assertIn('drive: 0 se crean', r.stdout); self.assertIn('drive: 0 cambian', r.stdout); self.assertIn('drive: 0 se borran', r.stdout)
+    def test_6_all_no_incluye_el_drive(self):
+        self.fs.collection('drive').document('zz').set({'code': 'zz', 'mods': []})
+        self.assertEqual(db('seed', '--only', 'all').returncode, 0)
+        self.assertTrue(self.fs.collection('drive').document('zz').get().exists)
 if __name__ == '__main__': unittest.main()

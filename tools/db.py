@@ -3,7 +3,10 @@
 #   python3 tools/db.py seed --only catalog               copia SOLO el catálogo (lo hace la Action en cada push; es lo que cambia la investigación)
 #   python3 tools/db.py seed --only installed             copia SOLO el inventario: acción manual, después de revisarlo (nunca automática)
 #   python3 tools/db.py seed --only all                   las dos cosas
+#   python3 tools/db.py seed --only drive                 copia el manifiesto del Drive (data/drive.json, de tools/scan_drive.py); `all` no lo incluye
+#   python3 tools/db.py seed --only ... --dry-run         no escribe: dice qué documentos se crearían, cambiarían o borrarían
 #   (seed no toca nunca changes, history ni status)
+#   python3 tools/db.py backup [--out data/plan_backup]   copia a JSON lo que solo vive en Firestore (changes, history, status, meta, selection); solo lee
 #   python3 tools/db.py plan                              imprime el plan compartido (un cambio por traje) para revisarlo e instalarlo
 #   python3 tools/db.py status VID installed|failed|skipped [--result TEXTO]   anota el resultado de una instalación
 #   python3 tools/db.py migrate                           pasa la selección anterior (selection/main) al plan compartido (idempotente)
@@ -25,9 +28,23 @@ def client():
 
 def now(): return datetime.datetime.now(datetime.timezone.utc)
 
-def _replace(db, coll, docs):
-    """Escribe `docs` ({id: dict}) en la colección y borra los documentos que ya no existen."""
+def _plain(v, drop=('updatedAt',)):
+    """Valor de Firestore serializable (fechas a ISO). Sin `drop` por defecto, para comparar sin la hora de escritura."""
+    if hasattr(v, 'isoformat'): return v.isoformat()
+    if isinstance(v, dict): return {k: _plain(x, drop) for k, x in v.items() if k not in drop}
+    if isinstance(v, list): return [_plain(x, drop) for x in v]
+    return v
+
+def _replace(db, coll, docs, dry=False):
+    """Escribe `docs` ({id: dict}) en la colección y borra los documentos que ya no existen. En `dry` solo informa."""
     ref = db.collection(coll); keep = set(docs)
+    if dry:
+        cur = {d.id: _plain(d.to_dict()) for d in ref.stream()}
+        new = sorted(k for k in docs if k not in cur); gone = sorted(k for k in cur if k not in keep)
+        changed = sorted(k for k in docs if k in cur and cur[k] != _plain(json.loads(json.dumps(docs[k], default=str))))
+        for label, ids in (('se crean', new), ('cambian', changed), ('se borran', gone)):
+            print(f'{coll}: {len(ids)} {label}' + (f" ({', '.join(ids)})" if ids else ''))
+        return
     for d in ref.stream():
         if d.id not in keep: d.reference.delete()
     for i in range(0, len(docs), 400):
@@ -35,20 +52,48 @@ def _replace(db, coll, docs):
         for k in list(docs)[i:i + 400]: b.set(ref.document(k), docs[k])
         b.commit()
 
-def seed(db, only=None):
+def _drive_docs(drive):
+    """Un documento por luchador; los plugins y las carpetas sin luchador reconocido van aparte."""
+    docs = {}
+    for m in drive['mods']:
+        k = 'plugins' if m.get('plugin') else m['code'] or 'sin_luchador'
+        docs.setdefault(k, {'code': m['code'] if k == m['code'] else None, 'mods': []})['mods'].append(m)
+    return {k: {**v, 'updatedAt': now()} for k, v in docs.items()}
+
+def seed(db, only=None, dry=False):
     done = []; fighters, meta = cd.load()
     if only in ('all', 'catalog'):
         # `vids` permite a las reglas comprobar que un cambio apunta a una apariencia que existe
-        _replace(db, 'catalog', {f['code']: {**f, 'vids': [p['vid'] for p in f['picks']], 'order': i, 'updatedAt': now()} for i, f in enumerate(fighters)})
-        db.collection('meta').document('catalog').set({**meta, 'updatedAt': now()})
+        _replace(db, 'catalog', {f['code']: {**f, 'vids': [p['vid'] for p in f['picks']], 'order': i, 'updatedAt': now()} for i, f in enumerate(fighters)}, dry)
+        if not dry: db.collection('meta').document('catalog').set({**meta, 'updatedAt': now()})
         done.append(f'{len(fighters)} luchadores')
     if only in ('all', 'installed'):
         inv = cd.load_inventory(fighters)
         if inv:
-            _replace(db, 'installed', {c: {**v, 'updatedAt': now()} for c, v in inv['fighters'].items()})
-            db.collection('meta').document('installed').set({**inv['meta'], 'updatedAt': now()})
+            _replace(db, 'installed', {c: {**v, 'updatedAt': now()} for c, v in inv['fighters'].items()}, dry)
+            if not dry: db.collection('meta').document('installed').set({**inv['meta'], 'updatedAt': now()})
             done.append(f"inventario de {len(inv['fighters'])} luchadores")
-    print('ok · Firestore actualizado:', ', '.join(done) or 'nada')
+    if only == 'drive':
+        p = os.path.join(cd.R, 'data', 'drive.json')
+        if not os.path.isfile(p): print('aviso · no existe data/drive.json (genéralo con tools/scan_drive.py); no se sincronizó el Drive')
+        else:
+            drive = json.load(open(p, encoding='utf-8')); docs = _drive_docs(drive)
+            _replace(db, 'drive', docs, dry)
+            if not dry: db.collection('meta').document('drive').set({'source': drive['source'], 'counts': drive['counts'], 'updatedAt': now()})
+            done.append(f"Drive: {drive['counts']['mods']} mods en {len(docs)} documentos")
+    print('ok · simulación, no se escribió nada:' if dry else 'ok · Firestore actualizado:', ', '.join(done) or 'nada')
+
+BACKUP = ('changes', 'history', 'status', 'meta', 'selection')
+
+def backup(db, out):
+    """Copia a JSON las colecciones que no salen del repositorio. Solo lee Firestore."""
+    os.makedirs(out, exist_ok=True); resumen = {}
+    for coll in BACKUP:
+        docs = {d.id: _plain(d.to_dict(), ()) for d in db.collection(coll).stream()}
+        with open(os.path.join(out, f'{coll}.json'), 'w', encoding='utf-8') as f: f.write(json.dumps(docs, ensure_ascii=False, indent=1, sort_keys=True) + '\n')
+        resumen[coll] = len(docs)
+    with open(os.path.join(out, '_resumen.json'), 'w', encoding='utf-8') as f: f.write(json.dumps({'docs': resumen, 'taken_at': now().isoformat()}, indent=1) + '\n')
+    print('ok · respaldo en', out, '·', ', '.join(f'{k} {v}' for k, v in resumen.items()))
 
 def _current(inv, code, n):
     s = (((inv or {}).get('fighters') or {}).get(code) or {}).get('slots', {}).get(str(n)) or {}
@@ -113,11 +158,14 @@ def migrate(db):
 if __name__ == '__main__':
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     sp = ap.add_subparsers(dest='cmd', required=True)
-    s = sp.add_parser('seed'); s.add_argument('--only', choices=['catalog', 'installed', 'all'], required=True, help='qué sincronizar; el inventario nunca se sincroniza sin pedirlo')
+    s = sp.add_parser('seed'); s.add_argument('--only', choices=['catalog', 'installed', 'all', 'drive'], required=True, help='qué sincronizar; el inventario nunca se sincroniza sin pedirlo')
+    s.add_argument('--dry-run', action='store_true', help='no escribe: muestra qué documentos se crean, cambian o borran')
+    b = sp.add_parser('backup'); b.add_argument('--out', default=os.path.join(cd.R, 'data', 'plan_backup'))
     sp.add_parser('plan'); sp.add_parser('migrate')
     t = sp.add_parser('status'); t.add_argument('vid'); t.add_argument('status', choices=['installed', 'failed', 'skipped', 'wanted']); t.add_argument('--result')
     a = ap.parse_args(); db = client()
-    if a.cmd == 'seed': seed(db, a.only)
+    if a.cmd == 'seed': seed(db, a.only, a.dry_run)
+    elif a.cmd == 'backup': backup(db, a.out)
     elif a.cmd == 'plan': plan(db)
     elif a.cmd == 'migrate': migrate(db)
     else: set_status(db, a.vid, a.status, a.result)

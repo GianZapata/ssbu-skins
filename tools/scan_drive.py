@@ -1,0 +1,117 @@
+# Escanea la carpeta de mods del Drive y escribe data/drive.json: qué archivos hay, su MD5 y qué slots traen.
+# Uso: python3 tools/scan_drive.py "<ruta a My Drive/SSBU_mods>" [--out data/drive.json] [--rehash]
+# Estructura esperada: <raíz>/<luchador>/<modid>_<slug>/{LINK.txt, NOTA.txt, original/, modificado/}; `_plugins` es la carpeta de plugins.
+# Los binarios viven en el Drive; git guarda este manifiesto (el historial lo da cada commit, por eso no lleva fecha).
+# Slots: solo se leen los .zip (zipfile). Los .rar, .7z y los zip partidos quedan como `listed: false` con su motivo.
+# El MD5 se reutiliza del manifiesto anterior si el archivo tiene la misma ruta y el mismo tamaño (--rehash lo recalcula todo).
+import argparse, hashlib, json, os, re, sys, zipfile
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from scan_installed import INTERNAL
+R = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..')
+# carpeta del Drive (nombre en inglés, snake_case) -> nombre interno del juego
+FOLDERS = {
+ 'mario':'mario','donkey_kong':'donkey','dk':'donkey','link':'link','samus':'samus','dark_samus':'samusd','yoshi':'yoshi','kirby':'kirby','fox':'fox',
+ 'pikachu':'pikachu','luigi':'luigi','ness':'ness','captain_falcon':'captain','jigglypuff':'purin','peach':'peach','daisy':'daisy','bowser':'koopa',
+ 'ice_climbers':'popo','sheik':'sheik','zelda':'zelda','dr_mario':'mariod','pichu':'pichu','falco':'falco','marth':'marth','lucina':'lucina',
+ 'young_link':'younglink','ganondorf':'ganon','mewtwo':'mewtwo','roy':'roy','chrom':'chrom','mr_game_and_watch':'gamewatch','game_and_watch':'gamewatch',
+ 'meta_knight':'metaknight','pit':'pit','dark_pit':'pitb','zero_suit_samus':'szerosuit','wario':'wario','snake':'snake','ike':'ike','squirtle':'pzenigame',
+ 'ivysaur':'pfushigisou','charizard':'plizardon','diddy_kong':'diddy','lucas':'lucas','sonic':'sonic','king_dedede':'dedede','dedede':'dedede',
+ 'olimar':'pikmin','lucario':'lucario','rob':'robot','toon_link':'toonlink','wolf':'wolf','villager':'murabito','mega_man':'rockman',
+ 'wii_fit_trainer':'wiifit','rosalina':'rosetta','rosalina_and_luma':'rosetta','little_mac':'littlemac','greninja':'gekkouga','mii_brawler':'miifighter',
+ 'mii_swordfighter':'miiswordsman','mii_gunner':'miigunner','palutena':'palutena','pac_man':'pacman','pacman':'pacman','robin':'reflet','shulk':'shulk',
+ 'bowser_jr':'koopajr','duck_hunt':'duckhunt','ryu':'ryu','ken':'ken','cloud':'cloud','corrin':'kamui','bayonetta':'bayonetta','inkling':'inkling',
+ 'ridley':'ridley','simon':'simon','richter':'richter','king_k_rool':'krool','k_rool':'krool','isabelle':'shizue','incineroar':'gaogaen',
+ 'piranha_plant':'packun','joker':'jack','hero':'brave','banjo':'buddy','banjo_and_kazooie':'buddy','terry':'dolly','byleth':'master','min_min':'tantan',
+ 'steve':'pickel','sephiroth':'edge','pyra':'eflame','mythra':'elight','kazuya':'demon','sora':'trail'}
+PLUGINS = '_plugins'
+SKIP = {'_respaldos'}
+SLOT_RES = [re.compile(r'/c(\d\d)/'), re.compile(r'_c(\d\d)[._]'), re.compile(r'chara_\d+_\w+?_(\d\d)\.bntx$')]
+MOD = re.compile(r'^(\d+)_(.+)$')
+PART = re.compile(r'\.zip\.part\d+$', re.I)
+
+def md5(path):
+    h = hashlib.md5()
+    with open(path, 'rb') as f:
+        for b in iter(lambda: f.read(1 << 20), b''): h.update(b)
+    return h.hexdigest()
+
+def text(path):
+    if not os.path.isfile(path): return None
+    return open(path, encoding='utf-8-sig', errors='replace').read().strip() or None
+
+def zip_slots(path):
+    """Slots que trae un .zip según sus rutas (c00-c99 y retratos chara_N_<luchador>_NN)."""
+    found = set()
+    with zipfile.ZipFile(path) as z:
+        for n in z.namelist():
+            for rx in SLOT_RES: found.update(int(x) for x in rx.findall('/' + n))
+    return sorted(found)
+
+def inspect(path, name):
+    low = name.lower()
+    if PART.search(low): return {'listed': False, 'slots': [], 'unlisted_reason': 'zip partido en partes'}
+    if low.endswith(('.rar', '.7z')): return {'listed': False, 'slots': [], 'unlisted_reason': 'rar/7z sin herramienta para listar'}
+    if low.endswith('.zip'):
+        try: return {'listed': True, 'slots': zip_slots(path)}
+        except zipfile.BadZipFile: return {'listed': False, 'slots': [], 'unlisted_reason': 'zip dañado o incompleto'}
+    return {'listed': False, 'slots': [], 'unlisted_reason': 'no es un archivo de mod'}
+
+def files(mod_dir, mod_rel, cache, rehash):
+    out = []
+    for dp, dns, fns in os.walk(mod_dir):
+        dns[:] = sorted(d for d in dns if not d.startswith('.'))
+        for fn in sorted(fns):
+            if fn.startswith('.'): continue
+            full = os.path.join(dp, fn); rel = os.path.relpath(full, mod_dir).replace(os.sep, '/')
+            top = rel.split('/')[0]
+            if '/' not in rel and fn.upper() in ('LINK.TXT', 'NOTA.TXT'): continue
+            size = os.path.getsize(full); old = cache.get((mod_rel, rel))
+            e = {'path': rel, 'kind': top if top in ('original', 'modificado') else 'otro', 'bytes': size,
+                 'md5': old['md5'] if old and old['bytes'] == size and not rehash else md5(full), **inspect(full, fn)}
+            e['touches_c00'] = 0 in e['slots'] if e['listed'] else None  # sin listar no se sabe
+            out.append(e)
+    return sorted(out, key=lambda e: e['path'])
+
+def load_catalog():
+    p = os.path.join(R, 'data', 'catalog.json')
+    if not os.path.isfile(p): return {}
+    idx = {}
+    for e in json.load(open(p, encoding='utf-8'))['entries']:
+        idx.setdefault((e['roster_no'], e['mod_id']), []).append({'look_name': e['look_name'], 'role': e.get('role'), 'proposed_destination': e.get('proposed_destination')})
+    return idx
+
+def scan(root, prev=None, rehash=False):
+    cache = {(m['folder'], f['path']): f for m in (prev or {}).get('mods', []) for f in m['files']}
+    cat = load_catalog(); mods = []
+    for ff in sorted(os.listdir(root)):
+        fdir = os.path.join(root, ff)
+        if ff.startswith('.') or ff in SKIP or not os.path.isdir(fdir): continue
+        internal = None if ff == PLUGINS else FOLDERS.get(ff)
+        code = INTERNAL.get(internal) if internal else None
+        if ff != PLUGINS and code is None: print(f'aviso: carpeta de luchador desconocida: {ff}', file=sys.stderr)
+        for md in sorted(os.listdir(fdir)):
+            mdir = os.path.join(fdir, md)
+            if md.startswith('.') or not os.path.isdir(mdir): continue
+            m = MOD.match(md); mod_id = int(m.group(1)) if m else None; rel = f'{ff}/{md}'
+            mods.append({'mod_id': mod_id, 'slug': m.group(2) if m else md, 'folder': rel, 'fighter_folder': ff, 'code': code, 'internal': internal,
+                         'plugin': ff == PLUGINS, 'link': text(os.path.join(mdir, 'LINK.txt')), 'note': text(os.path.join(mdir, 'NOTA.txt')),
+                         'catalog': cat.get((code, mod_id)) if code and mod_id else None, 'files': files(mdir, rel, cache, rehash)})
+    mods.sort(key=lambda x: (x['code'] or '~', x['mod_id'] or 0, x['folder']))
+    fl = [f for x in mods for f in x['files']]
+    counts = {'mods': len(mods), 'files': len(fl), 'bytes': sum(f['bytes'] for f in fl), 'listed': sum(f['listed'] for f in fl),
+              'unlisted': sum(not f['listed'] for f in fl), 'touches_c00': sum(bool(f['touches_c00']) for f in fl)}
+    return {'source': 'Google Drive · SSBU_mods',
+            'note': 'Manifiesto de los mods descargados en el Drive (los binarios no se versionan). Slots leídos solo de los .zip; nada de esto está instalado ni probado en consola.',
+            'counts': counts, 'mods': mods}
+
+if __name__ == '__main__':
+    ap = argparse.ArgumentParser(description='Escanea la carpeta de mods del Drive y escribe data/drive.json')
+    ap.add_argument('root'); ap.add_argument('--out', default=os.path.join(R, 'data', 'drive.json'))
+    ap.add_argument('--rehash', action='store_true', help='recalcula el MD5 de todos los archivos')
+    a = ap.parse_args()
+    if not os.path.isdir(a.root): sys.exit(f'no existe la carpeta: {a.root}')
+    prev = json.load(open(a.out, encoding='utf-8')) if os.path.isfile(a.out) else None
+    out = scan(a.root, prev, a.rehash)
+    with open(a.out, 'w', encoding='utf-8') as f: f.write(json.dumps(out, ensure_ascii=False, indent=1) + '\n')
+    c = out['counts']
+    print(f"ok · {a.out}: {c['mods']} mods, {c['files']} archivos ({c['bytes'] / 1e6:.1f} MB), {c['listed']} listados, {c['unlisted']} sin listar, {c['touches_c00']} tocan c00")

@@ -8,7 +8,6 @@
 # Un slot con retrato propio es una skin completa; sin retrato puede ser solo un ajuste de modelo.
 import json, os, re, sys, datetime
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-import bntx
 R = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..')
 # nombre interno del juego -> roster_no del catálogo
 INTERNAL = {
@@ -40,6 +39,7 @@ def portraits(mods, mod, internal, slot):
             f = os.path.join(mods, mod, 'ui', base, 'chara', f'chara_{k}', f'chara_{k}_{internal}_{slot:02d}.bntx')
             if os.path.isfile(f): yield f
 def main(mp):
+    import bntx  # aquí y no arriba: quien solo importa INTERNAL (scan_drive, scan_profile) no necesita Pillow
     mods = os.path.join(mp, 'ultimate', 'mods')
     fighters, unknown, scanned = {}, set(), []
     for mod in sorted(os.listdir(mods)):

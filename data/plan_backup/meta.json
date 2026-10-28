@@ -1,0 +1,666 @@
+{
+ "catalog": {
+  "base": "https://images.gamebanana.com/img/ss/mods",
+  "counts": {
+   "alternatives": 549,
+   "by_wifi_state": {
+    "Afirmación de terceros sin confirmación del autor": 10,
+    "Declaración condicionada del autor": 241,
+    "Declaración explícita del autor sin condiciones conocidas": 980,
+    "Incompatible según la fuente": 1,
+    "Sin evidencia localizada": 13
+   },
+   "cover_verified": 573,
+   "coverage": {
+    "01": {
+     "alternatives": 7,
+     "fighter": "Mario",
+     "looks": 15,
+     "main": 8
+    },
+    "02": {
+     "alternatives": 8,
+     "fighter": "Donkey Kong",
+     "looks": 16,
+     "main": 8
+    },
+    "03": {
+     "alternatives": 7,
+     "fighter": "Link",
+     "looks": 15,
+     "main": 8
+    },
+    "04": {
+     "alternatives": 7,
+     "fighter": "Samus",
+     "looks": 15,
+     "main": 8
+    },
+    "04ε": {
+     "alternatives": 4,
+     "fighter": "Dark Samus",
+     "looks": 12,
+     "main": 8
+    },
+    "05": {
+     "alternatives": 7,
+     "fighter": "Yoshi",
+     "looks": 15,
+     "main": 8
+    },
+    "06": {
+     "alternatives": 7,
+     "fighter": "Kirby",
+     "looks": 15,
+     "main": 8
+    },
+    "07": {
+     "alternatives": 7,
+     "fighter": "Fox",
+     "looks": 15,
+     "main": 8
+    },
+    "08": {
+     "alternatives": 7,
+     "fighter": "Pikachu",
+     "looks": 15,
+     "main": 8
+    },
+    "09": {
+     "alternatives": 7,
+     "fighter": "Luigi",
+     "looks": 15,
+     "main": 8
+    },
+    "10": {
+     "alternatives": 7,
+     "fighter": "Ness",
+     "looks": 15,
+     "main": 8
+    },
+    "11": {
+     "alternatives": 7,
+     "fighter": "Captain Falcon",
+     "looks": 15,
+     "main": 8
+    },
+    "12": {
+     "alternatives": 7,
+     "fighter": "Jigglypuff",
+     "looks": 15,
+     "main": 8
+    },
+    "13": {
+     "alternatives": 7,
+     "fighter": "Peach",
+     "looks": 15,
+     "main": 8
+    },
+    "13ε": {
+     "alternatives": 7,
+     "fighter": "Daisy",
+     "looks": 15,
+     "main": 8
+    },
+    "14": {
+     "alternatives": 7,
+     "fighter": "Bowser",
+     "looks": 15,
+     "main": 8
+    },
+    "15": {
+     "alternatives": 7,
+     "fighter": "Ice Climbers",
+     "looks": 15,
+     "main": 8
+    },
+    "16": {
+     "alternatives": 8,
+     "fighter": "Sheik",
+     "looks": 16,
+     "main": 8
+    },
+    "17": {
+     "alternatives": 8,
+     "fighter": "Zelda",
+     "looks": 16,
+     "main": 8
+    },
+    "18": {
+     "alternatives": 7,
+     "fighter": "Dr. Mario",
+     "looks": 15,
+     "main": 8
+    },
+    "19": {
+     "alternatives": 5,
+     "fighter": "Pichu",
+     "looks": 13,
+     "main": 8
+    },
+    "20": {
+     "alternatives": 7,
+     "fighter": "Falco",
+     "looks": 15,
+     "main": 8
+    },
+    "21": {
+     "alternatives": 7,
+     "fighter": "Marth",
+     "looks": 15,
+     "main": 8
+    },
+    "21ε": {
+     "alternatives": 7,
+     "fighter": "Lucina",
+     "looks": 15,
+     "main": 8
+    },
+    "22": {
+     "alternatives": 5,
+     "fighter": "Young Link",
+     "looks": 11,
+     "main": 6
+    },
+    "23": {
+     "alternatives": 7,
+     "fighter": "Ganondorf",
+     "looks": 15,
+     "main": 8
+    },
+    "24": {
+     "alternatives": 7,
+     "fighter": "Mewtwo",
+     "looks": 15,
+     "main": 8
+    },
+    "25": {
+     "alternatives": 7,
+     "fighter": "Roy",
+     "looks": 15,
+     "main": 8
+    },
+    "25ε": {
+     "alternatives": 7,
+     "fighter": "Chrom",
+     "looks": 15,
+     "main": 8
+    },
+    "26": {
+     "alternatives": 7,
+     "fighter": "Mr. Game & Watch",
+     "looks": 10,
+     "main": 3
+    },
+    "27": {
+     "alternatives": 0,
+     "fighter": "Meta Knight",
+     "looks": 8,
+     "main": 8
+    },
+    "28": {
+     "alternatives": 3,
+     "fighter": "Pit",
+     "looks": 11,
+     "main": 8
+    },
+    "28ε": {
+     "alternatives": 4,
+     "fighter": "Dark Pit",
+     "looks": 12,
+     "main": 8
+    },
+    "29": {
+     "alternatives": 7,
+     "fighter": "Zero Suit Samus",
+     "looks": 15,
+     "main": 8
+    },
+    "30": {
+     "alternatives": 7,
+     "fighter": "Wario",
+     "looks": 15,
+     "main": 8
+    },
+    "31": {
+     "alternatives": 7,
+     "fighter": "Snake",
+     "looks": 15,
+     "main": 8
+    },
+    "32": {
+     "alternatives": 7,
+     "fighter": "Ike",
+     "looks": 15,
+     "main": 8
+    },
+    "33": {
+     "alternatives": 3,
+     "fighter": "Squirtle (Pokémon Trainer)",
+     "looks": 11,
+     "main": 8
+    },
+    "34": {
+     "alternatives": 1,
+     "fighter": "Ivysaur (Pokémon Trainer)",
+     "looks": 8,
+     "main": 7
+    },
+    "35": {
+     "alternatives": 7,
+     "fighter": "Charizard (Pokémon Trainer)",
+     "looks": 15,
+     "main": 8
+    },
+    "36": {
+     "alternatives": 7,
+     "fighter": "Diddy Kong",
+     "looks": 15,
+     "main": 8
+    },
+    "37": {
+     "alternatives": 7,
+     "fighter": "Lucas",
+     "looks": 15,
+     "main": 8
+    },
+    "38": {
+     "alternatives": 7,
+     "fighter": "Sonic",
+     "looks": 15,
+     "main": 8
+    },
+    "39": {
+     "alternatives": 7,
+     "fighter": "King Dedede",
+     "looks": 15,
+     "main": 8
+    },
+    "40": {
+     "alternatives": 4,
+     "fighter": "Olimar",
+     "looks": 12,
+     "main": 8
+    },
+    "41": {
+     "alternatives": 7,
+     "fighter": "Lucario",
+     "looks": 15,
+     "main": 8
+    },
+    "42": {
+     "alternatives": 4,
+     "fighter": "R.O.B.",
+     "looks": 12,
+     "main": 8
+    },
+    "43": {
+     "alternatives": 7,
+     "fighter": "Toon Link",
+     "looks": 15,
+     "main": 8
+    },
+    "44": {
+     "alternatives": 7,
+     "fighter": "Wolf",
+     "looks": 15,
+     "main": 8
+    },
+    "45": {
+     "alternatives": 7,
+     "fighter": "Villager",
+     "looks": 15,
+     "main": 8
+    },
+    "46": {
+     "alternatives": 7,
+     "fighter": "Mega Man",
+     "looks": 15,
+     "main": 8
+    },
+    "47": {
+     "alternatives": 7,
+     "fighter": "Wii Fit Trainer",
+     "looks": 15,
+     "main": 8
+    },
+    "48": {
+     "alternatives": 7,
+     "fighter": "Rosalina & Luma",
+     "looks": 15,
+     "main": 8
+    },
+    "49": {
+     "alternatives": 7,
+     "fighter": "Little Mac",
+     "looks": 15,
+     "main": 8
+    },
+    "50": {
+     "alternatives": 3,
+     "fighter": "Greninja",
+     "looks": 11,
+     "main": 8
+    },
+    "51": {
+     "alternatives": 5,
+     "fighter": "Mii Brawler",
+     "looks": 13,
+     "main": 8
+    },
+    "52": {
+     "alternatives": 0,
+     "fighter": "Mii Swordfighter",
+     "looks": 5,
+     "main": 5
+    },
+    "53": {
+     "alternatives": 0,
+     "fighter": "Mii Gunner",
+     "looks": 8,
+     "main": 8
+    },
+    "54": {
+     "alternatives": 8,
+     "fighter": "Palutena",
+     "looks": 16,
+     "main": 8
+    },
+    "55": {
+     "alternatives": 5,
+     "fighter": "Pac-Man",
+     "looks": 13,
+     "main": 8
+    },
+    "56": {
+     "alternatives": 7,
+     "fighter": "Robin",
+     "looks": 15,
+     "main": 8
+    },
+    "57": {
+     "alternatives": 7,
+     "fighter": "Shulk",
+     "looks": 15,
+     "main": 8
+    },
+    "58": {
+     "alternatives": 1,
+     "fighter": "Bowser Jr.",
+     "looks": 8,
+     "main": 7
+    },
+    "59": {
+     "alternatives": 4,
+     "fighter": "Duck Hunt",
+     "looks": 12,
+     "main": 8
+    },
+    "60": {
+     "alternatives": 7,
+     "fighter": "Ryu",
+     "looks": 15,
+     "main": 8
+    },
+    "60ε": {
+     "alternatives": 7,
+     "fighter": "Ken",
+     "looks": 15,
+     "main": 8
+    },
+    "61": {
+     "alternatives": 10,
+     "fighter": "Cloud",
+     "looks": 18,
+     "main": 8
+    },
+    "62": {
+     "alternatives": 7,
+     "fighter": "Corrin",
+     "looks": 15,
+     "main": 8
+    },
+    "63": {
+     "alternatives": 7,
+     "fighter": "Bayonetta",
+     "looks": 15,
+     "main": 8
+    },
+    "64": {
+     "alternatives": 7,
+     "fighter": "Inkling",
+     "looks": 15,
+     "main": 8
+    },
+    "65": {
+     "alternatives": 7,
+     "fighter": "Ridley",
+     "looks": 15,
+     "main": 8
+    },
+    "66": {
+     "alternatives": 0,
+     "fighter": "Simon",
+     "looks": 6,
+     "main": 6
+    },
+    "66ε": {
+     "alternatives": 5,
+     "fighter": "Richter",
+     "looks": 13,
+     "main": 8
+    },
+    "67": {
+     "alternatives": 7,
+     "fighter": "King K. Rool",
+     "looks": 15,
+     "main": 8
+    },
+    "68": {
+     "alternatives": 7,
+     "fighter": "Isabelle",
+     "looks": 15,
+     "main": 8
+    },
+    "69": {
+     "alternatives": 7,
+     "fighter": "Incineroar",
+     "looks": 15,
+     "main": 8
+    },
+    "70": {
+     "alternatives": 6,
+     "fighter": "Piranha Plant",
+     "looks": 14,
+     "main": 8
+    },
+    "71": {
+     "alternatives": 7,
+     "fighter": "Joker",
+     "looks": 15,
+     "main": 8
+    },
+    "72": {
+     "alternatives": 7,
+     "fighter": "Hero",
+     "looks": 15,
+     "main": 8
+    },
+    "73": {
+     "alternatives": 1,
+     "fighter": "Banjo & Kazooie",
+     "looks": 7,
+     "main": 6
+    },
+    "74": {
+     "alternatives": 8,
+     "fighter": "Terry",
+     "looks": 16,
+     "main": 8
+    },
+    "75": {
+     "alternatives": 7,
+     "fighter": "Byleth",
+     "looks": 15,
+     "main": 8
+    },
+    "76": {
+     "alternatives": 7,
+     "fighter": "Min Min",
+     "looks": 15,
+     "main": 8
+    },
+    "77": {
+     "alternatives": 9,
+     "fighter": "Steve",
+     "looks": 17,
+     "main": 8
+    },
+    "78": {
+     "alternatives": 7,
+     "fighter": "Sephiroth",
+     "looks": 15,
+     "main": 8
+    },
+    "79": {
+     "alternatives": 7,
+     "fighter": "Pyra",
+     "looks": 15,
+     "main": 8
+    },
+    "80": {
+     "alternatives": 7,
+     "fighter": "Mythra",
+     "looks": 15,
+     "main": 8
+    },
+    "81": {
+     "alternatives": 7,
+     "fighter": "Kazuya",
+     "looks": 15,
+     "main": 8
+    },
+    "82": {
+     "alternatives": 7,
+     "fighter": "Sora",
+     "looks": 15,
+     "main": 8
+    }
+   },
+   "fighters": 89,
+   "fighters_with_alternatives": 85,
+   "looks": 1245,
+   "main_proposals": 696,
+   "pending": {
+    "compatibility_13_0_5": 1245,
+    "console_test": 1245,
+    "file_inspection": 1241,
+    "without_proposed_destination": 573
+   },
+   "quality_pass_lote1": 112,
+   "quality_pass_lote2": 200,
+   "quality_pass_lote3": 342,
+   "quality_pass_lote4": 2,
+   "quality_pass_lote5": 6,
+   "quality_pass_lote6": 2,
+   "unique_mods": 1224,
+   "with_conditions": 329,
+   "with_file_list_check": 50,
+   "withdrawn": 16
+  },
+  "generated": "2026-10-25T23:15:00-06:00",
+  "timezone": "America/Monterrey",
+  "updatedAt": "2026-10-27T17:10:58.390115+00:00"
+ },
+ "installed": {
+  "note": "Esto es lo que se pudo revisar en los repositorios, no un inventario comprobado en la consola.",
+  "profile": {
+   "components": [
+    "roxas-sora-reslot",
+    "ventus-sora",
+    "funky-dk",
+    "terra-ike",
+    "aqua-pyra-reslot"
+   ],
+   "components_info": [
+    {
+     "dlc": "Sora (DLC confirmado)",
+     "id": "roxas-sora-reslot",
+     "test": "OK 2026-10-24 (Gian; Smash 13.0.5, ARCropolis 4.1.1, emuMMC sin conexion): Sora c05 y c07 funcionan. La version anterior con config.json colgaba la carga de cualquier Sora. No certifica online",
+     "version": "Release 2.5 (2.5.0)"
+    },
+    {
+     "dlc": "Sora (DLC confirmado)",
+     "id": "ventus-sora",
+     "test": "OK 2026-10-24 (Gian; Smash 13.0.5, ARCropolis 4.1.1, emuMMC sin conexion): Sora c04 en combate local contra Terranort. No certifica online",
+     "version": "pending"
+    },
+    {
+     "dlc": null,
+     "id": "funky-dk",
+     "test": "OK 2026-10-24 (Gian; Smash 13.0.5, ARCropolis 4.1.1, emuMMC sin conexion): DK c01/c03/c05/c07 en seleccion y combate local. No certifica online",
+     "version": "2.0.0"
+    },
+    {
+     "dlc": null,
+     "id": "terra-ike",
+     "test": "OK 2026-10-24 (Gian; Smash 13.0.5, ARCropolis 4.1.1, emuMMC sin conexion): Ike c00 (Terra) contra Funky y c02 (Terranort) contra Ventus en combate local. No certifica online",
+     "version": "pending"
+    },
+    {
+     "dlc": "Pyra/Mythra (Gian confirma tener los DLC, 2026-10-24)",
+     "id": "aqua-pyra-reslot",
+     "test": "OK 2026-10-24 (Gian; Smash 13.0.5, ARCropolis 4.1.1, emuMMC sin conexion): Pyra y Mythra c00 en combate local. No certifica online",
+     "version": "pending"
+    }
+   ],
+   "excluded_base_fighters": [
+    "77"
+   ],
+   "excluded_base_mods": [
+    "The WuBoy Ultimate Modpack Optionals",
+    "The WuBoy Ultimate Music Modpack"
+   ],
+   "excluded_base_slots": [
+    {
+     "fighter": "82",
+     "slot": 7
+    }
+   ],
+   "name": "gian-sin-musica",
+   "other_profiles": [
+    "default",
+    "opt-aqua",
+    "opt-aqua-alt",
+    "opt-helmetless-ventus"
+   ],
+   "ref": "claude/vigilant-keller-6i5s1d@8adc365"
+  },
+  "scanned_at": "2026-10-25T21:26:21Z",
+  "sources": [
+   {
+    "id": "base",
+    "label": "Pack base de WuBoy",
+    "ref": "main@6ff9a01",
+    "scope": "Solo las carpetas de ultimate/mods de la rama main (pack de WuBoy). No incluye el perfil local ni las ramas con skins sin fusionar; no se ha comprobado en la consola.",
+    "verification": "Revisado en el repositorio"
+   },
+   {
+    "id": "perfil",
+    "label": "Perfil local «gian-sin-musica»",
+    "ref": "claude/vigilant-keller-6i5s1d@8adc365",
+    "verification": "Perfil armado y verificado en archivos; pruebas en consola sin conexión anotadas por componente (no certifican online)"
+   },
+   {
+    "branches": 14,
+    "id": "staged",
+    "label": "Skins en ramas sin fusionar",
+    "ref": "main@6ff9a01",
+    "verification": "En preparación: sin confirmar en la consola"
+   }
+  ],
+  "updatedAt": "2026-10-26T03:00:09.008981+00:00",
+  "verification": "parcial",
+  "version": "f1485896"
+ }
+}
