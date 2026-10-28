@@ -11,10 +11,10 @@ module.exports = async (browser, base) => {
   const server = JSON.parse(L.py('plan')).changes.find(c => c.roster_no === '82' && c.traje === 1);
   L.ok(!!server, 'ack: Firestore realmente conserva la propuesta');
   L.ok(await A.evaluate(vid => planVid('82', 0) === vid, server.vid), 'ack: la propuesta sigue visible entre confirmación y snapshot');
-  L.ok(await A.locator('.cmp2 .prop').count() === 1, 'A: con candidata aparece Actual/Propuesta tras vaciar la cola');
+  L.ok(await A.locator('[data-act="clear"]').count() === 1, 'ack: la propuesta sigue en Nueva tras vaciar la cola');
   await A.evaluate(() => { globalThis.__holdChanges = false; for(const deliver of globalThis.__changeDeliveries || []) deliver(); globalThis.__changeDeliveries = []; });
   L.ok(await L.until(A, vid => PLAN['82_0']?.vid === vid && PEND.length === 0, server.vid), 'ack: el listener confirma la misma propuesta sin perderla');
-  L.ok(await A.locator('.cmp2 .prop').count() === 1, 'ack: Actual/Propuesta permanece después del listener');
+  L.ok(await A.locator('[data-act="clear"]').count() === 1, 'ack: Nueva permanece después del listener');
   await A.goto(base + '#/cambios'); await A.waitForSelector('[data-undo]');
   await A.evaluate(() => { globalThis.__holdChanges = true; });
   await A.locator('[data-undo]').first().click();

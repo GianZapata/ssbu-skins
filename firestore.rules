@@ -34,6 +34,22 @@ service cloud.firestore {
       allow delete: if signedIn();
     }
 
+    match /requests/{id} {
+      allow read: if true;
+      allow create: if signedIn()
+        && request.resource.data.keys().hasOnly(['text', 'done', 'by', 'at'])
+        && request.resource.data.text is string
+        && request.resource.data.text.size() > 0
+        && request.resource.data.text.size() <= 80
+        && request.resource.data.done == false
+        && request.resource.data.by == request.auth.uid
+        && request.resource.data.at == request.time;
+      allow update: if signedIn()
+        && request.resource.data.diff(resource.data).affectedKeys().hasOnly(['done'])
+        && request.resource.data.done is bool;
+      allow delete: if signedIn();
+    }
+
     match /history/{id} {
       allow read: if true;
       allow create: if signedIn()

@@ -1,21 +1,16 @@
-/* ==========================================================================
-   Skins SSBU · sistema visual (lienzo "Elegir skins Smash")
-   Fondo #0B0F17 · superficies #121826 #1A2233 #232D42 · líneas #2A3550 #3A4766
-   Texto #EEF2F8 / #A9B4C8 · acento ámbar #F2B632 · sobre acento #1A1200
-   Radios 8 / 12 / 14 / 16 · objetivos táctiles de 48 px
-   ========================================================================== */
+/* Fondo neutro. Las skins mandan. Objetivos táctiles de 48 px. */
 
 :root {
-  --bg: #0b0f17;
-  --s1: #121826;
-  --s2: #1a2233;
-  --s3: #232d42;
-  --bd: #2a3550;
-  --bd-active: #3a4766;
-  --tx: #eef2f8;
-  --tx-mu: #a9b4c8;
-  --ac: #f2b632;
-  --ac-ink: #1a1200;
+  --bg: #101114;
+  --s1: #181a1f;
+  --s2: #22252c;
+  --s3: #2c3038;
+  --bd: #343842;
+  --bd-active: #4a4f5a;
+  --tx: #f4f1ea;
+  --tx-mu: #a7a29a;
+  --ac: #e7e2d8;
+  --ac-ink: #16140f;
   --hdr: 56px;
   --safe-top: env(safe-area-inset-top, 0px);
   --safe-bot: env(safe-area-inset-bottom, 0px);
@@ -60,7 +55,7 @@ button { font-family: inherit; }
 }
 
 .q-btn.btn-main {
-  height: 56px;
+  height: 48px;
   min-width: 140px;
   padding: 0 24px;
   border-radius: 14px;
@@ -107,10 +102,15 @@ button { font-family: inherit; }
   transition: transform 200ms var(--ease-out);
 }
 
-.app-header__bar { min-height: var(--hdr); padding: 0 16px 0 8px; gap: 8px; }
+.app-header__bar { min-height: var(--hdr); padding: 0 8px 0 4px; gap: 4px; flex-wrap: nowrap; min-width: 0; }
 .app-header__face { border-radius: 10px; background: var(--s2); overflow: hidden; flex: none; }
 .app-header__face img { object-fit: cover; }
-.app-header__title { margin: 0; font-size: 20px; line-height: 28px; font-weight: 700; letter-spacing: -0.01em; }
+.app-header__title { margin: 0; min-width: 0; flex: 1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-size: 18px; line-height: 24px; font-weight: 700; letter-spacing: -0.01em; }
+.sync-word { flex: none; max-width: 34vw; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; color: var(--tx-mu); font-size: 13px; font-weight: 600; }
+.sync-word:empty { display: none; }
+.q-btn.hdr-btn { flex: none; min-height: 48px; padding: 0 8px; color: var(--tx) !important; font-weight: 600; }
+.sync-fail, .notice { display: flex; align-items: center; gap: 8px; padding: 0 12px 8px; color: var(--tx); font-size: 14px; }
+.sync-fail span, .notice span { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 
 @media (max-width: 1023px) {
   .app-header--hide { transform: translateY(-100%); }
@@ -118,7 +118,7 @@ button { font-family: inherit; }
 
 /* ============================ Páginas y vacíos ============================ */
 .page { max-width: 1100px; margin: 0 auto; box-sizing: border-box; }
-.fighters-page { padding: calc(12px + var(--safe-top)) 16px calc(130px + var(--safe-bot)); }
+.fighters-page, .list-page { padding: 12px 16px calc(24px + var(--safe-bot)); }
 .fighter-page { padding: 0 16px calc(32px + var(--safe-bot)); max-width: 1200px; }
 /* En móvil la tira se fija contra toda la página, no contra su columna. */
 .fighter-left { display: contents; }
@@ -154,7 +154,7 @@ button { font-family: inherit; }
 .q-btn.app-img__retry { min-height: 44px; padding: 0 16px; border-radius: 12px; background: var(--s2) !important; border: 1px solid var(--bd-active); color: var(--tx) !important; font-weight: 600; }
 
 /* ============================ Buscador ============================ */
-.search-row { padding: 0; }
+.search-row { position: sticky; top: 0; z-index: 4; padding: 0 0 8px; background: var(--bg); }
 .search { margin: 0; }
 .search .q-field__control { height: 48px; border-radius: 14px; background: var(--s2); color: var(--tx-mu); }
 .search.q-field--outlined .q-field__control:before { border-color: var(--bd); }
@@ -198,7 +198,7 @@ button { font-family: inherit; }
 .picked__chev { color: var(--tx-mu); }
 
 /* ============================ Luchador: tira de trajes ============================ */
-.strip { position: sticky; top: calc(var(--hdr) + var(--safe-top)); z-index: 5; margin: 0 -16px; background: var(--bg); border-bottom: 1px solid var(--bd); transition: top 200ms var(--ease-out); }
+.strip { position: static; z-index: 1; margin: 0 -16px; background: var(--bg); border-bottom: 1px solid var(--bd); }
 .strip__row { display: flex; gap: 8px; overflow-x: auto; padding: 12px 16px 10px; scrollbar-width: none; -webkit-overflow-scrolling: touch; }
 .strip__row::-webkit-scrollbar { display: none; }
 .strip__fade { position: absolute; right: 0; top: 0; bottom: 1px; width: 36px; background: linear-gradient(to left, var(--bg), rgba(11, 15, 23, 0)); pointer-events: none; }
@@ -221,17 +221,19 @@ button { font-family: inherit; }
 .cell-sk { flex: none; width: 76px; height: 76px; border-radius: 12px; }
 
 @keyframes pop { 0% { transform: scale(1); } 40% { transform: scale(1.07); } 100% { transform: scale(1); } }
-@keyframes halo { 0% { box-shadow: 0 0 0 0 rgba(242, 182, 50, 0.75); } 100% { box-shadow: 0 0 0 14px rgba(242, 182, 50, 0); } }
+@keyframes halo { 0% { box-shadow: 0 0 0 0 rgba(231, 226, 216, 0.7); } 100% { box-shadow: 0 0 0 14px rgba(231, 226, 216, 0); } }
 .cell--pulse .cell__btn { animation: pop 280ms var(--ease-pop); }
 .cell--live .cell__btn { animation: halo 600ms var(--ease-out); }
 
 /* ============================ Luchador: Actual / Nueva ============================ */
-.cmp { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; padding-top: 14px; }
+.cmp { display: grid; grid-template-columns: 1fr 1fr; gap: 8px 12px; padding-top: 12px; }
+.cmp__line { grid-column: 1 / -1; margin: 0; color: var(--tx-mu); font-size: 14px; line-height: 20px; }
+.q-btn.cmp__act { grid-column: 1 / -1; width: 100%; }
 .cmp__col { position: relative; display: flex; flex-direction: column; gap: 6px; min-width: 0; }
 .cmp__label { font-size: 12px; line-height: 16px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--tx-mu); }
 .cmp__label--new { color: var(--ac); }
 .cmp__frame { position: relative; }
-.cmp__img { position: relative; display: block; width: 100%; aspect-ratio: 173 / 190; box-sizing: border-box; border: 0; padding: 0; border-radius: 16px; overflow: hidden; background: var(--s2); color: inherit; }
+.cmp__img { position: relative; display: block; width: 100%; aspect-ratio: 4 / 3; box-sizing: border-box; border: 0; padding: 0; border-radius: 16px; overflow: hidden; background: var(--s2); color: inherit; }
 .cmp__img--new { border: 2px solid var(--ac); cursor: pointer; }
 .cmp__img--empty { display: flex; align-items: center; justify-content: center; border: 2px dashed #5b6b8c; background: var(--s1); color: var(--ac); }
 .cmp__name { font-size: 16px; line-height: 22px; font-weight: 700; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
@@ -240,13 +242,14 @@ button { font-family: inherit; }
 .cmp__arrow { position: absolute; right: -23px; top: calc(50% - 17px); z-index: 3; width: 34px; height: 34px; border-radius: 17px; background: var(--s3); color: var(--tx-mu); border: 3px solid var(--bg); box-sizing: content-box; display: flex; align-items: center; justify-content: center; transition: background 240ms var(--ease-out), color 240ms var(--ease-out); }
 .cmp__arrow--on { background: var(--ac); color: var(--ac-ink); }
 .fighter-ghost .strip__row { padding: 12px 0 10px; }
-.cmp-sk { width: 100%; aspect-ratio: 173 / 190; height: auto !important; border-radius: 16px; }
+.cmp-sk { width: 100%; aspect-ratio: 4 / 3; height: auto !important; border-radius: 16px; }
 
 .swap-enter-active, .swap-leave-active { transition: opacity 240ms var(--ease-out); }
 .swap-enter-from, .swap-leave-to { opacity: 0; }
 
 /* ============================ Luchador: skins ============================ */
 .skins { padding-top: 20px; }
+.skins .search { position: sticky; top: 0; z-index: 4; background: var(--bg); }
 .sgrid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; padding-top: 14px; }
 
 @media (min-width: 700px) { .sgrid { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; } }
@@ -342,6 +345,46 @@ button { font-family: inherit; }
 .pswp__thumbs button { width: 72px; height: 48px; padding: 0; border: 0; background: transparent; opacity: 0.6; border-radius: 8px; overflow: hidden; }
 .pswp__thumbs button[aria-current="true"] { opacity: 1; outline: 2px solid var(--ac); }
 .pswp__thumbs img { width: 100%; height: 100%; object-fit: cover; }
+
+.dest { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 12px; }
+.dest a { min-height: 48px; display: flex; align-items: center; justify-content: center; border-radius: 12px; background: var(--s2); color: var(--tx); text-decoration: none; font-weight: 700; border: 1px solid var(--bd); }
+.dest a[aria-current="page"] { background: var(--s3); border-color: var(--tx); }
+.search-row--pair { display: flex; gap: 8px; align-items: flex-start; }
+.search-row--pair .search { flex: 1; min-width: 0; }
+.group-toggle { flex: none; display: inline-flex; align-items: center; justify-content: center; gap: 6px; height: 48px; min-width: 48px; padding: 0 12px; border-radius: 14px; border: 1px solid var(--bd); background: var(--s2); color: var(--tx); font: inherit; font-size: 14px; font-weight: 600; cursor: pointer; }
+.group-toggle:disabled { opacity: 0.45; cursor: default; }
+.group-toggle:focus-visible { outline: 2px solid var(--ac); outline-offset: 2px; }
+.cgroup { display: flex; flex-direction: column; margin-top: 20px; }
+.cgroup__head { display: flex; align-items: center; gap: 10px; min-height: 40px; }
+.cgroup__face { width: 36px; height: 36px; border-radius: 8px; overflow: hidden; background: var(--s2); flex: none; position: relative; }
+.cgroup__name { margin: 0; font-size: 16px; line-height: 22px; font-weight: 700; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.cgroup__n { margin-left: auto; color: var(--tx-mu); font-size: 13px; }
+.sgrid--wide .card__img { aspect-ratio: 4 / 3; }
+.card__btn:focus-visible { outline: 2px solid var(--ac); outline-offset: 2px; }
+a.card__btn { text-decoration: none; }
+.card__sub { display: block; box-sizing: border-box; margin-top: -8px; padding: 0 12px 12px; color: var(--tx-mu); font-size: 13px; line-height: 18px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.card--ghost .card__img { border-radius: 16px; height: auto; }
+.card--ghost .card__name-sk { height: 14px; width: 70%; margin: 10px 12px; }
+.sheet__alt { margin: 12px 16px 0; }
+.note-form { display: flex; gap: 8px; align-items: center; }
+.note-form .search { flex: 1; }
+.notes { list-style: none; margin: 16px 0 0; padding: 0; display: flex; flex-direction: column; gap: 8px; }
+.note { display: flex; align-items: center; gap: 8px; min-height: 56px; padding: 0 8px 0 12px; border-radius: 12px; background: var(--s1); }
+.note__text { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.note--done .note__text { color: var(--tx-mu); text-decoration: line-through; }
+.q-btn.note__btn { min-height: 48px; }
+.sheet-carousel { width: 100%; height: min(420px, 52dvh); background: transparent; }
+.sheet-carousel .q-carousel__slide { padding: 0; }
+.sheet-slide { position: relative; height: 100%; background: var(--s2); }
+.sheet__line, .sheet__count { margin: 8px 16px 0; color: var(--tx-mu); font-size: 14px; line-height: 20px; }
+.sheet__count { margin-bottom: 0; }
+.sheet-carousel .q-carousel__arrow .q-btn { width: 48px; height: 48px; min-width: 48px; min-height: 48px; }
+.sheet__head { gap: 8px; }
+@media (max-width: 380px) {
+  .app-header__face { display: none; }
+  .sync-word { max-width: 72px; font-size: 12px; }
+  .q-btn.hdr-btn { padding: 0 4px; font-size: 13px; }
+}
 
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }

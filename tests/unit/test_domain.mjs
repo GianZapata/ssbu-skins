@@ -135,6 +135,41 @@ test('destino, duplicado y reemplazo', () => {
   assert.equal(SSBU.clearOp('01', 1, null), null);
 });
 
+test('catList busca solo el nombre de la skin', () => {
+  const all = [{ f: mario, p: pick({ name: 'Dry Bones', author: 'Ana', variant: 'v3' }) }];
+  const st = (q) => ({ ...SSBU.emptyCat(), q });
+  assert.equal(SSBU.catList(all, null, st('Ana')).length, 0);
+  assert.equal(SSBU.catList(all, null, st('v3')).length, 0);
+  assert.equal(SSBU.catList(all, null, st('Dry')).length, 1);
+});
+
+test('stageChoice nombra Usar, Reemplazar, Quitar o Ir, y no copia', () => {
+  const base = { slot: 2, vid: null, saved: null, elsewhere: null, withdrawn: false, mii: false, incompatible: false };
+  assert.equal(SSBU.stageChoice({ ...base, vid: '01:a' }).kind, 'use');
+  assert.equal(SSBU.stageChoice({ ...base, vid: '01:a' }).label, 'Usar en Traje 3');
+  assert.match(SSBU.stageChoice({ ...base, vid: '01:a' }).line, /no la instala/);
+  assert.equal(SSBU.stageChoice({ ...base, vid: '01:b', saved: '01:a' }).label, 'Reemplazar en Traje 3');
+  assert.equal(SSBU.stageChoice({ ...base, saved: '01:a' }).kind, 'clear');
+  const gone = SSBU.stageChoice({ ...base, vid: '01:a', elsewhere: 0 });
+  assert.equal(gone.kind, 'goto');
+  assert.equal(gone.other, 0);
+  assert.equal(gone.label, 'Ir a Traje 1');
+  assert.equal(SSBU.stageChoice({ ...base, vid: '01:a', withdrawn: true }).kind, 'none');
+  assert.equal(SSBU.stageChoice({ ...base, vid: '01:a', withdrawn: true }).line, 'Retirada');
+  assert.match(SSBU.stageChoice({ ...base, vid: '01:a', incompatible: true }).line, /Incompatible online/);
+});
+
+test('cada código del catálogo tiene serie y Mario no mezcla a Zelda', () => {
+  const cat = JSON.parse(fs.readFileSync(new URL('../../data/catalog.json', import.meta.url), 'utf8'));
+  const codes = new Set();
+  for (const row of [...cat.entries, ...(cat.withdrawn || [])]) if (row.roster_no) codes.add(row.roster_no);
+  const missing = [...codes].filter(code => !SSBU.seriesOf(code));
+  assert.deepEqual(missing, []);
+  assert.equal(SSBU.seriesOf('01'), SSBU.seriesOf('09'));
+  assert.notEqual(SSBU.seriesOf('01'), SSBU.seriesOf('17'));
+  assert.equal(SSBU.seriesLabel(''), 'Sin franquicia');
+});
+
 test('migrateCat restaura recomendadas y el filtro antiguo de online', () => {
   const st = SSBU.migrateCat({ q: 'mario', f: '01', aud: true, on: true });
   assert.equal(st.q, 'mario');

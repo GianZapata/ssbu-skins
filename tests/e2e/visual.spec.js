@@ -21,35 +21,35 @@ test('luchadores', async ({ page }) => {
 
 test('selector', async ({ page }) => {
   await page.goto('/index.html#/luchador/01');
-  await page.waitForSelector('.tgrid');
+  await page.waitForSelector('.strip');
   await shot(page, 'selector');
 });
 
 test('galeria', async ({ page }) => {
   await page.goto('/index.html#/luchador/01/1');
   await page.waitForSelector('[data-skin]');
-  await page.locator('[data-skin]').first().click();
-  await page.waitForSelector('.hero img');
-  await page.waitForFunction(() => { const i = document.querySelector('.hero img'); return !!(i && i.complete && i.naturalWidth > 0); });
+  await page.locator('[aria-label^="Ver detalle"]').first().click();
+  await page.waitForSelector('.sheet-carousel img, .sheet img');
+  await page.waitForFunction(() => { const i = document.querySelector('.sheet img'); return !!(i && i.complete && i.naturalWidth > 0); });
   await shot(page, 'galeria');
 });
 
 test('comparar', async ({ page }) => {
   await page.goto('/index.html#/luchador/01/1');
-  await page.waitForSelector('.cur, .cmp2');
+  await page.waitForSelector('.cmp');
   await shot(page, 'comparar');
 });
 
 test('catalogo', async ({ page }) => {
   await page.goto('/index.html#/catalogo');
-  await page.waitForSelector('.cd');
+  await page.waitForSelector('.cgroup');
   await shot(page, 'catalogo');
 });
 
 test('ficha', async ({ page }) => {
   await page.goto('/index.html#/apariencia/01%3A174057');
-  await page.waitForSelector('.hero img, .note');
-  await page.waitForFunction(() => { const i = document.querySelector('.hero img'); return !i || (i.complete && i.naturalWidth > 0); });
+  await page.waitForSelector('.sheet');
+  await page.waitForFunction(() => { const i = document.querySelector('.sheet img'); return !i || (i.complete && i.naturalWidth > 0); });
   await shot(page, 'ficha');
 });
 
@@ -61,17 +61,15 @@ test('cambios', async ({ page }) => {
 
 test('vacio', async ({ page }) => {
   await page.goto('/index.html#/catalogo');
-  await page.waitForSelector('#cq');
-  await page.fill('#cq', 'xyznoexiste');
-  await page.waitForSelector('#ce:not([hidden])');
+  await page.getByLabel('Buscar skin').fill('xyznoexiste');
+  await page.waitForSelector('.empty');
   await shot(page, 'vacio');
 });
 
 test('filtros', async ({ page }) => {
   await page.goto('/index.html#/catalogo');
-  await page.waitForSelector('[data-filters]');
-  await page.click('[data-filters]');
-  await page.waitForSelector('#dlg.open');
+  await page.waitForSelector('.cgroup');
+  await page.getByRole('button', { name: /Agrupar por franquicia/ }).click();
   await shot(page, 'menu');
 });
 

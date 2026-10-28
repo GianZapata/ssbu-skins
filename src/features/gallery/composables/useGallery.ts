@@ -27,7 +27,7 @@ export const openGallery = async (name: string, imgs: Shot[], index: number, hos
     bgOpacity: 1,
     loop: false,
     wheelToZoom: true,
-    returnFocus: false,
+    returnFocus: true,
     closeTitle: 'Cerrar',
     zoomTitle: 'Ampliar o reducir',
     arrowPrevTitle: 'Foto anterior',

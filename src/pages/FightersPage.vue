@@ -1,14 +1,16 @@
 <script setup lang="ts">
-import { QBtn, QIcon, QInput, QPage, QPageSticky, QSkeleton } from 'quasar'
+import { QBtn, QIcon, QInput, QPage, QSkeleton } from 'quasar'
 import AppImg from '../components/AppImg.vue'
+import Destinations from '../features/fighters/components/Destinations.vue'
 import { fighterQuery, useFightersPage } from './composables/useFightersPage'
 
-const { loading, rows, picked, openSummary } = useFightersPage()
+const { loading, rows } = useFightersPage()
 </script>
 
 <template>
   <q-page class="page fighters-page">
     <h1 class="sr-only">Luchadores</h1>
+    <Destinations />
     <div class="search-row">
       <q-input
         v-model="fighterQuery"
@@ -49,24 +51,5 @@ const { loading, rows, picked, openSummary } = useFightersPage()
         <span class="ft__name">{{ row.fighter.name }}</span>
       </a>
     </div>
-
-    <q-page-sticky v-if="picked.total > 0" position="bottom" expand :offset="[0, 0]" class="picked-wrap">
-      <div class="picked-fade" aria-hidden="true"></div>
-      <q-btn
-        unelevated
-        no-caps
-        padding="0 12px 0 14px"
-        class="picked"
-        :aria-label="'Ver skins elegidas, ' + picked.total"
-        @click="openSummary"
-      >
-        <span class="picked__thumbs" aria-hidden="true">
-          <span v-for="(src, i) in picked.thumbs" :key="i" class="picked__thumb"><AppImg :src="src" eager /></span>
-        </span>
-        <span class="picked__txt">Elegidas</span>
-        <span class="picked__n" aria-hidden="true">{{ picked.total }}</span>
-        <q-icon name="expand_less" size="22px" class="picked__chev" aria-hidden="true" />
-      </q-btn>
-    </q-page-sticky>
   </q-page>
 </template>

@@ -8,7 +8,7 @@ import SkinGrid from '../features/fighters/components/SkinGrid.vue'
 import { useFighterPage } from './composables/useFighterPage'
 import { state } from '../features/plan/services/sync'
 
-const { model, stage, pulse, pick, openDetail, openStage, clear, selectSlot } = useFighterPage()
+const { model, stage, preview, choice, pulse, pick, openDetail, openStage, commit, clear, selectSlot } = useFighterPage()
 </script>
 
 <template>
@@ -26,7 +26,7 @@ const { model, stage, pulse, pick, openDetail, openStage, clear, selectSlot } = 
     <div v-else class="fighter-grid" :data-view="'fighter:' + model.code">
       <div class="fighter-left">
         <OutfitStrip :cells="model.cells" :pulse="pulse" :top="hdrHidden" @select="selectSlot" @clear="clear" />
-        <CompareCards :stage="stage" :has-skins="model.total > 0" @detail="openStage" @clear="clear" />
+        <CompareCards :stage="stage" :preview="preview" :choice="choice" @detail="openStage" @act="commit" />
       </div>
       <div class="fighter-right">
         <SkinGrid :rows="model.rows" :total="model.total" @pick="pick" @detail="openDetail" />

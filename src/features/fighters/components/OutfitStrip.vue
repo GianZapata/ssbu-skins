@@ -3,10 +3,11 @@ import { QBtn, QIcon } from 'quasar'
 import AppImg from '../../../components/AppImg.vue'
 import { trajeName } from '../../../shared/helpers/text'
 import type { Cell } from '../../../pages/composables/useFighterPage'
+import { PulseKind } from '../enums/PulseKind'
 
 interface OutfitStripProps {
   cells: Cell[]
-  pulse: Record<number, 'local' | 'live'>
+  pulse: Record<number, PulseKind>
   /** Con la cabecera oculta al hacer scroll, la tira sube hasta el borde. */
   top: boolean
 }
@@ -36,7 +37,7 @@ const onKeys = (event: KeyboardEvent) => {
         v-for="cell in props.cells"
         :key="cell.n"
         class="cell"
-        :class="{ 'cell--sel': cell.sel, 'cell--pulse': props.pulse[cell.n] === 'local', 'cell--live': props.pulse[cell.n] === 'live' }"
+        :class="{ 'cell--sel': cell.sel, 'cell--pulse': props.pulse[cell.n] === PulseKind.Local, 'cell--live': props.pulse[cell.n] === PulseKind.Live }"
       >
         <button type="button" class="cell__btn" :aria-label="cell.label" :aria-pressed="cell.sel" :data-slot="cell.n" @click="emit('select', cell.n)">
           <template v-if="!cell.next">

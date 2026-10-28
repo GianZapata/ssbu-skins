@@ -53,7 +53,7 @@ const emit = defineEmits<{ (e: 'pick', vid: string): void, (e: 'detail', vid: st
 
       <div v-else class="sgrid">
         <div v-for="row in props.rows" :key="row.vid" class="card" :class="{ 'card--on': row.chosen }">
-          <button type="button" class="card__btn" :aria-label="row.label" :aria-pressed="row.chosen" :data-vid="row.vid" @click="emit('pick', row.vid)">
+          <button type="button" class="card__btn" :aria-label="row.label" :aria-pressed="row.chosen" :data-skin="row.vid" :data-vid="row.vid" @click="emit('pick', row.vid)">
             <span class="card__img">
               <AppImg :src="row.img" />
               <span v-if="row.chosen" class="card__check" aria-hidden="true"><q-icon name="check" size="18px" /></span>

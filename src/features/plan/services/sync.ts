@@ -65,8 +65,8 @@ let _fb=null,dbState=FBCFG?'off':'local',flushing=false,planLoaded=false,metaCat
 function fb(){if(!FBCFG)return Promise.reject(new Error('Firebase no configurado'));
  return _fb||(_fb=(async()=>{const B='https://www.gstatic.com/firebasejs/10.14.1/';
   const [app,auth,fs]=await Promise.all([import(B+'firebase-app.js'),import(B+'firebase-auth.js'),import(B+'firebase-firestore.js')]);
-  const a=app.initializeApp(FBCFG),au=auth.getAuth(a);
-  const db=fs.initializeFirestore(a,{localCache:fs.persistentLocalCache({tabManager:fs.persistentMultipleTabManager()})});
+  const a=app.getApps().length?app.getApp():app.initializeApp(FBCFG),au=auth.getAuth(a);
+  let db;try{db=fs.initializeFirestore(a,{localCache:fs.persistentLocalCache({tabManager:fs.persistentMultipleTabManager()})})}catch(e){db=fs.getFirestore(a)}
   if(EMU){auth.connectAuthEmulator(au,'http://localhost:9099',{disableWarnings:true});fs.connectFirestoreEmulator(db,'localhost',8080)}
   await new Promise(r=>{const u=auth.onAuthStateChanged(au,()=>{u();r()})});
   if(!au.currentUser)await auth.signInAnonymously(au);   // sesión anónima automática: sin registro ni nombre
@@ -152,7 +152,18 @@ async function startDb(){if(!FBCFG){paintSync();return}
   sub(f.collection(f.db,'changes'),s=>{const m={};s.forEach(d=>{const v=d.data();m[d.id]={vid:v.vid,by:v.by,at:ts(v.at)}});const next=mergeChanges(m,s.docChanges());const same=stable(PLAN)===stable(next);PLAN=next;LS('ssbu_plan_cache',JSON.stringify(PLAN));
    good();paintSync();if(!same)render(true);planLoaded=true;flush()});
   sub(f.query(f.collection(f.db,'history'),f.orderBy('at','desc'),f.limit(40)),s=>{HIST=[];s.forEach(d=>{const v=d.data();HIST.push({code:v.code,slot:v.slot,from:v.from,to:v.to,kind:v.kind,t:ts(v.at)})})})
+  unsubs.push(f.onSnapshot(f.collection(f.db,'requests'),s=>readNotes(s),()=>{}))
  }catch(e){if(gen===dbGen)fail('inicio',e)}}
+let NOTES=[]
+function readNotes(snap){const rows=[];snap.forEach(d=>{const v=d.data()||{};const text=String(v.text||'').trim().slice(0,80);if(!text)return;rows.push({id:d.id,text,done:!!v.done,at:ts(v.at)||0})});rows.sort((a,b)=>(b.at-a.at)||a.text.localeCompare(b.text));NOTES=rows;render(true)}
+async function addNote(text){const clean=String(text||'').trim().slice(0,80);if(!clean)return
+ if(!FBCFG){NOTES=[{id:'local-'+Date.now(),text:clean,done:false,at:Date.now()},...NOTES];render(true);return}
+ try{const f=await fb();await f.setDoc(f.doc(f.collection(f.db,'requests')),{text:clean,done:false,by:f.auth.currentUser.uid,at:f.serverTimestamp()})}
+ catch(e){fail('nota',e)}}
+async function markNote(id,done){if(!id)return
+ if(!FBCFG||String(id).indexOf('local-')===0){NOTES=NOTES.map(n=>n.id===id?{...n,done:!!done}:n);render(true);return}
+ try{const f=await fb();await f.updateDoc(f.doc(f.db,'requests',id),{done:!!done})}
+ catch(e){fail('nota',e)}}
 
 function bind(hooks) {
   if (hooks.render) render = hooks.render
@@ -190,5 +201,6 @@ const state = {
   set nextTry(v) { nextTry = v },
   get lastAct() { return lastAct },
   set lastAct(v) { lastAct = v },
+  get NOTES() { return NOTES },
 }
-export { bind, state, buildData, confirmPlan, mergeChanges, planVid, planEntries, flush, startDb, paintSync, keyOf, stable, fb, fail, good, enqueue, savePend, classify }
+export { bind, state, buildData, confirmPlan, mergeChanges, planVid, planEntries, flush, startDb, paintSync, keyOf, stable, fb, fail, good, enqueue, savePend, classify, syncInfo, addNote, markNote }

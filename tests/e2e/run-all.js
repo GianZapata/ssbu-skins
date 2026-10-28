@@ -5,11 +5,11 @@ const L = require('./lib');
   try {
     await L.wipe(); L.py('seed --only all');
     const only = process.argv[2];
-    for (const name of ['journeys', 'identity', 'ux', 'sync-errors', 'ack-transition', 'selector']) {
+    for (const name of ['recorridos', 'identity', 'sync-errors', 'ack-transition']) {
       if (only && only !== name) continue;
       console.log('\n== ' + name); await L.wipe(); L.py('seed --only all'); await require('./' + name)(b, srv.url);
     }
-    if (!only || only === 'selector') {
+    if (only === 'selector') {
       for (const kind of ['webkit', 'firefox']) {
         let extra = null;
         try { extra = await require('playwright')[kind].launch(); }

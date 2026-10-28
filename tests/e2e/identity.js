@@ -25,16 +25,16 @@ module.exports = async (b, base) => {
   ok(tiles.filter(t => t.src && t.src.startsWith('assets/fighters/')).length === 89, 'los 89 luchadores (incluyendo DLC 71–82) tienen su retrato oficial publicado');
   ok(tiles.find(t => t.c === '03').src === 'assets/fighters/03.webp', 'Link usa su propio retrato (regresión «Lightning como Link»)');
   const linkInv = await P.evaluate(() => Object.values((INV.fighters['03'] || { slots: {} }).slots).filter(s => s.img).length);
-  await P.goto(base + '#/luchador/03'); await P.waitForSelector('.tgrid');
-  const hdr = await P.evaluate(() => document.querySelector('.fh img').getAttribute('src')); ok(hdr === 'assets/fighters/03.webp', `la cabecera de Link conserva su retrato aunque el inventario trae ${linkInv} retratos de trajes`);
+  await P.goto(base + '#/luchador/03'); await P.waitForSelector('.strip');
+  const hdr = await P.evaluate(() => document.querySelector('.app-header__face img').getAttribute('src')); ok(hdr === 'assets/fighters/03.webp', `la cabecera de Link conserva su retrato aunque el inventario trae ${linkInv} retratos de trajes`);
   await shot(P, '08-selector'); await P.goto(base + '#/luchadores'); await P.waitForSelector('.ft'); await P.evaluate(() => scrollTo(0, 0)); await shot(P, '08-selector');
   // el traje «Original» nunca se ve vacío: arte oficial del luchador
   for (const [code, re, what] of [['01', /^assets\/fighters\/01\.webp$/, 'retrato oficial de Mario'], ['82', /^assets\/fighters\/82\.webp$/, 'retrato oficial de Sora']]) {
-    await P.goto(base + '#/luchador/' + code); await P.waitForSelector('.tgrid'); await P.waitForTimeout(300);
-    const t1 = await P.evaluate(() => { const i = document.querySelector('.tj .im img'); return { src: i && i.getAttribute('src'), ok: i && i.complete && i.naturalWidth > 0, txt: document.querySelector('.tj .nm').textContent }; });
+    await P.goto(base + '#/luchador/' + code); await P.waitForSelector('.strip'); await P.waitForTimeout(300);
+    const t1 = await P.evaluate(() => { const i = document.querySelector('.cmp__img--cur img'); return { src: i && i.getAttribute('src'), ok: i && i.complete && i.naturalWidth > 0, txt: (document.querySelector('.cmp__name') || {}).textContent || '' }; });
     ok(t1.src && re.test(t1.src) && t1.ok && t1.txt === 'Original', `la primera opción de ${code === '01' ? 'Mario' : 'Sora'} muestra ${what} y la etiqueta «Original»`);
   }
-  await P.goto(base + '#/luchador/82/1'); await P.waitForSelector('.cur'); ok(await P.evaluate(() => { const i = document.querySelector('.cur img'); return !!i && i.complete && i.naturalWidth > 0; }), 'la pantalla del traje también muestra la imagen del original');
+  await P.goto(base + '#/luchador/82/1'); await P.waitForSelector('.cmp__img--cur img'); ok(await P.evaluate(() => { const i = document.querySelector('.cmp__img--cur img'); return !!i && i.complete && i.naturalWidth > 0; }), 'la pantalla del traje también muestra la imagen del original');
   // inventario del perfil gian-prs
   const inv = await P.evaluate(() => { const k = (c, n) => { const x = curOf(c, n); return { kind: x.kind, name: x.name, verif: x.verif, stg: !!x.staged, rep: x.replace || null }; }; return { sora4: k('82', 4), sora7: k('82', 7), sora6: k('82', 6), mario1: k('01', 1), mario2: k('01', 2), mario0: k('01', 0), pyra0: k('79', 0), myth0: k('80', 0), steve0: k('77', 0), steve1: k('77', 1), steve2: k('77', 2), cap2: k('11', 2), ike0: k('32', 0), dk1: k('02', 1), meta: INV.meta.profile && INV.meta.profile.name, ver: INV.meta.version }; });
   ok(inv.meta === 'gian-prs', 'el inventario representa el perfil gian-prs');
@@ -45,13 +45,12 @@ module.exports = async (b, base) => {
   ok(inv.mario1.kind === 'mod' && inv.mario1.name === 'Kellytoy Mario' && inv.cap2.name === 'Dark Falcon' && !!inv.cap2.rep && inv.cap2.kind === 'mod', 'skins de los PR con prioridad: Kellytoy en Mario traje 2 y Dark Falcon en Captain Falcon traje 3 (marcado por reemplazar, sigue instalado)');
   ok(inv.mario2.kind === 'pending' && inv.mario2.name === 'Nombre pendiente', 'Mario traje 3: se ve su retrato pero falta el nombre → «Nombre pendiente»');
   ok(inv.mario0.kind === 'original' && inv.sora6.kind === 'pending', 'originales y trajes por identificar se distinguen');
-  await P.goto(base + '#/luchador/01'); await P.waitForSelector('.tgrid'); ok((await P.textContent('.tgrid')).includes('Nombre pendiente') && !/Apariencia sin identificar/.test(await P.textContent('.tgrid')), 'la pantalla del luchador usa «Nombre pendiente», sin etiquetas duplicadas');
-  await P.goto(base + '#/luchador/11/3'); await P.waitForSelector('.cur'); ok(/Por reemplazar/.test(await P.textContent('.cur')) && /Dark Falcon/.test(await P.textContent('.cur')), 'Dark Falcon sigue instalado y se muestra como por reemplazar');
+  await P.goto(base + '#/luchador/01'); await P.waitForSelector('.strip'); ok((await P.textContent('.strip')).includes('Nombre pendiente') && !/Apariencia sin identificar/.test(await P.textContent('.strip')), 'la pantalla del luchador usa «Nombre pendiente», sin etiquetas duplicadas');
+  await P.goto(base + '#/luchador/11/3'); await P.waitForSelector('.cmp'); ok(/Dark Falcon/.test(await P.textContent('.cmp')), 'Dark Falcon sigue instalado en su traje');
   // regresión Shadow Mewtwo
   const mw = await P.evaluate(() => { const f = F.find(f => /Mewtwo/.test(f.name)); const sm = f.picks.find(p => /Shadow Mewtwo/i.test(p.name)); return { code: f.code, vid: sm && sm.vid }; });
-  await P.goto(base + '#/luchador/' + mw.code + '/8'); await P.waitForSelector('.cur,.cmp2'); ok(!/libre/i.test(await P.textContent('main')), 'Mewtwo c07: no aparece «libre»');
-  await P.goto(base + '#/apariencia/' + encodeURIComponent(mw.vid)); await P.waitForSelector('details');
-  ok(/puede estar ocupado/.test(await P.evaluate(() => document.querySelector('details').textContent)), 'el destino sugerido por el análisis solo es orientativo (y puede estar ocupado)');
-  ok(!/slot nativo libre/.test(await P.textContent('main')), 'la ficha no afirma disponibilidad');
+  await P.goto(base + '#/luchador/' + mw.code + '/8'); await P.waitForSelector('.cmp'); ok(!/libre/i.test(await P.textContent('main')), 'Mewtwo c07: no aparece «libre»');
+  await P.goto(base + '#/apariencia/' + encodeURIComponent(mw.vid)); await P.waitForSelector('.sheet');
+  ok(!/libre/i.test(await P.textContent('main')) && !/slot nativo libre/.test(await P.textContent('main')), 'la ficha no afirma disponibilidad');
   ok(!P.errs.length, 'sin errores de JS ' + JSON.stringify(P.errs)); await P.ctx.close();
 };

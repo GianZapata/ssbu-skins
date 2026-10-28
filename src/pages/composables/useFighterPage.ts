@@ -1,10 +1,14 @@
 import { computed, onBeforeUnmount, reactive, watch } from 'vue'
+import type { Skin } from '../../boot'
 import { fighterOf, openSkin, route, S, selectSlot, slotOf, swap, tick } from '../../composables/useApp'
-import { clearAt, proposeAt, touched } from '../../features/plan/composables/usePlan'
+import { activeCandidate, clearCandidate, consumeHandoff, setCandidate } from '../../features/fighters/candidate'
+import { commitStage } from '../../features/fighters/stage'
+import { clearAt, touched } from '../../features/plan/composables/usePlan'
 import { curOf, skinOf } from '../../features/plan/helpers/lookup'
 import { keyOf, planEntries, planVid, state } from '../../features/plan/services/sync'
-import { SSBU, type PlanRow } from '../../shared/helpers/ssbu'
-import { currentName, thumbOf } from '../../shared/helpers/skins'
+import { PulseKind } from '../../features/fighters/enums/PulseKind'
+import { SSBU, type PlanRow, type StageChoice } from '../../shared/helpers/ssbu'
+import { coverOf, currentName } from '../../shared/helpers/skins'
 import { trajeName } from '../../shared/helpers/text'
 
 const SLOTS = [0, 1, 2, 3, 4, 5, 6, 7]
@@ -19,13 +23,30 @@ export interface Cell {
   next: { name: string, img: string | null, vid: string } | null
 }
 
+const gridLabel = (name: string, chosen: boolean, other: number | null) => {
+  if (chosen) return name + ', en Nueva'
+  if (other !== null) return name + ', ya está en ' + trajeName(other)
+
+  return name
+}
+
 export const useFighterPage = () => {
+  // Pulso al elegir (de este dispositivo) y halo cuando alguien cambia un traje en vivo.
+  const pulse = reactive<Record<number, PulseKind>>({})
+
+  let timers: number[] = []
+  let baseline = ''
+  let baseCode = ''
+
   const model = computed(() => {
     tick.value
+
     const code = route.value.code
     const fighter = fighterOf(code)
     const slot = slotOf()
+
     if (!fighter) return { fighter: null, code, slot, cells: [] as Cell[], rows: [], total: 0 }
+
     const usable = !fighter.mii
 
     const cells: Cell[] = SLOTS.map((n) => {
@@ -34,7 +55,7 @@ export const useFighterPage = () => {
       const original = cur?.kind === 'original'
       const vid = usable ? (planVid(code, n) as string | null) : null
       const skin = vid ? skinOf(vid) : null
-      const next = vid ? { name: skin ? skin.name : 'Skin sin nombre', img: thumbOf(skin), vid } : null
+      const next = vid ? { name: skin ? skin.name : 'Skin sin nombre', img: coverOf(skin), vid } : null
       const shown = original ? 'original' : name || 'skin sin nombre'
       const label = next ? trajeName(n) + ': ' + shown + ' cambia a ' + next.name : trajeName(n) + ': ' + shown
       return {
@@ -48,60 +69,135 @@ export const useFighterPage = () => {
       }
     })
 
-    // Skins del luchador, buscadas por nombre. Cada una sabe en qué traje está ya.
+    // La cuadrícula solo marca la candidata. El plan no cambia hasta el botón.
     const placed = new Map<string, number>()
-    ;(planEntries() as PlanRow[]).filter((row) => row.code === code).forEach((row) => placed.set(row.vid, row.n))
+    const mine = (planEntries() as PlanRow[]).filter((row) => row.code === code)
+
+    mine.forEach((row) => placed.set(row.vid, row.n))
+
+    const staged = activeCandidate(code, slot)
     const all = usable ? SSBU.catList(state.all, { code }, S.tc) : []
     const rows = all.map(({ p }) => {
       const at = placed.has(p.vid) ? (placed.get(p.vid) as number) : null
-      const chosen = at === slot
-      const other = at !== null && !chosen ? at : null
-      const label = chosen
-        ? p.name + ', elegida para ' + trajeName(slot)
-        : other !== null
-          ? p.name + ', ya está en ' + trajeName(other)
-          : p.name + ', usar en ' + trajeName(slot)
-      return { vid: p.vid, name: p.name, img: thumbOf(p), chosen, other, label, detail: 'Ver detalle de ' + p.name }
+      const chosen = staged ? p.vid === staged.vid : at === slot
+      const other = at !== null && at !== slot ? at : null
+      const label = gridLabel(p.name, chosen, other)
+
+      return { vid: p.vid, name: p.name, img: coverOf(p), chosen, other, label, detail: 'Ver detalle de ' + p.name }
     })
+
     const total = usable ? SSBU.catList(state.all, { code }, SSBU.emptyCat()).length : 0
+
     return { fighter, code, slot, cells, rows, total }
   })
 
   const stage = computed(() => {
     const m = model.value
+
     return m.cells[m.slot] || null
   })
 
-  /** Un toque, una decisión guardada: elegir, o volver a tocar la elegida para quitarla. */
+  const preview = computed(() => {
+    const m = model.value
+    const skin = activeCandidate(m.code, m.slot)
+
+    if (skin) return { name: skin.name, img: coverOf(skin), vid: skin.vid }
+
+    return stage.value && stage.value.next ? stage.value.next : null
+  })
+
+  const choice = computed((): StageChoice => {
+    tick.value
+
+    const m = model.value
+    const skin = activeCandidate(m.code, m.slot)
+    const saved = stage.value ? stage.value.vid : null
+    const placed = skin
+      ? (planEntries() as PlanRow[]).find((row) => row.code === m.code && row.vid === skin.vid && row.n !== m.slot)
+      : null
+
+    return SSBU.stageChoice({
+      slot: m.slot,
+      vid: skin ? skin.vid : null,
+      saved,
+      elsewhere: placed ? placed.n : null,
+      withdrawn: !!(skin && skin.withdrawn),
+      mii: !!(m.fighter && m.fighter.mii) || !!(skin && skin.mii),
+      incompatible: !!(skin && skin.wifi_status === 'incompatible'),
+    })
+  })
+
+  const skinAt = (vid: string) => {
+    const entry = (state.idx as Record<string, { p: Skin }>)[vid]
+
+    return entry ? entry.p : null
+  }
+
+  /** La cuadrícula deja la skin en Nueva. No escribe el plan. */
   const pick = (vid: string) => {
     const m = model.value
-    if (!m.fighter) return
-    const row = m.rows.find((item) => item.vid === vid)
-    if (!row) return
-    if (row.chosen) {
-      clearAt(m.code, m.slot)
-      return
-    }
-    // Una skin no puede estar en dos trajes a la vez: se abre su detalle, que ofrece ir al otro traje.
-    if (row.other !== null) {
-      openSkin(m.code, m.slot, vid)
-      return
-    }
-    proposeAt(m.code, m.slot, vid)
+    const skin = skinAt(vid)
+
+    if (!m.fighter || !skin) return
+
+    setCandidate(m.code, m.slot, skin)
   }
 
-  const openDetail = (vid: string) => openSkin(model.value.code, model.value.slot, vid)
-  const openStage = () => {
-    const cell = stage.value
-    if (cell && cell.next) openDetail(cell.next.vid)
+  const openDetail = (vid: string) => {
+    const m = model.value
+    const skin = skinAt(vid)
+
+    if (skin) setCandidate(m.code, m.slot, skin)
+
+    openSkin(m.code, m.slot, vid)
   }
+
+  const commit = () => commitStage(model.value.code, model.value.slot, choice.value)
+
+  const applyHandoff = (code: string, slot: number) => {
+    const vid = consumeHandoff(code, slot)
+
+    if (!vid) return false
+
+    const skin = skinOf(vid)
+
+    if (skin) setCandidate(code, slot, skin)
+
+    return true
+  }
+
+  const openStage = () => {
+    const shown = preview.value
+
+    if (shown) openDetail(shown.vid)
+  }
+
   const clear = (n: number) => clearAt(model.value.code, n)
 
-  /* Pulso al elegir (de este dispositivo) y halo cuando alguien cambia un traje en vivo. */
-  const pulse = reactive<Record<number, 'local' | 'live'>>({})
-  const timers: number[] = []
-  let baseline = ''
-  let baseCode = ''
+  watch(
+    () => model.value.code + ':' + model.value.slot,
+    (key, prev) => {
+      if (!prev || key === prev) return
+
+      const [code, slotText] = key.split(':')
+      const slot = Number(slotText)
+
+      if (!applyHandoff(code, slot)) clearCandidate()
+    },
+  )
+
+  watch(
+    () => (model.value.fighter ? model.value.code + ':' + model.value.slot : ''),
+    (key) => {
+      if (!key) return
+
+      const [code, slotText] = key.split(':')
+
+      applyHandoff(code, Number(slotText))
+    },
+    { immediate: true },
+  )
+
   watch(
     () => model.value.cells.map((cell) => cell.vid || '').join('|') + '@' + model.value.code,
     (snapshot) => {
@@ -109,19 +205,28 @@ export const useFighterPage = () => {
       const was = baseline.split('|')
       const now = model.value.cells.map((cell) => cell.vid || '')
       const same = baseCode === code && baseline !== ''
+
       baseline = snapshot.split('@')[0]
       baseCode = code
+
       if (!same) return
+
       now.forEach((vid, n) => {
         if (vid === (was[n] || '')) return
+
         const mine = Date.now() - (touched[keyOf(code, n)] || 0) < 3000
-        pulse[n] = mine ? 'local' : 'live'
+
+        pulse[n] = mine ? PulseKind.Local : PulseKind.Live
         timers.push(window.setTimeout(() => { delete pulse[n] }, mine ? 320 : 640))
       })
     },
     { immediate: true },
   )
-  onBeforeUnmount(() => timers.forEach((id) => window.clearTimeout(id)))
 
-  return { model, stage, pulse, pick, openDetail, openStage, clear, selectSlot, swap, trajeName }
+  onBeforeUnmount(() => {
+    timers.forEach((id) => window.clearTimeout(id))
+    clearCandidate()
+  })
+
+  return { model, stage, preview, choice, pulse, pick, openDetail, openStage, commit, clear, selectSlot, swap, trajeName }
 }

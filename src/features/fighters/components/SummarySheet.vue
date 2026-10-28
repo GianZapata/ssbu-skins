@@ -4,7 +4,7 @@ import { QBtn, QDialog, QIcon } from 'quasar'
 import AppImg from '../../../components/AppImg.vue'
 import { back, fighterOf, route, swap, tick } from '../../../composables/useApp'
 import { useDesktop } from '../../../composables/useDesktop'
-import { clearAt, planGroups } from '../../plan/composables/usePlan'
+import { clearAt, downloadPlan, planGroups } from '../../plan/composables/usePlan'
 import { curOf, skinOf } from '../../plan/helpers/lookup'
 import { currentName, thumbOf } from '../../../shared/helpers/skins'
 import { trajeName } from '../../../shared/helpers/text'
@@ -70,6 +70,7 @@ const goTo = (code: string, n: number) => {
       <div class="sheet__grab" aria-hidden="true"></div>
       <div class="sheet__head">
         <h2 class="sheet__h">Elegidas</h2>
+        <q-btn flat no-caps class="hdr-btn" label="Exportar" data-export="1" @click="downloadPlan" />
         <q-btn flat round padding="0" class="icon-btn" icon="close" aria-label="Cerrar" @click="close" />
       </div>
 
@@ -87,9 +88,9 @@ const goTo = (code: string, n: number) => {
           </div>
           <div v-for="row in group.rows" :key="row.code + '_' + row.n" class="srow">
             <button type="button" class="srow__go" :aria-label="row.label" @click="goTo(row.code, row.n)">
-              <span class="srow__from"><AppImg :src="row.fromImg" /></span>
+              <span class="srow__from"><AppImg :src="row.fromImg" fit="contain" /></span>
               <q-icon name="east" size="18px" class="srow__arrow" aria-hidden="true" />
-              <span class="srow__to"><AppImg :src="row.toImg" /></span>
+              <span class="srow__to"><AppImg :src="row.toImg" fit="contain" /></span>
               <span class="srow__txt">
                 <span class="srow__t">{{ row.t }}</span>
                 <span class="srow__new">{{ row.to }}</span>

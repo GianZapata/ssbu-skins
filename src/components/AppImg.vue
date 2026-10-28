@@ -6,12 +6,14 @@ interface AppImgProps {
   src?: string | null
   alt?: string
   fit?: 'cover' | 'contain'
+  srcset?: string
+  sizes?: string
   eager?: boolean
   /** Si se indica, una foto rota muestra "Reintentar" en lugar de solo el marcador. */
   retry?: boolean
 }
 
-const props = withDefaults(defineProps<AppImgProps>(), { src: null, alt: '', fit: 'cover', eager: false, retry: false })
+const props = withDefaults(defineProps<AppImgProps>(), { src: null, alt: '', fit: 'cover', srcset: undefined, sizes: undefined, eager: false, retry: false })
 const failed = ref(false)
 const attempt = ref(0)
 
@@ -33,6 +35,8 @@ const retryLoad = () => {
       :src="props.src"
       :alt="props.alt"
       :fit="props.fit"
+      :srcset="props.srcset || undefined"
+      :sizes="props.srcset ? props.sizes : undefined"
       :loading="props.eager ? 'eager' : 'lazy'"
       no-spinner
       no-transition

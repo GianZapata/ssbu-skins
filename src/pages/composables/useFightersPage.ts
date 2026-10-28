@@ -1,12 +1,9 @@
 import { computed, ref } from 'vue'
 import type { Fighter } from '../../boot'
-import { go, tick } from '../../composables/useApp'
-import { changesOf, skinOf } from '../../features/plan/helpers/lookup'
-import { countChosen } from '../../features/plan/composables/usePlan'
-import { planEntries, state } from '../../features/plan/services/sync'
-import { thumbOf } from '../../shared/helpers/skins'
+import { tick } from '../../composables/useApp'
+import { changesOf } from '../../features/plan/helpers/lookup'
+import { state } from '../../features/plan/services/sync'
 import { initialsOf, norm } from '../../shared/helpers/text'
-import type { PlanRow } from '../../shared/helpers/ssbu'
 
 /** Se conserva al volver desde un luchador. */
 export const fighterQuery = ref('')
@@ -29,18 +26,5 @@ export const useFightersPage = () => {
       })
   })
 
-  /** Barra "Elegidas": total y hasta tres miniaturas de lo último que aparece en el plan. */
-  const picked = computed(() => {
-    tick.value
-    const total = countChosen()
-    const thumbs = (planEntries() as PlanRow[])
-      .map((row) => thumbOf(skinOf(row.vid)))
-      .filter((src): src is string => !!src)
-      .slice(0, 3)
-    return { total, thumbs }
-  })
-
-  const openSummary = () => go('#/cambios')
-
-  return { loading, rows, picked, openSummary }
+  return { loading, rows }
 }

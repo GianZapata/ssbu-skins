@@ -14,6 +14,13 @@ export interface CatState {
   avail: boolean
 }
 
+export interface StageChoice {
+  kind: 'use' | 'replace' | 'clear' | 'goto' | 'none'
+  label: string
+  line: string
+  other: number | null
+}
+
 export interface PlanRow {
   code: string
   n: number
@@ -53,6 +60,17 @@ export interface Domain {
   clearOp: (code: string, slot: number, prev: string | null) => Op | null
   curOf: (code: string, slot: number, ctx: unknown) => Current | null
   catList: (rows: unknown[], ctx: { code: string } | null, st: CatState) => Array<{ f: Fighter, p: Skin }>
+  stageChoice: (input: {
+    slot: number
+    vid: string | null
+    saved: string | null
+    elsewhere: number | null
+    withdrawn: boolean
+    mii: boolean
+    incompatible: boolean
+  }) => StageChoice
+  seriesOf: (code: string) => string
+  seriesLabel: (id: string) => string
   isAlt: (skin: Skin) => boolean
   onlineOf: (skin: Skin) => [string, string]
   FILTER_KEYS: string[]

@@ -1,10 +1,11 @@
-import { nextTick } from 'vue'
+import { nextTick, ref } from 'vue'
 import type { Fighter, Skin } from '../../../boot'
 import { bump, fighterOf, S, scrollMem, route } from '../../../composables/useApp'
 import { openGallery } from '../../gallery/composables/useGallery'
 import { SSBU, type PlanRow } from '../../../shared/helpers/ssbu'
 import { curOf } from '../helpers/lookup'
 import {
+  addNote,
   bind,
   classify,
   enqueue,
@@ -12,6 +13,7 @@ import {
   fb,
   flush,
   keyOf,
+  markNote,
   paintSync,
   planEntries,
   planVid,
@@ -23,7 +25,7 @@ import {
 /** Última vez que ESTE dispositivo cambió cada traje; sirve para distinguir un cambio en vivo de otra persona. */
 export const touched: Record<string, number> = {}
 
-/** Una elección por toque: se guarda al instante, sin paso de confirmación. Todo se puede revertir. */
+/** El botón del escenario guarda. La cuadrícula no llama aquí. */
 export const proposeAt = (code: string, slot: number, vid: string) => {
   if (!SSBU.validSlot(slot)) return false
   const prev = planVid(code, slot) as string | null
@@ -71,6 +73,114 @@ export const planGroups = () => {
 
 export const countChosen = () => (planEntries() as PlanRow[]).length
 
+export interface NoteItem {
+  id: string
+  text: string
+  done: boolean
+  at: number
+}
+
+export const addRequest = (text: string) => addNote(text)
+export const toggleRequest = (id: string, done: boolean) => markNote(id, done)
+
+export interface Notice {
+  text: string
+  label: string
+  fn: (() => void) | null
+}
+
+export const notice = ref<Notice | null>(null)
+
+const showNotice = (text: string, action?: { label?: string, fn?: () => void } | null) => {
+  notice.value = {
+    text,
+    label: action && action.label ? action.label : '',
+    fn: action && action.fn ? action.fn : null,
+  }
+  bump()
+}
+
+export const dismissNotice = () => { notice.value = null }
+
+export const exportPlan = () => {
+  const meta = globalThis.META
+  const inventory = state.INV as { meta?: Record<string, unknown> } | null
+  const header = (inventory && inventory.meta) || {}
+  const entries = planEntries() as PlanRow[]
+  const history = (state.HIST as Array<{ code: string, slot: number, from: string | null, to: string | null, kind: string, t: number | null }>).slice(0, 50)
+  const status = state.STATUS as Record<string, { status?: string, result?: string | null }>
+  return {
+    schema: 3,
+    generated_at: new Date().toISOString(),
+    catalog: meta.generated || null,
+    inventory: {
+      version: header.version ?? null,
+      profile: header.profile ?? null,
+      verification: header.verification ?? null,
+      scanned_at: header.scanned_at ?? null,
+      sources: header.sources ?? null,
+    },
+    target: { game: 'Super Smash Bros. Ultimate', version: '13.0.5', loader: 'ARCropolis 4.1.1' },
+    changes: entries.map((entry) => {
+      const fighter = fighterOf(entry.code)
+      const current = curOf(entry.code, entry.n)
+      const skin = (state.idx as Record<string, { p: Skin }>)[entry.vid]?.p
+      const row = status[entry.vid] || {}
+      return {
+        fighter: fighter ? fighter.name : entry.code,
+        roster_no: entry.code,
+        traje: entry.n + 1,
+        slot: 'c0' + entry.n,
+        current: { kind: current ? current.kind : null, name: current ? current.name : null, source: current?.src || null, confirmed: false },
+        user_destination: { traje: entry.n + 1, slot: 'c0' + entry.n, priority: 'el destino elegido manda sobre dest_hint' },
+        replaces: { kind: current ? current.kind : null, name: current ? current.name : null, vid: current?.vid || null },
+        relocation: skin && skin.native && skin.native.length
+          ? { native_slots: skin.native.map((slot) => 'c0' + slot), needs_move: !skin.native.includes(entry.n), checked: false }
+          : null,
+        proposal: skin ? {
+          vid: skin.vid,
+          role: SSBU.isAlt(skin) ? 'alternativa' : 'recomendada',
+          variant: skin.variant || null,
+          mod_id: skin.id,
+          name: skin.name,
+          author: skin.author,
+          url: skin.url,
+          online: SSBU.onlineOf(skin)[1],
+          conditions: skin.conditions || null,
+          dependencies: skin.deps || null,
+          conflicts: skin.conflicts || null,
+          native_slots: skin.slots_orig || null,
+          dest_hint: skin.dest || null,
+          pack: skin.pack,
+          withdrawn: !!skin.withdrawn,
+        } : null,
+        missing_in_catalog: !skin,
+        vid: entry.vid,
+        status: row.status || 'wanted',
+        result: row.result || null,
+      }
+    }),
+    history: history.map((row) => ({
+      at: row.t ? new Date(row.t).toISOString() : null,
+      roster_no: row.code,
+      traje: row.slot + 1,
+      from: row.from,
+      to: row.to,
+      kind: row.kind,
+    })),
+  }
+}
+
+export const downloadPlan = () => {
+  const body = JSON.stringify(exportPlan(), null, 2)
+  const blob = new Blob([body], { type: 'application/json' })
+  const link = document.createElement('a')
+  link.href = URL.createObjectURL(blob)
+  link.download = 'plan.json'
+  link.click()
+  URL.revokeObjectURL(link.href)
+}
+
 const gU = (file: string, size: string) => {
   const base = globalThis.META.base
   if (size === 'o') return base + '/' + file
@@ -104,6 +214,7 @@ const publish = () => {
   host.planEntries = planEntries
   host.planVid = planVid
   host.proposeAt = proposeAt
+  host.buildExport = exportPlan
   host.curOf = curOf
   host.isAlt = (skin: Skin) => SSBU.isAlt(skin)
   host.paintSync = paintSync
@@ -127,6 +238,7 @@ const publish = () => {
   Object.defineProperty(window, 'F', { configurable: true, get: () => state.F })
   Object.defineProperty(window, 'all', { configurable: true, get: () => state.all })
   Object.defineProperty(window, 'INV', { configurable: true, get: () => state.INV, set: (value) => { state.INV = value } })
+  Object.defineProperty(window, 'NOTES', { configurable: true, get: () => state.NOTES })
 }
 
 export const bootPlan = () => {
@@ -134,10 +246,10 @@ export const bootPlan = () => {
   void startDb()
 }
 
-/* Sin avisos emergentes: la interfaz cambia sola cuando cambia el plan. */
 bind({
   render: () => bump(),
   rebuild: () => bump(),
   paint: () => bump(),
+  toast: showNotice,
 })
 publish()

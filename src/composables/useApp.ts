@@ -6,6 +6,9 @@ import { SSBU } from '../shared/helpers/ssbu'
 /*
  * Rutas (hash):
  *   #/luchadores                      Luchadores
+ *   #/catalogo                        Todas las skins, agrupadas
+ *   #/instaladas                      Inventario revisado
+ *   #/notas                           Pedidos de búsqueda
  *   #/luchador/:codigo[/:traje]       Luchador (Traje 1 a 8)
  *   #/apariencia/:vid?para=cod_n      Detalle de skin: hoja sobre Luchador
  *   #/cambios                         Resumen "Elegidas": hoja sobre Luchadores
@@ -104,10 +107,14 @@ const parse = (hash: string): AppRoute => {
     return blank({ v: 'ficha', vid: seg.slice(1).join('/'), code: para ? para.code : '', n: para ? para.n : 0, q, key })
   }
   if (view === 'cambios') return blank({ v: 'cambios', q, key })
+  if (view === 'catalogo' || view === 'instaladas' || view === 'notas') return blank({ v: view, q, key })
   return blank({ v: view === 'luchadores' ? 'luchadores' : 'redirect', q, key })
 }
 
 const isFighterView = (r: AppRoute) => r.v === 'luchador' || r.v === 'traje' || r.v === 'ficha'
+
+/** Ficha abierta desde el catálogo: la página de abajo sigue siendo el catálogo. */
+export const underCatalog = (r: AppRoute) => r.v === 'ficha' && r.q.de === 'catalogo'
 
 /** Luchador abierto (también cuando la hoja de detalle está encima). */
 export const onFighter = () => {
@@ -123,12 +130,19 @@ export const slotOf = () => {
 
 export const titleOf = () => {
   const current = route.value
+
   if (current.v === 'cambios') return 'Elegidas'
+  if (current.v === 'catalogo' || underCatalog(current)) return 'Catálogo'
+  if (current.v === 'instaladas') return 'Instaladas'
+  if (current.v === 'notas') return 'Notas'
   if (isFighterView(current)) return fighterOf(current.code)?.name || 'Luchador'
   return 'Luchadores'
 }
 
-export const showBack = () => isFighterView(route.value)
+export const showBack = () => {
+  const view = route.value.v
+  return isFighterView(route.value) || view === 'catalogo' || view === 'instaladas' || view === 'notas'
+}
 
 /** Navega y añade una entrada al historial. */
 export const go = (hash: string) => {
@@ -204,7 +218,7 @@ export const back = () => {
     swap('#/luchador/' + enc(current.code) + '/' + (current.n + 1))
     return
   }
-  if (current.v === 'cambios') {
+  if (current.v === 'cambios' || current.v === 'catalogo' || current.v === 'instaladas' || current.v === 'notas') {
     swap('#/luchadores')
     return
   }
@@ -216,8 +230,8 @@ export const selectSlot = (slot: number) => {
   swap('#/luchador/' + enc(route.value.code) + '/' + (slot + 1))
 }
 
-export const openSkin = (code: string, slot: number, vid: string) => {
-  go('#/apariencia/' + enc(vid) + '?para=' + enc(code + '_' + slot))
+export const openSkin = (code: string, slot: number, vid: string, from = '') => {
+  go('#/apariencia/' + enc(vid) + '?para=' + enc(code + '_' + slot) + (from ? '&de=' + from : ''))
 }
 
 export const start = () => {
@@ -242,6 +256,6 @@ export const start = () => {
   if (!route.value.key) applyHash(true)
 }
 
-export const portraitOf = () => (isFighterView(route.value) ? fighterOf(route.value.code)?.portrait || '' : '')
+export const portraitOf = () => (isFighterView(route.value) && !underCatalog(route.value) ? fighterOf(route.value.code)?.portrait || '' : '')
 
 applyHash(true)
