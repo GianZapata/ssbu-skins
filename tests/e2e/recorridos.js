@@ -47,13 +47,18 @@ module.exports = async (b, base) => {
   ok(await A.locator('[data-act="use"], [data-act="replace"]').count() === 1, 'el toque deja el botón del escenario');
   ok(await A.evaluate(n => planEntries().length === n, before), 'un toque no escribe el plan');
   const label = await A.locator('[data-act]').first().textContent();
-  ok(/Añadir al plan|Reemplazar en el plan/.test(label || ''), 'el botón nombra la acción del plan');
+  ok(/Guardar elección/.test(label || ''), 'el botón confirma la elección');
   ok(/Mario · Traje 3/.test(await A.textContent('main') || ''), 'la acción muestra el traje');
   await A.locator('[data-act="use"], [data-act="replace"]').first().click();
   ok(await until(A, () => PEND.length === 0, null, 15000), 'el botón guarda la propuesta');
+  ok(/Elección guardada/.test(await A.locator('main').textContent() || ''), 'la confirmación llega después de guardar');
+  const kept = await A.evaluate(() => planVid('01', 2));
+  await A.reload();
+  ok(await until(A, (vid) => planVid('01', 2) === vid && !!vid, kept, 15000), 'recargar conserva la elección');
+  await A.waitForSelector('[data-skin]');
 
   await A.locator('[data-skin]').nth(1).click();
-  ok(/Reemplazar en el plan/.test(await A.locator('[data-act]').first().textContent() || ''), 'reemplazar es explícito');
+  ok(await A.locator('[data-act="replace"]').count() === 1 && /Guardar elección/.test(await A.locator('[data-act]').first().textContent() || ''), 'reemplazar también se confirma con Guardar elección');
   const used = await A.evaluate(() => planVid('01', 2));
   await A.goto(base + '#/luchador/01/4');
   await A.waitForSelector('[data-skin="' + used + '"]');
@@ -96,8 +101,8 @@ module.exports = async (b, base) => {
   ok(await B.getByText('DBZ').count() === 0, 'la nota no aparece en instaladas');
 
   await A.goto(base + '#/cambios');
-  await A.waitForSelector('[data-export]');
-  ok(await A.getByRole('button', { name: 'Exportar' }).count() === 1, 'Elegidas exporta');
+  await A.waitForSelector('[aria-label="Elegidas"]');
+  ok(await A.getByRole('button', { name: 'Exportar' }).count() === 0 && (await A.evaluate(() => buildExport())).schema === 3, 'Elegidas no exporta y el contrato interno sigue');
   await A.keyboard.press('Escape');
 
   await A.goto(base + '#/luchador/01/1');

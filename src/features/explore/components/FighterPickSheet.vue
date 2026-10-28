@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { computed } from 'vue'
 import { QBtn, QDialog, QIcon, QInput } from 'quasar'
 import AppImg from '../../../components/AppImg.vue'
 import { useFighterPickSheet, type PickerFighter } from '../composables/useFighterPickSheet'
@@ -8,6 +9,8 @@ interface FighterPickSheetProps {
   rows: PickerFighter[]
   selected: string
   total: number
+  one: string
+  many: string
   emptyLabel: string
 }
 
@@ -20,6 +23,10 @@ const props = defineProps<FighterPickSheetProps>()
 const emit = defineEmits<FighterPickSheetEmits>()
 
 const { query, rows } = useFighterPickSheet(props)
+
+const totalText = computed(() => props.total + ' ' + (props.total === 1 ? props.one : props.many))
+
+const countOf = (count: number) => count + ' ' + (count === 1 ? props.one : props.many)
 </script>
 
 <template>
@@ -47,7 +54,7 @@ const { query, rows } = useFighterPickSheet(props)
         </div>
         <button type="button" class="pick-all" :aria-pressed="!props.selected" @click="emit('pick', '')">
           <span>Todos los personajes</span>
-          <b>{{ props.total }}</b>
+          <span class="pick-all__n">{{ totalText }}</span>
         </button>
         <div class="fgrid pick-grid">
           <button
@@ -57,7 +64,7 @@ const { query, rows } = useFighterPickSheet(props)
             class="ft"
             :class="{ 'ft--empty': row.count === 0 }"
             :aria-pressed="row.code === props.selected"
-            :aria-label="row.name + ', ' + row.count"
+            :aria-label="row.name + ', ' + countOf(row.count)"
             :data-fighter="row.code"
             @click="emit('pick', row.code)"
           >

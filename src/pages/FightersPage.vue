@@ -46,7 +46,7 @@ const { loading, rows } = useFightersPage()
         <span class="ft__img">
           <AppImg v-if="row.fighter.portrait" :src="row.fighter.portrait" fit="contain" eager />
           <span v-else class="ft__ph" aria-hidden="true"><span>{{ row.initial }}</span></span>
-          <span v-if="row.count" class="ft__badge" aria-hidden="true">{{ row.count }}</span>
+          <span v-if="row.count" class="ft__badge ft__badge--chosen" aria-hidden="true">{{ row.count }}</span>
         </span>
         <span class="ft__name">{{ row.fighter.name }}</span>
       </a>

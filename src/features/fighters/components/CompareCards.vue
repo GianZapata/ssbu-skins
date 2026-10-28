@@ -28,7 +28,7 @@ interface CompareCardsEmits {
 const props = defineProps<CompareCardsProps>()
 const emit = defineEmits<CompareCardsEmits>()
 
-const { saving, saved } = useSaveStatus()
+const { saving, saved, savedHere } = useSaveStatus()
 </script>
 
 <template>
@@ -66,8 +66,9 @@ const { saving, saved } = useSaveStatus()
     <p v-if="props.hint" class="cmp__line">{{ props.hint }}</p>
     <p v-if="props.choice.line" class="cmp__line">{{ props.choice.line }}</p>
     <p v-if="props.place && props.choice.kind !== 'none'" class="cmp__place">{{ props.place }}</p>
-    <p v-if="saving" class="cmp__line" role="status">Guardando cambios…</p>
-    <p v-else-if="saved" class="cmp__line" role="status">Cambios guardados</p>
+    <p v-if="saving" class="cmp__line" role="status">Guardando…</p>
+    <p v-else-if="saved" class="cmp__line" role="status">Elección guardada</p>
+    <p v-else-if="savedHere" class="cmp__line" role="status">Guardada en este dispositivo</p>
     <q-btn
       v-if="props.choice.kind !== 'none'"
       unelevated
@@ -78,6 +79,5 @@ const { saving, saved } = useSaveStatus()
       :data-goto-slot="props.choice.other === null ? undefined : props.choice.other"
       @click="emit('act')"
     />
-    <p v-if="props.choice.kind === 'use' || props.choice.kind === 'replace'" class="cmp__note">Se añadirá al plan compartido. La instalación se realiza después.</p>
   </section>
 </template>

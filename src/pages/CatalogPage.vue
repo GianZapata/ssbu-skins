@@ -23,6 +23,7 @@ const choose = (code: string) => hide(() => selectFighter(code))
       <ExploreBar
         v-model="catalogQuery"
         :loading="loading"
+        section="Catálogo"
         :fighter-name="fighter ? fighter.name : 'Todos los personajes'"
         :fighter-portrait="fighter ? fighter.portrait || null : null"
         :filtered="hasFilters"
@@ -85,6 +86,8 @@ const choose = (code: string) => hide(() => selectFighter(code))
       :rows="picker"
       :selected="fighterCode"
       :total="pickerTotal"
+      one="apariencia"
+      many="apariencias"
       empty-label="Sin skins"
       @close="hide()"
       @pick="choose"

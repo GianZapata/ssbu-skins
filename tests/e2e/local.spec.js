@@ -10,7 +10,7 @@ test('el toque no escribe el plan y el botón nombra el traje', async ({ page })
   await page.waitForSelector('[data-skin]');
   const before = await page.evaluate(() => window.planEntries().length);
   await page.locator('[data-skin]').first().click();
-  await expect(page.locator('[data-act]')).toHaveText(/Añadir al plan|Reemplazar en el plan/);
+  await expect(page.locator('[data-act]')).toHaveText('Guardar elección');
   await expect(page.getByText('Mario · Traje 3')).toBeVisible();
   await expect.poll(() => page.evaluate(() => window.planEntries().length)).toBe(before);
 });
@@ -109,7 +109,8 @@ test('el plan conserva el luchador y su candidata', async ({ page }) => {
     document.body.appendChild(link);
     link.click();
   });
-  await expect(page.getByRole('dialog', { name: 'Plan' })).toBeVisible();
+  await expect(page.getByRole('dialog', { name: 'Elegidas' })).toBeVisible();
+  await expect(page.getByRole('button', { name: 'Exportar' })).toHaveCount(0);
   await expect(page.locator('[data-skin="' + vid + '"][aria-pressed="true"]')).toHaveCount(1);
 });
 
@@ -130,7 +131,7 @@ test('el catálogo pide elegir traje y no escribe el plan', async ({ page }) => 
   await page.getByRole('button', { name: 'Dry Bones (v3.1 Update)' }).click();
   const before = await page.evaluate(() => JSON.stringify(window.planEntries()));
   await expect(page.getByRole('button', { name: 'Elegir traje' })).toBeVisible();
-  await expect(page.getByRole('button', { name: /Añadir al plan|Reemplazar en el plan/ })).toHaveCount(0);
+  await expect(page.getByRole('button', { name: 'Guardar elección' })).toHaveCount(0);
   await page.getByRole('button', { name: 'Elegir traje' }).click();
   await expect(page).toHaveURL(/#\/luchador\/01\/1/);
   await expect.poll(() => page.evaluate(() => JSON.stringify(window.planEntries()))).toBe(before);
@@ -181,6 +182,31 @@ test('Atrás cierra el selector de personaje', async ({ page }) => {
   await expect(page).toHaveURL(/#\/catalogo$/);
 });
 
+test('al bajar, la lista y el personaje caben en la barra que ya estaba', async ({ page }) => {
+  await page.setViewportSize({ width: 390, height: 844 });
+  await page.goto('/#/catalogo');
+  await page.waitForSelector('.sgrid');
+  await page.getByRole('button', { name: 'Personaje: Todos los personajes' }).click();
+  await page.getByRole('button', { name: /^Mario, / }).click();
+  await expect(page.getByRole('dialog', { name: 'Personaje' })).toBeHidden();
+  const before = await page.locator('.search-row').boundingBox();
+  await page.evaluate(() => window.scrollTo(0, 1200));
+  await expect(page.getByRole('button', { name: 'Personaje: Catálogo · Mario' })).toBeVisible();
+  const after = await page.locator('.search-row').boundingBox();
+  expect(after.height).toBeLessThanOrEqual(before.height + 1);
+});
+
+test('volver del detalle conserva la búsqueda', async ({ page }) => {
+  await page.setViewportSize({ width: 390, height: 844 });
+  await page.goto('/#/catalogo');
+  await page.getByLabel('Buscar skin').fill('Dry');
+  await page.getByRole('button', { name: /Dry Bones/ }).first().click();
+  const before = await page.evaluate(() => window.planEntries().length);
+  await page.getByRole('button', { name: 'Cerrar' }).click();
+  await expect(page.getByLabel('Buscar skin')).toHaveValue('Dry');
+  await expect.poll(() => page.evaluate(() => window.planEntries().length)).toBe(before);
+});
+
 test('cambiar el tamaño conserva la tarjeta visible', async ({ page }) => {
   await page.setViewportSize({ width: 390, height: 844 });
   await page.goto('/#/catalogo');
@@ -195,7 +221,7 @@ test('cambiar el tamaño conserva la tarjeta visible', async ({ page }) => {
     return { key: card.getAttribute('data-keep') || '', top: card.getBoundingClientRect().top };
   });
   expect(before.key).not.toBe('');
-  await page.getByRole('button', { name: 'Vista compacta' }).click();
+  await page.getByRole('button', { name: 'Ampliar' }).click();
   await expect.poll(() => page.evaluate(({ key, top }) => {
     const card = document.querySelector('[data-keep="' + key + '"]');
     if (!card) return 999;

@@ -143,14 +143,16 @@ test('catList busca solo el nombre de la skin', () => {
   assert.equal(SSBU.catList(all, null, st('Dry')).length, 1);
 });
 
-test('stageChoice nombra el plan, Quitar o Ir, y no copia', () => {
+test('stageChoice confirma con Guardar elección y no copia', () => {
   const base = { slot: 2, vid: null, saved: null, elsewhere: null, withdrawn: false, mii: false, incompatible: false };
   assert.equal(SSBU.stageChoice({ ...base, vid: '01:a' }).kind, 'use');
-  assert.equal(SSBU.stageChoice({ ...base, vid: '01:a' }).label, 'Añadir al plan');
+  assert.equal(SSBU.stageChoice({ ...base, vid: '01:a' }).label, 'Guardar elección');
   assert.equal(SSBU.stageChoice({ ...base, vid: '01:a' }).line, '');
-  assert.equal(SSBU.stageChoice({ ...base, vid: '01:b', saved: '01:a' }).label, 'Reemplazar en el plan');
+  const replaced = SSBU.stageChoice({ ...base, vid: '01:b', saved: '01:a' });
+  assert.equal(replaced.kind, 'replace');
+  assert.equal(replaced.label, 'Guardar elección');
   assert.equal(SSBU.stageChoice({ ...base, saved: '01:a' }).kind, 'clear');
-  assert.equal(SSBU.stageChoice({ ...base, saved: '01:a' }).label, 'Quitar del plan');
+  assert.equal(SSBU.stageChoice({ ...base, saved: '01:a' }).label, 'Quitar elección');
   const gone = SSBU.stageChoice({ ...base, vid: '01:a', elsewhere: 0 });
   assert.equal(gone.kind, 'goto');
   assert.equal(gone.other, 0);

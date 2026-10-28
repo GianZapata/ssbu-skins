@@ -219,7 +219,7 @@ export const slotOf = () => {
 export const titleOf = () => {
   const current = route.value
 
-  if (current.v === 'cambios') return 'Plan'
+  if (current.v === 'cambios') return 'Elegidas'
   if (current.v === 'catalogo' || (current.v === 'ficha' && viewRoute().v === 'catalogo')) return 'Catálogo'
   if (current.v === 'ficha' && viewRoute().v === 'instaladas') return 'Instaladas'
   if (current.v === 'instaladas') return 'Instaladas'

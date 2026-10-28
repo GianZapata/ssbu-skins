@@ -252,6 +252,6 @@ bind({
   rebuild: () => bump(),
   paint: () => bump(),
   toast: showNotice,
-  noteSaved: () => markSaved(),
+  noteSaved: (op: unknown) => markSaved(!op),
 })
 publish()

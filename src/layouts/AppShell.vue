@@ -77,8 +77,8 @@ onMounted(() => {
           flat
           no-caps
           class="hdr-btn"
-          :label="'Plan · ' + chosen"
-          :aria-label="'Ver el plan, ' + chosen"
+          :label="'Elegidas · ' + chosen"
+          :aria-label="'Ver elegidas, ' + chosen"
           @click="go('#/cambios')"
         />
       </q-toolbar>

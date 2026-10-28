@@ -5,7 +5,7 @@ import { useSaveStatus } from '../../plan/saveStatus'
 import { useSkinSheet } from '../composables/useSkinSheet'
 
 const { desktop, slide, m, open, close, act, chooseCostume, zoom } = useSkinSheet()
-const { saving, saved } = useSaveStatus()
+const { saving, saved, savedHere } = useSaveStatus()
 </script>
 
 <template>
@@ -88,9 +88,9 @@ const { saving, saved } = useSaveStatus()
           @click="act"
         />
         <p v-if="!m.pick && m.choice.kind !== 'none'" class="sheet__place">{{ m.place }}</p>
-        <p v-if="!m.pick && (m.choice.kind === 'use' || m.choice.kind === 'replace')" class="sheet__note">Se añadirá al plan compartido. La instalación se realiza después.</p>
-        <p v-if="saving" class="sheet__line" role="status">Guardando cambios…</p>
-        <p v-else-if="saved" class="sheet__line" role="status">Cambios guardados</p>
+        <p v-if="saving" class="sheet__line" role="status">Guardando…</p>
+        <p v-else-if="saved" class="sheet__line" role="status">Elección guardada</p>
+        <p v-else-if="savedHere" class="sheet__line" role="status">Guardada en este dispositivo</p>
       </div>
     </div>
   </q-dialog>

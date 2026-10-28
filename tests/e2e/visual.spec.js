@@ -55,7 +55,7 @@ test('ficha', async ({ page }) => {
 
 test('cambios', async ({ page }) => {
   await page.goto('/index.html#/cambios');
-  await page.waitForSelector('[data-export]');
+  await page.waitForSelector('[aria-label="Elegidas"]');
   await shot(page, 'cambios');
 });
 

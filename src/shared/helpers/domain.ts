@@ -202,14 +202,14 @@ const SSBU = (() => {
     const saved = o && o.saved ? o.saved : null;
     const vid = o && o.vid ? o.vid : null;
 
-    if (!vid && saved) return { kind: 'clear', label: 'Quitar del plan', line: '', other: null };
+    if (!vid && saved) return { kind: 'clear', label: 'Quitar elección', line: '', other: null };
     if (!vid) return none('');
-    if (saved === vid) return { kind: 'clear', label: 'Quitar del plan', line: '', other: null };
+    if (saved === vid) return { kind: 'clear', label: 'Quitar elección', line: '', other: null };
     const bits = [];
     if (o.incompatible) bits.push('Incompatible online');
     const line = bits.join(' · ');
-    if (saved) return { kind: 'replace', label: 'Reemplazar en el plan', line, other: null };
-    return { kind: 'use', label: 'Añadir al plan', line, other: null };
+    if (saved) return { kind: 'replace', label: 'Guardar elección', line, other: null };
+    return { kind: 'use', label: 'Guardar elección', line, other: null };
   }
 
   function assignBlock(entries, code, slot, vid) {

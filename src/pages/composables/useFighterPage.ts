@@ -63,7 +63,7 @@ export const useFighterPage = () => {
         sel: n === slot,
         vid,
         label,
-        quitar: 'Quitar del plan, ' + trajeName(n),
+        quitar: 'Quitar elección, ' + trajeName(n),
         current: { name, img: cur ? cur.img : null, original },
         next,
       }

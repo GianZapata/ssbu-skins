@@ -32,12 +32,19 @@ export const useGridDensity = () => {
 
     if (!key) return
 
-    nextTick(() => {
+    const place = () => {
       const again = document.querySelector<HTMLElement>('[data-keep="' + CSS.escape(key) + '"]')
 
       if (!again) return
 
-      window.scrollBy(0, again.getBoundingClientRect().top - offset)
+      const delta = again.getBoundingClientRect().top - offset
+
+      if (Math.abs(delta) > 1) window.scrollBy(0, delta)
+    }
+
+    nextTick(() => {
+      place()
+      requestAnimationFrame(() => requestAnimationFrame(place))
     })
   }
 

@@ -4,14 +4,14 @@ import { QBtn, QDialog, QIcon } from 'quasar'
 import AppImg from '../../../components/AppImg.vue'
 import { back, fighterOf, route, swap, tick } from '../../../composables/useApp'
 import { useDesktop } from '../../../composables/useDesktop'
-import { clearAt, downloadPlan, planGroups } from '../../plan/composables/usePlan'
+import { clearAt, planGroups } from '../../plan/composables/usePlan'
 import { useSaveStatus } from '../../plan/saveStatus'
 import { curOf, skinOf } from '../../plan/helpers/lookup'
 import { currentName, thumbOf } from '../../../shared/helpers/skins'
 import { trajeName } from '../../../shared/helpers/text'
 
 const desktop = useDesktop()
-const { saving, saved, local } = useSaveStatus()
+const { saving, saved, savedHere } = useSaveStatus()
 
 const open = computed(() => {
   tick.value
@@ -39,7 +39,7 @@ const groups = computed(() => {
         fromImg: cur ? cur.img : null,
         toImg: thumbOf(skin),
         label: group.fighter.name + ', ' + trajeName(row.n) + ': ' + (shown || 'skin sin nombre') + ' cambia a ' + to,
-        quitar: 'Quitar del plan, ' + trajeName(row.n) + ' de ' + group.fighter.name,
+        quitar: 'Quitar elección, ' + trajeName(row.n) + ' de ' + group.fighter.name,
       }
     }),
   }))
@@ -52,6 +52,8 @@ const shown = computed(() => (open.value ? groups.value : kept.value))
 const empty = computed(() => open.value && !groups.value.length)
 
 const close = () => { if (route.value.v === 'cambios') back() }
+
+const chooseFighter = () => { swap('#/luchadores') }
 
 const goTo = (code: string, n: number) => {
   if (!fighterOf(code)) return
@@ -73,22 +75,21 @@ watch(groups, (value) => { if (value.length) kept.value = value }, { immediate: 
     class="sheet-dialog"
     @update:model-value="(v: boolean) => { if (!v) close() }"
   >
-    <div class="sheet sheet--list" role="dialog" aria-label="Plan">
+    <div class="sheet sheet--list" role="dialog" aria-label="Elegidas">
       <div class="sheet__grab" aria-hidden="true"></div>
       <div class="sheet__head">
-        <h2 class="sheet__h">Plan</h2>
-        <q-btn flat no-caps class="hdr-btn" label="Exportar" data-export="1" @click="downloadPlan" />
+        <h2 class="sheet__h">Elegidas</h2>
         <q-btn flat round padding="0" class="icon-btn" icon="close" aria-label="Cerrar" @click="close" />
       </div>
 
-      <p v-if="saving" class="sheet__line" role="status">Guardando cambios…</p>
-      <p v-else-if="saved" class="sheet__line" role="status">Cambios guardados</p>
-      <p v-else-if="local" class="sheet__line">Solo en este dispositivo</p>
+      <p v-if="saving" class="sheet__line" role="status">Guardando…</p>
+      <p v-else-if="saved" class="sheet__line" role="status">Elección guardada</p>
+      <p v-else-if="savedHere" class="sheet__line" role="status">Guardada en este dispositivo</p>
 
       <div v-if="empty" class="sheet__empty empty" role="status">
         <q-icon name="inventory_2" size="44px" aria-hidden="true" />
         <b>Nada elegido</b>
-        <q-btn unelevated no-caps class="btn-main" label="Elegir luchador" @click="close" />
+        <q-btn unelevated no-caps class="btn-main" label="Elegir luchador" @click="chooseFighter" />
       </div>
 
       <div v-else class="sheet__scroll">
@@ -105,7 +106,7 @@ watch(groups, (value) => { if (value.length) kept.value = value }, { immediate: 
               <span class="srow__txt">
                 <span class="srow__t">{{ row.t }}</span>
                 <span class="srow__new">{{ row.to }}</span>
-                <span v-if="row.from" class="srow__old">{{ row.from }}</span>
+                <span v-if="row.from" class="srow__old">Sustituye a {{ row.from }}</span>
               </span>
             </button>
             <q-btn flat round padding="0" class="srow__x" :aria-label="row.quitar" :data-undo="row.code + '_' + row.n" @click="clearAt(row.code, row.n)">
