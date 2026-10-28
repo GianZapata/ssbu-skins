@@ -2,10 +2,9 @@ import { computed, ref, shallowRef, watch } from 'vue'
 import { back, paraOf, route, skinEntry, swap, tick } from '../../../composables/useApp'
 import { useDesktop } from '../../../composables/useDesktop'
 import { SSBU, type PlanRow, type StageChoice } from '../../../shared/helpers/ssbu'
-import { trajeName } from '../../../shared/helpers/text'
 import { imgsOf, zoomSkin } from '../../plan/composables/usePlan'
 import { planEntries, planVid } from '../../plan/services/sync'
-import { handoffCandidate, setCandidate } from '../candidate'
+import { setCandidate } from '../candidate'
 import { commitStage } from '../stage'
 
 export const useSkinSheet = () => {
@@ -32,18 +31,18 @@ export const useSkinSheet = () => {
 
     if (!value) return
 
-    const moved = commitStage(value.code, value.slot, value.choice)
+    const moved = commitStage(value.code, value.slot, value.choice, value.entry.p)
 
     if (moved && value.choice.kind !== 'goto') close()
   }
 
-  const compareHere = () => {
+  const chooseCostume = () => {
     const value = live.value
 
-    if (!value) return
+    if (!value || !value.pick) return
 
-    handoffCandidate(value.code, value.slot, value.vid)
-    swap('#/luchador/' + encodeURIComponent(value.code) + '/' + (value.slot + 1))
+    setCandidate(value.code, 0, value.entry.p, true)
+    swap('#/luchador/' + encodeURIComponent(value.code) + '/1')
   }
 
   const zoom = (index: number) => {
@@ -57,14 +56,13 @@ export const useSkinSheet = () => {
     if (!value) return
 
     kept.value = value
-    setCandidate(value.code, value.slot, value.entry.p)
   }, { immediate: true })
 
   watch(() => live.value?.vid, () => {
     slide.value = 0
   })
 
-  return { desktop, slide, m, open, close, act, compareHere, zoom }
+  return { desktop, slide, m, open, close, act, chooseCostume, zoom }
 }
 
 const liveOf = () => {
@@ -90,7 +88,7 @@ const liveOf = () => {
     incompatible: entry.p.wifi_status === 'incompatible',
   })
 
-  const compare = r.q.de === 'catalogo' && (choice.kind === 'use' || choice.kind === 'replace')
+  const pick = r.q.de === 'catalogo' && (choice.kind === 'use' || choice.kind === 'replace')
 
   return {
     entry,
@@ -98,8 +96,8 @@ const liveOf = () => {
     slot: para.n,
     vid: r.vid,
     choice,
-    compare,
-    compareLabel: 'Comparar en ' + trajeName(para.n),
+    pick,
+    pickLine: 'Toca otro traje para compararla ahí',
     shots: imgsOf(entry.p),
   }
 }

@@ -91,14 +91,14 @@ function syncInfo(){const n=PEND.length;
  if(dbState==='ok')return ['ok','Guardado ✓'];
  if(dbState==='local')return ['','Solo en este dispositivo'];
  return ['','Conectando…']}
-function paintSync(){try{paint()}catch(e){}const [c,t]=syncInfo(),e=$('sync');if(!e)return;e.className='sync '+c;e.textContent=t;paintSaveErr()}
+function paintSync(){try{paint()}catch(e){}paintSaveErr()}
 function paintSaveErr(){const el=$('saveErr');if(!el)return;const show=syncKind==='service';el.hidden=!show;if(!show)return;const op=PEND[0];const name=op&&op.to&&idx[op.to]?idx[op.to].p.name:'';const n=el.querySelector('[data-err-name]');if(n)n.textContent=name?('Skin que no se pudo guardar: '+name):'La elección sigue aquí. No se guardó.';}
 function fail(where,e){const k=diag(where,e);syncKind=k==='offline'?'offline':'service';if(dbState!=='ok')dbState='err';
  backoff=syncKind==='offline'?15000:Math.min(backoff*2,300000);nextTry=Date.now()+backoff;paintSync();return k}
 function good(){syncKind=null;dbState='ok';lastOkAt=Date.now();lastOk=new Date(lastOkAt).toISOString();backoff=15000;nextTry=0}
 async function flush(){if(flushing||!PEND.length)return;
  if(!FBCFG){// sin base de datos: el plan queda en este dispositivo
-  PEND.forEach(o=>{const k=keyOf(o.code,o.slot);if(o.to)PLAN[k]={vid:o.to};else delete PLAN[k]});PEND=[];savePend();render(true);paintSync();return}
+  PEND.forEach(o=>{const k=keyOf(o.code,o.slot);if(o.to)PLAN[k]={vid:o.to};else delete PLAN[k]});PEND=[];savePend();LS('ssbu_plan_cache',JSON.stringify(PLAN));render(true);paintSync();return}
  if(!navigator.onLine){syncKind='offline';paintSync();return}
  flushing=true;paintSync();
  try{const f=await fb();const uid=f.auth.currentUser.uid;

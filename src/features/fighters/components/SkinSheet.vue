@@ -3,7 +3,7 @@ import { QBtn, QCarousel, QCarouselSlide, QDialog, QIcon } from 'quasar'
 import AppImg from '../../../components/AppImg.vue'
 import { useSkinSheet } from '../composables/useSkinSheet'
 
-const { desktop, slide, m, open, close, act, compareHere, zoom } = useSkinSheet()
+const { desktop, slide, m, open, close, act, chooseCostume, zoom } = useSkinSheet()
 </script>
 
 <template>
@@ -48,16 +48,8 @@ const { desktop, slide, m, open, close, act, compareHere, zoom } = useSkinSheet(
 
         <p v-if="m.shots.length > 1" class="sheet__count">{{ slide + 1 }} / {{ m.shots.length }}</p>
         <h2 class="sheet__title">{{ m.entry.p.name }}</h2>
-        <p v-if="m.choice.line" class="sheet__line">{{ m.choice.line }}</p>
-        <q-btn
-          v-if="m.compare"
-          outline
-          no-caps
-          class="btn-quiet sheet__alt"
-          :label="m.compareLabel"
-          data-compare="1"
-          @click="compareHere"
-        />
+        <p v-if="m.pick" class="sheet__line">{{ m.pickLine }}</p>
+        <p v-else-if="m.choice.line" class="sheet__line">{{ m.choice.line }}</p>
       </div>
 
       <div class="sheet__foot">
@@ -74,7 +66,16 @@ const { desktop, slide, m, open, close, act, compareHere, zoom } = useSkinSheet(
           {{ m.entry.p.author || 'Autor' }}<q-icon name="open_in_new" size="16px" aria-hidden="true" />
         </q-btn>
         <q-btn
-          v-if="m.choice.kind !== 'none'"
+          v-if="m.pick"
+          unelevated
+          no-caps
+          class="btn-main btn-grow"
+          label="Elegir traje"
+          data-act="pick"
+          @click="chooseCostume"
+        />
+        <q-btn
+          v-else-if="m.choice.kind !== 'none'"
           unelevated
           no-caps
           class="btn-main btn-grow"

@@ -1,10 +1,18 @@
 <script setup lang="ts">
-import { QBtn, QIcon, QInput, QPage, QSkeleton } from 'quasar'
+import { QIcon, QPage, QSkeleton } from 'quasar'
 import AppImg from '../components/AppImg.vue'
+import ExploreBar from '../features/explore/components/ExploreBar.vue'
+import FighterPickSheet from '../features/explore/components/FighterPickSheet.vue'
+import { useFighterPick } from '../features/explore/composables/useFighterPick'
+import { useGridDensity } from '../features/explore/composables/useGridDensity'
 import Destinations from '../features/fighters/components/Destinations.vue'
 import { installedQuery, useInstalledPage } from './composables/useInstalledPage'
 
-const { loading, rows } = useInstalledPage()
+const { loading, rows, fighter, fighterCode, countLabel, hasFilters, picker, pickerTotal, selectFighter, clearFilters } = useInstalledPage()
+const { compact, toggle } = useGridDensity()
+const { open, show, hide } = useFighterPick()
+
+const choose = (code: string) => hide(() => selectFighter(code))
 </script>
 
 <template>
@@ -12,43 +20,54 @@ const { loading, rows } = useInstalledPage()
     <h1 class="sr-only">Instaladas</h1>
     <Destinations />
     <div class="search-row">
-      <q-input
+      <ExploreBar
         v-model="installedQuery"
-        class="search"
-        outlined
-        type="search"
-        placeholder="Buscar luchador o skin"
-        aria-label="Buscar luchador o skin"
-        autocomplete="off"
-        :disable="loading"
-      >
-        <template #prepend><q-icon name="search" aria-hidden="true" /></template>
-        <template #append>
-          <q-btn v-if="installedQuery" flat round dense icon="close" aria-label="Borrar búsqueda" class="search__clear" @click="installedQuery = ''" />
-        </template>
-      </q-input>
+        :loading="loading"
+        :fighter-name="fighter ? fighter.name : 'Todos los personajes'"
+        :fighter-portrait="fighter ? fighter.portrait || null : null"
+        :filtered="hasFilters"
+        :count-label="countLabel"
+        :compact="compact"
+        @open-fighter="show"
+        @toggle-density="toggle"
+        @clear="clearFilters"
+      />
     </div>
 
-    <div v-if="loading" class="sgrid" role="status" aria-busy="true" aria-label="Cargando instaladas">
-      <div v-for="n in 8" :key="n" class="card card--ghost">
+    <div v-if="loading" class="sgrid" :class="{ 'sgrid--compact': compact, 'sgrid--large': !compact }" role="status" aria-busy="true" aria-label="Cargando instaladas">
+      <div v-for="n in 9" :key="n" class="card card--ghost">
         <q-skeleton class="card__img" animation="pulse" square />
         <q-skeleton class="card__name-sk" animation="pulse" type="text" />
       </div>
     </div>
     <div v-else-if="!rows.length" class="empty" role="status">
       <q-icon name="inventory_2" size="40px" aria-hidden="true" />
-      <b>{{ installedQuery ? 'Sin resultados' : 'Nada instalado en el inventario revisado' }}</b>
+      <b>{{ hasFilters ? 'Sin resultados' : 'Nada instalado en el inventario revisado' }}</b>
+      <a v-if="fighter" class="explore-link" :href="'#/catalogo?pj=' + encodeURIComponent(fighter.code)">Explorar catálogo de {{ fighter.name }}</a>
     </div>
-    <div v-else class="sgrid">
-      <div v-for="row in rows" :key="row.key" class="card">
-        <a class="card__btn" :href="row.href" :aria-label="row.label">
-          <span class="card__img">
-            <AppImg :src="row.img" fit="contain" />
-          </span>
-          <span class="card__name">{{ row.title }}</span>
-          <span class="card__sub">{{ row.sub }}</span>
-        </a>
+    <template v-else>
+      <div class="sgrid" :class="{ 'sgrid--compact': compact, 'sgrid--large': !compact }">
+        <div v-for="row in rows" :key="row.key" class="card">
+          <a class="card__btn" :href="row.href" :aria-label="row.label" :data-keep="row.key">
+            <span class="card__img">
+              <AppImg :src="row.img" fit="contain" />
+            </span>
+            <span class="card__name">{{ row.title }}</span>
+            <span class="card__sub">{{ row.sub }}</span>
+          </a>
+        </div>
       </div>
-    </div>
+      <a v-if="fighter" class="explore-link" :href="'#/catalogo?pj=' + encodeURIComponent(fighter.code)">Explorar catálogo de {{ fighter.name }}</a>
+    </template>
+
+    <FighterPickSheet
+      :open="open"
+      :rows="picker"
+      :selected="fighterCode"
+      :total="pickerTotal"
+      empty-label="Sin instaladas"
+      @close="hide()"
+      @pick="choose"
+    />
   </q-page>
 </template>

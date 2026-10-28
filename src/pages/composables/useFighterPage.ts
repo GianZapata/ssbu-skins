@@ -1,7 +1,7 @@
 import { computed, onBeforeUnmount, reactive, watch } from 'vue'
 import type { Skin } from '../../boot'
-import { fighterOf, openSkin, route, S, selectSlot, slotOf, swap, tick } from '../../composables/useApp'
-import { activeCandidate, clearCandidate, consumeHandoff, setCandidate } from '../../features/fighters/candidate'
+import { fighterOf, openSkin, S, selectSlot, slotOf, swap, tick, viewRoute } from '../../composables/useApp'
+import { activeCandidate, candidateRoams, clearCandidate, consumeHandoff, followCandidate, setCandidate } from '../../features/fighters/candidate'
 import { commitStage } from '../../features/fighters/stage'
 import { clearAt, touched } from '../../features/plan/composables/usePlan'
 import { curOf, skinOf } from '../../features/plan/helpers/lookup'
@@ -41,7 +41,7 @@ export const useFighterPage = () => {
   const model = computed(() => {
     tick.value
 
-    const code = route.value.code
+    const code = viewRoute().code
     const fighter = fighterOf(code)
     const slot = slotOf()
 
@@ -116,7 +116,7 @@ export const useFighterPage = () => {
       ? (planEntries() as PlanRow[]).find((row) => row.code === m.code && row.vid === skin.vid && row.n !== m.slot)
       : null
 
-    return SSBU.stageChoice({
+    const choice = SSBU.stageChoice({
       slot: m.slot,
       vid: skin ? skin.vid : null,
       saved,
@@ -125,6 +125,10 @@ export const useFighterPage = () => {
       mii: !!(m.fighter && m.fighter.mii) || !!(skin && skin.mii),
       incompatible: !!(skin && skin.wifi_status === 'incompatible'),
     })
+
+    if (!candidateRoams.value || !skin) return choice
+
+    return { ...choice, line: 'Toca otro traje para compararla ahí' }
   })
 
   const skinAt = (vid: string) => {
@@ -145,14 +149,15 @@ export const useFighterPage = () => {
 
   const openDetail = (vid: string) => {
     const m = model.value
-    const skin = skinAt(vid)
-
-    if (skin) setCandidate(m.code, m.slot, skin)
 
     openSkin(m.code, m.slot, vid)
   }
 
-  const commit = () => commitStage(model.value.code, model.value.slot, choice.value)
+  const commit = () => {
+    const m = model.value
+
+    commitStage(m.code, m.slot, choice.value, activeCandidate(m.code, m.slot))
+  }
 
   const applyHandoff = (code: string, slot: number) => {
     const vid = consumeHandoff(code, slot)
@@ -182,7 +187,7 @@ export const useFighterPage = () => {
       const [code, slotText] = key.split(':')
       const slot = Number(slotText)
 
-      if (!applyHandoff(code, slot)) clearCandidate()
+      if (!applyHandoff(code, slot) && !followCandidate(code, slot)) clearCandidate()
     },
   )
 

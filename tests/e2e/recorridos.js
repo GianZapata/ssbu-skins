@@ -31,9 +31,10 @@ module.exports = async (b, base) => {
   ok(await A.getByRole('button', { name: 'Dry Bones (v3.1 Update)', exact: true }).count() === 1, 'el catálogo muestra skins de Mario');
   ok(await A.getByRole('button', { name: 'Breath of the Wild Princess Zelda', exact: true }).count() === 1, 'el catálogo muestra skins de Zelda');
   ok(await A.getByRole('button', { name: 'Instalar' }).count() === 0, 'la tarjeta del catálogo no lleva acciones');
-  await A.getByRole('button', { name: /Agrupar por franquicia/ }).click();
-  const series = await A.locator('.cgroup__name').allTextContents();
-  ok(series.includes('Mario') && series.includes('The Legend of Zelda') && series.indexOf('Mario') !== series.indexOf('The Legend of Zelda'), 'Mario y Zelda son series distintas');
+  await A.getByRole('button', { name: 'Personaje: Todos los personajes' }).click();
+  await A.getByRole('button', { name: /^Mario, / }).click();
+  ok(await A.getByRole('button', { name: 'Dry Bones (v3.1 Update)', exact: true }).count() === 1, 'Mario deja ver sus skins');
+  ok(await A.getByRole('button', { name: 'Breath of the Wild Princess Zelda', exact: true }).count() === 0, 'filtrar Mario oculta a Zelda');
 
   await A.goto(base + '#/instaladas');
   await A.waitForSelector('.card__btn');

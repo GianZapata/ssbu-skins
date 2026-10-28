@@ -69,7 +69,7 @@ test('vacio', async ({ page }) => {
 test('filtros', async ({ page }) => {
   await page.goto('/index.html#/catalogo');
   await page.waitForSelector('.cgroup');
-  await page.getByRole('button', { name: /Agrupar por franquicia/ }).click();
+  await page.getByRole('button', { name: 'Personaje: Todos los personajes' }).click();
   await shot(page, 'menu');
 });
 

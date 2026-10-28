@@ -34,6 +34,7 @@ export const S = reactive({
   galI: 0,
 })
 export const route = shallowRef<AppRoute>({ v: '', code: '', n: 0, vid: '', q: {}, key: '' })
+export const baseRoute = shallowRef<AppRoute>({ v: 'luchadores', code: '', n: 0, vid: '', q: {}, key: '' })
 export const scrollMem: Record<string, number> = {}
 
 const enc = encodeURIComponent
@@ -42,6 +43,34 @@ const dec = (part: string) => {
 }
 
 let listening = false
+
+interface HistoryMark {
+  depth?: number
+  ov?: string
+}
+
+const historyMark = (): HistoryMark => {
+  const current = history.state
+
+  if (!current || typeof current !== 'object') return {}
+
+  return current as HistoryMark
+}
+
+const stampDepth = (depth: number) => {
+  try {
+    history.replaceState({ ...historyMark(), depth }, '', location.href)
+  } catch (e) { /* sin historial */ }
+}
+
+const depthOf = () => {
+  const depth = historyMark().depth
+
+  return typeof depth === 'number' ? depth : 0
+}
+
+export const closedOverlay = ref('')
+
 const overlays: string[] = []
 let skipOverlay = 0
 let afterOverlay: (() => void) | null = null
@@ -68,8 +97,12 @@ export const ovDone = (id: string, then?: () => void) => {
 }
 
 const hideOverlay = (id: string) => {
+  closedOverlay.value = id
+
   const gallery = window.PSWP as { destroy?: () => void } | null
+
   if (id !== 'gal' || !gallery) return
+
   window.PSWP = null
   try { gallery.destroy?.() } catch (e) { /* ya cerrado */ }
 }
@@ -113,26 +146,56 @@ const parse = (hash: string): AppRoute => {
 
 const isFighterView = (r: AppRoute) => r.v === 'luchador' || r.v === 'traje' || r.v === 'ficha'
 
-/** Ficha abierta desde el catálogo: la página de abajo sigue siendo el catálogo. */
-export const underCatalog = (r: AppRoute) => r.v === 'ficha' && r.q.de === 'catalogo'
+const isSheet = (r: AppRoute) => r.v === 'ficha' || r.v === 'cambios'
+
+/** Página que queda debajo de una hoja. Una hoja no la sustituye. */
+export const viewRoute = () => (isSheet(route.value) ? baseRoute.value : route.value)
+
+const fallbackBase = (next: AppRoute): AppRoute => {
+  if (next.v === 'ficha' && next.q.de === 'catalogo') return blank({ v: 'catalogo', key: '#/catalogo' })
+
+  if (next.v === 'ficha' && next.code) {
+    const key = '#/luchador/' + enc(next.code) + '/' + (next.n + 1)
+
+    return blank({ v: 'traje', code: next.code, n: next.n, key })
+  }
+
+  return blank({ v: 'luchadores', key: '#/luchadores' })
+}
+
+const rememberBase = (next: AppRoute) => {
+  if (!isSheet(next)) {
+    baseRoute.value = next
+
+    return
+  }
+
+  if (baseRoute.value.key) return
+
+  baseRoute.value = fallbackBase(next)
+}
 
 /** Luchador abierto (también cuando la hoja de detalle está encima). */
 export const onFighter = () => {
-  const fighter = fighterOf(route.value.code)
-  return isFighterView(route.value) && !!fighter && !fighter.mii
+  const current = viewRoute()
+  const fighter = fighterOf(current.code)
+
+  return (current.v === 'luchador' || current.v === 'traje') && !!fighter && !fighter.mii
 }
 
 /** Traje seleccionado: 0 a 7. */
 export const slotOf = () => {
-  const r = route.value
-  return (r.v === 'traje' || r.v === 'ficha') && SSBU.validSlot(r.n) ? r.n : 0
+  const current = viewRoute()
+
+  return current.v === 'traje' && SSBU.validSlot(current.n) ? current.n : 0
 }
 
 export const titleOf = () => {
   const current = route.value
 
   if (current.v === 'cambios') return 'Elegidas'
-  if (current.v === 'catalogo' || underCatalog(current)) return 'Catálogo'
+  if (current.v === 'catalogo' || (current.v === 'ficha' && viewRoute().v === 'catalogo')) return 'Catálogo'
+  if (current.v === 'ficha' && viewRoute().v === 'instaladas') return 'Instaladas'
   if (current.v === 'instaladas') return 'Instaladas'
   if (current.v === 'notas') return 'Notas'
   if (isFighterView(current)) return fighterOf(current.code)?.name || 'Luchador'
@@ -152,46 +215,81 @@ export const go = (hash: string) => {
 
 const applyHash = (force: boolean, replace = false) => {
   const next = parse(location.hash)
+
   if (!force && next.key === route.value.key) return
+
   if (next.v === 'redirect') {
     location.replace('#/luchadores')
+
     return
   }
+
   if (next.v === 'traje' && fighterOf(next.code)?.mii) {
     location.replace('#/luchador/' + enc(next.code))
+
     return
   }
+
   if (next.v === 'ficha') {
     const entry = skinEntry(next.vid)
+
     if (!entry) {
       location.replace(next.code ? '#/luchador/' + enc(next.code) + '/' + (next.n + 1) : '#/luchadores')
+
       return
     }
+
     if (!next.code) {
       location.replace('#/apariencia/' + enc(next.vid) + '?para=' + enc(entry.f.code + '_0'))
+
       return
     }
   }
+
   const prev = route.value
+
   if (prev.key) scrollMem[prev.key] = window.scrollY
+
   const prevF = isFighterView(prev) ? prev.code : ''
   const nextF = isFighterView(next) ? next.code : ''
+
   if (nextF && prevF !== nextF) {
     S.tc = SSBU.emptyCat()
     S.galI = 0
   }
+
   if (next.v === 'ficha') S.galI = 0
+
   const fresh = S.fresh
+
   S.fresh = false
-  if (!replace) S.nav = Math.max(0, S.nav + (fresh ? 1 : -1))
+
+  if (!listening) {
+    S.nav = 0
+    stampDepth(0)
+  } else if (replace) {
+    stampDepth(S.nav)
+  } else if (fresh) {
+    S.nav += 1
+    stampDepth(S.nav)
+  } else {
+    S.nav = depthOf()
+  }
+
+  rememberBase(next)
   route.value = next
   document.title = titleOf() + ' · Skins SSBU'
   bump()
+
   if (replace) return
+
   // Abrir o cerrar una hoja no mueve la página de abajo.
   const sheet = (r: AppRoute) => r.v === 'ficha' || r.v === 'cambios'
+
   if (sheet(next) || sheet(prev)) return
+
   const y = fresh ? 0 : (scrollMem[next.key] || 0)
+
   requestAnimationFrame(() => window.scrollTo(0, y))
 }
 
@@ -256,6 +354,12 @@ export const start = () => {
   if (!route.value.key) applyHash(true)
 }
 
-export const portraitOf = () => (isFighterView(route.value) && !underCatalog(route.value) ? fighterOf(route.value.code)?.portrait || '' : '')
+export const portraitOf = () => {
+  const current = viewRoute()
+
+  if (current.v !== 'luchador' && current.v !== 'traje') return ''
+
+  return fighterOf(current.code)?.portrait || ''
+}
 
 applyHash(true)
