@@ -400,21 +400,21 @@ Mods del Drive sin asignar:
 | c03 | WuBoy | WuBoy | sin decidir |
 | c04 | WuBoy | WuBoy | sin decidir |
 | c05 | WuBoy | Goku SSJ (GB 487736) · trae el tema de victoria de Ryu (global, todos sus slots) | propuesto |
-| c06 | WuBoy «Wallace» | Goku SSG (GB 487736) · trae el tema de victoria de Ryu (global); reemplaza a Wallace de WuBoy | propuesto |
-| c07 | WuBoy | Goku SSB (GB 487736) · trae el tema de victoria de Ryu (global) | propuesto |
+| c06 | WuBoy «Wallace» | Goku SSB (GB 487736) · trae el tema de victoria de Ryu (global); reemplaza a Wallace de WuBoy | propuesto |
+| c07 | WuBoy | Goku SSG (GB 487736) · trae el tema de victoria de Ryu (global) | propuesto |
 
 ## 26. Ken (60ε)
 
 | Slot | Hoy | Plan | Estado |
 |---|---|---|---|
-| c00 | WuBoy | Goku base (GB 498005) · reemplaza todas las skins de WuBoy de Ken | propuesto |
-| c01 | WuBoy | Goku SSJ (GB 498005) | propuesto |
-| c02 | WuBoy | Goku SSJ3 (GB 498005) | propuesto |
-| c03 | WuBoy | Goku SSG (GB 498005) | propuesto |
-| c04 | WuBoy | Goku base azul (GB 498005) | propuesto |
-| c05 | WuBoy | Goku SSB (GB 498005) | propuesto |
-| c06 | WuBoy | Goku UI Omen (GB 498005) | propuesto |
-| c07 | WuBoy | Goku MUI (GB 498005) | propuesto |
+| c00 | WuBoy | Goku (base) (GB 498005) · reemplaza todas las skins de WuBoy de Ken | propuesto |
+| c01 | WuBoy | Goku Super Saiyan (GB 498005) | propuesto |
+| c02 | WuBoy | Goku Super Saiyan 3 (GB 498005) | propuesto |
+| c03 | WuBoy | Goku Super Saiyan God (GB 498005) | propuesto |
+| c04 | WuBoy | Goku base (camisa azul) (GB 498005) | propuesto |
+| c05 | WuBoy | Goku Super Saiyan Blue (camisa azul) (GB 498005) | propuesto |
+| c06 | WuBoy | Goku Ultra Instinct Omen (camisa azul) (GB 498005) | propuesto |
+| c07 | WuBoy | Goku Ultra Instinct dominado (camisa azul) (GB 498005) | propuesto |
 
 ## 27. Cloud (61)
 

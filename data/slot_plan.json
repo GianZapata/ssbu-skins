@@ -541,7 +541,7 @@
     },
     "6": {
      "state": "mod",
-     "name": "Goku SSG",
+     "name": "Goku SSB",
      "mod_id": 487736,
      "source": "drive",
      "reslot_from": null,
@@ -551,7 +551,7 @@
     },
     "7": {
      "state": "mod",
-     "name": "Goku SSB",
+     "name": "Goku SSG",
      "mod_id": 487736,
      "source": "drive",
      "reslot_from": null,
@@ -565,7 +565,7 @@
    "slots": {
     "0": {
      "state": "mod",
-     "name": "Goku base",
+     "name": "Goku (base)",
      "mod_id": 498005,
      "source": "drive",
      "reslot_from": null,
@@ -575,7 +575,7 @@
     },
     "1": {
      "state": "mod",
-     "name": "Goku SSJ",
+     "name": "Goku Super Saiyan",
      "mod_id": 498005,
      "source": "drive",
      "reslot_from": null,
@@ -584,7 +584,7 @@
     },
     "2": {
      "state": "mod",
-     "name": "Goku SSJ3",
+     "name": "Goku Super Saiyan 3",
      "mod_id": 498005,
      "source": "drive",
      "reslot_from": null,
@@ -593,7 +593,7 @@
     },
     "3": {
      "state": "mod",
-     "name": "Goku SSG",
+     "name": "Goku Super Saiyan God",
      "mod_id": 498005,
      "source": "drive",
      "reslot_from": null,
@@ -602,7 +602,7 @@
     },
     "4": {
      "state": "mod",
-     "name": "Goku base azul",
+     "name": "Goku base (camisa azul)",
      "mod_id": 498005,
      "source": "drive",
      "reslot_from": null,
@@ -611,7 +611,7 @@
     },
     "5": {
      "state": "mod",
-     "name": "Goku SSB",
+     "name": "Goku Super Saiyan Blue (camisa azul)",
      "mod_id": 498005,
      "source": "drive",
      "reslot_from": null,
@@ -620,7 +620,7 @@
     },
     "6": {
      "state": "mod",
-     "name": "Goku UI Omen",
+     "name": "Goku Ultra Instinct Omen (camisa azul)",
      "mod_id": 498005,
      "source": "drive",
      "reslot_from": null,
@@ -629,7 +629,7 @@
     },
     "7": {
      "state": "mod",
-     "name": "Goku MUI",
+     "name": "Goku Ultra Instinct dominado (camisa azul)",
      "mod_id": 498005,
      "source": "drive",
      "reslot_from": null,
