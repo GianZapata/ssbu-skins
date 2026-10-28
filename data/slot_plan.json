@@ -106,16 +106,16 @@
      "approved": true
     },
     "7": {
-     "state": "wuboy",
-     "name": "Thanos",
-     "mod_id": null,
-     "source": "wuboy",
-     "reslot_from": null,
-     "file": null,
-     "approved": true
+     "state": "mod",
+     "name": "Pain (Naruto)",
+     "mod_id": 401033,
+     "source": "drive",
+     "reslot_from": 0,
+     "file": "ganondorf/401033_pain_naruto_shippuden/original/pain_99c70.zip",
+     "approved": true,
+     "nota": "reemplaza a Thanos de WuBoy, por decisión de Gian. Trae effect, motion, param y config.json: riesgo wifi"
     }
-   },
-   "nota": "Pendiente: Pain (401033, lo mandó Gian) no tiene slot; trae effect, motion, param y config.json (riesgo wifi). Candidatos: c04 o c01 reslot desde c00."
+   }
   },
   "74": {
    "slots": {
@@ -149,13 +149,13 @@
     },
     "3": {
      "state": "mod",
-     "name": "Vegeta SSB",
-     "mod_id": 609500,
+     "name": "Tifa (segundo traje)",
+     "mod_id": 559818,
      "source": "drive",
-     "reslot_from": null,
-     "file": "terry/609500_vegeta/original/skin_terry_c02-c03_vegeta.rar",
-     "approved": true,
-     "nota": "necesita One Slot Effects"
+     "reslot_from": 1,
+     "file": "terry/559818_tifa_lockhart_terry/original/terry_tifa_c00_c01_cf738.rar",
+     "approved": false,
+     "nota": "reemplaza a Vegeta SSB (Vegeta queda con 1 look). Trae música (tema de victoria y 2 pistas, globales)"
     },
     "4": {
      "state": "wuboy",
@@ -194,7 +194,7 @@
      "approved": true
     }
    },
-   "nota": "Los packs de 8 slots (Gogeta 437327, Gogeta SSJ4 446815, Goku Mid 502537, Yang Xiao Long 346216) quedan pendientes; aquí solo entra el look suelto que ya se eligió (Gogeta SSJ en c01, Gogeta SSJ4 en c07). Pendiente: Tifa (559818, lo mandó Gian, c00–c01) compite con Gohan (de auditoría) por c00. Pendiente: Tifa (559818, lo mandó Gian, mujer con 2 looks) compite con Gohan por c00; Vegeta aprobado con 2 looks (regla: 1 por mod). Pendiente: Tifa (559818, lo mandó Gian, mujer con 2 looks) compite con Gohan por c00; Vegeta aprobado con 2 looks (regla: 1 por mod)."
+   "nota": "Tifa: un traje (el segundo, c01) en c03, en lugar de Vegeta SSB. Gogeta y SSJ4 completos siguen pendientes."
   },
   "77": {
    "slots": {
@@ -1342,9 +1342,19 @@
      "file": null,
      "approved": false,
      "nota": "se quita la skin de WuBoy"
+    },
+    "0": {
+     "state": "mod",
+     "name": "Morrigan",
+     "mod_id": 501311,
+     "source": "drive",
+     "reslot_from": null,
+     "file": "bayonetta/501311_morrigan_mvc3_design/original/morrigan_all_slots_complete_set.zip",
+     "approved": false,
+     "nota": "solo el primer look (c00, pelo verde) del set completo; comprobar ef_bayonetta.eff global"
     }
    },
-   "nota": "Morrigan (501311) excluida: mujer con más de 2 looks (8)."
+   "nota": "Morrigan: solo el primer look (c00), por decisión de Gian."
   },
   "72": {
    "slots": {
@@ -1536,9 +1546,19 @@
      "file": null,
      "approved": false,
      "nota": "se quita la skin de WuBoy"
+    },
+    "0": {
+     "state": "mod",
+     "name": "Squall (negro)",
+     "mod_id": 175495,
+     "source": "drive",
+     "reslot_from": null,
+     "file": "chrom/175495_kingdom_hearts_squall/original/kingdom_hearts_squall_c9f79.zip.part01",
+     "approved": false,
+     "nota": "un solo look (c00, ropa negra); zip partido: unir part01 + part02 (MD5 691946b0…)"
     }
    },
-   "nota": "Pendiente: Squall (c00–c07, 8 voces JP) está partido en 2 partes; hay que unirlo y elegir slots."
+   "nota": "Squall: un solo look (c00), por decisión de Gian. Raiden en c01."
   },
   "44": {
    "slots": {
@@ -1630,14 +1650,14 @@
      "nota": "reemplaza a «Yu» de WuBoy"
     },
     "1": {
-     "state": "vanilla",
-     "name": "Original",
-     "mod_id": null,
-     "source": "vanilla",
+     "state": "mod",
+     "name": "2B (armadura gris)",
+     "mod_id": 392802,
+     "source": "drive",
      "reslot_from": null,
-     "file": null,
+     "file": "lucina/392802_2b_alts_for_mastaklo/original/2b_alts_for_mastaklo_s_2b.zip.part01",
      "approved": false,
-     "nota": "se quita la skin de WuBoy"
+     "nota": "alt de 2B; zip partido: unir part01 + part02 (MD5 33d759d9…). Requiere el 2B de c00"
     },
     "2": {
      "state": "vanilla",
@@ -1680,14 +1700,14 @@
      "nota": "se quita la skin de WuBoy"
     },
     "6": {
-     "state": "vanilla",
-     "name": "Original",
-     "mod_id": null,
-     "source": "vanilla",
+     "state": "mod",
+     "name": "2B (traje blanco)",
+     "mod_id": 392802,
+     "source": "drive",
      "reslot_from": null,
-     "file": null,
+     "file": "lucina/392802_2b_alts_for_mastaklo/original/2b_alts_for_mastaklo_s_2b.zip.part01",
      "approved": false,
-     "nota": "se quita la skin de WuBoy"
+     "nota": "alt de 2B; zip partido: unir part01 + part02. Requiere el 2B de c00"
     },
     "7": {
      "state": "vanilla",
@@ -1700,7 +1720,7 @@
      "nota": "se quita la skin de WuBoy"
     }
    },
-   "nota": "2B alts (392802) excluida: mujer con más de 2 looks."
+   "nota": "2B alts: 2 de 7 trajes (c01 armadura gris, c06 blanco), por decisión de Gian."
   },
   "75": {
    "slots": {
@@ -2258,9 +2278,19 @@
      "reslot_from": null,
      "file": null,
      "approved": false
+    },
+    "0": {
+     "state": "mod",
+     "name": "Xion",
+     "mod_id": 471722,
+     "source": "drive",
+     "reslot_from": null,
+     "file": "sora/471722_xion_over_sora_reloaded/original/xion_over_sora_fcfc1.7z",
+     "approved": false,
+     "nota": "un solo look (c00); los 8 slots del pack se ven iguales en sus retratos"
     }
    },
-   "nota": "Xion (471722) excluida: mujer con más de 2 looks (8)."
+   "nota": "Xion: un solo look (c00), por decisión de Gian."
   },
   "62": {
    "slots": {
