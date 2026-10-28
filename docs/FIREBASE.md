@@ -6,6 +6,8 @@ Proyecto: `ssbu-441b1`. La página es estática; todo lo que se comparte vive en
 |---|---|---|---|
 | `catalog/{luchador}` + `meta/catalog` | Catálogo (con la lista `vids` de variantes válidas) | `tools/db.py seed --only catalog` (cuenta de servicio; lo hace la Action en cada push) | todos |
 | `installed/{luchador}` + `meta/installed` | Inventario por traje (con su nivel de verificación) | `tools/db.py seed --only installed` (**manual**, tras revisarlo) | todos |
+| `drive/{luchador}` + `meta/drive` | Manifiesto de los mods descargados en el Drive (`data/drive.json`; `drive/plugins` y `drive/sin_luchador` aparte) | `tools/db.py seed --only drive` (la Action en cada push a `master` que cambie `data/drive.json`) | todos |
+| `slot_plan/{luchador}` + `meta/slot_plan` | Plan de slots: los 8 slots de cada luchador con «hoy», «plan» y estado, más los mods del Drive sin asignar (`data/slot_plan.json` cruzado con WuBoy, el perfil y el Drive) | `tools/db.py seed --only slots` (la Action en cada push a `master` que cambie el plan) | todos |
 | `changes/{luchador}_{traje}` | **El borrador compartido**: una propuesta por traje (`vid`, `by`, `at`) | cualquiera (reglas) | todos |
 | `history/{id}` | Registro inmutable de cada cambio (`from`, `to`, `kind`) | cualquiera (solo crear) | todos |
 | `status/{vid}` | Resultado de cada instalación | `tools/db.py status` | todos |

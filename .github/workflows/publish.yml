@@ -3,7 +3,7 @@ name: Sincronizar Firestore
 on:
   push:
     branches: [master]
-    paths: ['data/catalog.json', 'data/ids.lock.json', 'tools/catalog_data.py', 'tools/db.py', 'assets/fighters/**', 'assets/costumes/**', 'data/original_costumes.json', '.github/workflows/publish.yml']
+    paths: ['data/catalog.json', 'data/ids.lock.json', 'data/drive.json', 'data/slot_plan.json', 'tools/slot_plan.py', 'tools/catalog_data.py', 'tools/db.py', 'assets/fighters/**', 'assets/costumes/**', 'data/original_costumes.json', '.github/workflows/publish.yml']
   workflow_dispatch:
     inputs:
       sync_inventory:
@@ -32,6 +32,12 @@ jobs:
           pip install google-cloud-firestore
           printf '%s' "$FIREBASE_SA" > "$RUNNER_TEMP/sa.json"
           GOOGLE_APPLICATION_CREDENTIALS="$RUNNER_TEMP/sa.json" python3 tools/db.py seed --only catalog
+      - name: Sincronizar el manifiesto del Drive con Firestore
+        if: env.FIREBASE_SA != ''
+        run: GOOGLE_APPLICATION_CREDENTIALS="$RUNNER_TEMP/sa.json" python3 tools/db.py seed --only drive
+      - name: Sincronizar el plan de slots con Firestore
+        if: env.FIREBASE_SA != ''
+        run: GOOGLE_APPLICATION_CREDENTIALS="$RUNNER_TEMP/sa.json" python3 tools/db.py seed --only slots
       - name: Sincronizar el inventario con Firestore (manual)
         if: env.FIREBASE_SA != '' && github.event_name == 'workflow_dispatch' && inputs.sync_inventory
         run: GOOGLE_APPLICATION_CREDENTIALS="$RUNNER_TEMP/sa.json" python3 tools/db.py seed --only installed

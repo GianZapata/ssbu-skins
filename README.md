@@ -16,6 +16,8 @@ Antes de generar, `python3 tools/validate_catalog.py` comprueba que el catálogo
 
 No subir `node_modules/`, binarios ni CSS compilado al repo: el historial no se puede aligerar sin reescribirlo.
 
+Mods descargados en el Drive: `python3 tools/scan_drive.py <ruta de SSBU_mods>` escribe `data/drive.json` (archivos, MD5 y slots; los binarios no se versionan). Flujo y respaldos: `docs/DRIVE.md`.
+
 Inventario de lo instalado: `python3 tools/scan_installed.py <ruta del ModPack>` (rama principal) y `python3 tools/scan_branches.py <ruta del ModPack>` (ramas sin fusionar) escriben `data/installed.json`, `data/inventory_staged.json` y los retratos en `installed/*.webp`; `python3 tools/scan_profile.py <ruta del ModPack>` calcula la capa del perfil (composición efectiva y exclusiones) en `data/inventory_profile.json`. La página muestra cada nivel con su verificación (nunca como confirmado en la consola).
 
 ## Base de datos y amigos (Firebase)
