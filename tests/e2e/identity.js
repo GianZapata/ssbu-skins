@@ -28,9 +28,9 @@ module.exports = async (b, base) => {
   await P.goto(base + '#/luchador/03'); await P.waitForSelector('.strip');
   const hdr = await P.evaluate(() => document.querySelector('.app-header__face img').getAttribute('src')); ok(hdr === 'assets/fighters/03.webp', `la cabecera de Link conserva su retrato aunque el inventario trae ${linkInv} retratos de trajes`);
   await shot(P, '08-selector'); await P.goto(base + '#/luchadores'); await P.waitForSelector('.ft'); await P.evaluate(() => scrollTo(0, 0)); await shot(P, '08-selector');
-  // el traje «Original» nunca se ve vacío: arte oficial del luchador
-  for (const [code, re, what] of [['01', /^assets\/fighters\/01\.webp$/, 'retrato oficial de Mario'], ['82', /^assets\/fighters\/82\.webp$/, 'retrato oficial de Sora']]) {
-    await P.goto(base + '#/luchador/' + code); await P.waitForSelector('.strip'); await P.waitForTimeout(300);
+  // el traje «Original» nunca se ve vacío: render oficial de ese traje (assets/costumes/<código>-<n>.webp)
+  for (const [code, re, what] of [['01', /^assets\/costumes\/01-1\.webp$/, 'el render oficial de su traje 1'], ['82', /^assets\/costumes\/82-1\.webp$/, 'el render oficial de su traje 1 (DLC)']]) {
+    await P.goto(base + '#/luchador/' + code); await P.waitForSelector(`[data-view="fighter:${code}"] .cmp__img--cur img`); await P.waitForTimeout(300);
     const t1 = await P.evaluate(() => { const i = document.querySelector('.cmp__img--cur img'); return { src: i && i.getAttribute('src'), ok: i && i.complete && i.naturalWidth > 0, txt: (document.querySelector('.cmp__name') || {}).textContent || '' }; });
     ok(t1.src && re.test(t1.src) && t1.ok && t1.txt === 'Original', `la primera opción de ${code === '01' ? 'Mario' : 'Sora'} muestra ${what} y la etiqueta «Original»`);
   }
@@ -45,7 +45,10 @@ module.exports = async (b, base) => {
   ok(inv.mario1.kind === 'mod' && inv.mario1.name === 'Kellytoy Mario' && inv.cap2.name === 'Dark Falcon' && !!inv.cap2.rep && inv.cap2.kind === 'mod', 'skins de los PR con prioridad: Kellytoy en Mario traje 2 y Dark Falcon en Captain Falcon traje 3 (marcado por reemplazar, sigue instalado)');
   ok(inv.mario2.kind === 'pending' && inv.mario2.name === 'Nombre pendiente', 'Mario traje 3: se ve su retrato pero falta el nombre → «Nombre pendiente»');
   ok(inv.mario0.kind === 'original' && inv.sora6.kind === 'pending', 'originales y trajes por identificar se distinguen');
-  await P.goto(base + '#/luchador/01'); await P.waitForSelector('.strip'); ok((await P.textContent('.strip')).includes('Nombre pendiente') && !/Apariencia sin identificar/.test(await P.textContent('.strip')), 'la pantalla del luchador usa «Nombre pendiente», sin etiquetas duplicadas');
+  // la tira muestra «Traje N»; el nombre de cada traje va en la etiqueta accesible del botón
+  await P.goto(base + '#/luchador/01'); await P.waitForSelector('[data-view="fighter:01"] .strip .cell__btn');
+  const tags = (await P.$$eval('[data-view="fighter:01"] .strip .cell__btn', bs => bs.map(b => b.getAttribute('aria-label') || ''))).join(' | ');
+  ok(tags.includes('Traje 3: Nombre pendiente') && !/Apariencia sin identificar/.test(tags), 'la pantalla del luchador usa «Nombre pendiente», sin etiquetas duplicadas');
   await P.goto(base + '#/luchador/11/3'); await P.waitForSelector('.cmp'); ok(/Dark Falcon/.test(await P.textContent('.cmp')), 'Dark Falcon sigue instalado en su traje');
   // regresión Shadow Mewtwo
   const mw = await P.evaluate(() => { const f = F.find(f => /Mewtwo/.test(f.name)); const sm = f.picks.find(p => /Shadow Mewtwo/i.test(p.name)); return { code: f.code, vid: sm && sm.vid }; });
