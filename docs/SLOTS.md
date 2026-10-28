@@ -2,7 +2,7 @@
 
 _Generado por `tools/slot_plan.py` a partir de `data/slot_plan.json`, `installed.json`, `inventory_profile.json` y `drive.json`; no editar a mano. Nada de esto está instalado ni probado en consola._
 
-**38 luchadores · 16 slots aprobados · 49 propuestos · 239 sin decidir (de 304)**
+**38 luchadores · 16 slots aprobados · 41 propuestos · 247 sin decidir (de 304)**
 
 «Hoy» es lo que hay en el perfil (WuBoy, componentes del perfil o la skin original); «Plan» es la decisión, si ya existe.
 
@@ -34,7 +34,7 @@ _Generado por `tools/slot_plan.py` a partir de `data/slot_plan.json`, `installed
 | 24 | Pyra (79) | 0/8 | 0 | 8 | 0 |
 | 24 | Mythra (80) | 0/8 | 0 | 8 | 0 |
 | 25 | Ryu (60) | 0/8 | 3 | 5 | 0 |
-| 26 | Ken (60ε) | 0/8 | 8 | 0 | 0 |
+| 26 | Ken (60ε) | 0/8 | 0 | 8 | 1 |
 | 27 | Cloud (61) | 0/8 | 0 | 8 | 0 |
 | 28 | Sephiroth (78) | 0/8 | 0 | 8 | 0 |
 | 29 | Bayonetta (63) | 0/8 | 1 | 7 | 0 |
@@ -405,16 +405,24 @@ Mods del Drive sin asignar:
 
 ## 26. Ken (60ε)
 
+_Pendiente (se decide después): Goku (498005, 8 looks c00–c07) y los demás packs de muchos slots (Apollo Justice 459257, c01–c07). Por ahora Ken no tiene decisiones._
+
 | Slot | Hoy | Plan | Estado |
 |---|---|---|---|
-| c00 | WuBoy | Goku (base) (GB 498005) · reemplaza todas las skins de WuBoy de Ken | propuesto |
-| c01 | WuBoy | Goku Super Saiyan (GB 498005) | propuesto |
-| c02 | WuBoy | Goku Super Saiyan 3 (GB 498005) | propuesto |
-| c03 | WuBoy | Goku Super Saiyan God (GB 498005) | propuesto |
-| c04 | WuBoy | Goku base (camisa azul) (GB 498005) | propuesto |
-| c05 | WuBoy | Goku Super Saiyan Blue (camisa azul) (GB 498005) | propuesto |
-| c06 | WuBoy | Goku Ultra Instinct Omen (camisa azul) (GB 498005) | propuesto |
-| c07 | WuBoy | Goku Ultra Instinct dominado (camisa azul) (GB 498005) | propuesto |
+| c00 | WuBoy | WuBoy | sin decidir |
+| c01 | WuBoy | WuBoy | sin decidir |
+| c02 | WuBoy | WuBoy | sin decidir |
+| c03 | WuBoy | WuBoy | sin decidir |
+| c04 | WuBoy | WuBoy | sin decidir |
+| c05 | WuBoy | WuBoy | sin decidir |
+| c06 | WuBoy | WuBoy | sin decidir |
+| c07 | WuBoy | WuBoy | sin decidir |
+
+Mods del Drive sin asignar:
+
+| Mod | Nombre | Slots nativos | Wifi | Toca c00 |
+|---|---|---|---|---|
+| 498005 | goku | c00, c01, c02, c03, c04, c05, c06, c07 | explícita | sí |
 
 ## 27. Cloud (61)
 
@@ -560,6 +568,8 @@ Mods del Drive sin asignar:
 | c07 | original | original | sin decidir |
 
 ### Terry (74)
+
+_Los packs de 8 slots (Gogeta 437327, Gogeta SSJ4 446815, Goku Mid 502537, Yang Xiao Long 346216) quedan pendientes; aquí solo entra el look suelto que ya se eligió (Gogeta SSJ en c01, Gogeta SSJ4 en c07)._
 
 | Slot | Hoy | Plan | Estado |
 |---|---|---|---|

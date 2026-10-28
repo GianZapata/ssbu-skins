@@ -192,7 +192,8 @@
      "file": "terry/446815_gogeta_ssj4/original/gogeta_ssj4_-_terry_c07_v13.rar",
      "approved": true
     }
-   }
+   },
+   "nota": "Los packs de 8 slots (Gogeta 437327, Gogeta SSJ4 446815, Goku Mid 502537, Yang Xiao Long 346216) quedan pendientes; aquí solo entra el look suelto que ya se eligió (Gogeta SSJ en c01, Gogeta SSJ4 en c07)."
   },
   "77": {
    "slots": {
@@ -562,81 +563,8 @@
    }
   },
   "60ε": {
-   "slots": {
-    "0": {
-     "state": "mod",
-     "name": "Goku (base)",
-     "mod_id": 498005,
-     "source": "drive",
-     "reslot_from": null,
-     "file": "ken/498005_goku/original/goku_over_ken_c00-c07_.rar",
-     "approved": false,
-     "nota": "reemplaza todas las skins de WuBoy de Ken"
-    },
-    "1": {
-     "state": "mod",
-     "name": "Goku Super Saiyan",
-     "mod_id": 498005,
-     "source": "drive",
-     "reslot_from": null,
-     "file": "ken/498005_goku/original/goku_over_ken_c00-c07_.rar",
-     "approved": false
-    },
-    "2": {
-     "state": "mod",
-     "name": "Goku Super Saiyan 3",
-     "mod_id": 498005,
-     "source": "drive",
-     "reslot_from": null,
-     "file": "ken/498005_goku/original/goku_over_ken_c00-c07_.rar",
-     "approved": false
-    },
-    "3": {
-     "state": "mod",
-     "name": "Goku Super Saiyan God",
-     "mod_id": 498005,
-     "source": "drive",
-     "reslot_from": null,
-     "file": "ken/498005_goku/original/goku_over_ken_c00-c07_.rar",
-     "approved": false
-    },
-    "4": {
-     "state": "mod",
-     "name": "Goku base (camisa azul)",
-     "mod_id": 498005,
-     "source": "drive",
-     "reslot_from": null,
-     "file": "ken/498005_goku/original/goku_over_ken_c00-c07_.rar",
-     "approved": false
-    },
-    "5": {
-     "state": "mod",
-     "name": "Goku Super Saiyan Blue (camisa azul)",
-     "mod_id": 498005,
-     "source": "drive",
-     "reslot_from": null,
-     "file": "ken/498005_goku/original/goku_over_ken_c00-c07_.rar",
-     "approved": false
-    },
-    "6": {
-     "state": "mod",
-     "name": "Goku Ultra Instinct Omen (camisa azul)",
-     "mod_id": 498005,
-     "source": "drive",
-     "reslot_from": null,
-     "file": "ken/498005_goku/original/goku_over_ken_c00-c07_.rar",
-     "approved": false
-    },
-    "7": {
-     "state": "mod",
-     "name": "Goku Ultra Instinct dominado (camisa azul)",
-     "mod_id": 498005,
-     "source": "drive",
-     "reslot_from": null,
-     "file": "ken/498005_goku/original/goku_over_ken_c00-c07_.rar",
-     "approved": false
-    }
-   }
+   "slots": {},
+   "nota": "Pendiente (se decide después): Goku (498005, 8 looks c00–c07) y los demás packs de muchos slots (Apollo Justice 459257, c01–c07). Por ahora Ken no tiene decisiones."
   },
   "63": {
    "slots": {
