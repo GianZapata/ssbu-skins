@@ -28,6 +28,7 @@ SKIP = {'_respaldos'}
 SLOT_RES = [re.compile(r'/c(\d\d)/'), re.compile(r'_c(\d\d)[._]'), re.compile(r'chara_\d+_\w+?_(\d\d)\.bntx$')]
 MOD = re.compile(r'^(\d+)_(.+)$')
 PART = re.compile(r'\.zip\.part\d+$', re.I)
+NOT_MOD = 'no es un archivo de mod'  # notas sueltas (.txt): no cuentan como archivos sin listar
 
 def md5(path):
     h = hashlib.md5()
@@ -54,7 +55,7 @@ def inspect(path, name):
     if low.endswith('.zip'):
         try: return {'listed': True, 'slots': zip_slots(path)}
         except zipfile.BadZipFile: return {'listed': False, 'slots': [], 'unlisted_reason': 'zip dañado o incompleto'}
-    return {'listed': False, 'slots': [], 'unlisted_reason': 'no es un archivo de mod'}
+    return {'listed': False, 'slots': [], 'unlisted_reason': NOT_MOD}
 
 def files(mod_dir, mod_rel, cache, rehash):
     out = []
@@ -97,9 +98,14 @@ def scan(root, prev=None, rehash=False):
                          'plugin': ff == PLUGINS, 'link': text(os.path.join(mdir, 'LINK.txt')), 'note': text(os.path.join(mdir, 'NOTA.txt')),
                          'catalog': cat.get((code, mod_id)) if code and mod_id else None, 'files': files(mdir, rel, cache, rehash)})
     mods.sort(key=lambda x: (x['code'] or '~', x['mod_id'] or 0, x['folder']))
-    fl = [f for x in mods for f in x['files']]
+    seen = {}
+    for x in mods:
+        if not x['files']: print(f"aviso: carpeta de mod sin archivos: {x['folder']}", file=sys.stderr)
+        if x['mod_id'] and (x['code'], x['mod_id']) in seen: print(f"aviso: mod {x['mod_id']} repetido en {seen[(x['code'], x['mod_id'])]} y {x['folder']}", file=sys.stderr)
+        seen.setdefault((x['code'], x['mod_id']), x['folder'])
+    fl = [f for x in mods for f in x['files']]; other = [f for f in fl if f.get('unlisted_reason') == NOT_MOD]
     counts = {'mods': len(mods), 'files': len(fl), 'bytes': sum(f['bytes'] for f in fl), 'listed': sum(f['listed'] for f in fl),
-              'unlisted': sum(not f['listed'] for f in fl), 'touches_c00': sum(bool(f['touches_c00']) for f in fl)}
+              'unlisted': sum(not f['listed'] for f in fl) - len(other), 'other': len(other), 'touches_c00': sum(bool(f['touches_c00']) for f in fl)}
     return {'source': 'Google Drive · SSBU_mods',
             'note': 'Manifiesto de los mods descargados en el Drive (los binarios no se versionan). Slots leídos solo de los .zip; nada de esto está instalado ni probado en consola.',
             'counts': counts, 'mods': mods}
@@ -114,4 +120,4 @@ if __name__ == '__main__':
     out = scan(a.root, prev, a.rehash)
     with open(a.out, 'w', encoding='utf-8') as f: f.write(json.dumps(out, ensure_ascii=False, indent=1) + '\n')
     c = out['counts']
-    print(f"ok · {a.out}: {c['mods']} mods, {c['files']} archivos ({c['bytes'] / 1e6:.1f} MB), {c['listed']} listados, {c['unlisted']} sin listar, {c['touches_c00']} tocan c00")
+    print(f"ok · {a.out}: {c['mods']} mods, {c['files']} archivos ({c['bytes'] / 1e6:.1f} MB), {c['listed']} listados, {c['unlisted']} sin listar, {c['other']} notas, {c['touches_c00']} tocan c00")

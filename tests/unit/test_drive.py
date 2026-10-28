@@ -51,6 +51,14 @@ class Drive(unittest.TestCase):
         self.assertEqual(d['counts']['touches_c00'], 1); self.assertEqual(d['counts']['mods'], 4)
         self.assertNotIn(self.tmp.name, open(self.out, encoding='utf-8').read())
 
+    def test_notas_carpetas_vacias_y_repetidos(self):
+        open(os.path.join(self.root, 'chrom', '175495_squall', 'original', 'PARTES.txt'), 'w').write('unir partes')
+        os.makedirs(os.path.join(self.root, 'terry', '609500_vegeta (1)'))
+        r = scan(self.root, self.out); self.assertEqual(r.returncode, 0, r.stderr)
+        self.assertIn('sin archivos: terry/609500_vegeta (1)', r.stderr); self.assertIn('mod 609500 repetido', r.stderr)
+        c = self.load()['counts']
+        self.assertEqual((c['other'], c['unlisted']), (1, 3))   # la nota no cuenta como archivo sin listar
+
     def test_determinista(self):
         scan(self.root, self.out); a = open(self.out, encoding='utf-8').read()
         os.remove(self.out); scan(self.root, self.out)
