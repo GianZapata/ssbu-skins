@@ -114,7 +114,8 @@
      "file": null,
      "approved": true
     }
-   }
+   },
+   "nota": "Pendiente: Pain (401033, lo mandó Gian) no tiene slot; trae effect, motion, param y config.json (riesgo wifi). Candidatos: c04 o c01 reslot desde c00."
   },
   "74": {
    "slots": {
@@ -193,7 +194,7 @@
      "approved": true
     }
    },
-   "nota": "Los packs de 8 slots (Gogeta 437327, Gogeta SSJ4 446815, Goku Mid 502537, Yang Xiao Long 346216) quedan pendientes; aquí solo entra el look suelto que ya se eligió (Gogeta SSJ en c01, Gogeta SSJ4 en c07)."
+   "nota": "Los packs de 8 slots (Gogeta 437327, Gogeta SSJ4 446815, Goku Mid 502537, Yang Xiao Long 346216) quedan pendientes; aquí solo entra el look suelto que ya se eligió (Gogeta SSJ en c01, Gogeta SSJ4 en c07). Pendiente: Tifa (559818, lo mandó Gian, c00–c01) compite con Gohan (de auditoría) por c00."
   },
   "77": {
    "slots": {
@@ -217,21 +218,22 @@
     },
     "2": {
      "state": "mod",
-     "name": "Steviroth",
-     "mod_id": 323894,
+     "name": "Herobrine",
+     "mod_id": 175943,
      "source": "drive",
      "reslot_from": 0,
-     "file": "steve/323894_steviroth/original/steviroth.zip",
+     "file": "steve/175943_herobrine_over_steve/original/herobrine_1be72.rar",
      "approved": false
     },
     "3": {
-     "state": "vanilla",
-     "name": "Original del juego",
-     "mod_id": null,
-     "source": "vanilla",
+     "state": "mod",
+     "name": "Villager (Minecraft)",
+     "mod_id": 331475,
+     "source": "drive",
      "reslot_from": null,
-     "file": null,
-     "approved": false
+     "file": "steve/331475_villager_from_minecraft/original/minecraftvillager_e9cb5.zip",
+     "approved": false,
+     "nota": "trae nusktb y param (riesgo wifi)"
     },
     "4": {
      "state": "mod",
@@ -252,12 +254,12 @@
      "approved": false
     },
     "6": {
-     "state": "vanilla",
-     "name": "Original del juego",
-     "mod_id": null,
-     "source": "vanilla",
-     "reslot_from": null,
-     "file": null,
+     "state": "mod",
+     "name": "Lego Batman",
+     "mod_id": 579591,
+     "source": "drive",
+     "reslot_from": 0,
+     "file": "steve/579591_lego_batman/original/lego_batman.rar",
      "approved": false
     },
     "7": {
@@ -270,58 +272,204 @@
      "approved": false
     }
    },
-   "nota": "Propuesta pendiente de aprobar. El Steve de WuBoy está excluido del perfil."
+   "nota": "Pendiente: Steviroth (323894, de auditoría previa) se queda fuera por falta de slot; Lego Batman trae 2 looks (c00, c01) y aquí va solo uno."
   },
   "01": {
    "slots": {
     "0": {
      "state": "mod",
-     "name": "Moogle",
-     "mod_id": 374147,
+     "name": "Paper Mario",
+     "mod_id": 464212,
      "source": "drive",
      "reslot_from": null,
-     "file": "mario/374147_moogle_over_mario/original/moogle_over_mario_453b1.7z",
+     "file": "mario/464212_paper_mario/original/paper_mario_6442b.zip",
      "approved": false,
-     "nota": "trae ef_mario.eff sin slot: afecta a todos los Mario"
+     "nota": "trae motion y param: riesgo wifi"
+    },
+    "1": {
+     "state": "mod",
+     "name": "Kellytoy Mario",
+     "mod_id": 585456,
+     "source": "drive",
+     "reslot_from": null,
+     "file": "mario/585456_kellytoy_mario/original/kellytoy_mario.rar",
+     "approved": false
     },
     "2": {
      "state": "mod",
+     "name": "Wheelchair Mario",
+     "mod_id": 324701,
+     "source": "drive",
+     "reslot_from": null,
+     "file": "mario/324701_wheelchair_mario/original/marioinawheelchair_e965b.zip",
+     "approved": false
+    },
+    "3": {
+     "state": "mod",
+     "name": "Wheelchair Mario",
+     "mod_id": 324701,
+     "source": "drive",
+     "reslot_from": null,
+     "file": "mario/324701_wheelchair_mario/original/marioinawheelchair_e965b.zip",
+     "approved": false
+    },
+    "4": {
+     "state": "mod",
      "name": "Moogle",
      "mod_id": 374147,
      "source": "drive",
-     "reslot_from": null,
+     "reslot_from": 0,
      "file": "mario/374147_moogle_over_mario/original/moogle_over_mario_453b1.7z",
      "approved": false,
-     "nota": "trae ef_mario.eff sin slot: afecta a todos los Mario"
+     "nota": "trae ef_mario.eff global (afecta a todos los Mario)"
+    },
+    "5": {
+     "state": "mod",
+     "name": "Moogle",
+     "mod_id": 374147,
+     "source": "drive",
+     "reslot_from": 1,
+     "file": "mario/374147_moogle_over_mario/original/moogle_over_mario_453b1.7z",
+     "approved": false,
+     "nota": "trae ef_mario.eff global (afecta a todos los Mario)"
+    },
+    "6": {
+     "state": "mod",
+     "name": "Moogle",
+     "mod_id": 374147,
+     "source": "drive",
+     "reslot_from": 2,
+     "file": "mario/374147_moogle_over_mario/original/moogle_over_mario_453b1.7z",
+     "approved": false,
+     "nota": "trae ef_mario.eff global (afecta a todos los Mario)"
     }
    },
-   "nota": "Pendiente: el look de Moogle de c01 no entra porque c01 es Kellytoy (el autor de Kellytoy dice que se puede mover a c00–c05)."
+   "nota": "Pendiente: Dry Bones (174057, 8 looks) y el c07 queda libre para uno de sus looks."
   },
   "09": {
    "slots": {
-    "6": {
+    "0": {
      "state": "mod",
-     "name": "Rayman (efectos)",
-     "mod_id": 391570,
-     "source": "drive",
+     "name": "Swole Luigi Remastered",
+     "mod_id": null,
+     "source": "profile",
      "reslot_from": null,
-     "file": "luigi/391570_rayman_wiiu_trophy/original/luigi-c06_-_rayman_update_-_effects_8b55e.zip",
+     "file": null,
      "approved": false
     },
-    "7": {
+    "1": {
+     "state": "vanilla",
+     "name": "Original",
+     "mod_id": null,
+     "source": "vanilla",
+     "reslot_from": null,
+     "file": null,
+     "approved": false,
+     "nota": "se quita la skin de WuBoy"
+    },
+    "2": {
+     "state": "vanilla",
+     "name": "Original",
+     "mod_id": null,
+     "source": "vanilla",
+     "reslot_from": null,
+     "file": null,
+     "approved": false,
+     "nota": "se quita la skin de WuBoy"
+    },
+    "3": {
+     "state": "vanilla",
+     "name": "Original",
+     "mod_id": null,
+     "source": "vanilla",
+     "reslot_from": null,
+     "file": null,
+     "approved": false,
+     "nota": "se quita la skin de WuBoy"
+    },
+    "4": {
+     "state": "vanilla",
+     "name": "Original",
+     "mod_id": null,
+     "source": "vanilla",
+     "reslot_from": null,
+     "file": null,
+     "approved": false,
+     "nota": "se quita la skin de WuBoy"
+    },
+    "5": {
+     "state": "vanilla",
+     "name": "Original",
+     "mod_id": null,
+     "source": "vanilla",
+     "reslot_from": null,
+     "file": null,
+     "approved": false,
+     "nota": "se quita la skin de WuBoy"
+    },
+    "6": {
      "state": "mod",
      "name": "Rayman",
      "mod_id": 391570,
      "source": "drive",
      "reslot_from": null,
-     "file": "luigi/391570_rayman_wiiu_trophy/original/luigi-c07_-_rayman.zip",
+     "file": "luigi/391570_rayman_wiiu_trophy/original/luigi-c06_-_rayman_update_-_effects_8b55e.zip",
      "approved": false,
-     "nota": "reemplaza a Mr. L de WuBoy"
+     "nota": "el c07 de Rayman es idéntico en retrato; no se usa"
+    },
+    "7": {
+     "state": "wuboy",
+     "name": "Mr. L",
+     "mod_id": null,
+     "source": "wuboy",
+     "reslot_from": null,
+     "file": null,
+     "approved": false
     }
    }
   },
   "14": {
    "slots": {
+    "1": {
+     "state": "vanilla",
+     "name": "Original",
+     "mod_id": null,
+     "source": "vanilla",
+     "reslot_from": null,
+     "file": null,
+     "approved": false,
+     "nota": "se quita la skin de WuBoy"
+    },
+    "2": {
+     "state": "vanilla",
+     "name": "Original",
+     "mod_id": null,
+     "source": "vanilla",
+     "reslot_from": null,
+     "file": null,
+     "approved": false,
+     "nota": "se quita la skin de WuBoy"
+    },
+    "3": {
+     "state": "vanilla",
+     "name": "Original",
+     "mod_id": null,
+     "source": "vanilla",
+     "reslot_from": null,
+     "file": null,
+     "approved": false,
+     "nota": "se quita la skin de WuBoy"
+    },
+    "4": {
+     "state": "vanilla",
+     "name": "Original",
+     "mod_id": null,
+     "source": "vanilla",
+     "reslot_from": null,
+     "file": null,
+     "approved": false,
+     "nota": "se quita la skin de WuBoy"
+    },
     "5": {
      "state": "mod",
      "name": "Kurama [Linked]",
@@ -340,6 +488,15 @@
      "file": "bowser/386111_kurama_linked_susano_o_armor_jp_voice_new/original/kuramalinkedandsusanooarmor.zip",
      "approved": false,
      "nota": "reemplaza a Dry Bowser de WuBoy"
+    },
+    "7": {
+     "state": "wuboy",
+     "name": "Dark Bowser",
+     "mod_id": null,
+     "source": "wuboy",
+     "reslot_from": null,
+     "file": null,
+     "approved": false
     }
    }
   },
@@ -354,6 +511,36 @@
      "file": "dr_mario/384627_timeless_river_dr_mario/original/timeless_river_doctor_c01.7z",
      "approved": false
     },
+    "2": {
+     "state": "vanilla",
+     "name": "Original",
+     "mod_id": null,
+     "source": "vanilla",
+     "reslot_from": null,
+     "file": null,
+     "approved": false,
+     "nota": "se quita la skin de WuBoy"
+    },
+    "3": {
+     "state": "vanilla",
+     "name": "Original",
+     "mod_id": null,
+     "source": "vanilla",
+     "reslot_from": null,
+     "file": null,
+     "approved": false,
+     "nota": "se quita la skin de WuBoy"
+    },
+    "5": {
+     "state": "vanilla",
+     "name": "Original",
+     "mod_id": null,
+     "source": "vanilla",
+     "reslot_from": null,
+     "file": null,
+     "approved": false,
+     "nota": "se quita la skin de WuBoy"
+    },
     "7": {
      "state": "mod",
      "name": "Timeless River",
@@ -367,6 +554,35 @@
   },
   "02": {
    "slots": {
+    "0": {
+     "state": "mod",
+     "name": "DK Bananza",
+     "mod_id": 595992,
+     "source": "drive",
+     "reslot_from": null,
+     "file": "dk/595992_donkey_kong_bananza_smash_ultimate_style/original/dkbananza_smashstyle.rar",
+     "approved": false,
+     "nota": "el pack trae 3 looks (c00–c02); aquí solo el de c00"
+    },
+    "1": {
+     "state": "mod",
+     "name": "SSJ4 Donkey Kong",
+     "mod_id": 579593,
+     "source": "drive",
+     "reslot_from": null,
+     "file": "dk/579593_ssj4_donkey_kong/original/ssj4_donkey_kong.zip",
+     "approved": false
+    },
+    "2": {
+     "state": "mod",
+     "name": "Tank (Left 4 Dead)",
+     "mod_id": 383485,
+     "source": "drive",
+     "reslot_from": null,
+     "file": "dk/383485_tank_left_4_dead/original/tank_left_4_dead_.zip",
+     "approved": false,
+     "nota": "reemplaza a «A Real Gorilla» de WuBoy"
+    },
     "3": {
      "state": "mod",
      "name": "Pirate Funky Kong",
@@ -374,13 +590,70 @@
      "source": "drive",
      "reslot_from": null,
      "file": "dk/357706_pirate_funky_kong/original/pirate_funky_kong.zip",
+     "approved": false
+    },
+    "4": {
+     "state": "mod",
+     "name": "Joe Swanson",
+     "mod_id": 378405,
+     "source": "drive",
+     "reslot_from": null,
+     "file": "dk/378405_joe_swanson/original/joe_swanson_c04__2e44a.zip",
      "approved": false,
-     "nota": "reemplaza uno de los Funky Kong del perfil (Gian quiere un único Funky)"
+     "nota": "reemplaza a «Swole Doge» de WuBoy"
+    },
+    "5": {
+     "state": "mod",
+     "name": "Donkey Kong 64",
+     "mod_id": 326115,
+     "source": "drive",
+     "reslot_from": null,
+     "file": "dk/326115_donkey_kong_donkey_kong_64/original/donkey_kong_donkey_kong_64_.zip",
+     "approved": false
+    },
+    "6": {
+     "state": "mod",
+     "name": "Omega",
+     "mod_id": 396125,
+     "source": "drive",
+     "reslot_from": 2,
+     "file": "dk/396125_omega/original/omega_f73c5.rar",
+     "approved": false,
+     "nota": "trae nusktb (esqueleto propio): riesgo wifi"
+    },
+    "7": {
+     "state": "mod",
+     "name": "Venom",
+     "mod_id": 174249,
+     "source": "drive",
+     "reslot_from": null,
+     "file": "dk/174249_venom/original/donkey-c07-venom.rar",
+     "approved": false
     }
    }
   },
   "03": {
    "slots": {
+    "2": {
+     "state": "vanilla",
+     "name": "Original",
+     "mod_id": null,
+     "source": "vanilla",
+     "reslot_from": null,
+     "file": null,
+     "approved": false,
+     "nota": "se quita la skin de WuBoy"
+    },
+    "3": {
+     "state": "vanilla",
+     "name": "Original",
+     "mod_id": null,
+     "source": "vanilla",
+     "reslot_from": null,
+     "file": null,
+     "approved": false,
+     "nota": "se quita la skin de WuBoy"
+    },
     "4": {
      "state": "mod",
      "name": "Goblin Slayer",
@@ -389,6 +662,35 @@
      "reslot_from": null,
      "file": "link/342215_goblin_slayer_over_link/original/goblin_slayer_release_100.zip",
      "approved": false
+    },
+    "5": {
+     "state": "mod",
+     "name": "Link (Female)",
+     "mod_id": 628791,
+     "source": "drive",
+     "reslot_from": null,
+     "file": "link/628791_link_female/original/ssbu_link_female_.rar",
+     "approved": false
+    },
+    "6": {
+     "state": "vanilla",
+     "name": "Original",
+     "mod_id": null,
+     "source": "vanilla",
+     "reslot_from": null,
+     "file": null,
+     "approved": false,
+     "nota": "se quita la skin de WuBoy"
+    },
+    "7": {
+     "state": "vanilla",
+     "name": "Original",
+     "mod_id": null,
+     "source": "vanilla",
+     "reslot_from": null,
+     "file": null,
+     "approved": false,
+     "nota": "se quita la skin de WuBoy"
     }
    }
   },
@@ -396,33 +698,147 @@
    "slots": {
     "0": {
      "state": "mod",
-     "name": "Larxene",
-     "mod_id": 367390,
+     "name": "Yuffie",
+     "mod_id": 511678,
      "source": "drive",
      "reslot_from": null,
-     "file": "sheik/367390_larxene_over_sheik/original/larxene_over_sheik.7z",
+     "file": "sheik/511678_yuffie_kisaragi_final_fantasy_vii/original/yuffie_over_c01_sheik.rar",
      "approved": false
     },
     "1": {
      "state": "mod",
+     "name": "Yuffie",
+     "mod_id": 511678,
+     "source": "drive",
+     "reslot_from": null,
+     "file": "sheik/511678_yuffie_kisaragi_final_fantasy_vii/original/yuffie_over_c01_sheik.rar",
+     "approved": false
+    },
+    "2": {
+     "state": "vanilla",
+     "name": "Original",
+     "mod_id": null,
+     "source": "vanilla",
+     "reslot_from": null,
+     "file": null,
+     "approved": false,
+     "nota": "se quita la skin de WuBoy"
+    },
+    "3": {
+     "state": "vanilla",
+     "name": "Original",
+     "mod_id": null,
+     "source": "vanilla",
+     "reslot_from": null,
+     "file": null,
+     "approved": false,
+     "nota": "se quita la skin de WuBoy"
+    },
+    "4": {
+     "state": "mod",
      "name": "Larxene",
      "mod_id": 367390,
      "source": "drive",
-     "reslot_from": null,
+     "reslot_from": 0,
      "file": "sheik/367390_larxene_over_sheik/original/larxene_over_sheik.7z",
+     "approved": false
+    },
+    "5": {
+     "state": "mod",
+     "name": "Larxene",
+     "mod_id": 367390,
+     "source": "drive",
+     "reslot_from": 1,
+     "file": "sheik/367390_larxene_over_sheik/original/larxene_over_sheik.7z",
+     "approved": false
+    },
+    "7": {
+     "state": "wuboy",
+     "name": "Ibuki",
+     "mod_id": null,
+     "source": "wuboy",
+     "reslot_from": null,
+     "file": null,
      "approved": false
     }
    }
   },
   "17": {
    "slots": {
+    "0": {
+     "state": "mod",
+     "name": "Aerith",
+     "mod_id": 535222,
+     "source": "drive",
+     "reslot_from": null,
+     "file": "zelda/535222_aerith_gainsborough_final_fantasy_vii/original/aerith_c00_c01.rar",
+     "approved": false
+    },
     "1": {
+     "state": "mod",
+     "name": "Aerith",
+     "mod_id": 535222,
+     "source": "drive",
+     "reslot_from": null,
+     "file": "zelda/535222_aerith_gainsborough_final_fantasy_vii/original/aerith_c00_c01.rar",
+     "approved": false
+    },
+    "2": {
      "state": "mod",
      "name": "Jean Grey",
      "mod_id": 346851,
      "source": "drive",
-     "reslot_from": null,
+     "reslot_from": 1,
      "file": "zelda/346851_jean_grey_over_zelda/original/jean_grey_release_100.zip",
+     "approved": false
+    },
+    "3": {
+     "state": "vanilla",
+     "name": "Original",
+     "mod_id": null,
+     "source": "vanilla",
+     "reslot_from": null,
+     "file": null,
+     "approved": false,
+     "nota": "se quita la skin de WuBoy"
+    },
+    "4": {
+     "state": "vanilla",
+     "name": "Original",
+     "mod_id": null,
+     "source": "vanilla",
+     "reslot_from": null,
+     "file": null,
+     "approved": false,
+     "nota": "se quita la skin de WuBoy"
+    },
+    "5": {
+     "state": "vanilla",
+     "name": "Original",
+     "mod_id": null,
+     "source": "vanilla",
+     "reslot_from": null,
+     "file": null,
+     "approved": false,
+     "nota": "se quita la skin de WuBoy"
+    },
+    "6": {
+     "state": "vanilla",
+     "name": "Original",
+     "mod_id": null,
+     "source": "vanilla",
+     "reslot_from": null,
+     "file": null,
+     "approved": false,
+     "nota": "se quita la skin de WuBoy"
+    },
+    "7": {
+     "state": "wuboy",
+     "name": "Wiz",
+     "mod_id": null,
+     "source": "wuboy",
+     "reslot_from": null,
+     "file": null,
      "approved": false
     }
    }
@@ -439,6 +855,16 @@
      "approved": false,
      "nota": "necesita One Slot Effects"
     },
+    "1": {
+     "state": "mod",
+     "name": "Lucy (Cyberpunk)",
+     "mod_id": 690283,
+     "source": "drive",
+     "reslot_from": null,
+     "file": "zero_suit_samus/690283_comm_lucy_cyberpunk_edgerunners/original/zero_suit_samus_c01_-_lucy.zip",
+     "approved": false,
+     "nota": "reemplaza a «Naoto» de WuBoy"
+    },
     "2": {
      "state": "mod",
      "name": "Jinx",
@@ -447,7 +873,57 @@
      "reslot_from": null,
      "file": "zero_suit_samus/397431_jinx/original/jinxvanilla_9797c.rar",
      "approved": false,
-     "nota": "hay 3 variantes: arcanegun, newui y vanilla; falta elegir"
+     "nota": "3 variantes: arcanegun, newui y vanilla"
+    },
+    "3": {
+     "state": "vanilla",
+     "name": "Original",
+     "mod_id": null,
+     "source": "vanilla",
+     "reslot_from": null,
+     "file": null,
+     "approved": false,
+     "nota": "se quita la skin de WuBoy"
+    },
+    "4": {
+     "state": "vanilla",
+     "name": "Original",
+     "mod_id": null,
+     "source": "vanilla",
+     "reslot_from": null,
+     "file": null,
+     "approved": false,
+     "nota": "se quita la skin de WuBoy"
+    },
+    "5": {
+     "state": "vanilla",
+     "name": "Original",
+     "mod_id": null,
+     "source": "vanilla",
+     "reslot_from": null,
+     "file": null,
+     "approved": false,
+     "nota": "se quita la skin de WuBoy"
+    },
+    "6": {
+     "state": "mod",
+     "name": "Spider-Gwen",
+     "mod_id": 174461,
+     "source": "drive",
+     "reslot_from": 7,
+     "file": "zero_suit_samus/174461_spider_gwen/original/szerosuit_-_gwen_c07.rar",
+     "approved": false,
+     "nota": "se veía negra al moverla sin sus texturas"
+    },
+    "7": {
+     "state": "mod",
+     "name": "Jill Valentine",
+     "mod_id": 637464,
+     "source": "drive",
+     "reslot_from": 0,
+     "file": "zero_suit_samus/637464_jill_valentine/original/zerosuitsamus_jill_c00.rar",
+     "approved": false,
+     "nota": "trae el tema de victoria de ZSS (global)"
     }
    },
    "nota": "Pendiente: Spider-Gwen (c07) choca con Jill Valentine (perfil, c07). Opciones: elegir una, o reslotear Gwen a c06 (libre; ojo: se veía negra al moverla sin sus texturas)."
@@ -462,6 +938,36 @@
      "reslot_from": null,
      "file": "fox/450327_gohan/original/fox03_-_gohan_updated_model.zip",
      "approved": false
+    },
+    "5": {
+     "state": "vanilla",
+     "name": "Original",
+     "mod_id": null,
+     "source": "vanilla",
+     "reslot_from": null,
+     "file": null,
+     "approved": false,
+     "nota": "se quita la skin de WuBoy"
+    },
+    "6": {
+     "state": "vanilla",
+     "name": "Original",
+     "mod_id": null,
+     "source": "vanilla",
+     "reslot_from": null,
+     "file": null,
+     "approved": false,
+     "nota": "se quita la skin de WuBoy"
+    },
+    "7": {
+     "state": "vanilla",
+     "name": "Original",
+     "mod_id": null,
+     "source": "vanilla",
+     "reslot_from": null,
+     "file": null,
+     "approved": false,
+     "nota": "se quita la skin de WuBoy"
     }
    }
   },
@@ -474,8 +980,7 @@
      "source": "drive",
      "reslot_from": null,
      "file": "falco/174558_falco_n64_skin_voice_sfx/original/falco-n64skin---v-1-4b.zip",
-     "approved": false,
-     "nota": "el sonido N64 va en otro archivo (falcon64sound)"
+     "approved": false
     },
     "1": {
      "state": "mod",
@@ -494,11 +999,51 @@
      "reslot_from": null,
      "file": "falco/174558_falco_n64_skin_voice_sfx/original/falco-n64skin---v-1-4b.zip",
      "approved": false
+    },
+    "3": {
+     "state": "vanilla",
+     "name": "Original",
+     "mod_id": null,
+     "source": "vanilla",
+     "reslot_from": null,
+     "file": null,
+     "approved": false,
+     "nota": "se quita la skin de WuBoy"
+    },
+    "7": {
+     "state": "vanilla",
+     "name": "Original",
+     "mod_id": null,
+     "source": "vanilla",
+     "reslot_from": null,
+     "file": null,
+     "approved": false,
+     "nota": "se quita la skin de WuBoy"
     }
    }
   },
   "69": {
    "slots": {
+    "2": {
+     "state": "vanilla",
+     "name": "Original",
+     "mod_id": null,
+     "source": "vanilla",
+     "reslot_from": null,
+     "file": null,
+     "approved": false,
+     "nota": "se quita la skin de WuBoy"
+    },
+    "3": {
+     "state": "vanilla",
+     "name": "Original",
+     "mod_id": null,
+     "source": "vanilla",
+     "reslot_from": null,
+     "file": null,
+     "approved": false,
+     "nota": "se quita la skin de WuBoy"
+    },
     "4": {
      "state": "mod",
      "name": "Freddie Freaker",
@@ -508,15 +1053,132 @@
      "file": "incineroar/443660_freddie_freaker_over_incineroar/original/freddie_freaker.rar",
      "approved": false,
      "nota": "freakervictory.rar es un tema de victoria global: opcional"
+    },
+    "5": {
+     "state": "vanilla",
+     "name": "Original",
+     "mod_id": null,
+     "source": "vanilla",
+     "reslot_from": null,
+     "file": null,
+     "approved": false,
+     "nota": "se quita la skin de WuBoy"
+    },
+    "6": {
+     "state": "vanilla",
+     "name": "Original",
+     "mod_id": null,
+     "source": "vanilla",
+     "reslot_from": null,
+     "file": null,
+     "approved": false,
+     "nota": "se quita la skin de WuBoy"
+    },
+    "7": {
+     "state": "vanilla",
+     "name": "Original",
+     "mod_id": null,
+     "source": "vanilla",
+     "reslot_from": null,
+     "file": null,
+     "approved": false,
+     "nota": "se quita la skin de WuBoy"
     }
    }
   },
   "11": {
-   "slots": {},
+   "slots": {
+    "0": {
+     "state": "mod",
+     "name": "Buzz Lightyear",
+     "mod_id": 680362,
+     "source": "drive",
+     "reslot_from": null,
+     "file": "captain_falcon/680362_buzz_lightyear/original/buzz_c04d2.zip",
+     "approved": false
+    },
+    "1": {
+     "state": "mod",
+     "name": "Buff Perry",
+     "mod_id": 676382,
+     "source": "drive",
+     "reslot_from": null,
+     "file": "captain_falcon/676382_buff_perry_the_platypus_phineas_and_ferb/original/buff_perry.rar",
+     "approved": false
+    },
+    "2": {
+     "state": "mod",
+     "name": "Dark Falcon",
+     "mod_id": null,
+     "source": "profile",
+     "reslot_from": null,
+     "file": null,
+     "approved": false
+    },
+    "3": {
+     "state": "mod",
+     "name": "Garnet",
+     "mod_id": 466057,
+     "source": "drive",
+     "reslot_from": 2,
+     "file": "captain_falcon/466057_garnet_over_captain_falcon/original/garnet_over_captain_falcon_c02.zip",
+     "approved": false,
+     "nota": "trae motion y config.json: riesgo wifi"
+    },
+    "4": {
+     "state": "mod",
+     "name": "All Might",
+     "mod_id": 692548,
+     "source": "drive",
+     "reslot_from": 1,
+     "file": "captain_falcon/692548_all_might_over_captain_falcon/original/all_might_over_falcon.zip",
+     "approved": false,
+     "nota": "trae el tema de victoria de Falcon (global)"
+    },
+    "5": {
+     "state": "vanilla",
+     "name": "Original",
+     "mod_id": null,
+     "source": "vanilla",
+     "reslot_from": null,
+     "file": null,
+     "approved": false,
+     "nota": "se quita la skin de WuBoy"
+    },
+    "6": {
+     "state": "vanilla",
+     "name": "Original",
+     "mod_id": null,
+     "source": "vanilla",
+     "reslot_from": null,
+     "file": null,
+     "approved": false,
+     "nota": "se quita la skin de WuBoy"
+    },
+    "7": {
+     "state": "wuboy",
+     "name": "Pepsiman",
+     "mod_id": null,
+     "source": "wuboy",
+     "reslot_from": null,
+     "file": null,
+     "approved": false
+    }
+   },
    "nota": "Pendiente: Garnet (c02) choca con Dark Falcon (perfil, PR #4, c02). Opciones: elegir una, o reslotear Garnet a c01 (trae motion y config.json, riesgo wifi)."
   },
   "21": {
    "slots": {
+    "1": {
+     "state": "vanilla",
+     "name": "Original",
+     "mod_id": null,
+     "source": "vanilla",
+     "reslot_from": null,
+     "file": null,
+     "approved": false,
+     "nota": "se quita la skin de WuBoy"
+    },
     "3": {
      "state": "mod",
      "name": "Sigurd",
@@ -525,34 +1187,93 @@
      "reslot_from": null,
      "file": "marth/442940_sigurd_marth/original/sigurd_marth.zip",
      "approved": false
+    },
+    "4": {
+     "state": "vanilla",
+     "name": "Original",
+     "mod_id": null,
+     "source": "vanilla",
+     "reslot_from": null,
+     "file": null,
+     "approved": false,
+     "nota": "se quita la skin de WuBoy"
+    },
+    "5": {
+     "state": "vanilla",
+     "name": "Original",
+     "mod_id": null,
+     "source": "vanilla",
+     "reslot_from": null,
+     "file": null,
+     "approved": false,
+     "nota": "se quita la skin de WuBoy"
     }
    }
   },
   "60": {
    "slots": {
+    "1": {
+     "state": "vanilla",
+     "name": "Original",
+     "mod_id": null,
+     "source": "vanilla",
+     "reslot_from": null,
+     "file": null,
+     "approved": false,
+     "nota": "se quita la skin de WuBoy"
+    },
+    "2": {
+     "state": "wuboy",
+     "name": "Kermit",
+     "mod_id": null,
+     "source": "wuboy",
+     "reslot_from": null,
+     "file": null,
+     "approved": false
+    },
+    "3": {
+     "state": "vanilla",
+     "name": "Original",
+     "mod_id": null,
+     "source": "vanilla",
+     "reslot_from": null,
+     "file": null,
+     "approved": false,
+     "nota": "se quita la skin de WuBoy"
+    },
+    "4": {
+     "state": "vanilla",
+     "name": "Original",
+     "mod_id": null,
+     "source": "vanilla",
+     "reslot_from": null,
+     "file": null,
+     "approved": false,
+     "nota": "se quita la skin de WuBoy"
+    },
     "5": {
      "state": "mod",
-     "name": "Goku SSJ",
+     "name": "Goku Super Saiyan",
      "mod_id": 487736,
      "source": "drive",
      "reslot_from": null,
      "file": "ryu/487736_goku_transformation_pack/original/son_goku_ss1-ssg-ssb_ryu_c05-06-07_.rar",
      "approved": false,
-     "nota": "trae el tema de victoria de Ryu (global, todos sus slots)"
+     "nota": "trae el tema de victoria de Ryu (global)"
     },
     "6": {
      "state": "mod",
-     "name": "Goku SSB",
+     "name": "Goku Super Saiyan Blue",
      "mod_id": 487736,
      "source": "drive",
      "reslot_from": null,
      "file": "ryu/487736_goku_transformation_pack/original/son_goku_ss1-ssg-ssb_ryu_c05-06-07_.rar",
      "approved": false,
-     "nota": "trae el tema de victoria de Ryu (global); reemplaza a Wallace de WuBoy"
+     "nota": "trae el tema de victoria de Ryu (global); reemplaza a «Wallace» de WuBoy"
     },
     "7": {
      "state": "mod",
-     "name": "Goku SSG",
+     "name": "Goku Super Saiyan God",
      "mod_id": 487736,
      "source": "drive",
      "reslot_from": null,
@@ -564,10 +1285,19 @@
   },
   "60ε": {
    "slots": {},
-   "nota": "Pendiente (se decide después): Goku (498005, 8 looks c00–c07) y los demás packs de muchos slots (Apollo Justice 459257, c01–c07). Por ahora Ken no tiene decisiones."
+   "nota": "Pendiente: Goku (498005, 8 looks) y los demás packs de muchos slots. Hasta decidir, Ken no tiene propuestas."
   },
   "63": {
    "slots": {
+    "1": {
+     "state": "wuboy",
+     "name": "Kat",
+     "mod_id": null,
+     "source": "wuboy",
+     "reslot_from": null,
+     "file": null,
+     "approved": false
+    },
     "2": {
      "state": "mod",
      "name": "Morrigan",
@@ -576,7 +1306,46 @@
      "reslot_from": null,
      "file": "bayonetta/501311_morrigan_mvc3_design/original/morrigan_single_slot_c02_bayo_2_even_slots_only.zip",
      "approved": false,
-     "nota": "usa el archivo de un solo slot (pares, Bayonetta 2); comprobar que no traiga ef_bayonetta.eff global"
+     "nota": "archivo de un solo slot (pares, Bayonetta 2); comprobar que no traiga ef_bayonetta.eff global"
+    },
+    "3": {
+     "state": "mod",
+     "name": "Harley Quinn",
+     "mod_id": 360738,
+     "source": "drive",
+     "reslot_from": null,
+     "file": "bayonetta/360738_harley_quinn_over_bayonetta/original/harley_quinn_bayonetta_.zip",
+     "approved": false
+    },
+    "4": {
+     "state": "vanilla",
+     "name": "Original",
+     "mod_id": null,
+     "source": "vanilla",
+     "reslot_from": null,
+     "file": null,
+     "approved": false,
+     "nota": "se quita la skin de WuBoy"
+    },
+    "5": {
+     "state": "vanilla",
+     "name": "Original",
+     "mod_id": null,
+     "source": "vanilla",
+     "reslot_from": null,
+     "file": null,
+     "approved": false,
+     "nota": "se quita la skin de WuBoy"
+    },
+    "7": {
+     "state": "vanilla",
+     "name": "Original",
+     "mod_id": null,
+     "source": "vanilla",
+     "reslot_from": null,
+     "file": null,
+     "approved": false,
+     "nota": "se quita la skin de WuBoy"
     }
    }
   },
@@ -592,6 +1361,36 @@
      "approved": false,
      "nota": "WuBoy ya tiene un Trunks en c02: puede ser el mismo mod"
     },
+    "3": {
+     "state": "vanilla",
+     "name": "Original",
+     "mod_id": null,
+     "source": "vanilla",
+     "reslot_from": null,
+     "file": null,
+     "approved": false,
+     "nota": "se quita la skin de WuBoy"
+    },
+    "4": {
+     "state": "vanilla",
+     "name": "Original",
+     "mod_id": null,
+     "source": "vanilla",
+     "reslot_from": null,
+     "file": null,
+     "approved": false,
+     "nota": "se quita la skin de WuBoy"
+    },
+    "5": {
+     "state": "vanilla",
+     "name": "Original",
+     "mod_id": null,
+     "source": "vanilla",
+     "reslot_from": null,
+     "file": null,
+     "approved": false,
+     "nota": "se quita la skin de WuBoy"
+    },
     "6": {
      "state": "mod",
      "name": "Trunks (Futuro)",
@@ -600,6 +1399,16 @@
      "reslot_from": null,
      "file": "hero/175735_trunks/original/trunks_brave.zip",
      "approved": false
+    },
+    "7": {
+     "state": "vanilla",
+     "name": "Original",
+     "mod_id": null,
+     "source": "vanilla",
+     "reslot_from": null,
+     "file": null,
+     "approved": false,
+     "nota": "se quita la skin de WuBoy"
     }
    }
   },
@@ -614,6 +1423,26 @@
      "file": "kazuya/303197_perfect_cell/original/cell_kazuya_c03_.zip",
      "approved": false
     },
+    "4": {
+     "state": "vanilla",
+     "name": "Original",
+     "mod_id": null,
+     "source": "vanilla",
+     "reslot_from": null,
+     "file": null,
+     "approved": false,
+     "nota": "se quita la skin de WuBoy"
+    },
+    "5": {
+     "state": "vanilla",
+     "name": "Original",
+     "mod_id": null,
+     "source": "vanilla",
+     "reslot_from": null,
+     "file": null,
+     "approved": false,
+     "nota": "se quita la skin de WuBoy"
+    },
     "6": {
      "state": "mod",
      "name": "Goku Ultra Instinto",
@@ -622,11 +1451,31 @@
      "reslot_from": null,
      "file": "kazuya/463039_goku_ultra_instinct/original/goku_kazuya_c06_.rar",
      "approved": false
+    },
+    "7": {
+     "state": "vanilla",
+     "name": "Original",
+     "mod_id": null,
+     "source": "vanilla",
+     "reslot_from": null,
+     "file": null,
+     "approved": false,
+     "nota": "se quita la skin de WuBoy"
     }
    }
   },
   "10": {
    "slots": {
+    "2": {
+     "state": "vanilla",
+     "name": "Original",
+     "mod_id": null,
+     "source": "vanilla",
+     "reslot_from": null,
+     "file": null,
+     "approved": false,
+     "nota": "se quita la skin de WuBoy"
+    },
     "3": {
      "state": "mod",
      "name": "Kid Buu",
@@ -635,7 +1484,17 @@
      "reslot_from": null,
      "file": "ness/560241_kid_buu/original/kid_buu_ness_c03_.zip",
      "approved": false,
-     "nota": "trae el tema de victoria de Ness (global, todos sus slots)"
+     "nota": "trae el tema de victoria de Ness (global)"
+    },
+    "6": {
+     "state": "vanilla",
+     "name": "Original",
+     "mod_id": null,
+     "source": "vanilla",
+     "reslot_from": null,
+     "file": null,
+     "approved": false,
+     "nota": "se quita la skin de WuBoy"
     }
    }
   },
@@ -659,10 +1518,30 @@
      "reslot_from": null,
      "file": "chrom/387553_raiden/original/raiden_00efb.zip",
      "approved": false,
-     "nota": "usar el config.json de config_cc198.zip; trae un tema de victoria (global)"
+     "nota": "usar el config.json de config_cc198.zip"
+    },
+    "6": {
+     "state": "vanilla",
+     "name": "Original",
+     "mod_id": null,
+     "source": "vanilla",
+     "reslot_from": null,
+     "file": null,
+     "approved": false,
+     "nota": "se quita la skin de WuBoy"
+    },
+    "7": {
+     "state": "vanilla",
+     "name": "Original",
+     "mod_id": null,
+     "source": "vanilla",
+     "reslot_from": null,
+     "file": null,
+     "approved": false,
+     "nota": "se quita la skin de WuBoy"
     }
    },
-   "nota": "Pendiente: Squall (c00–c07, 8 voces JP) está partido en 2 partes; hay que unirlo, ver qué look trae cada slot y elegir slots (libres: c00, c03, c04, c05)."
+   "nota": "Pendiente: Squall (c00–c07, 8 voces JP) está partido en 2 partes; hay que unirlo y elegir slots."
   },
   "44": {
    "slots": {
@@ -673,6 +1552,766 @@
      "source": "drive",
      "reslot_from": null,
      "file": "wolf/421286_vegeta/original/wolf_vegeta_c01_.rar",
+     "approved": false
+    },
+    "3": {
+     "state": "vanilla",
+     "name": "Original",
+     "mod_id": null,
+     "source": "vanilla",
+     "reslot_from": null,
+     "file": null,
+     "approved": false,
+     "nota": "se quita la skin de WuBoy"
+    },
+    "4": {
+     "state": "vanilla",
+     "name": "Original",
+     "mod_id": null,
+     "source": "vanilla",
+     "reslot_from": null,
+     "file": null,
+     "approved": false,
+     "nota": "se quita la skin de WuBoy"
+    },
+    "5": {
+     "state": "vanilla",
+     "name": "Original",
+     "mod_id": null,
+     "source": "vanilla",
+     "reslot_from": null,
+     "file": null,
+     "approved": false,
+     "nota": "se quita la skin de WuBoy"
+    }
+   }
+  },
+  "36": {
+   "slots": {
+    "1": {
+     "state": "vanilla",
+     "name": "Original",
+     "mod_id": null,
+     "source": "vanilla",
+     "reslot_from": null,
+     "file": null,
+     "approved": false,
+     "nota": "se quita la skin de WuBoy"
+    },
+    "2": {
+     "state": "vanilla",
+     "name": "Original",
+     "mod_id": null,
+     "source": "vanilla",
+     "reslot_from": null,
+     "file": null,
+     "approved": false,
+     "nota": "se quita la skin de WuBoy"
+    },
+    "4": {
+     "state": "vanilla",
+     "name": "Original",
+     "mod_id": null,
+     "source": "vanilla",
+     "reslot_from": null,
+     "file": null,
+     "approved": false,
+     "nota": "se quita la skin de WuBoy"
+    }
+   }
+  },
+  "21ε": {
+   "slots": {
+    "0": {
+     "state": "mod",
+     "name": "2B (mastaklo)",
+     "mod_id": 362052,
+     "source": "drive",
+     "reslot_from": null,
+     "file": "lucina/362052_2b/original/lucina-c00-2b-by-mastaklo.rar",
+     "approved": false,
+     "nota": "reemplaza a «Yu» de WuBoy"
+    },
+    "1": {
+     "state": "vanilla",
+     "name": "Original",
+     "mod_id": null,
+     "source": "vanilla",
+     "reslot_from": null,
+     "file": null,
+     "approved": false,
+     "nota": "se quita la skin de WuBoy"
+    },
+    "2": {
+     "state": "vanilla",
+     "name": "Original",
+     "mod_id": null,
+     "source": "vanilla",
+     "reslot_from": null,
+     "file": null,
+     "approved": false,
+     "nota": "se quita la skin de WuBoy"
+    },
+    "3": {
+     "state": "vanilla",
+     "name": "Original",
+     "mod_id": null,
+     "source": "vanilla",
+     "reslot_from": null,
+     "file": null,
+     "approved": false,
+     "nota": "se quita la skin de WuBoy"
+    },
+    "4": {
+     "state": "vanilla",
+     "name": "Original",
+     "mod_id": null,
+     "source": "vanilla",
+     "reslot_from": null,
+     "file": null,
+     "approved": false,
+     "nota": "se quita la skin de WuBoy"
+    },
+    "5": {
+     "state": "vanilla",
+     "name": "Original",
+     "mod_id": null,
+     "source": "vanilla",
+     "reslot_from": null,
+     "file": null,
+     "approved": false,
+     "nota": "se quita la skin de WuBoy"
+    },
+    "6": {
+     "state": "vanilla",
+     "name": "Original",
+     "mod_id": null,
+     "source": "vanilla",
+     "reslot_from": null,
+     "file": null,
+     "approved": false,
+     "nota": "se quita la skin de WuBoy"
+    },
+    "7": {
+     "state": "vanilla",
+     "name": "Original",
+     "mod_id": null,
+     "source": "vanilla",
+     "reslot_from": null,
+     "file": null,
+     "approved": false,
+     "nota": "se quita la skin de WuBoy"
+    }
+   },
+   "nota": "Pendiente: 2B alts (392802, lo mandó Gian) requiere 2B y está partido en 2 partes."
+  },
+  "75": {
+   "slots": {
+    "0": {
+     "state": "vanilla",
+     "name": "Original",
+     "mod_id": null,
+     "source": "vanilla",
+     "reslot_from": null,
+     "file": null,
+     "approved": false,
+     "nota": "se quita la skin de WuBoy"
+    },
+    "1": {
+     "state": "vanilla",
+     "name": "Original",
+     "mod_id": null,
+     "source": "vanilla",
+     "reslot_from": null,
+     "file": null,
+     "approved": false,
+     "nota": "se quita la skin de WuBoy"
+    },
+    "2": {
+     "state": "wuboy",
+     "name": "Noctis",
+     "mod_id": null,
+     "source": "wuboy",
+     "reslot_from": null,
+     "file": null,
+     "approved": false
+    },
+    "3": {
+     "state": "vanilla",
+     "name": "Original",
+     "mod_id": null,
+     "source": "vanilla",
+     "reslot_from": null,
+     "file": null,
+     "approved": false,
+     "nota": "se quita la skin de WuBoy"
+    },
+    "4": {
+     "state": "vanilla",
+     "name": "Original",
+     "mod_id": null,
+     "source": "vanilla",
+     "reslot_from": null,
+     "file": null,
+     "approved": false,
+     "nota": "se quita la skin de WuBoy"
+    },
+    "5": {
+     "state": "vanilla",
+     "name": "Original",
+     "mod_id": null,
+     "source": "vanilla",
+     "reslot_from": null,
+     "file": null,
+     "approved": false,
+     "nota": "se quita la skin de WuBoy"
+    },
+    "6": {
+     "state": "vanilla",
+     "name": "Original",
+     "mod_id": null,
+     "source": "vanilla",
+     "reslot_from": null,
+     "file": null,
+     "approved": false,
+     "nota": "se quita la skin de WuBoy"
+    },
+    "7": {
+     "state": "wuboy",
+     "name": "Morag",
+     "mod_id": null,
+     "source": "wuboy",
+     "reslot_from": null,
+     "file": null,
+     "approved": false
+    }
+   }
+  },
+  "54": {
+   "slots": {
+    "6": {
+     "state": "mod",
+     "name": "Aeris",
+     "mod_id": 581172,
+     "source": "drive",
+     "reslot_from": null,
+     "file": "palutena/581172_aeris_ff7_remake_version/original/aeris_over_palutena_c06.7z",
+     "approved": false
+    },
+    "7": {
+     "state": "wuboy",
+     "name": "Melia",
+     "mod_id": null,
+     "source": "wuboy",
+     "reslot_from": null,
+     "file": null,
+     "approved": false
+    }
+   }
+  },
+  "31": {
+   "slots": {
+    "0": {
+     "state": "vanilla",
+     "name": "Original",
+     "mod_id": null,
+     "source": "vanilla",
+     "reslot_from": null,
+     "file": null,
+     "approved": false,
+     "nota": "se quita la skin de WuBoy"
+    },
+    "4": {
+     "state": "vanilla",
+     "name": "Original",
+     "mod_id": null,
+     "source": "vanilla",
+     "reslot_from": null,
+     "file": null,
+     "approved": false,
+     "nota": "se quita la skin de WuBoy"
+    }
+   }
+  },
+  "68": {
+   "slots": {
+    "4": {
+     "state": "vanilla",
+     "name": "Original",
+     "mod_id": null,
+     "source": "vanilla",
+     "reslot_from": null,
+     "file": null,
+     "approved": false,
+     "nota": "se quita la skin de WuBoy"
+    },
+    "6": {
+     "state": "vanilla",
+     "name": "Original",
+     "mod_id": null,
+     "source": "vanilla",
+     "reslot_from": null,
+     "file": null,
+     "approved": false,
+     "nota": "se quita la skin de WuBoy"
+    }
+   }
+  },
+  "47": {
+   "slots": {
+    "2": {
+     "state": "vanilla",
+     "name": "Original",
+     "mod_id": null,
+     "source": "vanilla",
+     "reslot_from": null,
+     "file": null,
+     "approved": false,
+     "nota": "se quita la skin de WuBoy"
+    }
+   }
+  },
+  "49": {
+   "slots": {
+    "1": {
+     "state": "vanilla",
+     "name": "Original",
+     "mod_id": null,
+     "source": "vanilla",
+     "reslot_from": null,
+     "file": null,
+     "approved": false,
+     "nota": "se quita la skin de WuBoy"
+    },
+    "2": {
+     "state": "vanilla",
+     "name": "Original",
+     "mod_id": null,
+     "source": "vanilla",
+     "reslot_from": null,
+     "file": null,
+     "approved": false,
+     "nota": "se quita la skin de WuBoy"
+    }
+   }
+  },
+  "79": {
+   "slots": {
+    "0": {
+     "state": "mod",
+     "name": "Aqua (Dusk)",
+     "mod_id": null,
+     "source": "profile",
+     "reslot_from": null,
+     "file": null,
+     "approved": false
+    },
+    "1": {
+     "state": "vanilla",
+     "name": "Original",
+     "mod_id": null,
+     "source": "vanilla",
+     "reslot_from": null,
+     "file": null,
+     "approved": false,
+     "nota": "se quita la skin de WuBoy"
+    },
+    "2": {
+     "state": "vanilla",
+     "name": "Original",
+     "mod_id": null,
+     "source": "vanilla",
+     "reslot_from": null,
+     "file": null,
+     "approved": false,
+     "nota": "se quita la skin de WuBoy"
+    },
+    "3": {
+     "state": "vanilla",
+     "name": "Original",
+     "mod_id": null,
+     "source": "vanilla",
+     "reslot_from": null,
+     "file": null,
+     "approved": false,
+     "nota": "se quita la skin de WuBoy"
+    },
+    "4": {
+     "state": "vanilla",
+     "name": "Original",
+     "mod_id": null,
+     "source": "vanilla",
+     "reslot_from": null,
+     "file": null,
+     "approved": false,
+     "nota": "se quita la skin de WuBoy"
+    },
+    "5": {
+     "state": "vanilla",
+     "name": "Original",
+     "mod_id": null,
+     "source": "vanilla",
+     "reslot_from": null,
+     "file": null,
+     "approved": false,
+     "nota": "se quita la skin de WuBoy"
+    },
+    "6": {
+     "state": "vanilla",
+     "name": "Original",
+     "mod_id": null,
+     "source": "vanilla",
+     "reslot_from": null,
+     "file": null,
+     "approved": false,
+     "nota": "se quita la skin de WuBoy"
+    },
+    "7": {
+     "state": "mod",
+     "name": "A2 / 2B / 9S",
+     "mod_id": 291700,
+     "source": "drive",
+     "reslot_from": null,
+     "file": "pyra_mythra/291700_a2_2b_9s/original/install_2b-a2-9s_final__98120.rar",
+     "approved": false
+    }
+   }
+  },
+  "80": {
+   "slots": {
+    "0": {
+     "state": "mod",
+     "name": "Aqua (Dusk)",
+     "mod_id": null,
+     "source": "profile",
+     "reslot_from": null,
+     "file": null,
+     "approved": false
+    },
+    "1": {
+     "state": "vanilla",
+     "name": "Original",
+     "mod_id": null,
+     "source": "vanilla",
+     "reslot_from": null,
+     "file": null,
+     "approved": false,
+     "nota": "se quita la skin de WuBoy"
+    },
+    "2": {
+     "state": "vanilla",
+     "name": "Original",
+     "mod_id": null,
+     "source": "vanilla",
+     "reslot_from": null,
+     "file": null,
+     "approved": false,
+     "nota": "se quita la skin de WuBoy"
+    },
+    "3": {
+     "state": "vanilla",
+     "name": "Original",
+     "mod_id": null,
+     "source": "vanilla",
+     "reslot_from": null,
+     "file": null,
+     "approved": false,
+     "nota": "se quita la skin de WuBoy"
+    },
+    "4": {
+     "state": "vanilla",
+     "name": "Original",
+     "mod_id": null,
+     "source": "vanilla",
+     "reslot_from": null,
+     "file": null,
+     "approved": false,
+     "nota": "se quita la skin de WuBoy"
+    },
+    "5": {
+     "state": "vanilla",
+     "name": "Original",
+     "mod_id": null,
+     "source": "vanilla",
+     "reslot_from": null,
+     "file": null,
+     "approved": false,
+     "nota": "se quita la skin de WuBoy"
+    },
+    "6": {
+     "state": "vanilla",
+     "name": "Original",
+     "mod_id": null,
+     "source": "vanilla",
+     "reslot_from": null,
+     "file": null,
+     "approved": false,
+     "nota": "se quita la skin de WuBoy"
+    },
+    "7": {
+     "state": "vanilla",
+     "name": "Original",
+     "mod_id": null,
+     "source": "vanilla",
+     "reslot_from": null,
+     "file": null,
+     "approved": false,
+     "nota": "se quita la skin de WuBoy"
+    }
+   },
+   "nota": "A2/2B/9S (291700) comparte c07 con Pyra; el Drive lo tiene bajo Pyra."
+  },
+  "61": {
+   "slots": {
+    "0": {
+     "state": "mod",
+     "name": "Crisis Core Cloud",
+     "mod_id": 175324,
+     "source": "drive",
+     "reslot_from": null,
+     "file": "cloud/175324_crisis_core_cloud/original/crisis_core_cloud.7z",
+     "approved": false,
+     "nota": "pack de 4 looks (c00, c02, c04, c06); falta identificar cuál es cuál"
+    },
+    "1": {
+     "state": "mod",
+     "name": "Wheelchair Cloud",
+     "mod_id": 495263,
+     "source": "drive",
+     "reslot_from": 0,
+     "file": "cloud/495263_wheelchair_cloud/original/cloud_wheelchair.7z",
+     "approved": false
+    },
+    "2": {
+     "state": "mod",
+     "name": "Zack Fair",
+     "mod_id": 175327,
+     "source": "drive",
+     "reslot_from": null,
+     "file": "cloud/175327_zack_fair_over_cloud_strife/original/firstclass.rar",
+     "approved": false
+    },
+    "3": {
+     "state": "vanilla",
+     "name": "Original",
+     "mod_id": null,
+     "source": "vanilla",
+     "reslot_from": null,
+     "file": null,
+     "approved": false,
+     "nota": "se quita la skin de WuBoy"
+    },
+    "4": {
+     "state": "mod",
+     "name": "Crisis Core Cloud",
+     "mod_id": 175324,
+     "source": "drive",
+     "reslot_from": null,
+     "file": "cloud/175324_crisis_core_cloud/original/crisis_core_cloud.7z",
+     "approved": false
+    },
+    "5": {
+     "state": "vanilla",
+     "name": "Original",
+     "mod_id": null,
+     "source": "vanilla",
+     "reslot_from": null,
+     "file": null,
+     "approved": false,
+     "nota": "se quita la skin de WuBoy"
+    },
+    "6": {
+     "state": "mod",
+     "name": "Zack Fair",
+     "mod_id": 175327,
+     "source": "drive",
+     "reslot_from": null,
+     "file": "cloud/175327_zack_fair_over_cloud_strife/original/secondclass.rar",
+     "approved": false
+    },
+    "7": {
+     "state": "vanilla",
+     "name": "Original",
+     "mod_id": null,
+     "source": "vanilla",
+     "reslot_from": null,
+     "file": null,
+     "approved": false,
+     "nota": "se quita la skin de WuBoy"
+    }
+   }
+  },
+  "78": {
+   "slots": {
+    "0": {
+     "state": "mod",
+     "name": "Sephirot Clown",
+     "mod_id": 503576,
+     "source": "drive",
+     "reslot_from": null,
+     "file": "sephiroth/503576_sephirot_clown/original/sephirot_clown.zip",
+     "approved": false
+    },
+    "1": {
+     "state": "mod",
+     "name": "Ariana Grande",
+     "mod_id": 555584,
+     "source": "drive",
+     "reslot_from": null,
+     "file": "sephiroth/555584_ariana_grande/original/sephiana.zip",
+     "approved": false
+    },
+    "2": {
+     "state": "mod",
+     "name": "Ariana Grande",
+     "mod_id": 555584,
+     "source": "drive",
+     "reslot_from": null,
+     "file": "sephiroth/555584_ariana_grande/original/sephiana.zip",
+     "approved": false
+    },
+    "3": {
+     "state": "mod",
+     "name": "Ultimate Sukuna",
+     "mod_id": 672428,
+     "source": "drive",
+     "reslot_from": null,
+     "file": "sephiroth/672428_ultimate_sukuna_pack/original/ryomen_sukuna_pack.rar",
+     "approved": false,
+     "nota": "pack de 4 looks (c00–c03); aquí solo el de c03"
+    },
+    "4": {
+     "state": "mod",
+     "name": "Sandbag",
+     "mod_id": 487151,
+     "source": "drive",
+     "reslot_from": 0,
+     "file": "sephiroth/487151_sandbag_over_sephiroth/original/sandbag_over_sephiroth_emerald20xx_.zip",
+     "approved": false
+    },
+    "5": {
+     "state": "mod",
+     "name": "Darth Luigi",
+     "mod_id": 592795,
+     "source": "drive",
+     "reslot_from": 0,
+     "file": "sephiroth/592795_darth_luigi/original/darth_luigi.zip",
+     "approved": false,
+     "nota": "trae un tema de victoria de Sephiroth (global)"
+    },
+    "7": {
+     "state": "vanilla",
+     "name": "Original",
+     "mod_id": null,
+     "source": "vanilla",
+     "reslot_from": null,
+     "file": null,
+     "approved": false,
+     "nota": "se quita la skin de WuBoy"
+    }
+   }
+  },
+  "82": {
+   "slots": {
+    "1": {
+     "state": "mod",
+     "name": "Vanitas",
+     "mod_id": 334311,
+     "source": "drive",
+     "reslot_from": null,
+     "file": "sora/334311_vanitas/original/sora_c01_vanitas_2406c.7z",
+     "approved": false,
+     "nota": "trae efectos ef_trail sin slot (globales)"
+    },
+    "4": {
+     "state": "mod",
+     "name": "Ventus (Dusk)",
+     "mod_id": null,
+     "source": "profile",
+     "reslot_from": null,
+     "file": null,
+     "approved": false
+    },
+    "5": {
+     "state": "mod",
+     "name": "Roxas · Organización XIII",
+     "mod_id": null,
+     "source": "profile",
+     "reslot_from": null,
+     "file": null,
+     "approved": false
+    },
+    "6": {
+     "state": "vanilla",
+     "name": "Original",
+     "mod_id": null,
+     "source": "vanilla",
+     "reslot_from": null,
+     "file": null,
+     "approved": false,
+     "nota": "se quita la skin de WuBoy"
+    },
+    "7": {
+     "state": "mod",
+     "name": "Roxas · Villa Crepúsculo",
+     "mod_id": null,
+     "source": "profile",
+     "reslot_from": null,
+     "file": null,
+     "approved": false
+    }
+   },
+   "nota": "Pendiente: Xion (471722, 8 looks)."
+  },
+  "62": {
+   "slots": {
+    "1": {
+     "state": "vanilla",
+     "name": "Original",
+     "mod_id": null,
+     "source": "vanilla",
+     "reslot_from": null,
+     "file": null,
+     "approved": false,
+     "nota": "se quita la skin de WuBoy"
+    },
+    "2": {
+     "state": "vanilla",
+     "name": "Original",
+     "mod_id": null,
+     "source": "vanilla",
+     "reslot_from": null,
+     "file": null,
+     "approved": false,
+     "nota": "se quita la skin de WuBoy"
+    },
+    "3": {
+     "state": "vanilla",
+     "name": "Original",
+     "mod_id": null,
+     "source": "vanilla",
+     "reslot_from": null,
+     "file": null,
+     "approved": false,
+     "nota": "se quita la skin de WuBoy"
+    },
+    "5": {
+     "state": "vanilla",
+     "name": "Original",
+     "mod_id": null,
+     "source": "vanilla",
+     "reslot_from": null,
+     "file": null,
+     "approved": false,
+     "nota": "se quita la skin de WuBoy"
+    },
+    "7": {
+     "state": "mod",
+     "name": "2B Corrin",
+     "mod_id": 174947,
+     "source": "drive",
+     "reslot_from": null,
+     "file": "corrin/174947_2b_corrin_v21/original/2b_corrin_by_fake_v10.rar",
      "approved": false
     }
    }
