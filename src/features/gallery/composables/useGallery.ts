@@ -21,6 +21,7 @@ export const openGallery = async (name: string, imgs: Shot[], index: number, hos
     height: 720,
     alt: `${name} — foto ${position + 1} de ${imgs.length}`,
   }))
+
   const pswp = new PhotoSwipe({
     dataSource: items,
     index,
@@ -33,25 +34,31 @@ export const openGallery = async (name: string, imgs: Shot[], index: number, hos
     arrowPrevTitle: 'Foto anterior',
     arrowNextTitle: 'Foto siguiente',
     errorMsg: 'No se pudo cargar la foto',
-    indexIndicatorSep: ' / ',
+    indexIndicatorSep: ' de ',
     preloaderDelay: 200,
   })
+
   pswp.on('loadComplete', ({ content, slide }) => {
     const el = content.element as HTMLImageElement | undefined
+
     if (!el || !el.naturalWidth) return
+
     if (content.data.width === el.naturalWidth && content.data.height === el.naturalHeight) return
+
     content.data.width = el.naturalWidth
     content.data.height = el.naturalHeight
     content.width = el.naturalWidth
     content.height = el.naturalHeight
     slide.width = el.naturalWidth
     slide.height = el.naturalHeight
+
     if (slide.calculateSize) {
       slide.calculateSize()
       slide.zoomAndPanToInitial()
       slide.applyCurrentZoomPan()
     }
   })
+
   pswp.addFilter('contentErrorElement', (el, content) => {
     const box = document.createElement('div')
     box.className = 'pswp__err'
@@ -69,10 +76,13 @@ export const openGallery = async (name: string, imgs: Shot[], index: number, hos
         pswp.refreshSlideContent(content.index)
       }
     }
+
     box.append(label, retry)
     return box
   })
-  if (imgs.length > 1) pswp.on('uiRegister', () => pswp.ui?.registerElement({
+
+  if (imgs.length > 1) {
+    pswp.on('uiRegister', () => pswp.ui?.registerElement({
     name: 'thumbs',
     order: 9,
     isButton: false,
@@ -80,24 +90,45 @@ export const openGallery = async (name: string, imgs: Shot[], index: number, hos
     html: '<div class="pswp__thumbs" role="group" aria-label="Fotos"></div>',
     onInit: (el, ps) => {
       el.innerHTML = imgs.map((shot, position) => `<button aria-label="Foto ${position + 1}"><img src="${shot.s}" alt=""></button>`).join('')
+
       const mark = () => [...el.children].forEach((button, position) => {
         if (position === ps.currIndex) button.setAttribute('aria-current', 'true')
         else button.removeAttribute('aria-current')
       })
+
       el.addEventListener('click', (ev) => {
         const button = (ev.target as HTMLElement).closest('button')
+
         if (button) ps.goTo([...el.children].indexOf(button))
       })
+
       ps.on('change', mark)
       mark()
     },
   }))
-  pswp.on('change', () => host.setIndex(pswp.currIndex))
+  }
+
+  const paintCount = () => {
+    const counter = pswp.element?.querySelector('.pswp__counter')
+
+    if (counter) counter.textContent = 'Foto ' + (pswp.currIndex + 1) + ' de ' + imgs.length
+  }
+
+  pswp.on('change', () => {
+    host.setIndex(pswp.currIndex)
+    requestAnimationFrame(paintCount)
+  })
+
+  pswp.on('openingAnimationEnd', paintCount)
+
   pswp.on('close', () => {
     window.PSWP = null
+
     const restore = () => host.onClose()
+
     if (!ovDone('gal', restore)) restore()
   })
+
   window.PSWP = pswp
   ovPush('gal')
   pswp.init()

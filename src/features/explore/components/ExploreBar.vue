@@ -59,11 +59,12 @@ const emit = defineEmits<ExploreBarEmits>()
         type="button"
         class="explore__size"
         :aria-pressed="!props.compact"
-        aria-label="Imágenes grandes"
+        :aria-label="props.compact ? 'Vista compacta' : 'Vista ampliada'"
         :disabled="props.loading"
         @click="emit('toggleDensity')"
       >
-        <q-icon :name="props.compact ? 'grid_view' : 'crop_square'" size="22px" aria-hidden="true" />
+        <q-icon :name="props.compact ? 'grid_view' : 'view_module'" size="22px" aria-hidden="true" />
+        <span class="explore__size-label">{{ props.compact ? 'Compacta' : 'Ampliada' }}</span>
       </button>
     </div>
     <div v-if="props.filtered" class="explore__meta">

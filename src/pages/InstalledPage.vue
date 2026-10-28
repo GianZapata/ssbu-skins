@@ -34,7 +34,7 @@ const choose = (code: string) => hide(() => selectFighter(code))
       />
     </div>
 
-    <div v-if="loading" class="sgrid" :class="{ 'sgrid--compact': compact, 'sgrid--large': !compact }" role="status" aria-busy="true" aria-label="Cargando instaladas">
+    <div v-if="loading" class="sgrid" :class="{ 'sgrid--compact': compact, 'sgrid--large': !compact }" role="status" aria-busy="true" aria-label="Instaladas">
       <div v-for="n in 9" :key="n" class="card card--ghost">
         <q-skeleton class="card__img" animation="pulse" square />
         <q-skeleton class="card__name-sk" animation="pulse" type="text" />
@@ -50,10 +50,11 @@ const choose = (code: string) => hide(() => selectFighter(code))
         <div v-for="row in rows" :key="row.key" class="card">
           <a class="card__btn" :href="row.href" :aria-label="row.label" :data-keep="row.key">
             <span class="card__img">
-              <AppImg :src="row.img" fit="contain" />
+              <AppImg v-if="row.img" :src="row.img" fit="contain" />
+              <span v-else class="card__missing">Sin imagen</span>
             </span>
             <span class="card__name">{{ row.title }}</span>
-            <span class="card__sub">{{ row.sub }}</span>
+            <span v-if="row.sub" class="card__sub">{{ row.sub }}</span>
           </a>
         </div>
       </div>

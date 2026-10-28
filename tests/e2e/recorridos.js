@@ -9,10 +9,9 @@ module.exports = async (b, base) => {
     await page.goto(base + '#/luchadores');
     await page.waitForSelector('.ft');
     await until(page, () => dbState === 'ok', null, 15000);
-    const sync = await page.locator('#sync').boundingBox();
     const title = await page.locator('#ttl').boundingBox();
-    ok(!!sync && sync.x >= 0 && sync.x + sync.width <= width + 1, 'sync cabe a ' + width);
-    ok(!!title && title.width > 8 && title.x >= 0, 'el título sigue en pantalla a ' + width);
+    ok((await page.locator('#sync').textContent()) === '', 'la cabecera no anuncia Guardado a ' + width);
+    ok(!!title && title.width > 8 && title.x >= 0 && title.x + title.width <= width + 1, 'el título sigue en pantalla a ' + width);
     ok(await page.locator('.picked').count() === 0, 'sin barra al pie a ' + width);
     await page.ctx.close();
   }
@@ -21,7 +20,7 @@ module.exports = async (b, base) => {
   await A.goto(base + '#/luchadores');
   await A.waitForSelector('.ft');
   await until(A, () => dbState === 'ok', null, 15000);
-  ok((await A.textContent('#sync')).includes('Guardado'), 'estado breve: Guardado');
+  ok((await A.textContent('#sync')) === '', 'la cabecera no deja Guardado fijo');
   ok(await A.getByRole('button', { name: 'Historial' }).count() === 0, 'no hay Historial');
   ok(await A.getByRole('button', { name: 'Sobre los datos' }).count() === 0, 'no hay Sobre los datos');
   ok(await A.getByRole('button', { name: 'Cómo se usa' }).count() === 0, 'no hay Cómo se usa');
@@ -48,12 +47,13 @@ module.exports = async (b, base) => {
   ok(await A.locator('[data-act="use"], [data-act="replace"]').count() === 1, 'el toque deja el botón del escenario');
   ok(await A.evaluate(n => planEntries().length === n, before), 'un toque no escribe el plan');
   const label = await A.locator('[data-act]').first().textContent();
-  ok(/Usar en Traje 3|Reemplazar en Traje 3/.test(label || ''), 'el botón nombra el traje');
+  ok(/Añadir al plan|Reemplazar en el plan/.test(label || ''), 'el botón nombra la acción del plan');
+  ok(/Mario · Traje 3/.test(await A.textContent('main') || ''), 'la acción muestra el traje');
   await A.locator('[data-act="use"], [data-act="replace"]').first().click();
   ok(await until(A, () => PEND.length === 0, null, 15000), 'el botón guarda la propuesta');
 
   await A.locator('[data-skin]').nth(1).click();
-  ok(/Reemplazar en Traje 3/.test(await A.locator('[data-act]').first().textContent() || ''), 'reemplazar es explícito');
+  ok(/Reemplazar en el plan/.test(await A.locator('[data-act]').first().textContent() || ''), 'reemplazar es explícito');
   const used = await A.evaluate(() => planVid('01', 2));
   await A.goto(base + '#/luchador/01/4');
   await A.waitForSelector('[data-skin="' + used + '"]');
@@ -77,8 +77,8 @@ module.exports = async (b, base) => {
   ok(await A.getByText('Sin resultados').count() === 1, 'buscar por autor no encuentra');
 
   await A.goto(base + '#/notas');
-  await A.getByLabel('Pedido de búsqueda').fill('DBZ');
-  await A.getByRole('button', { name: 'Añadir' }).click();
+  await A.getByLabel('¿Qué skin quieres buscar después?').fill('DBZ');
+  await A.getByRole('button', { name: 'Anotar' }).click();
   ok(await until(A, () => NOTES.some(note => note.text === 'DBZ' && !note.done), null, 15000), 'la nota DBZ se guarda');
   const changes = await A.evaluate(() => planEntries().length);
   await A.getByRole('button', { name: 'Hecha' }).click();

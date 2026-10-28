@@ -1,7 +1,8 @@
 import { computed, ref, shallowRef, watch } from 'vue'
-import { back, paraOf, route, skinEntry, swap, tick } from '../../../composables/useApp'
+import { back, fighterOf, paraOf, route, skinEntry, swap, tick } from '../../../composables/useApp'
 import { useDesktop } from '../../../composables/useDesktop'
 import { SSBU, type PlanRow, type StageChoice } from '../../../shared/helpers/ssbu'
+import { trajeName } from '../../../shared/helpers/text'
 import { imgsOf, zoomSkin } from '../../plan/composables/usePlan'
 import { planEntries, planVid } from '../../plan/services/sync'
 import { setCandidate } from '../candidate'
@@ -89,6 +90,7 @@ const liveOf = () => {
   })
 
   const pick = r.q.de === 'catalogo' && (choice.kind === 'use' || choice.kind === 'replace')
+  const fighter = fighterOf(para.code)
 
   return {
     entry,
@@ -97,7 +99,8 @@ const liveOf = () => {
     vid: r.vid,
     choice,
     pick,
-    pickLine: 'Toca otro traje para compararla ahí',
+    place: (fighter ? fighter.name : 'Luchador') + ' · ' + trajeName(para.n),
+    pickLine: 'Elige el traje de ' + (fighter ? fighter.name : 'este luchador') + ' que quieres cambiar.',
     shots: imgsOf(entry.p),
   }
 }

@@ -98,7 +98,7 @@ function fail(where,e){const k=diag(where,e);syncKind=k==='offline'?'offline':'s
 function good(){syncKind=null;dbState='ok';lastOkAt=Date.now();lastOk=new Date(lastOkAt).toISOString();backoff=15000;nextTry=0}
 async function flush(){if(flushing||!PEND.length)return;
  if(!FBCFG){// sin base de datos: el plan queda en este dispositivo
-  PEND.forEach(o=>{const k=keyOf(o.code,o.slot);if(o.to)PLAN[k]={vid:o.to};else delete PLAN[k]});PEND=[];savePend();LS('ssbu_plan_cache',JSON.stringify(PLAN));render(true);paintSync();return}
+  PEND.forEach(o=>{const k=keyOf(o.code,o.slot);if(o.to)PLAN[k]={vid:o.to};else delete PLAN[k]});PEND=[];savePend();LS('ssbu_plan_cache',JSON.stringify(PLAN));noteSaved(null);render(true);paintSync();return}
  if(!navigator.onLine){syncKind='offline';paintSync();return}
  flushing=true;paintSync();
  try{const f=await fb();const uid=f.auth.currentUser.uid;

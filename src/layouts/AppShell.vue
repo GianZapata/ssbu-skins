@@ -1,13 +1,14 @@
 <script setup lang="ts">
 import { computed, onMounted, watch } from 'vue'
-import { QAvatar, QBtn, QHeader, QLayout, QPageContainer, QToolbar } from 'quasar'
+import { QAvatar, QBtn, QHeader, QItem, QItemSection, QLayout, QList, QMenu, QPageContainer, QToolbar } from 'quasar'
 import { back, go, portraitOf, route, showBack, start, tick, titleOf } from '../composables/useApp'
 import { hdrHidden, resetReveal, startReveal } from '../composables/useReveal'
 import SkinSheet from '../features/fighters/components/SkinSheet.vue'
 import SummarySheet from '../features/fighters/components/SummarySheet.vue'
 import { bootPlan, countChosen, dismissNotice, notice, retrySync } from '../features/plan/composables/usePlan'
-import { skinOf } from '../features/plan/helpers/lookup'
-import { state, syncInfo } from '../features/plan/services/sync'
+import { useSaveStatus } from '../features/plan/saveStatus'
+
+const { problem } = useSaveStatus()
 
 const title = computed(() => {
   tick.value
@@ -33,30 +34,6 @@ const chosen = computed(() => {
   return countChosen()
 })
 
-const syncWord = computed(() => {
-  tick.value
-
-  const [kind, text] = syncInfo() as [string, string]
-
-  if (kind === 'err') return 'No se pudo guardar'
-  if (kind === 'saving') return 'Guardando'
-  if (String(text).startsWith('Pendiente')) return 'Pendiente'
-  if (text === 'Sin conexión') return 'Sin conexión'
-  if (kind === 'ok') return 'Guardado'
-
-  return ''
-})
-
-const failing = computed(() => {
-  tick.value
-
-  const on = state.syncKind === 'service'
-  const op = (state.PEND as Array<{ to: string | null }>)[0]
-  const skin = op && op.to ? skinOf(op.to) : null
-
-  return { on, name: skin ? skin.name : '' }
-})
-
 const runNotice = () => {
   const current = notice.value
 
@@ -78,32 +55,42 @@ onMounted(() => {
 <template>
   <q-layout view="hHh lpR fFf" class="app" :class="{ 'app--hdr-hidden': hdrHidden }">
     <q-header class="app-header" :class="{ 'app-header--hide': hdrHidden }" height-hint="56">
+      <div class="app-frame">
       <q-toolbar class="app-header__bar">
         <q-btn v-if="canBack" flat round padding="0" class="icon-btn" icon="arrow_back" aria-label="Volver" @click="back" />
         <q-avatar v-if="portrait" square size="36px" class="app-header__face">
           <img :src="portrait" alt="" decoding="async">
         </q-avatar>
         <h1 id="ttl" class="app-header__title" tabindex="-1">{{ title }}</h1>
-        <span id="sync" class="sync-word" :data-kind="syncWord ? 'on' : 'off'">{{ syncWord }}</span>
-        <q-btn flat no-caps class="hdr-btn" label="Notas" aria-label="Notas de búsqueda" @click="go('#/notas')" />
+        <span id="sync" class="sync-word"></span>
+        <q-btn flat round padding="0" class="icon-btn" icon="more_vert" aria-label="Más opciones">
+          <q-menu anchor="bottom right" self="top right">
+            <q-list>
+              <q-item v-close-popup clickable @click="go('#/notas')">
+                <q-item-section>Búsquedas pendientes</q-item-section>
+              </q-item>
+            </q-list>
+          </q-menu>
+        </q-btn>
         <q-btn
           v-if="chosen > 0"
           flat
           no-caps
           class="hdr-btn"
-          label="Elegidas"
-          :aria-label="'Ver skins elegidas, ' + chosen"
+          :label="'Plan · ' + chosen"
+          :aria-label="'Ver el plan, ' + chosen"
           @click="go('#/cambios')"
         />
       </q-toolbar>
-      <div v-if="failing.on" class="sync-fail" role="alert">
-        <span>{{ failing.name ? failing.name + '. No se pudo guardar.' : 'No se pudo guardar.' }}</span>
+      <div v-if="problem" class="sync-fail" role="status">
+        <span>{{ problem }}</span>
         <q-btn flat no-caps class="hdr-btn" label="Reintentar" @click="retrySync" />
       </div>
       <div v-if="notice" id="toast" class="notice" role="status">
         <span>{{ notice.text }}</span>
         <button v-if="notice.label" type="button" @click="runNotice">{{ notice.label }}</button>
         <button type="button" aria-label="Cerrar aviso" @click="dismissNotice">Cerrar</button>
+      </div>
       </div>
     </q-header>
 

@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import { QBtn, QIcon } from 'quasar'
+import { QBtn } from 'quasar'
 import AppImg from '../../../components/AppImg.vue'
+import { useSaveStatus } from '../../plan/saveStatus'
 import type { Cell } from '../../../pages/composables/useFighterPage'
 import type { StageChoice } from '../../../shared/helpers/ssbu'
-import { trajeName } from '../../../shared/helpers/text'
 
 interface Preview {
   name: string
@@ -15,10 +15,20 @@ interface CompareCardsProps {
   stage: Cell | null
   preview: Preview | null
   choice: StageChoice
+  place: string
+  hint: string
+}
+
+interface CompareCardsEmits {
+  detail: []
+  act: []
+  find: []
 }
 
 const props = defineProps<CompareCardsProps>()
-const emit = defineEmits<{ (e: 'detail'): void, (e: 'act'): void }>()
+const emit = defineEmits<CompareCardsEmits>()
+
+const { saving, saved } = useSaveStatus()
 </script>
 
 <template>
@@ -42,13 +52,22 @@ const emit = defineEmits<{ (e: 'detail'): void, (e: 'act'): void }>()
       >
         <AppImg :src="props.preview.img" :alt="'Skin nueva: ' + props.preview.name" fit="contain" eager />
       </button>
-      <div v-else class="cmp__img cmp__img--empty" role="img" :aria-label="'Elige una skin para ' + trajeName(props.stage.n)">
-        <q-icon name="add_circle_outline" size="48px" aria-hidden="true" />
-      </div>
+      <button
+        v-else
+        type="button"
+        class="cmp__img cmp__img--empty"
+        @click="emit('find')"
+      >
+        Elegir skin
+      </button>
       <div class="cmp__name">{{ props.preview ? props.preview.name : ' ' }}</div>
     </div>
 
+    <p v-if="props.hint" class="cmp__line">{{ props.hint }}</p>
     <p v-if="props.choice.line" class="cmp__line">{{ props.choice.line }}</p>
+    <p v-if="props.place && props.choice.kind !== 'none'" class="cmp__place">{{ props.place }}</p>
+    <p v-if="saving" class="cmp__line" role="status">Guardando cambios…</p>
+    <p v-else-if="saved" class="cmp__line" role="status">Cambios guardados</p>
     <q-btn
       v-if="props.choice.kind !== 'none'"
       unelevated
@@ -59,5 +78,6 @@ const emit = defineEmits<{ (e: 'detail'): void, (e: 'act'): void }>()
       :data-goto-slot="props.choice.other === null ? undefined : props.choice.other"
       @click="emit('act')"
     />
+    <p v-if="props.choice.kind === 'use' || props.choice.kind === 'replace'" class="cmp__note">Se añadirá al plan compartido. La instalación se realiza después.</p>
   </section>
 </template>

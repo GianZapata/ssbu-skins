@@ -63,7 +63,7 @@ export const useFighterPage = () => {
         sel: n === slot,
         vid,
         label,
-        quitar: 'Quitar skin de ' + trajeName(n),
+        quitar: 'Quitar del plan, ' + trajeName(n),
         current: { name, img: cur ? cur.img : null, original },
         next,
       }
@@ -126,9 +126,26 @@ export const useFighterPage = () => {
       incompatible: !!(skin && skin.wifi_status === 'incompatible'),
     })
 
-    if (!candidateRoams.value || !skin) return choice
+    return choice
+  })
 
-    return { ...choice, line: 'Toca otro traje para compararla ahí' }
+  const placeLabel = computed(() => {
+    const name = model.value.fighter ? model.value.fighter.name : ''
+
+    if (!name) return ''
+
+    return name + ' · ' + trajeName(model.value.slot)
+  })
+
+  const roamHint = computed(() => {
+    tick.value
+
+    const m = model.value
+    const skin = activeCandidate(m.code, m.slot)
+
+    if (!candidateRoams.value || !skin) return ''
+
+    return 'Toca un traje para compararla ahí'
   })
 
   const skinAt = (vid: string) => {
@@ -178,6 +195,15 @@ export const useFighterPage = () => {
   }
 
   const clear = (n: number) => clearAt(model.value.code, n)
+
+  const focusSearch = () => {
+    const field = document.getElementById('skin-search')
+
+    if (!field) return
+
+    field.focus()
+    field.scrollIntoView({ block: 'nearest' })
+  }
 
   watch(
     () => model.value.code + ':' + model.value.slot,
@@ -233,5 +259,5 @@ export const useFighterPage = () => {
     clearCandidate()
   })
 
-  return { model, stage, preview, choice, pulse, pick, openDetail, openStage, commit, clear, selectSlot, swap, trajeName }
+  return { model, stage, preview, choice, placeLabel, roamHint, pulse, pick, openDetail, openStage, commit, clear, focusSearch, selectSlot, swap, trajeName }
 }

@@ -96,15 +96,41 @@ export const ovDone = (id: string, then?: () => void) => {
   return true
 }
 
+interface GalleryOpener {
+  isOpen?: boolean
+  isOpening?: boolean
+}
+
+interface OpenGallery {
+  destroy?: () => void
+  element?: HTMLElement | null
+  opener?: GalleryOpener
+}
+
 const hideOverlay = (id: string) => {
   closedOverlay.value = id
 
-  const gallery = window.PSWP as { destroy?: () => void } | null
+  const gallery = window.PSWP as OpenGallery | null
 
   if (id !== 'gal' || !gallery) return
 
   window.PSWP = null
-  try { gallery.destroy?.() } catch (e) { /* ya cerrado */ }
+  closeGallery(gallery)
+}
+
+const closeGallery = (gallery: OpenGallery) => {
+  const opener = gallery.opener
+
+  if (opener?.isOpening) {
+    opener.isOpening = false
+    opener.isOpen = true
+  }
+
+  try {
+    gallery.destroy?.()
+
+    if (gallery.element?.isConnected) gallery.destroy?.()
+  } catch (e) { /* ya cerrado */ }
 }
 
 export const fighterOf = (code: string) => (state.byCode as Record<string, Fighter>)[code]
@@ -193,11 +219,11 @@ export const slotOf = () => {
 export const titleOf = () => {
   const current = route.value
 
-  if (current.v === 'cambios') return 'Elegidas'
+  if (current.v === 'cambios') return 'Plan'
   if (current.v === 'catalogo' || (current.v === 'ficha' && viewRoute().v === 'catalogo')) return 'Catálogo'
   if (current.v === 'ficha' && viewRoute().v === 'instaladas') return 'Instaladas'
   if (current.v === 'instaladas') return 'Instaladas'
-  if (current.v === 'notas') return 'Notas'
+  if (current.v === 'notas') return 'Búsquedas pendientes'
   if (isFighterView(current)) return fighterOf(current.code)?.name || 'Luchador'
   return 'Luchadores'
 }

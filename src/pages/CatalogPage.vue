@@ -34,7 +34,7 @@ const choose = (code: string) => hide(() => selectFighter(code))
       />
     </div>
 
-    <div v-if="loading" class="sgrid" :class="{ 'sgrid--compact': compact, 'sgrid--large': !compact }" role="status" aria-busy="true" aria-label="Cargando catálogo">
+    <div v-if="loading" class="sgrid" :class="{ 'sgrid--compact': compact, 'sgrid--large': !compact }" role="status" aria-busy="true" aria-label="Catálogo">
       <div v-for="n in 9" :key="n" class="card card--ghost">
         <q-skeleton class="card__img" animation="pulse" square />
         <q-skeleton class="card__name-sk" animation="pulse" type="text" />

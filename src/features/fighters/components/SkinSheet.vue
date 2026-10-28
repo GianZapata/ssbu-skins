@@ -1,9 +1,11 @@
 <script setup lang="ts">
 import { QBtn, QCarousel, QCarouselSlide, QDialog, QIcon } from 'quasar'
 import AppImg from '../../../components/AppImg.vue'
+import { useSaveStatus } from '../../plan/saveStatus'
 import { useSkinSheet } from '../composables/useSkinSheet'
 
 const { desktop, slide, m, open, close, act, chooseCostume, zoom } = useSkinSheet()
+const { saving, saved } = useSaveStatus()
 </script>
 
 <template>
@@ -36,7 +38,7 @@ const { desktop, slide, m, open, close, act, chooseCostume, zoom } = useSkinShee
           :aria-label="'Fotos de ' + m.entry.p.name"
         >
           <q-carousel-slide v-for="(shot, i) in m.shots" :key="shot.m + i" :name="i" class="sheet-slide">
-            <AppImg :src="shot.m" :alt="'Foto ' + (i + 1) + ' de ' + m.shots.length + ' de ' + m.entry.p.name" retry eager />
+            <AppImg :src="shot.m" :alt="'Foto ' + (i + 1) + ' de ' + m.shots.length + ' de ' + m.entry.p.name" fit="contain" retry eager />
             <q-btn flat round padding="0" class="photo__zoom" aria-label="Ampliar foto" data-zoom="1" @click="zoom(i)">
               <span class="photo__zoom-dot"><q-icon name="open_in_full" size="18px" aria-hidden="true" /></span>
             </q-btn>
@@ -46,10 +48,11 @@ const { desktop, slide, m, open, close, act, chooseCostume, zoom } = useSkinShee
           <AppImg :src="null" alt="No se pudo cargar la foto" />
         </div>
 
-        <p v-if="m.shots.length > 1" class="sheet__count">{{ slide + 1 }} / {{ m.shots.length }}</p>
+        <p v-if="m.shots.length > 1" class="sheet__count">Foto {{ slide + 1 }} de {{ m.shots.length }}</p>
         <h2 class="sheet__title">{{ m.entry.p.name }}</h2>
+        <p v-if="m.entry.p.author" class="sheet__author">{{ m.entry.p.author }}</p>
         <p v-if="m.pick" class="sheet__line">{{ m.pickLine }}</p>
-        <p v-else-if="m.choice.line" class="sheet__line">{{ m.choice.line }}</p>
+        <p v-if="m.choice.line" class="sheet__line">{{ m.choice.line }}</p>
       </div>
 
       <div class="sheet__foot">
@@ -61,9 +64,9 @@ const { desktop, slide, m, open, close, act, chooseCostume, zoom } = useSkinShee
           :href="m.entry.p.url"
           target="_blank"
           rel="noopener noreferrer"
-          :aria-label="(m.entry.p.author || 'Autor') + ', se abre en una pestaña nueva'"
+          aria-label="Ver página del mod, se abre en una pestaña nueva"
         >
-          {{ m.entry.p.author || 'Autor' }}<q-icon name="open_in_new" size="16px" aria-hidden="true" />
+          Ver página del mod<q-icon name="open_in_new" size="16px" aria-hidden="true" />
         </q-btn>
         <q-btn
           v-if="m.pick"
@@ -84,6 +87,10 @@ const { desktop, slide, m, open, close, act, chooseCostume, zoom } = useSkinShee
           :data-act="m.choice.kind"
           @click="act"
         />
+        <p v-if="!m.pick && m.choice.kind !== 'none'" class="sheet__place">{{ m.place }}</p>
+        <p v-if="!m.pick && (m.choice.kind === 'use' || m.choice.kind === 'replace')" class="sheet__note">Se añadirá al plan compartido. La instalación se realiza después.</p>
+        <p v-if="saving" class="sheet__line" role="status">Guardando cambios…</p>
+        <p v-else-if="saved" class="sheet__line" role="status">Cambios guardados</p>
       </div>
     </div>
   </q-dialog>

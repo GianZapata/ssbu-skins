@@ -4,6 +4,7 @@ import { bump, fighterOf, S, scrollMem, route } from '../../../composables/useAp
 import { openGallery } from '../../gallery/composables/useGallery'
 import { SSBU, type PlanRow } from '../../../shared/helpers/ssbu'
 import { curOf } from '../helpers/lookup'
+import { markSaved } from '../saveStatus'
 import {
   addNote,
   bind,
@@ -251,5 +252,6 @@ bind({
   rebuild: () => bump(),
   paint: () => bump(),
   toast: showNotice,
+  noteSaved: () => markSaved(),
 })
 publish()

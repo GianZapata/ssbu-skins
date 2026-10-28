@@ -196,18 +196,20 @@ const SSBU = (() => {
     if (o && o.mii) return none('');
     if (o && o.withdrawn) return none('Retirada');
     const elsewhere = o && o.elsewhere != null && o.elsewhere !== slot ? o.elsewhere : null;
+
     if (elsewhere != null) return { kind: 'goto', label: 'Ir a Traje ' + (elsewhere + 1), line: 'Ya está en el Traje ' + (elsewhere + 1), other: elsewhere };
+
     const saved = o && o.saved ? o.saved : null;
     const vid = o && o.vid ? o.vid : null;
-    if (!vid && saved) return { kind: 'clear', label: 'Quitar', line: '', other: null };
+
+    if (!vid && saved) return { kind: 'clear', label: 'Quitar del plan', line: '', other: null };
     if (!vid) return none('');
-    if (saved === vid) return { kind: 'clear', label: 'Quitar', line: '', other: null };
+    if (saved === vid) return { kind: 'clear', label: 'Quitar del plan', line: '', other: null };
     const bits = [];
     if (o.incompatible) bits.push('Incompatible online');
-    bits.push('Guardar no la instala en la consola');
     const line = bits.join(' · ');
-    if (saved) return { kind: 'replace', label: 'Reemplazar en Traje ' + n, line, other: null };
-    return { kind: 'use', label: 'Usar en Traje ' + n, line, other: null };
+    if (saved) return { kind: 'replace', label: 'Reemplazar en el plan', line, other: null };
+    return { kind: 'use', label: 'Añadir al plan', line, other: null };
   }
 
   function assignBlock(entries, code, slot, vid) {

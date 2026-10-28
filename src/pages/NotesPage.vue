@@ -7,7 +7,7 @@ const { notes, add, toggle } = useNotesPage()
 
 <template>
   <q-page class="page list-page">
-    <h1 class="sr-only">Notas</h1>
+    <h1 class="sr-only">Búsquedas pendientes</h1>
     <form class="note-form" @submit.prevent="add">
       <q-input
         v-model="noteDraft"
@@ -15,14 +15,15 @@ const { notes, add, toggle } = useNotesPage()
         outlined
         maxlength="80"
         placeholder="Por ejemplo, DBZ"
-        aria-label="Pedido de búsqueda"
+        aria-label="¿Qué skin quieres buscar después?"
         autocomplete="off"
       />
-      <q-btn unelevated no-caps class="btn-main" type="submit" label="Añadir" :disable="!noteDraft.trim()" />
+      <q-btn unelevated no-caps class="btn-main" type="submit" label="Anotar" :disable="!noteDraft.trim()" />
     </form>
+    <p class="note-help">Anota personajes o ideas para investigar después.</p>
     <div v-if="!notes.length" class="empty" role="status">
       <q-icon name="sticky_note_2" size="40px" aria-hidden="true" />
-      <b>Ninguna búsqueda anotada</b>
+      <b>Aún no hay búsquedas pendientes</b>
     </div>
     <ul v-else class="notes">
       <li v-for="note in notes" :key="note.id" class="note" :class="{ 'note--done': note.done }">

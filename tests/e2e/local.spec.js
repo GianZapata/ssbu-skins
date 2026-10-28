@@ -10,7 +10,8 @@ test('el toque no escribe el plan y el botón nombra el traje', async ({ page })
   await page.waitForSelector('[data-skin]');
   const before = await page.evaluate(() => window.planEntries().length);
   await page.locator('[data-skin]').first().click();
-  await expect(page.locator('[data-act]')).toHaveText(/Usar en Traje 3|Reemplazar en Traje 3/);
+  await expect(page.locator('[data-act]')).toHaveText(/Añadir al plan|Reemplazar en el plan/);
+  await expect(page.getByText('Mario · Traje 3')).toBeVisible();
   await expect.poll(() => page.evaluate(() => window.planEntries().length)).toBe(before);
 });
 
@@ -19,10 +20,10 @@ test('buscar por autor no encuentra y el sync cabe a 320', async ({ page }) => {
   await page.goto('/#/luchador/01/1');
   await page.getByLabel('Buscar skin').fill('Happy190');
   await expect(page.getByText('Sin resultados')).toBeVisible();
-  const sync = await page.locator('#sync').boundingBox();
   const title = await page.locator('#ttl').boundingBox();
-  expect(sync.x + sync.width).toBeLessThanOrEqual(321);
+  const menu = await page.getByRole('button', { name: 'Más opciones' }).boundingBox();
   expect(title.width).toBeGreaterThan(8);
+  expect(menu.x + menu.width).toBeLessThanOrEqual(321);
 });
 
 test('el escritorio deja el escenario y el catálogo en dos columnas', async ({ page }) => {
@@ -65,7 +66,7 @@ test('catálogo e instaladas están aparte y no hay Historial', async ({ page })
   await expect(page.getByRole('link', { name: /Ventus/ })).toBeVisible();
   await expect(page.getByRole('link', { name: /Dry Bones/ })).toHaveCount(0);
   await page.goto('/#/notas');
-  await expect(page.getByText('Ninguna búsqueda anotada')).toBeVisible();
+  await expect(page.getByText('Aún no hay búsquedas pendientes')).toBeVisible();
 });
 
 test('al bajar, la cabecera deja ver el buscador', async ({ page }) => {
@@ -96,7 +97,7 @@ test('un enlace directo no sale de la app con Volver', async ({ page }) => {
   await expect(page.locator('.ft').first()).toBeVisible();
 });
 
-test('Elegidas conserva el luchador y su candidata', async ({ page }) => {
+test('el plan conserva el luchador y su candidata', async ({ page }) => {
   await page.setViewportSize({ width: 390, height: 844 });
   await page.goto('/#/luchador/01/3');
   await page.waitForSelector('[data-skin]');
@@ -108,7 +109,7 @@ test('Elegidas conserva el luchador y su candidata', async ({ page }) => {
     document.body.appendChild(link);
     link.click();
   });
-  await expect(page.getByRole('dialog', { name: 'Skins elegidas' })).toBeVisible();
+  await expect(page.getByRole('dialog', { name: 'Plan' })).toBeVisible();
   await expect(page.locator('[data-skin="' + vid + '"][aria-pressed="true"]')).toHaveCount(1);
 });
 
@@ -129,14 +130,14 @@ test('el catálogo pide elegir traje y no escribe el plan', async ({ page }) => 
   await page.getByRole('button', { name: 'Dry Bones (v3.1 Update)' }).click();
   const before = await page.evaluate(() => JSON.stringify(window.planEntries()));
   await expect(page.getByRole('button', { name: 'Elegir traje' })).toBeVisible();
-  await expect(page.getByRole('button', { name: /Usar en Traje|Reemplazar en Traje/ })).toHaveCount(0);
+  await expect(page.getByRole('button', { name: /Añadir al plan|Reemplazar en el plan/ })).toHaveCount(0);
   await page.getByRole('button', { name: 'Elegir traje' }).click();
   await expect(page).toHaveURL(/#\/luchador\/01\/1/);
   await expect.poll(() => page.evaluate(() => JSON.stringify(window.planEntries()))).toBe(before);
   const vid = await page.locator('[aria-pressed="true"][data-skin]').getAttribute('data-skin');
   await page.locator('[data-slot="1"]').click();
   await expect(page.locator('[aria-pressed="true"][data-skin="' + vid + '"]')).toHaveCount(1);
-  await expect(page.getByText('Toca otro traje para compararla ahí')).toBeVisible();
+  await expect(page.getByText('Toca un traje para compararla ahí')).toBeVisible();
 });
 
 test('Volver y Adelante recorren Catálogo e Instaladas', async ({ page }) => {
@@ -148,4 +149,56 @@ test('Volver y Adelante recorren Catálogo e Instaladas', async ({ page }) => {
   await expect(page).toHaveURL(/#\/catalogo/);
   await page.goForward();
   await expect(page).toHaveURL(/#\/instaladas/);
+});
+
+test('filtrar un personaje no suma profundidad', async ({ page }) => {
+  await page.setViewportSize({ width: 320, height: 700 });
+  await page.goto('/#/catalogo');
+  await page.waitForSelector('.sgrid');
+  const before = await page.evaluate(() => history.state && history.state.depth);
+  await page.getByRole('button', { name: 'Personaje: Todos los personajes' }).click();
+  await page.getByRole('button', { name: /^Mario, / }).click();
+  await expect(page.getByRole('dialog', { name: 'Personaje' })).toBeHidden();
+  const after = await page.evaluate(() => history.state && history.state.depth);
+  expect(after).toBe(before);
+});
+
+test('la ficha del catálogo deja el catálogo debajo', async ({ page }) => {
+  await page.setViewportSize({ width: 320, height: 700 });
+  await page.goto('/#/catalogo');
+  await page.getByRole('button', { name: 'Dry Bones (v3.1 Update)' }).click();
+  await expect(page.getByRole('dialog', { name: /Detalle de/ })).toBeVisible();
+  await expect(page.locator('.list-page--catalog [data-vid]').first()).toBeAttached();
+});
+
+test('Atrás cierra el selector de personaje', async ({ page }) => {
+  await page.setViewportSize({ width: 320, height: 700 });
+  await page.goto('/#/catalogo');
+  await page.getByRole('button', { name: 'Personaje: Todos los personajes' }).click();
+  await expect(page.getByRole('dialog', { name: 'Personaje' })).toBeVisible();
+  await page.goBack();
+  await expect(page.getByRole('dialog', { name: 'Personaje' })).toBeHidden();
+  await expect(page).toHaveURL(/#\/catalogo$/);
+});
+
+test('cambiar el tamaño conserva la tarjeta visible', async ({ page }) => {
+  await page.setViewportSize({ width: 390, height: 844 });
+  await page.goto('/#/catalogo');
+  await page.evaluate(() => localStorage.setItem('ssbu_grid', 'compacta'));
+  await page.reload();
+  await page.waitForSelector('[data-keep]');
+  await page.evaluate(() => window.scrollTo(0, 700));
+  const before = await page.evaluate(() => {
+    const cards = [...document.querySelectorAll('[data-keep]')];
+    const card = cards.find((el) => el.getBoundingClientRect().bottom > 80);
+    if (!card) return { key: '', top: 0 };
+    return { key: card.getAttribute('data-keep') || '', top: card.getBoundingClientRect().top };
+  });
+  expect(before.key).not.toBe('');
+  await page.getByRole('button', { name: 'Vista compacta' }).click();
+  await expect.poll(() => page.evaluate(({ key, top }) => {
+    const card = document.querySelector('[data-keep="' + key + '"]');
+    if (!card) return 999;
+    return Math.abs(card.getBoundingClientRect().top - top);
+  }, before)).toBeLessThan(8);
 });

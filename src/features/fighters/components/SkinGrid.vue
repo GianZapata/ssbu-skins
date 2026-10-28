@@ -38,6 +38,7 @@ const emit = defineEmits<{ (e: 'pick', vid: string): void, (e: 'detail', vid: st
         type="search"
         placeholder="Buscar skin"
         aria-label="Buscar skin"
+        id="skin-search"
         autocomplete="off"
       >
         <template #prepend><q-icon name="search" aria-hidden="true" /></template>
@@ -55,7 +56,7 @@ const emit = defineEmits<{ (e: 'pick', vid: string): void, (e: 'detail', vid: st
         <div v-for="row in props.rows" :key="row.vid" class="card" :class="{ 'card--on': row.chosen }">
           <button type="button" class="card__btn" :aria-label="row.label" :aria-pressed="row.chosen" :data-skin="row.vid" :data-vid="row.vid" @click="emit('pick', row.vid)">
             <span class="card__img">
-              <AppImg :src="row.img" />
+              <AppImg :src="row.img" fit="contain" />
               <span v-if="row.chosen" class="card__check" aria-hidden="true"><q-icon name="check" size="18px" /></span>
               <span v-else-if="row.other !== null" class="card__where" aria-hidden="true">{{ trajeName(row.other) }}</span>
             </span>

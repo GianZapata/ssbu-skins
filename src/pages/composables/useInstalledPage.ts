@@ -34,7 +34,7 @@ const rowOf = (fighter: Fighter, slot: number, words: string[], selected: boolea
   return {
     key: fighter.code + '_' + slot,
     title: selected ? costume : where,
-    sub: current.name,
+    sub: current.kind === 'pending' || current.kind === 'unknown' ? '' : current.name,
     img: current.img,
     href: '#/luchador/' + encodeURIComponent(fighter.code) + '/' + (slot + 1),
     label: where + ', ' + current.name,
