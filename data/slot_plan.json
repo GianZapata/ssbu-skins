@@ -194,7 +194,7 @@
      "approved": true
     }
    },
-   "nota": "Los packs de 8 slots (Gogeta 437327, Gogeta SSJ4 446815, Goku Mid 502537, Yang Xiao Long 346216) quedan pendientes; aquí solo entra el look suelto que ya se eligió (Gogeta SSJ en c01, Gogeta SSJ4 en c07). Pendiente: Tifa (559818, lo mandó Gian, c00–c01) compite con Gohan (de auditoría) por c00. Pendiente: Tifa (559818, lo mandó Gian, mujer con 2 looks) compite con Gohan por c00; Vegeta aprobado con 2 looks (regla: 1 por mod)."
+   "nota": "Los packs de 8 slots (Gogeta 437327, Gogeta SSJ4 446815, Goku Mid 502537, Yang Xiao Long 346216) quedan pendientes; aquí solo entra el look suelto que ya se eligió (Gogeta SSJ en c01, Gogeta SSJ4 en c07). Pendiente: Tifa (559818, lo mandó Gian, c00–c01) compite con Gohan (de auditoría) por c00. Pendiente: Tifa (559818, lo mandó Gian, mujer con 2 looks) compite con Gohan por c00; Vegeta aprobado con 2 looks (regla: 1 por mod). Pendiente: Tifa (559818, lo mandó Gian, mujer con 2 looks) compite con Gohan por c00; Vegeta aprobado con 2 looks (regla: 1 por mod)."
   },
   "77": {
    "slots": {
@@ -321,7 +321,7 @@
      "mod_id": 174057,
      "source": "drive",
      "reslot_from": 1,
-     "file": "mario/174057_dry_bones_v3_1_update/original/dry_bones_v3-1_animations_only_single_slot_c01.zip",
+     "file": "mario/174057_dry_bones_v3_1_update/original/dry_bones_v3-1_single_slot_c01.zip",
      "approved": false,
      "nota": "el pack trae 8 looks; aquí solo el de c01. Trae config.json y motion (riesgo wifi)"
     },
