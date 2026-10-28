@@ -75,8 +75,9 @@ test('filtros', async ({ page }) => {
 
 test('offline', async ({ page, context }) => {
   await page.goto('/index.html#/luchadores');
-  await page.waitForSelector('#sync');
+  await page.waitForSelector('.ft');
   await context.setOffline(true);
   await page.evaluate(() => { syncKind = 'offline'; paintSync(); });
+  await page.waitForSelector('.sync-fail');
   await shot(page, 'offline');
 });
