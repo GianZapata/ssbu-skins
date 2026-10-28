@@ -53,3 +53,14 @@ El Drive es la copia principal de los binarios. Para una segunda copia (disco ex
 ## Reportes
 
 Los reportes de triage del Drive están en `docs/drive/` (`PENDIENTES_SLOTS.md`, `REPORT_DBZ.md`, `SLOT_BASE_C00.md`, `C00_EXCLUIR_WUBOY.txt`). La regla de `SLOT_BASE_C00.md` quedó descartada; se conserva como referencia de qué mods tocan c00.
+
+## Plan de slots
+
+`data/slot_plan.json` guarda las decisiones de Gian: qué mod va en cada slot de cada luchador, y el orden de prioridad (`priority`; un grupo `["79", "80"]` comparte posición). Cada slot decidido lleva `state` (`mod`, `wuboy` o `vanilla`), `source` (`drive`, `profile`, `wuboy` o `vanilla`), `mod_id`, `file` (ruta dentro del Drive), `reslot_from` (slot nativo, si se mueve), `approved` (`false` = propuesta) y una `nota` opcional. Se edita a mano; un slot que no aparece cuenta como «sin decidir».
+
+```bash
+python3 tools/slot_plan.py            # regenera docs/SLOTS.md (no editarlo a mano)
+python3 tools/slot_plan.py --check    # además valida las decisiones
+```
+
+`docs/SLOTS.md` cruza lo que hay hoy (WuBoy, componentes del perfil, skin original) con las decisiones y lista, por luchador y en orden de prioridad, los slots resueltos y los abiertos, más los mods del Drive sin asignar. `--check` falla (exit 1) si un mod no está en `drive.json`, si `reslot_from` no coincide con los slots que trae el archivo, si falta `reslot_from` en un mod fuera de su slot nativo, si una decisión `wuboy` o `profile` no existe en el inventario, si hay un slot fuera de 0–7 o repetido. Avisa (exit 0) de archivos sin listar, de skins de WuBoy que se reemplazan y de mods del Drive sin asignar en luchadores con decisiones aprobadas.

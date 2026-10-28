@@ -1,0 +1,275 @@
+{
+ "_nota": "Decisiones de slots de Gian. state: mod|wuboy|vanilla; source: drive|profile|wuboy|vanilla; approved false = propuesta. Regenerar el informe: python3 tools/slot_plan.py [--check]. Un grupo [a, b] en priority comparte posición (Pyra y Mythra).",
+ "priority": [
+  "01",
+  "09",
+  "14",
+  "18",
+  "02",
+  "36",
+  "03",
+  "16",
+  "17",
+  "23",
+  "29",
+  "07",
+  "20",
+  "69",
+  "11",
+  "21ε",
+  "21",
+  "75",
+  "54",
+  "31",
+  "68",
+  "47",
+  "49",
+  [
+   "79",
+   "80"
+  ],
+  "60",
+  "60ε",
+  "61",
+  "78",
+  "63",
+  "72",
+  "77",
+  "81",
+  "82"
+ ],
+ "fighters": {
+  "23": {
+   "slots": {
+    "0": {
+     "state": "mod",
+     "name": "Otis",
+     "mod_id": null,
+     "source": "profile",
+     "reslot_from": null,
+     "file": null,
+     "approved": true
+    },
+    "1": {
+     "state": "wuboy",
+     "name": "WuBoy",
+     "mod_id": null,
+     "source": "wuboy",
+     "reslot_from": null,
+     "file": null,
+     "approved": true
+    },
+    "2": {
+     "state": "mod",
+     "name": "Pikadorf",
+     "mod_id": 406732,
+     "source": "drive",
+     "reslot_from": 0,
+     "file": "ganondorf/406732_pikadorf/original/pikadorf_c00_.7z",
+     "approved": true
+    },
+    "3": {
+     "state": "mod",
+     "name": "Jiren",
+     "mod_id": null,
+     "source": "profile",
+     "reslot_from": null,
+     "file": null,
+     "approved": true
+    },
+    "4": {
+     "state": "wuboy",
+     "name": "WuBoy",
+     "mod_id": null,
+     "source": "wuboy",
+     "reslot_from": null,
+     "file": null,
+     "approved": true
+    },
+    "5": {
+     "state": "mod",
+     "name": "ExDeath",
+     "mod_id": 174353,
+     "source": "drive",
+     "reslot_from": null,
+     "file": "ganondorf/174353_exdeath/original/install_exdeath_final_.rar",
+     "approved": true,
+     "nota": "solo la carpeta c05"
+    },
+    "6": {
+     "state": "mod",
+     "name": "Broly",
+     "mod_id": null,
+     "source": "profile",
+     "reslot_from": null,
+     "file": null,
+     "approved": true
+    },
+    "7": {
+     "state": "wuboy",
+     "name": "Thanos",
+     "mod_id": null,
+     "source": "wuboy",
+     "reslot_from": null,
+     "file": null,
+     "approved": true
+    }
+   }
+  },
+  "74": {
+   "slots": {
+    "0": {
+     "state": "mod",
+     "name": "Gohan (sin capa)",
+     "mod_id": 434439,
+     "source": "drive",
+     "reslot_from": 7,
+     "file": "terry/434439_gohan/original/74_terry_-_gohan_terry.rar",
+     "approved": true
+    },
+    "1": {
+     "state": "mod",
+     "name": "Gogeta SSJ",
+     "mod_id": 437327,
+     "source": "drive",
+     "reslot_from": null,
+     "file": "terry/437327_gogeta (1)/modificado/gogeta_dbz_ssj_c01.zip",
+     "approved": true
+    },
+    "2": {
+     "state": "mod",
+     "name": "Vegeta SSJ",
+     "mod_id": 609500,
+     "source": "drive",
+     "reslot_from": null,
+     "file": "terry/609500_vegeta/original/skin_terry_c02-c03_vegeta.rar",
+     "approved": true,
+     "nota": "necesita One Slot Effects"
+    },
+    "3": {
+     "state": "mod",
+     "name": "Vegeta SSB",
+     "mod_id": 609500,
+     "source": "drive",
+     "reslot_from": null,
+     "file": "terry/609500_vegeta/original/skin_terry_c02-c03_vegeta.rar",
+     "approved": true,
+     "nota": "necesita One Slot Effects"
+    },
+    "4": {
+     "state": "wuboy",
+     "name": "All Might",
+     "mod_id": null,
+     "source": "wuboy",
+     "reslot_from": null,
+     "file": null,
+     "approved": true
+    },
+    "5": {
+     "state": "wuboy",
+     "name": "Jotaro",
+     "mod_id": null,
+     "source": "wuboy",
+     "reslot_from": null,
+     "file": null,
+     "approved": true
+    },
+    "6": {
+     "state": "mod",
+     "name": "Goku Black",
+     "mod_id": 333706,
+     "source": "drive",
+     "reslot_from": null,
+     "file": "terry/333706_goku_black/original/goku_black.zip",
+     "approved": true
+    },
+    "7": {
+     "state": "mod",
+     "name": "Gogeta SSJ4",
+     "mod_id": 446815,
+     "source": "drive",
+     "reslot_from": null,
+     "file": "terry/446815_gogeta_ssj4/original/gogeta_ssj4_-_terry_c07_v13.rar",
+     "approved": true
+    }
+   }
+  },
+  "77": {
+   "slots": {
+    "0": {
+     "state": "mod",
+     "name": "Red Steve",
+     "mod_id": null,
+     "source": "profile",
+     "reslot_from": null,
+     "file": null,
+     "approved": false
+    },
+    "1": {
+     "state": "mod",
+     "name": "White Alex",
+     "mod_id": null,
+     "source": "profile",
+     "reslot_from": null,
+     "file": null,
+     "approved": false
+    },
+    "2": {
+     "state": "mod",
+     "name": "Steviroth",
+     "mod_id": 323894,
+     "source": "drive",
+     "reslot_from": 0,
+     "file": "steve/323894_steviroth/original/steviroth.zip",
+     "approved": false
+    },
+    "3": {
+     "state": "vanilla",
+     "name": "Original del juego",
+     "mod_id": null,
+     "source": "vanilla",
+     "reslot_from": null,
+     "file": null,
+     "approved": false
+    },
+    "4": {
+     "state": "mod",
+     "name": "Shaved Steve",
+     "mod_id": null,
+     "source": "profile",
+     "reslot_from": null,
+     "file": null,
+     "approved": false
+    },
+    "5": {
+     "state": "mod",
+     "name": "Creeper",
+     "mod_id": 317177,
+     "source": "drive",
+     "reslot_from": null,
+     "file": "steve/317177_creeper/original/creeper_ce298.zip",
+     "approved": false
+    },
+    "6": {
+     "state": "vanilla",
+     "name": "Original del juego",
+     "mod_id": null,
+     "source": "vanilla",
+     "reslot_from": null,
+     "file": null,
+     "approved": false
+    },
+    "7": {
+     "state": "mod",
+     "name": "Chicken",
+     "mod_id": 306118,
+     "source": "drive",
+     "reslot_from": null,
+     "file": "steve/306118_chicken/original/chicken.zip",
+     "approved": false
+    }
+   },
+   "nota": "Propuesta pendiente de aprobar. El Steve de WuBoy está excluido del perfil."
+  }
+ }
+}
