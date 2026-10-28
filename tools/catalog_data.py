@@ -77,6 +77,7 @@ def load():
         f['original_ref']=ref if isinstance(ref,dict) else None
         fp='assets/fighters/'+f['code'].replace('ε','e')+'.webp'
         f['portrait']=fp if os.path.exists(os.path.join(R,fp)) else None
+        f['costumes']=[('assets/costumes/%s-%d.webp'%(f['code'].replace('ε','e'),n+1)) if os.path.exists(os.path.join(R,'assets','costumes','%s-%d.webp'%(f['code'].replace('ε','e'),n+1))) else None for n in range(8)]   # render oficial del traje original n (c0n); None si no existe
     meta={'generated':c.get('generated'),'timezone':c.get('timezone'),'counts':c.get('counts'),'base':BASE}
     return [F[k] for k in order],meta
 def _jload(name):

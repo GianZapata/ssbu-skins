@@ -1,6 +1,6 @@
 rules_version = '2';
 // Modelo: un único plan compartido, editable por cualquiera con sesión anónima automática.
-//  - catalog, installed, meta, status: los escribe el backend (cuenta de servicio, que se salta estas reglas); la web solo lee.
+//  - catalog, installed, drive, slot_plan, meta, status: los escribe el backend (cuenta de servicio, que se salta estas reglas); la web solo lee.
 //  - changes/{luchador}_{traje}: UNA propuesta por traje (un documento por traje, para que editar trajes distintos
 //    nunca se pisen). Cualquiera puede proponer o deshacer, pero solo hacia una apariencia que exista en el catálogo.
 //  - history/{id}: registro inmutable de cada cambio (para el historial y el deshacer).
@@ -17,6 +17,8 @@ service cloud.firestore {
 
     match /catalog/{code}   { allow read: if true; allow write: if false; }
     match /installed/{code} { allow read: if true; allow write: if false; }
+    match /drive/{code}     { allow read: if true; allow write: if false; }
+    match /slot_plan/{code} { allow read: if true; allow write: if false; }
     match /meta/{doc}       { allow read: if true; allow write: if false; }
     match /status/{vid}     { allow read: if true; allow write: if false; }
     match /selection/{doc}  { allow read: if true; allow write: if false; }

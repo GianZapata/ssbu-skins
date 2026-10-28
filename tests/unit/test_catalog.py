@@ -82,10 +82,18 @@ class Validador(unittest.TestCase):
         r = self.run_validator(c, lock); self.assertEqual(r.returncode, 0, r.stdout)
 
 class Retratos(unittest.TestCase):
-    def test_retratos_oficiales_solo_para_los_luchadores_con_fuente(self):
+    def test_trajes_originales_ocho_por_luchador_salvo_los_mii(self):
         fighters, _ = cd.load()
-        sin = sorted(f['code'] for f in fighters if not f['portrait'])
-        self.assertEqual(sin, [str(n) for n in range(71, 83)])
+        for f in fighters:
+            self.assertEqual(len(f['costumes']), 8, f['code'])
+            hay = [c for c in f['costumes'] if c]
+            if f['code'] in ('51', '52', '53'): self.assertEqual(len(hay), 1, f['code'])   # el sitio oficial solo trae un render de cada Mii
+            else: self.assertEqual(len(hay), 8, f['code'])
+            for c in hay: self.assertTrue(os.path.exists(os.path.join(R, c)), c)
+
+    def test_todos_los_luchadores_tienen_retrato_oficial(self):
+        fighters, _ = cd.load()
+        self.assertEqual(sorted(f['code'] for f in fighters if not f['portrait']), [])
         for f in fighters:
             if f['portrait']: self.assertTrue(os.path.exists(os.path.join(R, f['portrait'])), f['portrait'])
             self.assertNotIn('installed/', f['portrait'] or ''); self.assertNotIn('gamebanana', f['portrait'] or '')

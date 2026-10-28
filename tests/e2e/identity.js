@@ -22,7 +22,7 @@ module.exports = async (b, base) => {
   const bad = tiles.filter(t => t.src && !/^assets\/fighters\/[\w]+\.webp$/.test(t.src));
   ok(tiles.length === 89 && bad.length === 0, 'todos los retratos del selector son oficiales (assets/fighters), ninguno es la imagen de un traje o de GameBanana');
   ok(tiles.filter(t => t.src).every(t => t.ok), 'los retratos oficiales cargan (archivos publicados)');
-  ok(tiles.filter(t => t.src && t.src.startsWith('assets/fighters/')).length === 89, 'los 89 luchadores (incluyendo DLC 71–82) tienen su retrato oficial publicado');
+  ok(tiles.filter(t => t.mono).length === 0 && tiles.filter(t => t.src && t.src.startsWith('assets/fighters/')).length === 89, 'los 89 luchadores (incluyendo DLC 71–82) tienen su retrato oficial publicado');
   ok(tiles.find(t => t.c === '03').src === 'assets/fighters/03.webp', 'Link usa su propio retrato (regresión «Lightning como Link»)');
   const linkInv = await P.evaluate(() => Object.values((INV.fighters['03'] || { slots: {} }).slots).filter(s => s.img).length);
   await P.goto(base + '#/luchador/03'); await P.waitForSelector('.strip');
