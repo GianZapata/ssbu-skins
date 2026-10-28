@@ -194,7 +194,7 @@
      "approved": true
     }
    },
-   "nota": "Los packs de 8 slots (Gogeta 437327, Gogeta SSJ4 446815, Goku Mid 502537, Yang Xiao Long 346216) quedan pendientes; aquí solo entra el look suelto que ya se eligió (Gogeta SSJ en c01, Gogeta SSJ4 en c07). Pendiente: Tifa (559818, lo mandó Gian, c00–c01) compite con Gohan (de auditoría) por c00."
+   "nota": "Los packs de 8 slots (Gogeta 437327, Gogeta SSJ4 446815, Goku Mid 502537, Yang Xiao Long 346216) quedan pendientes; aquí solo entra el look suelto que ya se eligió (Gogeta SSJ en c01, Gogeta SSJ4 en c07). Pendiente: Tifa (559818, lo mandó Gian, c00–c01) compite con Gohan (de auditoría) por c00. Pendiente: Tifa (559818, lo mandó Gian, mujer con 2 looks) compite con Gohan por c00; Vegeta aprobado con 2 looks (regla: 1 por mod)."
   },
   "77": {
    "slots": {
@@ -302,18 +302,10 @@
      "source": "drive",
      "reslot_from": null,
      "file": "mario/324701_wheelchair_mario/original/marioinawheelchair_e965b.zip",
-     "approved": false
+     "approved": false,
+     "nota": "el mod trae 2 looks (c02, c03); aquí solo uno"
     },
     "3": {
-     "state": "mod",
-     "name": "Wheelchair Mario",
-     "mod_id": 324701,
-     "source": "drive",
-     "reslot_from": null,
-     "file": "mario/324701_wheelchair_mario/original/marioinawheelchair_e965b.zip",
-     "approved": false
-    },
-    "4": {
      "state": "mod",
      "name": "Moogle",
      "mod_id": 374147,
@@ -321,30 +313,50 @@
      "reslot_from": 0,
      "file": "mario/374147_moogle_over_mario/original/moogle_over_mario_453b1.7z",
      "approved": false,
-     "nota": "trae ef_mario.eff global (afecta a todos los Mario)"
+     "nota": "el mod trae 3 looks; aquí solo el clásico (c00). Trae ef_mario.eff global (afecta a todos los Mario)"
     },
-    "5": {
+    "4": {
      "state": "mod",
-     "name": "Moogle",
-     "mod_id": 374147,
+     "name": "Dry Bones",
+     "mod_id": 174057,
      "source": "drive",
      "reslot_from": 1,
-     "file": "mario/374147_moogle_over_mario/original/moogle_over_mario_453b1.7z",
+     "file": "mario/174057_dry_bones_v3_1_update/original/dry_bones_v3-1_animations_only_single_slot_c01.zip",
      "approved": false,
-     "nota": "trae ef_mario.eff global (afecta a todos los Mario)"
+     "nota": "el pack trae 8 looks; aquí solo el de c01. Trae config.json y motion (riesgo wifi)"
+    },
+    "5": {
+     "state": "vanilla",
+     "name": "Original",
+     "mod_id": null,
+     "source": "vanilla",
+     "reslot_from": null,
+     "file": null,
+     "approved": false,
+     "nota": "se quita la skin de WuBoy"
     },
     "6": {
-     "state": "mod",
-     "name": "Moogle",
-     "mod_id": 374147,
-     "source": "drive",
-     "reslot_from": 2,
-     "file": "mario/374147_moogle_over_mario/original/moogle_over_mario_453b1.7z",
+     "state": "vanilla",
+     "name": "Original",
+     "mod_id": null,
+     "source": "vanilla",
+     "reslot_from": null,
+     "file": null,
      "approved": false,
-     "nota": "trae ef_mario.eff global (afecta a todos los Mario)"
+     "nota": "se quita la skin de WuBoy"
+    },
+    "7": {
+     "state": "vanilla",
+     "name": "Original",
+     "mod_id": null,
+     "source": "vanilla",
+     "reslot_from": null,
+     "file": null,
+     "approved": false,
+     "nota": "se quita la skin de WuBoy"
     }
    },
-   "nota": "Pendiente: Dry Bones (174057, 8 looks) y el c07 queda libre para uno de sus looks."
+   "nota": "Regla de Gian: 1 skin por mod. Otros looks de Dry Bones, Wheelchair y Moogle quedan fuera."
   },
   "09": {
    "slots": {
@@ -480,14 +492,13 @@
      "approved": false
     },
     "6": {
-     "state": "mod",
-     "name": "Susano'o Armor",
-     "mod_id": 386111,
-     "source": "drive",
+     "state": "wuboy",
+     "name": "Dry Bowser",
+     "mod_id": null,
+     "source": "wuboy",
      "reslot_from": null,
-     "file": "bowser/386111_kurama_linked_susano_o_armor_jp_voice_new/original/kuramalinkedandsusanooarmor.zip",
-     "approved": false,
-     "nota": "reemplaza a Dry Bowser de WuBoy"
+     "file": null,
+     "approved": false
     },
     "7": {
      "state": "wuboy",
@@ -498,7 +509,8 @@
      "file": null,
      "approved": false
     }
-   }
+   },
+   "nota": "El mod trae 2 looks (Kurama y Susano'o); solo Kurama. Dry Bowser y Dark Bowser de WuBoy se conservan."
   },
   "18": {
    "slots": {
@@ -509,7 +521,8 @@
      "source": "drive",
      "reslot_from": null,
      "file": "dr_mario/384627_timeless_river_dr_mario/original/timeless_river_doctor_c01.7z",
-     "approved": false
+     "approved": false,
+     "nota": "el mod trae 2 looks (c01, c07); solo uno"
     },
     "2": {
      "state": "vanilla",
@@ -540,15 +553,6 @@
      "file": null,
      "approved": false,
      "nota": "se quita la skin de WuBoy"
-    },
-    "7": {
-     "state": "mod",
-     "name": "Timeless River",
-     "mod_id": 384627,
-     "source": "drive",
-     "reslot_from": null,
-     "file": "dr_mario/384627_timeless_river_dr_mario/original/timeless_river_doctor_c07.7z",
-     "approved": false
     }
    }
   },
@@ -980,25 +984,18 @@
      "source": "drive",
      "reslot_from": null,
      "file": "falco/174558_falco_n64_skin_voice_sfx/original/falco-n64skin---v-1-4b.zip",
-     "approved": false
+     "approved": false,
+     "nota": "el mod trae 3 looks (c00–c02); solo uno"
     },
     "1": {
-     "state": "mod",
-     "name": "N64 Falco",
-     "mod_id": 174558,
-     "source": "drive",
+     "state": "vanilla",
+     "name": "Original",
+     "mod_id": null,
+     "source": "vanilla",
      "reslot_from": null,
-     "file": "falco/174558_falco_n64_skin_voice_sfx/original/falco-n64skin---v-1-4b.zip",
-     "approved": false
-    },
-    "2": {
-     "state": "mod",
-     "name": "N64 Falco",
-     "mod_id": 174558,
-     "source": "drive",
-     "reslot_from": null,
-     "file": "falco/174558_falco_n64_skin_voice_sfx/original/falco-n64skin---v-1-4b.zip",
-     "approved": false
+     "file": null,
+     "approved": false,
+     "nota": "se quita la skin de WuBoy"
     },
     "3": {
      "state": "vanilla",
@@ -1259,27 +1256,26 @@
      "reslot_from": null,
      "file": "ryu/487736_goku_transformation_pack/original/son_goku_ss1-ssg-ssb_ryu_c05-06-07_.rar",
      "approved": false,
-     "nota": "trae el tema de victoria de Ryu (global)"
+     "nota": "el pack trae 3 looks (SSJ, Blue, God); solo uno, a elegir. Trae el tema de victoria de Ryu (global)"
     },
     "6": {
-     "state": "mod",
-     "name": "Goku Super Saiyan Blue",
-     "mod_id": 487736,
-     "source": "drive",
+     "state": "wuboy",
+     "name": "Wallace",
+     "mod_id": null,
+     "source": "wuboy",
      "reslot_from": null,
-     "file": "ryu/487736_goku_transformation_pack/original/son_goku_ss1-ssg-ssb_ryu_c05-06-07_.rar",
-     "approved": false,
-     "nota": "trae el tema de victoria de Ryu (global); reemplaza a «Wallace» de WuBoy"
+     "file": null,
+     "approved": false
     },
     "7": {
-     "state": "mod",
-     "name": "Goku Super Saiyan God",
-     "mod_id": 487736,
-     "source": "drive",
+     "state": "vanilla",
+     "name": "Original",
+     "mod_id": null,
+     "source": "vanilla",
      "reslot_from": null,
-     "file": "ryu/487736_goku_transformation_pack/original/son_goku_ss1-ssg-ssb_ryu_c05-06-07_.rar",
+     "file": null,
      "approved": false,
-     "nota": "trae el tema de victoria de Ryu (global)"
+     "nota": "se quita la skin de WuBoy"
     }
    }
   },
@@ -1299,14 +1295,14 @@
      "approved": false
     },
     "2": {
-     "state": "mod",
-     "name": "Morrigan",
-     "mod_id": 501311,
-     "source": "drive",
+     "state": "vanilla",
+     "name": "Original",
+     "mod_id": null,
+     "source": "vanilla",
      "reslot_from": null,
-     "file": "bayonetta/501311_morrigan_mvc3_design/original/morrigan_single_slot_c02_bayo_2_even_slots_only.zip",
+     "file": null,
      "approved": false,
-     "nota": "archivo de un solo slot (pares, Bayonetta 2); comprobar que no traiga ef_bayonetta.eff global"
+     "nota": "se quita la skin de WuBoy"
     },
     "3": {
      "state": "mod",
@@ -1347,19 +1343,19 @@
      "approved": false,
      "nota": "se quita la skin de WuBoy"
     }
-   }
+   },
+   "nota": "Morrigan (501311) excluida: mujer con más de 2 looks (8)."
   },
   "72": {
    "slots": {
     "2": {
-     "state": "mod",
-     "name": "Trunks (Androides)",
-     "mod_id": 175735,
-     "source": "drive",
+     "state": "wuboy",
+     "name": "Trunks",
+     "mod_id": null,
+     "source": "wuboy",
      "reslot_from": null,
-     "file": "hero/175735_trunks/original/trunks_brave.zip",
-     "approved": false,
-     "nota": "WuBoy ya tiene un Trunks en c02: puede ser el mismo mod"
+     "file": null,
+     "approved": false
     },
     "3": {
      "state": "vanilla",
@@ -1398,7 +1394,8 @@
      "source": "drive",
      "reslot_from": null,
      "file": "hero/175735_trunks/original/trunks_brave.zip",
-     "approved": false
+     "approved": false,
+     "nota": "el mod trae 2 looks; solo uno. WuBoy ya tiene un Trunks en c02 (se conserva)"
     },
     "7": {
      "state": "vanilla",
@@ -1508,17 +1505,17 @@
      "reslot_from": null,
      "file": "chrom/387553_raiden/original/raiden_00efb.zip",
      "approved": false,
-     "nota": "usar el config.json de config_cc198.zip; trae un tema de victoria (global)"
+     "nota": "el mod trae 2 looks; solo uno. Usar el config.json de config_cc198.zip; trae un tema de victoria (global)"
     },
     "2": {
-     "state": "mod",
-     "name": "Raiden",
-     "mod_id": 387553,
-     "source": "drive",
+     "state": "vanilla",
+     "name": "Original",
+     "mod_id": null,
+     "source": "vanilla",
      "reslot_from": null,
-     "file": "chrom/387553_raiden/original/raiden_00efb.zip",
+     "file": null,
      "approved": false,
-     "nota": "usar el config.json de config_cc198.zip"
+     "nota": "se quita la skin de WuBoy"
     },
     "6": {
      "state": "vanilla",
@@ -1703,7 +1700,7 @@
      "nota": "se quita la skin de WuBoy"
     }
    },
-   "nota": "Pendiente: 2B alts (392802, lo mandó Gian) requiere 2B y está partido en 2 partes."
+   "nota": "2B alts (392802) excluida: mujer con más de 2 looks."
   },
   "75": {
    "slots": {
@@ -2102,13 +2099,14 @@
      "nota": "se quita la skin de WuBoy"
     },
     "4": {
-     "state": "mod",
-     "name": "Crisis Core Cloud",
-     "mod_id": 175324,
-     "source": "drive",
+     "state": "vanilla",
+     "name": "Original",
+     "mod_id": null,
+     "source": "vanilla",
      "reslot_from": null,
-     "file": "cloud/175324_crisis_core_cloud/original/crisis_core_cloud.7z",
-     "approved": false
+     "file": null,
+     "approved": false,
+     "nota": "se quita la skin de WuBoy"
     },
     "5": {
      "state": "vanilla",
@@ -2121,13 +2119,14 @@
      "nota": "se quita la skin de WuBoy"
     },
     "6": {
-     "state": "mod",
-     "name": "Zack Fair",
-     "mod_id": 175327,
-     "source": "drive",
+     "state": "vanilla",
+     "name": "Original",
+     "mod_id": null,
+     "source": "vanilla",
      "reslot_from": null,
-     "file": "cloud/175327_zack_fair_over_cloud_strife/original/secondclass.rar",
-     "approved": false
+     "file": null,
+     "approved": false,
+     "nota": "se quita la skin de WuBoy"
     },
     "7": {
      "state": "vanilla",
@@ -2261,7 +2260,7 @@
      "approved": false
     }
    },
-   "nota": "Pendiente: Xion (471722, 8 looks)."
+   "nota": "Xion (471722) excluida: mujer con más de 2 looks (8)."
   },
   "62": {
    "slots": {

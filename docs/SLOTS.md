@@ -2,7 +2,7 @@
 
 _Generado por `tools/slot_plan.py` a partir de `data/slot_plan.json`, `installed.json`, `inventory_profile.json` y `drive.json`; no editar a mano. Nada de esto está instalado ni probado en consola._
 
-**39 luchadores · 16 slots aprobados · 203 propuestos · 93 sin decidir (de 312)**
+**39 luchadores · 16 slots aprobados · 202 propuestos · 94 sin decidir (de 312)**
 
 Orígenes de los mods del Drive: usuario 48 · búsqueda 11 · búsqueda + usuario 6 · auditoría/previo 18. _usuario = lo mandó Gian por enlace; búsqueda = lo encontró el asistente en la investigación wifi-safe; auditoría/previo = ya estaba en el Drive (espejo de D:\) sin registro de origen._
 
@@ -10,10 +10,10 @@ Orígenes de los mods del Drive: usuario 48 · búsqueda 11 · búsqueda + usuar
 
 | # | Luchador | Aprobados | Propuestos | Sin decidir | Drive sin asignar | Del usuario sin asignar |
 |---|---|---|---|---|---|---|
-| 1 | Mario (01) | 0/8 | 7 | 1 | 1 | 1 |
+| 1 | Mario (01) | 0/8 | 8 | 0 | 0 | 0 |
 | 2 | Luigi (09) | 0/8 | 8 | 0 | 0 | 0 |
 | 3 | Bowser (14) | 0/8 | 7 | 1 | 0 | 0 |
-| 4 | Dr. Mario (18) | 0/8 | 5 | 3 | 0 | 0 |
+| 4 | Dr. Mario (18) | 0/8 | 4 | 4 | 0 | 0 |
 | 5 | Donkey Kong (02) | 0/8 | 8 | 0 | 0 | 0 |
 | 6 | Diddy Kong (36) | 0/8 | 3 | 5 | 0 | 0 |
 | 7 | Link (03) | 0/8 | 6 | 2 | 0 | 0 |
@@ -22,7 +22,7 @@ Orígenes de los mods del Drive: usuario 48 · búsqueda 11 · búsqueda + usuar
 | 10 | Ganondorf (23) | 8/8 | 0 | 0 | 4 | 4 |
 | 11 | Zero Suit Samus (29) | 0/8 | 8 | 0 | 0 | 0 |
 | 12 | Fox (07) | 0/8 | 4 | 4 | 0 | 0 |
-| 13 | Falco (20) | 0/8 | 5 | 3 | 0 | 0 |
+| 13 | Falco (20) | 0/8 | 4 | 4 | 0 | 0 |
 | 14 | Incineroar (69) | 0/8 | 6 | 2 | 0 | 0 |
 | 15 | Captain Falcon (11) | 0/8 | 8 | 0 | 0 | 0 |
 | 16 | Lucina (21ε) | 0/8 | 8 | 0 | 1 | 1 |
@@ -39,7 +39,7 @@ Orígenes de los mods del Drive: usuario 48 · búsqueda 11 · búsqueda + usuar
 | 26 | Ken (60ε) | 0/8 | 0 | 8 | 1 | 0 |
 | 27 | Cloud (61) | 0/8 | 8 | 0 | 0 | 0 |
 | 28 | Sephiroth (78) | 0/8 | 7 | 1 | 0 | 0 |
-| 29 | Bayonetta (63) | 0/8 | 6 | 2 | 0 | 0 |
+| 29 | Bayonetta (63) | 0/8 | 6 | 2 | 1 | 1 |
 | 30 | Hero (72) | 0/8 | 6 | 2 | 0 | 0 |
 | 31 | Steve (77) | 0/8 | 8 | 0 | 1 | 0 |
 | 32 | Kazuya (81) | 0/8 | 5 | 3 | 0 | 0 |
@@ -52,24 +52,18 @@ Orígenes de los mods del Drive: usuario 48 · búsqueda 11 · búsqueda + usuar
 
 ## 1. Mario (01)
 
-_Pendiente: Dry Bones (174057, 8 looks) y el c07 queda libre para uno de sus looks._
+_Regla de Gian: 1 skin por mod. Otros looks de Dry Bones, Wheelchair y Moogle quedan fuera._
 
 | Slot | Hoy | Plan | Estado |
 |---|---|---|---|
 | c00 | original | Paper Mario (GB 464212) · trae motion y param: riesgo wifi | propuesto |
 | c01 | perfil · Kellytoy Mario | Kellytoy Mario (GB 585456) | propuesto |
-| c02 | WuBoy | Wheelchair Mario (GB 324701) | propuesto |
-| c03 | WuBoy | Wheelchair Mario (GB 324701) | propuesto |
-| c04 | WuBoy | Moogle (GB 374147) · reslot desde c00 · trae ef_mario.eff global (afecta a todos los Mario) | propuesto |
-| c05 | WuBoy | Moogle (GB 374147) · reslot desde c01 · trae ef_mario.eff global (afecta a todos los Mario) | propuesto |
-| c06 | WuBoy | Moogle (GB 374147) · reslot desde c02 · trae ef_mario.eff global (afecta a todos los Mario) | propuesto |
-| c07 | WuBoy | WuBoy | sin decidir |
-
-Mods del Drive sin asignar:
-
-| Mod | Nombre | Origen | Slots nativos | Wifi | Toca c00 |
-|---|---|---|---|---|---|
-| 174057 | dry_bones_v3_1_update | usuario | c00, c01, c02, c03, c04, c05, c06, c07 | explícita | sí |
+| c02 | WuBoy | Wheelchair Mario (GB 324701) · el mod trae 2 looks (c02, c03); aquí solo uno | propuesto |
+| c03 | WuBoy | Moogle (GB 374147) · reslot desde c00 · el mod trae 3 looks; aquí solo el clásico (c00). Trae ef_mario.eff global (afecta a todos los Mario) | propuesto |
+| c04 | WuBoy | Dry Bones (GB 174057) · reslot desde c01 · el pack trae 8 looks; aquí solo el de c01. Trae config.json y motion (riesgo wifi) | propuesto |
+| c05 | WuBoy | original | propuesto |
+| c06 | WuBoy | original | propuesto |
+| c07 | WuBoy | original | propuesto |
 
 ## 2. Luigi (09)
 
@@ -86,6 +80,8 @@ Mods del Drive sin asignar:
 
 ## 3. Bowser (14)
 
+_El mod trae 2 looks (Kurama y Susano'o); solo Kurama. Dry Bowser y Dark Bowser de WuBoy se conservan._
+
 | Slot | Hoy | Plan | Estado |
 |---|---|---|---|
 | c00 | original | original | sin decidir |
@@ -94,7 +90,7 @@ Mods del Drive sin asignar:
 | c03 | WuBoy | original | propuesto |
 | c04 | WuBoy | original | propuesto |
 | c05 | original | Kurama [Linked] (GB 386111) | propuesto |
-| c06 | WuBoy «Dry Bowser» | Susano'o Armor (GB 386111) · reemplaza a Dry Bowser de WuBoy | propuesto |
+| c06 | WuBoy «Dry Bowser» | WuBoy «Dry Bowser» | propuesto |
 | c07 | WuBoy «Dark Bowser» | WuBoy «Dark Bowser» | propuesto |
 
 ## 4. Dr. Mario (18)
@@ -102,13 +98,13 @@ Mods del Drive sin asignar:
 | Slot | Hoy | Plan | Estado |
 |---|---|---|---|
 | c00 | original | original | sin decidir |
-| c01 | original | Timeless River (GB 384627) | propuesto |
+| c01 | original | Timeless River (GB 384627) · el mod trae 2 looks (c01, c07); solo uno | propuesto |
 | c02 | WuBoy | original | propuesto |
 | c03 | WuBoy | original | propuesto |
 | c04 | original | original | sin decidir |
 | c05 | WuBoy | original | propuesto |
 | c06 | original | original | sin decidir |
-| c07 | original | Timeless River (GB 384627) | propuesto |
+| c07 | original | original | sin decidir |
 
 ## 5. Donkey Kong (02)
 
@@ -231,9 +227,9 @@ _Pendiente: Spider-Gwen (c07) choca con Jill Valentine (perfil, c07). Opciones: 
 
 | Slot | Hoy | Plan | Estado |
 |---|---|---|---|
-| c00 | original | N64 Falco (GB 174558) | propuesto |
-| c01 | WuBoy | N64 Falco (GB 174558) | propuesto |
-| c02 | original | N64 Falco (GB 174558) | propuesto |
+| c00 | original | N64 Falco (GB 174558) · el mod trae 3 looks (c00–c02); solo uno | propuesto |
+| c01 | WuBoy | original | propuesto |
+| c02 | original | original | sin decidir |
 | c03 | WuBoy | original | propuesto |
 | c04 | original | original | sin decidir |
 | c05 | original | original | sin decidir |
@@ -270,7 +266,7 @@ _Pendiente: Garnet (c02) choca con Dark Falcon (perfil, PR #4, c02). Opciones: e
 
 ## 16. Lucina (21ε)
 
-_Pendiente: 2B alts (392802, lo mandó Gian) requiere 2B y está partido en 2 partes._
+_2B alts (392802) excluida: mujer con más de 2 looks._
 
 | Slot | Hoy | Plan | Estado |
 |---|---|---|---|
@@ -417,9 +413,9 @@ _A2/2B/9S (291700) comparte c07 con Pyra; el Drive lo tiene bajo Pyra._
 | c02 | WuBoy «Kermit» | WuBoy «Kermit» | propuesto |
 | c03 | WuBoy | original | propuesto |
 | c04 | WuBoy | original | propuesto |
-| c05 | WuBoy | Goku Super Saiyan (GB 487736) · trae el tema de victoria de Ryu (global) | propuesto |
-| c06 | WuBoy «Wallace» | Goku Super Saiyan Blue (GB 487736) · trae el tema de victoria de Ryu (global); reemplaza a «Wallace» de WuBoy | propuesto |
-| c07 | WuBoy | Goku Super Saiyan God (GB 487736) · trae el tema de victoria de Ryu (global) | propuesto |
+| c05 | WuBoy | Goku Super Saiyan (GB 487736) · el pack trae 3 looks (SSJ, Blue, God); solo uno, a elegir. Trae el tema de victoria de Ryu (global) | propuesto |
+| c06 | WuBoy «Wallace» | WuBoy «Wallace» | propuesto |
+| c07 | WuBoy | original | propuesto |
 
 ## 26. Ken (60ε)
 
@@ -450,9 +446,9 @@ Mods del Drive sin asignar:
 | c01 | WuBoy | Wheelchair Cloud (GB 495263) · reslot desde c00 | propuesto |
 | c02 | WuBoy | Zack Fair (GB 175327) | propuesto |
 | c03 | WuBoy | original | propuesto |
-| c04 | WuBoy | Crisis Core Cloud (GB 175324) | propuesto |
+| c04 | WuBoy | original | propuesto |
 | c05 | WuBoy | original | propuesto |
-| c06 | WuBoy | Zack Fair (GB 175327) | propuesto |
+| c06 | WuBoy | original | propuesto |
 | c07 | WuBoy | original | propuesto |
 
 ## 28. Sephiroth (78)
@@ -470,16 +466,24 @@ Mods del Drive sin asignar:
 
 ## 29. Bayonetta (63)
 
+_Morrigan (501311) excluida: mujer con más de 2 looks (8)._
+
 | Slot | Hoy | Plan | Estado |
 |---|---|---|---|
 | c00 | original | original | sin decidir |
 | c01 | WuBoy «Kat» | WuBoy «Kat» | propuesto |
-| c02 | WuBoy | Morrigan (GB 501311) · archivo de un solo slot (pares, Bayonetta 2); comprobar que no traiga ef_bayonetta.eff global | propuesto |
+| c02 | WuBoy | original | propuesto |
 | c03 | perfil · Harley Quinn | Harley Quinn (GB 360738) | propuesto |
 | c04 | WuBoy | original | propuesto |
 | c05 | WuBoy | original | propuesto |
 | c06 | original | original | sin decidir |
 | c07 | WuBoy | original | propuesto |
+
+Mods del Drive sin asignar:
+
+| Mod | Nombre | Origen | Slots nativos | Wifi | Toca c00 |
+|---|---|---|---|---|---|
+| 501311 | morrigan_mvc3_design | búsqueda + usuario | c00, c01, c02, c03, c04, c05, c06, c07 | — | sí |
 
 ## 30. Hero (72)
 
@@ -487,11 +491,11 @@ Mods del Drive sin asignar:
 |---|---|---|---|
 | c00 | original | original | sin decidir |
 | c01 | original | original | sin decidir |
-| c02 | WuBoy «Trunks» | Trunks (Androides) (GB 175735) · WuBoy ya tiene un Trunks en c02: puede ser el mismo mod | propuesto |
+| c02 | WuBoy «Trunks» | WuBoy «Trunks» | propuesto |
 | c03 | WuBoy | original | propuesto |
 | c04 | WuBoy | original | propuesto |
 | c05 | WuBoy | original | propuesto |
-| c06 | WuBoy | Trunks (Futuro) (GB 175735) | propuesto |
+| c06 | WuBoy | Trunks (Futuro) (GB 175735) · el mod trae 2 looks; solo uno. WuBoy ya tiene un Trunks en c02 (se conserva) | propuesto |
 | c07 | WuBoy | original | propuesto |
 
 ## 31. Steve (77)
@@ -530,7 +534,7 @@ Mods del Drive sin asignar:
 
 ## 33. Sora (82)
 
-_Pendiente: Xion (471722, 8 looks)._
+_Xion (471722) excluida: mujer con más de 2 looks (8)._
 
 | Slot | Hoy | Plan | Estado |
 |---|---|---|---|
@@ -572,8 +576,8 @@ _Pendiente: Squall (c00–c07, 8 voces JP) está partido en 2 partes; hay que un
 | Slot | Hoy | Plan | Estado |
 |---|---|---|---|
 | c00 | original | original | sin decidir |
-| c01 | original | Raiden (GB 387553) · usar el config.json de config_cc198.zip; trae un tema de victoria (global) | propuesto |
-| c02 | WuBoy | Raiden (GB 387553) · usar el config.json de config_cc198.zip | propuesto |
+| c01 | original | Raiden (GB 387553) · el mod trae 2 looks; solo uno. Usar el config.json de config_cc198.zip; trae un tema de victoria (global) | propuesto |
+| c02 | WuBoy | original | propuesto |
 | c03 | original | original | sin decidir |
 | c04 | original | original | sin decidir |
 | c05 | original | original | sin decidir |
@@ -614,7 +618,7 @@ Mods del Drive sin asignar:
 
 ### Terry (74)
 
-_Los packs de 8 slots (Gogeta 437327, Gogeta SSJ4 446815, Goku Mid 502537, Yang Xiao Long 346216) quedan pendientes; aquí solo entra el look suelto que ya se eligió (Gogeta SSJ en c01, Gogeta SSJ4 en c07). Pendiente: Tifa (559818, lo mandó Gian, c00–c01) compite con Gohan (de auditoría) por c00._
+_Los packs de 8 slots (Gogeta 437327, Gogeta SSJ4 446815, Goku Mid 502537, Yang Xiao Long 346216) quedan pendientes; aquí solo entra el look suelto que ya se eligió (Gogeta SSJ en c01, Gogeta SSJ4 en c07). Pendiente: Tifa (559818, lo mandó Gian, c00–c01) compite con Gohan (de auditoría) por c00. Pendiente: Tifa (559818, lo mandó Gian, mujer con 2 looks) compite con Gohan por c00; Vegeta aprobado con 2 looks (regla: 1 por mod)._
 
 | Slot | Hoy | Plan | Estado |
 |---|---|---|---|
