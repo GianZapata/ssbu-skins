@@ -323,7 +323,7 @@
      "reslot_from": 1,
      "file": "mario/174057_dry_bones_v3_1_update/original/dry_bones_v3-1_single_slot_c01.zip",
      "approved": false,
-     "nota": "el pack trae 8 looks; aquí solo el de c01. Trae config.json y motion (riesgo wifi)"
+     "nota": "el pack trae 8 looks; aqui solo el de c01. El config.json se quito el 2026-10-29: la clave new_dir_files no la lee ARCropolis y declaraba otros colores. Queda el motion de c04."
     },
     "5": {
      "state": "vanilla",
@@ -1123,14 +1123,14 @@
      "approved": false
     },
     "3": {
-     "state": "mod",
-     "name": "Garnet",
-     "mod_id": 466057,
-     "source": "drive",
-     "reslot_from": 2,
-     "file": "captain_falcon/466057_garnet_over_captain_falcon/original/garnet_over_captain_falcon_c02.zip",
+     "state": "vanilla",
+     "name": "Original",
+     "mod_id": null,
+     "source": "vanilla",
+     "reslot_from": null,
+     "file": null,
      "approved": false,
-     "nota": "trae motion y config.json: riesgo wifi"
+     "nota": "Garnet se retiro el 2026-10-29: su config.json declaraba texturas de c00, c01 y c04-c07 que no estaban. c03 vuelve al original."
     },
     "4": {
      "state": "mod",

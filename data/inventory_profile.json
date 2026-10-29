@@ -3,9 +3,9 @@
  "id": "perfil",
  "label": "Perfil local «gian-prs»",
  "profile": "gian-prs",
- "ref": "claude/vigilant-keller-6i5s1d@e67d16c",
+ "ref": "claude/vigilant-keller-6i5s1d@d172e31",
  "document": "catalog/profiles.json + catalog/mods.json",
- "scanned_at": "2026-10-29T19:44:17Z",
+ "scanned_at": "2026-10-29T21:57:46Z",
  "verification": "Perfil armado y verificado en archivos; pruebas en consola sin conexión anotadas por componente (no certifican online)",
  "components": [
   {
@@ -463,15 +463,6 @@
    "version": "pending",
    "target": "c01 (color 2)",
    "url": "https://gamebanana.com/mods/676382",
-   "classification": "plan de slots (ssbu-skins, propuesta que Gian aprobo el 2026-10-29); pendiente de prueba en consola",
-   "console_test": "pendiente (no probado en Switch)",
-   "dlc": null
-  },
-  {
-   "id": "captain-garnet-c03",
-   "version": "pending",
-   "target": "c03 (color 4), movido desde c02",
-   "url": "https://gamebanana.com/mods/466057",
    "classification": "plan de slots (ssbu-skins, propuesta que Gian aprobo el 2026-10-29); pendiente de prueba en consola",
    "console_test": "pendiente (no probado en Switch)",
    "dlc": null
@@ -2700,18 +2691,6 @@
    "mod_id": 676382,
    "author": "pending",
    "url": "https://gamebanana.com/mods/676382",
-   "version": "pending",
-   "console_test": "pendiente (no probado en Switch)",
-   "classification": "plan de slots (ssbu-skins, propuesta que Gian aprobo el 2026-10-29); pendiente de prueba en consola"
-  },
-  {
-   "fighter": "11",
-   "slot": 3,
-   "name": "Garnet",
-   "component": "captain-garnet-c03",
-   "mod_id": 466057,
-   "author": "pending",
-   "url": "https://gamebanana.com/mods/466057",
    "version": "pending",
    "console_test": "pendiente (no probado en Switch)",
    "classification": "plan de slots (ssbu-skins, propuesta que Gian aprobo el 2026-10-29); pendiente de prueba en consola"
