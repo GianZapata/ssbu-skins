@@ -23,6 +23,7 @@ COMPONENT_SLOTS = {
     'funky-dk-c01': [('02', 1, 'Funky Kong')],   # un único Funky desde el 2026-10-25
     'szerosuit-jill': [('29', 7, 'Jill Valentine', 637464)],   # Bulma y Spider-Gwen del PR 6 retiradas (se veían negras)
     'bulma-szs': [('29', 0, 'Bulma')],   # archivo original del autor + plugin One Slot Effects 13.0.5
+    'bulma-szs-c00': [('29', 0, 'Bulma')],   # la misma, limpia: sin .zip suelto ni audio del anunciador
     'captain-falcon-pr4': [('11', 2, 'Dark Falcon', 386982)],   # retirado de gian-prs el 2026-10-25 (todo Captain Falcon original)
     'ganon-pr12': [('23', 0, 'Otis', 392436), ('23', 3, 'Jiren', 320899), ('23', 6, 'Broly', 324864)],   # Pain c02 fuera (incompleto)
     'szerosuit-pr6': [('29', 0, 'Bulma', 724190), ('29', 2, 'Spider-Gwen', 174461), ('29', 7, 'Jill Valentine', 637464)],
