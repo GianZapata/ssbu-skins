@@ -25,7 +25,7 @@ class Revision(unittest.TestCase):
         m = msgs(*run([('82', 4, p['vid'])]), 'AVISO'); self.assertTrue(any('Ventus' in x and 'favorito' in x for x in m), m)
     def test_original_no_avisa_de_reemplazo(self):
         p = next(p for p in next(f for f in F if f['code'] == '01')['picks'] if not p['withdrawn'] and p['native'] == list(range(8)))
-        self.assertFalse(any('favorito' in x for x in msgs(*run([('01', 0, p['vid'])]))))
+        self.assertFalse(any('favorito' in x for x in msgs(*run([('01', 7, p['vid'])]))))   # Mario c07: original del juego desde el 2026-10-29
     def test_mover_de_slot_avisa(self):
         f, p = next((f, p) for f, p in PICKS if not p['withdrawn'] and not f['mii'] and p['native'] and len(p['native']) < 8)
         n = next(k for k in range(8) if k not in p['native'])
