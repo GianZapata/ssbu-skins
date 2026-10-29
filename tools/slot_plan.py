@@ -8,7 +8,7 @@ R = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..')
 WIFI = {'Declaración explícita': 'explícita', 'Declaración condicionada': 'condicionada', 'Afirmación de terceros': 'terceros',
         'Sin evidencia': 'sin evidencia', 'Incompatible': 'incompatible'}
 ESTADO = {True: 'aprobado', False: 'propuesto'}
-ORIGEN = {'enlace del usuario': 'usuario', 'búsqueda': 'búsqueda', 'búsqueda + enlace del usuario': 'búsqueda + usuario', 'desconocido': 'auditoría/previo'}
+ORIGEN = {'enlace del usuario': 'usuario', 'búsqueda': 'búsqueda', 'búsqueda + enlace del usuario': 'búsqueda + usuario', 'perfil del modpack': 'perfil', 'desconocido': 'auditoría/previo'}
 def origen(m): return ORIGEN.get(m.get('origin'), m.get('origin') or '—')
 def del_usuario(m): return 'usuario' in origen(m)
 def es_skin(m): return m.get('kind', 'plugin' if m.get('plugin') else 'skin') == 'skin'
@@ -77,7 +77,7 @@ class Plan:
         return out
 
     def unassigned(self, c):
-        used = {d['mod_id'] for d in ((self.sp['fighters'].get(c) or {}).get('slots') or {}).values() if d.get('source') == 'drive' and d.get('mod_id')}
+        used = {d['mod_id'] for d in ((self.sp['fighters'].get(c) or {}).get('slots') or {}).values() if d.get('source') in ('drive', 'profile') and d.get('mod_id')}   # la skin del perfil ya ocupa su slot
         return sorted((m for i, m in self.mods.get(c, {}).items() if i not in used), key=lambda m: (not del_usuario(m), m['mod_id']))   # primero los que mandó Gian
 
     def docs(self):
@@ -146,6 +146,7 @@ class Plan:
         orden = [*ORIGEN.values(), '—']
         cuenta = ' · '.join(f'{k if k != "—" else "sin registro"} {n[k]}' for k in orden if k in n)
         return (f'Orígenes de los mods del Drive: {cuenta}. _usuario = lo mandó Gian por enlace; búsqueda = lo encontró el asistente en la investigación wifi-safe; '
+                'perfil = skin del perfil del ModPack (ya en la SD), bajada de GameBanana para tener el original; '
                 'auditoría/previo = ya estaba en el Drive (espejo de D:\\) sin registro de origen._')
 
     def render(self):

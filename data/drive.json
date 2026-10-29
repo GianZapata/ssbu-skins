@@ -2,18 +2,19 @@
  "source": "Google Drive · SSBU_mods",
  "note": "Manifiesto de los mods descargados en el Drive (los binarios no se versionan). Slots leídos solo de los .zip; nada de esto está instalado ni probado en consola.",
  "counts": {
-  "mods": 83,
-  "files": 117,
-  "bytes": 2242511947,
-  "listed": 110,
+  "mods": 93,
+  "files": 128,
+  "bytes": 2536607505,
+  "listed": 121,
   "unlisted": 4,
   "other": 3,
-  "touches_c00": 38,
+  "touches_c00": 44,
   "origins": {
    "búsqueda": 11,
    "búsqueda + enlace del usuario": 6,
    "desconocido": 18,
-   "enlace del usuario": 48
+   "enlace del usuario": 48,
+   "perfil del modpack": 10
   }
  },
  "mods": [
@@ -621,6 +622,35 @@
    ]
   },
   {
+   "mod_id": 174132,
+   "slug": "swole_luigi_remastered",
+   "folder": "luigi/174132_swole_luigi_remastered",
+   "fighter_folder": "luigi",
+   "code": "09",
+   "internal": "luigi",
+   "kind": "skin",
+   "origin": "perfil del modpack",
+   "plugin": false,
+   "link": "URL: https://gamebanana.com/mods/174132\nNombre: Swole Luigi Remastered\nAutor: Epicwazy\nCategoría GB: Luigi\nFighter carpeta: luigi\nSlots nativos: c00\nExtras: ui\nWifi: Sin evidencia localizada\nCita wifi: «(sin mención wifi/online en la descripción del autor)»\nOrigen: perfil del modpack\nEstado archivo: descargado de GameBanana; MD5 igual al publicado\nEstado consola: pendiente (no probado en Switch)\nComponente del modpack: luigi-swole-pr10 (rama claude/vigilant-keller-6i5s1d)\nFighters internos: luigi\n\nArchivos (MD5):\n  buffloogi_v101.zip: 27F8BACE331E313B9D222354F60E951B",
+   "note": null,
+   "catalog": null,
+   "files": [
+    {
+     "path": "original/buffloogi_v101.zip",
+     "kind": "original",
+     "bytes": 9389925,
+     "md5": "27f8bace331e313b9d222354f60e951b",
+     "listed": true,
+     "slots": [
+      0
+     ],
+     "files_count": 14,
+     "non_slot": [],
+     "touches_c00": true
+    }
+   ]
+  },
+  {
    "mod_id": 391570,
    "slug": "rayman_wiiu_trophy",
    "folder": "luigi/391570_rayman_wiiu_trophy",
@@ -712,6 +742,35 @@
       "ui/message/msg_name.xmsbt",
       "ui/param/database/ui_chara_db.prcxml"
      ],
+     "touches_c00": false
+    }
+   ]
+  },
+  {
+   "mod_id": 386982,
+   "slug": "dark_captain_falcon",
+   "folder": "captain_falcon/386982_dark_captain_falcon",
+   "fighter_folder": "captain_falcon",
+   "code": "11",
+   "internal": "captain",
+   "kind": "skin",
+   "origin": "perfil del modpack",
+   "plugin": false,
+   "link": "URL: https://gamebanana.com/mods/386982\nNombre: Dark Captain Falcon\nAutor: Katos\nCategoría GB: Captain Falcon\nFighter carpeta: captain_falcon\nSlots nativos: c07\nExtras: ui\nWifi: Declaración explícita del autor sin condiciones conocidas\nCita wifi: «This is WIFI-SAFE»\nOrigen: perfil del modpack\nEstado archivo: descargado de GameBanana; MD5 igual al publicado\nEstado consola: pendiente (no probado en Switch)\nComponente del modpack: captain-falcon-pr4 (rama claude/vigilant-keller-6i5s1d)\nFighters internos: captain\n\nArchivos (MD5):\n  dark_captain_falcon_d727c.zip: F6939320E0A7BB02CC0EFFD747EE0236",
+   "note": null,
+   "catalog": null,
+   "files": [
+    {
+     "path": "original/dark_captain_falcon_d727c.zip",
+     "kind": "original",
+     "bytes": 1209506,
+     "md5": "f6939320e0a7bb02cc0effd747ee0236",
+     "listed": true,
+     "slots": [
+      7
+     ],
+     "files_count": 10,
+     "non_slot": [],
      "touches_c00": false
     }
    ]
@@ -1742,6 +1801,48 @@
    ]
   },
   {
+   "mod_id": 381503,
+   "slug": "terra_over_ike",
+   "folder": "ike/381503_terra_over_ike",
+   "fighter_folder": "ike",
+   "code": "32",
+   "internal": "ike",
+   "kind": "skin",
+   "origin": "perfil del modpack",
+   "plugin": false,
+   "link": "URL: https://gamebanana.com/mods/381503\nNombre: Terra over Ike\nAutor: -Dusk-\nCategoría GB: Ike\nFighter carpeta: ike\nSlots nativos: c00, c02\nExtras: ui, voz/sonido, efectos\nWifi: Declaración explícita del autor sin condiciones conocidas\nCita wifi: «X+ Wi-Fi Safe Enjoy :D»\nOrigen: perfil del modpack\nEstado archivo: descargado de GameBanana; MD5 igual al publicado\nEstado consola: OK 2026-10-24 (Gian; Smash 13.0.5, ARCropolis 4.1.1, emuMMC sin conexion): Ike c00 (Terra) contra Funky y c02 (Terranort) contra Ventus en combate local. No certifica online\nComponente del modpack: terra-ike (rama claude/vigilant-keller-6i5s1d)\nFighters internos: ike\n\nArchivos (MD5):\n  terra_terranort_over_ike_c00_c02_.7z: 8673515C3FC40A3DB84CE14003C2C13C",
+   "note": null,
+   "catalog": [
+    {
+     "look_name": "Terra over Ike",
+     "role": "alternativa",
+     "proposed_destination": null
+    }
+   ],
+   "files": [
+    {
+     "path": "original/terra_terranort_over_ike_c00_c02_.7z",
+     "kind": "original",
+     "bytes": 27512172,
+     "md5": "8673515c3fc40a3db84ce14003c2c13c",
+     "listed": true,
+     "slots": [
+      0,
+      2
+     ],
+     "files_count": 113,
+     "non_slot": [
+      "Terra & Terranort Over Ike (c00 & c02)/effect/fighter/ike/ef_ike.eff",
+      "Terra & Terranort Over Ike (c00 & c02)/effect/fighter/ike/trail/tex_ike_sword1.nutexb",
+      "Terra & Terranort Over Ike (c00 & c02)/effect/fighter/ike/trail/tex_ike_sword2.nutexb",
+      "Terra & Terranort Over Ike (c00 & c02)/effect/fighter/ike/trail/tex_ike_sword5.nutexb",
+      "Terra & Terranort Over Ike (c00 & c02)/effect/fighter/ike/trail/tex_ike_sword6.nutexb"
+     ],
+     "touches_c00": true
+    }
+   ]
+  },
+  {
    "mod_id": 421286,
    "slug": "vegeta",
    "folder": "wolf/421286_vegeta",
@@ -2601,6 +2702,35 @@
    ]
   },
   {
+   "mod_id": 175905,
+   "slug": "red_steve",
+   "folder": "steve/175905_red_steve",
+   "fighter_folder": "steve",
+   "code": "77",
+   "internal": "pickel",
+   "kind": "skin",
+   "origin": "perfil del modpack",
+   "plugin": false,
+   "link": "URL: https://gamebanana.com/mods/175905\nNombre: Red Steve\nAutor: AndresFn\nCategoría GB: Steve\nFighter carpeta: steve\nSlots nativos: c00\nExtras: ui\nWifi: Sin evidencia localizada\nCita wifi: «(sin mención wifi/online en la descripción del autor)»\nOrigen: perfil del modpack\nEstado archivo: descargado de GameBanana; MD5 igual al publicado\nEstado consola: pendiente (no probado en Switch)\nComponente del modpack: steve-alex-pr11 (rama claude/vigilant-keller-6i5s1d)\nFighters internos: pickel\n\nArchivos (MD5):\n  blackredsteve_5c351.rar: 9FD2DBCFE8AB5062D2F5C1B7C5D89F41",
+   "note": null,
+   "catalog": null,
+   "files": [
+    {
+     "path": "original/blackredsteve_5c351.rar",
+     "kind": "original",
+     "bytes": 300904,
+     "md5": "9fd2dbcfe8ab5062d2f5c1b7c5d89f41",
+     "listed": true,
+     "slots": [
+      0
+     ],
+     "files_count": 6,
+     "non_slot": [],
+     "touches_c00": true
+    }
+   ]
+  },
+  {
    "mod_id": 175943,
    "slug": "herobrine_over_steve",
    "folder": "steve/175943_herobrine_over_steve",
@@ -2632,6 +2762,64 @@
      "files_count": 8,
      "non_slot": [],
      "touches_c00": true
+    }
+   ]
+  },
+  {
+   "mod_id": 296834,
+   "slug": "shaved_steve",
+   "folder": "steve/296834_shaved_steve",
+   "fighter_folder": "steve",
+   "code": "77",
+   "internal": "pickel",
+   "kind": "skin",
+   "origin": "perfil del modpack",
+   "plugin": false,
+   "link": "URL: https://gamebanana.com/mods/296834\nNombre: Shaved Steve\nAutor: _Silent_\nCategoría GB: Steve\nFighter carpeta: steve\nSlots nativos: c00\nExtras: ui\nWifi: Sin evidencia localizada\nCita wifi: «(sin mención wifi/online en la descripción del autor)»\nOrigen: perfil del modpack\nEstado archivo: descargado de GameBanana; MD5 igual al publicado\nEstado consola: pendiente (no probado en Switch)\nComponente del modpack: steve-alex-pr11 (rama claude/vigilant-keller-6i5s1d)\nFighters internos: pickel\n\nArchivos (MD5):\n  shaved_steve.zip: B53CDACF8DF96A37FC1180E81BBAC98F",
+   "note": null,
+   "catalog": null,
+   "files": [
+    {
+     "path": "original/shaved_steve.zip",
+     "kind": "original",
+     "bytes": 591712,
+     "md5": "b53cdacf8df96a37fc1180e81bbac98f",
+     "listed": true,
+     "slots": [
+      0
+     ],
+     "files_count": 9,
+     "non_slot": [],
+     "touches_c00": true
+    }
+   ]
+  },
+  {
+   "mod_id": 296845,
+   "slug": "alex_recolor_pack",
+   "folder": "steve/296845_alex_recolor_pack",
+   "fighter_folder": "steve",
+   "code": "77",
+   "internal": "pickel",
+   "kind": "skin",
+   "origin": "perfil del modpack",
+   "plugin": false,
+   "link": "URL: https://gamebanana.com/mods/296845\nNombre: Alex Recolor Pack\nAutor: _Silent_\nCategoría GB: Steve\nFighter carpeta: steve\nSlots nativos: c01\nExtras: ui\nWifi: Sin evidencia localizada\nCita wifi: «(sin mención wifi/online en la descripción del autor)»\nOrigen: perfil del modpack\nEstado archivo: descargado de GameBanana; MD5 igual al publicado\nEstado consola: pendiente (no probado en Switch)\nComponente del modpack: steve-alex-pr11 (rama claude/vigilant-keller-6i5s1d)\nFighters internos: pickel\n\nArchivos (MD5):\n  white_alex.zip: BD9F78DAACD397F7C89218360AE40570",
+   "note": null,
+   "catalog": null,
+   "files": [
+    {
+     "path": "original/white_alex.zip",
+     "kind": "original",
+     "bytes": 335151,
+     "md5": "bd9f78daacd397f7c89218360ae40570",
+     "listed": true,
+     "slots": [
+      1
+     ],
+     "files_count": 8,
+     "non_slot": [],
+     "touches_c00": false
     }
    ]
   },
@@ -3012,6 +3200,62 @@
    ]
   },
   {
+   "mod_id": 353570,
+   "slug": "aqua_over_aegis",
+   "folder": "pyra_mythra/353570_aqua_over_aegis",
+   "fighter_folder": "pyra_mythra",
+   "code": "79",
+   "internal": "eflame",
+   "kind": "skin",
+   "origin": "perfil del modpack",
+   "plugin": false,
+   "link": "URL: https://gamebanana.com/mods/353570\nNombre: Aqua over Aegis\nAutor: -Dusk-\nCategoría GB: Pyra / Mythra\nFighter carpeta: pyra_mythra\nSlots nativos: c00, c01, c02, c03, c04, c05, c06, c07\nExtras: ui, voz/sonido\nWifi: Declaración explícita del autor sin condiciones conocidas\nCita wifi: «0 notes for instructions on choosing your keyblades Wi-Fi safe»\nOrigen: perfil del modpack\nEstado archivo: descargado de GameBanana; MD5 igual al publicado\nEstado consola: OK 2026-10-24 (Gian; Smash 13.0.5, ARCropolis 4.1.1, emuMMC sin conexion): Pyra y Mythra c00 en combate local. No certifica online\nComponente del modpack: aqua-pyra-reslot (rama claude/vigilant-keller-6i5s1d)\nFighters internos: eflame, element, elight\n\nArchivos (MD5):\n  aqua_over_aegis_31_-_dusk.7z: B671E19DE7C4328E05DF3A111FC1FF22\n  aqua_over_aegis_31.7z: E793E7177DA892ADFA896EC8E7C65CC6",
+   "note": null,
+   "catalog": null,
+   "files": [
+    {
+     "path": "original/aqua_over_aegis_31.7z",
+     "kind": "original",
+     "bytes": 91529491,
+     "md5": "e793e7177da892adfa896ec8e7c65cc6",
+     "listed": true,
+     "slots": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+     ],
+     "files_count": 1057,
+     "non_slot": [],
+     "touches_c00": true
+    },
+    {
+     "path": "original/aqua_over_aegis_31_-_dusk.7z",
+     "kind": "original",
+     "bytes": 92517027,
+     "md5": "b671e19de7c4328e05df3a111fc1ff22",
+     "listed": true,
+     "slots": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+     ],
+     "files_count": 769,
+     "non_slot": [],
+     "touches_c00": true
+    }
+   ]
+  },
+  {
    "mod_id": 303197,
    "slug": "perfect_cell",
    "folder": "kazuya/303197_perfect_cell",
@@ -3128,6 +3372,81 @@
    ]
   },
   {
+   "mod_id": 365949,
+   "slug": "roxas_smash_ultimate_styled",
+   "folder": "sora/365949_roxas_smash_ultimate_styled",
+   "fighter_folder": "sora",
+   "code": "82",
+   "internal": "trail",
+   "kind": "skin",
+   "origin": "perfil del modpack",
+   "plugin": false,
+   "link": "URL: https://gamebanana.com/mods/365949\nNombre: Roxas (Smash Ultimate Styled)\nAutor: JoeTEStrikesBack\nCategoría GB: Sora\nFighter carpeta: sora\nSlots nativos: c08, c09, c10, c11, c12, c13, c14, c15\nExtras: ui, voz/sonido, motion, config.json\nWifi: Declaración condicionada del autor\nCita wifi: «BOTH ROXAS DESIGNS (PLUS THEIR ALTS) ARE WI-FI SAFE IF MOVED ONTO VANILLA SLOTS»\nOrigen: perfil del modpack\nEstado archivo: descargado de GameBanana; MD5 igual al publicado\nEstado consola: OK 2026-10-24 (Gian; Smash 13.0.5, ARCropolis 4.1.1, emuMMC sin conexion): Sora c05 y c07 funcionan. La version anterior con config.json colgaba la carga de cualquier Sora. No certifica online\nComponente del modpack: roxas-sora-reslot (rama claude/vigilant-keller-6i5s1d)\nFighters internos: trail\n\nArchivos (MD5):\n  roxasrelease2-5.7z: 06EB7F019EF5A7B4E5388540220E2D55",
+   "note": null,
+   "catalog": null,
+   "files": [
+    {
+     "path": "original/roxasrelease2-5.7z",
+     "kind": "original",
+     "bytes": 34266691,
+     "md5": "06eb7f019ef5a7b4e5388540220e2d55",
+     "listed": true,
+     "slots": [
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15
+     ],
+     "files_count": 260,
+     "non_slot": [
+      "RoxasAlts/config.json",
+      "RoxasAlts/ui/message/msg_name.xmsbt",
+      "RoxasAlts/ui/param/database/ui_chara_db.prcxml"
+     ],
+     "touches_c00": false
+    }
+   ]
+  },
+  {
+   "mod_id": 384079,
+   "slug": "ventus_over_sora",
+   "folder": "sora/384079_ventus_over_sora",
+   "fighter_folder": "sora",
+   "code": "82",
+   "internal": "trail",
+   "kind": "skin",
+   "origin": "perfil del modpack",
+   "plugin": false,
+   "link": "URL: https://gamebanana.com/mods/384079\nNombre: Ventus over Sora\nAutor: -Dusk-\nCategoría GB: Sora\nFighter carpeta: sora\nSlots nativos: c04\nExtras: ui, voz/sonido\nWifi: Declaración explícita del autor sin condiciones conocidas\nCita wifi: «X+ Wi-Fi Safe Enjoy :)»\nOrigen: perfil del modpack\nEstado archivo: descargado de GameBanana; MD5 igual al publicado\nEstado consola: OK 2026-10-24 (Gian; Smash 13.0.5, ARCropolis 4.1.1, emuMMC sin conexion): Sora c04 en combate local contra Terranort. No certifica online\nComponente del modpack: ventus-sora (rama claude/vigilant-keller-6i5s1d)\nFighters internos: trail\n\nArchivos (MD5):\n  ventus_over_sora_c04_.7z: BBDD4414C5A2E5E905F6390D1489976C",
+   "note": null,
+   "catalog": [
+    {
+     "look_name": "Ventus over Sora",
+     "role": "alternativa",
+     "proposed_destination": null
+    }
+   ],
+   "files": [
+    {
+     "path": "original/ventus_over_sora_c04_.7z",
+     "kind": "original",
+     "bytes": 17761751,
+     "md5": "bbdd4414c5a2e5e905f6390d1489976c",
+     "listed": true,
+     "slots": [
+      4
+     ],
+     "files_count": 53,
+     "non_slot": [],
+     "touches_c00": false
+    }
+   ]
+  },
+  {
    "mod_id": 471722,
    "slug": "xion_over_sora_reloaded",
    "folder": "sora/471722_xion_over_sora_reloaded",
@@ -3166,6 +3485,56 @@
      "files_count": 246,
      "non_slot": [],
      "touches_c00": true
+    }
+   ]
+  },
+  {
+   "mod_id": 63158,
+   "slug": "kingdom_hearts_music_pack",
+   "folder": "_musica/63158_kingdom_hearts_music_pack",
+   "fighter_folder": "_musica",
+   "code": null,
+   "internal": null,
+   "kind": "music",
+   "origin": "perfil del modpack",
+   "plugin": false,
+   "link": "URL: https://gamebanana.com/sounds/63158\nNombre: Kingdom Hearts Music Pack\nAutor: donnn\nCategoría GB: Music Packs\nFighter carpeta: _musica\nSlots nativos: —\nExtras: voz/sonido, música\nWifi: Declaración explícita del autor sin condiciones conocidas\nCita wifi: «Dearly Beloved -Swing Version- N/A The music is Wi-Fi Safe as I only replaced tracks and did NOT add new ones»\nOrigen: perfil del modpack\nEstado archivo: descargado de GameBanana; MD5 igual al publicado\nEstado consola: pendiente (no probado en Switch)\nComponente del modpack: kh-music-gian (rama claude/vigilant-keller-6i5s1d)\nFighters internos: —\n\nArchivos (MD5):\n  kingdom_hearts_music_pack_abaac.zip: A1451CABAC4E5EB011253F56DC9F1182",
+   "note": null,
+   "catalog": null,
+   "files": [
+    {
+     "path": "original/kingdom_hearts_music_pack_abaac.zip",
+     "kind": "original",
+     "bytes": 18681228,
+     "md5": "a1451cabac4e5eb011253f56dc9f1182",
+     "listed": true,
+     "slots": [],
+     "files_count": 26,
+     "non_slot": [
+      "Kingdom Hearts Music Pack/stream;/.DS_Store",
+      "Kingdom Hearts Music Pack/stream;/sound/.DS_Store",
+      "Kingdom Hearts Music Pack/stream;/sound/bgm/.DS_Store",
+      "Kingdom Hearts Music Pack/stream;/sound/bgm/bgm_kh01_kh15_nightoffate.nus3audio",
+      "Kingdom Hearts Music Pack/stream;/sound/bgm/bgm_kh02_kh15_destinysforce.nus3audio",
+      "Kingdom Hearts Music Pack/stream;/sound/bgm/bgm_kh03_kh15_shroudingdarkcloud.nus3audio",
+      "Kingdom Hearts Music Pack/stream;/sound/bgm/bgm_kh04_kh15_handinhand.nus3audio",
+      "Kingdom Hearts Music Pack/stream;/sound/bgm/bgm_kh05_kh15_blastaway_gummiship2.nus3audio",
+      "Kingdom Hearts Music Pack/stream;/sound/bgm/bgm_kh07_kh15_scherzodinotte.nus3audio",
+      "Kingdom Hearts Music Pack/stream;/sound/bgm/bgm_kh08_kh25_fragmentsofsorrow.nus3audio",
+      "Kingdom Hearts Music Pack/stream;/sound/bgm/bgm_kh09_kh1_destati.nus3audio",
+      "__MACOSX/Kingdom Hearts Music Pack/stream;/._.DS_Store",
+      "__MACOSX/Kingdom Hearts Music Pack/stream;/sound/._.DS_Store",
+      "__MACOSX/Kingdom Hearts Music Pack/stream;/sound/bgm/._.DS_Store",
+      "__MACOSX/Kingdom Hearts Music Pack/stream;/sound/bgm/._bgm_kh01_kh15_nightoffate.nus3audio",
+      "__MACOSX/Kingdom Hearts Music Pack/stream;/sound/bgm/._bgm_kh02_kh15_destinysforce.nus3audio",
+      "__MACOSX/Kingdom Hearts Music Pack/stream;/sound/bgm/._bgm_kh03_kh15_shroudingdarkcloud.nus3audio",
+      "__MACOSX/Kingdom Hearts Music Pack/stream;/sound/bgm/._bgm_kh04_kh15_handinhand.nus3audio",
+      "__MACOSX/Kingdom Hearts Music Pack/stream;/sound/bgm/._bgm_kh05_kh15_blastaway_gummiship2.nus3audio",
+      "__MACOSX/Kingdom Hearts Music Pack/stream;/sound/bgm/._bgm_kh07_kh15_scherzodinotte.nus3audio",
+      "__MACOSX/Kingdom Hearts Music Pack/stream;/sound/bgm/._bgm_kh08_kh25_fragmentsofsorrow.nus3audio",
+      "__MACOSX/Kingdom Hearts Music Pack/stream;/sound/bgm/._bgm_kh09_kh1_destati.nus3audio"
+     ],
+     "touches_c00": false
     }
    ]
   },

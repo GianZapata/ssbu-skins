@@ -12,6 +12,8 @@ SSBU_mods/
     original/       los archivos tal como se descargaron
     modificado/     opcional: versiones recortadas o reslotteadas, con su CAMBIOS.txt
   _plugins/<id>_<nombre>/...   plugins (One Slot Effects, etc.)
+  _ui/<id>_<nombre>/...        UI/CSS (banners, pantalla de selección)
+  _musica/<id>_<nombre>/...    packs de música (bgm)
   _respaldos/       copias de Firestore (no entran al manifiesto)
 ```
 
