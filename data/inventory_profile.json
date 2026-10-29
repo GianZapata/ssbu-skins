@@ -3,9 +3,9 @@
  "id": "perfil",
  "label": "Perfil local «gian-prs»",
  "profile": "gian-prs",
- "ref": "claude/plan-wuboy-vuelve@d321739",
+ "ref": "claude/vigilant-keller-6i5s1d@e67d16c",
  "document": "catalog/profiles.json + catalog/mods.json",
- "scanned_at": "2026-10-29T18:07:07Z",
+ "scanned_at": "2026-10-29T19:44:17Z",
  "verification": "Perfil armado y verificado en archivos; pruebas en consola sin conexión anotadas por componente (no certifican online)",
  "components": [
   {
