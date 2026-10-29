@@ -2190,18 +2190,16 @@
      "source": "drive",
      "reslot_from": null,
      "file": "sephiroth/555584_ariana_grande/original/sephiana.zip",
-     "approved": true,
-     "nota": "solo un look de Ariana Grande (el mod trae c01 y c02): decisión de Gian"
+     "approved": false
     },
     "2": {
-     "state": "vanilla",
-     "name": "Original",
-     "mod_id": null,
-     "source": "vanilla",
+     "state": "mod",
+     "name": "Ariana Grande",
+     "mod_id": 555584,
+     "source": "drive",
      "reslot_from": null,
-     "file": null,
-     "approved": true,
-     "nota": "se quita el segundo look de Ariana Grande: se repetía"
+     "file": "sephiroth/555584_ariana_grande/original/sephiana.zip",
+     "approved": false
     },
     "3": {
      "state": "wuboy",
