@@ -88,6 +88,7 @@ def load_inventory(fighters=None):
        base    → pack de WuBoy en la rama main del ModPack (data/installed.json; lo escribe scan_installed.py)
        perfil  → componentes del perfil local «default» (data/inventory_profile.json, transcrito del informe del ModPack)
        staged  → skins en ramas sin fusionar (data/inventory_staged.json; scan_branches.py): «en preparación», sin confirmar
+    Los trajes que ninguna capa ocupa quedan como {name:'Original',img,skin:False,default:True}, sin `src`: así cada luchador trae todos sus slots.
     Devuelve {'meta':{…},'fighters':{código:{'slots':{'0':{src,name,img,skin,vid,author,url,staged}}}}} o None."""
     base=_jload('installed.json'); prof=_jload('inventory_profile.json'); stg=_jload('inventory_staged.json')
     if not (base or prof or stg): return None
@@ -114,6 +115,10 @@ def load_inventory(fighters=None):
     for code,sl in ((stg or {}).get('slots') or {}).items():
         for n,e in sl.items():
             slot(code,n)['staged']={'name':e.get('name'),'name_src':e.get('name_src'),'img':('installed/'+e['img']) if e.get('img') else None,'branch':e.get('branch'),'subject':e.get('subject')}
+    for code,n_costumes in ((_jload('original_costumes.json') or {}).get('costumes') or {}).items():   # todo luchador lista sus trajes: el que ningún mod ocupa muestra el original, sin `src`, para no contar como instalado
+        for n in range(len(n_costumes)):
+            s=slot(code,n)
+            if not s.get('src'): s.update({'name':'Original','img':f'assets/costumes/{code}-{n+1}.webp','skin':False,'default':True})
     import hashlib
     digest=hashlib.sha1(json.dumps(fs,sort_keys=True,ensure_ascii=False).encode()).hexdigest()[:8]
     meta={'verification':'parcial','version':digest,'scanned_at':(base or {}).get('scanned_at'),

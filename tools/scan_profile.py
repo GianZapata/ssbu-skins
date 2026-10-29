@@ -8,7 +8,7 @@
 # propio → también retirados (misma regla que skin_slots de tools/gianpack.py del ModPack). Qué NO es automático: a qué
 # slots va cada componente (en mods.json es texto libre) → COMPONENT_SLOTS, transcrito del ModPack y comprobado contra
 # target_slots. Nada de esto prueba que esté instalado en la consola.
-import argparse, fnmatch, json, os, re, subprocess, sys, datetime
+import argparse, collections, fnmatch, json, os, re, subprocess, sys, datetime
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import scan_installed as si
 R = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..')
@@ -71,6 +71,19 @@ def skin_slots(base_paths, globs):
             s = next((x for x in p[3:-1] if re.fullmatch(r'c\d\d', x)), None)
             if s: out.add((SKIN_ALIASES.get(p[1], p[1]), int(s[1:])))
     return out
+TARGET_SLOT = re.compile(r'c(\d\d) \(color')
+def derived_slots(m, internal, plan):
+    """Componente derivado del plan de slots (`gianpack reslot`, con `derived_from`): sus slots salen de target_slots
+    («c01 (color 2), c03 (color 4)»; «movido desde cNN» es el origen y no cuenta) y el nombre y el mod, del plan aprobado
+    → [(código, slot, nombre, id de GameBanana)]."""
+    code = internal.get(m.get('fighter'))
+    if not (code and m.get('derived_from') and m.get('kind') == 'mods'): return []
+    out = []
+    for n in sorted(int(x) for x in TARGET_SLOT.findall(m.get('target_slots') or '')):
+        d = plan['fighters'][code]['slots'][str(n)]
+        if d['state'] != 'mod': raise SystemExit(f"{m['id']}: c{n:02d} de {code} no es un mod en el plan de slots")
+        out.append((code, n, d['name'], d['mod_id']))
+    return out
 def pending_replacement(profile, internal):
     """`pending_replacement` del perfil ({interno: {cNN: lo que hay ahora}}) → [{fighter, slot, current}]. Son trajes que el
     dueño quiere cambiar: siguen instalados, la web solo los marca."""
@@ -117,17 +130,21 @@ def main():
         mset = set(v['mods'])
         if mset & set(em):
             (drop_f if mset <= set(em) else partial).append(code)
+    plan = json.load(open(os.path.join(R, 'data', 'slot_plan.json'), encoding='utf-8'))
     slots, comps, unmapped = [], [], []
     for c in req:
         m = mods.get(c, {}); comps.append({'id': c, 'version': m.get('version'), 'target': m.get('target_slots'), 'url': m.get('source_url'), 'classification': m.get('classification'), 'console_test': m.get('console_test'), 'dlc': m.get('dlc_required')})
-        if c not in COMPONENT_SLOTS:
+        entries = COMPONENT_SLOTS.get(c) or derived_slots(m, internal, plan)
+        if not entries:
             if m.get('fighter') not in ('-', None) and c not in ('roxas-victory-pack',): unmapped.append(c)
             continue
-        for code, n, name, *gb in COMPONENT_SLOTS[c]:
+        for code, n, name, *gb in entries:
             mod_id = gb[0] if gb else int(re.search(r'gamebanana\.com/mods/(\d+)', m['source_url']).group(1))
             url = f'https://gamebanana.com/mods/{mod_id}' if gb else m.get('source_url')
             slots.append({'fighter': code, 'slot': n, 'name': name, 'component': c, 'mod_id': mod_id,
                           'author': m.get('author'), 'url': url, 'version': m.get('version'), 'console_test': m.get('console_test'), 'classification': m.get('classification')})
+    dup = sorted(k for k, v in collections.Counter((e['fighter'], e['slot']) for e in slots).items() if v > 1)
+    if dup: raise SystemExit(f'slots asignados a más de un componente: {dup}')
     out = {'_nota': 'Capa «perfil»: composición efectiva calculada por tools/scan_profile.py (extends + without + exclude_base + base_filter) a partir de catalog/profiles.json y mods.json del ModPack. La asignación componente→slot está transcrita (COMPONENT_SLOTS). Las pruebas en consola (emuMMC, sin conexión) las anota el ModPack por componente en mods.json; no certifican online.',
            'id': 'perfil', 'label': f'Perfil local «{a.profile}»', 'profile': a.profile, 'ref': f'{a.ref.split("origin/")[-1]}@{sha}',
            'document': 'catalog/profiles.json + catalog/mods.json', 'scanned_at': datetime.datetime.now(datetime.timezone.utc).strftime('%Y-%m-%dT%H:%M:%SZ'),

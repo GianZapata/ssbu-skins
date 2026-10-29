@@ -3,9 +3,9 @@
  "id": "perfil",
  "label": "Perfil local «gian-prs»",
  "profile": "gian-prs",
- "ref": "claude/vigilant-keller-6i5s1d@176bbe3",
+ "ref": "claude/vigilant-keller-6i5s1d@636fc58",
  "document": "catalog/profiles.json + catalog/mods.json",
- "scanned_at": "2026-10-29T04:52:18Z",
+ "scanned_at": "2026-10-29T06:21:24Z",
  "verification": "Perfil armado y verificado en archivos; pruebas en consola sin conexión anotadas por componente (no certifican online)",
  "components": [
   {
@@ -108,12 +108,12 @@
    "dlc": null
   },
   {
-   "id": "bulma-szs",
+   "id": "bulma-szs-c00",
    "version": "pending",
-   "target": "Samus Zero c00 (color 1): modelo, nave, paralizador, efecto propio (One Slot Effects), voz, retratos, nombre Bulma (indice de nombre 8)",
+   "target": "Samus Zero c00 (color 1)",
    "url": "https://gamebanana.com/mods/724190",
-   "classification": "archivo original del autor; config.json comprobado contra la lista vanilla; pendiente de prueba en consola",
-   "console_test": "pendiente; la version del PR 6 se veia negra (2026-10-25)",
+   "classification": "derivado de bulma-szs (solo skin); pendiente de prueba en consola",
+   "console_test": "pendiente (no probado en Switch)",
    "dlc": null
   },
   {
@@ -205,6 +205,519 @@
    "classification": "plan de slots aprobado (ssbu-skins, 2026-10-28); pendiente de prueba en consola",
    "console_test": "pendiente (no probado en Switch)",
    "dlc": "Terry (confirmado: todos los DLC)"
+  },
+  {
+   "id": "dolly-tifa-segundo-traje-c03",
+   "version": "pending",
+   "target": "c03 (color 4), movido desde c01",
+   "url": "https://gamebanana.com/mods/559818",
+   "classification": "plan de slots (ssbu-skins, propuesta que Gian aprobo el 2026-10-29); pendiente de prueba en consola",
+   "console_test": "pendiente (no probado en Switch)",
+   "dlc": null
+  },
+  {
+   "id": "pickel-herobrine-c02",
+   "version": "pending",
+   "target": "c02 (color 3), movido desde c00",
+   "url": "https://gamebanana.com/mods/175943",
+   "classification": "plan de slots (ssbu-skins, propuesta que Gian aprobo el 2026-10-29); pendiente de prueba en consola",
+   "console_test": "pendiente (no probado en Switch)",
+   "dlc": null
+  },
+  {
+   "id": "pickel-creeper-c05",
+   "version": "pending",
+   "target": "c05 (color 6)",
+   "url": "https://gamebanana.com/mods/317177",
+   "classification": "plan de slots (ssbu-skins, propuesta que Gian aprobo el 2026-10-29); pendiente de prueba en consola",
+   "console_test": "pendiente (no probado en Switch)",
+   "dlc": null
+  },
+  {
+   "id": "pickel-lego-batman-c06",
+   "version": "pending",
+   "target": "c06 (color 7), movido desde c00",
+   "url": "https://gamebanana.com/mods/579591",
+   "classification": "plan de slots (ssbu-skins, propuesta que Gian aprobo el 2026-10-29); pendiente de prueba en consola",
+   "console_test": "pendiente (no probado en Switch)",
+   "dlc": null
+  },
+  {
+   "id": "pickel-chicken-c07",
+   "version": "pending",
+   "target": "c07 (color 8)",
+   "url": "https://gamebanana.com/mods/306118",
+   "classification": "plan de slots (ssbu-skins, propuesta que Gian aprobo el 2026-10-29); pendiente de prueba en consola",
+   "console_test": "pendiente (no probado en Switch)",
+   "dlc": null
+  },
+  {
+   "id": "mario-paper-mario-c00",
+   "version": "pending",
+   "target": "c00 (color 1)",
+   "url": "https://gamebanana.com/mods/464212",
+   "classification": "plan de slots (ssbu-skins, propuesta que Gian aprobo el 2026-10-29); pendiente de prueba en consola",
+   "console_test": "pendiente (no probado en Switch)",
+   "dlc": null
+  },
+  {
+   "id": "mario-wheelchair-mario-c02",
+   "version": "pending",
+   "target": "c02 (color 3)",
+   "url": "https://gamebanana.com/mods/324701",
+   "classification": "plan de slots (ssbu-skins, propuesta que Gian aprobo el 2026-10-29); pendiente de prueba en consola",
+   "console_test": "pendiente (no probado en Switch)",
+   "dlc": null
+  },
+  {
+   "id": "mario-moogle-c03",
+   "version": "pending",
+   "target": "c03 (color 4), movido desde c00",
+   "url": "https://gamebanana.com/mods/374147",
+   "classification": "plan de slots (ssbu-skins, propuesta que Gian aprobo el 2026-10-29); pendiente de prueba en consola",
+   "console_test": "pendiente (no probado en Switch)",
+   "dlc": null
+  },
+  {
+   "id": "mario-dry-bones-c04",
+   "version": "pending",
+   "target": "c04 (color 5), movido desde c01",
+   "url": "https://gamebanana.com/mods/174057",
+   "classification": "plan de slots (ssbu-skins, propuesta que Gian aprobo el 2026-10-29); pendiente de prueba en consola",
+   "console_test": "pendiente (no probado en Switch)",
+   "dlc": null
+  },
+  {
+   "id": "luigi-rayman-c06",
+   "version": "pending",
+   "target": "c06 (color 7)",
+   "url": "https://gamebanana.com/mods/391570",
+   "classification": "plan de slots (ssbu-skins, propuesta que Gian aprobo el 2026-10-29); pendiente de prueba en consola",
+   "console_test": "pendiente (no probado en Switch)",
+   "dlc": null
+  },
+  {
+   "id": "koopa-kurama-linked-c05",
+   "version": "pending",
+   "target": "c05 (color 6)",
+   "url": "https://gamebanana.com/mods/386111",
+   "classification": "plan de slots (ssbu-skins, propuesta que Gian aprobo el 2026-10-29); pendiente de prueba en consola",
+   "console_test": "pendiente (no probado en Switch)",
+   "dlc": null
+  },
+  {
+   "id": "mariod-timeless-river-c01",
+   "version": "pending",
+   "target": "c01 (color 2)",
+   "url": "https://gamebanana.com/mods/384627",
+   "classification": "plan de slots (ssbu-skins, propuesta que Gian aprobo el 2026-10-29); pendiente de prueba en consola",
+   "console_test": "pendiente (no probado en Switch)",
+   "dlc": null
+  },
+  {
+   "id": "donkey-tank-left-4-dead-c02",
+   "version": "pending",
+   "target": "c02 (color 3)",
+   "url": "https://gamebanana.com/mods/383485",
+   "classification": "plan de slots (ssbu-skins, propuesta que Gian aprobo el 2026-10-29); pendiente de prueba en consola",
+   "console_test": "pendiente (no probado en Switch)",
+   "dlc": null
+  },
+  {
+   "id": "donkey-joe-swanson-c04",
+   "version": "pending",
+   "target": "c04 (color 5)",
+   "url": "https://gamebanana.com/mods/378405",
+   "classification": "plan de slots (ssbu-skins, propuesta que Gian aprobo el 2026-10-29); pendiente de prueba en consola",
+   "console_test": "pendiente (no probado en Switch)",
+   "dlc": null
+  },
+  {
+   "id": "donkey-omega-c06",
+   "version": "pending",
+   "target": "c06 (color 7), movido desde c02",
+   "url": "https://gamebanana.com/mods/396125",
+   "classification": "plan de slots (ssbu-skins, propuesta que Gian aprobo el 2026-10-29); pendiente de prueba en consola",
+   "console_test": "pendiente (no probado en Switch)",
+   "dlc": null
+  },
+  {
+   "id": "link-goblin-slayer-c04",
+   "version": "pending",
+   "target": "c04 (color 5)",
+   "url": "https://gamebanana.com/mods/342215",
+   "classification": "plan de slots (ssbu-skins, propuesta que Gian aprobo el 2026-10-29); pendiente de prueba en consola",
+   "console_test": "pendiente (no probado en Switch)",
+   "dlc": null
+  },
+  {
+   "id": "link-link-female-c05",
+   "version": "pending",
+   "target": "c05 (color 6)",
+   "url": "https://gamebanana.com/mods/628791",
+   "classification": "plan de slots (ssbu-skins, propuesta que Gian aprobo el 2026-10-29); pendiente de prueba en consola",
+   "console_test": "pendiente (no probado en Switch)",
+   "dlc": null
+  },
+  {
+   "id": "sheik-yuffie-c01",
+   "version": "pending",
+   "target": "c01 (color 2)",
+   "url": "https://gamebanana.com/mods/511678",
+   "classification": "plan de slots (ssbu-skins, propuesta que Gian aprobo el 2026-10-29); pendiente de prueba en consola",
+   "console_test": "pendiente (no probado en Switch)",
+   "dlc": null
+  },
+  {
+   "id": "sheik-larxene-c04",
+   "version": "pending",
+   "target": "c04 (color 5), movido desde c00",
+   "url": "https://gamebanana.com/mods/367390",
+   "classification": "plan de slots (ssbu-skins, propuesta que Gian aprobo el 2026-10-29); pendiente de prueba en consola",
+   "console_test": "pendiente (no probado en Switch)",
+   "dlc": null
+  },
+  {
+   "id": "sheik-larxene-c05",
+   "version": "pending",
+   "target": "c05 (color 6), movido desde c01",
+   "url": "https://gamebanana.com/mods/367390",
+   "classification": "plan de slots (ssbu-skins, propuesta que Gian aprobo el 2026-10-29); pendiente de prueba en consola",
+   "console_test": "pendiente (no probado en Switch)",
+   "dlc": null
+  },
+  {
+   "id": "zelda-aerith-c00",
+   "version": "pending",
+   "target": "c00 (color 1)",
+   "url": "https://gamebanana.com/mods/535222",
+   "classification": "plan de slots (ssbu-skins, propuesta que Gian aprobo el 2026-10-29); pendiente de prueba en consola",
+   "console_test": "pendiente (no probado en Switch)",
+   "dlc": null
+  },
+  {
+   "id": "zelda-aerith-c01",
+   "version": "pending",
+   "target": "c01 (color 2)",
+   "url": "https://gamebanana.com/mods/535222",
+   "classification": "plan de slots (ssbu-skins, propuesta que Gian aprobo el 2026-10-29); pendiente de prueba en consola",
+   "console_test": "pendiente (no probado en Switch)",
+   "dlc": null
+  },
+  {
+   "id": "zelda-jean-grey-c02",
+   "version": "pending",
+   "target": "c02 (color 3), movido desde c01",
+   "url": "https://gamebanana.com/mods/346851",
+   "classification": "plan de slots (ssbu-skins, propuesta que Gian aprobo el 2026-10-29); pendiente de prueba en consola",
+   "console_test": "pendiente (no probado en Switch)",
+   "dlc": null
+  },
+  {
+   "id": "szerosuit-lucy-cyberpunk-c01",
+   "version": "pending",
+   "target": "c01 (color 2)",
+   "url": "https://gamebanana.com/mods/690283",
+   "classification": "plan de slots (ssbu-skins, propuesta que Gian aprobo el 2026-10-29); pendiente de prueba en consola",
+   "console_test": "pendiente (no probado en Switch)",
+   "dlc": null
+  },
+  {
+   "id": "szerosuit-jinx-c02",
+   "version": "pending",
+   "target": "c02 (color 3)",
+   "url": "https://gamebanana.com/mods/397431",
+   "classification": "plan de slots (ssbu-skins, propuesta que Gian aprobo el 2026-10-29); pendiente de prueba en consola",
+   "console_test": "pendiente (no probado en Switch)",
+   "dlc": null
+  },
+  {
+   "id": "fox-gohan-c03",
+   "version": "pending",
+   "target": "c03 (color 4)",
+   "url": "https://gamebanana.com/mods/450327",
+   "classification": "plan de slots (ssbu-skins, propuesta que Gian aprobo el 2026-10-29); pendiente de prueba en consola",
+   "console_test": "pendiente (no probado en Switch)",
+   "dlc": null
+  },
+  {
+   "id": "falco-n64-falco-c00",
+   "version": "pending",
+   "target": "c00 (color 1)",
+   "url": "https://gamebanana.com/mods/174558",
+   "classification": "plan de slots (ssbu-skins, propuesta que Gian aprobo el 2026-10-29); pendiente de prueba en consola",
+   "console_test": "pendiente (no probado en Switch)",
+   "dlc": null
+  },
+  {
+   "id": "gaogaen-freddie-freaker-c04",
+   "version": "pending",
+   "target": "c04 (color 5)",
+   "url": "https://gamebanana.com/mods/443660",
+   "classification": "plan de slots (ssbu-skins, propuesta que Gian aprobo el 2026-10-29); pendiente de prueba en consola",
+   "console_test": "pendiente (no probado en Switch)",
+   "dlc": null
+  },
+  {
+   "id": "captain-buzz-lightyear-c00",
+   "version": "pending",
+   "target": "c00 (color 1)",
+   "url": "https://gamebanana.com/mods/680362",
+   "classification": "plan de slots (ssbu-skins, propuesta que Gian aprobo el 2026-10-29); pendiente de prueba en consola",
+   "console_test": "pendiente (no probado en Switch)",
+   "dlc": null
+  },
+  {
+   "id": "captain-buff-perry-c01",
+   "version": "pending",
+   "target": "c01 (color 2)",
+   "url": "https://gamebanana.com/mods/676382",
+   "classification": "plan de slots (ssbu-skins, propuesta que Gian aprobo el 2026-10-29); pendiente de prueba en consola",
+   "console_test": "pendiente (no probado en Switch)",
+   "dlc": null
+  },
+  {
+   "id": "captain-garnet-c03",
+   "version": "pending",
+   "target": "c03 (color 4), movido desde c02",
+   "url": "https://gamebanana.com/mods/466057",
+   "classification": "plan de slots (ssbu-skins, propuesta que Gian aprobo el 2026-10-29); pendiente de prueba en consola",
+   "console_test": "pendiente (no probado en Switch)",
+   "dlc": null
+  },
+  {
+   "id": "captain-all-might-c04",
+   "version": "pending",
+   "target": "c04 (color 5), movido desde c01",
+   "url": "https://gamebanana.com/mods/692548",
+   "classification": "plan de slots (ssbu-skins, propuesta que Gian aprobo el 2026-10-29); pendiente de prueba en consola",
+   "console_test": "pendiente (no probado en Switch)",
+   "dlc": null
+  },
+  {
+   "id": "marth-sigurd-c03",
+   "version": "pending",
+   "target": "c03 (color 4)",
+   "url": "https://gamebanana.com/mods/442940",
+   "classification": "plan de slots (ssbu-skins, propuesta que Gian aprobo el 2026-10-29); pendiente de prueba en consola",
+   "console_test": "pendiente (no probado en Switch)",
+   "dlc": null
+  },
+  {
+   "id": "ryu-goku-super-saiyan-c05",
+   "version": "pending",
+   "target": "c05 (color 6)",
+   "url": "https://gamebanana.com/mods/487736",
+   "classification": "plan de slots (ssbu-skins, propuesta que Gian aprobo el 2026-10-29); pendiente de prueba en consola",
+   "console_test": "pendiente (no probado en Switch)",
+   "dlc": null
+  },
+  {
+   "id": "bayonetta-morrigan-c00",
+   "version": "pending",
+   "target": "c00 (color 1)",
+   "url": "https://gamebanana.com/mods/501311",
+   "classification": "plan de slots (ssbu-skins, propuesta que Gian aprobo el 2026-10-29); pendiente de prueba en consola",
+   "console_test": "pendiente (no probado en Switch)",
+   "dlc": null
+  },
+  {
+   "id": "brave-trunks-futuro-c06",
+   "version": "pending",
+   "target": "c06 (color 7)",
+   "url": "https://gamebanana.com/mods/175735",
+   "classification": "plan de slots (ssbu-skins, propuesta que Gian aprobo el 2026-10-29); pendiente de prueba en consola",
+   "console_test": "pendiente (no probado en Switch)",
+   "dlc": null
+  },
+  {
+   "id": "demon-perfect-cell-c03",
+   "version": "pending",
+   "target": "c03 (color 4)",
+   "url": "https://gamebanana.com/mods/303197",
+   "classification": "plan de slots (ssbu-skins, propuesta que Gian aprobo el 2026-10-29); pendiente de prueba en consola",
+   "console_test": "pendiente (no probado en Switch)",
+   "dlc": null
+  },
+  {
+   "id": "demon-goku-ultra-instinto-c06",
+   "version": "pending",
+   "target": "c06 (color 7)",
+   "url": "https://gamebanana.com/mods/463039",
+   "classification": "plan de slots (ssbu-skins, propuesta que Gian aprobo el 2026-10-29); pendiente de prueba en consola",
+   "console_test": "pendiente (no probado en Switch)",
+   "dlc": null
+  },
+  {
+   "id": "ness-kid-buu-c03",
+   "version": "pending",
+   "target": "c03 (color 4)",
+   "url": "https://gamebanana.com/mods/560241",
+   "classification": "plan de slots (ssbu-skins, propuesta que Gian aprobo el 2026-10-29); pendiente de prueba en consola",
+   "console_test": "pendiente (no probado en Switch)",
+   "dlc": null
+  },
+  {
+   "id": "chrom-raiden-c01",
+   "version": "pending",
+   "target": "c01 (color 2)",
+   "url": "https://gamebanana.com/mods/387553",
+   "classification": "plan de slots (ssbu-skins, propuesta que Gian aprobo el 2026-10-29); pendiente de prueba en consola",
+   "console_test": "pendiente (no probado en Switch)",
+   "dlc": null
+  },
+  {
+   "id": "chrom-squall-negro-c00",
+   "version": "pending",
+   "target": "c00 (color 1)",
+   "url": "https://gamebanana.com/mods/175495",
+   "classification": "plan de slots (ssbu-skins, propuesta que Gian aprobo el 2026-10-29); pendiente de prueba en consola",
+   "console_test": "pendiente (no probado en Switch)",
+   "dlc": null
+  },
+  {
+   "id": "wolf-vegeta-c01",
+   "version": "pending",
+   "target": "c01 (color 2)",
+   "url": "https://gamebanana.com/mods/421286",
+   "classification": "plan de slots (ssbu-skins, propuesta que Gian aprobo el 2026-10-29); pendiente de prueba en consola",
+   "console_test": "pendiente (no probado en Switch)",
+   "dlc": null
+  },
+  {
+   "id": "lucina-2b-mastaklo-c00",
+   "version": "pending",
+   "target": "c00 (color 1)",
+   "url": "https://gamebanana.com/mods/362052",
+   "classification": "plan de slots (ssbu-skins, propuesta que Gian aprobo el 2026-10-29); pendiente de prueba en consola",
+   "console_test": "pendiente (no probado en Switch)",
+   "dlc": null
+  },
+  {
+   "id": "lucina-2b-armadura-gris-c01-c03-c06",
+   "version": "pending",
+   "target": "c01 (color 2), c03 (color 4), c06 (color 7)",
+   "url": "https://gamebanana.com/mods/392802",
+   "classification": "plan de slots (ssbu-skins, propuesta que Gian aprobo el 2026-10-29); pendiente de prueba en consola",
+   "console_test": "pendiente (no probado en Switch)",
+   "dlc": null
+  },
+  {
+   "id": "palutena-aeris-c06",
+   "version": "pending",
+   "target": "c06 (color 7)",
+   "url": "https://gamebanana.com/mods/581172",
+   "classification": "plan de slots (ssbu-skins, propuesta que Gian aprobo el 2026-10-29); pendiente de prueba en consola",
+   "console_test": "pendiente (no probado en Switch)",
+   "dlc": null
+  },
+  {
+   "id": "eflame-a2-2b-9s-c07",
+   "version": "pending",
+   "target": "c07 (color 8)",
+   "url": "https://gamebanana.com/mods/291700",
+   "classification": "plan de slots (ssbu-skins, propuesta que Gian aprobo el 2026-10-29); pendiente de prueba en consola",
+   "console_test": "pendiente (no probado en Switch)",
+   "dlc": null
+  },
+  {
+   "id": "cloud-crisis-core-cloud-c00",
+   "version": "pending",
+   "target": "c00 (color 1)",
+   "url": "https://gamebanana.com/mods/175324",
+   "classification": "plan de slots (ssbu-skins, propuesta que Gian aprobo el 2026-10-29); pendiente de prueba en consola",
+   "console_test": "pendiente (no probado en Switch)",
+   "dlc": null
+  },
+  {
+   "id": "cloud-wheelchair-cloud-c01",
+   "version": "pending",
+   "target": "c01 (color 2), movido desde c00",
+   "url": "https://gamebanana.com/mods/495263",
+   "classification": "plan de slots (ssbu-skins, propuesta que Gian aprobo el 2026-10-29); pendiente de prueba en consola",
+   "console_test": "pendiente (no probado en Switch)",
+   "dlc": null
+  },
+  {
+   "id": "cloud-zack-fair-c02",
+   "version": "pending",
+   "target": "c02 (color 3)",
+   "url": "https://gamebanana.com/mods/175327",
+   "classification": "plan de slots (ssbu-skins, propuesta que Gian aprobo el 2026-10-29); pendiente de prueba en consola",
+   "console_test": "pendiente (no probado en Switch)",
+   "dlc": null
+  },
+  {
+   "id": "edge-sephirot-clown-c00",
+   "version": "pending",
+   "target": "c00 (color 1)",
+   "url": "https://gamebanana.com/mods/503576",
+   "classification": "plan de slots (ssbu-skins, propuesta que Gian aprobo el 2026-10-29); pendiente de prueba en consola",
+   "console_test": "pendiente (no probado en Switch)",
+   "dlc": null
+  },
+  {
+   "id": "edge-ariana-grande-c01-c02",
+   "version": "pending",
+   "target": "c01 (color 2), c02 (color 3)",
+   "url": "https://gamebanana.com/mods/555584",
+   "classification": "plan de slots (ssbu-skins, propuesta que Gian aprobo el 2026-10-29); pendiente de prueba en consola",
+   "console_test": "pendiente (no probado en Switch)",
+   "dlc": null
+  },
+  {
+   "id": "edge-ultimate-sukuna-c03",
+   "version": "pending",
+   "target": "c03 (color 4)",
+   "url": "https://gamebanana.com/mods/672428",
+   "classification": "plan de slots (ssbu-skins, propuesta que Gian aprobo el 2026-10-29); pendiente de prueba en consola",
+   "console_test": "pendiente (no probado en Switch)",
+   "dlc": null
+  },
+  {
+   "id": "edge-sandbag-c04",
+   "version": "pending",
+   "target": "c04 (color 5), movido desde c00",
+   "url": "https://gamebanana.com/mods/487151",
+   "classification": "plan de slots (ssbu-skins, propuesta que Gian aprobo el 2026-10-29); pendiente de prueba en consola",
+   "console_test": "pendiente (no probado en Switch)",
+   "dlc": null
+  },
+  {
+   "id": "edge-darth-luigi-c05",
+   "version": "pending",
+   "target": "c05 (color 6), movido desde c01",
+   "url": "https://gamebanana.com/mods/592795",
+   "classification": "plan de slots (ssbu-skins, propuesta que Gian aprobo el 2026-10-29); pendiente de prueba en consola",
+   "console_test": "pendiente (no probado en Switch)",
+   "dlc": null
+  },
+  {
+   "id": "trail-vanitas-c01",
+   "version": "pending",
+   "target": "c01 (color 2)",
+   "url": "https://gamebanana.com/mods/334311",
+   "classification": "plan de slots (ssbu-skins, propuesta que Gian aprobo el 2026-10-29); pendiente de prueba en consola",
+   "console_test": "pendiente (no probado en Switch)",
+   "dlc": null
+  },
+  {
+   "id": "trail-xion-c00",
+   "version": "pending",
+   "target": "c00 (color 1)",
+   "url": "https://gamebanana.com/mods/471722",
+   "classification": "plan de slots (ssbu-skins, propuesta que Gian aprobo el 2026-10-29); pendiente de prueba en consola",
+   "console_test": "pendiente (no probado en Switch)",
+   "dlc": null
+  },
+  {
+   "id": "kamui-2b-corrin-c07",
+   "version": "pending",
+   "target": "c07 (color 8)",
+   "url": "https://gamebanana.com/mods/174947",
+   "classification": "plan de slots (ssbu-skins, propuesta que Gian aprobo el 2026-10-29); pendiente de prueba en consola",
+   "console_test": "pendiente (no probado en Switch)",
+   "dlc": null
   }
  ],
  "other_profiles": [
@@ -221,8 +734,248 @@
    "slot": 1
   },
   {
+   "fighter": "01",
+   "slot": 2
+  },
+  {
+   "fighter": "01",
+   "slot": 3
+  },
+  {
+   "fighter": "01",
+   "slot": 4
+  },
+  {
+   "fighter": "01",
+   "slot": 5
+  },
+  {
+   "fighter": "01",
+   "slot": 6
+  },
+  {
+   "fighter": "01",
+   "slot": 7
+  },
+  {
+   "fighter": "02",
+   "slot": 2
+  },
+  {
+   "fighter": "02",
+   "slot": 4
+  },
+  {
+   "fighter": "02",
+   "slot": 6
+  },
+  {
+   "fighter": "03",
+   "slot": 2
+  },
+  {
+   "fighter": "03",
+   "slot": 3
+  },
+  {
+   "fighter": "03",
+   "slot": 5
+  },
+  {
+   "fighter": "03",
+   "slot": 6
+  },
+  {
+   "fighter": "03",
+   "slot": 7
+  },
+  {
+   "fighter": "07",
+   "slot": 3
+  },
+  {
+   "fighter": "07",
+   "slot": 5
+  },
+  {
+   "fighter": "07",
+   "slot": 6
+  },
+  {
+   "fighter": "07",
+   "slot": 7
+  },
+  {
    "fighter": "09",
    "slot": 0
+  },
+  {
+   "fighter": "09",
+   "slot": 1
+  },
+  {
+   "fighter": "09",
+   "slot": 2
+  },
+  {
+   "fighter": "09",
+   "slot": 3
+  },
+  {
+   "fighter": "09",
+   "slot": 4
+  },
+  {
+   "fighter": "09",
+   "slot": 5
+  },
+  {
+   "fighter": "09",
+   "slot": 6
+  },
+  {
+   "fighter": "10",
+   "slot": 2
+  },
+  {
+   "fighter": "10",
+   "slot": 6
+  },
+  {
+   "fighter": "11",
+   "slot": 0
+  },
+  {
+   "fighter": "11",
+   "slot": 3
+  },
+  {
+   "fighter": "11",
+   "slot": 4
+  },
+  {
+   "fighter": "11",
+   "slot": 5
+  },
+  {
+   "fighter": "11",
+   "slot": 6
+  },
+  {
+   "fighter": "14",
+   "slot": 1
+  },
+  {
+   "fighter": "14",
+   "slot": 2
+  },
+  {
+   "fighter": "14",
+   "slot": 3
+  },
+  {
+   "fighter": "14",
+   "slot": 4
+  },
+  {
+   "fighter": "16",
+   "slot": 0
+  },
+  {
+   "fighter": "16",
+   "slot": 2
+  },
+  {
+   "fighter": "16",
+   "slot": 3
+  },
+  {
+   "fighter": "17",
+   "slot": 3
+  },
+  {
+   "fighter": "17",
+   "slot": 4
+  },
+  {
+   "fighter": "17",
+   "slot": 5
+  },
+  {
+   "fighter": "17",
+   "slot": 6
+  },
+  {
+   "fighter": "18",
+   "slot": 2
+  },
+  {
+   "fighter": "18",
+   "slot": 3
+  },
+  {
+   "fighter": "18",
+   "slot": 5
+  },
+  {
+   "fighter": "20",
+   "slot": 1
+  },
+  {
+   "fighter": "20",
+   "slot": 3
+  },
+  {
+   "fighter": "20",
+   "slot": 7
+  },
+  {
+   "fighter": "21",
+   "slot": 1
+  },
+  {
+   "fighter": "21",
+   "slot": 3
+  },
+  {
+   "fighter": "21",
+   "slot": 4
+  },
+  {
+   "fighter": "21",
+   "slot": 5
+  },
+  {
+   "fighter": "21ε",
+   "slot": 0
+  },
+  {
+   "fighter": "21ε",
+   "slot": 1
+  },
+  {
+   "fighter": "21ε",
+   "slot": 2
+  },
+  {
+   "fighter": "21ε",
+   "slot": 3
+  },
+  {
+   "fighter": "21ε",
+   "slot": 4
+  },
+  {
+   "fighter": "21ε",
+   "slot": 5
+  },
+  {
+   "fighter": "21ε",
+   "slot": 6
+  },
+  {
+   "fighter": "21ε",
+   "slot": 7
   },
   {
    "fighter": "23",
@@ -231,6 +984,46 @@
   {
    "fighter": "23",
    "slot": 7
+  },
+  {
+   "fighter": "25ε",
+   "slot": 2
+  },
+  {
+   "fighter": "25ε",
+   "slot": 6
+  },
+  {
+   "fighter": "25ε",
+   "slot": 7
+  },
+  {
+   "fighter": "29",
+   "slot": 1
+  },
+  {
+   "fighter": "29",
+   "slot": 2
+  },
+  {
+   "fighter": "29",
+   "slot": 3
+  },
+  {
+   "fighter": "29",
+   "slot": 4
+  },
+  {
+   "fighter": "29",
+   "slot": 5
+  },
+  {
+   "fighter": "31",
+   "slot": 0
+  },
+  {
+   "fighter": "31",
+   "slot": 4
   },
   {
    "fighter": "33",
@@ -249,8 +1042,192 @@
    "slot": 3
   },
   {
+   "fighter": "36",
+   "slot": 1
+  },
+  {
+   "fighter": "36",
+   "slot": 2
+  },
+  {
+   "fighter": "36",
+   "slot": 4
+  },
+  {
+   "fighter": "44",
+   "slot": 1
+  },
+  {
+   "fighter": "44",
+   "slot": 3
+  },
+  {
+   "fighter": "44",
+   "slot": 4
+  },
+  {
+   "fighter": "44",
+   "slot": 5
+  },
+  {
+   "fighter": "47",
+   "slot": 2
+  },
+  {
+   "fighter": "49",
+   "slot": 1
+  },
+  {
+   "fighter": "49",
+   "slot": 2
+  },
+  {
+   "fighter": "54",
+   "slot": 6
+  },
+  {
+   "fighter": "60",
+   "slot": 1
+  },
+  {
+   "fighter": "60",
+   "slot": 3
+  },
+  {
+   "fighter": "60",
+   "slot": 4
+  },
+  {
+   "fighter": "60",
+   "slot": 5
+  },
+  {
+   "fighter": "60",
+   "slot": 7
+  },
+  {
+   "fighter": "61",
+   "slot": 0
+  },
+  {
+   "fighter": "61",
+   "slot": 1
+  },
+  {
+   "fighter": "61",
+   "slot": 2
+  },
+  {
+   "fighter": "61",
+   "slot": 3
+  },
+  {
+   "fighter": "61",
+   "slot": 4
+  },
+  {
+   "fighter": "61",
+   "slot": 5
+  },
+  {
+   "fighter": "61",
+   "slot": 6
+  },
+  {
+   "fighter": "61",
+   "slot": 7
+  },
+  {
+   "fighter": "62",
+   "slot": 1
+  },
+  {
+   "fighter": "62",
+   "slot": 2
+  },
+  {
+   "fighter": "62",
+   "slot": 3
+  },
+  {
+   "fighter": "62",
+   "slot": 5
+  },
+  {
+   "fighter": "62",
+   "slot": 7
+  },
+  {
+   "fighter": "63",
+   "slot": 2
+  },
+  {
    "fighter": "63",
    "slot": 3
+  },
+  {
+   "fighter": "63",
+   "slot": 4
+  },
+  {
+   "fighter": "63",
+   "slot": 5
+  },
+  {
+   "fighter": "63",
+   "slot": 7
+  },
+  {
+   "fighter": "68",
+   "slot": 4
+  },
+  {
+   "fighter": "68",
+   "slot": 6
+  },
+  {
+   "fighter": "69",
+   "slot": 2
+  },
+  {
+   "fighter": "69",
+   "slot": 3
+  },
+  {
+   "fighter": "69",
+   "slot": 4
+  },
+  {
+   "fighter": "69",
+   "slot": 5
+  },
+  {
+   "fighter": "69",
+   "slot": 6
+  },
+  {
+   "fighter": "69",
+   "slot": 7
+  },
+  {
+   "fighter": "72",
+   "slot": 3
+  },
+  {
+   "fighter": "72",
+   "slot": 4
+  },
+  {
+   "fighter": "72",
+   "slot": 5
+  },
+  {
+   "fighter": "72",
+   "slot": 6
+  },
+  {
+   "fighter": "72",
+   "slot": 7
   },
   {
    "fighter": "74",
@@ -262,11 +1239,39 @@
   },
   {
    "fighter": "74",
+   "slot": 3
+  },
+  {
+   "fighter": "74",
    "slot": 6
   },
   {
    "fighter": "74",
    "slot": 7
+  },
+  {
+   "fighter": "75",
+   "slot": 0
+  },
+  {
+   "fighter": "75",
+   "slot": 1
+  },
+  {
+   "fighter": "75",
+   "slot": 3
+  },
+  {
+   "fighter": "75",
+   "slot": 4
+  },
+  {
+   "fighter": "75",
+   "slot": 5
+  },
+  {
+   "fighter": "75",
+   "slot": 6
   },
   {
    "fighter": "77",
@@ -301,11 +1306,115 @@
    "slot": 7
   },
   {
+   "fighter": "78",
+   "slot": 1
+  },
+  {
+   "fighter": "78",
+   "slot": 2
+  },
+  {
+   "fighter": "78",
+   "slot": 3
+  },
+  {
+   "fighter": "78",
+   "slot": 4
+  },
+  {
+   "fighter": "78",
+   "slot": 5
+  },
+  {
+   "fighter": "78",
+   "slot": 7
+  },
+  {
+   "fighter": "79",
+   "slot": 1
+  },
+  {
+   "fighter": "79",
+   "slot": 2
+  },
+  {
+   "fighter": "79",
+   "slot": 3
+  },
+  {
+   "fighter": "79",
+   "slot": 4
+  },
+  {
+   "fighter": "79",
+   "slot": 5
+  },
+  {
+   "fighter": "79",
+   "slot": 6
+  },
+  {
+   "fighter": "79",
+   "slot": 7
+  },
+  {
+   "fighter": "80",
+   "slot": 1
+  },
+  {
+   "fighter": "80",
+   "slot": 2
+  },
+  {
+   "fighter": "80",
+   "slot": 3
+  },
+  {
+   "fighter": "80",
+   "slot": 4
+  },
+  {
+   "fighter": "80",
+   "slot": 5
+  },
+  {
+   "fighter": "80",
+   "slot": 6
+  },
+  {
+   "fighter": "80",
+   "slot": 7
+  },
+  {
+   "fighter": "81",
+   "slot": 3
+  },
+  {
+   "fighter": "81",
+   "slot": 4
+  },
+  {
+   "fighter": "81",
+   "slot": 5
+  },
+  {
+   "fighter": "81",
+   "slot": 6
+  },
+  {
+   "fighter": "81",
+   "slot": 7
+  },
+  {
+   "fighter": "82",
+   "slot": 6
+  },
+  {
    "fighter": "82",
    "slot": 7
   }
  ],
- "exclude_base_total": 43,
+ "exclude_base_total": 229,
  "excluded_base_mods": [
   "The WuBoy Ultimate Modpack Optionals",
   "The WuBoy Ultimate Music Modpack"
@@ -318,12 +1427,292 @@
  "base_filter": "skins",
  "filtered_base_slots": [
   {
+   "fighter": "01",
+   "slot": 2
+  },
+  {
+   "fighter": "01",
+   "slot": 3
+  },
+  {
+   "fighter": "01",
+   "slot": 4
+  },
+  {
+   "fighter": "01",
+   "slot": 5
+  },
+  {
+   "fighter": "01",
+   "slot": 6
+  },
+  {
+   "fighter": "01",
+   "slot": 7
+  },
+  {
+   "fighter": "02",
+   "slot": 2
+  },
+  {
+   "fighter": "02",
+   "slot": 4
+  },
+  {
+   "fighter": "02",
+   "slot": 6
+  },
+  {
+   "fighter": "03",
+   "slot": 2
+  },
+  {
+   "fighter": "03",
+   "slot": 3
+  },
+  {
+   "fighter": "03",
+   "slot": 5
+  },
+  {
+   "fighter": "03",
+   "slot": 6
+  },
+  {
+   "fighter": "03",
+   "slot": 7
+  },
+  {
+   "fighter": "07",
+   "slot": 3
+  },
+  {
+   "fighter": "07",
+   "slot": 5
+  },
+  {
+   "fighter": "07",
+   "slot": 6
+  },
+  {
+   "fighter": "07",
+   "slot": 7
+  },
+  {
+   "fighter": "09",
+   "slot": 1
+  },
+  {
+   "fighter": "09",
+   "slot": 2
+  },
+  {
+   "fighter": "09",
+   "slot": 3
+  },
+  {
+   "fighter": "09",
+   "slot": 4
+  },
+  {
+   "fighter": "09",
+   "slot": 5
+  },
+  {
+   "fighter": "09",
+   "slot": 6
+  },
+  {
+   "fighter": "10",
+   "slot": 2
+  },
+  {
+   "fighter": "10",
+   "slot": 6
+  },
+  {
+   "fighter": "11",
+   "slot": 0
+  },
+  {
+   "fighter": "11",
+   "slot": 3
+  },
+  {
+   "fighter": "11",
+   "slot": 4
+  },
+  {
+   "fighter": "11",
+   "slot": 5
+  },
+  {
+   "fighter": "11",
+   "slot": 6
+  },
+  {
+   "fighter": "14",
+   "slot": 1
+  },
+  {
+   "fighter": "14",
+   "slot": 2
+  },
+  {
+   "fighter": "14",
+   "slot": 3
+  },
+  {
+   "fighter": "14",
+   "slot": 4
+  },
+  {
+   "fighter": "16",
+   "slot": 0
+  },
+  {
+   "fighter": "16",
+   "slot": 2
+  },
+  {
+   "fighter": "16",
+   "slot": 3
+  },
+  {
+   "fighter": "17",
+   "slot": 3
+  },
+  {
+   "fighter": "17",
+   "slot": 4
+  },
+  {
+   "fighter": "17",
+   "slot": 5
+  },
+  {
+   "fighter": "17",
+   "slot": 6
+  },
+  {
+   "fighter": "18",
+   "slot": 2
+  },
+  {
+   "fighter": "18",
+   "slot": 3
+  },
+  {
+   "fighter": "18",
+   "slot": 5
+  },
+  {
+   "fighter": "20",
+   "slot": 1
+  },
+  {
+   "fighter": "20",
+   "slot": 3
+  },
+  {
+   "fighter": "20",
+   "slot": 7
+  },
+  {
+   "fighter": "21",
+   "slot": 1
+  },
+  {
+   "fighter": "21",
+   "slot": 3
+  },
+  {
+   "fighter": "21",
+   "slot": 4
+  },
+  {
+   "fighter": "21",
+   "slot": 5
+  },
+  {
+   "fighter": "21ε",
+   "slot": 0
+  },
+  {
+   "fighter": "21ε",
+   "slot": 1
+  },
+  {
+   "fighter": "21ε",
+   "slot": 2
+  },
+  {
+   "fighter": "21ε",
+   "slot": 3
+  },
+  {
+   "fighter": "21ε",
+   "slot": 4
+  },
+  {
+   "fighter": "21ε",
+   "slot": 5
+  },
+  {
+   "fighter": "21ε",
+   "slot": 6
+  },
+  {
+   "fighter": "21ε",
+   "slot": 7
+  },
+  {
    "fighter": "23",
    "slot": 5
   },
   {
    "fighter": "23",
    "slot": 7
+  },
+  {
+   "fighter": "25ε",
+   "slot": 2
+  },
+  {
+   "fighter": "25ε",
+   "slot": 6
+  },
+  {
+   "fighter": "25ε",
+   "slot": 7
+  },
+  {
+   "fighter": "29",
+   "slot": 1
+  },
+  {
+   "fighter": "29",
+   "slot": 2
+  },
+  {
+   "fighter": "29",
+   "slot": 3
+  },
+  {
+   "fighter": "29",
+   "slot": 4
+  },
+  {
+   "fighter": "29",
+   "slot": 5
+  },
+  {
+   "fighter": "31",
+   "slot": 0
+  },
+  {
+   "fighter": "31",
+   "slot": 4
   },
   {
    "fighter": "33",
@@ -342,6 +1731,182 @@
    "slot": 3
   },
   {
+   "fighter": "36",
+   "slot": 1
+  },
+  {
+   "fighter": "36",
+   "slot": 2
+  },
+  {
+   "fighter": "36",
+   "slot": 4
+  },
+  {
+   "fighter": "44",
+   "slot": 1
+  },
+  {
+   "fighter": "44",
+   "slot": 3
+  },
+  {
+   "fighter": "44",
+   "slot": 4
+  },
+  {
+   "fighter": "44",
+   "slot": 5
+  },
+  {
+   "fighter": "49",
+   "slot": 1
+  },
+  {
+   "fighter": "49",
+   "slot": 2
+  },
+  {
+   "fighter": "60",
+   "slot": 1
+  },
+  {
+   "fighter": "60",
+   "slot": 3
+  },
+  {
+   "fighter": "60",
+   "slot": 4
+  },
+  {
+   "fighter": "60",
+   "slot": 5
+  },
+  {
+   "fighter": "60",
+   "slot": 7
+  },
+  {
+   "fighter": "61",
+   "slot": 0
+  },
+  {
+   "fighter": "61",
+   "slot": 1
+  },
+  {
+   "fighter": "61",
+   "slot": 2
+  },
+  {
+   "fighter": "61",
+   "slot": 3
+  },
+  {
+   "fighter": "61",
+   "slot": 4
+  },
+  {
+   "fighter": "61",
+   "slot": 5
+  },
+  {
+   "fighter": "61",
+   "slot": 6
+  },
+  {
+   "fighter": "61",
+   "slot": 7
+  },
+  {
+   "fighter": "62",
+   "slot": 1
+  },
+  {
+   "fighter": "62",
+   "slot": 2
+  },
+  {
+   "fighter": "62",
+   "slot": 3
+  },
+  {
+   "fighter": "62",
+   "slot": 5
+  },
+  {
+   "fighter": "62",
+   "slot": 7
+  },
+  {
+   "fighter": "63",
+   "slot": 2
+  },
+  {
+   "fighter": "63",
+   "slot": 4
+  },
+  {
+   "fighter": "63",
+   "slot": 5
+  },
+  {
+   "fighter": "63",
+   "slot": 7
+  },
+  {
+   "fighter": "68",
+   "slot": 4
+  },
+  {
+   "fighter": "68",
+   "slot": 6
+  },
+  {
+   "fighter": "69",
+   "slot": 2
+  },
+  {
+   "fighter": "69",
+   "slot": 3
+  },
+  {
+   "fighter": "69",
+   "slot": 4
+  },
+  {
+   "fighter": "69",
+   "slot": 5
+  },
+  {
+   "fighter": "69",
+   "slot": 6
+  },
+  {
+   "fighter": "69",
+   "slot": 7
+  },
+  {
+   "fighter": "72",
+   "slot": 3
+  },
+  {
+   "fighter": "72",
+   "slot": 4
+  },
+  {
+   "fighter": "72",
+   "slot": 5
+  },
+  {
+   "fighter": "72",
+   "slot": 6
+  },
+  {
+   "fighter": "72",
+   "slot": 7
+  },
+  {
    "fighter": "74",
    "slot": 1
   },
@@ -356,6 +1921,30 @@
   {
    "fighter": "74",
    "slot": 7
+  },
+  {
+   "fighter": "75",
+   "slot": 0
+  },
+  {
+   "fighter": "75",
+   "slot": 1
+  },
+  {
+   "fighter": "75",
+   "slot": 3
+  },
+  {
+   "fighter": "75",
+   "slot": 4
+  },
+  {
+   "fighter": "75",
+   "slot": 5
+  },
+  {
+   "fighter": "75",
+   "slot": 6
   },
   {
    "fighter": "77",
@@ -388,95 +1977,113 @@
   {
    "fighter": "77",
    "slot": 7
+  },
+  {
+   "fighter": "78",
+   "slot": 1
+  },
+  {
+   "fighter": "78",
+   "slot": 2
+  },
+  {
+   "fighter": "78",
+   "slot": 3
+  },
+  {
+   "fighter": "78",
+   "slot": 4
+  },
+  {
+   "fighter": "78",
+   "slot": 5
+  },
+  {
+   "fighter": "78",
+   "slot": 7
+  },
+  {
+   "fighter": "79",
+   "slot": 1
+  },
+  {
+   "fighter": "79",
+   "slot": 2
+  },
+  {
+   "fighter": "79",
+   "slot": 3
+  },
+  {
+   "fighter": "79",
+   "slot": 4
+  },
+  {
+   "fighter": "79",
+   "slot": 5
+  },
+  {
+   "fighter": "79",
+   "slot": 6
+  },
+  {
+   "fighter": "79",
+   "slot": 7
+  },
+  {
+   "fighter": "80",
+   "slot": 1
+  },
+  {
+   "fighter": "80",
+   "slot": 2
+  },
+  {
+   "fighter": "80",
+   "slot": 3
+  },
+  {
+   "fighter": "80",
+   "slot": 4
+  },
+  {
+   "fighter": "80",
+   "slot": 5
+  },
+  {
+   "fighter": "80",
+   "slot": 6
+  },
+  {
+   "fighter": "80",
+   "slot": 7
+  },
+  {
+   "fighter": "81",
+   "slot": 3
+  },
+  {
+   "fighter": "81",
+   "slot": 4
+  },
+  {
+   "fighter": "81",
+   "slot": 5
+  },
+  {
+   "fighter": "81",
+   "slot": 6
+  },
+  {
+   "fighter": "81",
+   "slot": 7
+  },
+  {
+   "fighter": "82",
+   "slot": 6
   }
  ],
- "pending_replacement": [
-  {
-   "fighter": "01",
-   "slot": 0,
-   "current": "original"
-  },
-  {
-   "fighter": "01",
-   "slot": 2,
-   "current": "WuBoy"
-  },
-  {
-   "fighter": "01",
-   "slot": 3,
-   "current": "WuBoy"
-  },
-  {
-   "fighter": "01",
-   "slot": 5,
-   "current": "WuBoy"
-  },
-  {
-   "fighter": "01",
-   "slot": 6,
-   "current": "WuBoy"
-  },
-  {
-   "fighter": "02",
-   "slot": 0,
-   "current": "original"
-  },
-  {
-   "fighter": "02",
-   "slot": 3,
-   "current": "Funky Kong (Gian quiere un unico Funky)"
-  },
-  {
-   "fighter": "02",
-   "slot": 5,
-   "current": "Funky Kong"
-  },
-  {
-   "fighter": "02",
-   "slot": 7,
-   "current": "Funky Kong"
-  },
-  {
-   "fighter": "11",
-   "slot": 0,
-   "current": "WuBoy"
-  },
-  {
-   "fighter": "11",
-   "slot": 1,
-   "current": "original"
-  },
-  {
-   "fighter": "11",
-   "slot": 2,
-   "current": "Dark Falcon (PR 4)"
-  },
-  {
-   "fighter": "11",
-   "slot": 3,
-   "current": "WuBoy"
-  },
-  {
-   "fighter": "11",
-   "slot": 4,
-   "current": "WuBoy"
-  },
-  {
-   "fighter": "11",
-   "slot": 5,
-   "current": "WuBoy"
-  },
-  {
-   "fighter": "11",
-   "slot": 6,
-   "current": "WuBoy"
-  },
-  {
-   "fighter": "11",
-   "slot": 7,
-   "current": "WuBoy"
-  }
- ],
+ "pending_replacement": [],
  "slots": [
   {
    "fighter": "82",
@@ -722,13 +2329,13 @@
    "fighter": "29",
    "slot": 0,
    "name": "Bulma",
-   "component": "bulma-szs",
+   "component": "bulma-szs-c00",
    "mod_id": 724190,
    "author": "pending",
    "url": "https://gamebanana.com/mods/724190",
    "version": "pending",
-   "console_test": "pendiente; la version del PR 6 se veia negra (2026-10-25)",
-   "classification": "archivo original del autor; config.json comprobado contra la lista vanilla; pendiente de prueba en consola"
+   "console_test": "pendiente (no probado en Switch)",
+   "classification": "derivado de bulma-szs (solo skin); pendiente de prueba en consola"
   },
   {
    "fighter": "63",
@@ -849,6 +2456,726 @@
    "version": "v1.3 (nombre del archivo)",
    "console_test": "pendiente (no probado en Switch)",
    "classification": "plan de slots aprobado (ssbu-skins, 2026-10-28); pendiente de prueba en consola"
+  },
+  {
+   "fighter": "74",
+   "slot": 3,
+   "name": "Tifa (segundo traje)",
+   "component": "dolly-tifa-segundo-traje-c03",
+   "mod_id": 559818,
+   "author": "pending",
+   "url": "https://gamebanana.com/mods/559818",
+   "version": "pending",
+   "console_test": "pendiente (no probado en Switch)",
+   "classification": "plan de slots (ssbu-skins, propuesta que Gian aprobo el 2026-10-29); pendiente de prueba en consola"
+  },
+  {
+   "fighter": "77",
+   "slot": 2,
+   "name": "Herobrine",
+   "component": "pickel-herobrine-c02",
+   "mod_id": 175943,
+   "author": "pending",
+   "url": "https://gamebanana.com/mods/175943",
+   "version": "pending",
+   "console_test": "pendiente (no probado en Switch)",
+   "classification": "plan de slots (ssbu-skins, propuesta que Gian aprobo el 2026-10-29); pendiente de prueba en consola"
+  },
+  {
+   "fighter": "77",
+   "slot": 5,
+   "name": "Creeper",
+   "component": "pickel-creeper-c05",
+   "mod_id": 317177,
+   "author": "pending",
+   "url": "https://gamebanana.com/mods/317177",
+   "version": "pending",
+   "console_test": "pendiente (no probado en Switch)",
+   "classification": "plan de slots (ssbu-skins, propuesta que Gian aprobo el 2026-10-29); pendiente de prueba en consola"
+  },
+  {
+   "fighter": "77",
+   "slot": 6,
+   "name": "Lego Batman",
+   "component": "pickel-lego-batman-c06",
+   "mod_id": 579591,
+   "author": "pending",
+   "url": "https://gamebanana.com/mods/579591",
+   "version": "pending",
+   "console_test": "pendiente (no probado en Switch)",
+   "classification": "plan de slots (ssbu-skins, propuesta que Gian aprobo el 2026-10-29); pendiente de prueba en consola"
+  },
+  {
+   "fighter": "77",
+   "slot": 7,
+   "name": "Chicken",
+   "component": "pickel-chicken-c07",
+   "mod_id": 306118,
+   "author": "pending",
+   "url": "https://gamebanana.com/mods/306118",
+   "version": "pending",
+   "console_test": "pendiente (no probado en Switch)",
+   "classification": "plan de slots (ssbu-skins, propuesta que Gian aprobo el 2026-10-29); pendiente de prueba en consola"
+  },
+  {
+   "fighter": "01",
+   "slot": 0,
+   "name": "Paper Mario",
+   "component": "mario-paper-mario-c00",
+   "mod_id": 464212,
+   "author": "pending",
+   "url": "https://gamebanana.com/mods/464212",
+   "version": "pending",
+   "console_test": "pendiente (no probado en Switch)",
+   "classification": "plan de slots (ssbu-skins, propuesta que Gian aprobo el 2026-10-29); pendiente de prueba en consola"
+  },
+  {
+   "fighter": "01",
+   "slot": 2,
+   "name": "Wheelchair Mario",
+   "component": "mario-wheelchair-mario-c02",
+   "mod_id": 324701,
+   "author": "pending",
+   "url": "https://gamebanana.com/mods/324701",
+   "version": "pending",
+   "console_test": "pendiente (no probado en Switch)",
+   "classification": "plan de slots (ssbu-skins, propuesta que Gian aprobo el 2026-10-29); pendiente de prueba en consola"
+  },
+  {
+   "fighter": "01",
+   "slot": 3,
+   "name": "Moogle",
+   "component": "mario-moogle-c03",
+   "mod_id": 374147,
+   "author": "pending",
+   "url": "https://gamebanana.com/mods/374147",
+   "version": "pending",
+   "console_test": "pendiente (no probado en Switch)",
+   "classification": "plan de slots (ssbu-skins, propuesta que Gian aprobo el 2026-10-29); pendiente de prueba en consola"
+  },
+  {
+   "fighter": "01",
+   "slot": 4,
+   "name": "Dry Bones",
+   "component": "mario-dry-bones-c04",
+   "mod_id": 174057,
+   "author": "pending",
+   "url": "https://gamebanana.com/mods/174057",
+   "version": "pending",
+   "console_test": "pendiente (no probado en Switch)",
+   "classification": "plan de slots (ssbu-skins, propuesta que Gian aprobo el 2026-10-29); pendiente de prueba en consola"
+  },
+  {
+   "fighter": "09",
+   "slot": 6,
+   "name": "Rayman",
+   "component": "luigi-rayman-c06",
+   "mod_id": 391570,
+   "author": "pending",
+   "url": "https://gamebanana.com/mods/391570",
+   "version": "pending",
+   "console_test": "pendiente (no probado en Switch)",
+   "classification": "plan de slots (ssbu-skins, propuesta que Gian aprobo el 2026-10-29); pendiente de prueba en consola"
+  },
+  {
+   "fighter": "14",
+   "slot": 5,
+   "name": "Kurama [Linked]",
+   "component": "koopa-kurama-linked-c05",
+   "mod_id": 386111,
+   "author": "pending",
+   "url": "https://gamebanana.com/mods/386111",
+   "version": "pending",
+   "console_test": "pendiente (no probado en Switch)",
+   "classification": "plan de slots (ssbu-skins, propuesta que Gian aprobo el 2026-10-29); pendiente de prueba en consola"
+  },
+  {
+   "fighter": "18",
+   "slot": 1,
+   "name": "Timeless River",
+   "component": "mariod-timeless-river-c01",
+   "mod_id": 384627,
+   "author": "pending",
+   "url": "https://gamebanana.com/mods/384627",
+   "version": "pending",
+   "console_test": "pendiente (no probado en Switch)",
+   "classification": "plan de slots (ssbu-skins, propuesta que Gian aprobo el 2026-10-29); pendiente de prueba en consola"
+  },
+  {
+   "fighter": "02",
+   "slot": 2,
+   "name": "Tank (Left 4 Dead)",
+   "component": "donkey-tank-left-4-dead-c02",
+   "mod_id": 383485,
+   "author": "pending",
+   "url": "https://gamebanana.com/mods/383485",
+   "version": "pending",
+   "console_test": "pendiente (no probado en Switch)",
+   "classification": "plan de slots (ssbu-skins, propuesta que Gian aprobo el 2026-10-29); pendiente de prueba en consola"
+  },
+  {
+   "fighter": "02",
+   "slot": 4,
+   "name": "Joe Swanson",
+   "component": "donkey-joe-swanson-c04",
+   "mod_id": 378405,
+   "author": "pending",
+   "url": "https://gamebanana.com/mods/378405",
+   "version": "pending",
+   "console_test": "pendiente (no probado en Switch)",
+   "classification": "plan de slots (ssbu-skins, propuesta que Gian aprobo el 2026-10-29); pendiente de prueba en consola"
+  },
+  {
+   "fighter": "02",
+   "slot": 6,
+   "name": "Omega",
+   "component": "donkey-omega-c06",
+   "mod_id": 396125,
+   "author": "pending",
+   "url": "https://gamebanana.com/mods/396125",
+   "version": "pending",
+   "console_test": "pendiente (no probado en Switch)",
+   "classification": "plan de slots (ssbu-skins, propuesta que Gian aprobo el 2026-10-29); pendiente de prueba en consola"
+  },
+  {
+   "fighter": "03",
+   "slot": 4,
+   "name": "Goblin Slayer",
+   "component": "link-goblin-slayer-c04",
+   "mod_id": 342215,
+   "author": "pending",
+   "url": "https://gamebanana.com/mods/342215",
+   "version": "pending",
+   "console_test": "pendiente (no probado en Switch)",
+   "classification": "plan de slots (ssbu-skins, propuesta que Gian aprobo el 2026-10-29); pendiente de prueba en consola"
+  },
+  {
+   "fighter": "03",
+   "slot": 5,
+   "name": "Link (Female)",
+   "component": "link-link-female-c05",
+   "mod_id": 628791,
+   "author": "pending",
+   "url": "https://gamebanana.com/mods/628791",
+   "version": "pending",
+   "console_test": "pendiente (no probado en Switch)",
+   "classification": "plan de slots (ssbu-skins, propuesta que Gian aprobo el 2026-10-29); pendiente de prueba en consola"
+  },
+  {
+   "fighter": "16",
+   "slot": 1,
+   "name": "Yuffie",
+   "component": "sheik-yuffie-c01",
+   "mod_id": 511678,
+   "author": "pending",
+   "url": "https://gamebanana.com/mods/511678",
+   "version": "pending",
+   "console_test": "pendiente (no probado en Switch)",
+   "classification": "plan de slots (ssbu-skins, propuesta que Gian aprobo el 2026-10-29); pendiente de prueba en consola"
+  },
+  {
+   "fighter": "16",
+   "slot": 4,
+   "name": "Larxene",
+   "component": "sheik-larxene-c04",
+   "mod_id": 367390,
+   "author": "pending",
+   "url": "https://gamebanana.com/mods/367390",
+   "version": "pending",
+   "console_test": "pendiente (no probado en Switch)",
+   "classification": "plan de slots (ssbu-skins, propuesta que Gian aprobo el 2026-10-29); pendiente de prueba en consola"
+  },
+  {
+   "fighter": "16",
+   "slot": 5,
+   "name": "Larxene",
+   "component": "sheik-larxene-c05",
+   "mod_id": 367390,
+   "author": "pending",
+   "url": "https://gamebanana.com/mods/367390",
+   "version": "pending",
+   "console_test": "pendiente (no probado en Switch)",
+   "classification": "plan de slots (ssbu-skins, propuesta que Gian aprobo el 2026-10-29); pendiente de prueba en consola"
+  },
+  {
+   "fighter": "17",
+   "slot": 0,
+   "name": "Aerith",
+   "component": "zelda-aerith-c00",
+   "mod_id": 535222,
+   "author": "pending",
+   "url": "https://gamebanana.com/mods/535222",
+   "version": "pending",
+   "console_test": "pendiente (no probado en Switch)",
+   "classification": "plan de slots (ssbu-skins, propuesta que Gian aprobo el 2026-10-29); pendiente de prueba en consola"
+  },
+  {
+   "fighter": "17",
+   "slot": 1,
+   "name": "Aerith",
+   "component": "zelda-aerith-c01",
+   "mod_id": 535222,
+   "author": "pending",
+   "url": "https://gamebanana.com/mods/535222",
+   "version": "pending",
+   "console_test": "pendiente (no probado en Switch)",
+   "classification": "plan de slots (ssbu-skins, propuesta que Gian aprobo el 2026-10-29); pendiente de prueba en consola"
+  },
+  {
+   "fighter": "17",
+   "slot": 2,
+   "name": "Jean Grey",
+   "component": "zelda-jean-grey-c02",
+   "mod_id": 346851,
+   "author": "pending",
+   "url": "https://gamebanana.com/mods/346851",
+   "version": "pending",
+   "console_test": "pendiente (no probado en Switch)",
+   "classification": "plan de slots (ssbu-skins, propuesta que Gian aprobo el 2026-10-29); pendiente de prueba en consola"
+  },
+  {
+   "fighter": "29",
+   "slot": 1,
+   "name": "Lucy (Cyberpunk)",
+   "component": "szerosuit-lucy-cyberpunk-c01",
+   "mod_id": 690283,
+   "author": "pending",
+   "url": "https://gamebanana.com/mods/690283",
+   "version": "pending",
+   "console_test": "pendiente (no probado en Switch)",
+   "classification": "plan de slots (ssbu-skins, propuesta que Gian aprobo el 2026-10-29); pendiente de prueba en consola"
+  },
+  {
+   "fighter": "29",
+   "slot": 2,
+   "name": "Jinx",
+   "component": "szerosuit-jinx-c02",
+   "mod_id": 397431,
+   "author": "pending",
+   "url": "https://gamebanana.com/mods/397431",
+   "version": "pending",
+   "console_test": "pendiente (no probado en Switch)",
+   "classification": "plan de slots (ssbu-skins, propuesta que Gian aprobo el 2026-10-29); pendiente de prueba en consola"
+  },
+  {
+   "fighter": "07",
+   "slot": 3,
+   "name": "Gohan",
+   "component": "fox-gohan-c03",
+   "mod_id": 450327,
+   "author": "pending",
+   "url": "https://gamebanana.com/mods/450327",
+   "version": "pending",
+   "console_test": "pendiente (no probado en Switch)",
+   "classification": "plan de slots (ssbu-skins, propuesta que Gian aprobo el 2026-10-29); pendiente de prueba en consola"
+  },
+  {
+   "fighter": "20",
+   "slot": 0,
+   "name": "N64 Falco",
+   "component": "falco-n64-falco-c00",
+   "mod_id": 174558,
+   "author": "pending",
+   "url": "https://gamebanana.com/mods/174558",
+   "version": "pending",
+   "console_test": "pendiente (no probado en Switch)",
+   "classification": "plan de slots (ssbu-skins, propuesta que Gian aprobo el 2026-10-29); pendiente de prueba en consola"
+  },
+  {
+   "fighter": "69",
+   "slot": 4,
+   "name": "Freddie Freaker",
+   "component": "gaogaen-freddie-freaker-c04",
+   "mod_id": 443660,
+   "author": "pending",
+   "url": "https://gamebanana.com/mods/443660",
+   "version": "pending",
+   "console_test": "pendiente (no probado en Switch)",
+   "classification": "plan de slots (ssbu-skins, propuesta que Gian aprobo el 2026-10-29); pendiente de prueba en consola"
+  },
+  {
+   "fighter": "11",
+   "slot": 0,
+   "name": "Buzz Lightyear",
+   "component": "captain-buzz-lightyear-c00",
+   "mod_id": 680362,
+   "author": "pending",
+   "url": "https://gamebanana.com/mods/680362",
+   "version": "pending",
+   "console_test": "pendiente (no probado en Switch)",
+   "classification": "plan de slots (ssbu-skins, propuesta que Gian aprobo el 2026-10-29); pendiente de prueba en consola"
+  },
+  {
+   "fighter": "11",
+   "slot": 1,
+   "name": "Buff Perry",
+   "component": "captain-buff-perry-c01",
+   "mod_id": 676382,
+   "author": "pending",
+   "url": "https://gamebanana.com/mods/676382",
+   "version": "pending",
+   "console_test": "pendiente (no probado en Switch)",
+   "classification": "plan de slots (ssbu-skins, propuesta que Gian aprobo el 2026-10-29); pendiente de prueba en consola"
+  },
+  {
+   "fighter": "11",
+   "slot": 3,
+   "name": "Garnet",
+   "component": "captain-garnet-c03",
+   "mod_id": 466057,
+   "author": "pending",
+   "url": "https://gamebanana.com/mods/466057",
+   "version": "pending",
+   "console_test": "pendiente (no probado en Switch)",
+   "classification": "plan de slots (ssbu-skins, propuesta que Gian aprobo el 2026-10-29); pendiente de prueba en consola"
+  },
+  {
+   "fighter": "11",
+   "slot": 4,
+   "name": "All Might",
+   "component": "captain-all-might-c04",
+   "mod_id": 692548,
+   "author": "pending",
+   "url": "https://gamebanana.com/mods/692548",
+   "version": "pending",
+   "console_test": "pendiente (no probado en Switch)",
+   "classification": "plan de slots (ssbu-skins, propuesta que Gian aprobo el 2026-10-29); pendiente de prueba en consola"
+  },
+  {
+   "fighter": "21",
+   "slot": 3,
+   "name": "Sigurd",
+   "component": "marth-sigurd-c03",
+   "mod_id": 442940,
+   "author": "pending",
+   "url": "https://gamebanana.com/mods/442940",
+   "version": "pending",
+   "console_test": "pendiente (no probado en Switch)",
+   "classification": "plan de slots (ssbu-skins, propuesta que Gian aprobo el 2026-10-29); pendiente de prueba en consola"
+  },
+  {
+   "fighter": "60",
+   "slot": 5,
+   "name": "Goku Super Saiyan",
+   "component": "ryu-goku-super-saiyan-c05",
+   "mod_id": 487736,
+   "author": "pending",
+   "url": "https://gamebanana.com/mods/487736",
+   "version": "pending",
+   "console_test": "pendiente (no probado en Switch)",
+   "classification": "plan de slots (ssbu-skins, propuesta que Gian aprobo el 2026-10-29); pendiente de prueba en consola"
+  },
+  {
+   "fighter": "63",
+   "slot": 0,
+   "name": "Morrigan",
+   "component": "bayonetta-morrigan-c00",
+   "mod_id": 501311,
+   "author": "pending",
+   "url": "https://gamebanana.com/mods/501311",
+   "version": "pending",
+   "console_test": "pendiente (no probado en Switch)",
+   "classification": "plan de slots (ssbu-skins, propuesta que Gian aprobo el 2026-10-29); pendiente de prueba en consola"
+  },
+  {
+   "fighter": "72",
+   "slot": 6,
+   "name": "Trunks (Futuro)",
+   "component": "brave-trunks-futuro-c06",
+   "mod_id": 175735,
+   "author": "pending",
+   "url": "https://gamebanana.com/mods/175735",
+   "version": "pending",
+   "console_test": "pendiente (no probado en Switch)",
+   "classification": "plan de slots (ssbu-skins, propuesta que Gian aprobo el 2026-10-29); pendiente de prueba en consola"
+  },
+  {
+   "fighter": "81",
+   "slot": 3,
+   "name": "Perfect Cell",
+   "component": "demon-perfect-cell-c03",
+   "mod_id": 303197,
+   "author": "pending",
+   "url": "https://gamebanana.com/mods/303197",
+   "version": "pending",
+   "console_test": "pendiente (no probado en Switch)",
+   "classification": "plan de slots (ssbu-skins, propuesta que Gian aprobo el 2026-10-29); pendiente de prueba en consola"
+  },
+  {
+   "fighter": "81",
+   "slot": 6,
+   "name": "Goku Ultra Instinto",
+   "component": "demon-goku-ultra-instinto-c06",
+   "mod_id": 463039,
+   "author": "pending",
+   "url": "https://gamebanana.com/mods/463039",
+   "version": "pending",
+   "console_test": "pendiente (no probado en Switch)",
+   "classification": "plan de slots (ssbu-skins, propuesta que Gian aprobo el 2026-10-29); pendiente de prueba en consola"
+  },
+  {
+   "fighter": "10",
+   "slot": 3,
+   "name": "Kid Buu",
+   "component": "ness-kid-buu-c03",
+   "mod_id": 560241,
+   "author": "pending",
+   "url": "https://gamebanana.com/mods/560241",
+   "version": "pending",
+   "console_test": "pendiente (no probado en Switch)",
+   "classification": "plan de slots (ssbu-skins, propuesta que Gian aprobo el 2026-10-29); pendiente de prueba en consola"
+  },
+  {
+   "fighter": "25ε",
+   "slot": 1,
+   "name": "Raiden",
+   "component": "chrom-raiden-c01",
+   "mod_id": 387553,
+   "author": "pending",
+   "url": "https://gamebanana.com/mods/387553",
+   "version": "pending",
+   "console_test": "pendiente (no probado en Switch)",
+   "classification": "plan de slots (ssbu-skins, propuesta que Gian aprobo el 2026-10-29); pendiente de prueba en consola"
+  },
+  {
+   "fighter": "25ε",
+   "slot": 0,
+   "name": "Squall (negro)",
+   "component": "chrom-squall-negro-c00",
+   "mod_id": 175495,
+   "author": "pending",
+   "url": "https://gamebanana.com/mods/175495",
+   "version": "pending",
+   "console_test": "pendiente (no probado en Switch)",
+   "classification": "plan de slots (ssbu-skins, propuesta que Gian aprobo el 2026-10-29); pendiente de prueba en consola"
+  },
+  {
+   "fighter": "44",
+   "slot": 1,
+   "name": "Vegeta",
+   "component": "wolf-vegeta-c01",
+   "mod_id": 421286,
+   "author": "pending",
+   "url": "https://gamebanana.com/mods/421286",
+   "version": "pending",
+   "console_test": "pendiente (no probado en Switch)",
+   "classification": "plan de slots (ssbu-skins, propuesta que Gian aprobo el 2026-10-29); pendiente de prueba en consola"
+  },
+  {
+   "fighter": "21ε",
+   "slot": 0,
+   "name": "2B (mastaklo)",
+   "component": "lucina-2b-mastaklo-c00",
+   "mod_id": 362052,
+   "author": "pending",
+   "url": "https://gamebanana.com/mods/362052",
+   "version": "pending",
+   "console_test": "pendiente (no probado en Switch)",
+   "classification": "plan de slots (ssbu-skins, propuesta que Gian aprobo el 2026-10-29); pendiente de prueba en consola"
+  },
+  {
+   "fighter": "21ε",
+   "slot": 1,
+   "name": "2B (armadura gris)",
+   "component": "lucina-2b-armadura-gris-c01-c03-c06",
+   "mod_id": 392802,
+   "author": "pending",
+   "url": "https://gamebanana.com/mods/392802",
+   "version": "pending",
+   "console_test": "pendiente (no probado en Switch)",
+   "classification": "plan de slots (ssbu-skins, propuesta que Gian aprobo el 2026-10-29); pendiente de prueba en consola"
+  },
+  {
+   "fighter": "21ε",
+   "slot": 3,
+   "name": "2B (lencería)",
+   "component": "lucina-2b-armadura-gris-c01-c03-c06",
+   "mod_id": 392802,
+   "author": "pending",
+   "url": "https://gamebanana.com/mods/392802",
+   "version": "pending",
+   "console_test": "pendiente (no probado en Switch)",
+   "classification": "plan de slots (ssbu-skins, propuesta que Gian aprobo el 2026-10-29); pendiente de prueba en consola"
+  },
+  {
+   "fighter": "21ε",
+   "slot": 6,
+   "name": "2B (traje blanco)",
+   "component": "lucina-2b-armadura-gris-c01-c03-c06",
+   "mod_id": 392802,
+   "author": "pending",
+   "url": "https://gamebanana.com/mods/392802",
+   "version": "pending",
+   "console_test": "pendiente (no probado en Switch)",
+   "classification": "plan de slots (ssbu-skins, propuesta que Gian aprobo el 2026-10-29); pendiente de prueba en consola"
+  },
+  {
+   "fighter": "54",
+   "slot": 6,
+   "name": "Aeris",
+   "component": "palutena-aeris-c06",
+   "mod_id": 581172,
+   "author": "pending",
+   "url": "https://gamebanana.com/mods/581172",
+   "version": "pending",
+   "console_test": "pendiente (no probado en Switch)",
+   "classification": "plan de slots (ssbu-skins, propuesta que Gian aprobo el 2026-10-29); pendiente de prueba en consola"
+  },
+  {
+   "fighter": "79",
+   "slot": 7,
+   "name": "A2 / 2B / 9S",
+   "component": "eflame-a2-2b-9s-c07",
+   "mod_id": 291700,
+   "author": "pending",
+   "url": "https://gamebanana.com/mods/291700",
+   "version": "pending",
+   "console_test": "pendiente (no probado en Switch)",
+   "classification": "plan de slots (ssbu-skins, propuesta que Gian aprobo el 2026-10-29); pendiente de prueba en consola"
+  },
+  {
+   "fighter": "61",
+   "slot": 0,
+   "name": "Crisis Core Cloud",
+   "component": "cloud-crisis-core-cloud-c00",
+   "mod_id": 175324,
+   "author": "pending",
+   "url": "https://gamebanana.com/mods/175324",
+   "version": "pending",
+   "console_test": "pendiente (no probado en Switch)",
+   "classification": "plan de slots (ssbu-skins, propuesta que Gian aprobo el 2026-10-29); pendiente de prueba en consola"
+  },
+  {
+   "fighter": "61",
+   "slot": 1,
+   "name": "Wheelchair Cloud",
+   "component": "cloud-wheelchair-cloud-c01",
+   "mod_id": 495263,
+   "author": "pending",
+   "url": "https://gamebanana.com/mods/495263",
+   "version": "pending",
+   "console_test": "pendiente (no probado en Switch)",
+   "classification": "plan de slots (ssbu-skins, propuesta que Gian aprobo el 2026-10-29); pendiente de prueba en consola"
+  },
+  {
+   "fighter": "61",
+   "slot": 2,
+   "name": "Zack Fair",
+   "component": "cloud-zack-fair-c02",
+   "mod_id": 175327,
+   "author": "pending",
+   "url": "https://gamebanana.com/mods/175327",
+   "version": "pending",
+   "console_test": "pendiente (no probado en Switch)",
+   "classification": "plan de slots (ssbu-skins, propuesta que Gian aprobo el 2026-10-29); pendiente de prueba en consola"
+  },
+  {
+   "fighter": "78",
+   "slot": 0,
+   "name": "Sephirot Clown",
+   "component": "edge-sephirot-clown-c00",
+   "mod_id": 503576,
+   "author": "pending",
+   "url": "https://gamebanana.com/mods/503576",
+   "version": "pending",
+   "console_test": "pendiente (no probado en Switch)",
+   "classification": "plan de slots (ssbu-skins, propuesta que Gian aprobo el 2026-10-29); pendiente de prueba en consola"
+  },
+  {
+   "fighter": "78",
+   "slot": 1,
+   "name": "Ariana Grande",
+   "component": "edge-ariana-grande-c01-c02",
+   "mod_id": 555584,
+   "author": "pending",
+   "url": "https://gamebanana.com/mods/555584",
+   "version": "pending",
+   "console_test": "pendiente (no probado en Switch)",
+   "classification": "plan de slots (ssbu-skins, propuesta que Gian aprobo el 2026-10-29); pendiente de prueba en consola"
+  },
+  {
+   "fighter": "78",
+   "slot": 2,
+   "name": "Ariana Grande",
+   "component": "edge-ariana-grande-c01-c02",
+   "mod_id": 555584,
+   "author": "pending",
+   "url": "https://gamebanana.com/mods/555584",
+   "version": "pending",
+   "console_test": "pendiente (no probado en Switch)",
+   "classification": "plan de slots (ssbu-skins, propuesta que Gian aprobo el 2026-10-29); pendiente de prueba en consola"
+  },
+  {
+   "fighter": "78",
+   "slot": 3,
+   "name": "Ultimate Sukuna",
+   "component": "edge-ultimate-sukuna-c03",
+   "mod_id": 672428,
+   "author": "pending",
+   "url": "https://gamebanana.com/mods/672428",
+   "version": "pending",
+   "console_test": "pendiente (no probado en Switch)",
+   "classification": "plan de slots (ssbu-skins, propuesta que Gian aprobo el 2026-10-29); pendiente de prueba en consola"
+  },
+  {
+   "fighter": "78",
+   "slot": 4,
+   "name": "Sandbag",
+   "component": "edge-sandbag-c04",
+   "mod_id": 487151,
+   "author": "pending",
+   "url": "https://gamebanana.com/mods/487151",
+   "version": "pending",
+   "console_test": "pendiente (no probado en Switch)",
+   "classification": "plan de slots (ssbu-skins, propuesta que Gian aprobo el 2026-10-29); pendiente de prueba en consola"
+  },
+  {
+   "fighter": "78",
+   "slot": 5,
+   "name": "Darth Luigi",
+   "component": "edge-darth-luigi-c05",
+   "mod_id": 592795,
+   "author": "pending",
+   "url": "https://gamebanana.com/mods/592795",
+   "version": "pending",
+   "console_test": "pendiente (no probado en Switch)",
+   "classification": "plan de slots (ssbu-skins, propuesta que Gian aprobo el 2026-10-29); pendiente de prueba en consola"
+  },
+  {
+   "fighter": "82",
+   "slot": 1,
+   "name": "Vanitas",
+   "component": "trail-vanitas-c01",
+   "mod_id": 334311,
+   "author": "pending",
+   "url": "https://gamebanana.com/mods/334311",
+   "version": "pending",
+   "console_test": "pendiente (no probado en Switch)",
+   "classification": "plan de slots (ssbu-skins, propuesta que Gian aprobo el 2026-10-29); pendiente de prueba en consola"
+  },
+  {
+   "fighter": "82",
+   "slot": 0,
+   "name": "Xion",
+   "component": "trail-xion-c00",
+   "mod_id": 471722,
+   "author": "pending",
+   "url": "https://gamebanana.com/mods/471722",
+   "version": "pending",
+   "console_test": "pendiente (no probado en Switch)",
+   "classification": "plan de slots (ssbu-skins, propuesta que Gian aprobo el 2026-10-29); pendiente de prueba en consola"
+  },
+  {
+   "fighter": "62",
+   "slot": 7,
+   "name": "2B Corrin",
+   "component": "kamui-2b-corrin-c07",
+   "mod_id": 174947,
+   "author": "pending",
+   "url": "https://gamebanana.com/mods/174947",
+   "version": "pending",
+   "console_test": "pendiente (no probado en Switch)",
+   "classification": "plan de slots (ssbu-skins, propuesta que Gian aprobo el 2026-10-29); pendiente de prueba en consola"
   }
  ]
 }
