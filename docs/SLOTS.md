@@ -58,10 +58,10 @@ _Regla de Gian: 1 skin por mod. Otros looks de Dry Bones, Wheelchair y Moogle qu
 
 | Slot | Hoy | Plan | Estado |
 |---|---|---|---|
-| c00 | original | Paper Mario (GB 464212) · trae motion y param: riesgo wifi | propuesto |
+| c00 | original | Paper Mario (GB 464212) · Solo la skin: se quitan sus 325 animaciones y los .prc de motion/body/c00 (cambiarían a todos los Mario); usa las de Mario con su propio esqueleto: probar en consola | propuesto |
 | c01 | perfil · Kellytoy Mario | Kellytoy Mario (GB 585456) | propuesto |
 | c02 | WuBoy | Wheelchair Mario (GB 324701) · el mod trae 2 looks (c02, c03); aquí solo uno | propuesto |
-| c03 | WuBoy | Moogle (GB 374147) · reslot desde c00 · el mod trae 3 looks; aquí solo el clásico (c00). Trae ef_mario.eff global (afecta a todos los Mario) | propuesto |
+| c03 | WuBoy | Moogle (GB 374147) · reslot desde c00 · el mod trae 3 looks; aquí solo el clásico (c00). Solo la skin: se quita ef_mario.eff (efectos de todos los Mario) | propuesto |
 | c04 | WuBoy | Dry Bones (GB 174057) · reslot desde c01 · el pack trae 8 looks; aquí solo el de c01. Trae config.json y motion (riesgo wifi) | propuesto |
 | c05 | WuBoy | original | propuesto |
 | c06 | WuBoy | original | propuesto |
@@ -162,7 +162,7 @@ _Yuffie: un solo look, en su slot original (c01)._
 | Slot | Hoy | Plan | Estado |
 |---|---|---|---|
 | c00 | WuBoy | original | propuesto |
-| c01 | original | Yuffie (GB 511678) · el mod trae un solo look (c01). Cambia las animaciones base de Sheik (motion/body/c00): afecta a todos sus trajes, riesgo wifi | propuesto |
+| c01 | original | Yuffie (GB 511678) · el mod trae un solo look (c01). Solo la skin: se quitan sus 355 animaciones de motion/body/c00 (cambiarían a todas las Sheik); usa las de Sheik con su propio esqueleto: probar en consola | propuesto |
 | c02 | WuBoy | original | propuesto |
 | c03 | WuBoy | original | propuesto |
 | c04 | original | Larxene (GB 367390) · reslot desde c00 | propuesto |
@@ -176,7 +176,7 @@ _Yuffie: un solo look, en su slot original (c01)._
 |---|---|---|---|
 | c00 | original | Aerith (GB 535222) | propuesto |
 | c01 | original | Aerith (GB 535222) | propuesto |
-| c02 | original | Jean Grey (GB 346851) · reslot desde c01 | propuesto |
+| c02 | original | Jean Grey (GB 346851) · reslot desde c01 · Solo la skin: se quita vc_narration_characallus_en (narración en inglés de todos los luchadores) | propuesto |
 | c03 | WuBoy | original | propuesto |
 | c04 | WuBoy | original | propuesto |
 | c05 | WuBoy | original | propuesto |
@@ -209,7 +209,7 @@ _Spider-Gwen fuera: viene como parches .pad con un Install.bat de Windows, no co
 | c04 | WuBoy | original | propuesto |
 | c05 | WuBoy | original | propuesto |
 | c06 | original | original | propuesto |
-| c07 | perfil · Jill Valentine | Jill Valentine (GB 637464) · reslot desde c00 · trae el tema de victoria de ZSS (global) | propuesto |
+| c07 | perfil · Jill Valentine | Jill Valentine (GB 637464) · reslot desde c00 · Solo la skin: se quitan el tema de victoria de ZSS (bgm_z24_f_zerosamus) y el archivo sobrante «se_szerosuit_c00 - Copy» | propuesto |
 
 Mods del Drive sin asignar:
 
@@ -266,7 +266,7 @@ _Pendiente: Garnet (c02) choca con Dark Falcon (perfil, PR #4, c02). Opciones: e
 | c01 | original | Buff Perry (GB 676382) | propuesto |
 | c02 | perfil · Dark Falcon | perfil · Dark Falcon (GB 386982) | propuesto |
 | c03 | WuBoy | Garnet (GB 466057) · reslot desde c02 · trae motion y config.json: riesgo wifi | propuesto |
-| c04 | WuBoy | All Might (GB 692548) · reslot desde c01 · trae el tema de victoria de Falcon (global) | propuesto |
+| c04 | WuBoy | All Might (GB 692548) · reslot desde c01 · Solo la skin: se quitan el tema de victoria de Falcon (bgm_z10_f_captain) y victory.toml (chocan con la música de WuBoy) | propuesto |
 | c05 | WuBoy | original | propuesto |
 | c06 | WuBoy | original | propuesto |
 | c07 | WuBoy «Pepsiman» | WuBoy «Pepsiman» | propuesto |
@@ -397,7 +397,7 @@ Mods del Drive sin asignar:
 | c04 | WuBoy | original | propuesto |
 | c05 | WuBoy | original | propuesto |
 | c06 | WuBoy | original | propuesto |
-| c07 | WuBoy | A2 / 2B / 9S (GB 291700) | propuesto |
+| c07 | WuBoy | A2 / 2B / 9S (GB 291700) · Solo la skin: se quita el ícono de la serie Xenoblade (ui/replace/series) | propuesto |
 
 ## 24. Mythra (80)
 
@@ -423,7 +423,7 @@ _A2/2B/9S (291700) comparte c07 con Pyra; el Drive lo tiene bajo Pyra._
 | c02 | WuBoy «Kermit» | WuBoy «Kermit» | propuesto |
 | c03 | WuBoy | original | propuesto |
 | c04 | WuBoy | original | propuesto |
-| c05 | WuBoy | Goku Super Saiyan (GB 487736) · el pack trae 3 looks (SSJ, Blue, God); solo uno, a elegir. Trae el tema de victoria de Ryu (global) | propuesto |
+| c05 | WuBoy | Goku Super Saiyan (GB 487736) · el pack trae 3 looks (SSJ, Blue, God); solo la carpeta Goku SS1. Solo la skin: se quita el tema de victoria de Ryu (bgm_z81_f_ryu) | propuesto |
 | c06 | WuBoy «Wallace» | WuBoy «Wallace» | propuesto |
 | c07 | WuBoy | original | propuesto |
 
@@ -468,9 +468,9 @@ Mods del Drive sin asignar:
 | c00 | original | Sephirot Clown (GB 503576) | propuesto |
 | c01 | WuBoy | Ariana Grande (GB 555584) | propuesto |
 | c02 | WuBoy | Ariana Grande (GB 555584) | propuesto |
-| c03 | WuBoy «Jin» | Ultimate Sukuna (GB 672428) · pack de 4 looks (c00–c03); aquí solo el de c03 | propuesto |
+| c03 | WuBoy «Jin» | Ultimate Sukuna (GB 672428) · pack de 4 looks (c00–c03); aquí solo el de c03. Solo la skin: su archivo de nombres se recorta a c03 (hoy renombra el nombre base de Sephiroth y el de Ariana) | propuesto |
 | c04 | WuBoy «Vergil» | Sandbag (GB 487151) · reslot desde c00 | propuesto |
-| c05 | WuBoy | Darth Luigi (GB 592795) · reslot desde c01 · todo el mod está en c01 (el video del Final Smash, aparte, en c00). Trae tema de victoria y narración de Sephiroth (globales, chocan con WuBoy) | propuesto |
+| c05 | WuBoy | Darth Luigi (GB 592795) · reslot desde c01 · todo el mod está en c01 (el video del Final Smash, aparte, en c00). Solo la skin: se quitan el tema de victoria (bgm_zz05_f_edge) y la narración (vc_narration_characall_edge), que chocan con WuBoy | propuesto |
 | c06 | original | original | sin decidir |
 | c07 | WuBoy | original | propuesto |
 
@@ -480,7 +480,7 @@ _Morrigan: solo el primer look (c00), por decisión de Gian. Chromatica Gaga (56
 
 | Slot | Hoy | Plan | Estado |
 |---|---|---|---|
-| c00 | original | Morrigan (GB 501311) · solo el primer look (c00, pelo verde) del set completo; comprobar ef_bayonetta.eff global | propuesto |
+| c00 | original | Morrigan (GB 501311) · solo el primer look (c00, pelo verde) del set completo. Solo la skin: se quita ef_bayonetta.eff (efectos de todas las Bayonetta; choca con WuBoy) | propuesto |
 | c01 | WuBoy «Kat» | WuBoy «Kat» | propuesto |
 | c02 | WuBoy | original | propuesto |
 | c03 | perfil · Harley Quinn | Harley Quinn (GB 360738) | propuesto |
@@ -559,7 +559,7 @@ _Xion: un solo look (c00), por decisión de Gian._
 | Slot | Hoy | Plan | Estado |
 |---|---|---|---|
 | c00 | original | Xion (GB 471722) · un solo look (c00); los 8 slots del pack se ven iguales en sus retratos | propuesto |
-| c01 | original | Vanitas (GB 334311) · trae efectos ef_trail sin slot (globales) | propuesto |
+| c01 | original | Vanitas (GB 334311) · Solo la skin: se quitan los efectos y estelas de effect/fighter/trail, en sus dos versiones (de todos los Sora) | propuesto |
 | c02 | original | original | sin decidir |
 | c03 | original | original | sin decidir |
 | c04 | perfil · Ventus (Dusk) | perfil · Ventus (Dusk) (GB 384079) | propuesto |
@@ -577,7 +577,7 @@ _Xion: un solo look (c00), por decisión de Gian._
 | c00 | original | original | sin decidir |
 | c01 | original | original | sin decidir |
 | c02 | WuBoy | original | propuesto |
-| c03 | original | Kid Buu (GB 560241) · trae el tema de victoria de Ness (global) | propuesto |
+| c03 | original | Kid Buu (GB 560241) · Solo la skin: se quita el tema de victoria de Ness (bgm_z11_f_ness) | propuesto |
 | c04 | original | original | sin decidir |
 | c05 | original | original | sin decidir |
 | c06 | WuBoy | original | propuesto |
@@ -609,7 +609,7 @@ _Squall: un solo look (c00), por decisión de Gian. Raiden en c01._
 | Slot | Hoy | Plan | Estado |
 |---|---|---|---|
 | c00 | original | Squall (negro) (GB 175495) · un solo look (c00, ropa negra); zip partido: unir part01 + part02 (MD5 691946b0…) | propuesto |
-| c01 | original | Raiden (GB 387553) · el mod trae 2 looks; solo uno. Usar el config.json de config_cc198.zip; trae un tema de victoria (global) | propuesto |
+| c01 | original | Raiden (GB 387553) · el mod trae 2 looks; solo uno. Usar el config.json de config_cc198.zip. Solo la skin: se quita el tema de victoria (bgm_z61_f_lucina) y los nombres se recortan a c01 | propuesto |
 | c02 | WuBoy | original | propuesto |
 | c03 | original | original | sin decidir |
 | c04 | original | original | sin decidir |
@@ -660,7 +660,7 @@ Mods del Drive sin asignar:
 | c04 | original | original | sin decidir |
 | c05 | WuBoy | original | propuesto |
 | c06 | original | original | sin decidir |
-| c07 | WuBoy | 2B Corrin (GB 174947) | propuesto |
+| c07 | WuBoy | 2B Corrin (GB 174947) · Solo la skin: se quitan ef_kamui.eff y las estelas de effect/fighter/kamui/trail (de todos los Corrin; chocan con WuBoy) | propuesto |
 
 ### Terry (74)
 
@@ -670,7 +670,7 @@ _Tifa: un traje (el segundo, c01) en c03, en lugar de Vegeta SSB. Gogeta y SSJ4 
 |---|---|---|---|
 | c00 | original | Gohan (sin capa) (GB 434439) · reslot desde c07 | aprobado |
 | c01 | WuBoy | Gogeta SSJ (GB 437327) | aprobado |
-| c02 | WuBoy | Vegeta SSJ (GB 609500) · necesita One Slot Effects | aprobado |
+| c02 | WuBoy | Vegeta SSJ (GB 609500) · necesita One Slot Effects. Solo la skin: su config.json y sus nombres se recortan a c02 (hoy declaran también c03, que es de Tifa) | aprobado |
 | c03 | WuBoy | Tifa (segundo traje) (GB 559818) · reslot desde c01 · reemplaza a Vegeta SSB (Vegeta queda con 1 look). Trae música (tema de victoria y 2 pistas, globales) | propuesto |
 | c04 | WuBoy «All Might» | WuBoy «All Might» | aprobado |
 | c05 | WuBoy «Jotaro» | WuBoy «Jotaro» | aprobado |
