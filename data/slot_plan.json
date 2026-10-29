@@ -145,7 +145,7 @@
      "reslot_from": null,
      "file": "terry/609500_vegeta/original/skin_terry_c02-c03_vegeta.rar",
      "approved": true,
-     "nota": "necesita One Slot Effects"
+     "nota": "necesita One Slot Effects. Solo la skin: su config.json y sus nombres se recortan a c02 (hoy declaran también c03, que es de Tifa)"
     },
     "3": {
      "state": "mod",
@@ -284,7 +284,7 @@
      "reslot_from": null,
      "file": "mario/464212_paper_mario/original/paper_mario_6442b.zip",
      "approved": false,
-     "nota": "trae motion y param: riesgo wifi"
+     "nota": "Solo la skin: se quitan sus 325 animaciones y los .prc de motion/body/c00 (cambiarían a todos los Mario); usa las de Mario con su propio esqueleto: probar en consola"
     },
     "1": {
      "state": "mod",
@@ -313,7 +313,7 @@
      "reslot_from": 0,
      "file": "mario/374147_moogle_over_mario/original/moogle_over_mario_453b1.7z",
      "approved": false,
-     "nota": "el mod trae 3 looks; aquí solo el clásico (c00). Trae ef_mario.eff global (afecta a todos los Mario)"
+     "nota": "el mod trae 3 looks; aquí solo el clásico (c00). Solo la skin: se quita ef_mario.eff (efectos de todos los Mario)"
     },
     "4": {
      "state": "mod",
@@ -719,7 +719,7 @@
      "reslot_from": null,
      "file": "sheik/511678_yuffie_kisaragi_final_fantasy_vii/original/yuffie_over_c01_sheik.rar",
      "approved": false,
-     "nota": "el mod trae un solo look (c01). Cambia las animaciones base de Sheik (motion/body/c00): afecta a todos sus trajes, riesgo wifi"
+     "nota": "el mod trae un solo look (c01). Solo la skin: se quitan sus 355 animaciones de motion/body/c00 (cambiarían a todas las Sheik); usa las de Sheik con su propio esqueleto: probar en consola"
     },
     "2": {
      "state": "vanilla",
@@ -798,7 +798,8 @@
      "source": "drive",
      "reslot_from": 1,
      "file": "zelda/346851_jean_grey_over_zelda/original/jean_grey_release_100.zip",
-     "approved": false
+     "approved": false,
+     "nota": "Solo la skin: se quita vc_narration_characallus_en (narración en inglés de todos los luchadores)"
     },
     "3": {
      "state": "vanilla",
@@ -930,7 +931,7 @@
      "reslot_from": 0,
      "file": "zero_suit_samus/637464_jill_valentine/original/zerosuitsamus_jill_c00.rar",
      "approved": false,
-     "nota": "trae el tema de victoria de ZSS (global)"
+     "nota": "Solo la skin: se quitan el tema de victoria de ZSS (bgm_z24_f_zerosamus) y el archivo sobrante «se_szerosuit_c00 - Copy»"
     }
    },
    "nota": "Spider-Gwen fuera: viene como parches .pad con un Install.bat de Windows, no como mod de ARCropolis."
@@ -1133,7 +1134,7 @@
      "reslot_from": 1,
      "file": "captain_falcon/692548_all_might_over_captain_falcon/original/all_might_over_falcon.zip",
      "approved": false,
-     "nota": "trae el tema de victoria de Falcon (global)"
+     "nota": "Solo la skin: se quitan el tema de victoria de Falcon (bgm_z10_f_captain) y victory.toml (chocan con la música de WuBoy)"
     },
     "5": {
      "state": "vanilla",
@@ -1259,7 +1260,7 @@
      "reslot_from": null,
      "file": "ryu/487736_goku_transformation_pack/original/son_goku_ss1-ssg-ssb_ryu_c05-06-07_.rar",
      "approved": false,
-     "nota": "el pack trae 3 looks (SSJ, Blue, God); solo uno, a elegir. Trae el tema de victoria de Ryu (global)"
+     "nota": "el pack trae 3 looks (SSJ, Blue, God); solo la carpeta Goku SS1. Solo la skin: se quita el tema de victoria de Ryu (bgm_z81_f_ryu)"
     },
     "6": {
      "state": "wuboy",
@@ -1354,7 +1355,7 @@
      "reslot_from": null,
      "file": "bayonetta/501311_morrigan_mvc3_design/original/morrigan_all_slots_complete_set.zip",
      "approved": false,
-     "nota": "solo el primer look (c00, pelo verde) del set completo; comprobar ef_bayonetta.eff global"
+     "nota": "solo el primer look (c00, pelo verde) del set completo. Solo la skin: se quita ef_bayonetta.eff (efectos de todas las Bayonetta; choca con WuBoy)"
     }
    },
    "nota": "Morrigan: solo el primer look (c00), por decisión de Gian. Chromatica Gaga (568039) no está lista: sus dos variantes piden 4 texturas que no vienen."
@@ -1494,7 +1495,7 @@
      "reslot_from": null,
      "file": "ness/560241_kid_buu/original/kid_buu_ness_c03_.zip",
      "approved": false,
-     "nota": "trae el tema de victoria de Ness (global)"
+     "nota": "Solo la skin: se quita el tema de victoria de Ness (bgm_z11_f_ness)"
     },
     "6": {
      "state": "vanilla",
@@ -1518,7 +1519,7 @@
      "reslot_from": null,
      "file": "chrom/387553_raiden/original/raiden_00efb.zip",
      "approved": false,
-     "nota": "el mod trae 2 looks; solo uno. Usar el config.json de config_cc198.zip; trae un tema de victoria (global)"
+     "nota": "el mod trae 2 looks; solo uno. Usar el config.json de config_cc198.zip. Solo la skin: se quita el tema de victoria (bgm_z61_f_lucina) y los nombres se recortan a c01"
     },
     "2": {
      "state": "vanilla",
@@ -1994,7 +1995,8 @@
      "source": "drive",
      "reslot_from": null,
      "file": "pyra_mythra/291700_a2_2b_9s/original/install_2b-a2-9s_final__98120.rar",
-     "approved": false
+     "approved": false,
+     "nota": "Solo la skin: se quita el ícono de la serie Xenoblade (ui/replace/series)"
     }
    }
   },
@@ -2201,7 +2203,7 @@
      "reslot_from": null,
      "file": "sephiroth/672428_ultimate_sukuna_pack/original/ryomen_sukuna_pack.rar",
      "approved": false,
-     "nota": "pack de 4 looks (c00–c03); aquí solo el de c03"
+     "nota": "pack de 4 looks (c00–c03); aquí solo el de c03. Solo la skin: su archivo de nombres se recorta a c03 (hoy renombra el nombre base de Sephiroth y el de Ariana)"
     },
     "4": {
      "state": "mod",
@@ -2220,7 +2222,7 @@
      "reslot_from": 1,
      "file": "sephiroth/592795_darth_luigi/original/darth_luigi.zip",
      "approved": false,
-     "nota": "todo el mod está en c01 (el video del Final Smash, aparte, en c00). Trae tema de victoria y narración de Sephiroth (globales, chocan con WuBoy)"
+     "nota": "todo el mod está en c01 (el video del Final Smash, aparte, en c00). Solo la skin: se quitan el tema de victoria (bgm_zz05_f_edge) y la narración (vc_narration_characall_edge), que chocan con WuBoy"
     },
     "7": {
      "state": "vanilla",
@@ -2244,7 +2246,7 @@
      "reslot_from": null,
      "file": "sora/334311_vanitas/original/sora_c01_vanitas_2406c.7z",
      "approved": false,
-     "nota": "trae efectos ef_trail sin slot (globales)"
+     "nota": "Solo la skin: se quitan los efectos y estelas de effect/fighter/trail, en sus dos versiones (de todos los Sora)"
     },
     "4": {
      "state": "mod",
@@ -2345,7 +2347,8 @@
      "source": "drive",
      "reslot_from": null,
      "file": "corrin/174947_2b_corrin_v21/original/2b_corrin_by_fake_v10.rar",
-     "approved": false
+     "approved": false,
+     "nota": "Solo la skin: se quitan ef_kamui.eff y las estelas de effect/fighter/kamui/trail (de todos los Corrin; chocan con WuBoy)"
     }
    }
   }
