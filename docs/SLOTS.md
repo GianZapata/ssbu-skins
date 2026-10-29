@@ -4,7 +4,7 @@ _Generado por `tools/slot_plan.py` a partir de `data/slot_plan.json`, `installed
 
 **41 luchadores · 30 slots aprobados · 192 propuestos · 106 sin decidir (de 328)**
 
-Orígenes de los mods del Drive: usuario 56 · búsqueda 11 · búsqueda + usuario 6 · perfil 10 · auditoría/previo 18. _usuario = lo mandó Gian por enlace; búsqueda = lo encontró el asistente en la investigación wifi-safe; perfil = skin del perfil del ModPack (ya en la SD), bajada de GameBanana para tener el original; auditoría/previo = ya estaba en el Drive (espejo de D:\) sin registro de origen._
+Orígenes de los mods del Drive: usuario 56 · búsqueda 12 · búsqueda + usuario 6 · perfil 10 · auditoría/previo 17. _usuario = lo mandó Gian por enlace; búsqueda = lo encontró el asistente en la investigación wifi-safe; perfil = skin del perfil del ModPack (ya en la SD), bajada de GameBanana para tener el original; auditoría/previo = ya estaba en el Drive (espejo de D:\) sin registro de origen._
 
 «Hoy» es lo que hay en el perfil (WuBoy, componentes del perfil o la skin original); «Plan» es la decisión, si ya existe.
 
@@ -116,12 +116,12 @@ _Bananza no se instala: al c00 le faltan 4 texturas que pide su config.json._
 |---|---|---|---|
 | c00 | original | original | propuesto |
 | c01 | perfil · Funky Kong | perfil · Funky Kong (GB 174250) · un solo Funky Kong (decisión de Gian); sus c03, c05 y c07 pasan a otras skins | aprobado |
-| c02 | perfil · Tank (Left 4 Dead) | WuBoy «A Real Gorilla» | aprobado |
-| c03 | perfil · Funky Kong | Tank (Left 4 Dead) (GB 383485) · reslot desde c02 · pasa de c02 a c03: c02 vuelve a ser A Real Gorilla de WuBoy | aprobado |
-| c04 | perfil · Joe Swanson | WuBoy «Swole Doge» | aprobado |
-| c05 | perfil · Funky Kong | Joe Swanson (GB 378405) · reslot desde c04 · pasa de c04 a c05: c04 vuelve a ser Swole Doge de WuBoy | aprobado |
-| c06 | perfil · Omega | WuBoy «Donkey Kong verde» | aprobado |
-| c07 | perfil · Funky Kong | Omega (GB 396125) · reslot desde c02 · pasa de c06 a c07: c06 vuelve a ser el DK verde de WuBoy. trae nusktb (esqueleto propio): riesgo wifi | aprobado |
+| c02 | WuBoy «A Real Gorilla» | WuBoy «A Real Gorilla» | aprobado |
+| c03 | perfil · Tank (Left 4 Dead) | Tank (Left 4 Dead) (GB 383485) · reslot desde c02 · pasa de c02 a c03: c02 vuelve a ser A Real Gorilla de WuBoy | aprobado |
+| c04 | WuBoy «Swole Doge» | WuBoy «Swole Doge» | aprobado |
+| c05 | perfil · Joe Swanson | Joe Swanson (GB 378405) · reslot desde c04 · pasa de c04 a c05: c04 vuelve a ser Swole Doge de WuBoy | aprobado |
+| c06 | WuBoy | WuBoy «Donkey Kong verde» | aprobado |
+| c07 | perfil · Omega | Omega (GB 396125) · reslot desde c02 · pasa de c06 a c07: c06 vuelve a ser el DK verde de WuBoy. trae nusktb (esqueleto propio): riesgo wifi | aprobado |
 
 Mods del Drive sin asignar:
 
@@ -170,7 +170,7 @@ _Yuffie: un solo look, en su slot original (c01)._
 | c02 | original | original | propuesto |
 | c03 | original | original | propuesto |
 | c04 | perfil · Larxene | Larxene (GB 367390) · reslot desde c00 · solo un look de Larxene (el mod trae c00 y c01): decisión de Gian | aprobado |
-| c05 | perfil · Larxene | original | aprobado |
+| c05 | original | original | aprobado |
 | c06 | original | original | sin decidir |
 | c07 | WuBoy «Ibuki» | WuBoy «Ibuki» | propuesto |
 
@@ -382,8 +382,8 @@ Mods del Drive sin asignar:
 | Slot | Hoy | Plan | Estado |
 |---|---|---|---|
 | c00 | original | original | sin decidir |
-| c01 | original | WuBoy «Little Cloud» | aprobado |
-| c02 | original | WuBoy | aprobado |
+| c01 | WuBoy | WuBoy «Little Cloud» | aprobado |
+| c02 | WuBoy | WuBoy | aprobado |
 | c03 | original | original | sin decidir |
 | c04 | original | original | sin decidir |
 | c05 | original | original | sin decidir |
@@ -472,11 +472,11 @@ Mods del Drive sin asignar:
 | c00 | perfil · Sephirot Clown | Sephirot Clown (GB 503576) | propuesto |
 | c01 | perfil · Ariana Grande | Ariana Grande (GB 555584) | propuesto |
 | c02 | perfil · Ariana Grande | Ariana Grande (GB 555584) | propuesto |
-| c03 | perfil · Ultimate Sukuna | WuBoy «Jin» | aprobado |
-| c04 | perfil · Sandbag | WuBoy «Vergil» | aprobado |
+| c03 | WuBoy «Jin» | WuBoy «Jin» | aprobado |
+| c04 | WuBoy «Vergil» | WuBoy «Vergil» | aprobado |
 | c05 | perfil · Darth Luigi | Darth Luigi (GB 592795) · reslot desde c01 · todo el mod está en c01 (el video del Final Smash, aparte, en c00). Solo la skin: se quitan el tema de victoria (bgm_zz05_f_edge) y la narración (vc_narration_characall_edge), que chocan con WuBoy | propuesto |
-| c06 | original | Ultimate Sukuna (GB 672428) · reslot desde c03 · pack de 4 looks (c00–c03); aquí solo el de c03, movido a c06 porque c03 vuelve a ser Jin de WuBoy. Solo la skin: su archivo de nombres se recorta a c03 (hoy renombra el nombre base de Sephiroth y el de Ariana) | aprobado |
-| c07 | original | Sandbag (GB 487151) · reslot desde c00 · pasa de c04 a c07: c04 vuelve a ser Vergil de WuBoy | aprobado |
+| c06 | perfil · Ultimate Sukuna | Ultimate Sukuna (GB 672428) · reslot desde c03 · pack de 4 looks (c00–c03); aquí solo el de c03, movido a c06 porque c03 vuelve a ser Jin de WuBoy. Solo la skin: su archivo de nombres se recorta a c03 (hoy renombra el nombre base de Sephiroth y el de Ariana) | aprobado |
+| c07 | perfil · Sandbag | Sandbag (GB 487151) · reslot desde c00 · pasa de c04 a c07: c04 vuelve a ser Vergil de WuBoy | aprobado |
 
 ## 29. Bayonetta (63)
 
