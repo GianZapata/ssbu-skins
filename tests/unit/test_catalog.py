@@ -104,18 +104,18 @@ class Inventario(unittest.TestCase):
         self.assertEqual(inv['meta']['profile']['name'], 'gian-prs')
         self.assertIn('77', inv['meta']['profile']['excluded_base_fighters'])
         steve = inv['fighters']['77']['slots']
-        self.assertEqual({k for k, s in steve.items() if s.get('src')}, {'0', '1', '4'}, 'Steve: solo los trajes del PR 11, nada de la base')
+        self.assertEqual({k for k, s in steve.items() if s.get('src')}, {'0', '1', '2', '4', '5', '6', '7'}, 'Steve: los trajes del PR 11 y del plan de slots, nada de la base; c03 (Villager) queda original')
         self.assertTrue(all(s.get('src') == 'perfil' for k, s in steve.items() if s.get('src')))
         self.assertEqual(inv['fighters']['11']['slots']['2']['name'], 'Dark Falcon')
-        self.assertEqual(inv['fighters']['29']['slots']['1']['name'], 'Naoto', 'Samus Zero c01: Naoto de WuBoy se conserva')
+        self.assertEqual(inv['fighters']['29']['slots']['1']['name'], 'Lucy (Cyberpunk)', 'Samus Zero c01: Lucy del plan de slots reemplaza a Naoto de WuBoy')
         self.assertEqual(inv['fighters']['63']['slots']['3']['name'], 'Harley Quinn')
         self.assertEqual({k for k, s in inv['fighters']['02']['slots'].items() if s.get('name') == 'Funky Kong'}, {'1', '3', '5', '7'}, 'Funky sigue en sus cuatro trajes hasta tener sustitutos')
         rep = {(c, k) for c, f in inv['fighters'].items() for k, s in f['slots'].items() if s.get('replace')}
-        self.assertEqual(rep, {('01', k) for k in '02356'} | {('02', k) for k in '0357'} | {('11', str(k)) for k in range(8)}, 'pendientes de reemplazar del perfil (Ganondorf ya no: el plan de slots lo aprobo entero)')
+        self.assertEqual(rep, set(), 'el plan de slots aprobado cubre todos los colores por reemplazar del perfil')
         ganon = {k: s.get('name') for k, s in inv['fighters']['23']['slots'].items() if s.get('src') == 'perfil'}
         self.assertEqual(ganon, {'0': 'Otis', '2': 'Pikadorf', '3': 'Jiren', '5': 'ExDeath', '6': 'Broly', '7': 'Pain (Naruto)'}, 'Ganondorf segun el plan aprobado')
         terry = {k: s.get('name') for k, s in inv['fighters']['74']['slots'].items() if s.get('src') == 'perfil'}
-        self.assertEqual(terry, {'0': 'Gohan (sin capa)', '1': 'Gogeta SSJ', '2': 'Vegeta SSJ', '6': 'Goku Black', '7': 'Gogeta SSJ4'}, 'Terry segun el plan aprobado (c03 Tifa sin aprobar)')
+        self.assertEqual(terry, {'0': 'Gohan (sin capa)', '1': 'Gogeta SSJ', '2': 'Vegeta SSJ', '3': 'Tifa (segundo traje)', '6': 'Goku Black', '7': 'Gogeta SSJ4'}, 'Terry segun el plan aprobado')
         self.assertEqual(inv['fighters']['11']['slots']['2']['src'], 'perfil', 'marcar por reemplazar no desinstala')
         self.assertEqual(inv['fighters']['29']['slots']['7']['name'], 'Jill Valentine')
         self.assertEqual(inv['fighters']['29']['slots']['0']['name'], 'Bulma', 'Bulma desde el archivo original del autor (con One Slot Effects)')
@@ -130,4 +130,16 @@ class Inventario(unittest.TestCase):
         self.assertNotIn('7', {k for k, s in inv['fighters']['82']['slots'].items() if s.get('src') == 'base'}, 'Sora c07 de base queda excluido por el perfil')
         self.assertIn('version', inv['meta']); self.assertEqual(inv['meta']['verification'], 'parcial')
         self.assertTrue(all('staged' not in s or not s.get('src') or True for f in inv['fighters'].values() for s in f['slots'].values()))
+    def test_todo_luchador_trae_sus_slots_con_el_original_por_defecto(self):
+        fighters, _ = cd.load(); inv = cd.load_inventory(fighters)['fighters']
+        costumes = json.load(open(os.path.join(R, 'data', 'original_costumes.json')))['costumes']
+        self.assertEqual(set(inv), set(costumes))
+        for code, trajes in costumes.items():
+            self.assertEqual(set(inv[code]['slots']), {str(n) for n in range(len(trajes))}, code)
+        vacio = inv['01']['slots']['5']
+        self.assertEqual({k: vacio[k] for k in ('name', 'img', 'skin', 'default')}, {'name': 'Original', 'img': 'assets/costumes/01-6.webp', 'skin': False, 'default': True})
+        self.assertNotIn('src', vacio, 'sin src: la web y la revisión del plan lo siguen tratando como original')
+        self.assertEqual(inv['01']['slots']['0']['src'], 'perfil'); self.assertNotIn('default', inv['01']['slots']['0'])
+        for code, f in inv.items():
+            for s in f['slots'].values(): self.assertEqual(bool(s.get('default')), not s.get('src'), code)
 if __name__ == '__main__': unittest.main()

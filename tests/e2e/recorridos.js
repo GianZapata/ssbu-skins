@@ -38,7 +38,7 @@ module.exports = async (b, base) => {
   await A.goto(base + '#/instaladas');
   await A.waitForSelector('.card__btn');
   ok(await A.getByRole('link', { name: /Ventus/ }).count() >= 1, 'Sora con Ventus aparece en instaladas');
-  ok(await A.getByRole('link', { name: /Dry Bones/ }).count() === 0, 'una skin que solo está en el catálogo no sale en instaladas');
+  ok(await A.getByRole('link', { name: /Breath of the Wild/ }).count() === 0, 'una skin que solo está en el catálogo no sale en instaladas');
 
   const before = await A.evaluate(() => planEntries().length);
   await A.goto(base + '#/luchador/01/3');
