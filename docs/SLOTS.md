@@ -2,9 +2,9 @@
 
 _Generado por `tools/slot_plan.py` a partir de `data/slot_plan.json`, `installed.json`, `inventory_profile.json` y `drive.json`; no editar a mano. Nada de esto está instalado ni probado en consola._
 
-**40 luchadores · 15 slots aprobados · 206 propuestos · 99 sin decidir (de 320)**
+**41 luchadores · 15 slots aprobados · 206 propuestos · 107 sin decidir (de 328)**
 
-Orígenes de los mods del Drive: usuario 48 · búsqueda 11 · búsqueda + usuario 6 · perfil 10 · auditoría/previo 18. _usuario = lo mandó Gian por enlace; búsqueda = lo encontró el asistente en la investigación wifi-safe; perfil = skin del perfil del ModPack (ya en la SD), bajada de GameBanana para tener el original; auditoría/previo = ya estaba en el Drive (espejo de D:\) sin registro de origen._
+Orígenes de los mods del Drive: usuario 56 · búsqueda 11 · búsqueda + usuario 6 · perfil 10 · auditoría/previo 18. _usuario = lo mandó Gian por enlace; búsqueda = lo encontró el asistente en la investigación wifi-safe; perfil = skin del perfil del ModPack (ya en la SD), bajada de GameBanana para tener el original; auditoría/previo = ya estaba en el Drive (espejo de D:\) sin registro de origen._
 
 «Hoy» es lo que hay en el perfil (WuBoy, componentes del perfil o la skin original); «Plan» es la decisión, si ya existe.
 
@@ -30,7 +30,7 @@ Orígenes de los mods del Drive: usuario 48 · búsqueda 11 · búsqueda + usuar
 | 18 | Byleth (75) | 0/8 | 8 | 0 | 0 | 0 |
 | 19 | Palutena (54) | 0/8 | 2 | 6 | 0 | 0 |
 | 20 | Snake (31) | 0/8 | 2 | 6 | 0 | 0 |
-| 21 | Isabelle (68) | 0/8 | 2 | 6 | 0 | 0 |
+| 21 | Isabelle (68) | 0/8 | 2 | 6 | 2 | 2 |
 | 22 | Wii Fit Trainer (47) | 0/8 | 1 | 7 | 0 | 0 |
 | 23 | Little Mac (49) | 0/8 | 2 | 6 | 0 | 0 |
 | 24 | Pyra (79) | 0/8 | 8 | 0 | 0 | 0 |
@@ -39,12 +39,13 @@ Orígenes de los mods del Drive: usuario 48 · búsqueda 11 · búsqueda + usuar
 | 26 | Ken (60ε) | 0/8 | 0 | 8 | 1 | 0 |
 | 27 | Cloud (61) | 0/8 | 8 | 0 | 0 | 0 |
 | 28 | Sephiroth (78) | 0/8 | 7 | 1 | 0 | 0 |
-| 29 | Bayonetta (63) | 0/8 | 7 | 1 | 0 | 0 |
+| 29 | Bayonetta (63) | 0/8 | 7 | 1 | 1 | 1 |
 | 30 | Hero (72) | 0/8 | 6 | 2 | 0 | 0 |
 | 31 | Steve (77) | 0/8 | 8 | 0 | 1 | 0 |
-| 32 | Kazuya (81) | 0/8 | 5 | 3 | 0 | 0 |
+| 32 | Kazuya (81) | 0/8 | 5 | 3 | 4 | 4 |
 | 33 | Sora (82) | 0/8 | 6 | 2 | 0 | 0 |
 | — | Ness (10) | 0/8 | 3 | 5 | 0 | 0 |
+| — | Peach (13) | 0/8 | 0 | 8 | 1 | 1 |
 | — | Chrom (25ε) | 0/8 | 5 | 3 | 0 | 0 |
 | — | Ike (32) | 0/8 | 0 | 8 | 1 | 0 |
 | — | Wolf (44) | 0/8 | 4 | 4 | 0 | 0 |
@@ -342,6 +343,13 @@ _2B alts: 3 de 7 trajes (c01 armadura gris, c03 lencería, c06 blanco), por deci
 | c06 | WuBoy | original | propuesto |
 | c07 | original | original | sin decidir |
 
+Mods del Drive sin asignar:
+
+| Mod | Nombre | Origen | Slots nativos | Wifi | Toca c00 |
+|---|---|---|---|---|---|
+| 449873 | hello_kitty | usuario | c00, c01, c02, c03, c04, c05, c06, c07 | explícita | sí |
+| 558608 | dora_the_explorer | usuario | c01 | — | no |
+
 ## 22. Wii Fit Trainer (47)
 
 | Slot | Hoy | Plan | Estado |
@@ -471,6 +479,12 @@ _Morrigan: solo el primer look (c00), por decisión de Gian._
 | c06 | original | original | sin decidir |
 | c07 | WuBoy | original | propuesto |
 
+Mods del Drive sin asignar:
+
+| Mod | Nombre | Origen | Slots nativos | Wifi | Toca c00 |
+|---|---|---|---|---|---|
+| 568039 | chromatica_gaga | usuario | c01 | — | no |
+
 ## 30. Hero (72)
 
 | Slot | Hoy | Plan | Estado |
@@ -518,6 +532,15 @@ Mods del Drive sin asignar:
 | c06 | WuBoy | Goku Ultra Instinto (GB 463039) | propuesto |
 | c07 | WuBoy | original | propuesto |
 
+Mods del Drive sin asignar:
+
+| Mod | Nombre | Origen | Slots nativos | Wifi | Toca c00 |
+|---|---|---|---|---|---|
+| 335512 | jin_kazama | usuario | c06, c07 | — | no |
+| 548626 | superboy_prime | usuario | c06 | — | no |
+| 655278 | sukuna_yuji | usuario | c02, c04, c06 | — | no |
+| 665631 | not_chuck | usuario | c02 | — | no |
+
 ## 33. Sora (82)
 
 _Xion: un solo look (c00), por decisión de Gian._
@@ -548,6 +571,25 @@ _Xion: un solo look (c00), por decisión de Gian._
 | c05 | original | original | sin decidir |
 | c06 | WuBoy | original | propuesto |
 | c07 | original | original | sin decidir |
+
+### Peach (13)
+
+| Slot | Hoy | Plan | Estado |
+|---|---|---|---|
+| c00 | original | original | sin decidir |
+| c01 | original | original | sin decidir |
+| c02 | WuBoy | WuBoy | sin decidir |
+| c03 | original | original | sin decidir |
+| c04 | WuBoy | WuBoy | sin decidir |
+| c05 | WuBoy | WuBoy | sin decidir |
+| c06 | WuBoy | WuBoy | sin decidir |
+| c07 | WuBoy | WuBoy | sin decidir |
+
+Mods del Drive sin asignar:
+
+| Mod | Nombre | Origen | Slots nativos | Wifi | Toca c00 |
+|---|---|---|---|---|---|
+| 728486 | cat_peach | usuario | c02 | — | no |
 
 ### Chrom (25ε)
 

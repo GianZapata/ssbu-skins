@@ -2,18 +2,18 @@
  "source": "Google Drive · SSBU_mods",
  "note": "Manifiesto de los mods descargados en el Drive (los binarios no se versionan). Slots leídos solo de los .zip; nada de esto está instalado ni probado en consola.",
  "counts": {
-  "mods": 93,
-  "files": 128,
-  "bytes": 2536607505,
-  "listed": 121,
+  "mods": 101,
+  "files": 143,
+  "bytes": 2739220933,
+  "listed": 136,
   "unlisted": 4,
   "other": 3,
-  "touches_c00": 44,
+  "touches_c00": 45,
   "origins": {
    "búsqueda": 11,
    "búsqueda + enlace del usuario": 6,
    "desconocido": 18,
-   "enlace del usuario": 48,
+   "enlace del usuario": 56,
    "perfil del modpack": 10
   }
  },
@@ -906,6 +906,35 @@
       "stream;/sound/bgm/bgm_z10_f_captain.nus3audio",
       "stream;/sound/bgm/bgm_z10_f_captain.nus3bank"
      ],
+     "touches_c00": false
+    }
+   ]
+  },
+  {
+   "mod_id": 728486,
+   "slug": "cat_peach",
+   "folder": "peach/728486_cat_peach",
+   "fighter_folder": "peach",
+   "code": "13",
+   "internal": "peach",
+   "kind": "skin",
+   "origin": "enlace del usuario",
+   "plugin": false,
+   "link": "URL: https://gamebanana.com/mods/728486\nNombre: Cat peach + Cat toad\nAutor: THEVISITOR4560\nLuchador: peach (Peach)\nSlots: c02 (cuerpo de Peach + Toad/kinopio c02) + UI chara_1/3/4/6\nWifi: Sin evidencia localizada — la descripción no menciona wifi/online.\nArchivo: cat_peach.zip  MD5 d2b52863b2a3896b2e1998ef6d6b6710 (verificado OK)\nContenido: solo model/body/c02, model/kinopio/c02 y ui/replace; sin config.json, sin motion/param/sound/effect; sin __MACOSX. Sin expresiones faciales (según el autor).\nOrigen: enlace del usuario\nEstado: prueba en consola pendiente",
+   "note": null,
+   "catalog": null,
+   "files": [
+    {
+     "path": "original/cat_peach.zip",
+     "kind": "original",
+     "bytes": 7363591,
+     "md5": "d2b52863b2a3896b2e1998ef6d6b6710",
+     "listed": true,
+     "slots": [
+      2
+     ],
+     "files_count": 46,
+     "non_slot": [],
      "touches_c00": false
     }
    ]
@@ -2337,6 +2366,148 @@
    ]
   },
   {
+   "mod_id": 568039,
+   "slug": "chromatica_gaga",
+   "folder": "bayonetta/568039_chromatica_gaga",
+   "fighter_folder": "bayonetta",
+   "code": "63",
+   "internal": "bayonetta",
+   "kind": "skin",
+   "origin": "enlace del usuario",
+   "plugin": false,
+   "link": "URL: https://gamebanana.com/mods/568039\nNombre: Chromatica Gaga — autor: Carino\nLuchador: Bayonetta — slot c01 (por defecto; movible renombrando carpetas y editando config.json). 2 variantes (A y B), excluyentes en el mismo slot.\nWifi: «Declaración explícita del autor sin condiciones conocidas» — cita: \"Wifi-Safe\". (Requisito aparte: \"ONLY WORKS IN ARCROPOLIS 3.0+ USES FILE ADDITION\")\nMD5: chromatica_gaga.zip 27478007b7991f08af86bc911abc4fb1 (OK)\nContenido por variante: model/body/c01 (42), motion/body/c01/swing.prc (física, el autor dice que es necesaria), UI chara_0/1/2/3/4/6, config.json, info.toml. Sin sonido/voz, sin efectos.\nConfig: cada config.json (new-dir-files) referencia 47 archivos; faltan 4 en el paquete: alp_bayonetta_004_col/nor/prm.nutexb y def_bayonetta_001_emi.nutexb (corregir en modificado/).\nConflictos: c01 = WuBoy «Kat» (plan lo conserva); Morrigan 501311 cubre c00-c07 (plan solo c00).\nOrigen: enlace del usuario\nEstado: archivo inspeccionado; prueba en consola pendiente. No instalado.",
+   "note": null,
+   "catalog": null,
+   "files": [
+    {
+     "path": "original/chromatica_gaga.zip",
+     "kind": "original",
+     "bytes": 48990184,
+     "md5": "27478007b7991f08af86bc911abc4fb1",
+     "listed": true,
+     "slots": [
+      1
+     ],
+     "files_count": 104,
+     "non_slot": [
+      "Chromatica Gaga Variant A/config.json",
+      "Chromatica Gaga Variant B/config.json"
+     ],
+     "touches_c00": false
+    }
+   ]
+  },
+  {
+   "mod_id": 449873,
+   "slug": "hello_kitty",
+   "folder": "isabelle/449873_hello_kitty",
+   "fighter_folder": "isabelle",
+   "code": "68",
+   "internal": "shizue",
+   "kind": "skin",
+   "origin": "enlace del usuario",
+   "plugin": false,
+   "link": "URL: https://gamebanana.com/mods/449873\nNombre: Hello Kitty\nAutor: kromer\nLuchador: Isabelle (shizue)\nOrigen: enlace del usuario\nWifi: «Declaración explícita del autor sin condiciones conocidas» — cita: \"Wifi Safe!\"\nVersiones:\n  hello_kitty_full_slot_d1145.zip  MD5 e315cf1b67f3dff5b9d04420d0ba502a  OK\n    c00-c07 (c00 Hello Kitty, c01 My Melody, c02 Pompompurin, c03 Cinnamoroll, c04 Kuromi, c05 Pochacco, c06 Dear Daniel, c07 Keroppi)\n    body, tomnook (Mimmy), trafficsign, umbrella; UI chara_0 solo; msg_name.xmsbt; victory theme stream:/sound/bgm/bgm_z90_f_shizue (afecta a todos).\n    config.json: 24 referencias faltantes (tomnook/c00-c07/metal_umbrella_001_{col,nor,prm}.nutexb).\n  hello_kitty_one_slot.zip  MD5 7052c4128c958629465a04ad17b43af0  OK\n    solo c02; body, tomnook, trafficsign, umbrella; UI chara_0-6; ui_chara_db.prcxml; msg_name.xmsbt. config.json sin faltantes.\nSin motion, param .prc de luchador, voz ni effect.\nprueba en consola pendiente.",
+   "note": null,
+   "catalog": [
+    {
+     "look_name": "Hello Kitty",
+     "role": "propuesta principal",
+     "proposed_destination": 6
+    }
+   ],
+   "files": [
+    {
+     "path": "original/hello_kitty_full_slot_d1145.zip",
+     "kind": "original",
+     "bytes": 18089232,
+     "md5": "e315cf1b67f3dff5b9d04420d0ba502a",
+     "listed": true,
+     "slots": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+     ],
+     "files_count": 440,
+     "non_slot": [
+      "config.json",
+      "stream;/sound/bgm/bgm_z90_f_shizue.nus3audio",
+      "stream;/sound/bgm/bgm_z90_f_shizue.nus3bank",
+      "ui/message/msg_name.xmsbt"
+     ],
+     "touches_c00": true
+    },
+    {
+     "path": "original/hello_kitty_one_slot.zip",
+     "kind": "original",
+     "bytes": 2361893,
+     "md5": "7052c4128c958629465a04ad17b43af0",
+     "listed": true,
+     "slots": [
+      2
+     ],
+     "files_count": 60,
+     "non_slot": [
+      "config.json",
+      "ui/message/msg_name.xmsbt",
+      "ui/param/database/ui_chara_db.prcxml"
+     ],
+     "touches_c00": false
+    }
+   ]
+  },
+  {
+   "mod_id": 558608,
+   "slug": "dora_the_explorer",
+   "folder": "isabelle/558608_dora_the_explorer",
+   "fighter_folder": "isabelle",
+   "code": "68",
+   "internal": "shizue",
+   "kind": "skin",
+   "origin": "enlace del usuario",
+   "plugin": false,
+   "link": "URL: https://gamebanana.com/mods/558608\nNombre: Dora the Explorer\nAutor: RedYoshiKart\nLuchador: Isabelle (shizue)\nOrigen: enlace del usuario\nWifi: «Sin evidencia localizada» — la página no menciona wifi/online.\nSlots: c01 (body, timmy, tommy, tomnook + UI chara_0/1/2/3/4/6). Sin motion, param .prc, sonido/voz ni effect.\n  El autor menciona Boots/Diego/Mapa en el final smash (vía modelos timmy/tommy/tomnook c01).\nArchivos (dos versiones, mismo slot; dorav11 es la más reciente):\n  dorav11.zip  MD5 0904e1c24f6c7945dbcfbac484f6450a  OK\n  door_a.zip   MD5 c9425c66ed739ccc5770f3f44562ca0c  OK\nconfig.json: solo new-dir-files, sin referencias faltantes.\nArchivo inspeccionado (listado). prueba en consola pendiente.",
+   "note": null,
+   "catalog": null,
+   "files": [
+    {
+     "path": "original/door_a.zip",
+     "kind": "original",
+     "bytes": 1532537,
+     "md5": "c9425c66ed739ccc5770f3f44562ca0c",
+     "listed": true,
+     "slots": [
+      1
+     ],
+     "files_count": 53,
+     "non_slot": [
+      "config.json"
+     ],
+     "touches_c00": false
+    },
+    {
+     "path": "original/dorav11.zip",
+     "kind": "original",
+     "bytes": 1324378,
+     "md5": "0904e1c24f6c7945dbcfbac484f6450a",
+     "listed": true,
+     "slots": [
+      1
+     ],
+     "files_count": 53,
+     "non_slot": [
+      "config.json"
+     ],
+     "touches_c00": false
+    }
+   ]
+  },
+  {
    "mod_id": 443660,
    "slug": "freddie_freaker_over_incineroar",
    "folder": "incineroar/443660_freddie_freaker_over_incineroar",
@@ -3291,6 +3462,36 @@
    ]
   },
   {
+   "mod_id": 335512,
+   "slug": "jin_kazama",
+   "folder": "kazuya/335512_jin_kazama",
+   "fighter_folder": "kazuya",
+   "code": "81",
+   "internal": "demon",
+   "kind": "skin",
+   "origin": "enlace del usuario",
+   "plugin": false,
+   "link": "URL: https://gamebanana.com/mods/335512\nNombre: Jin Kazama — autor: Asalazar\nLuchador: Kazuya (demon) — slots c06 y c07 (dos looks; body + demonp + UI + voz vc_demon_c06/c07 + narrador del anunciador \"demon\" global)\nWifi: «Declaración explícita del autor sin condiciones conocidas» — cita (instrucciones del autor en GameBanana): \"Tested with the latest Arcropolis, Skyline and Atmosphere releases. 100% Safe Online. Not Tested on Emulators.\" Además tag \"Wifi Safe\".\nMD5: mod_jin_27cc8.rar 4b6995a19440113bafcf491cd59f13fb (OK)\nContenido: sin config.json, sin motion/, sin .prc, sin efectos. Ojo: narración vc_narration_characall_demon reemplaza el nombre anunciado de Kazuya para TODOS los slots.\nConflictos: c06 = WuBoy + plan Goku UI (463039); c07 = WuBoy.\nOrigen: enlace del usuario\nEstado: archivo inspeccionado (listado); prueba en consola pendiente. No instalado.",
+   "note": null,
+   "catalog": null,
+   "files": [
+    {
+     "path": "original/mod_jin_27cc8.rar",
+     "kind": "original",
+     "bytes": 81972067,
+     "md5": "4b6995a19440113bafcf491cd59f13fb",
+     "listed": true,
+     "slots": [
+      6,
+      7
+     ],
+     "files_count": 158,
+     "non_slot": [],
+     "touches_c00": false
+    }
+   ]
+  },
+  {
    "mod_id": 463039,
    "slug": "goku_ultra_instinct",
    "folder": "kazuya/463039_goku_ultra_instinct",
@@ -3322,6 +3523,161 @@
      "files_count": 17,
      "non_slot": [
       "config.json"
+     ],
+     "touches_c00": false
+    }
+   ]
+  },
+  {
+   "mod_id": 548626,
+   "slug": "superboy_prime",
+   "folder": "kazuya/548626_superboy_prime",
+   "fighter_folder": "kazuya",
+   "code": "81",
+   "internal": "demon",
+   "kind": "skin",
+   "origin": "enlace del usuario",
+   "plugin": false,
+   "link": "URL: https://gamebanana.com/mods/548626\nNombre: Superboy prime over Kasuya — autor: Vexzar\nLuchador: Kazuya (demon) — slot c06 (body + demonp/final smash + UI chara_0/1/2/3/4/6)\nWifi: «Sin evidencia localizada» — la página no menciona wifi/online.\nMD5: superboy_prime.rar f3b5a023cb77ef666d7afe2f75a28972 (OK)\nContenido: sin config.json, sin motion/, sin .prc, sin sonido/voz, sin efectos. No requiere config.\nConflictos: c06 = WuBoy c06 y plan Goku Ultra Instinto (463039) c06.\nOrigen: enlace del usuario\nEstado: archivo inspeccionado (listado); prueba en consola pendiente. No instalado.",
+   "note": null,
+   "catalog": null,
+   "files": [
+    {
+     "path": "original/superboy_prime.rar",
+     "kind": "original",
+     "bytes": 15213010,
+     "md5": "f3b5a023cb77ef666d7afe2f75a28972",
+     "listed": true,
+     "slots": [
+      6
+     ],
+     "files_count": 34,
+     "non_slot": [],
+     "touches_c00": false
+    }
+   ]
+  },
+  {
+   "mod_id": 655278,
+   "slug": "sukuna_yuji",
+   "folder": "kazuya/655278_sukuna_yuji",
+   "fighter_folder": "kazuya",
+   "code": "81",
+   "internal": "demon",
+   "kind": "skin",
+   "origin": "enlace del usuario",
+   "plugin": false,
+   "link": "URL: https://gamebanana.com/mods/655278\nNombre: Sukuna & Yuji — autor: X9!\nLuchador: Kazuya (demon) — \"goes over any shirtless slot\"; vienen 6 zips: Yuji y Sukuna en c02, c04 o c06 (elegir uno por slot)\nWifi: «Sin evidencia localizada» — la página no menciona wifi/online.\nMD5:\n  yuji_c02_.zip   b3353fd3b848b80690cb6f8a0bb6923b (OK)\n  sukuna_c02_.zip a2941c474bb0980b27bd509bf8d8aba1 (OK)\n  yuji_c04_.zip   bd1fd5b08a813927d16470df5275c28a (OK)\n  sukuna_c04_.zip 7a5b86b93dead0ca371b4f533897822e (OK)\n  yuji_c06_.zip   b478fa0d881ebbcaa3a81280e625b993 (OK)\n  sukuna_c06_.zip f97d394a523438ac05077212195aad72 (OK)\nContenido: cada zip = 9 archivos body/cXX + UI chara_1/3/4. Sin demonp (final smash conserva modelo vanilla), sin config.json, sin motion/, sin .prc, sin voz, sin efectos.\nConflictos: Yuji y Sukuna son excluyentes en el mismo slot; c02 = Not Chuck 665631; c04 = WuBoy; c06 = WuBoy + plan Goku UI.\nOrigen: enlace del usuario\nEstado: archivo inspeccionado (listado); prueba en consola pendiente. No instalado.",
+   "note": null,
+   "catalog": null,
+   "files": [
+    {
+     "path": "original/sukuna_c02_.zip",
+     "kind": "original",
+     "bytes": 2679184,
+     "md5": "a2941c474bb0980b27bd509bf8d8aba1",
+     "listed": true,
+     "slots": [
+      2
+     ],
+     "files_count": 12,
+     "non_slot": [],
+     "touches_c00": false
+    },
+    {
+     "path": "original/sukuna_c04_.zip",
+     "kind": "original",
+     "bytes": 2679184,
+     "md5": "7a5b86b93dead0ca371b4f533897822e",
+     "listed": true,
+     "slots": [
+      4
+     ],
+     "files_count": 12,
+     "non_slot": [],
+     "touches_c00": false
+    },
+    {
+     "path": "original/sukuna_c06_.zip",
+     "kind": "original",
+     "bytes": 2679184,
+     "md5": "f97d394a523438ac05077212195aad72",
+     "listed": true,
+     "slots": [
+      6
+     ],
+     "files_count": 12,
+     "non_slot": [],
+     "touches_c00": false
+    },
+    {
+     "path": "original/yuji_c02_.zip",
+     "kind": "original",
+     "bytes": 4190442,
+     "md5": "b3353fd3b848b80690cb6f8a0bb6923b",
+     "listed": true,
+     "slots": [
+      2
+     ],
+     "files_count": 12,
+     "non_slot": [],
+     "touches_c00": false
+    },
+    {
+     "path": "original/yuji_c04_.zip",
+     "kind": "original",
+     "bytes": 4190442,
+     "md5": "bd1fd5b08a813927d16470df5275c28a",
+     "listed": true,
+     "slots": [
+      4
+     ],
+     "files_count": 12,
+     "non_slot": [],
+     "touches_c00": false
+    },
+    {
+     "path": "original/yuji_c06_.zip",
+     "kind": "original",
+     "bytes": 4190442,
+     "md5": "b478fa0d881ebbcaa3a81280e625b993",
+     "listed": true,
+     "slots": [
+      6
+     ],
+     "files_count": 12,
+     "non_slot": [],
+     "touches_c00": false
+    }
+   ]
+  },
+  {
+   "mod_id": 665631,
+   "slug": "not_chuck",
+   "folder": "kazuya/665631_not_chuck",
+   "fighter_folder": "kazuya",
+   "code": "81",
+   "internal": "demon",
+   "kind": "skin",
+   "origin": "enlace del usuario",
+   "plugin": false,
+   "link": "URL: https://gamebanana.com/mods/665631\nNombre: Not Chuck (Cars) — autor: ATOMICWORKS (April Fools)\nLuchador: Kazuya (demon) — slot c02 (body + demonp + UI + voz vc_demon_c02 + nombre msg_name.xmsbt + ui_chara_db.prcxml)\nWifi: «Sin evidencia localizada» — la página no menciona wifi/online.\nMD5: not_chuck_kazuya_c02.zip c2a36921418a5565dd7a86d2a44ac9fd (OK)\nContenido: sin config.json, sin motion/, sin efectos. Trae ui/param/database/ui_chara_db.prcxml (parche de nombre/anunciador) y basura de Mac (__MACOSX, .DS_Store) que conviene quitar en modificado/.\nConflictos: c02 = variantes c02 de Sukuna/Yuji 655278.\nOrigen: enlace del usuario\nEstado: archivo inspeccionado (listado); prueba en consola pendiente. No instalado.",
+   "note": null,
+   "catalog": null,
+   "files": [
+    {
+     "path": "original/not_chuck_kazuya_c02.zip",
+     "kind": "original",
+     "bytes": 5157658,
+     "md5": "c2a36921418a5565dd7a86d2a44ac9fd",
+     "listed": true,
+     "slots": [
+      2
+     ],
+     "files_count": 168,
+     "non_slot": [
+      "Not chuck Kazuya c02/ui/message/msg_name.xmsbt",
+      "Not chuck Kazuya c02/ui/param/database/ui_chara_db.prcxml"
      ],
      "touches_c00": false
     }
