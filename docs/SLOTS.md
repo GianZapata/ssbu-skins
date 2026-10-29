@@ -2,9 +2,9 @@
 
 _Generado por `tools/slot_plan.py` a partir de `data/slot_plan.json`, `installed.json`, `inventory_profile.json` y `drive.json`; no editar a mano. Nada de esto está instalado ni probado en consola._
 
-**39 luchadores · 15 slots aprobados · 206 propuestos · 91 sin decidir (de 312)**
+**40 luchadores · 15 slots aprobados · 206 propuestos · 99 sin decidir (de 320)**
 
-Orígenes de los mods del Drive: usuario 48 · búsqueda 11 · búsqueda + usuario 6 · auditoría/previo 18. _usuario = lo mandó Gian por enlace; búsqueda = lo encontró el asistente en la investigación wifi-safe; auditoría/previo = ya estaba en el Drive (espejo de D:\) sin registro de origen._
+Orígenes de los mods del Drive: usuario 48 · búsqueda 11 · búsqueda + usuario 6 · perfil 10 · auditoría/previo 18. _usuario = lo mandó Gian por enlace; búsqueda = lo encontró el asistente en la investigación wifi-safe; perfil = skin del perfil del ModPack (ya en la SD), bajada de GameBanana para tener el original; auditoría/previo = ya estaba en el Drive (espejo de D:\) sin registro de origen._
 
 «Hoy» es lo que hay en el perfil (WuBoy, componentes del perfil o la skin original); «Plan» es la decisión, si ya existe.
 
@@ -19,7 +19,7 @@ Orígenes de los mods del Drive: usuario 48 · búsqueda 11 · búsqueda + usuar
 | 7 | Link (03) | 0/8 | 6 | 2 | 0 | 0 |
 | 8 | Sheik (16) | 0/8 | 7 | 1 | 0 | 0 |
 | 9 | Zelda (17) | 0/8 | 8 | 0 | 0 | 0 |
-| 10 | Ganondorf (23) | 8/8 | 0 | 0 | 3 | 3 |
+| 10 | Ganondorf (23) | 8/8 | 0 | 0 | 0 | 0 |
 | 11 | Zero Suit Samus (29) | 0/8 | 8 | 0 | 1 | 1 |
 | 12 | Fox (07) | 0/8 | 4 | 4 | 0 | 0 |
 | 13 | Falco (20) | 0/8 | 4 | 4 | 0 | 0 |
@@ -46,6 +46,7 @@ Orígenes de los mods del Drive: usuario 48 · búsqueda 11 · búsqueda + usuar
 | 33 | Sora (82) | 0/8 | 6 | 2 | 0 | 0 |
 | — | Ness (10) | 0/8 | 3 | 5 | 0 | 0 |
 | — | Chrom (25ε) | 0/8 | 5 | 3 | 0 | 0 |
+| — | Ike (32) | 0/8 | 0 | 8 | 1 | 0 |
 | — | Wolf (44) | 0/8 | 4 | 4 | 0 | 0 |
 | — | Corrin (62) | 0/8 | 5 | 3 | 0 | 0 |
 | — | Terry (74) | 7/8 | 1 | 0 | 0 | 0 |
@@ -69,7 +70,7 @@ _Regla de Gian: 1 skin por mod. Otros looks de Dry Bones, Wheelchair y Moogle qu
 
 | Slot | Hoy | Plan | Estado |
 |---|---|---|---|
-| c00 | perfil · Swole Luigi Remastered | perfil · Swole Luigi Remastered | propuesto |
+| c00 | perfil · Swole Luigi Remastered | perfil · Swole Luigi Remastered (GB 174132) | propuesto |
 | c01 | WuBoy | original | propuesto |
 | c02 | WuBoy | original | propuesto |
 | c03 | WuBoy | original | propuesto |
@@ -177,22 +178,14 @@ _Yuffie: un solo look, en su slot original (c01)._
 
 | Slot | Hoy | Plan | Estado |
 |---|---|---|---|
-| c00 | perfil · Otis | perfil · Otis | aprobado |
+| c00 | perfil · Otis | perfil · Otis (GB 392436) | aprobado |
 | c01 | WuBoy | WuBoy | aprobado |
 | c02 | original | Pikadorf (GB 406732) · reslot desde c00 | aprobado |
-| c03 | perfil · Jiren | perfil · Jiren | aprobado |
+| c03 | perfil · Jiren | perfil · Jiren (GB 320899) | aprobado |
 | c04 | WuBoy | WuBoy | aprobado |
 | c05 | WuBoy | ExDeath (GB 174353) · solo la carpeta c05 | aprobado |
-| c06 | perfil · Broly | perfil · Broly | aprobado |
+| c06 | perfil · Broly | perfil · Broly (GB 324864) | aprobado |
 | c07 | WuBoy «Thanos» | Pain (Naruto) (GB 401033) · reslot desde c00 · reemplaza a Thanos de WuBoy, por decisión de Gian. Trae effect, motion, param y config.json: riesgo wifi | aprobado |
-
-Mods del Drive sin asignar:
-
-| Mod | Nombre | Origen | Slots nativos | Wifi | Toca c00 |
-|---|---|---|---|---|---|
-| 320899 | jiren | usuario | c07 | — | no |
-| 324864 | broly_dbs | usuario | c06 | — | no |
-| 392436 | otis_back_at_the_barnyard | usuario | c00 | — | sí |
 
 ## 11. Zero Suit Samus (29)
 
@@ -262,7 +255,7 @@ _Pendiente: Garnet (c02) choca con Dark Falcon (perfil, PR #4, c02). Opciones: e
 |---|---|---|---|
 | c00 | WuBoy | Buzz Lightyear (GB 680362) | propuesto |
 | c01 | original | Buff Perry (GB 676382) | propuesto |
-| c02 | perfil · Dark Falcon | perfil · Dark Falcon | propuesto |
+| c02 | perfil · Dark Falcon | perfil · Dark Falcon (GB 386982) | propuesto |
 | c03 | WuBoy | Garnet (GB 466057) · reslot desde c02 · trae motion y config.json: riesgo wifi | propuesto |
 | c04 | WuBoy | All Might (GB 692548) · reslot desde c01 · trae el tema de victoria de Falcon (global) | propuesto |
 | c05 | WuBoy | original | propuesto |
@@ -379,7 +372,7 @@ _2B alts: 3 de 7 trajes (c01 armadura gris, c03 lencería, c06 blanco), por deci
 
 | Slot | Hoy | Plan | Estado |
 |---|---|---|---|
-| c00 | perfil · Aqua (Dusk) | perfil · Aqua (Dusk) | propuesto |
+| c00 | perfil · Aqua (Dusk) | perfil · Aqua (Dusk) (GB 353570) | propuesto |
 | c01 | WuBoy | original | propuesto |
 | c02 | WuBoy | original | propuesto |
 | c03 | WuBoy | original | propuesto |
@@ -394,7 +387,7 @@ _A2/2B/9S (291700) comparte c07 con Pyra; el Drive lo tiene bajo Pyra._
 
 | Slot | Hoy | Plan | Estado |
 |---|---|---|---|
-| c00 | perfil · Aqua (Dusk) | perfil · Aqua (Dusk) | propuesto |
+| c00 | perfil · Aqua (Dusk) | perfil · Aqua (Dusk) (GB 353570) | propuesto |
 | c01 | WuBoy | original | propuesto |
 | c02 | WuBoy | original | propuesto |
 | c03 | WuBoy | original | propuesto |
@@ -497,11 +490,11 @@ _Pendiente: Steviroth (323894, de auditoría previa) se queda fuera por falta de
 
 | Slot | Hoy | Plan | Estado |
 |---|---|---|---|
-| c00 | perfil · Red Steve | perfil · Red Steve | propuesto |
-| c01 | perfil · White Alex | perfil · White Alex | propuesto |
+| c00 | perfil · Red Steve | perfil · Red Steve (GB 175905) | propuesto |
+| c01 | perfil · White Alex | perfil · White Alex (GB 296845) | propuesto |
 | c02 | original | Herobrine (GB 175943) · reslot desde c00 | propuesto |
 | c03 | original | Villager (Minecraft) (GB 331475) · trae nusktb y param (riesgo wifi) | propuesto |
-| c04 | perfil · Shaved Steve | perfil · Shaved Steve | propuesto |
+| c04 | perfil · Shaved Steve | perfil · Shaved Steve (GB 296834) | propuesto |
 | c05 | original | Creeper (GB 317177) | propuesto |
 | c06 | original | Lego Batman (GB 579591) · reslot desde c00 | propuesto |
 | c07 | original | Chicken (GB 306118) | propuesto |
@@ -535,10 +528,10 @@ _Xion: un solo look (c00), por decisión de Gian._
 | c01 | original | Vanitas (GB 334311) · trae efectos ef_trail sin slot (globales) | propuesto |
 | c02 | original | original | sin decidir |
 | c03 | original | original | sin decidir |
-| c04 | perfil · Ventus (Dusk) | perfil · Ventus (Dusk) | propuesto |
-| c05 | perfil · Roxas · Organización XIII | perfil · Roxas · Organización XIII | propuesto |
+| c04 | perfil · Ventus (Dusk) | perfil · Ventus (Dusk) (GB 384079) | propuesto |
+| c05 | perfil · Roxas · Organización XIII | perfil · Roxas · Organización XIII (GB 365949) | propuesto |
 | c06 | WuBoy | original | propuesto |
-| c07 | perfil · Roxas · Villa Crepúsculo | perfil · Roxas · Villa Crepúsculo | propuesto |
+| c07 | perfil · Roxas · Villa Crepúsculo | perfil · Roxas · Villa Crepúsculo (GB 365949) | propuesto |
 
 ## Otros
 
@@ -570,6 +563,25 @@ _Squall: un solo look (c00), por decisión de Gian. Raiden en c01._
 | c05 | original | original | sin decidir |
 | c06 | WuBoy | original | propuesto |
 | c07 | WuBoy | original | propuesto |
+
+### Ike (32)
+
+| Slot | Hoy | Plan | Estado |
+|---|---|---|---|
+| c00 | perfil · Terra | perfil · Terra | sin decidir |
+| c01 | WuBoy «Travis» | WuBoy «Travis» | sin decidir |
+| c02 | perfil · Terranort | perfil · Terranort | sin decidir |
+| c03 | WuBoy | WuBoy | sin decidir |
+| c04 | WuBoy | WuBoy | sin decidir |
+| c05 | WuBoy | WuBoy | sin decidir |
+| c06 | WuBoy | WuBoy | sin decidir |
+| c07 | WuBoy | WuBoy | sin decidir |
+
+Mods del Drive sin asignar:
+
+| Mod | Nombre | Origen | Slots nativos | Wifi | Toca c00 |
+|---|---|---|---|---|---|
+| 381503 | terra_over_ike | perfil | c00, c02 | explícita | sí |
 
 ### Wolf (44)
 

@@ -91,7 +91,7 @@ class Drive(unittest.TestCase):
         self.assertNotIn('ORIGENES', r.stderr)
 
     def test_origen_kind_y_avisos(self):
-        for d in ('_ui/431072_banner/original', '_plugins/549058_ose/original'):
+        for d in ('_ui/431072_banner/original', '_plugins/549058_ose/original', '_musica/63158_kh/original'):
             os.makedirs(os.path.join(self.root, d)); write_zip(os.path.join(self.root, d, 'a.zip'), ['x/ui/a.bntx'])
         open(os.path.join(self.root, 'ORIGENES.md'), 'w', encoding='utf-8-sig').write(
             '# ORIGENES\n\n| modid | nombre | fighter | origen | wifi | Drive |\n|---|---|---|---|---|---|\n'
@@ -99,17 +99,20 @@ class Drive(unittest.TestCase):
             '| 609500 | Vegeta | terry | enlace del usuario | — | [carpeta](x) |\n'
             '| 431072 | Banner | _ui | enlace del usuario | Declaración explícita | [carpeta](x) |\n'
             '| 549058 | One Slot Effects | _plugins | desconocido | — | [carpeta](x) |\n'
+            '| 63158 | Música KH | _musica | perfil del modpack | — | [carpeta](x) |\n'
             '| 999 | fantasma | mario | desconocido | — | [carpeta](x) |\n')
         r = scan(self.root, self.out); self.assertEqual(r.returncode, 0, r.stderr)
         d = self.load()
         self.assertEqual({m['folder']: m['origin'] for m in d['mods']}, {
             'falco/174558_falco_n64': 'búsqueda', 'terry/609500_vegeta': 'enlace del usuario', 'chrom/175495_squall': None, 'luchador_raro/1_algo': None,
-            '_ui/431072_banner': 'enlace del usuario', '_plugins/549058_ose': 'desconocido'})
-        self.assertEqual(d['counts']['origins'], {'búsqueda': 1, 'enlace del usuario': 2, 'desconocido': 1, 'sin registro': 2})
-        ui, plug = self.mod(d, '_ui/431072_banner'), self.mod(d, '_plugins/549058_ose')
+            '_ui/431072_banner': 'enlace del usuario', '_plugins/549058_ose': 'desconocido', '_musica/63158_kh': 'perfil del modpack'})
+        self.assertEqual(d['counts']['origins'], {'búsqueda': 1, 'enlace del usuario': 2, 'desconocido': 1, 'perfil del modpack': 1, 'sin registro': 2})
+        ui, plug, music = self.mod(d, '_ui/431072_banner'), self.mod(d, '_plugins/549058_ose'), self.mod(d, '_musica/63158_kh')
         self.assertEqual((ui['kind'], ui['code'], ui['plugin']), ('ui', None, False)); self.assertEqual((plug['kind'], plug['plugin']), ('plugin', True))
+        self.assertEqual((music['kind'], music['code'], music['plugin']), ('music', None, False))
         self.assertEqual(self.mod(d, 'falco/174558_falco_n64')['kind'], 'skin')
         self.assertNotIn('carpeta de luchador desconocida: _ui', r.stderr)            # _ui no es un luchador
+        self.assertNotIn('carpeta de luchador desconocida: _musica', r.stderr)        # _musica tampoco
         self.assertIn('el mod 175495 (chrom/175495_squall) no tiene fila en ORIGENES.md', r.stderr)
         self.assertIn('ORIGENES.md lista el mod 999 (mario) y no está en el Drive', r.stderr)
 
