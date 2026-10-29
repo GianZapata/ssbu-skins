@@ -22,8 +22,8 @@ Inventario de lo instalado: `python3 tools/scan_installed.py <ruta del ModPack>`
 
 ## Base de datos y amigos (Firebase)
 
-La página tiene tres secciones —**Luchadores**, **Catálogo** y **Cambios**— y un único plan compartido. En un luchador se elige uno de los ocho trajes, se compara la apariencia del inventario con una propuesta y se agrega al plan (sesión anónima automática, historial y «Deshacer»). Guardar una propuesta no la instala en la consola. El inventario y el estado de instalación no se pueden editar desde la web. Configuración y reglas: `docs/FIREBASE.md`; lectura del plan para instalar: `python3 tools/db.py plan` (contrato en `docs/SELECTION_CONTRACT.md`).
+La página tiene tres secciones —**Luchadores**, **Catálogo** y **Cambios**. La orden es el plan de slots; `python3 tools/db.py plan` la imprime; las propuestas viven en `changes` y no instalan. En un luchador se elige uno de los ocho trajes, se compara la apariencia del inventario con una propuesta y se agrega al plan (sesión anónima automática, historial y «Deshacer»). Guardar una propuesta no la instala en la consola. El inventario y el estado de instalación no se pueden editar desde la web. Configuración y reglas: `docs/FIREBASE.md` (contrato en `docs/SELECTION_CONTRACT.md`).
 
-Antes de instalar: `python3 tools/review_plan.py` (o la Action *Revisar plan*) analiza el plan compartido y avisa de inconsistencias sin instalar nada; ver `docs/SELECTION_CONTRACT.md`.
+Antes de instalar: `python3 tools/review_plan.py` (o la Action *Revisar plan*) revisa la orden de Git y avisa de inconsistencias sin instalar nada; ver `docs/SELECTION_CONTRACT.md`.
 
 Configurar o comprobar Firebase (acceso anónimo, dominio de Vercel, reglas): `python3 tools/firebase_setup.py check|apply` o la Action *Configurar Firebase*; ver `docs/FIREBASE.md`.
