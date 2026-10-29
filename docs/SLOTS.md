@@ -14,7 +14,7 @@ Orígenes de los mods del Drive: usuario 56 · búsqueda 11 · búsqueda + usuar
 | 2 | Luigi (09) | 0/8 | 8 | 0 | 0 | 0 |
 | 3 | Bowser (14) | 0/8 | 7 | 1 | 0 | 0 |
 | 4 | Dr. Mario (18) | 0/8 | 4 | 4 | 0 | 0 |
-| 5 | Donkey Kong (02) | 0/8 | 8 | 0 | 0 | 0 |
+| 5 | Donkey Kong (02) | 0/8 | 8 | 0 | 1 | 1 |
 | 6 | Diddy Kong (36) | 0/8 | 3 | 5 | 0 | 0 |
 | 7 | Link (03) | 0/8 | 6 | 2 | 0 | 0 |
 | 8 | Sheik (16) | 0/8 | 7 | 1 | 0 | 0 |
@@ -41,7 +41,7 @@ Orígenes de los mods del Drive: usuario 56 · búsqueda 11 · búsqueda + usuar
 | 28 | Sephiroth (78) | 0/8 | 7 | 1 | 0 | 0 |
 | 29 | Bayonetta (63) | 0/8 | 7 | 1 | 1 | 1 |
 | 30 | Hero (72) | 0/8 | 6 | 2 | 0 | 0 |
-| 31 | Steve (77) | 0/8 | 8 | 0 | 1 | 0 |
+| 31 | Steve (77) | 0/8 | 8 | 0 | 2 | 1 |
 | 32 | Kazuya (81) | 0/8 | 5 | 3 | 4 | 4 |
 | 33 | Sora (82) | 0/8 | 6 | 2 | 0 | 0 |
 | — | Ness (10) | 0/8 | 3 | 5 | 0 | 0 |
@@ -110,9 +110,11 @@ _El mod trae 2 looks (Kurama y Susano'o); solo Kurama. Dry Bowser y Dark Bowser 
 
 ## 5. Donkey Kong (02)
 
+_Bananza no se instala: al c00 le faltan 4 texturas que pide su config.json._
+
 | Slot | Hoy | Plan | Estado |
 |---|---|---|---|
-| c00 | original | DK Bananza (GB 595992) · el pack trae 3 looks (c00–c02); aquí solo el de c00 | propuesto |
+| c00 | original | original | propuesto |
 | c01 | perfil · Funky Kong | SSJ4 Donkey Kong (GB 579593) | propuesto |
 | c02 | WuBoy «A Real Gorilla» | Tank (Left 4 Dead) (GB 383485) · reemplaza a «A Real Gorilla» de WuBoy | propuesto |
 | c03 | perfil · Funky Kong | Pirate Funky Kong (GB 357706) | propuesto |
@@ -120,6 +122,12 @@ _El mod trae 2 looks (Kurama y Susano'o); solo Kurama. Dry Bowser y Dark Bowser 
 | c05 | perfil · Funky Kong | Donkey Kong 64 (GB 326115) | propuesto |
 | c06 | WuBoy | Omega (GB 396125) · reslot desde c02 · trae nusktb (esqueleto propio): riesgo wifi | propuesto |
 | c07 | perfil · Funky Kong | Venom (GB 174249) | propuesto |
+
+Mods del Drive sin asignar:
+
+| Mod | Nombre | Origen | Slots nativos | Wifi | Toca c00 |
+|---|---|---|---|---|---|
+| 595992 | donkey_kong_bananza_smash_ultimate_style | usuario | c00, c01, c02 | explícita | sí |
 
 ## 6. Diddy Kong (36)
 
@@ -332,6 +340,8 @@ _2B alts: 3 de 7 trajes (c01 armadura gris, c03 lencería, c06 blanco), por deci
 
 ## 21. Isabelle (68)
 
+_Hello Kitty (449873): usar solo la versión de un slot (c02); la de 8 slots pide 24 archivos que no vienen._
+
 | Slot | Hoy | Plan | Estado |
 |---|---|---|---|
 | c00 | original | original | sin decidir |
@@ -466,7 +476,7 @@ Mods del Drive sin asignar:
 
 ## 29. Bayonetta (63)
 
-_Morrigan: solo el primer look (c00), por decisión de Gian._
+_Morrigan: solo el primer look (c00), por decisión de Gian. Chromatica Gaga (568039) no está lista: sus dos variantes piden 4 texturas que no vienen._
 
 | Slot | Hoy | Plan | Estado |
 |---|---|---|---|
@@ -500,14 +510,14 @@ Mods del Drive sin asignar:
 
 ## 31. Steve (77)
 
-_Pendiente: Steviroth (323894, de auditoría previa) se queda fuera por falta de slot; Lego Batman trae 2 looks (c00, c01) y aquí va solo uno._
+_Pendiente: Steviroth (323894, de auditoría previa) se queda fuera por falta de slot; Lego Batman trae 2 looks (c00, c01) y aquí va solo uno. Villager (Minecraft) no se instala: reemplaza completos los datos y nombres de todos los luchadores._
 
 | Slot | Hoy | Plan | Estado |
 |---|---|---|---|
 | c00 | perfil · Red Steve | perfil · Red Steve (GB 175905) | propuesto |
 | c01 | perfil · White Alex | perfil · White Alex (GB 296845) | propuesto |
 | c02 | original | Herobrine (GB 175943) · reslot desde c00 | propuesto |
-| c03 | original | Villager (Minecraft) (GB 331475) · trae nusktb y param (riesgo wifi) | propuesto |
+| c03 | original | original | propuesto |
 | c04 | perfil · Shaved Steve | perfil · Shaved Steve (GB 296834) | propuesto |
 | c05 | original | Creeper (GB 317177) | propuesto |
 | c06 | original | Lego Batman (GB 579591) · reslot desde c00 | propuesto |
@@ -517,6 +527,7 @@ Mods del Drive sin asignar:
 
 | Mod | Nombre | Origen | Slots nativos | Wifi | Toca c00 |
 |---|---|---|---|---|---|
+| 331475 | villager_from_minecraft | usuario | c03 | — | no |
 | 323894 | steviroth | auditoría/previo | c00 | explícita | sí |
 
 ## 32. Kazuya (81)

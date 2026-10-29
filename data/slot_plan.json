@@ -226,14 +226,14 @@
      "approved": false
     },
     "3": {
-     "state": "mod",
-     "name": "Villager (Minecraft)",
-     "mod_id": 331475,
-     "source": "drive",
+     "state": "vanilla",
+     "name": "Original",
+     "mod_id": null,
+     "source": "vanilla",
      "reslot_from": null,
-     "file": "steve/331475_villager_from_minecraft/original/minecraftvillager_e9cb5.zip",
+     "file": null,
      "approved": false,
-     "nota": "trae nusktb y param (riesgo wifi)"
+     "nota": "se quita la skin de WuBoy. Villager (Minecraft) fuera: trae ui_chara_db.prc y msg_name.msbt completos, no como parche"
     },
     "4": {
      "state": "mod",
@@ -272,7 +272,7 @@
      "approved": false
     }
    },
-   "nota": "Pendiente: Steviroth (323894, de auditoría previa) se queda fuera por falta de slot; Lego Batman trae 2 looks (c00, c01) y aquí va solo uno."
+   "nota": "Pendiente: Steviroth (323894, de auditoría previa) se queda fuera por falta de slot; Lego Batman trae 2 looks (c00, c01) y aquí va solo uno. Villager (Minecraft) no se instala: reemplaza completos los datos y nombres de todos los luchadores."
   },
   "01": {
    "slots": {
@@ -559,14 +559,14 @@
   "02": {
    "slots": {
     "0": {
-     "state": "mod",
-     "name": "DK Bananza",
-     "mod_id": 595992,
-     "source": "drive",
+     "state": "vanilla",
+     "name": "Original",
+     "mod_id": null,
+     "source": "vanilla",
      "reslot_from": null,
-     "file": "dk/595992_donkey_kong_bananza_smash_ultimate_style/original/dkbananza_smashstyle.rar",
+     "file": null,
      "approved": false,
-     "nota": "el pack trae 3 looks (c00–c02); aquí solo el de c00"
+     "nota": "DK Bananza fuera: su config.json pide 4 texturas propias (def_bananza_005/006) que no vienen en c00"
     },
     "1": {
      "state": "mod",
@@ -634,7 +634,8 @@
      "file": "dk/174249_venom/original/donkey-c07-venom.rar",
      "approved": false
     }
-   }
+   },
+   "nota": "Bananza no se instala: al c00 le faltan 4 texturas que pide su config.json."
   },
   "03": {
    "slots": {
@@ -1356,7 +1357,7 @@
      "nota": "solo el primer look (c00, pelo verde) del set completo; comprobar ef_bayonetta.eff global"
     }
    },
-   "nota": "Morrigan: solo el primer look (c00), por decisión de Gian."
+   "nota": "Morrigan: solo el primer look (c00), por decisión de Gian. Chromatica Gaga (568039) no está lista: sus dos variantes piden 4 texturas que no vienen."
   },
   "72": {
    "slots": {
@@ -1874,7 +1875,8 @@
      "approved": false,
      "nota": "se quita la skin de WuBoy"
     }
-   }
+   },
+   "nota": "Hello Kitty (449873): usar solo la versión de un slot (c02); la de 8 slots pide 24 archivos que no vienen."
   },
   "47": {
    "slots": {
