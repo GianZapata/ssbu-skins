@@ -570,69 +570,73 @@
     },
     "1": {
      "state": "mod",
-     "name": "SSJ4 Donkey Kong",
-     "mod_id": 579593,
-     "source": "drive",
+     "name": "Funky Kong",
+     "mod_id": 174250,
+     "source": "profile",
      "reslot_from": null,
-     "file": "dk/579593_ssj4_donkey_kong/original/ssj4_donkey_kong.zip",
-     "approved": false
+     "file": null,
+     "approved": true,
+     "nota": "un solo Funky Kong (decisión de Gian); sus c03, c05 y c07 pasan a otras skins"
     },
     "2": {
+     "state": "wuboy",
+     "name": "A Real Gorilla",
+     "mod_id": null,
+     "source": "wuboy",
+     "reslot_from": null,
+     "file": null,
+     "approved": true,
+     "nota": "vuelve la de WuBoy (decisión de Gian)"
+    },
+    "3": {
      "state": "mod",
      "name": "Tank (Left 4 Dead)",
      "mod_id": 383485,
      "source": "drive",
-     "reslot_from": null,
+     "reslot_from": 2,
      "file": "dk/383485_tank_left_4_dead/original/tank_left_4_dead_.zip",
-     "approved": false,
-     "nota": "reemplaza a «A Real Gorilla» de WuBoy"
-    },
-    "3": {
-     "state": "mod",
-     "name": "Pirate Funky Kong",
-     "mod_id": 357706,
-     "source": "drive",
-     "reslot_from": null,
-     "file": "dk/357706_pirate_funky_kong/original/pirate_funky_kong.zip",
-     "approved": false
+     "approved": true,
+     "nota": "pasa de c02 a c03: c02 vuelve a ser A Real Gorilla de WuBoy"
     },
     "4": {
+     "state": "wuboy",
+     "name": "Swole Doge",
+     "mod_id": null,
+     "source": "wuboy",
+     "reslot_from": null,
+     "file": null,
+     "approved": true,
+     "nota": "vuelve la de WuBoy (decisión de Gian)"
+    },
+    "5": {
      "state": "mod",
      "name": "Joe Swanson",
      "mod_id": 378405,
      "source": "drive",
-     "reslot_from": null,
+     "reslot_from": 4,
      "file": "dk/378405_joe_swanson/original/joe_swanson_c04__2e44a.zip",
-     "approved": false,
-     "nota": "reemplaza a «Swole Doge» de WuBoy"
-    },
-    "5": {
-     "state": "mod",
-     "name": "Donkey Kong 64",
-     "mod_id": 326115,
-     "source": "drive",
-     "reslot_from": null,
-     "file": "dk/326115_donkey_kong_donkey_kong_64/original/donkey_kong_donkey_kong_64_.zip",
-     "approved": false
+     "approved": true,
+     "nota": "pasa de c04 a c05: c04 vuelve a ser Swole Doge de WuBoy"
     },
     "6": {
+     "state": "wuboy",
+     "name": "Donkey Kong verde",
+     "mod_id": null,
+     "source": "wuboy",
+     "reslot_from": null,
+     "file": null,
+     "approved": true,
+     "nota": "vuelve la de WuBoy (decisión de Gian)"
+    },
+    "7": {
      "state": "mod",
      "name": "Omega",
      "mod_id": 396125,
      "source": "drive",
      "reslot_from": 2,
      "file": "dk/396125_omega/original/omega_f73c5.rar",
-     "approved": false,
-     "nota": "trae nusktb (esqueleto propio): riesgo wifi"
-    },
-    "7": {
-     "state": "mod",
-     "name": "Venom",
-     "mod_id": 174249,
-     "source": "drive",
-     "reslot_from": null,
-     "file": "dk/174249_venom/original/donkey-c07-venom.rar",
-     "approved": false
+     "approved": true,
+     "nota": "pasa de c06 a c07: c06 vuelve a ser el DK verde de WuBoy. trae nusktb (esqueleto propio): riesgo wifi"
     }
    },
    "nota": "Bananza no se instala: al c00 le faltan 4 texturas que pide su config.json."
@@ -748,16 +752,18 @@
      "source": "drive",
      "reslot_from": 0,
      "file": "sheik/367390_larxene_over_sheik/original/larxene_over_sheik.7z",
-     "approved": false
+     "approved": true,
+     "nota": "solo un look de Larxene (el mod trae c00 y c01): decisión de Gian"
     },
     "5": {
-     "state": "mod",
-     "name": "Larxene",
-     "mod_id": 367390,
-     "source": "drive",
-     "reslot_from": 1,
-     "file": "sheik/367390_larxene_over_sheik/original/larxene_over_sheik.7z",
-     "approved": false
+     "state": "vanilla",
+     "name": "Original",
+     "mod_id": null,
+     "source": "vanilla",
+     "reslot_from": null,
+     "file": null,
+     "approved": true,
+     "nota": "se quita el segundo look de Larxene: se repetía"
     },
     "7": {
      "state": "wuboy",
@@ -1896,24 +1902,24 @@
   "49": {
    "slots": {
     "1": {
-     "state": "vanilla",
-     "name": "Original",
+     "state": "wuboy",
+     "name": "Little Cloud",
      "mod_id": null,
-     "source": "vanilla",
+     "source": "wuboy",
      "reslot_from": null,
      "file": null,
-     "approved": false,
-     "nota": "se quita la skin de WuBoy"
+     "approved": true,
+     "nota": "vuelve la de WuBoy (decisión de Gian)"
     },
     "2": {
-     "state": "vanilla",
-     "name": "Original",
+     "state": "wuboy",
+     "name": "WuBoy",
      "mod_id": null,
-     "source": "vanilla",
+     "source": "wuboy",
      "reslot_from": null,
      "file": null,
-     "approved": false,
-     "nota": "se quita la skin de WuBoy"
+     "approved": true,
+     "nota": "vuelve la de WuBoy (decisión de Gian)"
     }
    }
   },
@@ -2196,23 +2202,24 @@
      "approved": false
     },
     "3": {
-     "state": "mod",
-     "name": "Ultimate Sukuna",
-     "mod_id": 672428,
-     "source": "drive",
+     "state": "wuboy",
+     "name": "Jin",
+     "mod_id": null,
+     "source": "wuboy",
      "reslot_from": null,
-     "file": "sephiroth/672428_ultimate_sukuna_pack/original/ryomen_sukuna_pack.rar",
-     "approved": false,
-     "nota": "pack de 4 looks (c00–c03); aquí solo el de c03. Solo la skin: su archivo de nombres se recorta a c03 (hoy renombra el nombre base de Sephiroth y el de Ariana)"
+     "file": null,
+     "approved": true,
+     "nota": "vuelve la de WuBoy (decisión de Gian)"
     },
     "4": {
-     "state": "mod",
-     "name": "Sandbag",
-     "mod_id": 487151,
-     "source": "drive",
-     "reslot_from": 0,
-     "file": "sephiroth/487151_sandbag_over_sephiroth/original/sandbag_over_sephiroth_emerald20xx_.zip",
-     "approved": false
+     "state": "wuboy",
+     "name": "Vergil",
+     "mod_id": null,
+     "source": "wuboy",
+     "reslot_from": null,
+     "file": null,
+     "approved": true,
+     "nota": "vuelve la de WuBoy (decisión de Gian)"
     },
     "5": {
      "state": "mod",
@@ -2224,15 +2231,25 @@
      "approved": false,
      "nota": "todo el mod está en c01 (el video del Final Smash, aparte, en c00). Solo la skin: se quitan el tema de victoria (bgm_zz05_f_edge) y la narración (vc_narration_characall_edge), que chocan con WuBoy"
     },
+    "6": {
+     "state": "mod",
+     "name": "Ultimate Sukuna",
+     "mod_id": 672428,
+     "source": "drive",
+     "reslot_from": 3,
+     "file": "sephiroth/672428_ultimate_sukuna_pack/original/ryomen_sukuna_pack.rar",
+     "approved": true,
+     "nota": "pack de 4 looks (c00–c03); aquí solo el de c03, movido a c06 porque c03 vuelve a ser Jin de WuBoy. Solo la skin: su archivo de nombres se recorta a c03 (hoy renombra el nombre base de Sephiroth y el de Ariana)"
+    },
     "7": {
-     "state": "vanilla",
-     "name": "Original",
-     "mod_id": null,
-     "source": "vanilla",
-     "reslot_from": null,
-     "file": null,
-     "approved": false,
-     "nota": "se quita la skin de WuBoy"
+     "state": "mod",
+     "name": "Sandbag",
+     "mod_id": 487151,
+     "source": "drive",
+     "reslot_from": 0,
+     "file": "sephiroth/487151_sandbag_over_sephiroth/original/sandbag_over_sephiroth_emerald20xx_.zip",
+     "approved": true,
+     "nota": "pasa de c04 a c07: c04 vuelve a ser Vergil de WuBoy"
     }
    }
   },
