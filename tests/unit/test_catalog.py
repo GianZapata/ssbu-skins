@@ -109,7 +109,10 @@ class Inventario(unittest.TestCase):
         self.assertEqual(inv['fighters']['11']['slots']['2']['name'], 'Dark Falcon')
         self.assertEqual(inv['fighters']['29']['slots']['1']['name'], 'Lucy (Cyberpunk)', 'Samus Zero c01: Lucy del plan de slots reemplaza a Naoto de WuBoy')
         self.assertEqual(inv['fighters']['63']['slots']['3']['name'], 'Harley Quinn')
-        self.assertEqual({k for k, s in inv['fighters']['02']['slots'].items() if s.get('name') == 'Funky Kong'}, {'1', '3', '5', '7'}, 'Funky sigue en sus cuatro trajes hasta tener sustitutos')
+        self.assertEqual({k for k, s in inv['fighters']['02']['slots'].items() if s.get('name') == 'Funky Kong'}, {'1'}, 'un solo Funky Kong (c01)')
+        self.assertEqual({k: inv['fighters']['02']['slots'][k].get('name') for k in '2347'}, {'2': 'A Real Gorilla', '3': 'Tank (Left 4 Dead)', '4': 'Swole Doge', '7': 'Omega'}, 'DK: vuelven Gorilla y Doge de WuBoy; Tank y Omega cambian de slot')
+        self.assertEqual({k: inv['fighters']['78']['slots'][k].get('name') for k in '3467'}, {'3': 'Jin', '4': 'Vergil', '6': 'Ultimate Sukuna', '7': 'Sandbag'}, 'Sefirot: vuelven Jin y Vergil de WuBoy')
+        self.assertEqual({k for k, s in inv['fighters']['16']['slots'].items() if s.get('name') == 'Larxene'}, {'4'}, 'un solo Larxene')
         rep = {(c, k) for c, f in inv['fighters'].items() for k, s in f['slots'].items() if s.get('replace')}
         self.assertEqual(rep, set(), 'el plan de slots aprobado cubre todos los colores por reemplazar del perfil')
         ganon = {k: s.get('name') for k, s in inv['fighters']['23']['slots'].items() if s.get('src') == 'perfil'}
