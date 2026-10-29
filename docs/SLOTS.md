@@ -2,7 +2,7 @@
 
 _Generado por `tools/slot_plan.py` a partir de `data/slot_plan.json`, `installed.json`, `inventory_profile.json` y `drive.json`; no editar a mano. Nada de esto está instalado ni probado en consola._
 
-**41 luchadores · 28 slots aprobados · 194 propuestos · 106 sin decidir (de 328)**
+**41 luchadores · 32 slots aprobados · 190 propuestos · 106 sin decidir (de 328)**
 
 Orígenes de los mods del Drive: usuario 56 · búsqueda 11 · búsqueda + usuario 6 · perfil 10 · auditoría/previo 18. _usuario = lo mandó Gian por enlace; búsqueda = lo encontró el asistente en la investigación wifi-safe; perfil = skin del perfil del ModPack (ya en la SD), bajada de GameBanana para tener el original; auditoría/previo = ya estaba en el Drive (espejo de D:\) sin registro de origen._
 
@@ -17,7 +17,7 @@ Orígenes de los mods del Drive: usuario 56 · búsqueda 11 · búsqueda + usuar
 | 5 | Donkey Kong (02) | 7/8 | 1 | 0 | 5 | 5 |
 | 6 | Diddy Kong (36) | 0/8 | 3 | 5 | 0 | 0 |
 | 7 | Link (03) | 0/8 | 6 | 2 | 0 | 0 |
-| 8 | Sheik (16) | 0/8 | 7 | 1 | 0 | 0 |
+| 8 | Sheik (16) | 2/8 | 5 | 1 | 0 | 0 |
 | 9 | Zelda (17) | 0/8 | 8 | 0 | 0 | 0 |
 | 10 | Ganondorf (23) | 8/8 | 0 | 0 | 0 | 0 |
 | 11 | Zero Suit Samus (29) | 0/8 | 8 | 0 | 1 | 1 |
@@ -38,7 +38,7 @@ Orígenes de los mods del Drive: usuario 56 · búsqueda 11 · búsqueda + usuar
 | 25 | Ryu (60) | 0/8 | 7 | 1 | 0 | 0 |
 | 26 | Ken (60ε) | 0/8 | 0 | 8 | 1 | 0 |
 | 27 | Cloud (61) | 0/8 | 8 | 0 | 0 | 0 |
-| 28 | Sephiroth (78) | 4/8 | 4 | 0 | 0 | 0 |
+| 28 | Sephiroth (78) | 6/8 | 2 | 0 | 0 | 0 |
 | 29 | Bayonetta (63) | 0/8 | 7 | 1 | 1 | 1 |
 | 30 | Hero (72) | 0/8 | 6 | 2 | 0 | 0 |
 | 31 | Steve (77) | 0/8 | 8 | 0 | 2 | 1 |
@@ -169,8 +169,8 @@ _Yuffie: un solo look, en su slot original (c01)._
 | c01 | perfil · Yuffie | Yuffie (GB 511678) · el mod trae un solo look (c01). Solo la skin: se quitan sus 355 animaciones de motion/body/c00 (cambiarían a todas las Sheik); usa las de Sheik con su propio esqueleto: probar en consola | propuesto |
 | c02 | original | original | propuesto |
 | c03 | original | original | propuesto |
-| c04 | perfil · Larxene | Larxene (GB 367390) · reslot desde c00 | propuesto |
-| c05 | perfil · Larxene | Larxene (GB 367390) · reslot desde c01 | propuesto |
+| c04 | perfil · Larxene | Larxene (GB 367390) · reslot desde c00 · solo un look de Larxene (el mod trae c00 y c01): decisión de Gian | aprobado |
+| c05 | perfil · Larxene | original | aprobado |
 | c06 | original | original | sin decidir |
 | c07 | WuBoy «Ibuki» | WuBoy «Ibuki» | propuesto |
 
@@ -470,8 +470,8 @@ Mods del Drive sin asignar:
 | Slot | Hoy | Plan | Estado |
 |---|---|---|---|
 | c00 | perfil · Sephirot Clown | Sephirot Clown (GB 503576) | propuesto |
-| c01 | perfil · Ariana Grande | Ariana Grande (GB 555584) | propuesto |
-| c02 | perfil · Ariana Grande | Ariana Grande (GB 555584) | propuesto |
+| c01 | perfil · Ariana Grande | Ariana Grande (GB 555584) · solo un look de Ariana Grande (el mod trae c01 y c02): decisión de Gian | aprobado |
+| c02 | perfil · Ariana Grande | original | aprobado |
 | c03 | perfil · Ultimate Sukuna | WuBoy «Jin» | aprobado |
 | c04 | perfil · Sandbag | WuBoy «Vergil» | aprobado |
 | c05 | perfil · Darth Luigi | Darth Luigi (GB 592795) · reslot desde c01 · todo el mod está en c01 (el video del Final Smash, aparte, en c00). Solo la skin: se quitan el tema de victoria (bgm_zz05_f_edge) y la narración (vc_narration_characall_edge), que chocan con WuBoy | propuesto |
