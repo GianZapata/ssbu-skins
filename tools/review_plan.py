@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 """Revisa el plan compartido ANTES de instalar: solo analiza, no instala ni escribe nada.
 
-  python3 tools/review_plan.py                    # lee el plan de Firestore por su API REST pública (las reglas permiten leer) y escribe el informe
+  python3 tools/review_plan.py                    # revisa la orden de Git (data/slot_plan.json); no lee Firestore
+  python3 tools/review_plan.py --source changes   # lee las propuestas de Firestore por su API REST pública
   python3 tools/review_plan.py --source admin     # lo lee con credenciales de cuenta de servicio / emulador (como db.py)
   python3 tools/review_plan.py --source file plan.json   # revisa una exportación de la web (Más → Exportar el plan)
   opciones: --out informe.md  --json informe.json  --strict (código de salida 1 si hay errores)
@@ -50,6 +51,16 @@ def read_admin():
     for x in ch:
         if x.get('at') is not None and hasattr(x['at'], 'isoformat'): x['at'] = x['at'].isoformat()
     return ch, hi
+
+def from_git():
+    import db
+    rows, missing = [], []
+    for row in db.install_rows():
+        if not row.get('vid'):
+            missing.append(f"{row['fighter']} {row['slot']}: {row['name']} no está en el catálogo")
+            continue
+        rows.append({'code': row['roster_no'], 'slot': row['traje'] - 1, 'vid': row['vid']})
+    return rows, missing
 
 def read_file(path):
     d = json.load(open(path, encoding='utf-8'))
@@ -156,18 +167,25 @@ def render(items, F, meta):
 
 def main():
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
-    ap.add_argument('--source', choices=['rest', 'admin', 'file'], default='rest'); ap.add_argument('file', nargs='?')
+    ap.add_argument('--source', choices=['git', 'changes', 'admin', 'file'], default='git'); ap.add_argument('file', nargs='?')
     ap.add_argument('--out'); ap.add_argument('--json'); ap.add_argument('--strict', action='store_true'); ap.add_argument('--rest-base', help='URL base REST (emulador)')
     a = ap.parse_args()
     fighters, cmeta = cd.load(); inv = cd.load_inventory(fighters); ver = None
+    missing = []
     if a.source == 'file':
         if not a.file: ap.error('indica el archivo de la exportación')
         ch, hi, ver = read_file(a.file)
-    elif a.source == 'admin': ch, hi = read_admin()
-    else:
+        changes = [{'code': c['code'], 'slot': int(c['slot']), 'vid': c['vid']} for c in ch if c.get('vid')]
+    elif a.source == 'admin':
+        ch, hi = read_admin()
+        changes = [{'code': c['code'], 'slot': int(c['slot']), 'vid': c['vid']} for c in ch if c.get('vid')]
+    elif a.source == 'changes':
         pid = (cd.load_firebase() or {}).get('projectId'); ch, hi = read_rest(pid, a.rest_base)
-    changes = [{'code': c['code'], 'slot': int(c['slot']), 'vid': c['vid']} for c in ch if c.get('vid')]
+        changes = [{'code': c['code'], 'slot': int(c['slot']), 'vid': c['vid']} for c in ch if c.get('vid')]
+    else:
+        changes, missing = from_git(); hi = []
     items, F = review(changes, hi, fighters, inv, ver)
+    for text in missing: F.append({'sev': 'ERROR', 'msg': text})
     meta = {'generated': datetime.datetime.now(datetime.timezone.utc).strftime('%Y-%m-%d %H:%M UTC'), 'catalog': cmeta.get('generated'),
             'inv': (inv or {}).get('meta', {}).get('version'), 'profile': ((inv or {}).get('meta', {}).get('profile') or {}).get('name')}
     md = render(items, F, meta); print(md)
