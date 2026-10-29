@@ -30,6 +30,15 @@ COMPONENT_SLOTS = {
     'steve-alex-pr11': [('77', 0, 'Red Steve', 175905), ('77', 1, 'White Alex', 296845), ('77', 4, 'Shaved Steve', 296834)],
     'mario-kellytoy': [('01', 1, 'Kellytoy Mario')],
     'luigi-swole-pr10': [('09', 0, 'Swole Luigi Remastered', 174132)],   # de vuelta en gian-prs (se retiró por un malentendido)
+    # plan de slots aprobado (2026-10-28), instalado desde el Drive
+    'ganon-pikadorf-c02': [('23', 2, 'Pikadorf', 406732)],
+    'ganon-exdeath-c05': [('23', 5, 'ExDeath', 174353)],
+    'ganon-pain-c07': [('23', 7, 'Pain (Naruto)', 401033)],   # con Beast Ganon y efectos One Slot Effects
+    'terry-gohan-c00': [('74', 0, 'Gohan (sin capa)', 434439)],
+    'terry-gogeta-ssj': [('74', 1, 'Gogeta SSJ', 437327)],
+    'terry-vegeta-c02': [('74', 2, 'Vegeta SSJ', 609500)],
+    'terry-goku-black': [('74', 6, 'Goku Black', 333706)],
+    'terry-gogeta-ssj4': [('74', 7, 'Gogeta SSJ4', 446815)],
 }
 BASE_FILTERS = (None, 'skins')
 # Mismos alias que _CHARA_ALIASES de tools/gianpack.py (ModPack): varios internos comparten un luchador.

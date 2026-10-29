@@ -3,9 +3,9 @@
  "id": "perfil",
  "label": "Perfil local «gian-prs»",
  "profile": "gian-prs",
- "ref": "claude/vigilant-keller-6i5s1d@33c1e8b",
+ "ref": "claude/vigilant-keller-6i5s1d@176bbe3",
  "document": "catalog/profiles.json + catalog/mods.json",
- "scanned_at": "2026-10-26T05:55:26Z",
+ "scanned_at": "2026-10-29T04:52:18Z",
  "verification": "Perfil armado y verificado en archivos; pruebas en consola sin conexión anotadas por componente (no certifican online)",
  "components": [
   {
@@ -133,6 +133,78 @@
    "classification": "revision estatica sin fallos P1/P2 (docs/reviews/PR-2-a-13-2026-10-24.md); pendiente de prueba en consola",
    "console_test": "pendiente (no probado en Switch)",
    "dlc": null
+  },
+  {
+   "id": "ganon-pikadorf-c02",
+   "version": "pending",
+   "target": "c02 (color 3), movido desde c00",
+   "url": "https://gamebanana.com/mods/406732",
+   "classification": "plan de slots aprobado (ssbu-skins, 2026-10-28); pendiente de prueba en consola",
+   "console_test": "pendiente (no probado en Switch)",
+   "dlc": null
+  },
+  {
+   "id": "ganon-exdeath-c05",
+   "version": "pending",
+   "target": "c05 (color 6)",
+   "url": "https://gamebanana.com/mods/174353",
+   "classification": "plan de slots aprobado (ssbu-skins, 2026-10-28; 'solo la carpeta c05'); pendiente de prueba en consola",
+   "console_test": "pendiente (no probado en Switch)",
+   "dlc": null
+  },
+  {
+   "id": "ganon-pain-c07",
+   "version": "pending",
+   "target": "c07 (color 8), movido desde c00; reemplaza a Thanos de WuBoy",
+   "url": "https://gamebanana.com/mods/401033",
+   "classification": "plan de slots aprobado (ssbu-skins, 2026-10-28); pendiente de prueba en consola",
+   "console_test": "pendiente (no probado en Switch)",
+   "dlc": null
+  },
+  {
+   "id": "terry-gohan-c00",
+   "version": "pending",
+   "target": "c00 (color 1), movido desde c07",
+   "url": "https://gamebanana.com/mods/434439",
+   "classification": "plan de slots aprobado (ssbu-skins, 2026-10-28); pendiente de prueba en consola",
+   "console_test": "pendiente (no probado en Switch)",
+   "dlc": "Terry (confirmado: todos los DLC)"
+  },
+  {
+   "id": "terry-gogeta-ssj",
+   "version": "pending",
+   "target": "c01 (color 2)",
+   "url": "https://gamebanana.com/mods/437327",
+   "classification": "plan de slots aprobado (ssbu-skins, 2026-10-28); pendiente de prueba en consola",
+   "console_test": "pendiente (no probado en Switch)",
+   "dlc": "Terry (confirmado: todos los DLC)"
+  },
+  {
+   "id": "terry-vegeta-c02",
+   "version": "pending",
+   "target": "c02 (color 3)",
+   "url": "https://gamebanana.com/mods/609500",
+   "classification": "plan de slots aprobado (ssbu-skins, 2026-10-28); pendiente de prueba en consola",
+   "console_test": "pendiente (no probado en Switch)",
+   "dlc": "Terry (confirmado: todos los DLC)"
+  },
+  {
+   "id": "terry-goku-black",
+   "version": "pending",
+   "target": "c06 (color 7)",
+   "url": "https://gamebanana.com/mods/333706",
+   "classification": "plan de slots aprobado (ssbu-skins, 2026-10-28); pendiente de prueba en consola",
+   "console_test": "pendiente (no probado en Switch)",
+   "dlc": "Terry (confirmado: todos los DLC)"
+  },
+  {
+   "id": "terry-gogeta-ssj4",
+   "version": "v1.3 (nombre del archivo)",
+   "target": "c07 (color 8)",
+   "url": "https://gamebanana.com/mods/446815",
+   "classification": "plan de slots aprobado (ssbu-skins, 2026-10-28); pendiente de prueba en consola",
+   "console_test": "pendiente (no probado en Switch)",
+   "dlc": "Terry (confirmado: todos los DLC)"
   }
  ],
  "other_profiles": [
@@ -153,6 +225,14 @@
    "slot": 0
   },
   {
+   "fighter": "23",
+   "slot": 5
+  },
+  {
+   "fighter": "23",
+   "slot": 7
+  },
+  {
    "fighter": "33",
    "slot": 0
   },
@@ -171,6 +251,22 @@
   {
    "fighter": "63",
    "slot": 3
+  },
+  {
+   "fighter": "74",
+   "slot": 1
+  },
+  {
+   "fighter": "74",
+   "slot": 2
+  },
+  {
+   "fighter": "74",
+   "slot": 6
+  },
+  {
+   "fighter": "74",
+   "slot": 7
   },
   {
    "fighter": "77",
@@ -209,7 +305,7 @@
    "slot": 7
   }
  ],
- "exclude_base_total": 33,
+ "exclude_base_total": 43,
  "excluded_base_mods": [
   "The WuBoy Ultimate Modpack Optionals",
   "The WuBoy Ultimate Music Modpack"
@@ -221,6 +317,14 @@
  "unmapped_components": [],
  "base_filter": "skins",
  "filtered_base_slots": [
+  {
+   "fighter": "23",
+   "slot": 5
+  },
+  {
+   "fighter": "23",
+   "slot": 7
+  },
   {
    "fighter": "33",
    "slot": 0
@@ -236,6 +340,22 @@
   {
    "fighter": "35",
    "slot": 3
+  },
+  {
+   "fighter": "74",
+   "slot": 1
+  },
+  {
+   "fighter": "74",
+   "slot": 2
+  },
+  {
+   "fighter": "74",
+   "slot": 6
+  },
+  {
+   "fighter": "74",
+   "slot": 7
   },
   {
    "fighter": "77",
@@ -353,26 +473,6 @@
   },
   {
    "fighter": "11",
-   "slot": 7,
-   "current": "WuBoy"
-  },
-  {
-   "fighter": "23",
-   "slot": 1,
-   "current": "WuBoy"
-  },
-  {
-   "fighter": "23",
-   "slot": 2,
-   "current": "original (Pain excluido)"
-  },
-  {
-   "fighter": "23",
-   "slot": 5,
-   "current": "WuBoy"
-  },
-  {
-   "fighter": "23",
    "slot": 7,
    "current": "WuBoy"
   }
@@ -653,6 +753,102 @@
    "version": "pending",
    "console_test": "pendiente (no probado en Switch)",
    "classification": "revision estatica sin fallos P1/P2 (docs/reviews/PR-2-a-13-2026-10-24.md); pendiente de prueba en consola"
+  },
+  {
+   "fighter": "23",
+   "slot": 2,
+   "name": "Pikadorf",
+   "component": "ganon-pikadorf-c02",
+   "mod_id": 406732,
+   "author": "-Dusk-",
+   "url": "https://gamebanana.com/mods/406732",
+   "version": "pending",
+   "console_test": "pendiente (no probado en Switch)",
+   "classification": "plan de slots aprobado (ssbu-skins, 2026-10-28); pendiente de prueba en consola"
+  },
+  {
+   "fighter": "23",
+   "slot": 5,
+   "name": "ExDeath",
+   "component": "ganon-exdeath-c05",
+   "mod_id": 174353,
+   "author": "pending",
+   "url": "https://gamebanana.com/mods/174353",
+   "version": "pending",
+   "console_test": "pendiente (no probado en Switch)",
+   "classification": "plan de slots aprobado (ssbu-skins, 2026-10-28; 'solo la carpeta c05'); pendiente de prueba en consola"
+  },
+  {
+   "fighter": "23",
+   "slot": 7,
+   "name": "Pain (Naruto)",
+   "component": "ganon-pain-c07",
+   "mod_id": 401033,
+   "author": "pending",
+   "url": "https://gamebanana.com/mods/401033",
+   "version": "pending",
+   "console_test": "pendiente (no probado en Switch)",
+   "classification": "plan de slots aprobado (ssbu-skins, 2026-10-28); pendiente de prueba en consola"
+  },
+  {
+   "fighter": "74",
+   "slot": 0,
+   "name": "Gohan (sin capa)",
+   "component": "terry-gohan-c00",
+   "mod_id": 434439,
+   "author": "MulliganMayhem",
+   "url": "https://gamebanana.com/mods/434439",
+   "version": "pending",
+   "console_test": "pendiente (no probado en Switch)",
+   "classification": "plan de slots aprobado (ssbu-skins, 2026-10-28); pendiente de prueba en consola"
+  },
+  {
+   "fighter": "74",
+   "slot": 1,
+   "name": "Gogeta SSJ",
+   "component": "terry-gogeta-ssj",
+   "mod_id": 437327,
+   "author": "Tofu Yi (catalogo de ssbu-skins)",
+   "url": "https://gamebanana.com/mods/437327",
+   "version": "pending",
+   "console_test": "pendiente (no probado en Switch)",
+   "classification": "plan de slots aprobado (ssbu-skins, 2026-10-28); pendiente de prueba en consola"
+  },
+  {
+   "fighter": "74",
+   "slot": 2,
+   "name": "Vegeta SSJ",
+   "component": "terry-vegeta-c02",
+   "mod_id": 609500,
+   "author": "kurisutian (REPORT_DBZ.md)",
+   "url": "https://gamebanana.com/mods/609500",
+   "version": "pending",
+   "console_test": "pendiente (no probado en Switch)",
+   "classification": "plan de slots aprobado (ssbu-skins, 2026-10-28); pendiente de prueba en consola"
+  },
+  {
+   "fighter": "74",
+   "slot": 6,
+   "name": "Goku Black",
+   "component": "terry-goku-black",
+   "mod_id": 333706,
+   "author": "Eeivee (REPORT_DBZ.md)",
+   "url": "https://gamebanana.com/mods/333706",
+   "version": "pending",
+   "console_test": "pendiente (no probado en Switch)",
+   "classification": "plan de slots aprobado (ssbu-skins, 2026-10-28); pendiente de prueba en consola"
+  },
+  {
+   "fighter": "74",
+   "slot": 7,
+   "name": "Gogeta SSJ4",
+   "component": "terry-gogeta-ssj4",
+   "mod_id": 446815,
+   "author": "Tofu Yi (REPORT_DBZ.md)",
+   "url": "https://gamebanana.com/mods/446815",
+   "version": "v1.3 (nombre del archivo)",
+   "console_test": "pendiente (no probado en Switch)",
+   "classification": "plan de slots aprobado (ssbu-skins, 2026-10-28); pendiente de prueba en consola"
   }
  ]
 }

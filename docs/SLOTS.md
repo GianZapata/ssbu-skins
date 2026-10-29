@@ -189,12 +189,12 @@ _Yuffie: un solo look, en su slot original (c01)._
 |---|---|---|---|
 | c00 | perfil · Otis | perfil · Otis (GB 392436) | aprobado |
 | c01 | WuBoy | WuBoy | aprobado |
-| c02 | original | Pikadorf (GB 406732) · reslot desde c00 | aprobado |
+| c02 | perfil · Pikadorf | Pikadorf (GB 406732) · reslot desde c00 | aprobado |
 | c03 | perfil · Jiren | perfil · Jiren (GB 320899) | aprobado |
 | c04 | WuBoy | WuBoy | aprobado |
-| c05 | WuBoy | ExDeath (GB 174353) · solo la carpeta c05 | aprobado |
+| c05 | perfil · ExDeath | ExDeath (GB 174353) · solo la carpeta c05 | aprobado |
 | c06 | perfil · Broly | perfil · Broly (GB 324864) | aprobado |
-| c07 | WuBoy «Thanos» | Pain (Naruto) (GB 401033) · reslot desde c00 · reemplaza a Thanos de WuBoy, por decisión de Gian. Trae effect, motion, param y config.json: riesgo wifi | aprobado |
+| c07 | perfil · Pain (Naruto) | Pain (Naruto) (GB 401033) · reslot desde c00 · reemplaza a Thanos de WuBoy, por decisión de Gian. Trae effect, motion, param y config.json: riesgo wifi | aprobado |
 
 ## 11. Zero Suit Samus (29)
 
@@ -668,11 +668,11 @@ _Tifa: un traje (el segundo, c01) en c03, en lugar de Vegeta SSB. Gogeta y SSJ4 
 
 | Slot | Hoy | Plan | Estado |
 |---|---|---|---|
-| c00 | original | Gohan (sin capa) (GB 434439) · reslot desde c07 | aprobado |
-| c01 | WuBoy | Gogeta SSJ (GB 437327) | aprobado |
-| c02 | WuBoy | Vegeta SSJ (GB 609500) · necesita One Slot Effects. Solo la skin: su config.json y sus nombres se recortan a c02 (hoy declaran también c03, que es de Tifa) | aprobado |
+| c00 | perfil · Gohan (sin capa) | Gohan (sin capa) (GB 434439) · reslot desde c07 | aprobado |
+| c01 | perfil · Gogeta SSJ | Gogeta SSJ (GB 437327) | aprobado |
+| c02 | perfil · Vegeta SSJ | Vegeta SSJ (GB 609500) · necesita One Slot Effects. Solo la skin: su config.json y sus nombres se recortan a c02 (hoy declaran también c03, que es de Tifa) | aprobado |
 | c03 | WuBoy | Tifa (segundo traje) (GB 559818) · reslot desde c01 · reemplaza a Vegeta SSB (Vegeta queda con 1 look). Trae música (tema de victoria y 2 pistas, globales) | propuesto |
 | c04 | WuBoy «All Might» | WuBoy «All Might» | aprobado |
 | c05 | WuBoy «Jotaro» | WuBoy «Jotaro» | aprobado |
-| c06 | WuBoy | Goku Black (GB 333706) | aprobado |
-| c07 | WuBoy | Gogeta SSJ4 (GB 446815) | aprobado |
+| c06 | perfil · Goku Black | Goku Black (GB 333706) | aprobado |
+| c07 | perfil · Gogeta SSJ4 | Gogeta SSJ4 (GB 446815) | aprobado |
