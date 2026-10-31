@@ -27,6 +27,7 @@ class Plan:
     def __init__(self, data):
         self.dups = []
         self.sp = load(data, 'slot_plan.json', self.dups); self.inst = load(data, 'installed.json')['fighters']
+        self.updated_at = self.sp.get('updated_at') or None
         prof = load(data, 'inventory_profile.json'); self.drive = load(data, 'drive.json'); cat = load(data, 'catalog.json')
         self.cov = cat['counts']['coverage']
         self.names = {c: v['fighter'] for c, v in self.cov.items()}
@@ -88,7 +89,7 @@ class Plan:
             fp = self.sp['fighters'].get(c) or {}
             slots = [{'slot': r['slot'], 'hoy': r['hoy'], 'plan': r['plan'], 'estado': r['estado'], **({k: r['d'].get(k) for k in keys} if r['d'] else {})} for r in self.rows(c)]
             un = [{'mod_id': m['mod_id'], 'slug': m['slug'], 'origin': m.get('origin'), 'slots': self.native(m)} for m in self.unassigned(c)]
-            out[c] = {'code': c, 'name': self.names.get(c, c), 'priority': pos, 'nota': fp.get('nota'), 'slots': slots, 'unassigned': un}
+            out[c] = {'code': c, 'name': self.names.get(c, c), 'priority': pos, 'nota': fp.get('nota'), 'updated_at': self.updated_at, 'slots': slots, 'unassigned': un}
         return out
 
     def native(self, m):
@@ -154,7 +155,8 @@ class Plan:
         for _, c in self.order:
             r = self.rows(c); stat[c] = (sum(x['estado'] == 'aprobado' for x in r), sum(x['estado'] == 'propuesto' for x in r), sum(x['estado'] == 'sin decidir' for x in r))
         A, P, O = (sum(v[i] for v in stat.values()) for i in range(3))
-        L = ['# Plan de slots', '', '_Generado por `tools/slot_plan.py` a partir de `data/slot_plan.json`, `installed.json`, `inventory_profile.json` y `drive.json`; no editar a mano. Nada de esto está instalado ni probado en consola._', '',
+        when = f' Plan actualizado: {self.updated_at}.' if self.updated_at else ''
+        L = ['# Plan de slots', '', f'_Generado por `tools/slot_plan.py` a partir de `data/slot_plan.json`, `installed.json`, `inventory_profile.json` y `drive.json`; no editar a mano. Nada de esto está instalado ni probado en consola.{when}_', '',
              f'**{len(self.order)} luchadores · {A} slots aprobados · {P} propuestos · {O} sin decidir (de {8 * len(self.order)})**', '',
              self.origenes_txt(), '',
              '«Hoy» es lo que hay en el perfil (WuBoy, componentes del perfil o la skin original); «Plan» es la decisión, si ya existe.', '',

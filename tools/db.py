@@ -85,8 +85,9 @@ def seed(db, only=None, dry=False):
     if only == 'slots':
         import slot_plan
         pl = slot_plan.Plan(os.path.join(cd.R, 'data')); _, (n, a, p, o) = pl.render()
-        _replace(db, 'slot_plan', {c: {**v, 'updatedAt': now()} for c, v in pl.docs().items()}, dry)
-        if not dry: db.collection('meta').document('slot_plan').set({'fighters': n, 'approved': a, 'proposed': p, 'undecided': o, 'updatedAt': now()})
+        stamped = pl.updated_at or now().isoformat()
+        _replace(db, 'slot_plan', {c: {**v, 'updatedAt': stamped} for c, v in pl.docs().items()}, dry)
+        if not dry: db.collection('meta').document('slot_plan').set({'fighters': n, 'approved': a, 'proposed': p, 'undecided': o, 'updatedAt': stamped, 'seededAt': now().isoformat()})
         done.append(f'plan de slots: {n} luchadores ({a} aprobados, {p} propuestos, {o} sin decidir)')
     print('ok · simulación, no se escribió nada:' if dry else 'ok · Firestore actualizado:', ', '.join(done) or 'nada')
 

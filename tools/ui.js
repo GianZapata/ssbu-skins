@@ -398,6 +398,7 @@ function showDatos(){const m=INV&&INV.meta;const gen=(META.generated||'').replac
  <div class="note"><b>Original</b>Un traje sin ningún mod en el inventario revisado se muestra como original. No está confirmado en la consola.</div>
  <div class="note"><b>«Online»</b>Es lo que declara el autor del mod. No es una prueba en tu consola.</div>
  <div class="note"><b>Catálogo</b>${esc(gen)} · ${F.reduce((n,f)=>n+f.picks.filter(p=>!p.withdrawn).length,0)} apariencias${m&&m.scanned_at?` · inventario del ${esc(m.scanned_at.slice(0,10))}`:''}</div>
+  ${META.plan_updated_at?`<div class="note"><b>Plan</b>Actualizado el ${esc(String(META.plan_updated_at).slice(0,10))}. Esa fecha cambia cuando cambia una decisión, no cuando se copia el plan.</div>`:''}
  <div class="note"><b>Cambios compartidos</b>Todos editan el mismo plan. Cada cambio queda en el historial. Después se revisa y se instala a mano.</div>`,true)}
 function showAyuda(){openDlg('Cómo se usa',`<div class="steps"><div><b>1</b><span>Elige un <b>luchador</b>.</span></div><div><b>2</b><span>Elige uno de los <b>ocho trajes</b>.</span></div><div><b>3</b><span>Toca una <b>skin</b> y luego <b>Usar en Traje N</b>.</span></div><div><b>4</b><span>Revisa <b>Elegidas</b>. Guardar no instala nada en la consola.</span></div></div>`,true)}
 function buildExport(){const es=planEntries();

@@ -1,5 +1,6 @@
 {
- "_nota": "Decisiones de slots de Gian. state: mod|wuboy|vanilla; source: drive|profile|wuboy|vanilla; approved false = propuesta. Regenerar el informe: python3 tools/slot_plan.py [--check]. Un grupo [a, b] en priority comparte posición (Pyra y Mythra).",
+ "_nota": "Decisiones de slots de Gian. state: mod|wuboy|vanilla; source: drive|profile|wuboy|vanilla; approved false = propuesta. Regenerar el informe: python3 tools/slot_plan.py [--check]. Un grupo [a, b] en priority comparte posición (Pyra y Mythra). updated_at cambia solo cuando cambia una decisión, no al copiar el plan.",
+ "updated_at": "2026-10-30T23:49:00-06:00",
  "priority": [
   "01",
   "09",

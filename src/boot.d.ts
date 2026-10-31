@@ -49,6 +49,7 @@ export interface Fighter {
 
 export interface BootMeta {
   generated?: string
+  plan_updated_at?: string | null
   base: string
   inventory: { meta?: Record<string, unknown>, fighters?: Record<string, { slots?: Record<string, Record<string, unknown>> }> } | null
   firebase: Record<string, string> | null

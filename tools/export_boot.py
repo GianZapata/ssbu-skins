@@ -9,7 +9,11 @@ inv = cd.load_inventory(fighters)
 fbc = cd.load_firebase()
 embed = not (fbc and fbc.get('embed') is False)
 cfg = {k: v for k, v in (fbc or {}).items() if k != 'embed'} or None
-meta = {**meta0, 'inventory': inv if embed else None, 'firebase': cfg, 'embed': embed}
+plan_path = os.path.join(cd.R, 'data', 'slot_plan.json')
+plan_updated_at = None
+if os.path.isfile(plan_path):
+    plan_updated_at = json.load(open(plan_path, encoding='utf-8')).get('updated_at')
+meta = {**meta0, 'inventory': inv if embed else None, 'firebase': cfg, 'embed': embed, 'plan_updated_at': plan_updated_at}
 data = fighters if embed else []
 pub = os.path.join(cd.R, 'public')
 os.makedirs(pub, exist_ok=True)
