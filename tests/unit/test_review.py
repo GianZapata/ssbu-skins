@@ -50,6 +50,12 @@ class Revision(unittest.TestCase):
         r = subprocess.run([sys.executable, os.path.join(R, 'tools', 'review_plan.py'), '--source', 'file', f.name, '--strict'], capture_output=True, text=True)
         os.unlink(f.name); self.assertEqual(r.returncode, 0, r.stderr); self.assertIn('Revisión del plan', r.stdout); self.assertIn('Traje 3', r.stdout)
 
+    def test_sin_argumentos_revisa_el_plan_de_git(self):
+        r = subprocess.run([sys.executable, os.path.join(R, 'tools', 'review_plan.py')], capture_output=True, text=True)
+        self.assertEqual(r.returncode, 0, r.stderr)
+        self.assertIn('Pikadorf', r.stdout)
+        self.assertNotIn('changes', r.stdout)
+
 def up():
     try: urllib.request.urlopen('http://127.0.0.1:8080', timeout=2); return True
     except Exception: return False
@@ -65,6 +71,6 @@ class DesdeFirestore(unittest.TestCase):
         base = 'http://127.0.0.1:8080/v1/projects/ssbu-441b1/databases/(default)/documents'
         ch, _ = rp.read_rest('ssbu-441b1', base); ch2, _ = rp.read_admin()
         self.assertEqual([(x['code'], x['slot'], x['vid']) for x in ch], [(x['code'], x['slot'], x['vid']) for x in ch2])
-        r = subprocess.run([sys.executable, os.path.join(R, 'tools', 'review_plan.py'), '--rest-base', base], capture_output=True, text=True, env=env)
+        r = subprocess.run([sys.executable, os.path.join(R, 'tools', 'review_plan.py'), '--source', 'changes', '--rest-base', base], capture_output=True, text=True, env=env)
         self.assertEqual(r.returncode, 0, r.stderr); self.assertIn('Traje 3', r.stdout)
 if __name__ == '__main__': unittest.main()

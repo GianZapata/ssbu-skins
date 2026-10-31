@@ -62,6 +62,34 @@ const META = globalThis.META
 const FBCFG=META.firebase||null;
 const EMU=location.hostname==='localhost'&&/[?&]fbemu/.test(location.search);   // solo pruebas con emuladores
 let _fb=null,dbState=FBCFG?'off':'local',flushing=false,planLoaded=false,metaCat=null,catSnap=null,metaInst=null,instSnap=null,curGen=META.generated||null;
+let metaSlots=null,slotSnap=null,SLOT_PLAN={},slotPlanReady=false;
+function applySlotPlan() {
+  const next = {}
+
+  if (!slotSnap || !metaSlots) {
+    SLOT_PLAN = {}
+    slotPlanReady = false
+    render(true)
+    return
+  }
+
+  slotSnap.forEach((doc) => {
+    const data = doc.data() || {}
+
+    next[doc.id] = { slots: data.slots || [] }
+  })
+
+  if (!Object.keys(next).length) {
+    SLOT_PLAN = {}
+    slotPlanReady = false
+    render(true)
+    return
+  }
+
+  SLOT_PLAN = next
+  slotPlanReady = true
+  render(true)
+}
 function fb(){if(!FBCFG)return Promise.reject(new Error('Firebase no configurado'));
  return _fb||(_fb=(async()=>{const B='https://www.gstatic.com/firebasejs/10.14.1/';
   const [app,auth,fs]=await Promise.all([import(B+'firebase-app.js'),import(B+'firebase-auth.js'),import(B+'firebase-firestore.js')]);
@@ -148,9 +176,12 @@ async function startDb(){if(!FBCFG){paintSync();return}
   sub(f.collection(f.db,'catalog'),s=>{catSnap=s;maybeApplyCatalog()});
   sub(f.doc(f.db,'meta','installed'),s=>{metaInst=s.exists()?s.data():null;maybeApplyInventory()});
   sub(f.collection(f.db,'installed'),s=>{instSnap=s;maybeApplyInventory()});
+  sub(f.doc(f.db,'meta','slot_plan'),s=>{metaSlots=s.exists()?s.data():null;applySlotPlan()});
+  sub(f.collection(f.db,'slot_plan'),s=>{slotSnap=s;applySlotPlan()});
   sub(f.collection(f.db,'status'),s=>{STATUS={};s.forEach(d=>{const v=d.data();STATUS[v.vid||d.id]=v})});
   sub(f.collection(f.db,'changes'),s=>{const m={};s.forEach(d=>{const v=d.data();m[d.id]={vid:v.vid,by:v.by,at:ts(v.at)}});const next=mergeChanges(m,s.docChanges());const same=stable(PLAN)===stable(next);PLAN=next;LS('ssbu_plan_cache',JSON.stringify(PLAN));
    good();paintSync();if(!same)render(true);planLoaded=true;flush()});
+
   sub(f.query(f.collection(f.db,'history'),f.orderBy('at','desc'),f.limit(40)),s=>{HIST=[];s.forEach(d=>{const v=d.data();HIST.push({code:v.code,slot:v.slot,from:v.from,to:v.to,kind:v.kind,t:ts(v.at)})})})
   unsubs.push(f.onSnapshot(f.collection(f.db,'requests'),s=>readNotes(s),()=>{}))
  }catch(e){if(gen===dbGen)fail('inicio',e)}}
@@ -202,5 +233,7 @@ const state = {
   get lastAct() { return lastAct },
   set lastAct(v) { lastAct = v },
   get NOTES() { return NOTES },
+  get SLOT_PLAN() { return SLOT_PLAN },
+  get slotPlanReady() { return slotPlanReady },
 }
 export { bind, state, buildData, confirmPlan, mergeChanges, planVid, planEntries, flush, startDb, paintSync, keyOf, stable, fb, fail, good, enqueue, savePend, classify, syncInfo, addNote, markNote }

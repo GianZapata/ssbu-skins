@@ -4,9 +4,10 @@ import { fighterOf, openSkin, S, selectSlot, slotOf, swap, tick, viewRoute } fro
 import { activeCandidate, candidateRoams, clearCandidate, consumeHandoff, followCandidate, setCandidate } from '../../features/fighters/candidate'
 import { commitStage } from '../../features/fighters/stage'
 import { clearAt, touched } from '../../features/plan/composables/usePlan'
-import { curOf, skinOf } from '../../features/plan/helpers/lookup'
+import { curOf, skinOf, slotPlanOf } from '../../features/plan/helpers/lookup'
 import { keyOf, planEntries, planVid, state } from '../../features/plan/services/sync'
 import { PulseKind } from '../../features/fighters/enums/PulseKind'
+import { InstallFaceKind } from '../../shared/enums/InstallFaceKind'
 import { SSBU, type PlanRow, type StageChoice } from '../../shared/helpers/ssbu'
 import { coverOf, currentName } from '../../shared/helpers/skins'
 import { trajeName } from '../../shared/helpers/text'
@@ -51,12 +52,25 @@ export const useFighterPage = () => {
 
     const cells: Cell[] = SLOTS.map((n) => {
       const cur = curOf(code, n)
+      const decision = slotPlanOf(code, n)
+      const face = SSBU.installFace(Boolean(state.slotPlanReady), decision, cur)
+      const order = face.kind === InstallFaceKind.Install ? face.install : null
+      const pick = order ? skinOf(order.vid) : null
       const name = currentName(cur)
       const original = cur?.kind === 'original'
       const vid = usable ? (planVid(code, n) as string | null) : null
-      const skin = vid ? skinOf(vid) : null
-      const next = vid ? { name: skin ? skin.name : 'Skin sin nombre', img: coverOf(skin), vid } : null
-      const shown = original ? 'original' : name || 'skin sin nombre'
+      let nextImg: string | null = null
+
+      if (pick) nextImg = coverOf(pick)
+      else if (cur) nextImg = cur.img
+
+      const next = order ? { name: order.name, img: nextImg, vid: order.vid || '' } : null
+      let shown = 'skin sin nombre'
+
+      if (face.kind === InstallFaceKind.Unsynced) shown = 'plan no sincronizado'
+      else if (face.kind === InstallFaceKind.Original) shown = 'original'
+      else if (cur) shown = cur.name
+
       const label = next ? trajeName(n) + ': ' + shown + ' cambia a ' + next.name : trajeName(n) + ': ' + shown
       return {
         n,
