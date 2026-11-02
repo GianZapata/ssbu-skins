@@ -10,7 +10,7 @@ test.beforeEach(async ({ context }) => {
 });
 
 async function shot(page, name) {
-  await expect(page).toHaveScreenshot(name + '.png', { mask: mask.map(sel => page.locator(sel)) });
+  await expect(page).toHaveScreenshot(name + '.png', { mask: [...mask.map(sel => page.locator(sel)), page.getByText(/^Plan actualizado el /)] });
 }
 
 test('luchadores', async ({ page }) => {
