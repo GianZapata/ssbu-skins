@@ -1,8 +1,8 @@
 # Plan de slots
 
-_Generado por `tools/slot_plan.py` a partir de `data/slot_plan.json`, `installed.json`, `inventory_profile.json` y `drive.json`; no editar a mano. Nada de esto está instalado ni probado en consola. Plan actualizado: 2026-10-31T20:15:00-06:00._
+_Generado por `tools/slot_plan.py` a partir de `data/slot_plan.json`, `installed.json`, `inventory_profile.json` y `drive.json`; no editar a mano. Nada de esto está instalado ni probado en consola. Plan actualizado: 2026-11-01T12:00:00-06:00._
 
-**43 luchadores · 106 slots aprobados · 150 propuestos · 88 sin decidir (de 344)**
+**43 luchadores · 119 slots aprobados · 145 propuestos · 80 sin decidir (de 344)**
 
 Orígenes de los mods del Drive: usuario 115 · búsqueda 11 · búsqueda + usuario 6 · perfil 9 · auditoría/previo 17 · sin registro 94. _usuario = lo mandó Gian por enlace; búsqueda = lo encontró el asistente en la investigación wifi-safe; perfil = skin del perfil del ModPack (ya en la SD), bajada de GameBanana para tener el original; auditoría/previo = ya estaba en el Drive (espejo de D:\) sin registro de origen._
 
@@ -19,14 +19,14 @@ Orígenes de los mods del Drive: usuario 115 · búsqueda 11 · búsqueda + usua
 | 7 | Link (03) | 8/8 | 0 | 0 | 1 | 0 |
 | 8 | Sheik (16) | 8/8 | 0 | 0 | 2 | 1 |
 | 9 | Zelda (17) | 0/8 | 8 | 0 | 0 | 0 |
-| 10 | Ganondorf (23) | 8/8 | 0 | 0 | 6 | 1 |
+| 10 | Ganondorf (23) | 8/8 | 0 | 0 | 4 | 0 |
 | 11 | Zero Suit Samus (29) | 2/8 | 6 | 0 | 2 | 0 |
 | 12 | Fox (07) | 0/8 | 4 | 4 | 0 | 0 |
 | 13 | Falco (20) | 0/8 | 4 | 4 | 0 | 0 |
 | 14 | Incineroar (69) | 8/8 | 0 | 0 | 1 | 0 |
-| 15 | Captain Falcon (11) | 0/8 | 8 | 0 | 11 | 11 |
+| 15 | Captain Falcon (11) | 1/8 | 7 | 0 | 12 | 12 |
 | 16 | Lucina (21ε) | 0/8 | 8 | 0 | 0 | 0 |
-| 17 | Marth (21) | 0/8 | 4 | 4 | 8 | 0 |
+| 17 | Marth (21) | 8/8 | 0 | 0 | 1 | 0 |
 | 18 | Byleth (75) | 0/8 | 8 | 0 | 0 | 0 |
 | 19 | Palutena (54) | 0/8 | 2 | 6 | 0 | 0 |
 | 20 | Snake (31) | 0/8 | 2 | 6 | 1 | 0 |
@@ -48,7 +48,7 @@ Orígenes de los mods del Drive: usuario 115 · búsqueda 11 · búsqueda + usua
 | — | Peach (13) | 0/8 | 0 | 8 | 1 | 1 |
 | — | Chrom (25ε) | 0/8 | 5 | 3 | 0 | 0 |
 | — | Wario (30) | 0/8 | 0 | 8 | 8 | 8 |
-| — | Ike (32) | 0/8 | 0 | 8 | 1 | 0 |
+| — | Ike (32) | 4/8 | 0 | 4 | 1 | 0 |
 | — | R.O.B. (42) | 8/8 | 0 | 0 | 0 | 0 |
 | — | Wolf (44) | 0/8 | 4 | 4 | 0 | 0 |
 | — | Corrin (62) | 0/8 | 5 | 3 | 0 | 0 |
@@ -248,16 +248,16 @@ Mods del Drive sin asignar:
 
 ## 10. Ganondorf (23)
 
-_Otis, Angeal, Sidon y ExDeath salieron. Cooler, Crazy Dave, Big Smoke y Demon King TOTK están en el Drive y todavía no tienen slot._
+_Otis, Angeal, Sidon y ExDeath volvieron._
 
 | Slot | Hoy | Plan | Estado |
 |---|---|---|---|
-| c00 | perfil · Otis | original | aprobado |
-| c01 | WuBoy | original | aprobado |
-| c02 | perfil · Pikadorf | original | aprobado |
+| c00 | perfil · Otis | perfil · Otis (GB 392436) · devuelto | aprobado |
+| c01 | WuBoy | Angeal · devuelto | aprobado |
+| c02 | perfil · Pikadorf | Sidon · devuelto | aprobado |
 | c03 | perfil · Jiren | perfil · Jiren (GB 320899) | aprobado |
 | c04 | WuBoy | Pikadorf (GB 406732) · reslot desde c00 | aprobado |
-| c05 | perfil · ExDeath | original | aprobado |
+| c05 | perfil · ExDeath | ExDeath (GB 174353) · devuelto | aprobado |
 | c06 | perfil · Broly | perfil · Broly (GB 324864) | aprobado |
 | c07 | perfil · Pain (Naruto) | Pain (Naruto) (GB 401033) · reslot desde c00 · reemplaza a Thanos de WuBoy | aprobado |
 
@@ -265,8 +265,6 @@ Mods del Drive sin asignar:
 
 | Mod | Nombre | Origen | Slots nativos | Wifi | Toca c00 |
 |---|---|---|---|---|---|
-| 392436 | otis_back_at_the_barnyard | usuario | c00 | — | sí |
-| 174353 | exdeath | búsqueda | c05, c06, c07 | — | no |
 | 325054 | cooler_over_ganondorf | — | c00, c01 | — | sí |
 | 333330 | crazy_dave | — | c05 | — | no |
 | 447428 | big_smoke | — | c00, c02, c03 | — | sí |
@@ -351,7 +349,7 @@ _Pendiente: Garnet (c02) choca con Dark Falcon (perfil, PR #4, c02). Opciones: e
 | c01 | perfil · Buff Perry | Buff Perry (GB 676382) | propuesto |
 | c02 | perfil · Dark Falcon | perfil · Dark Falcon (GB 386982) | propuesto |
 | c03 | original | original | propuesto |
-| c04 | perfil · All Might | All Might (GB 692548) · reslot desde c01 · Solo la skin: se quitan el tema de victoria de Falcon (bgm_z10_f_captain) y victory.toml (chocan con la música de WuBoy) | propuesto |
+| c04 | perfil · All Might | Shiny Gallade · All Might salió. En la SD está Shiny Gallade, no All Might. | aprobado |
 | c05 | original | original | propuesto |
 | c06 | original | original | propuesto |
 | c07 | WuBoy «Pepsiman» | WuBoy «Pepsiman» | propuesto |
@@ -371,6 +369,7 @@ Mods del Drive sin asignar:
 | 466057 | garnet_over_captain_falcon | búsqueda + usuario | c02 | — | no |
 | 628142 | mega_starmie | usuario | c01 | — | no |
 | 670974 | kefla | usuario | sin listar | — | ? |
+| 692548 | all_might_over_captain_falcon | usuario | c01 | — | no |
 
 ## 16. Lucina (21ε)
 
@@ -389,29 +388,24 @@ _2B alts: 3 de 7 trajes (c01 armadura gris, c03 lencería, c06 blanco), por deci
 
 ## 17. Marth (21)
 
+_Los colores 3 y 4 no se quitaron de la SD._
+
 | Slot | Hoy | Plan | Estado |
 |---|---|---|---|
-| c00 | original | original | sin decidir |
-| c01 | original | original | propuesto |
-| c02 | original | original | sin decidir |
-| c03 | perfil · Sigurd | Sigurd (GB 442940) | propuesto |
-| c04 | original | original | propuesto |
-| c05 | original | original | propuesto |
-| c06 | original | original | sin decidir |
-| c07 | original | original | sin decidir |
+| c00 | original | Kermit (GB 504236) · reslot desde c00 · un solo color | aprobado |
+| c01 | original | Nia (GB 395772) · reslot desde c00 | aprobado |
+| c02 | original | Ranger Marth (GB 327606) · reslot desde c00 | aprobado |
+| c03 | perfil · Sigurd | Sigurd (GB 442940) | aprobado |
+| c04 | original | Captain Hook (GB 544721) · reslot desde c01 | aprobado |
+| c05 | original | Lyn (GB 323008) · reslot desde c02 | aprobado |
+| c06 | original | Sasuke (GB 325902) · reslot desde c04 | aprobado |
+| c07 | original | Papyrus (GB 376483) · reslot desde c03 | aprobado |
 
 Mods del Drive sin asignar:
 
 | Mod | Nombre | Origen | Slots nativos | Wifi | Toca c00 |
 |---|---|---|---|---|---|
-| 323008 | Lyn | — | c02 | — | no |
-| 325902 | Sasuke | — | c04 | — | no |
-| 327606 | Ranger_Marth | — | c00 | — | sí |
 | 363962 | Tanjiro | — | c00 | explícita | sí |
-| 376483 | Papyrus | — | c03 | — | no |
-| 395772 | Nia_(Catalyst) | — | c00 | — | sí |
-| 504236 | Kermit_the_Frog_(Mirrorverse) | — | c00, c01, c02, c03, c04, c05, c06, c07 | explícita | sí |
-| 544721 | Peter_Pan_Captain_Hook_over_Marth | — | c01 | — | no |
 
 ## 18. Byleth (75)
 
@@ -503,18 +497,18 @@ Mods del Drive sin asignar:
 
 ## 23. Little Mac (49)
 
-_Oggy salió. Aggy se queda en el 3._
+_Fernanfloo está en el 3, no en el 8._
 
 | Slot | Hoy | Plan | Estado |
 |---|---|---|---|
 | c00 | original | Doc Louis (GB 370674) | aprobado |
 | c01 | WuBoy | Little Mac Cloud (GB 175097) | aprobado |
-| c02 | WuBoy | Ghondor Aggy (GB 405397) · reslot desde c01 | aprobado |
+| c02 | WuBoy | Fernanfloo (GB 697389) · reslot desde c00 · reemplazó a Ghondor Aggy. El archivo solo trae dos retratos | aprobado |
 | c03 | original | Spider-Man (GB 583743) | aprobado |
 | c04 | original | Deku (GB 175102) | aprobado |
 | c05 | original | Squiddle Mac (GB 566974) | aprobado |
 | c06 | original | Punch-Out Mac (GB 652843) | aprobado |
-| c07 | original | Fernanfloo (GB 697389) · reslot desde c00 · reemplazó a Ghondor Oggy | aprobado |
+| c07 | original | Ghondor Oggy (GB 405397) · reslot desde c01 · vuelve al 8 | aprobado |
 
 Mods del Drive sin asignar:
 
@@ -801,16 +795,18 @@ Mods del Drive sin asignar:
 
 ### Ike (32)
 
+_Los colores 4, 5, 7 y 8 siguen en WuBoy._
+
 | Slot | Hoy | Plan | Estado |
 |---|---|---|---|
 | c00 | perfil · Terra | perfil · Terra | sin decidir |
 | c01 | WuBoy «Travis» | WuBoy «Travis» | sin decidir |
 | c02 | perfil · Terranort | perfil · Terranort | sin decidir |
-| c03 | WuBoy | WuBoy | sin decidir |
-| c04 | WuBoy | WuBoy | sin decidir |
+| c03 | WuBoy | WuBoy | aprobado |
+| c04 | WuBoy | WuBoy | aprobado |
 | c05 | WuBoy | WuBoy | sin decidir |
-| c06 | WuBoy | WuBoy | sin decidir |
-| c07 | WuBoy | WuBoy | sin decidir |
+| c06 | WuBoy | WuBoy | aprobado |
+| c07 | WuBoy | WuBoy | aprobado |
 
 Mods del Drive sin asignar:
 

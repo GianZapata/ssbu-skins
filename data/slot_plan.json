@@ -1,6 +1,6 @@
 {
  "_nota": "Decisiones de slots de Gian. state: mod|wuboy|vanilla; source: drive|profile|wuboy|vanilla; approved false = propuesta. Regenerar el informe: python3 tools/slot_plan.py [--check]. Un grupo [a, b] en priority comparte posición (Pyra y Mythra). updated_at cambia solo cuando cambia una decisión, no al copiar el plan.",
- "updated_at": "2026-10-31T20:15:00-06:00",
+ "updated_at": "2026-11-01T12:00:00-06:00",
  "priority": [
   "01",
   "09",
@@ -43,34 +43,34 @@
   "23": {
    "slots": {
     "0": {
-     "state": "vanilla",
-     "name": "Original",
-     "mod_id": null,
-     "source": "vanilla",
+     "state": "mod",
+     "name": "Otis",
+     "mod_id": 392436,
+     "source": "profile",
      "reslot_from": null,
      "file": null,
      "approved": true,
-     "nota": "Gian sacó a Otis el 2026-10-31. Falta el reemplazo."
+     "nota": "devuelto"
     },
     "1": {
-     "state": "vanilla",
-     "name": "Original",
+     "state": "mod",
+     "name": "Angeal",
      "mod_id": null,
      "source": "vanilla",
      "reslot_from": null,
      "file": null,
      "approved": true,
-     "nota": "Gian sacó a Angeal el 2026-10-31. Falta el reemplazo."
+     "nota": "devuelto"
     },
     "2": {
-     "state": "vanilla",
-     "name": "Original",
+     "state": "mod",
+     "name": "Sidon",
      "mod_id": null,
      "source": "vanilla",
      "reslot_from": null,
      "file": null,
      "approved": true,
-     "nota": "Gian sacó a Sidon el 2026-10-31. Falta el reemplazo."
+     "nota": "devuelto"
     },
     "3": {
      "state": "mod",
@@ -91,14 +91,14 @@
      "approved": true
     },
     "5": {
-     "state": "vanilla",
-     "name": "Original",
-     "mod_id": null,
-     "source": "vanilla",
+     "state": "mod",
+     "name": "ExDeath",
+     "mod_id": 174353,
+     "source": "drive",
      "reslot_from": null,
-     "file": null,
+     "file": "ganondorf/174353_exdeath/original/install_exdeath_final_.rar",
      "approved": true,
-     "nota": "Gian sacó a ExDeath el 2026-10-31. Falta el reemplazo."
+     "nota": "devuelto"
     },
     "6": {
      "state": "mod",
@@ -120,7 +120,7 @@
      "nota": "reemplaza a Thanos de WuBoy"
     }
    },
-   "nota": "Otis, Angeal, Sidon y ExDeath salieron. Cooler, Crazy Dave, Big Smoke y Demon King TOTK están en el Drive y todavía no tienen slot."
+   "nota": "Otis, Angeal, Sidon y ExDeath volvieron."
   },
   "74": {
    "slots": {
@@ -1212,13 +1212,13 @@
     },
     "4": {
      "state": "mod",
-     "name": "All Might",
-     "mod_id": 692548,
-     "source": "drive",
-     "reslot_from": 1,
-     "file": "captain_falcon/692548_all_might_over_captain_falcon/original/all_might_over_falcon.zip",
-     "approved": false,
-     "nota": "Solo la skin: se quitan el tema de victoria de Falcon (bgm_z10_f_captain) y victory.toml (chocan con la música de WuBoy)"
+     "name": "Shiny Gallade",
+     "mod_id": null,
+     "source": "vanilla",
+     "reslot_from": null,
+     "file": null,
+     "approved": true,
+     "nota": "All Might salió. En la SD está Shiny Gallade, no All Might."
     },
     "5": {
      "state": "vanilla",
@@ -1254,15 +1254,33 @@
   },
   "21": {
    "slots": {
+    "0": {
+     "state": "mod",
+     "name": "Kermit",
+     "mod_id": 504236,
+     "source": "drive",
+     "reslot_from": 0,
+     "file": "marth/504236_Kermit_the_Frog_(Mirrorverse)/original/kermit_over_marth_c00-c07__8168c.rar",
+     "approved": true,
+     "nota": "un solo color"
+    },
     "1": {
-     "state": "vanilla",
-     "name": "Original",
-     "mod_id": null,
-     "source": "vanilla",
-     "reslot_from": null,
-     "file": null,
-     "approved": false,
-     "nota": "se quita la skin de WuBoy"
+     "state": "mod",
+     "name": "Nia",
+     "mod_id": 395772,
+     "source": "drive",
+     "reslot_from": 0,
+     "file": "marth/395772_Nia_(Catalyst)/original/nia_catalyst_by_mastaklo.rar",
+     "approved": true
+    },
+    "2": {
+     "state": "mod",
+     "name": "Ranger Marth",
+     "mod_id": 327606,
+     "source": "drive",
+     "reslot_from": 0,
+     "file": "marth/327606_Ranger_Marth/original/ranger_marth_1b340.rar",
+     "approved": true
     },
     "3": {
      "state": "mod",
@@ -1271,29 +1289,46 @@
      "source": "drive",
      "reslot_from": null,
      "file": "marth/442940_sigurd_marth/original/sigurd_marth.zip",
-     "approved": false
+     "approved": true
     },
     "4": {
-     "state": "vanilla",
-     "name": "Original",
-     "mod_id": null,
-     "source": "vanilla",
-     "reslot_from": null,
-     "file": null,
-     "approved": false,
-     "nota": "se quita la skin de WuBoy"
+     "state": "mod",
+     "name": "Captain Hook",
+     "mod_id": 544721,
+     "source": "drive",
+     "reslot_from": 1,
+     "file": "marth/544721_Peter_Pan_Captain_Hook_over_Marth/original/captain_hook_2_.zip",
+     "approved": true
     },
     "5": {
-     "state": "vanilla",
-     "name": "Original",
-     "mod_id": null,
-     "source": "vanilla",
-     "reslot_from": null,
-     "file": null,
-     "approved": false,
-     "nota": "se quita la skin de WuBoy"
+     "state": "mod",
+     "name": "Lyn",
+     "mod_id": 323008,
+     "source": "drive",
+     "reslot_from": 2,
+     "file": "marth/323008_Lyn/original/lyn_v1.zip",
+     "approved": true
+    },
+    "6": {
+     "state": "mod",
+     "name": "Sasuke",
+     "mod_id": 325902,
+     "source": "drive",
+     "reslot_from": 4,
+     "file": "marth/325902_Sasuke/original/sasuke_over_marth.zip",
+     "approved": true
+    },
+    "7": {
+     "state": "mod",
+     "name": "Papyrus",
+     "mod_id": 376483,
+     "source": "drive",
+     "reslot_from": 3,
+     "file": "marth/376483_Papyrus/original/papyrus_sm4sh_port_.zip",
+     "approved": true
     }
-   }
+   },
+   "nota": "Los colores 3 y 4 no se quitaron de la SD."
   },
   "60": {
    "slots": {
@@ -2075,12 +2110,13 @@
     },
     "2": {
      "state": "mod",
-     "name": "Ghondor Aggy",
-     "mod_id": 405397,
+     "name": "Fernanfloo",
+     "mod_id": 697389,
      "source": "drive",
-     "reslot_from": 1,
-     "file": "littlemac/405397_ghondor/original/littleghondoraggy.zip",
-     "approved": true
+     "reslot_from": 0,
+     "file": "littlemac/697389_fernanfloo/original/fernanfloo_71331.zip",
+     "approved": true,
+     "nota": "reemplazó a Ghondor Aggy. El archivo solo trae dos retratos"
     },
     "3": {
      "state": "mod",
@@ -2120,16 +2156,16 @@
     },
     "7": {
      "state": "mod",
-     "name": "Fernanfloo",
-     "mod_id": 697389,
+     "name": "Ghondor Oggy",
+     "mod_id": 405397,
      "source": "drive",
-     "reslot_from": 0,
-     "file": "littlemac/697389_fernanfloo/original/fernanfloo_71331.zip",
+     "reslot_from": 1,
+     "file": "littlemac/405397_ghondor/original/littleghondoroggy.zip",
      "approved": true,
-     "nota": "reemplazó a Ghondor Oggy"
+     "nota": "vuelve al 8"
     }
    },
-   "nota": "Oggy salió. Aggy se queda en el 3."
+   "nota": "Fernanfloo está en el 3, no en el 8."
   },
   "79": {
    "slots": {
@@ -2674,6 +2710,51 @@
      "nota": "el clásico, no el reemplazo completo"
     }
    }
+  },
+  "32": {
+   "slots": {
+    "3": {
+     "state": "wuboy",
+     "name": "WuBoy",
+     "mod_id": null,
+     "source": "wuboy",
+     "reslot_from": null,
+     "file": null,
+     "approved": true,
+     "nota": "no se quitó"
+    },
+    "4": {
+     "state": "wuboy",
+     "name": "WuBoy",
+     "mod_id": null,
+     "source": "wuboy",
+     "reslot_from": null,
+     "file": null,
+     "approved": true,
+     "nota": "no se quitó"
+    },
+    "6": {
+     "state": "wuboy",
+     "name": "WuBoy",
+     "mod_id": null,
+     "source": "wuboy",
+     "reslot_from": null,
+     "file": null,
+     "approved": true,
+     "nota": "no se quitó"
+    },
+    "7": {
+     "state": "wuboy",
+     "name": "WuBoy",
+     "mod_id": null,
+     "source": "wuboy",
+     "reslot_from": null,
+     "file": null,
+     "approved": true,
+     "nota": "no se quitó"
+    }
+   },
+   "nota": "Los colores 4, 5, 7 y 8 siguen en WuBoy."
   }
  }
 }
