@@ -24,8 +24,8 @@ class Revision(unittest.TestCase):
         p = next(p for p in next(f for f in F if f['code'] == '82')['picks'] if not p['withdrawn'] and not p['mii'])
         m = msgs(*run([('82', 4, p['vid'])]), 'AVISO'); self.assertTrue(any('Ventus' in x and 'favorito' in x for x in m), m)
     def test_original_no_avisa_de_reemplazo(self):
-        p = next(p for p in next(f for f in F if f['code'] == '01')['picks'] if not p['withdrawn'] and p['native'] == list(range(8)))
-        self.assertFalse(any('favorito' in x for x in msgs(*run([('01', 5, p['vid'])]))))
+        f, n, p = next((f, int(k), p) for f in F for k, s in INV['fighters'].get(f['code'], {}).get('slots', {}).items() if s.get('default') for p in f['picks'] if not p['withdrawn'] and p['native'] == list(range(8)))
+        self.assertFalse(any('favorito' in x for x in msgs(*run([(f['code'], n, p['vid'])]))))
     def test_mover_de_slot_avisa(self):
         f, p = next((f, p) for f, p in PICKS if not p['withdrawn'] and not f['mii'] and p['native'] and len(p['native']) < 8)
         n = next(k for k in range(8) if k not in p['native'])

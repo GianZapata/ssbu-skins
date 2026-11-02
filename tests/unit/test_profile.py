@@ -43,6 +43,26 @@ class ComponentSlots(unittest.TestCase):
 
 
 
+class DerivedSlots(unittest.TestCase):
+    PLAN = {'fighters': {'01': {'slots': {'1': {'state': 'vanilla', 'name': 'Original', 'mod_id': None},
+                                          '3': {'state': 'mod', 'name': 'Tank', 'mod_id': 383485},
+                                          '5': {'state': 'mod', 'name': 'Joe', 'mod_id': 378405}}}}}
+
+    def slots(self, target):
+        return sp.derived_slots({'id': 'x', 'fighter': 'mario', 'kind': 'mods', 'target_slots': target}, {'mario': '01'}, self.PLAN)
+
+    def test_lee_el_destino_con_y_sin_color(self):
+        self.assertEqual(self.slots('c03 (color 4)'), [('01', 3, 'Tank', 383485)])
+        self.assertEqual(self.slots('c03, c05'), [('01', 3, 'Tank', 383485), ('01', 5, 'Joe', 378405)])
+
+    def test_el_origen_movido_no_cuenta(self):
+        self.assertEqual(self.slots('c05, movido desde c01'), [('01', 5, 'Joe', 378405)])
+
+    def test_un_slot_que_el_plan_no_tiene_como_mod_es_error(self):
+        with self.assertRaises(SystemExit):
+            self.slots('c01')
+
+
 class PendingReplacement(unittest.TestCase):
     def test_marks_slots_without_uninstalling(self):
         prof = {'pending_replacement': {'_nota': 'x', 'mario': {'c00': 'original', 'c02': 'WuBoy'}, 'nadie': {'c01': '?'}}}
