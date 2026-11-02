@@ -16,7 +16,8 @@ R = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..')
 # cuando source_url no es de GameBanana (componentes extraídos de un PR del ModPack).
 COMPONENT_SLOTS = {
     'ventus-sora': [('82', 4, 'Ventus (Dusk)')],
-    'roxas-sora-reslot': [('82', 5, 'Roxas · Organización XIII'), ('82', 7, 'Roxas · Villa Crepúsculo')],
+    'roxas-sora-reslot': [('82', 5, 'Roxas · Organización XIII')],
+    'eflame-a2-2b-9s-c07': [('79', 7, 'A2', 291700), ('80', 7, '2B', 291700)],
     'terra-ike': [('32', 0, 'Terra'), ('32', 2, 'Terranort')],
     'funky-dk': [('02', n, 'Funky Kong') for n in (1, 3, 5, 7)],
     'aqua-pyra-reslot': [('79', 0, 'Aqua (Dusk)'), ('80', 0, 'Aqua (Dusk)')],   # el par c00 de Pyra/Mythra; Rex (element/diver) comparte modelo y no es un luchador del catálogo
@@ -71,15 +72,16 @@ def skin_slots(base_paths, globs):
             s = next((x for x in p[3:-1] if re.fullmatch(r'c\d\d', x)), None)
             if s: out.add((SKIN_ALIASES.get(p[1], p[1]), int(s[1:])))
     return out
-TARGET_SLOT = re.compile(r'c(\d\d) \(color')
+TARGET_SLOT = re.compile(r'\bc(\d\d)\b')
 def derived_slots(m, internal, plan):
-    """Componente derivado del plan de slots (`gianpack reslot`, con `derived_from`): sus slots salen de target_slots
-    («c01 (color 2), c03 (color 4)»; «movido desde cNN» es el origen y no cuenta) y el nombre y el mod, del plan aprobado
+    """Componente fuera de COMPONENT_SLOTS: sus slots salen de target_slots («c01 (color 2), c03 (color 4)» o «c05, movido
+    desde c01»; «movido desde cNN» es el origen y no cuenta) y el nombre y el mod, del plan de slots
     → [(código, slot, nombre, id de GameBanana)]."""
     code = internal.get(m.get('fighter'))
-    if not (code and m.get('derived_from') and m.get('kind') == 'mods'): return []
+    if not (code and m.get('kind') == 'mods'): return []
+    target = re.sub(r'movido desde c\d\d', '', m.get('target_slots') or '')
     out = []
-    for n in sorted(int(x) for x in TARGET_SLOT.findall(m.get('target_slots') or '')):
+    for n in sorted({int(x) for x in TARGET_SLOT.findall(target)}):
         d = plan['fighters'][code]['slots'][str(n)]
         if d['state'] != 'mod': raise SystemExit(f"{m['id']}: c{n:02d} de {code} no es un mod en el plan de slots")
         out.append((code, n, d['name'], d['mod_id']))
@@ -139,8 +141,9 @@ def main():
             if m.get('fighter') not in ('-', None) and c not in ('roxas-victory-pack',): unmapped.append(c)
             continue
         for code, n, name, *gb in entries:
-            mod_id = gb[0] if gb else int(re.search(r'gamebanana\.com/mods/(\d+)', m['source_url']).group(1))
-            url = f'https://gamebanana.com/mods/{mod_id}' if gb else m.get('source_url')
+            found = re.search(r'gamebanana\.com/\w+/(\d+)', m.get('source_url') or '')
+            mod_id = (gb[0] if gb else None) or (int(found.group(1)) if found else None)
+            url = f'https://gamebanana.com/mods/{mod_id}' if gb and gb[0] else m.get('source_url')
             slots.append({'fighter': code, 'slot': n, 'name': name, 'component': c, 'mod_id': mod_id,
                           'author': m.get('author'), 'url': url, 'version': m.get('version'), 'console_test': m.get('console_test'), 'classification': m.get('classification')})
     dup = sorted(k for k, v in collections.Counter((e['fighter'], e['slot']) for e in slots).items() if v > 1)

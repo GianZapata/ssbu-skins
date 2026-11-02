@@ -1,6 +1,6 @@
 {
  "_nota": "Decisiones de slots de Gian. state: mod|wuboy|vanilla; source: drive|profile|wuboy|vanilla; approved false = propuesta. Regenerar el informe: python3 tools/slot_plan.py [--check]. Un grupo [a, b] en priority comparte posición (Pyra y Mythra). updated_at cambia solo cuando cambia una decisión, no al copiar el plan.",
- "updated_at": "2026-11-01T12:00:00-06:00",
+ "updated_at": "2026-11-01T20:30:00-06:00",
  "priority": [
   "01",
   "09",
@@ -37,7 +37,16 @@
   "72",
   "77",
   "81",
-  "82"
+  "82",
+  "58",
+  "37",
+  "28ε",
+  "56",
+  "25",
+  "04",
+  "66",
+  "30",
+  "22"
  ],
  "fighters": {
   "23": {
@@ -205,40 +214,43 @@
    "slots": {
     "0": {
      "state": "mod",
-     "name": "Red Steve",
-     "mod_id": 175905,
+     "name": "Steviroth",
+     "mod_id": 323894,
      "source": "profile",
      "reslot_from": null,
      "file": null,
-     "approved": false
+     "approved": true,
+     "nota": "Instalada en la SD (pickel-steviroth-c00); plan alineado con la SD el 2026-11-01"
     },
     "1": {
      "state": "mod",
-     "name": "White Alex",
-     "mod_id": 296845,
+     "name": "Villager",
+     "mod_id": 331475,
      "source": "profile",
      "reslot_from": null,
      "file": null,
-     "approved": false
+     "approved": true,
+     "nota": "Instalada en la SD (pickel-villager-c01); plan alineado con la SD el 2026-11-01"
     },
     "2": {
      "state": "mod",
-     "name": "Herobrine",
-     "mod_id": 175943,
-     "source": "drive",
-     "reslot_from": 0,
-     "file": "steve/175943_herobrine_over_steve/original/herobrine_1be72.rar",
-     "approved": false
-    },
-    "3": {
-     "state": "vanilla",
-     "name": "Original",
-     "mod_id": null,
-     "source": "vanilla",
+     "name": "Stick Figures",
+     "mod_id": 482876,
+     "source": "profile",
      "reslot_from": null,
      "file": null,
-     "approved": false,
-     "nota": "se quita la skin de WuBoy. Villager (Minecraft) fuera: trae ui_chara_db.prc y msg_name.msbt completos, no como parche"
+     "approved": true,
+     "nota": "Instalada en la SD (pickel-stick-c02); plan alineado con la SD el 2026-11-01"
+    },
+    "3": {
+     "state": "mod",
+     "name": "ROBLOX Noob",
+     "mod_id": 422113,
+     "source": "profile",
+     "reslot_from": null,
+     "file": null,
+     "approved": true,
+     "nota": "Instalada en la SD (pickel-roblox-c03); plan alineado con la SD el 2026-11-01"
     },
     "4": {
      "state": "mod",
@@ -261,12 +273,13 @@
     },
     "6": {
      "state": "mod",
-     "name": "Lego Batman",
-     "mod_id": 579591,
-     "source": "drive",
-     "reslot_from": 0,
-     "file": "steve/579591_lego_batman/original/lego_batman.rar",
-     "approved": false
+     "name": "Chicken Jockey",
+     "mod_id": 587587,
+     "source": "profile",
+     "reslot_from": null,
+     "file": null,
+     "approved": true,
+     "nota": "Instalada en la SD (pickel-jockey-c06); plan alineado con la SD el 2026-11-01"
     },
     "7": {
      "state": "mod",
@@ -332,34 +345,34 @@
      "nota": "el pack trae 8 looks; aqui solo el de c01. El config.json se quito el 2026-10-29: la clave new_dir_files no la lee ARCropolis y declaraba otros colores. Queda el motion de c04."
     },
     "5": {
-     "state": "vanilla",
-     "name": "Original",
-     "mod_id": null,
-     "source": "vanilla",
+     "state": "mod",
+     "name": "Phineas",
+     "mod_id": 444343,
+     "source": "profile",
      "reslot_from": null,
      "file": null,
-     "approved": false,
-     "nota": "se quita la skin de WuBoy"
+     "approved": true,
+     "nota": "Instalada en la SD (mario-phineas-c05); plan alineado con la SD el 2026-11-01"
     },
     "6": {
-     "state": "vanilla",
-     "name": "Original",
-     "mod_id": null,
-     "source": "vanilla",
+     "state": "mod",
+     "name": "Malario",
+     "mod_id": 457306,
+     "source": "profile",
      "reslot_from": null,
      "file": null,
-     "approved": false,
-     "nota": "se quita la skin de WuBoy"
+     "approved": true,
+     "nota": "Instalada en la SD (mario-malario-c06); plan alineado con la SD el 2026-11-01"
     },
     "7": {
-     "state": "vanilla",
-     "name": "Original",
-     "mod_id": null,
-     "source": "vanilla",
+     "state": "mod",
+     "name": "Hotel Mario",
+     "mod_id": 456122,
+     "source": "profile",
      "reslot_from": null,
      "file": null,
-     "approved": false,
-     "nota": "se quita la skin de WuBoy"
+     "approved": true,
+     "nota": "Instalada en la SD (mario-hotel-c07); plan alineado con la SD el 2026-11-01"
     }
    },
    "nota": "Regla de Gian: 1 skin por mod. Otros looks de Dry Bones, Wheelchair y Moogle quedan fuera."
@@ -376,87 +389,98 @@
      "approved": false
     },
     "1": {
-     "state": "vanilla",
-     "name": "Original",
-     "mod_id": null,
-     "source": "vanilla",
+     "state": "mod",
+     "name": "Dancing Banana",
+     "mod_id": 432574,
+     "source": "profile",
      "reslot_from": null,
      "file": null,
-     "approved": false,
-     "nota": "se quita la skin de WuBoy"
+     "approved": true,
+     "nota": "Instalada en la SD (luigi-dancing-banana-c01); plan alineado con la SD el 2026-11-01"
     },
     "2": {
-     "state": "vanilla",
-     "name": "Original",
-     "mod_id": null,
-     "source": "vanilla",
+     "state": "mod",
+     "name": "Smash 64",
+     "mod_id": 174130,
+     "source": "profile",
      "reslot_from": null,
      "file": null,
-     "approved": false,
-     "nota": "se quita la skin de WuBoy"
+     "approved": true,
+     "nota": "Instalada en la SD (luigi-smash64-c02); plan alineado con la SD el 2026-11-01"
     },
     "3": {
-     "state": "vanilla",
-     "name": "Original",
-     "mod_id": null,
-     "source": "vanilla",
+     "state": "mod",
+     "name": "Fred",
+     "mod_id": 589388,
+     "source": "profile",
      "reslot_from": null,
      "file": null,
-     "approved": false,
-     "nota": "se quita la skin de WuBoy"
+     "approved": true,
+     "nota": "Instalada en la SD (luigi-fred-c03); plan alineado con la SD el 2026-11-01"
     },
     "4": {
-     "state": "vanilla",
-     "name": "Original",
-     "mod_id": null,
-     "source": "vanilla",
+     "state": "mod",
+     "name": "Mario and Luigi",
+     "mod_id": 530166,
+     "source": "profile",
      "reslot_from": null,
      "file": null,
-     "approved": false,
-     "nota": "se quita la skin de WuBoy"
+     "approved": true,
+     "nota": "Instalada en la SD (luigi-ml-c04); plan alineado con la SD el 2026-11-01"
     },
     "5": {
-     "state": "vanilla",
-     "name": "Original",
-     "mod_id": null,
-     "source": "vanilla",
+     "state": "mod",
+     "name": "Gawr Gura",
+     "mod_id": 174133,
+     "source": "profile",
      "reslot_from": null,
      "file": null,
-     "approved": false,
-     "nota": "se quita la skin de WuBoy"
+     "approved": true,
+     "nota": "Instalada en la SD (luigi-gura-c05); plan alineado con la SD el 2026-11-01"
     },
     "6": {
      "state": "mod",
-     "name": "Rayman",
-     "mod_id": 391570,
-     "source": "drive",
-     "reslot_from": null,
-     "file": "luigi/391570_rayman_wiiu_trophy/original/luigi-c06_-_rayman_update_-_effects_8b55e.zip",
-     "approved": false,
-     "nota": "el c07 de Rayman es idéntico en retrato; no se usa"
-    },
-    "7": {
-     "state": "wuboy",
-     "name": "Mr. L",
-     "mod_id": null,
-     "source": "wuboy",
+     "name": "Mario Golf",
+     "mod_id": 174114,
+     "source": "profile",
      "reslot_from": null,
      "file": null,
-     "approved": false
+     "approved": true,
+     "nota": "Instalada en la SD (luigi-golf-c06); plan alineado con la SD el 2026-11-01"
+    },
+    "7": {
+     "state": "mod",
+     "name": "Patrick",
+     "mod_id": 676332,
+     "source": "profile",
+     "reslot_from": null,
+     "file": null,
+     "approved": true,
+     "nota": "Instalada en la SD (luigi-patrick-c07); plan alineado con la SD el 2026-11-01"
     }
    }
   },
   "14": {
    "slots": {
-    "1": {
-     "state": "vanilla",
-     "name": "Original",
-     "mod_id": null,
-     "source": "vanilla",
+    "0": {
+     "state": "mod",
+     "name": "Jiraiya",
+     "mod_id": 423210,
+     "source": "profile",
      "reslot_from": null,
      "file": null,
-     "approved": false,
-     "nota": "se quita la skin de WuBoy"
+     "approved": true,
+     "nota": "Instalada en la SD (koopa-jiraiya-c00); plan alineado con la SD el 2026-11-01"
+    },
+    "1": {
+     "state": "mod",
+     "name": "Barney",
+     "mod_id": 453381,
+     "source": "profile",
+     "reslot_from": null,
+     "file": null,
+     "approved": true,
+     "nota": "Instalada en la SD (koopa-barney-c01); plan alineado con la SD el 2026-11-01"
     },
     "2": {
      "state": "mod",
@@ -469,51 +493,54 @@
      "nota": "un solo color"
     },
     "3": {
-     "state": "vanilla",
-     "name": "Original",
-     "mod_id": null,
-     "source": "vanilla",
+     "state": "mod",
+     "name": "King Koopa",
+     "mod_id": 450000,
+     "source": "profile",
      "reslot_from": null,
      "file": null,
-     "approved": false,
-     "nota": "se quita la skin de WuBoy"
+     "approved": true,
+     "nota": "Instalada en la SD (koopa-king-koopa-c03); plan alineado con la SD el 2026-11-01"
     },
     "4": {
-     "state": "vanilla",
-     "name": "Original",
-     "mod_id": null,
-     "source": "vanilla",
+     "state": "mod",
+     "name": "T-Rex",
+     "mod_id": 463778,
+     "source": "profile",
      "reslot_from": null,
      "file": null,
-     "approved": false,
-     "nota": "se quita la skin de WuBoy"
+     "approved": true,
+     "nota": "Instalada en la SD (koopa-trex-c04); plan alineado con la SD el 2026-11-01"
     },
     "5": {
      "state": "mod",
-     "name": "Kurama [Linked]",
-     "mod_id": 386111,
-     "source": "drive",
+     "name": "Blastoise",
+     "mod_id": 424919,
+     "source": "profile",
      "reslot_from": null,
-     "file": "bowser/386111_kurama_linked_susano_o_armor_jp_voice_new/original/kuramalinkedandsusanooarmor.zip",
-     "approved": false
+     "file": null,
+     "approved": true,
+     "nota": "Instalada en la SD (koopa-blastoise-c05); plan alineado con la SD el 2026-11-01"
     },
     "6": {
-     "state": "wuboy",
+     "state": "mod",
      "name": "Dry Bowser",
-     "mod_id": null,
-     "source": "wuboy",
+     "mod_id": 174180,
+     "source": "profile",
      "reslot_from": null,
      "file": null,
-     "approved": false
+     "approved": true,
+     "nota": "Instalada en la SD (koopa-dry-bowser-c06); plan alineado con la SD el 2026-11-01"
     },
     "7": {
-     "state": "wuboy",
-     "name": "Dark Bowser",
-     "mod_id": null,
-     "source": "wuboy",
+     "state": "mod",
+     "name": "Kurama",
+     "mod_id": 386111,
+     "source": "profile",
      "reslot_from": null,
      "file": null,
-     "approved": false
+     "approved": true,
+     "nota": "Instalada en la SD (koopa-kurama-c07); plan alineado con la SD el 2026-11-01"
     }
    },
    "nota": "El mod trae 2 looks (Kurama y Susano'o); solo Kurama. Dry Bowser y Dark Bowser de WuBoy se conservan."
@@ -599,14 +626,14 @@
   "02": {
    "slots": {
     "0": {
-     "state": "vanilla",
-     "name": "Original",
-     "mod_id": null,
-     "source": "vanilla",
+     "state": "mod",
+     "name": "Mario Party",
+     "mod_id": 326414,
+     "source": "profile",
      "reslot_from": null,
      "file": null,
-     "approved": false,
-     "nota": "DK Bananza fuera: su config.json pide 4 texturas propias (def_bananza_005/006) que no vienen en c00"
+     "approved": true,
+     "nota": "Instalada en la SD (donkey-mario-party-c00); plan alineado con la SD el 2026-11-01"
     },
     "1": {
      "state": "mod",
@@ -650,13 +677,13 @@
     },
     "5": {
      "state": "mod",
-     "name": "Joe Swanson",
-     "mod_id": 378405,
-     "source": "drive",
-     "reslot_from": 4,
-     "file": "dk/378405_joe_swanson/original/joe_swanson_c04__2e44a.zip",
+     "name": "Buff Kirby",
+     "mod_id": 377904,
+     "source": "profile",
+     "reslot_from": null,
+     "file": null,
      "approved": true,
-     "nota": "pasa de c04 a c05: c04 vuelve a ser Swole Doge de WuBoy"
+     "nota": "Instalada en la SD (donkey-buff-kirby-c05); plan alineado con la SD el 2026-11-01"
     },
     "6": {
      "state": "mod",
@@ -903,23 +930,24 @@
      "nota": "se quita la skin de WuBoy"
     },
     "6": {
-     "state": "vanilla",
-     "name": "Original",
-     "mod_id": null,
-     "source": "vanilla",
+     "state": "mod",
+     "name": "Tharja over zelda",
+     "mod_id": 347784,
+     "source": "profile",
      "reslot_from": null,
      "file": null,
-     "approved": false,
-     "nota": "se quita la skin de WuBoy"
+     "approved": true,
+     "nota": "Instalada en la SD (zelda-tharja-c06); plan alineado con la SD el 2026-11-01"
     },
     "7": {
-     "state": "wuboy",
-     "name": "Wiz",
-     "mod_id": null,
-     "source": "wuboy",
+     "state": "mod",
+     "name": "Elise zelda",
+     "mod_id": 347784,
+     "source": "profile",
      "reslot_from": null,
      "file": null,
-     "approved": false
+     "approved": true,
+     "nota": "Instalada en la SD (zelda-elise-c07); plan alineado con la SD el 2026-11-01"
     }
    }
   },
@@ -937,13 +965,13 @@
     },
     "1": {
      "state": "mod",
-     "name": "Lucy (Cyberpunk)",
-     "mod_id": 690283,
-     "source": "drive",
+     "name": "Ada",
+     "mod_id": 386833,
+     "source": "profile",
      "reslot_from": null,
-     "file": "zero_suit_samus/690283_comm_lucy_cyberpunk_edgerunners/original/zero_suit_samus_c01_-_lucy.zip",
-     "approved": false,
-     "nota": "reemplaza a «Naoto» de WuBoy"
+     "file": null,
+     "approved": true,
+     "nota": "Instalada en la SD (szerosuit-ada-c01); plan alineado con la SD el 2026-11-01"
     },
     "2": {
      "state": "mod",
@@ -974,14 +1002,14 @@
      "approved": true
     },
     "5": {
-     "state": "vanilla",
-     "name": "Original",
-     "mod_id": null,
-     "source": "vanilla",
+     "state": "mod",
+     "name": "Jill",
+     "mod_id": 368929,
+     "source": "profile",
      "reslot_from": null,
      "file": null,
-     "approved": false,
-     "nota": "se quita la skin de WuBoy"
+     "approved": true,
+     "nota": "Instalada en la SD (szerosuit-jill-368929-c05); plan alineado con la SD el 2026-11-01"
     },
     "6": {
      "state": "vanilla",
@@ -1193,22 +1221,23 @@
     },
     "2": {
      "state": "mod",
-     "name": "Dark Falcon",
-     "mod_id": 386982,
+     "name": "Shaggy",
+     "mod_id": 174748,
      "source": "profile",
      "reslot_from": null,
      "file": null,
-     "approved": false
+     "approved": true,
+     "nota": "Instalada en la SD (captain-shaggy-c02); plan alineado con la SD el 2026-11-01"
     },
     "3": {
-     "state": "vanilla",
-     "name": "Original",
-     "mod_id": null,
-     "source": "vanilla",
+     "state": "mod",
+     "name": "Frozone",
+     "mod_id": 344942,
+     "source": "profile",
      "reslot_from": null,
      "file": null,
-     "approved": false,
-     "nota": "Garnet se retiro el 2026-10-29: su config.json declaraba texturas de c00, c01 y c04-c07 que no estaban. c03 vuelve al original."
+     "approved": true,
+     "nota": "Instalada en la SD (captain-frozone-c03); plan alineado con la SD el 2026-11-01"
     },
     "4": {
      "state": "mod",
@@ -1221,24 +1250,24 @@
      "nota": "All Might salió. En la SD está Shiny Gallade, no All Might."
     },
     "5": {
-     "state": "vanilla",
-     "name": "Original",
-     "mod_id": null,
-     "source": "vanilla",
+     "state": "mod",
+     "name": "Troll Face",
+     "mod_id": 296237,
+     "source": "profile",
      "reslot_from": null,
      "file": null,
-     "approved": false,
-     "nota": "se quita la skin de WuBoy"
+     "approved": true,
+     "nota": "Instalada en la SD (captain-troll-face-c05); plan alineado con la SD el 2026-11-01"
     },
     "6": {
-     "state": "vanilla",
-     "name": "Original",
-     "mod_id": null,
-     "source": "vanilla",
+     "state": "mod",
+     "name": "Vegito base",
+     "mod_id": 460246,
+     "source": "profile",
      "reslot_from": null,
      "file": null,
-     "approved": false,
-     "nota": "se quita la skin de WuBoy"
+     "approved": true,
+     "nota": "Instalada en la SD (captain-vegito-c06); plan alineado con la SD el 2026-11-01"
     },
     "7": {
      "state": "wuboy",
@@ -1628,6 +1657,16 @@
   },
   "10": {
    "slots": {
+    "0": {
+     "state": "mod",
+     "name": "Susie Haltmann ness",
+     "mod_id": 347784,
+     "source": "profile",
+     "reslot_from": null,
+     "file": null,
+     "approved": true,
+     "nota": "Instalada en la SD (ness-susie-c00); plan alineado con la SD el 2026-11-01"
+    },
     "2": {
      "state": "vanilla",
      "name": "Original",
@@ -1662,6 +1701,16 @@
   },
   "25ε": {
    "slots": {
+    "0": {
+     "state": "mod",
+     "name": "Squall (negro)",
+     "mod_id": 175495,
+     "source": "drive",
+     "reslot_from": null,
+     "file": "chrom/175495_kingdom_hearts_squall/original/kingdom_hearts_squall_c9f79.zip.part01",
+     "approved": false,
+     "nota": "un solo look (c00, ropa negra); zip partido: unir part01 + part02 (MD5 691946b0…)"
+    },
     "1": {
      "state": "mod",
      "name": "Raiden",
@@ -1701,16 +1750,6 @@
      "file": null,
      "approved": false,
      "nota": "se quita la skin de WuBoy"
-    },
-    "0": {
-     "state": "mod",
-     "name": "Squall (negro)",
-     "mod_id": 175495,
-     "source": "drive",
-     "reslot_from": null,
-     "file": "chrom/175495_kingdom_hearts_squall/original/kingdom_hearts_squall_c9f79.zip.part01",
-     "approved": false,
-     "nota": "un solo look (c00, ropa negra); zip partido: unir part01 + part02 (MD5 691946b0…)"
     }
    },
    "nota": "Squall: un solo look (c00), por decisión de Gian. Raiden en c01."
@@ -1850,73 +1889,73 @@
     },
     "1": {
      "state": "mod",
-     "name": "2B (armadura gris)",
+     "name": "2B alts",
      "mod_id": 392802,
-     "source": "drive",
-     "reslot_from": null,
-     "file": "lucina/392802_2b_alts_for_mastaklo/original/2b_alts_for_mastaklo_s_2b.zip.part01",
-     "approved": false,
-     "nota": "alt de 2B; zip partido: unir part01 + part02 (MD5 33d759d9…). Requiere el 2B de c00"
-    },
-    "2": {
-     "state": "vanilla",
-     "name": "Original",
-     "mod_id": null,
-     "source": "vanilla",
+     "source": "profile",
      "reslot_from": null,
      "file": null,
-     "approved": false,
-     "nota": "se quita la skin de WuBoy"
+     "approved": true,
+     "nota": "Instalada en la SD (lucina-2b-alts-c01-c07); plan alineado con la SD el 2026-11-01"
+    },
+    "2": {
+     "state": "mod",
+     "name": "2B alts",
+     "mod_id": 392802,
+     "source": "profile",
+     "reslot_from": null,
+     "file": null,
+     "approved": true,
+     "nota": "Instalada en la SD (lucina-2b-alts-c01-c07); plan alineado con la SD el 2026-11-01"
     },
     "3": {
      "state": "mod",
-     "name": "2B (lencería)",
+     "name": "2B alts",
      "mod_id": 392802,
-     "source": "drive",
+     "source": "profile",
      "reslot_from": null,
-     "file": "lucina/392802_2b_alts_for_mastaklo/original/2b_alts_for_mastaklo_s_2b.zip.part01",
-     "approved": false,
-     "nota": "alt de 2B; zip partido: unir part01 + part02. Requiere el 2B de c00"
+     "file": null,
+     "approved": true,
+     "nota": "Instalada en la SD (lucina-2b-alts-c01-c07); plan alineado con la SD el 2026-11-01"
     },
     "4": {
-     "state": "vanilla",
-     "name": "Original",
-     "mod_id": null,
-     "source": "vanilla",
+     "state": "mod",
+     "name": "2B alts",
+     "mod_id": 392802,
+     "source": "profile",
      "reslot_from": null,
      "file": null,
-     "approved": false,
-     "nota": "se quita la skin de WuBoy"
+     "approved": true,
+     "nota": "Instalada en la SD (lucina-2b-alts-c01-c07); plan alineado con la SD el 2026-11-01"
     },
     "5": {
-     "state": "vanilla",
-     "name": "Original",
-     "mod_id": null,
-     "source": "vanilla",
+     "state": "mod",
+     "name": "2B alts",
+     "mod_id": 392802,
+     "source": "profile",
      "reslot_from": null,
      "file": null,
-     "approved": false,
-     "nota": "se quita la skin de WuBoy"
+     "approved": true,
+     "nota": "Instalada en la SD (lucina-2b-alts-c01-c07); plan alineado con la SD el 2026-11-01"
     },
     "6": {
      "state": "mod",
-     "name": "2B (traje blanco)",
+     "name": "2B alts",
      "mod_id": 392802,
-     "source": "drive",
-     "reslot_from": null,
-     "file": "lucina/392802_2b_alts_for_mastaklo/original/2b_alts_for_mastaklo_s_2b.zip.part01",
-     "approved": false,
-     "nota": "alt de 2B; zip partido: unir part01 + part02. Requiere el 2B de c00"
-    },
-    "7": {
-     "state": "vanilla",
-     "name": "Original",
-     "mod_id": null,
-     "source": "vanilla",
+     "source": "profile",
      "reslot_from": null,
      "file": null,
-     "approved": false,
-     "nota": "se quita la skin de WuBoy"
+     "approved": true,
+     "nota": "Instalada en la SD (lucina-2b-alts-c01-c07); plan alineado con la SD el 2026-11-01"
+    },
+    "7": {
+     "state": "mod",
+     "name": "2B alts",
+     "mod_id": 392802,
+     "source": "profile",
+     "reslot_from": null,
+     "file": null,
+     "approved": true,
+     "nota": "Instalada en la SD (lucina-2b-alts-c01-c07); plan alineado con la SD el 2026-11-01"
     }
    },
    "nota": "2B alts: 3 de 7 trajes (c01 armadura gris, c03 lencería, c06 blanco), por decisión de Gian (excepción a la regla de 2 looks)."
@@ -1944,23 +1983,24 @@
      "nota": "se quita la skin de WuBoy"
     },
     "2": {
-     "state": "wuboy",
-     "name": "Noctis",
-     "mod_id": null,
-     "source": "wuboy",
+     "state": "mod",
+     "name": "Dimitri Byleth",
+     "mod_id": 347784,
+     "source": "profile",
      "reslot_from": null,
      "file": null,
-     "approved": false
+     "approved": true,
+     "nota": "Instalada en la SD (master-dimitri-c02); plan alineado con la SD el 2026-11-01"
     },
     "3": {
-     "state": "vanilla",
-     "name": "Original",
-     "mod_id": null,
-     "source": "vanilla",
+     "state": "mod",
+     "name": "Yuri byleth",
+     "mod_id": 347784,
+     "source": "profile",
      "reslot_from": null,
      "file": null,
-     "approved": false,
-     "nota": "se quita la skin de WuBoy"
+     "approved": true,
+     "nota": "Instalada en la SD (master-yuri-c03); plan alineado con la SD el 2026-11-01"
     },
     "4": {
      "state": "vanilla",
@@ -2028,14 +2068,24 @@
   "31": {
    "slots": {
     "0": {
-     "state": "vanilla",
-     "name": "Original",
-     "mod_id": null,
-     "source": "vanilla",
+     "state": "mod",
+     "name": "Wesker snake",
+     "mod_id": 347784,
+     "source": "profile",
      "reslot_from": null,
      "file": null,
-     "approved": false,
-     "nota": "se quita la skin de WuBoy"
+     "approved": true,
+     "nota": "Instalada en la SD (snake-wesker-c00); plan alineado con la SD el 2026-11-01"
+    },
+    "1": {
+     "state": "mod",
+     "name": "Chris redfield snake",
+     "mod_id": 347784,
+     "source": "profile",
+     "reslot_from": null,
+     "file": null,
+     "approved": true,
+     "nota": "Instalada en la SD (snake-chris-c01); plan alineado con la SD el 2026-11-01"
     },
     "4": {
      "state": "vanilla",
@@ -2051,25 +2101,85 @@
   },
   "68": {
    "slots": {
-    "4": {
-     "state": "vanilla",
-     "name": "Original",
-     "mod_id": null,
-     "source": "vanilla",
+    "0": {
+     "state": "mod",
+     "name": "KK Slider",
+     "mod_id": 292803,
+     "source": "profile",
      "reslot_from": null,
      "file": null,
-     "approved": false,
-     "nota": "se quita la skin de WuBoy"
+     "approved": true,
+     "nota": "Instalada en la SD (shizue-kk-slider-c00); plan alineado con la SD el 2026-11-01"
+    },
+    "1": {
+     "state": "mod",
+     "name": "Tom Nook",
+     "mod_id": 317003,
+     "source": "profile",
+     "reslot_from": null,
+     "file": null,
+     "approved": true,
+     "nota": "Instalada en la SD (shizue-nook-c01); plan alineado con la SD el 2026-11-01"
+    },
+    "2": {
+     "state": "mod",
+     "name": "Chopper",
+     "mod_id": 468820,
+     "source": "profile",
+     "reslot_from": null,
+     "file": null,
+     "approved": true,
+     "nota": "Instalada en la SD (shizue-chopper-c02); plan alineado con la SD el 2026-11-01"
+    },
+    "3": {
+     "state": "mod",
+     "name": "Marin",
+     "mod_id": 304314,
+     "source": "profile",
+     "reslot_from": null,
+     "file": null,
+     "approved": true,
+     "nota": "Instalada en la SD (shizue-marin-c03); plan alineado con la SD el 2026-11-01"
+    },
+    "4": {
+     "state": "mod",
+     "name": "Hello Kitty",
+     "mod_id": 449873,
+     "source": "profile",
+     "reslot_from": null,
+     "file": null,
+     "approved": true,
+     "nota": "Instalada en la SD (shizue-hello-kitty-c04); plan alineado con la SD el 2026-11-01"
+    },
+    "5": {
+     "state": "mod",
+     "name": "Smol Korone",
+     "mod_id": 373949,
+     "source": "profile",
+     "reslot_from": null,
+     "file": null,
+     "approved": true,
+     "nota": "Instalada en la SD (shizue-korone-c05); plan alineado con la SD el 2026-11-01"
     },
     "6": {
-     "state": "vanilla",
-     "name": "Original",
-     "mod_id": null,
-     "source": "vanilla",
+     "state": "mod",
+     "name": "My Melody",
+     "mod_id": 618023,
+     "source": "profile",
      "reslot_from": null,
      "file": null,
-     "approved": false,
-     "nota": "se quita la skin de WuBoy"
+     "approved": true,
+     "nota": "Instalada en la SD (shizue-melody-c06); plan alineado con la SD el 2026-11-01"
+    },
+    "7": {
+     "state": "mod",
+     "name": "Chibi Komi",
+     "mod_id": 582970,
+     "source": "profile",
+     "reslot_from": null,
+     "file": null,
+     "approved": true,
+     "nota": "Instalada en la SD (shizue-chibi-komi-c07); plan alineado con la SD el 2026-11-01"
     }
    },
    "nota": "Hello Kitty (449873): usar solo la versión de un slot (c02); la de 8 slots pide 24 archivos que no vienen."
@@ -2322,14 +2432,14 @@
      "nota": "se quita la skin de WuBoy"
     },
     "7": {
-     "state": "vanilla",
-     "name": "Original",
-     "mod_id": null,
-     "source": "vanilla",
+     "state": "mod",
+     "name": "A2 - 2B - 9S",
+     "mod_id": 291700,
+     "source": "profile",
      "reslot_from": null,
      "file": null,
-     "approved": false,
-     "nota": "se quita la skin de WuBoy"
+     "approved": true,
+     "nota": "Instalada en la SD (eflame-a2-2b-9s-c07); plan alineado con la SD el 2026-11-01"
     }
    },
    "nota": "A2/2B/9S (291700) comparte c07 con Pyra; el Drive lo tiene bajo Pyra."
@@ -2365,54 +2475,54 @@
      "approved": false
     },
     "3": {
-     "state": "vanilla",
-     "name": "Original",
-     "mod_id": null,
-     "source": "vanilla",
+     "state": "mod",
+     "name": "1997 Cloud",
+     "mod_id": 325562,
+     "source": "profile",
      "reslot_from": null,
      "file": null,
-     "approved": false,
-     "nota": "se quita la skin de WuBoy"
+     "approved": true,
+     "nota": "Instalada en la SD (cloud-1997-c03); plan alineado con la SD el 2026-11-01"
     },
     "4": {
-     "state": "vanilla",
-     "name": "Original",
-     "mod_id": null,
-     "source": "vanilla",
+     "state": "mod",
+     "name": "Nomura",
+     "mod_id": 500234,
+     "source": "profile",
      "reslot_from": null,
      "file": null,
-     "approved": false,
-     "nota": "se quita la skin de WuBoy"
+     "approved": true,
+     "nota": "Instalada en la SD (cloud-nomura-c04); plan alineado con la SD el 2026-11-01"
     },
     "5": {
-     "state": "vanilla",
-     "name": "Original",
-     "mod_id": null,
-     "source": "vanilla",
+     "state": "mod",
+     "name": "Zabuza Momochi",
+     "mod_id": 398823,
+     "source": "profile",
      "reslot_from": null,
      "file": null,
-     "approved": false,
-     "nota": "se quita la skin de WuBoy"
+     "approved": true,
+     "nota": "Instalada en la SD (cloud-zabuza-c05); plan alineado con la SD el 2026-11-01"
     },
     "6": {
-     "state": "vanilla",
-     "name": "Original",
-     "mod_id": null,
-     "source": "vanilla",
+     "state": "mod",
+     "name": "Yomi Cloud",
+     "mod_id": 347784,
+     "source": "profile",
      "reslot_from": null,
      "file": null,
-     "approved": false,
-     "nota": "se quita la skin de WuBoy"
+     "approved": true,
+     "nota": "Instalada en la SD (cloud-yomi-c06); plan alineado con la SD el 2026-11-01"
     },
     "7": {
-     "state": "vanilla",
-     "name": "Original",
-     "mod_id": null,
-     "source": "vanilla",
+     "state": "mod",
+     "name": "Trunks",
+     "mod_id": 424500,
+     "source": "profile",
      "reslot_from": null,
      "file": null,
-     "approved": false,
-     "nota": "se quita la skin de WuBoy"
+     "approved": true,
+     "nota": "Instalada en la SD (cloud-trunks-c07); plan alineado con la SD el 2026-11-01"
     }
    }
   },
@@ -2456,14 +2566,14 @@
      "nota": "vuelve la de WuBoy (decisión de Gian)"
     },
     "4": {
-     "state": "wuboy",
-     "name": "Vergil",
-     "mod_id": null,
-     "source": "wuboy",
+     "state": "mod",
+     "name": "Sandbag",
+     "mod_id": 487151,
+     "source": "profile",
      "reslot_from": null,
      "file": null,
      "approved": true,
-     "nota": "vuelve la de WuBoy (decisión de Gian)"
+     "nota": "Instalada en la SD (edge-sandbag-c04); plan alineado con la SD el 2026-11-01"
     },
     "5": {
      "state": "mod",
@@ -2487,18 +2597,28 @@
     },
     "7": {
      "state": "mod",
-     "name": "Sandbag",
-     "mod_id": 487151,
-     "source": "drive",
-     "reslot_from": 0,
-     "file": "sephiroth/487151_sandbag_over_sephiroth/original/sandbag_over_sephiroth_emerald20xx_.zip",
+     "name": "Navarre sepiroth",
+     "mod_id": 347784,
+     "source": "profile",
+     "reslot_from": null,
+     "file": null,
      "approved": true,
-     "nota": "pasa de c04 a c07: c04 vuelve a ser Vergil de WuBoy"
+     "nota": "Instalada en la SD (edge-navarre-c07); plan alineado con la SD el 2026-11-01"
     }
    }
   },
   "82": {
    "slots": {
+    "0": {
+     "state": "mod",
+     "name": "Xion",
+     "mod_id": 471722,
+     "source": "drive",
+     "reslot_from": null,
+     "file": "sora/471722_xion_over_sora_reloaded/original/xion_over_sora_fcfc1.7z",
+     "approved": false,
+     "nota": "un solo look (c00); los 8 slots del pack se ven iguales en sus retratos"
+    },
     "1": {
      "state": "mod",
      "name": "Vanitas",
@@ -2508,6 +2628,26 @@
      "file": "sora/334311_vanitas/original/sora_c01_vanitas_2406c.7z",
      "approved": false,
      "nota": "Solo la skin: se quitan los efectos y estelas de effect/fighter/trail, en sus dos versiones (de todos los Sora)"
+    },
+    "2": {
+     "state": "mod",
+     "name": "Riku",
+     "mod_id": 357266,
+     "source": "drive",
+     "reslot_from": 5,
+     "file": "sora/357266_Riku_over_Sora/original/coated_riku_over_sora_c05_.zip",
+     "approved": true,
+     "nota": "variante con venda"
+    },
+    "3": {
+     "state": "mod",
+     "name": "Riku oscuro",
+     "mod_id": 357266,
+     "source": "drive",
+     "reslot_from": null,
+     "file": "sora/357266_Riku_over_Sora/original/dark_mode_riku_over_sora_se_koph_c03_.zip",
+     "approved": true,
+     "nota": "variante KoPH"
     },
     "4": {
      "state": "mod",
@@ -2545,36 +2685,6 @@
      "file": "sora/357266_Riku_over_Sora/original/riku_kh3_over_sora_c07_.zip",
      "approved": true,
      "nota": "Braveheart. Roxas de ese color salió"
-    },
-    "0": {
-     "state": "mod",
-     "name": "Xion",
-     "mod_id": 471722,
-     "source": "drive",
-     "reslot_from": null,
-     "file": "sora/471722_xion_over_sora_reloaded/original/xion_over_sora_fcfc1.7z",
-     "approved": false,
-     "nota": "un solo look (c00); los 8 slots del pack se ven iguales en sus retratos"
-    },
-    "2": {
-     "state": "mod",
-     "name": "Riku",
-     "mod_id": 357266,
-     "source": "drive",
-     "reslot_from": 5,
-     "file": "sora/357266_Riku_over_Sora/original/coated_riku_over_sora_c05_.zip",
-     "approved": true,
-     "nota": "variante con venda"
-    },
-    "3": {
-     "state": "mod",
-     "name": "Riku oscuro",
-     "mod_id": 357266,
-     "source": "drive",
-     "reslot_from": null,
-     "file": "sora/357266_Riku_over_Sora/original/dark_mode_riku_over_sora_se_koph_c03_.zip",
-     "approved": true,
-     "nota": "variante KoPH"
     }
    },
    "nota": "Xion: un solo look (c00), por decisión de Gian."
@@ -2713,6 +2823,36 @@
   },
   "32": {
    "slots": {
+    "0": {
+     "state": "mod",
+     "name": "Terra",
+     "mod_id": 381503,
+     "source": "profile",
+     "reslot_from": null,
+     "file": null,
+     "approved": true,
+     "nota": "Instalada en la SD (terra-ike); plan alineado con la SD el 2026-11-01"
+    },
+    "1": {
+     "state": "mod",
+     "name": "Dante over ike",
+     "mod_id": 347784,
+     "source": "profile",
+     "reslot_from": null,
+     "file": null,
+     "approved": true,
+     "nota": "Instalada en la SD (ike-dante-c01); plan alineado con la SD el 2026-11-01"
+    },
+    "2": {
+     "state": "mod",
+     "name": "Terra",
+     "mod_id": 381503,
+     "source": "profile",
+     "reslot_from": null,
+     "file": null,
+     "approved": true,
+     "nota": "Instalada en la SD (terra-ike); plan alineado con la SD el 2026-11-01"
+    },
     "3": {
      "state": "wuboy",
      "name": "WuBoy",
@@ -2732,6 +2872,16 @@
      "file": null,
      "approved": true,
      "nota": "no se quitó"
+    },
+    "5": {
+     "state": "mod",
+     "name": "Thor ike",
+     "mod_id": 347784,
+     "source": "profile",
+     "reslot_from": null,
+     "file": null,
+     "approved": true,
+     "nota": "Instalada en la SD (ike-thor-c05); plan alineado con la SD el 2026-11-01"
     },
     "6": {
      "state": "wuboy",
@@ -2755,6 +2905,771 @@
     }
    },
    "nota": "Los colores 4, 5, 7 y 8 siguen en WuBoy."
+  },
+  "58": {
+   "nota": "Agregado al alinear el plan con la SD el 2026-11-01.",
+   "slots": {
+    "0": {
+     "state": "vanilla",
+     "name": "Original",
+     "mod_id": null,
+     "source": "vanilla",
+     "reslot_from": null,
+     "file": null,
+     "approved": true,
+     "nota": "Sin skin en la SD"
+    },
+    "1": {
+     "state": "vanilla",
+     "name": "Original",
+     "mod_id": null,
+     "source": "vanilla",
+     "reslot_from": null,
+     "file": null,
+     "approved": true,
+     "nota": "Sin skin en la SD"
+    },
+    "2": {
+     "state": "vanilla",
+     "name": "Original",
+     "mod_id": null,
+     "source": "vanilla",
+     "reslot_from": null,
+     "file": null,
+     "approved": true,
+     "nota": "Sin skin en la SD"
+    },
+    "3": {
+     "state": "vanilla",
+     "name": "Original",
+     "mod_id": null,
+     "source": "vanilla",
+     "reslot_from": null,
+     "file": null,
+     "approved": true,
+     "nota": "Sin skin en la SD"
+    },
+    "4": {
+     "state": "mod",
+     "name": "Nabbit bowser jr",
+     "mod_id": 347784,
+     "source": "profile",
+     "reslot_from": null,
+     "file": null,
+     "approved": true,
+     "nota": "Instalada en la SD (koopajr-nabbit-c04); plan alineado con la SD el 2026-11-01"
+    },
+    "5": {
+     "state": "vanilla",
+     "name": "Original",
+     "mod_id": null,
+     "source": "vanilla",
+     "reslot_from": null,
+     "file": null,
+     "approved": true,
+     "nota": "Sin skin en la SD"
+    },
+    "6": {
+     "state": "vanilla",
+     "name": "Original",
+     "mod_id": null,
+     "source": "vanilla",
+     "reslot_from": null,
+     "file": null,
+     "approved": true,
+     "nota": "Sin skin en la SD"
+    },
+    "7": {
+     "state": "vanilla",
+     "name": "Original",
+     "mod_id": null,
+     "source": "vanilla",
+     "reslot_from": null,
+     "file": null,
+     "approved": true,
+     "nota": "Sin skin en la SD"
+    }
+   }
+  },
+  "37": {
+   "nota": "Agregado al alinear el plan con la SD el 2026-11-01.",
+   "slots": {
+    "0": {
+     "state": "mod",
+     "name": "Hoopa lucas",
+     "mod_id": 347784,
+     "source": "profile",
+     "reslot_from": null,
+     "file": null,
+     "approved": true,
+     "nota": "Instalada en la SD (lucas-hoopa-c00); plan alineado con la SD el 2026-11-01"
+    },
+    "1": {
+     "state": "mod",
+     "name": "Maglor lucas",
+     "mod_id": 347784,
+     "source": "profile",
+     "reslot_from": null,
+     "file": null,
+     "approved": true,
+     "nota": "Instalada en la SD (lucas-maglor-c01); plan alineado con la SD el 2026-11-01"
+    },
+    "2": {
+     "state": "mod",
+     "name": "Banette lucas",
+     "mod_id": 347784,
+     "source": "profile",
+     "reslot_from": null,
+     "file": null,
+     "approved": true,
+     "nota": "Instalada en la SD (lucas-banette-c02); plan alineado con la SD el 2026-11-01"
+    },
+    "3": {
+     "state": "vanilla",
+     "name": "Original",
+     "mod_id": null,
+     "source": "vanilla",
+     "reslot_from": null,
+     "file": null,
+     "approved": true,
+     "nota": "Sin skin en la SD"
+    },
+    "4": {
+     "state": "vanilla",
+     "name": "Original",
+     "mod_id": null,
+     "source": "vanilla",
+     "reslot_from": null,
+     "file": null,
+     "approved": true,
+     "nota": "Sin skin en la SD"
+    },
+    "5": {
+     "state": "vanilla",
+     "name": "Original",
+     "mod_id": null,
+     "source": "vanilla",
+     "reslot_from": null,
+     "file": null,
+     "approved": true,
+     "nota": "Sin skin en la SD"
+    },
+    "6": {
+     "state": "vanilla",
+     "name": "Original",
+     "mod_id": null,
+     "source": "vanilla",
+     "reslot_from": null,
+     "file": null,
+     "approved": true,
+     "nota": "Sin skin en la SD"
+    },
+    "7": {
+     "state": "vanilla",
+     "name": "Original",
+     "mod_id": null,
+     "source": "vanilla",
+     "reslot_from": null,
+     "file": null,
+     "approved": true,
+     "nota": "Sin skin en la SD"
+    }
+   }
+  },
+  "28ε": {
+   "nota": "Agregado al alinear el plan con la SD el 2026-11-01.",
+   "slots": {
+    "0": {
+     "state": "vanilla",
+     "name": "Original",
+     "mod_id": null,
+     "source": "vanilla",
+     "reslot_from": null,
+     "file": null,
+     "approved": true,
+     "nota": "Sin skin en la SD"
+    },
+    "1": {
+     "state": "mod",
+     "name": "Revali dark pit",
+     "mod_id": 347784,
+     "source": "profile",
+     "reslot_from": null,
+     "file": null,
+     "approved": true,
+     "nota": "Instalada en la SD (pitb-revali-c01); plan alineado con la SD el 2026-11-01"
+    },
+    "2": {
+     "state": "vanilla",
+     "name": "Original",
+     "mod_id": null,
+     "source": "vanilla",
+     "reslot_from": null,
+     "file": null,
+     "approved": true,
+     "nota": "Sin skin en la SD"
+    },
+    "3": {
+     "state": "vanilla",
+     "name": "Original",
+     "mod_id": null,
+     "source": "vanilla",
+     "reslot_from": null,
+     "file": null,
+     "approved": true,
+     "nota": "Sin skin en la SD"
+    },
+    "4": {
+     "state": "wuboy",
+     "name": "WuBoy",
+     "mod_id": null,
+     "source": "wuboy",
+     "reslot_from": null,
+     "file": null,
+     "approved": true,
+     "nota": "Skin de WuBoy en la SD"
+    },
+    "5": {
+     "state": "vanilla",
+     "name": "Original",
+     "mod_id": null,
+     "source": "vanilla",
+     "reslot_from": null,
+     "file": null,
+     "approved": true,
+     "nota": "Sin skin en la SD"
+    },
+    "6": {
+     "state": "vanilla",
+     "name": "Original",
+     "mod_id": null,
+     "source": "vanilla",
+     "reslot_from": null,
+     "file": null,
+     "approved": true,
+     "nota": "Sin skin en la SD"
+    },
+    "7": {
+     "state": "wuboy",
+     "name": "WuBoy",
+     "mod_id": null,
+     "source": "wuboy",
+     "reslot_from": null,
+     "file": null,
+     "approved": true,
+     "nota": "Skin de WuBoy en la SD"
+    }
+   }
+  },
+  "56": {
+   "nota": "Agregado al alinear el plan con la SD el 2026-11-01.",
+   "slots": {
+    "0": {
+     "state": "wuboy",
+     "name": "WuBoy",
+     "mod_id": null,
+     "source": "wuboy",
+     "reslot_from": null,
+     "file": null,
+     "approved": true,
+     "nota": "Skin de WuBoy en la SD"
+    },
+    "1": {
+     "state": "wuboy",
+     "name": "WuBoy",
+     "mod_id": null,
+     "source": "wuboy",
+     "reslot_from": null,
+     "file": null,
+     "approved": true,
+     "nota": "Skin de WuBoy en la SD"
+    },
+    "2": {
+     "state": "mod",
+     "name": "Leo robin",
+     "mod_id": 347784,
+     "source": "profile",
+     "reslot_from": null,
+     "file": null,
+     "approved": true,
+     "nota": "Instalada en la SD (reflet-leo-c02); plan alineado con la SD el 2026-11-01"
+    },
+    "3": {
+     "state": "mod",
+     "name": "Dorothea Robin",
+     "mod_id": 347784,
+     "source": "profile",
+     "reslot_from": null,
+     "file": null,
+     "approved": true,
+     "nota": "Instalada en la SD (reflet-dorothea-c03); plan alineado con la SD el 2026-11-01"
+    },
+    "4": {
+     "state": "wuboy",
+     "name": "WuBoy",
+     "mod_id": null,
+     "source": "wuboy",
+     "reslot_from": null,
+     "file": null,
+     "approved": true,
+     "nota": "Skin de WuBoy en la SD"
+    },
+    "5": {
+     "state": "wuboy",
+     "name": "WuBoy",
+     "mod_id": null,
+     "source": "wuboy",
+     "reslot_from": null,
+     "file": null,
+     "approved": true,
+     "nota": "Skin de WuBoy en la SD"
+    },
+    "6": {
+     "state": "mod",
+     "name": "Dr Strange Robin",
+     "mod_id": 347784,
+     "source": "profile",
+     "reslot_from": null,
+     "file": null,
+     "approved": true,
+     "nota": "Instalada en la SD (reflet-strange-c06); plan alineado con la SD el 2026-11-01"
+    },
+    "7": {
+     "state": "wuboy",
+     "name": "WuBoy",
+     "mod_id": null,
+     "source": "wuboy",
+     "reslot_from": null,
+     "file": null,
+     "approved": true,
+     "nota": "Skin de WuBoy en la SD"
+    }
+   }
+  },
+  "25": {
+   "nota": "Agregado al alinear el plan con la SD el 2026-11-01.",
+   "slots": {
+    "0": {
+     "state": "vanilla",
+     "name": "Original",
+     "mod_id": null,
+     "source": "vanilla",
+     "reslot_from": null,
+     "file": null,
+     "approved": true,
+     "nota": "Sin skin en la SD"
+    },
+    "1": {
+     "state": "vanilla",
+     "name": "Original",
+     "mod_id": null,
+     "source": "vanilla",
+     "reslot_from": null,
+     "file": null,
+     "approved": true,
+     "nota": "Sin skin en la SD"
+    },
+    "2": {
+     "state": "wuboy",
+     "name": "WuBoy",
+     "mod_id": null,
+     "source": "wuboy",
+     "reslot_from": null,
+     "file": null,
+     "approved": true,
+     "nota": "Skin de WuBoy en la SD"
+    },
+    "3": {
+     "state": "vanilla",
+     "name": "Original",
+     "mod_id": null,
+     "source": "vanilla",
+     "reslot_from": null,
+     "file": null,
+     "approved": true,
+     "nota": "Sin skin en la SD"
+    },
+    "4": {
+     "state": "wuboy",
+     "name": "WuBoy",
+     "mod_id": null,
+     "source": "wuboy",
+     "reslot_from": null,
+     "file": null,
+     "approved": true,
+     "nota": "Skin de WuBoy en la SD"
+    },
+    "5": {
+     "state": "mod",
+     "name": "Alm",
+     "mod_id": 347784,
+     "source": "profile",
+     "reslot_from": null,
+     "file": null,
+     "approved": true,
+     "nota": "Instalada en la SD (roy-simple-c05); plan alineado con la SD el 2026-11-01"
+    },
+    "6": {
+     "state": "vanilla",
+     "name": "Original",
+     "mod_id": null,
+     "source": "vanilla",
+     "reslot_from": null,
+     "file": null,
+     "approved": true,
+     "nota": "Sin skin en la SD"
+    },
+    "7": {
+     "state": "vanilla",
+     "name": "Original",
+     "mod_id": null,
+     "source": "vanilla",
+     "reslot_from": null,
+     "file": null,
+     "approved": true,
+     "nota": "Sin skin en la SD"
+    }
+   }
+  },
+  "04": {
+   "nota": "Agregado al alinear el plan con la SD el 2026-11-01.",
+   "slots": {
+    "0": {
+     "state": "mod",
+     "name": "Iron Man Samus All slots",
+     "mod_id": 347784,
+     "source": "profile",
+     "reslot_from": null,
+     "file": null,
+     "approved": true,
+     "nota": "Instalada en la SD (samus-iron-man-c00); plan alineado con la SD el 2026-11-01"
+    },
+    "1": {
+     "state": "vanilla",
+     "name": "Original",
+     "mod_id": null,
+     "source": "vanilla",
+     "reslot_from": null,
+     "file": null,
+     "approved": true,
+     "nota": "Sin skin en la SD"
+    },
+    "2": {
+     "state": "vanilla",
+     "name": "Original",
+     "mod_id": null,
+     "source": "vanilla",
+     "reslot_from": null,
+     "file": null,
+     "approved": true,
+     "nota": "Sin skin en la SD"
+    },
+    "3": {
+     "state": "vanilla",
+     "name": "Original",
+     "mod_id": null,
+     "source": "vanilla",
+     "reslot_from": null,
+     "file": null,
+     "approved": true,
+     "nota": "Sin skin en la SD"
+    },
+    "4": {
+     "state": "vanilla",
+     "name": "Original",
+     "mod_id": null,
+     "source": "vanilla",
+     "reslot_from": null,
+     "file": null,
+     "approved": true,
+     "nota": "Sin skin en la SD"
+    },
+    "5": {
+     "state": "wuboy",
+     "name": "WuBoy",
+     "mod_id": null,
+     "source": "wuboy",
+     "reslot_from": null,
+     "file": null,
+     "approved": true,
+     "nota": "Skin de WuBoy en la SD"
+    },
+    "6": {
+     "state": "wuboy",
+     "name": "WuBoy",
+     "mod_id": null,
+     "source": "wuboy",
+     "reslot_from": null,
+     "file": null,
+     "approved": true,
+     "nota": "Skin de WuBoy en la SD"
+    },
+    "7": {
+     "state": "wuboy",
+     "name": "WuBoy",
+     "mod_id": null,
+     "source": "wuboy",
+     "reslot_from": null,
+     "file": null,
+     "approved": true,
+     "nota": "Skin de WuBoy en la SD"
+    }
+   }
+  },
+  "66": {
+   "nota": "Agregado al alinear el plan con la SD el 2026-11-01.",
+   "slots": {
+    "0": {
+     "state": "vanilla",
+     "name": "Original",
+     "mod_id": null,
+     "source": "vanilla",
+     "reslot_from": null,
+     "file": null,
+     "approved": true,
+     "nota": "Sin skin en la SD"
+    },
+    "1": {
+     "state": "mod",
+     "name": "Gabriel belmont simon",
+     "mod_id": 347784,
+     "source": "profile",
+     "reslot_from": null,
+     "file": null,
+     "approved": true,
+     "nota": "Instalada en la SD (simon-gabriel-c01); plan alineado con la SD el 2026-11-01"
+    },
+    "2": {
+     "state": "vanilla",
+     "name": "Original",
+     "mod_id": null,
+     "source": "vanilla",
+     "reslot_from": null,
+     "file": null,
+     "approved": true,
+     "nota": "Sin skin en la SD"
+    },
+    "3": {
+     "state": "vanilla",
+     "name": "Original",
+     "mod_id": null,
+     "source": "vanilla",
+     "reslot_from": null,
+     "file": null,
+     "approved": true,
+     "nota": "Sin skin en la SD"
+    },
+    "4": {
+     "state": "vanilla",
+     "name": "Original",
+     "mod_id": null,
+     "source": "vanilla",
+     "reslot_from": null,
+     "file": null,
+     "approved": true,
+     "nota": "Sin skin en la SD"
+    },
+    "5": {
+     "state": "vanilla",
+     "name": "Original",
+     "mod_id": null,
+     "source": "vanilla",
+     "reslot_from": null,
+     "file": null,
+     "approved": true,
+     "nota": "Sin skin en la SD"
+    },
+    "6": {
+     "state": "wuboy",
+     "name": "WuBoy",
+     "mod_id": null,
+     "source": "wuboy",
+     "reslot_from": null,
+     "file": null,
+     "approved": true,
+     "nota": "Skin de WuBoy en la SD"
+    },
+    "7": {
+     "state": "vanilla",
+     "name": "Original",
+     "mod_id": null,
+     "source": "vanilla",
+     "reslot_from": null,
+     "file": null,
+     "approved": true,
+     "nota": "Sin skin en la SD"
+    }
+   }
+  },
+  "30": {
+   "nota": "Agregado al alinear el plan con la SD el 2026-11-01.",
+   "slots": {
+    "0": {
+     "state": "mod",
+     "name": "Big Chungus",
+     "mod_id": 175036,
+     "source": "profile",
+     "reslot_from": null,
+     "file": null,
+     "approved": true,
+     "nota": "Instalada en la SD (wario-chungus-c00); plan alineado con la SD el 2026-11-01"
+    },
+    "1": {
+     "state": "mod",
+     "name": "Peppino",
+     "mod_id": 435681,
+     "source": "profile",
+     "reslot_from": null,
+     "file": null,
+     "approved": true,
+     "nota": "Instalada en la SD (wario-peppino-c01); plan alineado con la SD el 2026-11-01"
+    },
+    "2": {
+     "state": "mod",
+     "name": "Wayonetta",
+     "mod_id": 457916,
+     "source": "profile",
+     "reslot_from": null,
+     "file": null,
+     "approved": true,
+     "nota": "Instalada en la SD (wario-wayonetta-c02); plan alineado con la SD el 2026-11-01"
+    },
+    "3": {
+     "state": "mod",
+     "name": "Mr Potato Head",
+     "mod_id": 690278,
+     "source": "profile",
+     "reslot_from": null,
+     "file": null,
+     "approved": true,
+     "nota": "Instalada en la SD (wario-potato-c03); plan alineado con la SD el 2026-11-01"
+    },
+    "4": {
+     "state": "mod",
+     "name": "Mr Krabs",
+     "mod_id": 376188,
+     "source": "profile",
+     "reslot_from": null,
+     "file": null,
+     "approved": true,
+     "nota": "Instalada en la SD (wario-krabs-c04); plan alineado con la SD el 2026-11-01"
+    },
+    "5": {
+     "state": "mod",
+     "name": "Ugandan Knuckles",
+     "mod_id": 455070,
+     "source": "profile",
+     "reslot_from": null,
+     "file": null,
+     "approved": true,
+     "nota": "Instalada en la SD (wario-knuckles-c05); plan alineado con la SD el 2026-11-01"
+    },
+    "6": {
+     "state": "mod",
+     "name": "Wario Man",
+     "mod_id": 325793,
+     "source": "profile",
+     "reslot_from": null,
+     "file": null,
+     "approved": true,
+     "nota": "Instalada en la SD (wario-man-c06); plan alineado con la SD el 2026-11-01"
+    },
+    "7": {
+     "state": "mod",
+     "name": "Sans",
+     "mod_id": 589845,
+     "source": "profile",
+     "reslot_from": null,
+     "file": null,
+     "approved": true,
+     "nota": "Instalada en la SD (wario-sans-c07); plan alineado con la SD el 2026-11-01"
+    }
+   }
+  },
+  "22": {
+   "nota": "Agregado al alinear el plan con la SD el 2026-11-01.",
+   "slots": {
+    "0": {
+     "state": "mod",
+     "name": "Dark Matter young link",
+     "mod_id": 347784,
+     "source": "profile",
+     "reslot_from": null,
+     "file": null,
+     "approved": true,
+     "nota": "Instalada en la SD (younglink-dark-matter-c00); plan alineado con la SD el 2026-11-01"
+    },
+    "1": {
+     "state": "vanilla",
+     "name": "Original",
+     "mod_id": null,
+     "source": "vanilla",
+     "reslot_from": null,
+     "file": null,
+     "approved": true,
+     "nota": "Sin skin en la SD"
+    },
+    "2": {
+     "state": "vanilla",
+     "name": "Original",
+     "mod_id": null,
+     "source": "vanilla",
+     "reslot_from": null,
+     "file": null,
+     "approved": true,
+     "nota": "Sin skin en la SD"
+    },
+    "3": {
+     "state": "vanilla",
+     "name": "Original",
+     "mod_id": null,
+     "source": "vanilla",
+     "reslot_from": null,
+     "file": null,
+     "approved": true,
+     "nota": "Sin skin en la SD"
+    },
+    "4": {
+     "state": "vanilla",
+     "name": "Original",
+     "mod_id": null,
+     "source": "vanilla",
+     "reslot_from": null,
+     "file": null,
+     "approved": true,
+     "nota": "Sin skin en la SD"
+    },
+    "5": {
+     "state": "wuboy",
+     "name": "WuBoy",
+     "mod_id": null,
+     "source": "wuboy",
+     "reslot_from": null,
+     "file": null,
+     "approved": true,
+     "nota": "Skin de WuBoy en la SD"
+    },
+    "6": {
+     "state": "vanilla",
+     "name": "Original",
+     "mod_id": null,
+     "source": "vanilla",
+     "reslot_from": null,
+     "file": null,
+     "approved": true,
+     "nota": "Sin skin en la SD"
+    },
+    "7": {
+     "state": "wuboy",
+     "name": "WuBoy",
+     "mod_id": null,
+     "source": "wuboy",
+     "reslot_from": null,
+     "file": null,
+     "approved": true,
+     "nota": "Skin de WuBoy en la SD"
+    }
+   }
   }
  }
 }
