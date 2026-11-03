@@ -2,7 +2,7 @@
 const fs = require('fs'), path = require('path'); const L = require('./lib'); const { ok, until, mk, tap, shot } = L;
 module.exports = async (b, base) => {
   const cat = JSON.parse(fs.readFileSync(path.join(L.ROOT, 'data/catalog.json'), 'utf8'));
-  const P = await mk(b); await P.goto(base); await P.waitForSelector('.ft'); await until(P, () => dbState === 'ok', null);
+  const P = await mk(b); await P.goto(base + '#/luchadores'); await P.waitForSelector('.ft'); await until(P, () => dbState === 'ok', null);
   const t = await P.evaluate(() => { const a = F.flatMap(f => f.picks); const act = a.filter(p => !p.withdrawn); return { f: F.length, act: act.length, main: act.filter(p => !isAlt(p)).length, alt: act.filter(isAlt).length, wd: a.length - act.length, ids: new Set(a.map(p => p.vid)).size, all: a.length }; });
   ok(t.f === 89 && t.act === cat.counts.looks && t.main === cat.counts.main_proposals && t.alt === cat.counts.alternatives && t.wd === cat.withdrawn.length, `totales de la web: ${t.f} luchadores · ${t.act} activas (${t.main} principales + ${t.alt} alternativas) · ${t.wd} retiradas`);
   ok(cat.counts.looks === 1245 && cat.counts.unique_mods === 1224 && cat.counts.main_proposals === 696 && cat.counts.alternatives === 549 && cat.counts.withdrawn === 16, 'el catálogo publicado conserva 1245 apariencias, 1224 mods, 696 principales, 549 alternativas y 16 retiradas');

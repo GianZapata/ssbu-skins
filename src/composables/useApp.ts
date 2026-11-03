@@ -5,6 +5,7 @@ import { SSBU } from '../shared/helpers/ssbu'
 
 /*
  * Rutas (hash):
+ *   #/tarjeta                         Tarjeta (portada)
  *   #/luchadores                      Luchadores
  *   #/catalogo                        Todas las skins, agrupadas
  *   #/instaladas                      Inventario revisado
@@ -157,14 +158,15 @@ const parse = (hash: string): AppRoute => {
   const [path, qs] = raw.split('?')
   const q = Object.fromEntries(new URLSearchParams(qs || ''))
   const seg = path.split('/').filter(Boolean).map(dec)
-  const view = seg[0] || 'luchadores'
-  const key = hash || '#/luchadores'
+  const view = seg[0] || 'tarjeta'
+  const key = !hash || hash === '#' ? '#/tarjeta' : hash
   if (view === 'luchador' && seg[2]) return blank({ v: 'traje', code: seg[1], n: Number(seg[2]) - 1, q, key })
   if (view === 'luchador') return blank({ v: 'luchador', code: seg[1], q, key })
   if (view === 'apariencia') {
     const para = paraOf(q.para)
     return blank({ v: 'ficha', vid: seg.slice(1).join('/'), code: para ? para.code : '', n: para ? para.n : 0, q, key })
   }
+
   if (view === 'cambios') return blank({ v: 'cambios', q, key })
   if (view === 'tarjeta' || view === 'catalogo' || view === 'instaladas' || view === 'notas') return blank({ v: view, q, key })
   return blank({ v: view === 'luchadores' ? 'luchadores' : 'redirect', q, key })

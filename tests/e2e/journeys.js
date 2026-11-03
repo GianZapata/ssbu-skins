@@ -1,7 +1,7 @@
 // Recorridos de personas: buscar luchador, comparar, elegir, ver desde otra sesión, deshacer, choques, reglas.
 const L = require('./lib'); const { ok, until, tap, shot, planOf, raw, mk, pick } = L;
 module.exports = async (b, base) => {
-  const A = await mk(b); await A.goto(base); await A.waitForSelector('.ft');
+  const A = await mk(b); await A.goto(base + '#/luchadores'); await A.waitForSelector('.ft');
   ok(await until(A, () => dbState === 'ok', null), 'A: se conecta solo (sesión anónima automática, sin login ni nombre)');
   ok((await A.textContent('#sync')).includes('Guardado'), 'A: estado visible «Guardado»');
   ok(await A.evaluate(() => !document.body.innerText.match(/token|GitHub|Mi selección|Conectar y enviar/i)), 'A: sin «Mi selección», tokens ni «Conectar y enviar»');
