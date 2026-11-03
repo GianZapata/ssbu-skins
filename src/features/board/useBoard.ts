@@ -12,6 +12,8 @@ export interface DriveAlt {
   slots: number[]
   any: boolean
   vid: string | null
+  unaudited: boolean
+  img: string | null
 }
 
 export interface BoardPick {

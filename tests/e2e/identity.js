@@ -2,11 +2,12 @@
 const fs = require('fs'), path = require('path'); const L = require('./lib'); const { ok, until, mk, tap, shot } = L;
 module.exports = async (b, base) => {
   const cat = JSON.parse(fs.readFileSync(path.join(L.ROOT, 'data/catalog.json'), 'utf8'));
+  const verified = cat.entries.filter(e => e.audit_status === 'verified'); // las descargadas sin auditar se cuentan aparte
   const P = await mk(b); await P.goto(base + '#/luchadores'); await P.waitForSelector('.ft'); await until(P, () => dbState === 'ok', null);
-  const t = await P.evaluate(() => { const a = F.flatMap(f => f.picks); const act = a.filter(p => !p.withdrawn); return { f: F.length, act: act.length, main: act.filter(p => !isAlt(p)).length, alt: act.filter(isAlt).length, wd: a.length - act.length, ids: new Set(a.map(p => p.vid)).size, all: a.length }; });
+  const t = await P.evaluate(() => { const a = F.flatMap(f => f.picks); const act = a.filter(p => !p.withdrawn && p.audited); return { f: F.length, act: act.length, main: act.filter(p => !isAlt(p)).length, alt: act.filter(isAlt).length, wd: a.filter(p => p.withdrawn).length, ids: new Set(a.map(p => p.vid)).size, all: a.length }; });
   ok(t.f === 89 && t.act === cat.counts.looks && t.main === cat.counts.main_proposals && t.alt === cat.counts.alternatives && t.wd === cat.withdrawn.length, `totales de la web: ${t.f} luchadores · ${t.act} activas (${t.main} principales + ${t.alt} alternativas) · ${t.wd} retiradas`);
   ok(cat.counts.looks === 1245 && cat.counts.unique_mods === 1224 && cat.counts.main_proposals === 696 && cat.counts.alternatives === 549 && cat.counts.withdrawn === 16, 'el catálogo publicado conserva 1245 apariencias, 1224 mods, 696 principales, 549 alternativas y 16 retiradas');
-  ok(t.act === cat.entries.length && cat.counts.looks === t.act && t.ids === t.all, 'los totales coinciden con data/catalog.json y todos los identificadores son únicos');
+  ok(t.act === verified.length && cat.counts.looks === t.act && t.all === cat.entries.length + cat.withdrawn.length && t.ids === t.all, 'los totales coinciden con data/catalog.json y todos los identificadores son únicos');
   const sample = cat.entries.every(e => e.look_id) && await P.evaluate(ids => ids.every(id => !!idx[id]), cat.entries.map(e => e.look_id));
   ok(sample, 'cada look_id del catálogo es el identificador de su apariencia en la web');
   // campos conservados en la web y en Firestore
@@ -14,7 +15,7 @@ module.exports = async (b, base) => {
   const mism = await P.evaluate(async keep => { const f = await fb(); const s = await f.getDocs(f.collection(f.db, 'catalog')); let bad = 0, n = 0;
     s.forEach(d => d.data().picks.forEach(p => { n++; const e = idx[p.vid] && idx[p.vid].p; if (!e || keep.some(k => (p[k] ?? null) !== (e[k] ?? null))) bad++; })); return { bad, n }; }, keep);
   ok(mism.bad === 0 && mism.n === t.all, `Firestore conserva ${keep.join(', ')} en las ${mism.n} apariencias`);
-  const emb = cat.entries.filter(e => e.role).length; const withScopes = await P.evaluate(() => all.filter(e => e.p.audit_scope && e.p.downloads_scope && e.p.images_scope).length);
+  const emb = verified.filter(e => e.role).length; const withScopes = await P.evaluate(() => all.filter(e => e.p.audited && e.p.audit_scope && e.p.downloads_scope && e.p.images_scope).length);
   ok(withScopes === emb, `la web trae audit_scope, downloads_scope e images_scope en las ${emb} apariencias`);
   // retratos: identidad del luchador ≠ apariencia de sus trajes
   await P.goto(base + '#/luchadores'); await P.waitForSelector('.ft img', { timeout: 8000 }); await P.waitForTimeout(500);

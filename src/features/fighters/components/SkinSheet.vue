@@ -50,7 +50,7 @@ const { saving, saved, savedHere } = useSaveStatus()
 
         <p v-if="m.shots.length > 1" class="sheet__count">Foto {{ slide + 1 }} de {{ m.shots.length }}</p>
         <h2 class="sheet__title">{{ m.entry.p.name }}</h2>
-        <p v-if="m.entry.p.author" class="sheet__author">{{ m.entry.p.author }}</p>
+        <p v-if="m.entry.p.author && m.entry.p.author !== 'pending'" class="sheet__author">{{ m.entry.p.author }}</p>
         <p v-if="m.pick" class="sheet__line">{{ m.pickLine }}</p>
         <p v-if="m.choice.line" class="sheet__line">{{ m.choice.line }}</p>
       </div>

@@ -21,6 +21,10 @@ def vids_by_mod(catalog):
         found.setdefault((code, str(mod_id)), vid)
     return found
 
+def unaudited_mods(catalog):
+    """(código, mod) de las entradas que el catálogo aún no audita (descargadas del Drive)."""
+    return {(e.get('roster_no'), str(e.get('mod_id'))) for e in catalog.get('entries') or [] if e.get('audit_status') != 'verified'}
+
 def file_slots(mod):
     """Igual que el tablero: un archivo que toca los 8 colores no fija un color."""
     specific, broad = set(), set()
@@ -40,7 +44,8 @@ def look_name(mod):
         return catalog[0]['look_name']
     return mod.get('slug') or str(mod.get('mod_id') or '')
 
-def drive_alts(drive, vids):
+def drive_alts(drive, vids, unaudited=frozenset(), previews=None):
+    previews = previews or {}
     rows = []
     for mod in drive.get('mods') or []:
         if mod.get('kind') != 'skin' or mod.get('plugin'):
@@ -59,12 +64,15 @@ def drive_alts(drive, vids):
             'slots': [n + 1 for n in slots],
             'any': any_color,
             'vid': vids.get((code, mod_id)),
+            'unaudited': (code, mod_id) in unaudited,
+            'img': previews.get(mod_id),
         })
     rows.sort(key=lambda row: (row['code'], row['name'].lower()))
     return rows
 
 def load_rows():
-    return drive_alts(cd._jload('drive.json') or {}, vids_by_mod(cd._jload('catalog.json') or {}))
+    catalog = cd._jload('catalog.json') or {}
+    return drive_alts(cd._jload('drive.json') or {}, vids_by_mod(catalog), unaudited_mods(catalog), cd._jload('drive_previews.json') or {})
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
