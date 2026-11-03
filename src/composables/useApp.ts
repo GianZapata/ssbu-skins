@@ -153,7 +153,7 @@ const blank = (partial: Partial<AppRoute>): AppRoute => ({
 })
 
 const parse = (hash: string): AppRoute => {
-  const raw = hash.replace(/^#/, '') || '/luchadores'
+  const raw = hash.replace(/^#/, '') || '/tarjeta'
   const [path, qs] = raw.split('?')
   const q = Object.fromEntries(new URLSearchParams(qs || ''))
   const seg = path.split('/').filter(Boolean).map(dec)
@@ -166,7 +166,7 @@ const parse = (hash: string): AppRoute => {
     return blank({ v: 'ficha', vid: seg.slice(1).join('/'), code: para ? para.code : '', n: para ? para.n : 0, q, key })
   }
   if (view === 'cambios') return blank({ v: 'cambios', q, key })
-  if (view === 'catalogo' || view === 'instaladas' || view === 'notas') return blank({ v: view, q, key })
+  if (view === 'tarjeta' || view === 'catalogo' || view === 'instaladas' || view === 'notas') return blank({ v: view, q, key })
   return blank({ v: view === 'luchadores' ? 'luchadores' : 'redirect', q, key })
 }
 
@@ -219,6 +219,7 @@ export const slotOf = () => {
 export const titleOf = () => {
   const current = route.value
 
+  if (current.v === 'tarjeta') return 'Tarjeta'
   if (current.v === 'cambios') return 'Elegidas'
   if (current.v === 'catalogo' || (current.v === 'ficha' && viewRoute().v === 'catalogo')) return 'Catálogo'
   if (current.v === 'ficha' && viewRoute().v === 'instaladas') return 'Instaladas'

@@ -119,6 +119,13 @@ def load_inventory(fighters=None):
         for n in range(len(n_costumes)):
             s=slot(code,n)
             if not s.get('src'): s.update({'name':'Original','img':f'assets/costumes/{code}-{n+1}.webp','skin':False,'default':True})
+    portraits=_jload('sd_portraits.json') or {}
+    if isinstance(portraits, dict):
+        for code, slots in portraits.items():
+            if not isinstance(code, str) or not isinstance(slots, dict): continue
+            for n, sha in slots.items():
+                if isinstance(sha, str) and re.fullmatch(r'[a-f0-9]{64}', sha) and str(n).isdigit() and 0<=int(n)<=7:
+                    slot(code, int(n))['portrait']=sha
     import hashlib
     digest=hashlib.sha1(json.dumps(fs,sort_keys=True,ensure_ascii=False).encode()).hexdigest()[:8]
     meta={'verification':'parcial','version':digest,'scanned_at':(base or {}).get('scanned_at'),
