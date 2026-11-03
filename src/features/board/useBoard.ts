@@ -25,11 +25,14 @@ interface SlotRecord {
   img?: string
   portrait?: string
   skin?: boolean
+  vid?: string
 }
 
 const alts = ref<DriveAlt[]>([])
 
 const portraits = ref<Record<string, Record<string, string>>>({})
+
+const loading = ref(true)
 
 const loadJson = async <T>(url: string, empty: T): Promise<T> => {
   try {
@@ -49,15 +52,16 @@ const slotRecord = (code: string, n: number): SlotRecord | null => {
   return inventory?.fighters?.[code]?.slots?.[String(n)] || null
 }
 
+export const slotsLabel = (alt: DriveAlt) => {
+  if (alt.any) return 'Cualquier color'
+
+  return (alt.slots.length > 1 ? 'Colores ' : 'Color ') + alt.slots.join(', ')
+}
+
 export const useBoard = () => {
   const pick = ref<BoardPick | null>(null)
 
   const query = ref('')
-
-  onMounted(async () => {
-    alts.value = await loadJson<DriveAlt[]>('/drive-alts.json', [])
-    portraits.value = await loadJson('/sd-portraits.json', {})
-  })
 
   const fighters = computed(() => {
     tick.value
@@ -71,6 +75,14 @@ export const useBoard = () => {
       return fighter.name.toLowerCase().includes(needle)
     })
   })
+
+  const changes = computed(() => {
+    tick.value
+
+    return planGroups()
+  })
+
+  const changeCount = computed(() => changes.value.reduce((total, group) => total + group.rows.length, 0))
 
   const costumeName = (code: string, n: number) => slotRecord(code, n)?.name || 'Original'
 
@@ -89,21 +101,17 @@ export const useBoard = () => {
 
   const alternatives = (code: string) => {
     const installed = new Set(
-      Array.from({ length: 8 }, (_, n) => {
-        const record = slotRecord(code, n) as (SlotRecord & { vid?: string }) | null
-
-        return record?.vid || ''
-      }).filter(Boolean),
+      Array.from({ length: 8 }, (_, n) => slotRecord(code, n)?.vid || '').filter(Boolean),
     )
 
     return alts.value.filter((item) => item.code === code && !(item.vid && installed.has(item.vid)))
   }
 
-  const changes = computed(() => {
-    tick.value
+  const available = (code: string) => alternatives(code).filter((item) => item.vid)
 
-    return planGroups()
-  })
+  const locked = (code: string) => alternatives(code).filter((item) => !item.vid)
+
+  const altName = (code: string, vid: string) => alts.value.find((item) => item.code === code && item.vid === vid)?.name || vid
 
   const toggle = (fighter: Fighter, alt: DriveAlt) => {
     if (!alt.vid) return
@@ -132,5 +140,37 @@ export const useBoard = () => {
     return planVid(code, n) as string | null
   }
 
-  return { pick, query, fighters, changes, costumeName, costumeImage, alternatives, toggle, choose, discard, chosenVid }
+  const jumpTo = (code: string) => {
+    document.getElementById('f-' + code)?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+  }
+
+  onMounted(async () => {
+    const [driveAlts, sdPortraits] = await Promise.all([
+      loadJson<DriveAlt[]>('/drive-alts.json', []),
+      loadJson<Record<string, Record<string, string>>>('/sd-portraits.json', {}),
+    ])
+
+    alts.value = driveAlts
+    portraits.value = sdPortraits
+    loading.value = false
+  })
+
+  return {
+    pick,
+    query,
+    loading,
+    fighters,
+    changes,
+    changeCount,
+    costumeName,
+    costumeImage,
+    available,
+    locked,
+    altName,
+    toggle,
+    choose,
+    discard,
+    chosenVid,
+    jumpTo,
+  }
 }

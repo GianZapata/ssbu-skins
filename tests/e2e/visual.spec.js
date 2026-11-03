@@ -19,6 +19,13 @@ test('luchadores', async ({ page }) => {
   await shot(page, 'luchadores');
 });
 
+test('tarjeta', async ({ page }) => {
+  await page.goto('/index.html#/tarjeta');
+  await page.waitForSelector('#f-01 .board-tile');
+  await page.waitForFunction(() => [...document.querySelectorAll('#f-01 img')].every(i => i.complete));
+  await shot(page, 'tarjeta');
+});
+
 test('selector', async ({ page }) => {
   await page.goto('/index.html#/luchador/01');
   await page.waitForSelector('.strip');
