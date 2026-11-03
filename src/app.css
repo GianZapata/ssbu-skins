@@ -363,7 +363,7 @@ button.ft { appearance: none; border: 0; margin: 0; padding: 0; background: tran
 .pswp__thumbs button[aria-current="true"] { opacity: 1; outline: 2px solid var(--ac); }
 .pswp__thumbs img { width: 100%; height: 100%; object-fit: cover; }
 
-.dest { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 4px; }
+.dest { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; margin-bottom: 4px; }
 .dest a { min-height: 48px; display: flex; align-items: center; justify-content: center; border-radius: 12px; background: var(--s2); color: var(--tx); text-decoration: none; font-weight: 600; border: 1px solid var(--bd); }
 .dest a[aria-current="page"] { background: var(--s3); border-color: var(--tx); }
 .search-row--pair { display: flex; gap: 8px; align-items: flex-start; }
