@@ -8,9 +8,10 @@ class OrdenDeGit(unittest.TestCase):
         rows = db.install_rows()
         self.assertTrue(rows)
         self.assertTrue(all(r['source'] in ('drive', 'profile', 'wuboy', 'vanilla') for r in rows))
-        self.assertIn({'roster_no': '23', 'slot': 'c02', 'name': 'Pikadorf', 'mod_id': 406732},
-                      [{k: r[k] for k in ('roster_no', 'slot', 'name', 'mod_id')} for r in rows])
-        self.assertFalse(any(r['roster_no'] == '01' for r in rows))
+        got = [{k: r[k] for k in ('roster_no', 'slot', 'name', 'mod_id')} for r in rows]
+        self.assertIn({'roster_no': '23', 'slot': 'c04', 'name': 'Pikadorf', 'mod_id': 406732}, got)
+        self.assertIn({'roster_no': '01', 'slot': 'c05', 'name': 'Phineas', 'mod_id': 444343}, got)
+        self.assertFalse(any(r['roster_no'] == '05' for r in rows))
         self.assertTrue(all(r['slot'].startswith('c0') for r in rows))
 
     def test_el_comando_no_abre_firestore(self):

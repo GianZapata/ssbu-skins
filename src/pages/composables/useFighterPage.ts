@@ -67,8 +67,7 @@ export const useFighterPage = () => {
       const next = order ? { name: order.name, img: nextImg, vid: order.vid || '' } : null
       let shown = 'skin sin nombre'
 
-      if (face.kind === InstallFaceKind.Unsynced) shown = 'plan no sincronizado'
-      else if (face.kind === InstallFaceKind.Original) shown = 'original'
+      if (face.kind === InstallFaceKind.Original) shown = 'original'
       else if (cur) shown = cur.name
 
       const label = next ? trajeName(n) + ': ' + shown + ' cambia a ' + next.name : trajeName(n) + ': ' + shown
