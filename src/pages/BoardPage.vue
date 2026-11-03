@@ -82,7 +82,7 @@ const { pick, query, loading, fighters, changes, changeCount, costumeName, costu
             type="button"
             class="board-tile"
             :class="{ 'board-tile--target': pick && pick.code === fighter.code, 'board-tile--chosen': chosenVid(fighter.code, n - 1) }"
-            :disabled="!pick || pick.code !== fighter.code"
+            :aria-disabled="!pick || pick.code !== fighter.code"
             :aria-label="'Traje ' + n + ', ' + costumeName(fighter.code, n - 1) + (pick && pick.code === fighter.code ? '. Poner aquí ' + pick.name : '')"
             @click="choose(fighter.code, n - 1)"
           >
@@ -160,7 +160,6 @@ const { pick, query, loading, fighters, changes, changeCount, costumeName, costu
 @media (min-width: 1024px) { .board-grid { grid-template-columns: repeat(8, minmax(0, 1fr)); gap: 8px; } .board-tile__name { padding: 8px 10px 10px; } }
 
 .board-tile { display: grid; gap: 0; padding: 0; text-align: left; font: inherit; color: inherit; background: var(--s1); border: 1px solid var(--bd); border-radius: 14px; overflow: hidden; cursor: default; transition: border-color 160ms, transform 160ms; }
-.board-tile:disabled { opacity: 1; }
 .board-tile--target { cursor: pointer; border-color: var(--ac); }
 .board-tile--target:hover { transform: translateY(-2px); background: var(--s2); }
 .board-tile--chosen { border-color: var(--bd-active); }
