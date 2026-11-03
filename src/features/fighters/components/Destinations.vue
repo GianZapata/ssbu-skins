@@ -25,6 +25,7 @@ const planUpdated = computed(() => {
 
 <template>
   <nav class="dest" aria-label="Listas">
+    <a href="#/tarjeta" :aria-current="current === 'tarjeta' ? 'page' : undefined">Tarjeta</a>
     <a href="#/catalogo" :aria-current="current === 'catalogo' ? 'page' : undefined">Catálogo</a>
     <a href="#/instaladas" :aria-current="current === 'instaladas' ? 'page' : undefined">Instaladas</a>
   </nav>

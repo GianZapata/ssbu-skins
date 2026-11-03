@@ -1,7 +1,7 @@
 // Interfaz: alternativas y destino, galería, navegación (Atrás, filtros, desplazamiento), accesibilidad, imágenes caídas, selecciones antiguas y exportación.
 const L = require('./lib'); const { ok, until, mk, tap, shot, py, wipe } = L;
 module.exports = async (b, base) => {
-  const P = await mk(b); await P.goto(base); await P.waitForSelector('.ft'); await until(P, () => dbState === 'ok', null);
+  const P = await mk(b); await P.goto(base + '#/luchadores'); await P.waitForSelector('.ft'); await until(P, () => dbState === 'ok', null);
   // alternativas: elegibles, condiciones visibles al elegir, reubicación honesta, exportación
   const alt = await P.evaluate(() => { const e = all.find(e => isAlt(e.p) && e.p.native.length && e.p.native.length < 8 && !e.p.mii); return { vid: e.p.vid, n: [0, 1, 2, 3, 4, 5, 6, 7].find(n => !e.p.native.includes(n)) }; });
   await P.goto(base + '#/apariencia/' + encodeURIComponent(alt.vid)); await P.waitForSelector('[data-dest]');
