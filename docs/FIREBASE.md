@@ -36,7 +36,7 @@ La clave de API web no es un secreto (identifica el proyecto); si la restringes 
 - `changes/{código}_{traje}`: el id debe coincidir con `code` y `slot` (0–7); `vid` debe existir en `catalog/{código}.vids`; solo los campos `code, slot, vid, by, at`; `by` es el uid de quien escribe y `at` la hora del servidor. Borrar = «volver a lo actual».
 - `history`: solo crear (kind `set|clear|undo`), nunca editar ni borrar.
 - `catalog`, `installed`, `meta`, `status`, `selection`: solo lectura para la web.
-- Límite honesto: al ser público, cualquiera con el enlace puede proponer cualquier apariencia válida; el historial permite revisar y deshacer. Los cambios no instalan nada: el plan se revisa y se instala a mano.
+- Límite honesto: al ser público, cualquiera con el enlace puede proponer cualquier apariencia válida; el historial permite revisar y deshacer. Las propuestas no se instalan; la orden es el plan de slots de Git, y su espejo es `slot_plan`.
 
 ## Sincronización: qué es automático y qué es manual
 

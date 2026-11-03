@@ -192,3 +192,32 @@ test('originalArt: cada traje usa su render original; sin él, el retrato del lu
   const cur = SSBU.curOf('01', 2, { byCode: { '01': f }, INV: null, idx: {} });
   assert.equal(cur.kind, 'original'); assert.equal(cur.img, 'assets/costumes/01-3.webp');
 });
+
+test('installFace: sin decisión, sin WuBoy y sin perfil se ve el original', () => {
+  const current = { kind: 'original', img: 'assets/costumes/01-6.webp', src: null, name: 'Original' }
+  const face = SSBU.installFace(true, null, current)
+  assert.equal(face.kind, 'original')
+  assert.equal(face.img, 'assets/costumes/01-6.webp')
+  assert.equal(face.install, null)
+})
+
+test('installFace: WuBoy no se sustituye por el original', () => {
+  const current = { kind: 'mod', img: 'installed/wuboy.webp', src: 'base', name: 'WuBoy' }
+  const face = SSBU.installFace(true, { estado: 'sin decidir' }, current)
+  assert.equal(face.kind, 'base')
+  assert.equal(face.img, 'installed/wuboy.webp')
+})
+
+test('installFace: sin espejo no se usa la propuesta como orden', () => {
+  const face = SSBU.installFace(false, null, { kind: 'original', img: 'assets/costumes/01-1.webp', name: 'Original' })
+  assert.equal(face.kind, 'unsynced')
+  assert.equal(face.install, null)
+})
+
+test('installFace: un mod aprobado es la orden', () => {
+  const slot = { estado: 'aprobado', state: 'mod', name: 'Pikadorf', mod_id: 406732, vid: '23:406732' }
+  const face = SSBU.installFace(true, slot, { kind: 'mod', img: 'installed/hoy.webp', src: 'base', name: 'WuBoy' })
+  assert.equal(face.kind, 'install')
+  assert.equal(face.install.name, 'Pikadorf')
+  assert.equal(face.install.vid, '23:406732')
+})

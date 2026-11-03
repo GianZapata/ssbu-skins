@@ -1,16 +1,20 @@
 # Contrato del plan (Firestore → instalador)
 
-La página guarda **un plan global**: una propuesta por traje (`changes/{luchador}_{traje}`). El agente que instala (`GianZapata/Gian-Ultimate-Modpack-private`) o quien revisa a mano lo lee así:
+La orden de instalación es `data/slot_plan.json` (slots `approved: true` y `state: mod`). Se lee con `python3 tools/db.py plan` (schema 4, clave `install`). No sale de Firestore.
+
+Las propuestas de la web siguen en `changes/{luchador}_{traje}`. Guardar una no la instala. `python3 tools/review_plan.py --source changes` las revisa; sin argumentos se revisa la orden de Git.
 
 ```bash
-python3 tools/db.py plan                                   # JSON del plan actual
+python3 tools/db.py plan                                   # orden de Git (schema 4, clave install)
 python3 tools/db.py status <vid> installed|failed|skipped --result "<ruta o motivo>"   # anota el resultado
-python3 tools/db.py migrate                                # pasa selection/main (modelo anterior) al plan, sin pisar nada
+python3 tools/db.py migrate                                # pasa selection/main (modelo anterior) a las propuestas, sin pisar nada
 ```
 
-La misma estructura sale de **Exportar plan** en la página (`schema: 3`). Una propuesta guardada en el plan no está instalada en la consola: `current.confirmed` sigue en `false`.
+El ejemplo JSON de abajo es la exportación de propuestas (Más → Exportar plan, `schema: 3`), no la orden. Una propuesta guardada no está instalada en la consola: `current.confirmed` sigue en `false`.
 
 ## Qué contiene
+
+Exportación de propuestas, no la orden:
 
 ```json
 { "schema": 3, "generated_at": "...", "catalog": "<fecha del catálogo>",
@@ -49,7 +53,7 @@ El inventario de lo instalado (`installed/*`, `data/inventory_*.json`) se compon
 
 ## Flujo del agente
 
-1. `python3 tools/db.py plan` y procesar solo `status == "wanted"`.
+1. `python3 tools/db.py plan` y procesar la lista `install` (schema 4). No instalar desde `changes`.
 2. Descargar desde `proposal.url`, respetar `traje`/`slot`, `dependencies`, `conflicts`, `conditions`.
 3. Instalar en `ultimate/mods/...`, quitando lo que ocupaba ese slot si corresponde.
 4. `python3 tools/db.py status <vid> installed|failed|skipped --result "..."`.
@@ -68,9 +72,9 @@ Las selecciones del modelo anterior guardadas en un navegador **no se suben sola
 
 Cuando quieras instalar, no hace falta exportar a mano: **pídele a Claude «revisa el plan»**. Lanza la Action *Revisar plan* (o `python3 tools/review_plan.py`), que:
 
-1. lee el plan compartido de Firestore (API REST pública; las reglas permiten leer, no hacen falta secretos),
+1. lee la orden de Git (`data/slot_plan.json`); no abre Firestore,
 2. cruza cada cambio con el catálogo y el inventario (perfil `gian-prs`),
 3. publica un informe con **⛔ errores** (no instalar: apariencia retirada o inexistente, traje Mii, id de otro luchador, incompatible online), **⚠️ avisos** (reemplaza un favorito del perfil, hay que mover el mod de slot, plugin necesario, online con condiciones o sin confirmar, conflictos anotados, Pyra/Mythra sin coordinar, mismo mod en varios trajes, inventario de otra versión) y **ℹ️ notas** (mod compartido, skin ya preparada en una rama, variante concreta, vaivenes en el historial),
 4. no instala ni modifica nada.
 
-Alternativas: `python3 tools/review_plan.py --source admin` (con credenciales o emulador) o `--source file exportacion.json` (la exportación de la web). Con `--strict` termina con código 1 si hay errores. La instalación sigue siendo manual y la hace quien tiene el ModPack, con el informe delante.
+Alternativas: `python3 tools/review_plan.py --source changes` (propuestas, API REST pública), `--source admin` (con credenciales o emulador) o `--source file exportacion.json` (la exportación de propuestas). Con `--strict` termina con código 1 si hay errores. La instalación sigue siendo manual y la hace quien tiene el ModPack, con el informe delante.

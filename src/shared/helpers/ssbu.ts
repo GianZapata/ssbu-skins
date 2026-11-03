@@ -1,5 +1,6 @@
 import './domain'
 import type { Fighter, Skin } from '../../boot'
+import type { InstallFaceKind } from '../enums/InstallFaceKind'
 
 export interface CatState {
   q: string
@@ -50,6 +51,26 @@ interface Op {
   kind: string
 }
 
+export interface InstallDecision {
+  estado?: string
+  state?: string
+  name?: string
+  vid?: string
+  mod_id?: number
+}
+
+export interface InstallOrder {
+  name: string
+  vid: string | null
+  mod_id: number | null
+}
+
+export interface InstallFace {
+  kind: InstallFaceKind
+  img: string | null
+  install: InstallOrder | null
+}
+
 export interface Domain {
   keyOf: (code: string, slot: number) => string
   validSlot: (slot: number) => boolean
@@ -75,6 +96,7 @@ export interface Domain {
   onlineOf: (skin: Skin) => [string, string]
   FILTER_KEYS: string[]
   initials: (name: string) => string
+  installFace: (ready: boolean, slot: InstallDecision | null, current: Current | null) => InstallFace
 }
 
 const host = globalThis as typeof globalThis & { SSBU: Domain }

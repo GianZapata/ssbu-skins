@@ -8,7 +8,8 @@
 #   python3 tools/db.py seed --only ... --dry-run         no escribe: dice qué documentos se crearían, cambiarían o borrarían
 #   (seed no toca nunca changes, history ni status)
 #   python3 tools/db.py backup [--out data/plan_backup]   copia a JSON lo que solo vive en Firestore (changes, history, status, meta, selection); solo lee
-#   python3 tools/db.py plan                              imprime el plan compartido (un cambio por traje) para revisarlo e instalarlo
+#   python3 tools/db.py plan                              imprime la orden de Git (schema 4), no el borrador de Firestore
+#   python3 tools/db.py draft                             imprime el borrador de Firestore (schema 3: changes, history)
 #   python3 tools/db.py status VID installed|failed|skipped [--result TEXTO]   anota el resultado de una instalación
 #   python3 tools/db.py migrate                           pasa la selección anterior (selection/main) al plan compartido (idempotente)
 #
@@ -109,7 +110,7 @@ def _current(inv, code, n):
         return {'kind': 'mod' if s.get('name') else 'unknown', 'name': s.get('name') or 'Apariencia sin identificar', 'source': s['src']}
     return {'kind': 'original', 'name': 'Original del juego', 'source': None, 'confirmed': False}
 
-def plan(db):
+def draft(db):
     fighters, meta = cd.load(); inv = cd.load_inventory(fighters)
     by_vid = {p['vid']: (f, p) for f in fighters for p in f['picks']}
     status = {d.id: d.to_dict() for d in db.collection('status').stream()}
@@ -134,6 +135,34 @@ def plan(db):
                          'sources': ((inv or {}).get('meta') or {}).get('sources'), 'note': ((inv or {}).get('meta') or {}).get('note')},
            'target': {'game': 'Super Smash Bros. Ultimate', 'version': '13.0.5', 'loader': 'ARCropolis 4.1.1'},
            'changes': rows, 'history': hist}
+    print(json.dumps(out, ensure_ascii=False, indent=2))
+
+def install_rows():
+    import slot_plan
+    fighters, _meta = cd.load()
+    names = {f['code']: f['name'] for f in fighters}
+    by_mod = {(f['code'], p['id']): p for f in fighters for p in f['picks']}
+    pl = slot_plan.Plan(os.path.join(cd.R, 'data'))
+    rows = []
+    for code, doc in pl.docs().items():
+        for slot in doc['slots']:
+            if slot.get('estado') != 'aprobado' or slot.get('state') != 'mod':
+                continue
+            pick = by_mod.get((code, slot.get('mod_id')))
+            n = slot['slot']
+            rows.append({
+                'fighter': names.get(code, code), 'roster_no': code, 'traje': n + 1, 'slot': f'c{n:02d}',
+                'mod_id': slot.get('mod_id'), 'file': slot.get('file'), 'source': slot.get('source'),
+                'reslot_from': slot.get('reslot_from'), 'name': slot.get('name'),
+                'vid': None if not pick else pick['vid'],
+            })
+    rows.sort(key=lambda r: (r['roster_no'], r['traje']))
+    return rows
+
+def plan():
+    _fighters, meta = cd.load()
+    out = {'schema': 4, 'generated_at': now().isoformat(), 'catalog': meta.get('generated'),
+           'install': install_rows()}
     print(json.dumps(out, ensure_ascii=False, indent=2))
 
 def set_status(db, vid, status, result):
@@ -169,11 +198,16 @@ if __name__ == '__main__':
     s = sp.add_parser('seed'); s.add_argument('--only', choices=['catalog', 'installed', 'all', 'drive', 'slots'], required=True, help='qué sincronizar; el inventario nunca se sincroniza sin pedirlo')
     s.add_argument('--dry-run', action='store_true', help='no escribe: muestra qué documentos se crean, cambian o borran')
     b = sp.add_parser('backup'); b.add_argument('--out', default=os.path.join(cd.R, 'data', 'plan_backup'))
-    sp.add_parser('plan'); sp.add_parser('migrate')
+    sp.add_parser('plan'); sp.add_parser('draft'); sp.add_parser('migrate')
     t = sp.add_parser('status'); t.add_argument('vid'); t.add_argument('status', choices=['installed', 'failed', 'skipped', 'wanted']); t.add_argument('--result')
-    a = ap.parse_args(); db = client()
-    if a.cmd == 'seed': seed(db, a.only, a.dry_run)
-    elif a.cmd == 'backup': backup(db, a.out)
-    elif a.cmd == 'plan': plan(db)
-    elif a.cmd == 'migrate': migrate(db)
-    else: set_status(db, a.vid, a.status, a.result)
+    a = ap.parse_args()
+    if a.cmd == 'plan':
+        plan()
+    elif a.cmd == 'draft':
+        draft(client())
+    else:
+        db = client()
+        if a.cmd == 'seed': seed(db, a.only, a.dry_run)
+        elif a.cmd == 'backup': backup(db, a.out)
+        elif a.cmd == 'migrate': migrate(db)
+        else: set_status(db, a.vid, a.status, a.result)

@@ -238,10 +238,22 @@ const SSBU = (() => {
     return pend.concat([op]);
   }
 
+  function installFace(ready, slot, current) {
+    const img = current && current.img;
+
+    if (!ready) return { kind: 'unsynced', img, install: null };
+    if (slot && slot.estado === 'aprobado' && slot.state === 'mod') {
+      return { kind: 'install', img, install: { name: slot.name, vid: slot.vid || null, mod_id: slot.mod_id } };
+    }
+
+    if (current && current.kind === 'original') return { kind: 'original', img, install: null };
+    return { kind: 'base', img, install: null };
+  }
+
   return {
     keyOf, norm, ONLINE, WIFI_KEYS, FILTER_KEYS, emptyCat, migrateCat, validSlot,
     planVid, planEntries, isAlt, onlineOf, catList, initials, originalArt, curOf,
-    assignBlock, setOp, clearOp, withOp, stageChoice, seriesOf, seriesLabel,
+    assignBlock, setOp, clearOp, withOp, stageChoice, seriesOf, seriesLabel, installFace,
   };
 })();
 globalThis.SSBU = SSBU;
