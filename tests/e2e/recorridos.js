@@ -31,7 +31,7 @@ module.exports = async (b, base) => {
   ok(await A.getByRole('button', { name: 'Breath of the Wild Princess Zelda', exact: true }).count() === 1, 'el catálogo muestra skins de Zelda');
   ok(await A.getByRole('button', { name: 'Instalar' }).count() === 0, 'la tarjeta del catálogo no lleva acciones');
   await A.getByRole('button', { name: 'Personaje: Todos los personajes' }).click();
-  await A.getByRole('button', { name: /^Mario, / }).click();
+  await A.getByRole('button', { name: /^Mario, \d+ apariencias/ }).click();
   ok(await A.getByRole('button', { name: 'Dry Bones (v3.1 Update)', exact: true }).count() === 1, 'Mario deja ver sus skins');
   ok(await A.getByRole('button', { name: 'Breath of the Wild Princess Zelda', exact: true }).count() === 0, 'filtrar Mario oculta a Zelda');
 

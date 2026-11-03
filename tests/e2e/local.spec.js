@@ -44,7 +44,7 @@ test('el catálogo compacto filtra por personaje y limpia sin perder el tamaño'
   const columns = await page.locator('.sgrid').first().evaluate((el) => getComputedStyle(el).gridTemplateColumns);
   expect(columns.split(' ').length).toBe(3);
   await page.getByRole('button', { name: 'Personaje: Todos los personajes' }).click();
-  await page.getByRole('button', { name: /^Mario, / }).click();
+  await page.getByRole('button', { name: /^Mario, \d+ apariencias/ }).click();
   await expect(page.getByRole('button', { name: 'Dry Bones (v3.1 Update)' })).toBeVisible();
   await expect(page.getByRole('button', { name: 'Breath of the Wild Princess Zelda' })).toHaveCount(0);
   await page.getByLabel('Buscar skin').fill('Dry');
@@ -158,7 +158,7 @@ test('filtrar un personaje no suma profundidad', async ({ page }) => {
   await page.waitForSelector('.sgrid');
   const before = await page.evaluate(() => history.state && history.state.depth);
   await page.getByRole('button', { name: 'Personaje: Todos los personajes' }).click();
-  await page.getByRole('button', { name: /^Mario, / }).click();
+  await page.getByRole('button', { name: /^Mario, \d+ apariencias/ }).click();
   await expect(page.getByRole('dialog', { name: 'Personaje' })).toBeHidden();
   const after = await page.evaluate(() => history.state && history.state.depth);
   expect(after).toBe(before);
@@ -187,7 +187,7 @@ test('al bajar, la lista y el personaje caben en la barra que ya estaba', async 
   await page.goto('/#/catalogo');
   await page.waitForSelector('.sgrid');
   await page.getByRole('button', { name: 'Personaje: Todos los personajes' }).click();
-  await page.getByRole('button', { name: /^Mario, / }).click();
+  await page.getByRole('button', { name: /^Mario, \d+ apariencias/ }).click();
   await expect(page.getByRole('dialog', { name: 'Personaje' })).toBeHidden();
   const before = await page.locator('.search-row').boundingBox();
   await page.evaluate(() => window.scrollTo(0, 1200));
