@@ -10,13 +10,20 @@ test.beforeEach(async ({ context }) => {
 });
 
 async function shot(page, name) {
-  await expect(page).toHaveScreenshot(name + '.png', { mask: mask.map(sel => page.locator(sel)) });
+  await expect(page).toHaveScreenshot(name + '.png', { mask: [...mask.map(sel => page.locator(sel)), page.getByText(/^Plan actualizado el /)] });
 }
 
 test('luchadores', async ({ page }) => {
   await page.goto('/index.html#/luchadores');
   await page.waitForSelector('.ft');
   await shot(page, 'luchadores');
+});
+
+test('tarjeta', async ({ page }) => {
+  await page.goto('/index.html#/tarjeta');
+  await page.waitForSelector('#f-01 .board-tile');
+  await page.waitForFunction(() => [...document.querySelectorAll('#f-01 img')].every(i => i.complete));
+  await shot(page, 'tarjeta');
 });
 
 test('selector', async ({ page }) => {

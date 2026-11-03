@@ -105,5 +105,12 @@ class SlotPlan(unittest.TestCase):
         self.assertNotIn('state', m[0])   # sin decisión no hay campos de decisión
         self.assertEqual([u['mod_id'] for u in docs['03']['unassigned']], [101, 100])   # lo del usuario primero; la ui no cuenta
         self.assertEqual((docs['03']['priority'], docs['74']['priority']), (1, None))
+        self.assertIsNone(docs['03']['updated_at'])
+        raw = json.load(open(os.path.join(self.dir, 'slot_plan.json'), encoding='utf-8'))
+        raw['updated_at'] = '2026-10-30T23:49:00-06:00'
+        self.write('slot_plan.json', raw)
+        again = slot_plan.Plan(self.dir)
+        self.assertEqual(again.updated_at, '2026-10-30T23:49:00-06:00')
+        self.assertIn('Plan actualizado: 2026-10-30T23:49:00-06:00', again.render()[0])
 
 if __name__ == '__main__': unittest.main()

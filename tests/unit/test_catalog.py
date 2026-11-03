@@ -17,7 +17,7 @@ class Totals(unittest.TestCase):
     def test_totales_del_catalogo_ampliado(self):
         fighters, meta = cd.load()
         picks = [p for f in fighters for p in f['picks']]
-        active = [p for p in picks if not p['withdrawn']]
+        active = [p for p in picks if not p['withdrawn'] and p['audited']]
         self.assertEqual(len(fighters), 89)
         self.assertEqual(len(active), meta['counts']['looks'])
         self.assertEqual(meta['counts']['looks'], 1245)
@@ -28,12 +28,12 @@ class Totals(unittest.TestCase):
         self.assertEqual(meta['counts']['alternatives'], 549)
         self.assertEqual(len(CAT['withdrawn']), meta['counts']['withdrawn'])
         self.assertEqual(meta['counts']['withdrawn'], 16)
-        self.assertEqual(len(picks) - len(active), len(CAT['withdrawn']))
+        self.assertEqual(len(picks) - len(active) - meta['counts']['downloaded_unaudited'], len(CAT['withdrawn']))
         self.assertEqual(len({p['vid'] for p in picks}), len(picks), 'identificadores únicos')
 
     def test_el_informe_antiguo_no_es_el_catalogo(self):
         self.assertNotEqual(len(CAT['entries']), 709)
-        self.assertEqual(len(CAT['entries']), CAT['counts']['looks'])
+        self.assertEqual(len(CAT['entries']), CAT['counts']['looks'] + CAT['counts']['downloaded_unaudited'])
 
 class Campos(unittest.TestCase):
     def test_se_conservan_los_campos_de_investigacion(self):
@@ -44,7 +44,7 @@ class Campos(unittest.TestCase):
             for k_web, k_cat in KEEP.items():
                 self.assertEqual(p[k_web] if k_web != 'role' else p['role'], e.get(k_cat), f"{e['look_id']}: {k_web}")
             self.assertEqual(p['look_id'], e['look_id'])
-        self.assertTrue(all(p['audit_scope'] and p['downloads_scope'] and p['images_scope'] for p in by.values() if not p['withdrawn']))
+        self.assertTrue(all(p['audit_scope'] and p['downloads_scope'] and p['images_scope'] for p in by.values() if not p['withdrawn'] and p['audited']))
 
 class Identificadores(unittest.TestCase):
     def test_el_orden_y_el_nombre_no_cambian_el_id(self):
@@ -67,7 +67,7 @@ class Validador(unittest.TestCase):
             return subprocess.run([sys.executable, os.path.join(R, 'tools', 'validate_catalog.py'), '--catalog', cp, '--lock', lp], capture_output=True, text=True)
     def test_el_catalogo_actual_es_valido(self):
         r = subprocess.run([sys.executable, os.path.join(R, 'tools', 'validate_catalog.py')], capture_output=True, text=True, cwd=R)
-        self.assertEqual(r.returncode, 0, r.stdout + r.stderr); self.assertIn(f"{CAT['counts']['looks']} entradas", r.stdout)
+        self.assertEqual(r.returncode, 0, r.stdout + r.stderr); self.assertIn(f"{len(CAT['entries'])} entradas", r.stdout)
     def test_renombrar_un_id_publicado_falla(self):
         lock = json.load(open(os.path.join(R, 'data', 'ids.lock.json')))['ids']
         c = copy.deepcopy(CAT); c['entries'][0]['look_id'] = '01:999999'
@@ -104,16 +104,19 @@ class Inventario(unittest.TestCase):
         self.assertEqual(inv['meta']['profile']['name'], 'gian-prs')
         self.assertIn('77', inv['meta']['profile']['excluded_base_fighters'])
         steve = inv['fighters']['77']['slots']
-        self.assertEqual({k for k, s in steve.items() if s.get('src')}, {'0', '1', '2', '4', '5', '6', '7'}, 'Steve: los trajes del PR 11 y del plan de slots, nada de la base; c03 (Villager) queda original')
+        self.assertEqual({k for k, s in steve.items() if s.get('src')}, {str(n) for n in range(8)}, 'Steve: los 8 colores vienen del perfil, nada de la base')
         self.assertTrue(all(s.get('src') == 'perfil' for k, s in steve.items() if s.get('src')))
-        self.assertEqual(inv['fighters']['11']['slots']['2']['name'], 'Dark Falcon')
-        self.assertEqual(inv['fighters']['29']['slots']['1']['name'], 'Lucy (Cyberpunk)', 'Samus Zero c01: Lucy del plan de slots reemplaza a Naoto de WuBoy')
-        self.assertEqual(inv['fighters']['63']['slots']['3']['name'], 'Harley Quinn')
-        self.assertEqual({k for k, s in inv['fighters']['02']['slots'].items() if s.get('name') == 'Funky Kong'}, {'1', '3', '5', '7'}, 'Funky sigue en sus cuatro trajes hasta tener sustitutos')
+        self.assertEqual(inv['fighters']['11']['slots']['2']['name'], 'Shaggy')
+        self.assertEqual(inv['fighters']['29']['slots']['1']['name'], 'Ada', 'Samus Zero c01: Ada reemplaza a Naoto de WuBoy')
+        self.assertEqual(inv['fighters']['63']['slots']['3']['name'], 'Tingle')
+        self.assertEqual({k for k, s in inv['fighters']['02']['slots'].items() if s.get('name') == 'Funky Kong'}, {'1'}, 'un solo Funky Kong (c01)')
+        self.assertEqual({k: inv['fighters']['02']['slots'][k].get('name') for k in '2347'}, {'2': 'A Real Gorilla', '3': 'Tank (Left 4 Dead)', '4': 'Swole Doge', '7': 'Omega'}, 'DK: vuelven Gorilla y Doge de WuBoy; Tank y Omega cambian de slot')
+        self.assertEqual({k: inv['fighters']['78']['slots'][k].get('name') for k in '3467'}, {'3': 'Jin', '4': 'Sandbag', '6': 'Ultimate Sukuna', '7': 'Navarre sepiroth'}, 'Sefirot: el orden de la SD')
+        self.assertEqual({k for k, s in inv['fighters']['16']['slots'].items() if s.get('name') == 'Larxene'}, set(), 'Gian quitó a Larxene')
         rep = {(c, k) for c, f in inv['fighters'].items() for k, s in f['slots'].items() if s.get('replace')}
         self.assertEqual(rep, set(), 'el plan de slots aprobado cubre todos los colores por reemplazar del perfil')
         ganon = {k: s.get('name') for k, s in inv['fighters']['23']['slots'].items() if s.get('src') == 'perfil'}
-        self.assertEqual(ganon, {'0': 'Otis', '2': 'Pikadorf', '3': 'Jiren', '5': 'ExDeath', '6': 'Broly', '7': 'Pain (Naruto)'}, 'Ganondorf segun el plan aprobado')
+        self.assertEqual(ganon, {'0': 'Otis', '1': 'Angeal', '2': 'Sidon', '3': 'Jiren', '4': 'Pikadorf', '5': 'ExDeath', '6': 'Broly', '7': 'Pain (Naruto)'}, 'Ganondorf: los 8 colores de la SD')
         terry = {k: s.get('name') for k, s in inv['fighters']['74']['slots'].items() if s.get('src') == 'perfil'}
         self.assertEqual(terry, {'0': 'Gohan (sin capa)', '1': 'Gogeta SSJ', '2': 'Vegeta SSJ', '3': 'Tifa (segundo traje)', '6': 'Goku Black', '7': 'Gogeta SSJ4'}, 'Terry segun el plan aprobado')
         self.assertEqual(inv['fighters']['11']['slots']['2']['src'], 'perfil', 'marcar por reemplazar no desinstala')
@@ -136,8 +139,8 @@ class Inventario(unittest.TestCase):
         self.assertEqual(set(inv), set(costumes))
         for code, trajes in costumes.items():
             self.assertEqual(set(inv[code]['slots']), {str(n) for n in range(len(trajes))}, code)
-        vacio = inv['01']['slots']['5']
-        self.assertEqual({k: vacio[k] for k in ('name', 'img', 'skin', 'default')}, {'name': 'Original', 'img': 'assets/costumes/01-6.webp', 'skin': False, 'default': True})
+        vacio = inv['04']['slots']['1']
+        self.assertEqual({k: vacio[k] for k in ('name', 'img', 'skin', 'default')}, {'name': 'Original', 'img': 'assets/costumes/04-2.webp', 'skin': False, 'default': True})
         self.assertNotIn('src', vacio, 'sin src: la web y la revisión del plan lo siguen tratando como original')
         self.assertEqual(inv['01']['slots']['0']['src'], 'perfil'); self.assertNotIn('default', inv['01']['slots']['0'])
         for code, f in inv.items():

@@ -58,7 +58,7 @@ Los reportes de triage del Drive están en `docs/drive/` (`PENDIENTES_SLOTS.md`,
 
 ## Plan de slots
 
-`data/slot_plan.json` guarda las decisiones de Gian: qué mod va en cada slot de cada luchador, y el orden de prioridad (`priority`; un grupo `["79", "80"]` comparte posición). Cada slot decidido lleva `state` (`mod`, `wuboy` o `vanilla`), `source` (`drive`, `profile`, `wuboy` o `vanilla`), `mod_id`, `file` (ruta dentro del Drive), `reslot_from` (slot nativo, si se mueve), `approved` (`false` = propuesta) y una `nota` opcional. Se edita a mano; un slot que no aparece cuenta como «sin decidir».
+`data/slot_plan.json` guarda las decisiones de Gian y `updated_at` (ISO con zona). Esa fecha cambia solo cuando cambia una decisión, no al copiar el plan. La web la muestra como «Plan actualizado el …». qué mod va en cada slot de cada luchador, y el orden de prioridad (`priority`; un grupo `["79", "80"]` comparte posición). Cada slot decidido lleva `state` (`mod`, `wuboy` o `vanilla`), `source` (`drive`, `profile`, `wuboy` o `vanilla`), `mod_id`, `file` (ruta dentro del Drive), `reslot_from` (slot nativo, si se mueve), `approved` (`false` = propuesta) y una `nota` opcional. Se edita a mano; un slot que no aparece cuenta como «sin decidir».
 
 ```bash
 python3 tools/slot_plan.py            # regenera docs/SLOTS.md (no editarlo a mano)
