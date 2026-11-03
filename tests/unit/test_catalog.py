@@ -17,7 +17,7 @@ class Totals(unittest.TestCase):
     def test_totales_del_catalogo_ampliado(self):
         fighters, meta = cd.load()
         picks = [p for f in fighters for p in f['picks']]
-        active = [p for p in picks if not p['withdrawn']]
+        active = [p for p in picks if not p['withdrawn'] and p['audited']]
         self.assertEqual(len(fighters), 89)
         self.assertEqual(len(active), meta['counts']['looks'])
         self.assertEqual(meta['counts']['looks'], 1245)
@@ -28,12 +28,12 @@ class Totals(unittest.TestCase):
         self.assertEqual(meta['counts']['alternatives'], 549)
         self.assertEqual(len(CAT['withdrawn']), meta['counts']['withdrawn'])
         self.assertEqual(meta['counts']['withdrawn'], 16)
-        self.assertEqual(len(picks) - len(active), len(CAT['withdrawn']))
+        self.assertEqual(len(picks) - len(active) - meta['counts']['downloaded_unaudited'], len(CAT['withdrawn']))
         self.assertEqual(len({p['vid'] for p in picks}), len(picks), 'identificadores únicos')
 
     def test_el_informe_antiguo_no_es_el_catalogo(self):
         self.assertNotEqual(len(CAT['entries']), 709)
-        self.assertEqual(len(CAT['entries']), CAT['counts']['looks'])
+        self.assertEqual(len(CAT['entries']), CAT['counts']['looks'] + CAT['counts']['downloaded_unaudited'])
 
 class Campos(unittest.TestCase):
     def test_se_conservan_los_campos_de_investigacion(self):
@@ -44,7 +44,7 @@ class Campos(unittest.TestCase):
             for k_web, k_cat in KEEP.items():
                 self.assertEqual(p[k_web] if k_web != 'role' else p['role'], e.get(k_cat), f"{e['look_id']}: {k_web}")
             self.assertEqual(p['look_id'], e['look_id'])
-        self.assertTrue(all(p['audit_scope'] and p['downloads_scope'] and p['images_scope'] for p in by.values() if not p['withdrawn']))
+        self.assertTrue(all(p['audit_scope'] and p['downloads_scope'] and p['images_scope'] for p in by.values() if not p['withdrawn'] and p['audited']))
 
 class Identificadores(unittest.TestCase):
     def test_el_orden_y_el_nombre_no_cambian_el_id(self):
@@ -67,7 +67,7 @@ class Validador(unittest.TestCase):
             return subprocess.run([sys.executable, os.path.join(R, 'tools', 'validate_catalog.py'), '--catalog', cp, '--lock', lp], capture_output=True, text=True)
     def test_el_catalogo_actual_es_valido(self):
         r = subprocess.run([sys.executable, os.path.join(R, 'tools', 'validate_catalog.py')], capture_output=True, text=True, cwd=R)
-        self.assertEqual(r.returncode, 0, r.stdout + r.stderr); self.assertIn(f"{CAT['counts']['looks']} entradas", r.stdout)
+        self.assertEqual(r.returncode, 0, r.stdout + r.stderr); self.assertIn(f"{len(CAT['entries'])} entradas", r.stdout)
     def test_renombrar_un_id_publicado_falla(self):
         lock = json.load(open(os.path.join(R, 'data', 'ids.lock.json')))['ids']
         c = copy.deepcopy(CAT); c['entries'][0]['look_id'] = '01:999999'

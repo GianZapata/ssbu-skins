@@ -2,6 +2,7 @@
 import { QBtn, QIcon, QInput, QPage, QSkeleton } from 'quasar'
 import AppImg from '../components/AppImg.vue'
 import Destinations from '../features/fighters/components/Destinations.vue'
+import { previewUrl } from '../features/board/portrait'
 import { slotsLabel, useBoard } from '../features/board/useBoard'
 
 const { pick, query, loading, fighters, changes, changeCount, costumeName, costumeImage, available, locked, altName, toggle, choose, discard, chosenVid, jumpTo } = useBoard()
@@ -100,8 +101,11 @@ const { pick, query, loading, fighters, changes, changeCount, costumeName, costu
         <ul v-if="available(fighter.code).length" class="board-alts" aria-label="Alternativas del Drive">
           <li v-for="alt in available(fighter.code)" :key="alt.mod_id + alt.name">
             <button type="button" class="board-alt" :aria-pressed="pick?.code === fighter.code && pick?.vid === alt.vid" @click="toggle(fighter, alt)">
-              <b>{{ alt.name }}</b>
-              <span>{{ slotsLabel(alt) }}</span>
+              <img v-if="alt.img" class="board-alt-img" :src="previewUrl(alt.img)" alt="" width="48" height="48" />
+              <span class="board-alt-txt">
+                <b>{{ alt.name }}</b>
+                <span>{{ slotsLabel(alt) }}<em v-if="alt.unaudited"> · Sin auditar</em></span>
+              </span>
             </button>
           </li>
         </ul>
@@ -170,9 +174,12 @@ const { pick, query, loading, fighters, changes, changeCount, costumeName, costu
 .board-tile__name span { color: var(--tx-mu); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 
 .board-alts { margin: 12px 0 0; padding: 0; list-style: none; display: grid; grid-template-columns: repeat(auto-fill, minmax(11rem, 1fr)); gap: 8px; }
-.board-alt { width: 100%; min-height: 56px; display: grid; gap: 2px; padding: 8px 12px; text-align: left; font: inherit; color: var(--tx); background: var(--s2); border: 1px solid var(--bd); border-radius: 12px; cursor: pointer; transition: border-color 160ms, background 160ms; }
+.board-alt { width: 100%; min-height: 56px; display: flex; align-items: center; gap: 10px; padding: 8px 12px; text-align: left; font: inherit; color: var(--tx); background: var(--s2); border: 1px solid var(--bd); border-radius: 12px; cursor: pointer; transition: border-color 160ms, background 160ms; }
 .board-alt:hover { border-color: var(--bd-active); background: var(--s3); }
 .board-alt[aria-pressed="true"] { border-color: var(--ac); background: var(--s3); outline: 2px solid var(--ac); outline-offset: -3px; }
+.board-alt-img { flex: none; width: 48px; height: 48px; object-fit: cover; border-radius: 8px; background: var(--s3); }
+.board-alt-txt { display: grid; gap: 2px; min-width: 0; }
+.board-alt em { font-style: normal; color: var(--ac); }
 .board-alt b { font-size: 15px; line-height: 20px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .board-alt span { font-size: 13px; line-height: 18px; color: var(--tx-mu); }
 
