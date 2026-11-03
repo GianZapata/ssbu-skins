@@ -9,6 +9,7 @@
 #   (seed no toca nunca changes, history ni status)
 #   python3 tools/db.py backup [--out data/plan_backup]   copia a JSON lo que solo vive en Firestore (changes, history, status, meta, selection); solo lee
 #   python3 tools/db.py plan                              imprime la orden de Git (schema 4), no el borrador de Firestore
+#   python3 tools/db.py draft                             imprime el borrador de Firestore (schema 3: changes, history)
 #   python3 tools/db.py status VID installed|failed|skipped [--result TEXTO]   anota el resultado de una instalación
 #   python3 tools/db.py migrate                           pasa la selección anterior (selection/main) al plan compartido (idempotente)
 #
@@ -18,6 +19,9 @@
 import argparse, datetime, json, os, sys
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import catalog_data as cd
+
+ONLINE = {'autor_explicito': 'Online: lo declara el autor', 'autor_condicionado': 'Online: con condiciones', 'tercero': 'Online: según terceros',
+          'sin_evidencia': 'Online: sin datos', 'incompatible': 'Online: incompatible'}
 
 def client():
     from google.cloud import firestore
@@ -100,6 +104,39 @@ def backup(db, out):
     with open(os.path.join(out, '_resumen.json'), 'w', encoding='utf-8') as f: f.write(json.dumps({'docs': resumen, 'taken_at': now().isoformat()}, indent=1) + '\n')
     print('ok · respaldo en', out, '·', ', '.join(f'{k} {v}' for k, v in resumen.items()))
 
+def _current(inv, code, n):
+    s = (((inv or {}).get('fighters') or {}).get(code) or {}).get('slots', {}).get(str(n)) or {}
+    if s.get('src'):
+        return {'kind': 'mod' if s.get('name') else 'unknown', 'name': s.get('name') or 'Apariencia sin identificar', 'source': s['src']}
+    return {'kind': 'original', 'name': 'Original del juego', 'source': None, 'confirmed': False}
+
+def draft(db):
+    fighters, meta = cd.load(); inv = cd.load_inventory(fighters)
+    by_vid = {p['vid']: (f, p) for f in fighters for p in f['picks']}
+    status = {d.id: d.to_dict() for d in db.collection('status').stream()}
+    rows = []
+    for d in db.collection('changes').stream():
+        c = d.to_dict(); f, p = by_vid.get(c.get('vid'), (None, None))
+        code, n = c['code'], c['slot']; fi = next((x for x in fighters if x['code'] == code), None)
+        st = status.get(c['vid']) or {}
+        rows.append({'fighter': fi['name'] if fi else code, 'roster_no': code, 'traje': n + 1, 'slot': f'c{n:02d}',
+                     'current': _current(inv, code, n),
+                     'proposal': None if not p else {'vid': p['vid'], 'role': p['role'], 'variant': p['variant'], 'mod_id': p['id'], 'name': p['name'], 'author': p['author'], 'url': p['url'],
+                                                    'online': ONLINE.get(p['wifi_status'], 'Online: sin auditar'), 'conditions': p['conditions'] or None,
+                                                    'dependencies': p['deps'] or None, 'conflicts': p['conflicts'] or None, 'native_slots': p['slots_orig'],
+                                                    'dest_hint': p['dest'], 'pack': p['pack'], 'withdrawn': p['withdrawn']},
+                     'missing_in_catalog': p is None, 'vid': c['vid'], 'proposed_at': c['at'].isoformat() if c.get('at') else None,
+                     'status': st.get('status', 'wanted'), 'result': st.get('result')})
+    rows.sort(key=lambda r: (r['roster_no'], r['traje']))
+    hist = [{'at': h['at'].isoformat() if h.get('at') else None, 'roster_no': h['code'], 'traje': h['slot'] + 1, 'from': h.get('from'), 'to': h.get('to'), 'kind': h.get('kind')}
+            for h in (d.to_dict() for d in db.collection('history').order_by('at', direction='DESCENDING').limit(50).stream())]
+    out = {'schema': 3, 'generated_at': now().isoformat(), 'catalog': meta.get('generated'),
+           'inventory': {'verification': ((inv or {}).get('meta') or {}).get('verification'), 'scanned_at': ((inv or {}).get('meta') or {}).get('scanned_at'),
+                         'sources': ((inv or {}).get('meta') or {}).get('sources'), 'note': ((inv or {}).get('meta') or {}).get('note')},
+           'target': {'game': 'Super Smash Bros. Ultimate', 'version': '13.0.5', 'loader': 'ARCropolis 4.1.1'},
+           'changes': rows, 'history': hist}
+    print(json.dumps(out, ensure_ascii=False, indent=2))
+
 def install_rows():
     import slot_plan
     fighters, _meta = cd.load()
@@ -161,11 +198,13 @@ if __name__ == '__main__':
     s = sp.add_parser('seed'); s.add_argument('--only', choices=['catalog', 'installed', 'all', 'drive', 'slots'], required=True, help='qué sincronizar; el inventario nunca se sincroniza sin pedirlo')
     s.add_argument('--dry-run', action='store_true', help='no escribe: muestra qué documentos se crean, cambian o borran')
     b = sp.add_parser('backup'); b.add_argument('--out', default=os.path.join(cd.R, 'data', 'plan_backup'))
-    sp.add_parser('plan'); sp.add_parser('migrate')
+    sp.add_parser('plan'); sp.add_parser('draft'); sp.add_parser('migrate')
     t = sp.add_parser('status'); t.add_argument('vid'); t.add_argument('status', choices=['installed', 'failed', 'skipped', 'wanted']); t.add_argument('--result')
     a = ap.parse_args()
     if a.cmd == 'plan':
         plan()
+    elif a.cmd == 'draft':
+        draft(client())
     else:
         db = client()
         if a.cmd == 'seed': seed(db, a.only, a.dry_run)

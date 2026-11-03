@@ -69,9 +69,9 @@ module.exports = async (b, base) => {
   ok(await M.locator('[data-m="recover"]').count() > 0, 'selección antigua: se ofrece «Revisar» de forma visible');
   await M.click('[data-m="recover"]'); await M.waitForSelector('[data-m="recover-go"]'); await shot(M, '14-recuperar'); await M.click('[data-m="recover-go"]');
   ok(await until(M, () => planVid('01', 2) === '01:174057' && PEND.length === 0 && dbState === 'ok', null, 12000), 'selección antigua: tras confirmar pasa al plan (Mario traje 3)');
-  const plan = JSON.parse(py('plan')); ok(plan.schema === 3 && plan.changes.some(c => c.vid === '01:174057' && c.traje === 3 && c.proposal && c.proposal.url && c.current), 'db.py plan: exporta traje de destino, variante y actual');
-  ok(plan.inventory && plan.inventory.verification === 'parcial', 'db.py plan: declara la verificación del inventario');
-  py('status 01:174057 installed --result prueba'); ok(JSON.parse(py('plan')).changes.find(c => c.vid === '01:174057').status === 'installed', 'db.py status: registra el resultado');
+  const plan = JSON.parse(py('draft')); ok(plan.schema === 3 && plan.changes.some(c => c.vid === '01:174057' && c.traje === 3 && c.proposal && c.proposal.url && c.current), 'db.py draft: exporta traje de destino, variante y actual');
+  ok(plan.inventory && plan.inventory.verification === 'parcial', 'db.py draft: declara la verificación del inventario');
+  py('status 01:174057 installed --result prueba'); ok(JSON.parse(py('draft')).changes.find(c => c.vid === '01:174057').status === 'installed', 'db.py status: registra el resultado');
   const ex2 = await M.evaluate(() => buildExport()); ok(ex2.changes.some(c => c.vid === '01:174057' && c.traje === 3 && c.slot === 'c02'), 'exportar desde la web usa el mismo plan global');
   ok([P, M].every(p => !p.errs.length), 'sin errores de JS ' + JSON.stringify([P.errs, M.errs])); await P.ctx.close(); await M.ctx.close();
 };

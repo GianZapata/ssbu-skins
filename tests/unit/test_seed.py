@@ -60,7 +60,7 @@ class Seed(unittest.TestCase):
         self.assertTrue(self.fs.collection('drive').document('zz').get().exists)
     def test_6b_plan_lee_el_cambio_con_el_slot_del_contrato(self):
         self.fs.collection('changes').document('01_0').set({'code': '01', 'slot': 0, 'vid': '01:174057', 'by': 'test'})
-        r = db('plan')
+        r = db('draft')
         self.assertEqual(r.returncode, 0, r.stderr)
         out = json.loads(r.stdout)
         row = next(item for item in out['changes'] if item['vid'] == '01:174057' and item['traje'] == 1)
