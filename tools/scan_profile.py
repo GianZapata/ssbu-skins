@@ -79,7 +79,7 @@ def derived_slots(m, internal, plan):
     → [(código, slot, nombre, id de GameBanana)]."""
     code = internal.get(m.get('fighter'))
     if not (code and m.get('kind') == 'mods'): return []
-    target = re.sub(r'movido desde c\d\d', '', m.get('target_slots') or '')
+    target = re.sub(r'(?:movido desde|desde|modelo|movimientos)\s+c\d\d', '', m.get('target_slots') or '')
     out = []
     for n in sorted({int(x) for x in TARGET_SLOT.findall(target)}):
         d = plan['fighters'][code]['slots'][str(n)]

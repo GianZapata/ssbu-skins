@@ -139,8 +139,8 @@ class Inventario(unittest.TestCase):
         self.assertEqual(set(inv), set(costumes))
         for code, trajes in costumes.items():
             self.assertEqual(set(inv[code]['slots']), {str(n) for n in range(len(trajes))}, code)
-        vacio = inv['04']['slots']['1']
-        self.assertEqual({k: vacio[k] for k in ('name', 'img', 'skin', 'default')}, {'name': 'Original', 'img': 'assets/costumes/04-2.webp', 'skin': False, 'default': True})
+        vacio = inv['13']['slots']['1']
+        self.assertEqual({k: vacio[k] for k in ('name', 'img', 'skin', 'default')}, {'name': 'Original', 'img': 'assets/costumes/13-2.webp', 'skin': False, 'default': True})
         self.assertNotIn('src', vacio, 'sin src: la web y la revisión del plan lo siguen tratando como original')
         self.assertEqual(inv['01']['slots']['0']['src'], 'perfil'); self.assertNotIn('default', inv['01']['slots']['0'])
         for code, f in inv.items():

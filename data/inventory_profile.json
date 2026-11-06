@@ -3,9 +3,9 @@
  "id": "perfil",
  "label": "Perfil local «gian-prs»",
  "profile": "gian-prs",
- "ref": "claude/vigilant-keller-6i5s1d@8e788e6",
+ "ref": "main@5fc0963",
  "document": "catalog/profiles.json + catalog/mods.json",
- "scanned_at": "2026-11-02T02:23:29Z",
+ "scanned_at": "2026-11-06T05:36:55Z",
  "verification": "Perfil armado y verificado en archivos; pruebas en consola sin conexión anotadas por componente (no certifican online)",
  "components": [
   {
@@ -54,6 +54,78 @@
    "dlc": null
   },
   {
+   "id": "buddy-cowboy-c00",
+   "version": "pending",
+   "target": "c00 (color 1), nativo",
+   "url": "https://gamebanana.com/mods/514151",
+   "classification": null,
+   "console_test": null,
+   "dlc": null
+  },
+  {
+   "id": "buddy-n64-c01",
+   "version": "pending",
+   "target": "c01 (color 2), nativo",
+   "url": "https://gamebanana.com/mods/175752",
+   "classification": null,
+   "console_test": null,
+   "dlc": null
+  },
+  {
+   "id": "buddy-tuxedo-c02",
+   "version": "pending",
+   "target": "c02 (color 3), nativo",
+   "url": "https://gamebanana.com/mods/175747",
+   "classification": null,
+   "console_test": null,
+   "dlc": null
+  },
+  {
+   "id": "buddy-coyote-c03",
+   "version": "pending",
+   "target": "c03 (color 4), nativo",
+   "url": "https://gamebanana.com/mods/528327",
+   "classification": null,
+   "console_test": null,
+   "dlc": null
+  },
+  {
+   "id": "buddy-timon-c04",
+   "version": "pending",
+   "target": "c04 (color 5), desde c00",
+   "url": "https://gamebanana.com/mods/600970",
+   "classification": null,
+   "console_test": null,
+   "dlc": null
+  },
+  {
+   "id": "buddy-freddy-c05",
+   "version": "pending",
+   "target": "c05 (color 6), nativo",
+   "url": "https://gamebanana.com/mods/319797",
+   "classification": null,
+   "console_test": null,
+   "dlc": null
+  },
+  {
+   "id": "buddy-nuts-bolts-c06",
+   "version": "pending",
+   "target": "c06 (color 7), nativo",
+   "url": "https://gamebanana.com/mods/175749",
+   "classification": null,
+   "console_test": null,
+   "dlc": null
+  },
+  {
+   "id": "buddy-crash-c07",
+   "version": "pending",
+   "target": "c07 (color 8), nativo",
+   "url": "https://gamebanana.com/mods/456969",
+   "classification": null,
+   "console_test": null,
+   "dlc": null
+  },
+  {
    "id": "lucina-2b-alts-c01-c07",
    "version": "pending",
    "target": "c01, c02, c03, c04, c05, c06, c07",
@@ -63,11 +135,20 @@
    "dlc": null
   },
   {
-   "id": "ganon-angeal-c01",
+   "id": "ganon-demon-king-c01",
    "version": "pending",
-   "target": "c01",
-   "url": "https://gamebanana.com/mods/347784",
-   "classification": "skins unidas el 2026-10-30; pendiente de prueba en consola",
+   "target": "c01 (color 2), movido desde c00",
+   "url": "https://gamebanana.com/mods/460620",
+   "classification": null,
+   "console_test": "pendiente (no probado en Switch)",
+   "dlc": null
+  },
+  {
+   "id": "snake-leon-c05",
+   "version": "pending",
+   "target": "c05 (color 6), nativo",
+   "url": "https://gamebanana.com/mods/455931",
+   "classification": null,
    "console_test": "pendiente (no probado en Switch)",
    "dlc": null
   },
@@ -180,11 +261,11 @@
    "dlc": null
   },
   {
-   "id": "ganon-exdeath-c05",
+   "id": "ganon-big-smoke-c05",
    "version": "pending",
-   "target": "c05 (color 6)",
-   "url": "https://gamebanana.com/mods/174353",
-   "classification": "plan de slots aprobado (ssbu-skins, 2026-10-28; 'solo la carpeta c05'); pendiente de prueba en consola",
+   "target": "c05 (color 6), movido desde c02",
+   "url": "https://gamebanana.com/mods/447428",
+   "classification": null,
    "console_test": "pendiente (no probado en Switch)",
    "dlc": null
   },
@@ -208,15 +289,6 @@
   },
   {
    "id": "lucas-hoopa-c00",
-   "version": "pending",
-   "target": "c00",
-   "url": "https://gamebanana.com/mods/347784",
-   "classification": "skins unidas el 2026-10-30; pendiente de prueba en consola",
-   "console_test": "pendiente (no probado en Switch)",
-   "dlc": null
-  },
-  {
-   "id": "samus-iron-man-c00",
    "version": "pending",
    "target": "c00",
    "url": "https://gamebanana.com/mods/347784",
@@ -270,15 +342,6 @@
    "dlc": null
   },
   {
-   "id": "koopajr-nabbit-c04",
-   "version": "pending",
-   "target": "c04",
-   "url": "https://gamebanana.com/mods/347784",
-   "classification": "skins unidas el 2026-10-30; pendiente de prueba en consola",
-   "console_test": "pendiente (no probado en Switch)",
-   "dlc": null
-  },
-  {
    "id": "edge-navarre-c07",
    "version": "pending",
    "target": "c07",
@@ -288,29 +351,20 @@
    "dlc": null
   },
   {
-   "id": "pitb-revali-c01",
+   "id": "captain-all-might-c04",
    "version": "pending",
-   "target": "c01",
-   "url": "https://gamebanana.com/mods/347784",
-   "classification": "skins unidas el 2026-10-30; pendiente de prueba en consola",
+   "target": "c04 (color 5), movido desde c01",
+   "url": "https://gamebanana.com/mods/692548",
+   "classification": "plan de slots (ssbu-skins, propuesta que Gian aprobo el 2026-10-29); pendiente de prueba en consola",
    "console_test": "pendiente (no probado en Switch)",
    "dlc": null
   },
   {
-   "id": "captain-gallade-c04",
+   "id": "ganon-cooler-c02",
    "version": "pending",
-   "target": "c04",
-   "url": "https://gamebanana.com/mods/347784",
-   "classification": "skins unidas el 2026-10-30; pendiente de prueba en consola",
-   "console_test": "pendiente (no probado en Switch)",
-   "dlc": null
-  },
-  {
-   "id": "ganon-sidon-c02",
-   "version": "pending",
-   "target": "c02",
-   "url": "https://gamebanana.com/mods/347784",
-   "classification": "skins unidas el 2026-10-30; pendiente de prueba en consola",
+   "target": "c02 (color 3), movido desde c01",
+   "url": "https://gamebanana.com/mods/325054",
+   "classification": null,
    "console_test": "pendiente (no probado en Switch)",
    "dlc": null
   },
@@ -432,11 +486,11 @@
    "dlc": null
   },
   {
-   "id": "cloud-yomi-c06",
+   "id": "cloud-clouwn-c06",
    "version": "pending",
    "target": "c06",
-   "url": "https://gamebanana.com/mods/347784",
-   "classification": "skins unidas el 2026-10-30; pendiente de prueba en consola",
+   "url": "https://gamebanana.com/mods/422932",
+   "classification": "lista oficial 2026-10-29; pendiente de prueba en consola",
    "console_test": "pendiente (no probado en Switch)",
    "dlc": null
   },
@@ -585,12 +639,12 @@
    "dlc": null
   },
   {
-   "id": "captain-troll-face-c05",
+   "id": "captain-goku-ss4-c05",
    "version": "pending",
-   "target": "c05, movido desde c00",
-   "url": "https://gamebanana.com/mods/296237",
-   "classification": "lista oficial 2026-10-29; pendiente de prueba en consola",
-   "console_test": "pendiente (no probado en Switch)",
+   "target": "c05 (color 6), desde c02",
+   "url": "https://gamebanana.com/mods/322135",
+   "classification": null,
+   "console_test": null,
    "dlc": null
   },
   {
@@ -614,10 +668,10 @@
   {
    "id": "cloud-1997-c03",
    "version": "pending",
-   "target": "c03, movido desde c00",
+   "target": "c03, movido desde c01 (misma familia impar)",
    "url": "https://gamebanana.com/mods/325562",
    "classification": "lista oficial 2026-10-29; pendiente de prueba en consola",
-   "console_test": "pendiente (no probado en Switch)",
+   "console_test": "pendiente: versión impar instalada el 2026-11-05 (la par falló en consola el 2026-11-01)",
    "dlc": null
   },
   {
@@ -846,12 +900,12 @@
    "dlc": null
   },
   {
-   "id": "donkey-venom-c06",
+   "id": "donkey-joe-v2-c06",
    "version": "pending",
-   "target": "c06",
-   "url": "https://gamebanana.com/mods/174249",
-   "classification": "en la SD por pedido de Gian; registrado al consolidar el 2026-11-01",
-   "console_test": "pendiente (no probado en Switch)",
+   "target": "c06 (color 7), desde c04",
+   "url": "https://gamebanana.com/mods/378405",
+   "classification": null,
+   "console_test": null,
    "dlc": null
   },
   {
@@ -896,7 +950,7 @@
    "target": "c06 (color 7), movido desde c03",
    "url": "https://gamebanana.com/mods/672428",
    "classification": "plan de slots (ssbu-skins, propuesta que Gian aprobo el 2026-10-29); pendiente de prueba en consola",
-   "console_test": "pendiente (no probado en Switch)",
+   "console_test": "Falla en consola (Gian, 2026-11-01): se rompe y cuelga el juego",
    "dlc": null
   },
   {
@@ -904,15 +958,6 @@
    "version": "pending",
    "target": "c07 (color 8)",
    "url": "https://gamebanana.com/mods/291700",
-   "classification": "plan de slots (ssbu-skins, propuesta que Gian aprobo el 2026-10-29); pendiente de prueba en consola",
-   "console_test": "pendiente (no probado en Switch)",
-   "dlc": null
-  },
-  {
-   "id": "falco-n64-falco-c00",
-   "version": "pending",
-   "target": "c00 (color 1)",
-   "url": "https://gamebanana.com/mods/174558",
    "classification": "plan de slots (ssbu-skins, propuesta que Gian aprobo el 2026-10-29); pendiente de prueba en consola",
    "console_test": "pendiente (no probado en Switch)",
    "dlc": null
@@ -1071,11 +1116,11 @@
    "dlc": null
   },
   {
-   "id": "kamui-2b-corrin-c07",
+   "id": "kamui-helmet-female-c07",
    "version": "pending",
    "target": "c07 (color 8)",
-   "url": "https://gamebanana.com/mods/174947",
-   "classification": "plan de slots (ssbu-skins, propuesta que Gian aprobo el 2026-10-29); pendiente de prueba en consola",
+   "url": "https://gamebanana.com/mods/526795",
+   "classification": "lote 2026-11-05; pendiente de prueba en consola",
    "console_test": "pendiente (no probado en Switch)",
    "dlc": null
   },
@@ -1287,15 +1332,6 @@
    "dlc": null
   },
   {
-   "id": "lucina-2b-mastaklo-c00",
-   "version": "pending",
-   "target": "c00 (color 1)",
-   "url": "https://gamebanana.com/mods/362052",
-   "classification": "plan de slots (ssbu-skins, propuesta que Gian aprobo el 2026-10-29); pendiente de prueba en consola",
-   "console_test": "pendiente (no probado en Switch)",
-   "dlc": null
-  },
-  {
    "id": "luigi-dancing-banana-c01",
    "version": "pending",
    "target": "c01",
@@ -1359,12 +1395,12 @@
    "dlc": null
   },
   {
-   "id": "mario-dry-bones-c04",
+   "id": "mario-sm64-c04",
    "version": "pending",
-   "target": "c04 (color 5), movido desde c01",
-   "url": "https://gamebanana.com/mods/174057",
-   "classification": "plan de slots (ssbu-skins, propuesta que Gian aprobo el 2026-10-29); pendiente de prueba en consola",
-   "console_test": "pendiente (no probado en Switch)",
+   "target": "c04 (color 5), nativo",
+   "url": "https://gamebanana.com/mods/294695",
+   "classification": null,
+   "console_test": null,
    "dlc": null
   },
   {
@@ -1404,12 +1440,12 @@
    "dlc": null
   },
   {
-   "id": "mario-phineas-c05",
+   "id": "mario-n64-single-c05",
    "version": "pending",
-   "target": "c05",
-   "url": "https://gamebanana.com/mods/444343",
-   "classification": "lista oficial 2026-10-29; pendiente de prueba en consola",
-   "console_test": "pendiente (no probado en Switch)",
+   "target": "c05 (color 6), desde c00",
+   "url": "https://gamebanana.com/mods/556949",
+   "classification": null,
+   "console_test": null,
    "dlc": null
   },
   {
@@ -1557,11 +1593,11 @@
    "dlc": null
   },
   {
-   "id": "marth-sigurd-c03",
+   "id": "marth-tanjiro-c03",
    "version": "pending",
-   "target": "c03 (color 4)",
-   "url": "https://gamebanana.com/mods/442940",
-   "classification": "plan de slots (ssbu-skins, propuesta que Gian aprobo el 2026-10-29); pendiente de prueba en consola",
+   "target": "c03, movido desde c00",
+   "url": "https://gamebanana.com/mods/363962",
+   "classification": "ultimas 8 de Marth; pendiente de prueba en consola",
    "console_test": "pendiente (no probado en Switch)",
    "dlc": null
   },
@@ -1764,12 +1800,12 @@
    "dlc": null
   },
   {
-   "id": "sheik-jane-c03",
+   "id": "sheik-yuffie-c03",
    "version": "pending",
-   "target": "c03",
-   "url": "https://gamebanana.com/mods/581779",
-   "classification": "en la SD por pedido de Gian; registrado al consolidar el 2026-11-01",
-   "console_test": "pendiente (no probado en Switch)",
+   "target": "c03 (color 4), modelo c01 y movimientos c00",
+   "url": "https://gamebanana.com/mods/511678",
+   "classification": null,
+   "console_test": null,
    "dlc": null
   },
   {
@@ -1926,15 +1962,6 @@
    "dlc": null
   },
   {
-   "id": "wario-krabs-c04",
-   "version": "pending",
-   "target": "c04",
-   "url": "https://gamebanana.com/mods/376188",
-   "classification": "lista oficial 2026-10-29; pendiente de prueba en consola",
-   "console_test": "pendiente (no probado en Switch)",
-   "dlc": null
-  },
-  {
    "id": "wario-potato-c03",
    "version": "pending",
    "target": "c03",
@@ -1948,33 +1975,6 @@
    "version": "pending",
    "target": "c01",
    "url": "https://gamebanana.com/mods/435681",
-   "classification": "lista oficial 2026-10-29; pendiente de prueba en consola",
-   "console_test": "pendiente (no probado en Switch)",
-   "dlc": null
-  },
-  {
-   "id": "wario-sans-c07",
-   "version": "pending",
-   "target": "c07, movido desde c01",
-   "url": "https://gamebanana.com/mods/589845",
-   "classification": "lista oficial 2026-10-29; pendiente de prueba en consola",
-   "console_test": "pendiente (no probado en Switch)",
-   "dlc": null
-  },
-  {
-   "id": "wario-knuckles-c05",
-   "version": "pending",
-   "target": "c05",
-   "url": "https://gamebanana.com/mods/455070",
-   "classification": "lista oficial 2026-10-29; pendiente de prueba en consola",
-   "console_test": "pendiente (no probado en Switch)",
-   "dlc": null
-  },
-  {
-   "id": "wario-man-c06",
-   "version": "pending",
-   "target": "c06, movido desde c00",
-   "url": "https://gamebanana.com/mods/325793",
    "classification": "lista oficial 2026-10-29; pendiente de prueba en consola",
    "console_test": "pendiente (no probado en Switch)",
    "dlc": null
@@ -1995,6 +1995,69 @@
    "url": "https://gamebanana.com/mods/421286",
    "classification": "plan de slots (ssbu-skins, propuesta que Gian aprobo el 2026-10-29); pendiente de prueba en consola",
    "console_test": "pendiente (no probado en Switch)",
+   "dlc": null
+  },
+  {
+   "id": "wolf-deku-c00",
+   "version": "pending",
+   "target": "c00 (color 1), nativo",
+   "url": "https://gamebanana.com/mods/458945",
+   "classification": null,
+   "console_test": null,
+   "dlc": null
+  },
+  {
+   "id": "wolf-miyu-c02",
+   "version": "pending",
+   "target": "c02 (color 3), movido desde c00",
+   "url": "https://gamebanana.com/mods/648611",
+   "classification": null,
+   "console_test": null,
+   "dlc": null
+  },
+  {
+   "id": "wolf-syndrome-c03",
+   "version": "pending",
+   "target": "c03 (color 4), movido desde c00",
+   "url": "https://gamebanana.com/mods/483161",
+   "classification": null,
+   "console_test": null,
+   "dlc": null
+  },
+  {
+   "id": "wolf-el-tigre-c04",
+   "version": "pending",
+   "target": "c04 (color 5), movido desde c00",
+   "url": "https://gamebanana.com/mods/571314",
+   "classification": null,
+   "console_test": null,
+   "dlc": null
+  },
+  {
+   "id": "wolf-meowth-c05",
+   "version": "pending",
+   "target": "c05 (color 6), Meowth normal desde c00",
+   "url": "https://gamebanana.com/mods/501297",
+   "classification": null,
+   "console_test": null,
+   "dlc": null
+  },
+  {
+   "id": "wolf-foxy-c06",
+   "version": "pending",
+   "target": "c06 (color 7), nativo",
+   "url": "https://gamebanana.com/mods/436761",
+   "classification": null,
+   "console_test": null,
+   "dlc": null
+  },
+  {
+   "id": "wolf-wolverine-c07",
+   "version": "pending",
+   "target": "c07 (color 8), nativo",
+   "url": "https://gamebanana.com/mods/390659",
+   "classification": null,
+   "console_test": null,
    "dlc": null
   },
   {
@@ -2021,6 +2084,987 @@
    "target": "c02 (color 3), movido desde c01",
    "url": "https://gamebanana.com/mods/346851",
    "classification": "plan de slots (ssbu-skins, propuesta que Gian aprobo el 2026-10-29); pendiente de prueba en consola",
+   "console_test": "pendiente (no probado en Switch)",
+   "dlc": null
+  },
+  {
+   "id": "fox-elmo-c00",
+   "version": "pending",
+   "target": "c00 (color 1), nativo",
+   "url": "https://gamebanana.com/mods/389682",
+   "classification": null,
+   "console_test": null,
+   "dlc": null
+  },
+  {
+   "id": "fox-realistic-c01",
+   "version": "pending",
+   "target": "c01 (color 2), variante",
+   "url": "https://gamebanana.com/mods/434227",
+   "classification": null,
+   "console_test": null,
+   "dlc": null
+  },
+  {
+   "id": "fox-melee-c02",
+   "version": "pending",
+   "target": "c02 (color 3), movido desde c00",
+   "url": "https://gamebanana.com/mods/174538",
+   "classification": null,
+   "console_test": null,
+   "dlc": null
+  },
+  {
+   "id": "fox-swiper-c04",
+   "version": "pending",
+   "target": "c04 (color 5), nativo",
+   "url": "https://gamebanana.com/mods/617787",
+   "classification": null,
+   "console_test": null,
+   "dlc": null
+  },
+  {
+   "id": "fox-smash64-c05",
+   "version": "pending",
+   "target": "c05 (color 6), movido desde c00",
+   "url": "https://gamebanana.com/mods/331330",
+   "classification": null,
+   "console_test": null,
+   "dlc": null
+  },
+  {
+   "id": "fox-bugs-c06",
+   "version": "pending",
+   "target": "c06 (color 7), nativo",
+   "url": "https://gamebanana.com/mods/500646",
+   "classification": null,
+   "console_test": null,
+   "dlc": null
+  },
+  {
+   "id": "fox-vector-c07",
+   "version": "pending",
+   "target": "c07 (color 8), nativo",
+   "url": "https://gamebanana.com/mods/458342",
+   "classification": null,
+   "console_test": null,
+   "dlc": null
+  },
+  {
+   "id": "duckhunt-wolf-chicken-c00",
+   "version": "pending",
+   "target": "c00 (color 1), nativo",
+   "url": "https://gamebanana.com/mods/446921",
+   "classification": null,
+   "console_test": null,
+   "dlc": null
+  },
+  {
+   "id": "duckhunt-wii-dog-c01",
+   "version": "pending",
+   "target": "c01 (color 2), nativo",
+   "url": "https://gamebanana.com/mods/419817",
+   "classification": null,
+   "console_test": null,
+   "dlc": null
+  },
+  {
+   "id": "duckhunt-donkey-c02",
+   "version": "pending",
+   "target": "c02 (color 3)",
+   "url": "https://gamebanana.com/mods/424492",
+   "classification": null,
+   "console_test": null,
+   "dlc": null
+  },
+  {
+   "id": "duckhunt-dog-hunt-c03",
+   "version": "pending",
+   "target": "c03 (color 4)",
+   "url": "https://gamebanana.com/mods/377213",
+   "classification": null,
+   "console_test": null,
+   "dlc": null
+  },
+  {
+   "id": "duckhunt-sans-c04",
+   "version": "pending",
+   "target": "c04 (color 5), nativo",
+   "url": "https://gamebanana.com/mods/585666",
+   "classification": null,
+   "console_test": null,
+   "dlc": null
+  },
+  {
+   "id": "duckhunt-blues-clues-c05",
+   "version": "pending",
+   "target": "c05 (color 6)",
+   "url": "https://gamebanana.com/mods/651344",
+   "classification": null,
+   "console_test": null,
+   "dlc": null
+  },
+  {
+   "id": "duckhunt-terry-c06",
+   "version": "pending",
+   "target": "c06 (color 7)",
+   "url": "https://gamebanana.com/mods/647762",
+   "classification": null,
+   "console_test": null,
+   "dlc": null
+  },
+  {
+   "id": "duckhunt-ender-ghast-c07",
+   "version": "pending",
+   "target": "c07 (color 8), nativo",
+   "url": "https://gamebanana.com/mods/690965",
+   "classification": null,
+   "console_test": null,
+   "dlc": null
+  },
+  {
+   "id": "koopajr-wonder-c00",
+   "version": "pending",
+   "target": "c00 (color 1), nativo",
+   "url": "https://gamebanana.com/mods/485341",
+   "classification": null,
+   "console_test": null,
+   "dlc": null
+  },
+  {
+   "id": "koopajr-koopa-kid-c01",
+   "version": "pending",
+   "target": "c01 (color 2)",
+   "url": "https://gamebanana.com/mods/174222",
+   "classification": null,
+   "console_test": null,
+   "dlc": null
+  },
+  {
+   "id": "koopajr-plankton-c02",
+   "version": "pending",
+   "target": "c02 (color 3)",
+   "url": "https://gamebanana.com/mods/325455",
+   "classification": null,
+   "console_test": null,
+   "dlc": null
+  },
+  {
+   "id": "koopajr-skibidi-c03",
+   "version": "pending",
+   "target": "c03 (color 4)",
+   "url": "https://gamebanana.com/mods/454913",
+   "classification": null,
+   "console_test": null,
+   "dlc": null
+  },
+  {
+   "id": "koopajr-bill-board-c04",
+   "version": "pending",
+   "target": "c04 (color 5)",
+   "url": "https://gamebanana.com/mods/174221",
+   "classification": null,
+   "console_test": null,
+   "dlc": null
+  },
+  {
+   "id": "koopajr-dry-c05",
+   "version": "pending",
+   "target": "c05 (color 6)",
+   "url": "https://gamebanana.com/mods/390825",
+   "classification": null,
+   "console_test": null,
+   "dlc": null
+  },
+  {
+   "id": "koopajr-dr-zomboss-c06",
+   "version": "pending",
+   "target": "c06 (color 7)",
+   "url": "https://gamebanana.com/mods/469280",
+   "classification": null,
+   "console_test": null,
+   "dlc": null
+  },
+  {
+   "id": "koopajr-dr-eggman-c07",
+   "version": "pending",
+   "target": "c07 (color 8), nativo",
+   "url": "https://gamebanana.com/mods/529043",
+   "classification": null,
+   "console_test": null,
+   "dlc": null
+  },
+  {
+   "id": "samus-prime-c00",
+   "version": "pending",
+   "target": "c00 (color 1), nativo",
+   "url": "https://gamebanana.com/mods/471661",
+   "classification": null,
+   "console_test": null,
+   "dlc": null
+  },
+  {
+   "id": "samus-aigis-c01",
+   "version": "pending",
+   "target": "c01 (color 2)",
+   "url": "https://gamebanana.com/mods/174427",
+   "classification": null,
+   "console_test": null,
+   "dlc": null
+  },
+  {
+   "id": "samus-barret-c02",
+   "version": "pending",
+   "target": "c02 (color 3)",
+   "url": "https://gamebanana.com/mods/519027",
+   "classification": null,
+   "console_test": null,
+   "dlc": null
+  },
+  {
+   "id": "samus-mecha-sonic-c03",
+   "version": "pending",
+   "target": "c03 (color 4)",
+   "url": "https://gamebanana.com/mods/416946",
+   "classification": null,
+   "console_test": null,
+   "dlc": null
+  },
+  {
+   "id": "samus-megaman-x-c04",
+   "version": "pending",
+   "target": "c04 (color 5)",
+   "url": "https://gamebanana.com/mods/521826",
+   "classification": null,
+   "console_test": null,
+   "dlc": null
+  },
+  {
+   "id": "samus-gunship-c05",
+   "version": "pending",
+   "target": "c05 (color 6)",
+   "url": "https://gamebanana.com/mods/623602",
+   "classification": null,
+   "console_test": null,
+   "dlc": null
+  },
+  {
+   "id": "samus-mazinger-z-c06",
+   "version": "pending",
+   "target": "c06 (color 7)",
+   "url": "https://gamebanana.com/mods/459144",
+   "classification": null,
+   "console_test": null,
+   "dlc": null
+  },
+  {
+   "id": "samus-fighting-polygon-c07",
+   "version": "pending",
+   "target": "c07 (color 8), nativo",
+   "url": "https://gamebanana.com/mods/630739",
+   "classification": null,
+   "console_test": null,
+   "dlc": null
+  },
+  {
+   "id": "wario-shaven-c05",
+   "version": "pending",
+   "target": "c05 (color 6)",
+   "url": "https://gamebanana.com/mods/345198",
+   "classification": null,
+   "console_test": null,
+   "dlc": null
+  },
+  {
+   "id": "wario-red-mm-c04",
+   "version": "pending",
+   "target": "c04 (color 5)",
+   "url": "https://gamebanana.com/mods/528699",
+   "classification": null,
+   "console_test": null,
+   "dlc": null
+  },
+  {
+   "id": "wario-wawario-c06",
+   "version": "pending",
+   "target": "c06 (color 7)",
+   "url": "https://gamebanana.com/mods/715003",
+   "classification": null,
+   "console_test": null,
+   "dlc": null
+  },
+  {
+   "id": "wario-sea-turtle-c07",
+   "version": "pending",
+   "target": "c07 (color 8)",
+   "url": "https://gamebanana.com/mods/719608",
+   "classification": null,
+   "console_test": null,
+   "dlc": null
+  },
+  {
+   "id": "pitb-batman-c00",
+   "version": "pending",
+   "target": "c00 (color 1)",
+   "url": "https://gamebanana.com/mods/594803",
+   "classification": "lote 2026-11-05; pendiente de prueba en consola",
+   "console_test": "pendiente (no probado en Switch)",
+   "dlc": null
+  },
+  {
+   "id": "pitb-yelan-c01",
+   "version": "pending",
+   "target": "c01 (color 2)",
+   "url": "https://gamebanana.com/mods/383270",
+   "classification": "lote 2026-11-05; pendiente de prueba en consola",
+   "console_test": "pendiente (no probado en Switch)",
+   "dlc": null
+  },
+  {
+   "id": "pitb-akhos-c02",
+   "version": "pending",
+   "target": "c02 (color 3)",
+   "url": "https://gamebanana.com/mods/380933",
+   "classification": "lote 2026-11-05; pendiente de prueba en consola",
+   "console_test": "pendiente (no probado en Switch)",
+   "dlc": null
+  },
+  {
+   "id": "pitb-krystal-c03",
+   "version": "pending",
+   "target": "c03 (color 4)",
+   "url": "https://gamebanana.com/mods/175016",
+   "classification": "lote 2026-11-05; pendiente de prueba en consola",
+   "console_test": "pendiente (no probado en Switch)",
+   "dlc": null
+  },
+  {
+   "id": "pitb-freddy-c04",
+   "version": "pending",
+   "target": "c04 (color 5)",
+   "url": "https://gamebanana.com/mods/340077",
+   "classification": "lote 2026-11-05; pendiente de prueba en consola",
+   "console_test": "pendiente (no probado en Switch)",
+   "dlc": null
+  },
+  {
+   "id": "pitb-ruby-c05",
+   "version": "pending",
+   "target": "c05 (color 6)",
+   "url": "https://gamebanana.com/mods/175015",
+   "classification": "lote 2026-11-05; pendiente de prueba en consola",
+   "console_test": "pendiente (no probado en Switch)",
+   "dlc": null
+  },
+  {
+   "id": "pitb-ganyu-c07",
+   "version": "pending",
+   "target": "c07 (color 8)",
+   "url": "https://gamebanana.com/mods/476245",
+   "classification": "lote 2026-11-05; pendiente de prueba en consola",
+   "console_test": "pendiente (no probado en Switch)",
+   "dlc": null
+  },
+  {
+   "id": "falco-tokoyami-c00",
+   "version": "pending",
+   "target": "c00 (color 1)",
+   "url": "https://gamebanana.com/mods/523733",
+   "classification": "lote 2026-11-05; pendiente de prueba en consola",
+   "console_test": "pendiente (no probado en Switch)",
+   "dlc": null
+  },
+  {
+   "id": "falco-ratchet-c01",
+   "version": "pending",
+   "target": "c01 (color 2)",
+   "url": "https://gamebanana.com/mods/322968",
+   "classification": "lote 2026-11-05; pendiente de prueba en consola",
+   "console_test": "pendiente (no probado en Switch)",
+   "dlc": null
+  },
+  {
+   "id": "falco-pingu-c02",
+   "version": "pending",
+   "target": "c02 (color 3)",
+   "url": "https://gamebanana.com/mods/453394",
+   "classification": "lote 2026-11-05; pendiente de prueba en consola",
+   "console_test": "pendiente (no probado en Switch)",
+   "dlc": null
+  },
+  {
+   "id": "falco-melee-c03",
+   "version": "pending",
+   "target": "c03 (color 4)",
+   "url": "https://gamebanana.com/mods/387025",
+   "classification": "lote 2026-11-05; pendiente de prueba en consola",
+   "console_test": "pendiente (no probado en Switch)",
+   "dlc": null
+  },
+  {
+   "id": "falco-katt-c04",
+   "version": "pending",
+   "target": "c04 (color 5)",
+   "url": "https://gamebanana.com/mods/616220",
+   "classification": "lote 2026-11-05; pendiente de prueba en consola",
+   "console_test": "pendiente (no probado en Switch)",
+   "dlc": null
+  },
+  {
+   "id": "falco-donald-c05",
+   "version": "pending",
+   "target": "c05 (color 6)",
+   "url": "https://gamebanana.com/mods/429034",
+   "classification": "lote 2026-11-05; pendiente de prueba en consola",
+   "console_test": "pendiente (no probado en Switch)",
+   "dlc": null
+  },
+  {
+   "id": "falco-daffy-c06",
+   "version": "pending",
+   "target": "c06 (color 7)",
+   "url": "https://gamebanana.com/mods/503660",
+   "classification": "lote 2026-11-05; pendiente de prueba en consola",
+   "console_test": "pendiente (no probado en Switch)",
+   "dlc": null
+  },
+  {
+   "id": "falco-peppy-c07",
+   "version": "pending",
+   "target": "c07 (color 8)",
+   "url": "https://gamebanana.com/mods/460621",
+   "classification": "lote 2026-11-05; pendiente de prueba en consola",
+   "console_test": "pendiente (no probado en Switch)",
+   "dlc": null
+  },
+  {
+   "id": "gekkouga-froppy-c00",
+   "version": "pending",
+   "target": "c00 (color 1)",
+   "url": "https://gamebanana.com/mods/487685",
+   "classification": "lote 2026-11-05; pendiente de prueba en consola",
+   "console_test": "pendiente (no probado en Switch)",
+   "dlc": null
+  },
+  {
+   "id": "gekkouga-squidward-c01",
+   "version": "pending",
+   "target": "c01 (color 2)",
+   "url": "https://gamebanana.com/mods/369035",
+   "classification": "lote 2026-11-05; pendiente de prueba en consola",
+   "console_test": "pendiente (no probado en Switch)",
+   "dlc": null
+  },
+  {
+   "id": "gekkouga-frogadier-c02",
+   "version": "pending",
+   "target": "c02 (color 3)",
+   "url": "https://gamebanana.com/mods/414098",
+   "classification": "lote 2026-11-05; pendiente de prueba en consola",
+   "console_test": "pendiente (no probado en Switch)",
+   "dlc": null
+  },
+  {
+   "id": "gekkouga-zorori-c03",
+   "version": "pending",
+   "target": "c03 (color 4)",
+   "url": "https://gamebanana.com/mods/498216",
+   "classification": "lote 2026-11-05; pendiente de prueba en consola",
+   "console_test": "pendiente (no probado en Switch)",
+   "dlc": null
+  },
+  {
+   "id": "gekkouga-spiderman-c04",
+   "version": "pending",
+   "target": "c04 (color 5)",
+   "url": "https://gamebanana.com/mods/705979",
+   "classification": "lote 2026-11-05; pendiente de prueba en consola",
+   "console_test": "pendiente (no probado en Switch)",
+   "dlc": null
+  },
+  {
+   "id": "gekkouga-klinger-c05",
+   "version": "pending",
+   "target": "c05 (color 6)",
+   "url": "https://gamebanana.com/mods/675188",
+   "classification": "lote 2026-11-05; pendiente de prueba en consola",
+   "console_test": "pendiente (no probado en Switch)",
+   "dlc": null
+  },
+  {
+   "id": "gekkouga-ash-c06",
+   "version": "pending",
+   "target": "c06 (color 7)",
+   "url": "https://gamebanana.com/mods/371933",
+   "classification": "lote 2026-11-05; pendiente de prueba en consola",
+   "console_test": "pendiente (no probado en Switch)",
+   "dlc": null
+  },
+  {
+   "id": "gekkouga-consul-m-c07",
+   "version": "pending",
+   "target": "c07 (color 8)",
+   "url": "https://gamebanana.com/mods/501650",
+   "classification": "lote 2026-11-05; pendiente de prueba en consola",
+   "console_test": "pendiente (no probado en Switch)",
+   "dlc": null
+  },
+  {
+   "id": "popo-toad-toadette-c00",
+   "version": "pending",
+   "target": "c00 (color 1)",
+   "url": "https://gamebanana.com/mods/549171",
+   "classification": "lote 2026-11-05; pendiente de prueba en consola",
+   "console_test": "pendiente (no probado en Switch)",
+   "dlc": null
+  },
+  {
+   "id": "popo-minions-c01",
+   "version": "pending",
+   "target": "c01 (color 2)",
+   "url": "https://gamebanana.com/mods/286826",
+   "classification": "lote 2026-11-05; pendiente de prueba en consola",
+   "console_test": "pendiente (no probado en Switch)",
+   "dlc": null
+  },
+  {
+   "id": "popo-prune-klee-c02",
+   "version": "pending",
+   "target": "c02 (color 3)",
+   "url": "https://gamebanana.com/mods/683538",
+   "classification": "lote 2026-11-05; pendiente de prueba en consola",
+   "console_test": "pendiente (no probado en Switch)",
+   "dlc": null
+  },
+  {
+   "id": "popo-polar-bear-c03",
+   "version": "pending",
+   "target": "c03 (color 4)",
+   "url": "https://gamebanana.com/mods/405331",
+   "classification": "lote 2026-11-05; pendiente de prueba en consola",
+   "console_test": "pendiente (no probado en Switch)",
+   "dlc": null
+  },
+  {
+   "id": "popo-monty-rocky-c04",
+   "version": "pending",
+   "target": "c04 (color 5)",
+   "url": "https://gamebanana.com/mods/467810",
+   "classification": "lote 2026-11-05; pendiente de prueba en consola",
+   "console_test": "pendiente (no probado en Switch)",
+   "dlc": null
+  },
+  {
+   "id": "popo-polar-bear-c05",
+   "version": "pending",
+   "target": "c05 (color 6)",
+   "url": "https://gamebanana.com/mods/405331",
+   "classification": "lote 2026-11-05; pendiente de prueba en consola",
+   "console_test": "pendiente (no probado en Switch)",
+   "dlc": null
+  },
+  {
+   "id": "popo-tandemaus-c06",
+   "version": "pending",
+   "target": "c06 (color 7)",
+   "url": "https://gamebanana.com/mods/431748",
+   "classification": "lote 2026-11-05; pendiente de prueba en consola",
+   "console_test": "pendiente (no probado en Switch)",
+   "dlc": null
+  },
+  {
+   "id": "popo-spongebob-patrick-c07",
+   "version": "pending",
+   "target": "c07 (color 8)",
+   "url": "https://gamebanana.com/mods/501567",
+   "classification": "lote 2026-11-05; pendiente de prueba en consola",
+   "console_test": "pendiente (no probado en Switch)",
+   "dlc": null
+  },
+  {
+   "id": "krool-pooh-c00",
+   "version": "pending",
+   "target": "c00 (color 1)",
+   "url": "https://gamebanana.com/mods/375500",
+   "classification": "lote 2026-11-05; pendiente de prueba en consola",
+   "console_test": "pendiente (no probado en Switch)",
+   "dlc": null
+  },
+  {
+   "id": "krool-kaptain-c01",
+   "version": "pending",
+   "target": "c01 (color 2)",
+   "url": "https://gamebanana.com/mods/322328",
+   "classification": "lote 2026-11-05; pendiente de prueba en consola",
+   "console_test": "pendiente (no probado en Switch)",
+   "dlc": null
+  },
+  {
+   "id": "krool-meg-c02",
+   "version": "pending",
+   "target": "c02 (color 3)",
+   "url": "https://gamebanana.com/mods/175439",
+   "classification": "lote 2026-11-05; pendiente de prueba en consola",
+   "console_test": "pendiente (no probado en Switch)",
+   "dlc": null
+  },
+  {
+   "id": "krool-big-al-c03",
+   "version": "pending",
+   "target": "c03 (color 4)",
+   "url": "https://gamebanana.com/mods/439830",
+   "classification": "lote 2026-11-05; pendiente de prueba en consola",
+   "console_test": "pendiente (no probado en Switch)",
+   "dlc": null
+  },
+  {
+   "id": "krool-moto-c04",
+   "version": "pending",
+   "target": "c04 (color 5)",
+   "url": "https://gamebanana.com/mods/539185",
+   "classification": "lote 2026-11-05; pendiente de prueba en consola",
+   "console_test": "pendiente (no probado en Switch)",
+   "dlc": null
+  },
+  {
+   "id": "krool-bubble-bass-c05",
+   "version": "pending",
+   "target": "c05 (color 6)",
+   "url": "https://gamebanana.com/mods/519308",
+   "classification": "lote 2026-11-05; pendiente de prueba en consola",
+   "console_test": "pendiente (no probado en Switch)",
+   "dlc": null
+  },
+  {
+   "id": "krool-tim-lockwood-c06",
+   "version": "pending",
+   "target": "c06 (color 7)",
+   "url": "https://gamebanana.com/mods/459149",
+   "classification": "lote 2026-11-05; pendiente de prueba en consola",
+   "console_test": "pendiente (no probado en Switch)",
+   "dlc": null
+  },
+  {
+   "id": "krool-whomp-c07",
+   "version": "pending",
+   "target": "c07 (color 8)",
+   "url": "https://gamebanana.com/mods/634365",
+   "classification": "lote 2026-11-05; pendiente de prueba en consola",
+   "console_test": "pendiente (no probado en Switch)",
+   "dlc": null
+  },
+  {
+   "id": "toonlink-voxel-c00",
+   "version": "pending",
+   "target": "c00 (color 1)",
+   "url": "https://gamebanana.com/mods/174411",
+   "classification": "lote 2026-11-05; pendiente de prueba en consola",
+   "console_test": "pendiente (no probado en Switch)",
+   "dlc": null
+  },
+  {
+   "id": "toonlink-puss-c01",
+   "version": "pending",
+   "target": "c01 (color 2)",
+   "url": "https://gamebanana.com/mods/483159",
+   "classification": "lote 2026-11-05; pendiente de prueba en consola",
+   "console_test": "pendiente (no probado en Switch)",
+   "dlc": null
+  },
+  {
+   "id": "toonlink-fox-tunic-c02",
+   "version": "pending",
+   "target": "c02 (color 3)",
+   "url": "https://gamebanana.com/mods/478154",
+   "classification": "lote 2026-11-05; pendiente de prueba en consola",
+   "console_test": "pendiente (no probado en Switch)",
+   "dlc": null
+  },
+  {
+   "id": "toonlink-scrooge-c03",
+   "version": "pending",
+   "target": "c03 (color 4)",
+   "url": "https://gamebanana.com/mods/583403",
+   "classification": "lote 2026-11-05; pendiente de prueba en consola",
+   "console_test": "pendiente (no probado en Switch)",
+   "dlc": null
+  },
+  {
+   "id": "toonlink-wwhd-c04",
+   "version": "pending",
+   "target": "c04 (color 5)",
+   "url": "https://gamebanana.com/mods/407438",
+   "classification": "lote 2026-11-05; pendiente de prueba en consola",
+   "console_test": "pendiente (no probado en Switch)",
+   "dlc": null
+  },
+  {
+   "id": "toonlink-tetra-c05",
+   "version": "pending",
+   "target": "c05 (color 6)",
+   "url": "https://gamebanana.com/mods/366757",
+   "classification": "lote 2026-11-05; pendiente de prueba en consola",
+   "console_test": "pendiente (no probado en Switch)",
+   "dlc": null
+  },
+  {
+   "id": "toonlink-lightning-c06",
+   "version": "pending",
+   "target": "c06 (color 7)",
+   "url": "https://gamebanana.com/mods/380524",
+   "classification": "lote 2026-11-05; pendiente de prueba en consola",
+   "console_test": "pendiente (no probado en Switch)",
+   "dlc": null
+  },
+  {
+   "id": "toonlink-trunks-c07",
+   "version": "pending",
+   "target": "c07 (color 8)",
+   "url": "https://gamebanana.com/mods/543802",
+   "classification": "lote 2026-11-05; pendiente de prueba en consola",
+   "console_test": "pendiente (no probado en Switch)",
+   "dlc": null
+  },
+  {
+   "id": "murabito-spongebob-c00",
+   "version": "pending",
+   "target": "c00 (color 1)",
+   "url": "https://gamebanana.com/mods/432394",
+   "classification": "lote 2026-11-05; pendiente de prueba en consola",
+   "console_test": "pendiente (no probado en Switch)",
+   "dlc": null
+  },
+  {
+   "id": "murabito-chara-c01",
+   "version": "pending",
+   "target": "c01 (color 2)",
+   "url": "https://gamebanana.com/mods/686571",
+   "classification": "lote 2026-11-05; pendiente de prueba en consola",
+   "console_test": "pendiente (no probado en Switch)",
+   "dlc": null
+  },
+  {
+   "id": "murabito-isaac-c02",
+   "version": "pending",
+   "target": "c02 (color 3)",
+   "url": "https://gamebanana.com/mods/477314",
+   "classification": "lote 2026-11-05; pendiente de prueba en consola",
+   "console_test": "pendiente (no probado en Switch)",
+   "dlc": null
+  },
+  {
+   "id": "murabito-miku-c03",
+   "version": "pending",
+   "target": "c03 (color 4)",
+   "url": "https://gamebanana.com/mods/439141",
+   "classification": "lote 2026-11-05; pendiente de prueba en consola",
+   "console_test": "pendiente (no probado en Switch)",
+   "dlc": null
+  },
+  {
+   "id": "murabito-shyguy-c04",
+   "version": "pending",
+   "target": "c04 (color 5)",
+   "url": "https://gamebanana.com/mods/438389",
+   "classification": "lote 2026-11-05; pendiente de prueba en consola",
+   "console_test": "pendiente (no probado en Switch)",
+   "dlc": null
+  },
+  {
+   "id": "murabito-rpg-mario-c06",
+   "version": "pending",
+   "target": "c06 (color 7)",
+   "url": "https://gamebanana.com/mods/486640",
+   "classification": "lote 2026-11-05; pendiente de prueba en consola",
+   "console_test": "pendiente (no probado en Switch)",
+   "dlc": null
+  },
+  {
+   "id": "wiifit-marcus-c00",
+   "version": "pending",
+   "target": "c00 (color 1)",
+   "url": "https://gamebanana.com/mods/697562",
+   "classification": "lote 2026-11-05; pendiente de prueba en consola",
+   "console_test": "pendiente (no probado en Switch)",
+   "dlc": null
+  },
+  {
+   "id": "wiifit-squidward-c01",
+   "version": "pending",
+   "target": "c01 (color 2)",
+   "url": "https://gamebanana.com/mods/538968",
+   "classification": "lote 2026-11-05; pendiente de prueba en consola",
+   "console_test": "pendiente (no probado en Switch)",
+   "dlc": null
+  },
+  {
+   "id": "wiifit-poppi-c02",
+   "version": "pending",
+   "target": "c02 (color 3)",
+   "url": "https://gamebanana.com/mods/175112",
+   "classification": "lote 2026-11-05; pendiente de prueba en consola",
+   "console_test": "pendiente (no probado en Switch)",
+   "dlc": null
+  },
+  {
+   "id": "wiifit-homer-c03",
+   "version": "pending",
+   "target": "c03 (color 4)",
+   "url": "https://gamebanana.com/mods/558536",
+   "classification": "lote 2026-11-05; pendiente de prueba en consola",
+   "console_test": "pendiente (no probado en Switch)",
+   "dlc": null
+  },
+  {
+   "id": "wiifit-miku-boxing-c04",
+   "version": "pending",
+   "target": "c04 (color 5)",
+   "url": "https://gamebanana.com/mods/614758",
+   "classification": "lote 2026-11-05; pendiente de prueba en consola",
+   "console_test": "pendiente (no probado en Switch)",
+   "dlc": null
+  },
+  {
+   "id": "wiifit-benny-c05",
+   "version": "pending",
+   "target": "c05 (color 6)",
+   "url": "https://gamebanana.com/mods/529224",
+   "classification": "lote 2026-11-05; pendiente de prueba en consola",
+   "console_test": "pendiente (no probado en Switch)",
+   "dlc": null
+  },
+  {
+   "id": "wiifit-kanan-c06",
+   "version": "pending",
+   "target": "c06 (color 7)",
+   "url": "https://gamebanana.com/mods/376692",
+   "classification": "lote 2026-11-05; pendiente de prueba en consola",
+   "console_test": "pendiente (no probado en Switch)",
+   "dlc": null
+  },
+  {
+   "id": "wiifit-lilligant-c07",
+   "version": "pending",
+   "target": "c07 (color 8)",
+   "url": "https://gamebanana.com/mods/498594",
+   "classification": "lote 2026-11-05; pendiente de prueba en consola",
+   "console_test": "pendiente (no probado en Switch)",
+   "dlc": null
+  },
+  {
+   "id": "kamui-chainsaw-c00",
+   "version": "pending",
+   "target": "c00 (color 1)",
+   "url": "https://gamebanana.com/mods/485009",
+   "classification": "lote 2026-11-05; pendiente de prueba en consola",
+   "console_test": "pendiente (no probado en Switch)",
+   "dlc": null
+  },
+  {
+   "id": "kamui-spearondorf-c01",
+   "version": "pending",
+   "target": "c01 (color 2)",
+   "url": "https://gamebanana.com/mods/706859",
+   "classification": "lote 2026-11-05; pendiente de prueba en consola",
+   "console_test": "pendiente (no probado en Switch)",
+   "dlc": null
+  },
+  {
+   "id": "kamui-helmet-c02",
+   "version": "pending",
+   "target": "c02 (color 3)",
+   "url": "https://gamebanana.com/mods/526795",
+   "classification": "lote 2026-11-05; pendiente de prueba en consola",
+   "console_test": "pendiente (no probado en Switch)",
+   "dlc": null
+  },
+  {
+   "id": "kamui-sailor-c03",
+   "version": "pending",
+   "target": "c03 (color 4)",
+   "url": "https://gamebanana.com/mods/490976",
+   "classification": "lote 2026-11-05; pendiente de prueba en consola",
+   "console_test": "pendiente (no probado en Switch)",
+   "dlc": null
+  },
+  {
+   "id": "kamui-orochimaru-c04",
+   "version": "pending",
+   "target": "c04 (color 5)",
+   "url": "https://gamebanana.com/mods/461161",
+   "classification": "lote 2026-11-05; pendiente de prueba en consola",
+   "console_test": "pendiente (no probado en Switch)",
+   "dlc": null
+  },
+  {
+   "id": "kamui-dva-c05",
+   "version": "pending",
+   "target": "c05 (color 6)",
+   "url": "https://gamebanana.com/mods/378051",
+   "classification": "lote 2026-11-05; pendiente de prueba en consola",
+   "console_test": "pendiente (no probado en Switch)",
+   "dlc": null
+  },
+  {
+   "id": "kamui-spider-carnage-c06",
+   "version": "pending",
+   "target": "c06 (color 7)",
+   "url": "https://gamebanana.com/mods/689039",
+   "classification": "lote 2026-11-05; pendiente de prueba en consola",
+   "console_test": "pendiente (no probado en Switch)",
+   "dlc": null
+  },
+  {
+   "id": "captain-mirko-c07",
+   "version": "pending",
+   "target": "c07 (color 8)",
+   "url": "https://gamebanana.com/mods/639956",
+   "classification": "lote 2026-11-05; pendiente de prueba en consola",
+   "console_test": "pendiente (no probado en Switch)",
+   "dlc": null
+  },
+  {
+   "id": "lucina-kyoka-c00",
+   "version": "pending",
+   "target": "c00 (color 1)",
+   "url": "https://gamebanana.com/mods/519872",
+   "classification": "lote 2026-11-05; pendiente de prueba en consola",
+   "console_test": "pendiente (no probado en Switch)",
+   "dlc": null
+  },
+  {
+   "id": "palutena-momo-c00",
+   "version": "pending",
+   "target": "c00 (color 1)",
+   "url": "https://gamebanana.com/mods/519870",
+   "classification": "lote 2026-11-05; pendiente de prueba en consola",
+   "console_test": "pendiente (no probado en Switch)",
+   "dlc": null
+  },
+  {
+   "id": "pitb-ethel-c06",
+   "version": "pending",
+   "target": "c06 (color 7)",
+   "url": "https://gamebanana.com/mods/431718",
+   "classification": "lote 2026-11-05; pendiente de prueba en consola",
+   "console_test": "pendiente (no probado en Switch)",
+   "dlc": null
+  },
+  {
+   "id": "murabito-bomberman-c05",
+   "version": "pending",
+   "target": "c05 (color 6)",
+   "url": "https://gamebanana.com/mods/469593",
+   "classification": "lote 2026-11-05; pendiente de prueba en consola",
+   "console_test": "pendiente (no probado en Switch)",
+   "dlc": null
+  },
+  {
+   "id": "murabito-toadette-c07",
+   "version": "pending",
+   "target": "c07 (color 8)",
+   "url": "https://gamebanana.com/mods/298054",
+   "classification": "lote 2026-11-05; pendiente de prueba en consola",
    "console_test": "pendiente (no probado en Switch)",
    "dlc": null
   }
@@ -2092,7 +3136,15 @@
   },
   {
    "fighter": "04",
-   "slot": 0
+   "slot": 5
+  },
+  {
+   "fighter": "04",
+   "slot": 6
+  },
+  {
+   "fighter": "04",
+   "slot": 7
   },
   {
    "fighter": "07",
@@ -2177,6 +3229,10 @@
   {
    "fighter": "11",
    "slot": 6
+  },
+  {
+   "fighter": "11",
+   "slot": 7
   },
   {
    "fighter": "14",
@@ -2359,6 +3415,14 @@
    "slot": 1
   },
   {
+   "fighter": "28ε",
+   "slot": 4
+  },
+  {
+   "fighter": "28ε",
+   "slot": 7
+  },
+  {
    "fighter": "29",
    "slot": 1
   },
@@ -2483,6 +3547,26 @@
    "slot": 7
   },
   {
+   "fighter": "43",
+   "slot": 2
+  },
+  {
+   "fighter": "43",
+   "slot": 3
+  },
+  {
+   "fighter": "43",
+   "slot": 5
+  },
+  {
+   "fighter": "43",
+   "slot": 6
+  },
+  {
+   "fighter": "43",
+   "slot": 7
+  },
+  {
    "fighter": "44",
    "slot": 1
   },
@@ -2499,6 +3583,38 @@
    "slot": 5
   },
   {
+   "fighter": "45",
+   "slot": 0
+  },
+  {
+   "fighter": "45",
+   "slot": 1
+  },
+  {
+   "fighter": "45",
+   "slot": 2
+  },
+  {
+   "fighter": "45",
+   "slot": 3
+  },
+  {
+   "fighter": "45",
+   "slot": 4
+  },
+  {
+   "fighter": "45",
+   "slot": 5
+  },
+  {
+   "fighter": "45",
+   "slot": 6
+  },
+  {
+   "fighter": "45",
+   "slot": 7
+  },
+  {
    "fighter": "47",
    "slot": 2
   },
@@ -2509,6 +3625,26 @@
   {
    "fighter": "49",
    "slot": 2
+  },
+  {
+   "fighter": "50",
+   "slot": 0
+  },
+  {
+   "fighter": "50",
+   "slot": 2
+  },
+  {
+   "fighter": "50",
+   "slot": 4
+  },
+  {
+   "fighter": "50",
+   "slot": 6
+  },
+  {
+   "fighter": "50",
+   "slot": 7
   },
   {
    "fighter": "54",
@@ -2525,10 +3661,6 @@
   {
    "fighter": "56",
    "slot": 6
-  },
-  {
-   "fighter": "58",
-   "slot": 4
   },
   {
    "fighter": "60",
@@ -2631,6 +3763,26 @@
    "slot": 1
   },
   {
+   "fighter": "67",
+   "slot": 3
+  },
+  {
+   "fighter": "67",
+   "slot": 4
+  },
+  {
+   "fighter": "67",
+   "slot": 5
+  },
+  {
+   "fighter": "67",
+   "slot": 6
+  },
+  {
+   "fighter": "67",
+   "slot": 7
+  },
+  {
    "fighter": "68",
    "slot": 4
   },
@@ -2684,6 +3836,22 @@
   },
   {
    "fighter": "72",
+   "slot": 7
+  },
+  {
+   "fighter": "73",
+   "slot": 1
+  },
+  {
+   "fighter": "73",
+   "slot": 3
+  },
+  {
+   "fighter": "73",
+   "slot": 6
+  },
+  {
+   "fighter": "73",
    "slot": 7
   },
   {
@@ -2875,7 +4043,7 @@
    "slot": 7
   }
  ],
- "exclude_base_total": 527,
+ "exclude_base_total": 574,
  "excluded_base_mods": [
   "The WuBoy Ultimate Modpack Optionals",
   "The WuBoy Ultimate Music Modpack"
@@ -2924,6 +4092,18 @@
   {
    "fighter": "03",
    "slot": 6
+  },
+  {
+   "fighter": "04",
+   "slot": 5
+  },
+  {
+   "fighter": "04",
+   "slot": 6
+  },
+  {
+   "fighter": "04",
+   "slot": 7
   },
   {
    "fighter": "07",
@@ -2980,6 +4160,10 @@
   {
    "fighter": "11",
    "slot": 5
+  },
+  {
+   "fighter": "11",
+   "slot": 7
   },
   {
    "fighter": "14",
@@ -3094,6 +4278,14 @@
    "slot": 7
   },
   {
+   "fighter": "28ε",
+   "slot": 4
+  },
+  {
+   "fighter": "28ε",
+   "slot": 7
+  },
+  {
    "fighter": "29",
    "slot": 2
   },
@@ -3182,6 +4374,26 @@
    "slot": 7
   },
   {
+   "fighter": "43",
+   "slot": 2
+  },
+  {
+   "fighter": "43",
+   "slot": 3
+  },
+  {
+   "fighter": "43",
+   "slot": 5
+  },
+  {
+   "fighter": "43",
+   "slot": 6
+  },
+  {
+   "fighter": "43",
+   "slot": 7
+  },
+  {
    "fighter": "44",
    "slot": 1
   },
@@ -3198,8 +4410,60 @@
    "slot": 5
   },
   {
+   "fighter": "45",
+   "slot": 0
+  },
+  {
+   "fighter": "45",
+   "slot": 1
+  },
+  {
+   "fighter": "45",
+   "slot": 2
+  },
+  {
+   "fighter": "45",
+   "slot": 3
+  },
+  {
+   "fighter": "45",
+   "slot": 4
+  },
+  {
+   "fighter": "45",
+   "slot": 5
+  },
+  {
+   "fighter": "45",
+   "slot": 6
+  },
+  {
+   "fighter": "45",
+   "slot": 7
+  },
+  {
    "fighter": "49",
    "slot": 1
+  },
+  {
+   "fighter": "50",
+   "slot": 0
+  },
+  {
+   "fighter": "50",
+   "slot": 2
+  },
+  {
+   "fighter": "50",
+   "slot": 4
+  },
+  {
+   "fighter": "50",
+   "slot": 6
+  },
+  {
+   "fighter": "50",
+   "slot": 7
   },
   {
    "fighter": "60",
@@ -3286,6 +4550,26 @@
    "slot": 7
   },
   {
+   "fighter": "67",
+   "slot": 3
+  },
+  {
+   "fighter": "67",
+   "slot": 4
+  },
+  {
+   "fighter": "67",
+   "slot": 5
+  },
+  {
+   "fighter": "67",
+   "slot": 6
+  },
+  {
+   "fighter": "67",
+   "slot": 7
+  },
+  {
    "fighter": "68",
    "slot": 4
   },
@@ -3335,6 +4619,22 @@
   },
   {
    "fighter": "72",
+   "slot": 7
+  },
+  {
+   "fighter": "73",
+   "slot": 1
+  },
+  {
+   "fighter": "73",
+   "slot": 3
+  },
+  {
+   "fighter": "73",
+   "slot": 6
+  },
+  {
+   "fighter": "73",
    "slot": 7
   },
   {
@@ -3573,6 +4873,102 @@
    "classification": "preparado (archivos validados); requiere el DLC Pyra/Mythra; probado en consola (offline)"
   },
   {
+   "fighter": "73",
+   "slot": 0,
+   "name": "Banjo-Kazooie - Cowboy",
+   "component": "buddy-cowboy-c00",
+   "mod_id": 514151,
+   "author": "pending",
+   "url": "https://gamebanana.com/mods/514151",
+   "version": "pending",
+   "console_test": null,
+   "classification": null
+  },
+  {
+   "fighter": "73",
+   "slot": 1,
+   "name": "Banjo-Kazooie - N64",
+   "component": "buddy-n64-c01",
+   "mod_id": 175752,
+   "author": "pending",
+   "url": "https://gamebanana.com/mods/175752",
+   "version": "pending",
+   "console_test": null,
+   "classification": null
+  },
+  {
+   "fighter": "73",
+   "slot": 2,
+   "name": "Banjo-Kazooie - Tuxedo",
+   "component": "buddy-tuxedo-c02",
+   "mod_id": 175747,
+   "author": "pending",
+   "url": "https://gamebanana.com/mods/175747",
+   "version": "pending",
+   "console_test": null,
+   "classification": null
+  },
+  {
+   "fighter": "73",
+   "slot": 3,
+   "name": "Banjo-Kazooie - Coyote and Roadrunner",
+   "component": "buddy-coyote-c03",
+   "mod_id": 528327,
+   "author": "pending",
+   "url": "https://gamebanana.com/mods/528327",
+   "version": "pending",
+   "console_test": null,
+   "classification": null
+  },
+  {
+   "fighter": "73",
+   "slot": 4,
+   "name": "Banjo-Kazooie - Timon and Pumbaa",
+   "component": "buddy-timon-c04",
+   "mod_id": 600970,
+   "author": "pending",
+   "url": "https://gamebanana.com/mods/600970",
+   "version": "pending",
+   "console_test": null,
+   "classification": null
+  },
+  {
+   "fighter": "73",
+   "slot": 5,
+   "name": "Banjo-Kazooie - Freddy and Chica",
+   "component": "buddy-freddy-c05",
+   "mod_id": 319797,
+   "author": "pending",
+   "url": "https://gamebanana.com/mods/319797",
+   "version": "pending",
+   "console_test": null,
+   "classification": null
+  },
+  {
+   "fighter": "73",
+   "slot": 6,
+   "name": "Banjo-Kazooie - Nuts and Bolts",
+   "component": "buddy-nuts-bolts-c06",
+   "mod_id": 175749,
+   "author": "pending",
+   "url": "https://gamebanana.com/mods/175749",
+   "version": "pending",
+   "console_test": null,
+   "classification": null
+  },
+  {
+   "fighter": "73",
+   "slot": 7,
+   "name": "Banjo-Kazooie - Crash and Aku Aku",
+   "component": "buddy-crash-c07",
+   "mod_id": 456969,
+   "author": "pending",
+   "url": "https://gamebanana.com/mods/456969",
+   "version": "pending",
+   "console_test": null,
+   "classification": null
+  },
+  {
    "fighter": "21ε",
    "slot": 1,
    "name": "2B alts",
@@ -3660,13 +5056,25 @@
    "fighter": "23",
    "slot": 1,
    "name": "Angeal",
-   "component": "ganon-angeal-c01",
-   "mod_id": 347784,
+   "component": "ganon-demon-king-c01",
+   "mod_id": 460620,
    "author": "pending",
-   "url": "https://gamebanana.com/mods/347784",
+   "url": "https://gamebanana.com/mods/460620",
    "version": "pending",
    "console_test": "pendiente (no probado en Switch)",
-   "classification": "skins unidas el 2026-10-30; pendiente de prueba en consola"
+   "classification": null
+  },
+  {
+   "fighter": "31",
+   "slot": 5,
+   "name": "Snake - Leon Kennedy",
+   "component": "snake-leon-c05",
+   "mod_id": 455931,
+   "author": "pending",
+   "url": "https://gamebanana.com/mods/455931",
+   "version": "pending",
+   "console_test": "pendiente (no probado en Switch)",
+   "classification": null
   },
   {
    "fighter": "37",
@@ -3816,13 +5224,13 @@
    "fighter": "23",
    "slot": 5,
    "name": "ExDeath",
-   "component": "ganon-exdeath-c05",
+   "component": "ganon-big-smoke-c05",
    "mod_id": 174353,
    "author": "pending",
    "url": "https://gamebanana.com/mods/174353",
    "version": "pending",
    "console_test": "pendiente (no probado en Switch)",
-   "classification": "plan de slots aprobado (ssbu-skins, 2026-10-28; 'solo la carpeta c05'); pendiente de prueba en consola"
+   "classification": null
   },
   {
    "fighter": "23",
@@ -3877,18 +5285,6 @@
    "slot": 0,
    "name": "Hoopa lucas",
    "component": "lucas-hoopa-c00",
-   "mod_id": 347784,
-   "author": "pending",
-   "url": "https://gamebanana.com/mods/347784",
-   "version": "pending",
-   "console_test": "pendiente (no probado en Switch)",
-   "classification": "skins unidas el 2026-10-30; pendiente de prueba en consola"
-  },
-  {
-   "fighter": "04",
-   "slot": 0,
-   "name": "Iron Man Samus All slots",
-   "component": "samus-iron-man-c00",
    "mod_id": 347784,
    "author": "pending",
    "url": "https://gamebanana.com/mods/347784",
@@ -3957,18 +5353,6 @@
    "classification": "skins unidas el 2026-10-30; pendiente de prueba en consola"
   },
   {
-   "fighter": "58",
-   "slot": 4,
-   "name": "Nabbit bowser jr",
-   "component": "koopajr-nabbit-c04",
-   "mod_id": 347784,
-   "author": "pending",
-   "url": "https://gamebanana.com/mods/347784",
-   "version": "pending",
-   "console_test": "pendiente (no probado en Switch)",
-   "classification": "skins unidas el 2026-10-30; pendiente de prueba en consola"
-  },
-  {
    "fighter": "78",
    "slot": 7,
    "name": "Navarre sepiroth",
@@ -3981,40 +5365,28 @@
    "classification": "skins unidas el 2026-10-30; pendiente de prueba en consola"
   },
   {
-   "fighter": "28ε",
-   "slot": 1,
-   "name": "Revali dark pit",
-   "component": "pitb-revali-c01",
-   "mod_id": 347784,
-   "author": "pending",
-   "url": "https://gamebanana.com/mods/347784",
-   "version": "pending",
-   "console_test": "pendiente (no probado en Switch)",
-   "classification": "skins unidas el 2026-10-30; pendiente de prueba en consola"
-  },
-  {
    "fighter": "11",
    "slot": 4,
    "name": "Shiny Gallade",
-   "component": "captain-gallade-c04",
-   "mod_id": 347784,
+   "component": "captain-all-might-c04",
+   "mod_id": 692548,
    "author": "pending",
-   "url": "https://gamebanana.com/mods/347784",
+   "url": "https://gamebanana.com/mods/692548",
    "version": "pending",
    "console_test": "pendiente (no probado en Switch)",
-   "classification": "skins unidas el 2026-10-30; pendiente de prueba en consola"
+   "classification": "plan de slots (ssbu-skins, propuesta que Gian aprobo el 2026-10-29); pendiente de prueba en consola"
   },
   {
    "fighter": "23",
    "slot": 2,
    "name": "Sidon",
-   "component": "ganon-sidon-c02",
-   "mod_id": 347784,
+   "component": "ganon-cooler-c02",
+   "mod_id": 325054,
    "author": "pending",
-   "url": "https://gamebanana.com/mods/347784",
+   "url": "https://gamebanana.com/mods/325054",
    "version": "pending",
    "console_test": "pendiente (no probado en Switch)",
-   "classification": "skins unidas el 2026-10-30; pendiente de prueba en consola"
+   "classification": null
   },
   {
    "fighter": "10",
@@ -4140,13 +5512,13 @@
    "fighter": "61",
    "slot": 6,
    "name": "Yomi Cloud",
-   "component": "cloud-yomi-c06",
+   "component": "cloud-clouwn-c06",
    "mod_id": 347784,
    "author": "pending",
    "url": "https://gamebanana.com/mods/347784",
    "version": "pending",
    "console_test": "pendiente (no probado en Switch)",
-   "classification": "skins unidas el 2026-10-30; pendiente de prueba en consola"
+   "classification": "lista oficial 2026-10-29; pendiente de prueba en consola"
   },
   {
    "fighter": "75",
@@ -4344,13 +5716,13 @@
    "fighter": "11",
    "slot": 5,
    "name": "Troll Face",
-   "component": "captain-troll-face-c05",
+   "component": "captain-goku-ss4-c05",
    "mod_id": 296237,
    "author": "pending",
    "url": "https://gamebanana.com/mods/296237",
    "version": "pending",
-   "console_test": "pendiente (no probado en Switch)",
-   "classification": "lista oficial 2026-10-29; pendiente de prueba en consola"
+   "console_test": null,
+   "classification": null
   },
   {
    "fighter": "25ε",
@@ -4385,7 +5757,7 @@
    "author": "pending",
    "url": "https://gamebanana.com/mods/325562",
    "version": "pending",
-   "console_test": "pendiente (no probado en Switch)",
+   "console_test": "pendiente: versión impar instalada el 2026-11-05 (la par falló en consola el 2026-11-01)",
    "classification": "lista oficial 2026-10-29; pendiente de prueba en consola"
   },
   {
@@ -4692,13 +6064,13 @@
    "fighter": "02",
    "slot": 6,
    "name": "Venom",
-   "component": "donkey-venom-c06",
+   "component": "donkey-joe-v2-c06",
    "mod_id": 174249,
    "author": "pending",
    "url": "https://gamebanana.com/mods/174249",
    "version": "pending",
-   "console_test": "pendiente (no probado en Switch)",
-   "classification": "en la SD por pedido de Gian; registrado al consolidar el 2026-11-01"
+   "console_test": null,
+   "classification": null
   },
   {
    "fighter": "78",
@@ -4769,7 +6141,7 @@
    "author": "pending",
    "url": "https://gamebanana.com/mods/672428",
    "version": "pending",
-   "console_test": "pendiente (no probado en Switch)",
+   "console_test": "Falla en consola (Gian, 2026-11-01): se rompe y cuelga el juego",
    "classification": "plan de slots (ssbu-skins, propuesta que Gian aprobo el 2026-10-29); pendiente de prueba en consola"
   },
   {
@@ -4792,18 +6164,6 @@
    "mod_id": 291700,
    "author": "pending",
    "url": "https://gamebanana.com/mods/291700",
-   "version": "pending",
-   "console_test": "pendiente (no probado en Switch)",
-   "classification": "plan de slots (ssbu-skins, propuesta que Gian aprobo el 2026-10-29); pendiente de prueba en consola"
-  },
-  {
-   "fighter": "20",
-   "slot": 0,
-   "name": "N64 Falco",
-   "component": "falco-n64-falco-c00",
-   "mod_id": 174558,
-   "author": "pending",
-   "url": "https://gamebanana.com/mods/174558",
    "version": "pending",
    "console_test": "pendiente (no probado en Switch)",
    "classification": "plan de slots (ssbu-skins, propuesta que Gian aprobo el 2026-10-29); pendiente de prueba en consola"
@@ -5016,13 +6376,13 @@
    "fighter": "62",
    "slot": 7,
    "name": "2B Corrin",
-   "component": "kamui-2b-corrin-c07",
+   "component": "kamui-helmet-female-c07",
    "mod_id": 174947,
    "author": "pending",
    "url": "https://gamebanana.com/mods/174947",
    "version": "pending",
    "console_test": "pendiente (no probado en Switch)",
-   "classification": "plan de slots (ssbu-skins, propuesta que Gian aprobo el 2026-10-29); pendiente de prueba en consola"
+   "classification": "lote 2026-11-05; pendiente de prueba en consola"
   },
   {
    "fighter": "14",
@@ -5301,18 +6661,6 @@
    "classification": "lista oficial 2026-10-29; pendiente de prueba en consola"
   },
   {
-   "fighter": "21ε",
-   "slot": 0,
-   "name": "2B (mastaklo)",
-   "component": "lucina-2b-mastaklo-c00",
-   "mod_id": 362052,
-   "author": "pending",
-   "url": "https://gamebanana.com/mods/362052",
-   "version": "pending",
-   "console_test": "pendiente (no probado en Switch)",
-   "classification": "plan de slots (ssbu-skins, propuesta que Gian aprobo el 2026-10-29); pendiente de prueba en consola"
-  },
-  {
    "fighter": "09",
    "slot": 1,
    "name": "Dancing Banana",
@@ -5400,13 +6748,13 @@
    "fighter": "01",
    "slot": 4,
    "name": "Dry Bones",
-   "component": "mario-dry-bones-c04",
+   "component": "mario-sm64-c04",
    "mod_id": 174057,
    "author": "pending",
    "url": "https://gamebanana.com/mods/174057",
    "version": "pending",
-   "console_test": "pendiente (no probado en Switch)",
-   "classification": "plan de slots (ssbu-skins, propuesta que Gian aprobo el 2026-10-29); pendiente de prueba en consola"
+   "console_test": null,
+   "classification": null
   },
   {
    "fighter": "01",
@@ -5460,13 +6808,13 @@
    "fighter": "01",
    "slot": 5,
    "name": "Phineas",
-   "component": "mario-phineas-c05",
+   "component": "mario-n64-single-c05",
    "mod_id": 444343,
    "author": "pending",
    "url": "https://gamebanana.com/mods/444343",
    "version": "pending",
-   "console_test": "pendiente (no probado en Switch)",
-   "classification": "lista oficial 2026-10-29; pendiente de prueba en consola"
+   "console_test": null,
+   "classification": null
   },
   {
    "fighter": "01",
@@ -5664,13 +7012,13 @@
    "fighter": "21",
    "slot": 3,
    "name": "Sigurd",
-   "component": "marth-sigurd-c03",
+   "component": "marth-tanjiro-c03",
    "mod_id": 442940,
    "author": "pending",
    "url": "https://gamebanana.com/mods/442940",
    "version": "pending",
    "console_test": "pendiente (no probado en Switch)",
-   "classification": "plan de slots (ssbu-skins, propuesta que Gian aprobo el 2026-10-29); pendiente de prueba en consola"
+   "classification": "ultimas 8 de Marth; pendiente de prueba en consola"
   },
   {
    "fighter": "10",
@@ -5940,13 +7288,13 @@
    "fighter": "16",
    "slot": 3,
    "name": "Jane",
-   "component": "sheik-jane-c03",
+   "component": "sheik-yuffie-c03",
    "mod_id": 581779,
    "author": "pending",
    "url": "https://gamebanana.com/mods/581779",
    "version": "pending",
-   "console_test": "pendiente (no probado en Switch)",
-   "classification": "en la SD por pedido de Gian; registrado al consolidar el 2026-11-01"
+   "console_test": null,
+   "classification": null
   },
   {
    "fighter": "16",
@@ -6154,18 +7502,6 @@
   },
   {
    "fighter": "30",
-   "slot": 4,
-   "name": "Mr Krabs",
-   "component": "wario-krabs-c04",
-   "mod_id": 376188,
-   "author": "pending",
-   "url": "https://gamebanana.com/mods/376188",
-   "version": "pending",
-   "console_test": "pendiente (no probado en Switch)",
-   "classification": "lista oficial 2026-10-29; pendiente de prueba en consola"
-  },
-  {
-   "fighter": "30",
    "slot": 3,
    "name": "Mr Potato Head",
    "component": "wario-potato-c03",
@@ -6184,42 +7520,6 @@
    "mod_id": 435681,
    "author": "pending",
    "url": "https://gamebanana.com/mods/435681",
-   "version": "pending",
-   "console_test": "pendiente (no probado en Switch)",
-   "classification": "lista oficial 2026-10-29; pendiente de prueba en consola"
-  },
-  {
-   "fighter": "30",
-   "slot": 7,
-   "name": "Sans",
-   "component": "wario-sans-c07",
-   "mod_id": 589845,
-   "author": "pending",
-   "url": "https://gamebanana.com/mods/589845",
-   "version": "pending",
-   "console_test": "pendiente (no probado en Switch)",
-   "classification": "lista oficial 2026-10-29; pendiente de prueba en consola"
-  },
-  {
-   "fighter": "30",
-   "slot": 5,
-   "name": "Ugandan Knuckles",
-   "component": "wario-knuckles-c05",
-   "mod_id": 455070,
-   "author": "pending",
-   "url": "https://gamebanana.com/mods/455070",
-   "version": "pending",
-   "console_test": "pendiente (no probado en Switch)",
-   "classification": "lista oficial 2026-10-29; pendiente de prueba en consola"
-  },
-  {
-   "fighter": "30",
-   "slot": 6,
-   "name": "Wario Man",
-   "component": "wario-man-c06",
-   "mod_id": 325793,
-   "author": "pending",
-   "url": "https://gamebanana.com/mods/325793",
    "version": "pending",
    "console_test": "pendiente (no probado en Switch)",
    "classification": "lista oficial 2026-10-29; pendiente de prueba en consola"
@@ -6247,6 +7547,90 @@
    "version": "pending",
    "console_test": "pendiente (no probado en Switch)",
    "classification": "plan de slots (ssbu-skins, propuesta que Gian aprobo el 2026-10-29); pendiente de prueba en consola"
+  },
+  {
+   "fighter": "44",
+   "slot": 0,
+   "name": "Wolf - Vigilante Deku",
+   "component": "wolf-deku-c00",
+   "mod_id": 458945,
+   "author": "pending",
+   "url": "https://gamebanana.com/mods/458945",
+   "version": "pending",
+   "console_test": null,
+   "classification": null
+  },
+  {
+   "fighter": "44",
+   "slot": 2,
+   "name": "Wolf - Miyu",
+   "component": "wolf-miyu-c02",
+   "mod_id": 648611,
+   "author": "pending",
+   "url": "https://gamebanana.com/mods/648611",
+   "version": "pending",
+   "console_test": null,
+   "classification": null
+  },
+  {
+   "fighter": "44",
+   "slot": 3,
+   "name": "Wolf - Syndrome",
+   "component": "wolf-syndrome-c03",
+   "mod_id": 483161,
+   "author": "pending",
+   "url": "https://gamebanana.com/mods/483161",
+   "version": "pending",
+   "console_test": null,
+   "classification": null
+  },
+  {
+   "fighter": "44",
+   "slot": 4,
+   "name": "Wolf - El Tigre",
+   "component": "wolf-el-tigre-c04",
+   "mod_id": 571314,
+   "author": "pending",
+   "url": "https://gamebanana.com/mods/571314",
+   "version": "pending",
+   "console_test": null,
+   "classification": null
+  },
+  {
+   "fighter": "44",
+   "slot": 5,
+   "name": "Wolf - Meowth",
+   "component": "wolf-meowth-c05",
+   "mod_id": 501297,
+   "author": "pending",
+   "url": "https://gamebanana.com/mods/501297",
+   "version": "pending",
+   "console_test": null,
+   "classification": null
+  },
+  {
+   "fighter": "44",
+   "slot": 6,
+   "name": "Wolf - Foxy",
+   "component": "wolf-foxy-c06",
+   "mod_id": 436761,
+   "author": "pending",
+   "url": "https://gamebanana.com/mods/436761",
+   "version": "pending",
+   "console_test": null,
+   "classification": null
+  },
+  {
+   "fighter": "44",
+   "slot": 7,
+   "name": "Wolf - Wolverine",
+   "component": "wolf-wolverine-c07",
+   "mod_id": 390659,
+   "author": "pending",
+   "url": "https://gamebanana.com/mods/390659",
+   "version": "pending",
+   "console_test": null,
+   "classification": null
   },
   {
    "fighter": "17",
@@ -6283,6 +7667,1314 @@
    "version": "pending",
    "console_test": "pendiente (no probado en Switch)",
    "classification": "plan de slots (ssbu-skins, propuesta que Gian aprobo el 2026-10-29); pendiente de prueba en consola"
+  },
+  {
+   "fighter": "07",
+   "slot": 0,
+   "name": "Fox - Elmo",
+   "component": "fox-elmo-c00",
+   "mod_id": 389682,
+   "author": "pending",
+   "url": "https://gamebanana.com/mods/389682",
+   "version": "pending",
+   "console_test": null,
+   "classification": null
+  },
+  {
+   "fighter": "07",
+   "slot": 1,
+   "name": "Fox - Realistic Fox",
+   "component": "fox-realistic-c01",
+   "mod_id": 434227,
+   "author": "pending",
+   "url": "https://gamebanana.com/mods/434227",
+   "version": "pending",
+   "console_test": null,
+   "classification": null
+  },
+  {
+   "fighter": "07",
+   "slot": 2,
+   "name": "Fox - Melee Fox",
+   "component": "fox-melee-c02",
+   "mod_id": 174538,
+   "author": "pending",
+   "url": "https://gamebanana.com/mods/174538",
+   "version": "pending",
+   "console_test": null,
+   "classification": null
+  },
+  {
+   "fighter": "07",
+   "slot": 4,
+   "name": "Fox - Swiper",
+   "component": "fox-swiper-c04",
+   "mod_id": 617787,
+   "author": "pending",
+   "url": "https://gamebanana.com/mods/617787",
+   "version": "pending",
+   "console_test": null,
+   "classification": null
+  },
+  {
+   "fighter": "07",
+   "slot": 5,
+   "name": "Fox - Smash 64 Fox",
+   "component": "fox-smash64-c05",
+   "mod_id": 331330,
+   "author": "pending",
+   "url": "https://gamebanana.com/mods/331330",
+   "version": "pending",
+   "console_test": null,
+   "classification": null
+  },
+  {
+   "fighter": "07",
+   "slot": 6,
+   "name": "Fox - Bugs Bunny",
+   "component": "fox-bugs-c06",
+   "mod_id": 500646,
+   "author": "pending",
+   "url": "https://gamebanana.com/mods/500646",
+   "version": "pending",
+   "console_test": null,
+   "classification": null
+  },
+  {
+   "fighter": "07",
+   "slot": 7,
+   "name": "Fox - Vector",
+   "component": "fox-vector-c07",
+   "mod_id": 458342,
+   "author": "pending",
+   "url": "https://gamebanana.com/mods/458342",
+   "version": "pending",
+   "console_test": null,
+   "classification": null
+  },
+  {
+   "fighter": "59",
+   "slot": 0,
+   "name": "Duck Hunt - Wolf & Chicken",
+   "component": "duckhunt-wolf-chicken-c00",
+   "mod_id": 446921,
+   "author": "pending",
+   "url": "https://gamebanana.com/mods/446921",
+   "version": "pending",
+   "console_test": null,
+   "classification": null
+  },
+  {
+   "fighter": "59",
+   "slot": 1,
+   "name": "Duck Hunt - Wii Dog",
+   "component": "duckhunt-wii-dog-c01",
+   "mod_id": 419817,
+   "author": "pending",
+   "url": "https://gamebanana.com/mods/419817",
+   "version": "pending",
+   "console_test": null,
+   "classification": null
+  },
+  {
+   "fighter": "59",
+   "slot": 2,
+   "name": "Duck Hunt - Donkey",
+   "component": "duckhunt-donkey-c02",
+   "mod_id": 424492,
+   "author": "pending",
+   "url": "https://gamebanana.com/mods/424492",
+   "version": "pending",
+   "console_test": null,
+   "classification": null
+  },
+  {
+   "fighter": "59",
+   "slot": 3,
+   "name": "Duck Hunt - Dog Hunt",
+   "component": "duckhunt-dog-hunt-c03",
+   "mod_id": 377213,
+   "author": "pending",
+   "url": "https://gamebanana.com/mods/377213",
+   "version": "pending",
+   "console_test": null,
+   "classification": null
+  },
+  {
+   "fighter": "59",
+   "slot": 4,
+   "name": "Duck Hunt - Sans",
+   "component": "duckhunt-sans-c04",
+   "mod_id": 585666,
+   "author": "pending",
+   "url": "https://gamebanana.com/mods/585666",
+   "version": "pending",
+   "console_test": null,
+   "classification": null
+  },
+  {
+   "fighter": "59",
+   "slot": 5,
+   "name": "Duck Hunt - Blue's Clues",
+   "component": "duckhunt-blues-clues-c05",
+   "mod_id": 651344,
+   "author": "pending",
+   "url": "https://gamebanana.com/mods/651344",
+   "version": "pending",
+   "console_test": null,
+   "classification": null
+  },
+  {
+   "fighter": "59",
+   "slot": 6,
+   "name": "Duck Hunt - Terry Hunt",
+   "component": "duckhunt-terry-c06",
+   "mod_id": 647762,
+   "author": "pending",
+   "url": "https://gamebanana.com/mods/647762",
+   "version": "pending",
+   "console_test": null,
+   "classification": null
+  },
+  {
+   "fighter": "59",
+   "slot": 7,
+   "name": "Duck Hunt - Ender Ghast",
+   "component": "duckhunt-ender-ghast-c07",
+   "mod_id": 690965,
+   "author": "pending",
+   "url": "https://gamebanana.com/mods/690965",
+   "version": "pending",
+   "console_test": null,
+   "classification": null
+  },
+  {
+   "fighter": "58",
+   "slot": 0,
+   "name": "Bowser Jr - Wonder Bowser Jr",
+   "component": "koopajr-wonder-c00",
+   "mod_id": 485341,
+   "author": "pending",
+   "url": "https://gamebanana.com/mods/485341",
+   "version": "pending",
+   "console_test": null,
+   "classification": null
+  },
+  {
+   "fighter": "58",
+   "slot": 1,
+   "name": "Bowser Jr - Koopa Kid",
+   "component": "koopajr-koopa-kid-c01",
+   "mod_id": 174222,
+   "author": "pending",
+   "url": "https://gamebanana.com/mods/174222",
+   "version": "pending",
+   "console_test": null,
+   "classification": null
+  },
+  {
+   "fighter": "58",
+   "slot": 2,
+   "name": "Bowser Jr - Plankton",
+   "component": "koopajr-plankton-c02",
+   "mod_id": 325455,
+   "author": "pending",
+   "url": "https://gamebanana.com/mods/325455",
+   "version": "pending",
+   "console_test": null,
+   "classification": null
+  },
+  {
+   "fighter": "58",
+   "slot": 3,
+   "name": "Bowser Jr - Skibidi Toilet",
+   "component": "koopajr-skibidi-c03",
+   "mod_id": 454913,
+   "author": "pending",
+   "url": "https://gamebanana.com/mods/454913",
+   "version": "pending",
+   "console_test": null,
+   "classification": null
+  },
+  {
+   "fighter": "58",
+   "slot": 4,
+   "name": "Nabbit bowser jr",
+   "component": "koopajr-bill-board-c04",
+   "mod_id": 347784,
+   "author": "pending",
+   "url": "https://gamebanana.com/mods/347784",
+   "version": "pending",
+   "console_test": null,
+   "classification": null
+  },
+  {
+   "fighter": "58",
+   "slot": 5,
+   "name": "Bowser Jr - Dry Bowser Jr",
+   "component": "koopajr-dry-c05",
+   "mod_id": 390825,
+   "author": "pending",
+   "url": "https://gamebanana.com/mods/390825",
+   "version": "pending",
+   "console_test": null,
+   "classification": null
+  },
+  {
+   "fighter": "58",
+   "slot": 6,
+   "name": "Bowser Jr - Dr Zomboss",
+   "component": "koopajr-dr-zomboss-c06",
+   "mod_id": 469280,
+   "author": "pending",
+   "url": "https://gamebanana.com/mods/469280",
+   "version": "pending",
+   "console_test": null,
+   "classification": null
+  },
+  {
+   "fighter": "58",
+   "slot": 7,
+   "name": "Bowser Jr - Dr Eggman",
+   "component": "koopajr-dr-eggman-c07",
+   "mod_id": 529043,
+   "author": "pending",
+   "url": "https://gamebanana.com/mods/529043",
+   "version": "pending",
+   "console_test": null,
+   "classification": null
+  },
+  {
+   "fighter": "04",
+   "slot": 0,
+   "name": "Iron Man Samus All slots",
+   "component": "samus-prime-c00",
+   "mod_id": 347784,
+   "author": "pending",
+   "url": "https://gamebanana.com/mods/347784",
+   "version": "pending",
+   "console_test": null,
+   "classification": null
+  },
+  {
+   "fighter": "04",
+   "slot": 1,
+   "name": "Samus - Aigis",
+   "component": "samus-aigis-c01",
+   "mod_id": 174427,
+   "author": "pending",
+   "url": "https://gamebanana.com/mods/174427",
+   "version": "pending",
+   "console_test": null,
+   "classification": null
+  },
+  {
+   "fighter": "04",
+   "slot": 2,
+   "name": "Samus - Barret",
+   "component": "samus-barret-c02",
+   "mod_id": 519027,
+   "author": "pending",
+   "url": "https://gamebanana.com/mods/519027",
+   "version": "pending",
+   "console_test": null,
+   "classification": null
+  },
+  {
+   "fighter": "04",
+   "slot": 3,
+   "name": "Samus - Mecha Sonic",
+   "component": "samus-mecha-sonic-c03",
+   "mod_id": 416946,
+   "author": "pending",
+   "url": "https://gamebanana.com/mods/416946",
+   "version": "pending",
+   "console_test": null,
+   "classification": null
+  },
+  {
+   "fighter": "04",
+   "slot": 4,
+   "name": "Samus - Mega Man X",
+   "component": "samus-megaman-x-c04",
+   "mod_id": 521826,
+   "author": "pending",
+   "url": "https://gamebanana.com/mods/521826",
+   "version": "pending",
+   "console_test": null,
+   "classification": null
+  },
+  {
+   "fighter": "04",
+   "slot": 5,
+   "name": "Samus - Gunship",
+   "component": "samus-gunship-c05",
+   "mod_id": 623602,
+   "author": "pending",
+   "url": "https://gamebanana.com/mods/623602",
+   "version": "pending",
+   "console_test": null,
+   "classification": null
+  },
+  {
+   "fighter": "04",
+   "slot": 6,
+   "name": "Samus - Mazinger Z",
+   "component": "samus-mazinger-z-c06",
+   "mod_id": 459144,
+   "author": "pending",
+   "url": "https://gamebanana.com/mods/459144",
+   "version": "pending",
+   "console_test": null,
+   "classification": null
+  },
+  {
+   "fighter": "04",
+   "slot": 7,
+   "name": "Samus - Fighting Polygon",
+   "component": "samus-fighting-polygon-c07",
+   "mod_id": 630739,
+   "author": "pending",
+   "url": "https://gamebanana.com/mods/630739",
+   "version": "pending",
+   "console_test": null,
+   "classification": null
+  },
+  {
+   "fighter": "30",
+   "slot": 5,
+   "name": "Ugandan Knuckles",
+   "component": "wario-shaven-c05",
+   "mod_id": 455070,
+   "author": "pending",
+   "url": "https://gamebanana.com/mods/455070",
+   "version": "pending",
+   "console_test": null,
+   "classification": null
+  },
+  {
+   "fighter": "30",
+   "slot": 4,
+   "name": "Mr Krabs",
+   "component": "wario-red-mm-c04",
+   "mod_id": 376188,
+   "author": "pending",
+   "url": "https://gamebanana.com/mods/376188",
+   "version": "pending",
+   "console_test": null,
+   "classification": null
+  },
+  {
+   "fighter": "30",
+   "slot": 6,
+   "name": "Wario Man",
+   "component": "wario-wawario-c06",
+   "mod_id": 325793,
+   "author": "pending",
+   "url": "https://gamebanana.com/mods/325793",
+   "version": "pending",
+   "console_test": null,
+   "classification": null
+  },
+  {
+   "fighter": "30",
+   "slot": 7,
+   "name": "Sans",
+   "component": "wario-sea-turtle-c07",
+   "mod_id": 589845,
+   "author": "pending",
+   "url": "https://gamebanana.com/mods/589845",
+   "version": "pending",
+   "console_test": null,
+   "classification": null
+  },
+  {
+   "fighter": "28ε",
+   "slot": 0,
+   "name": "pitb - Batman",
+   "component": "pitb-batman-c00",
+   "mod_id": 594803,
+   "author": "pending",
+   "url": "https://gamebanana.com/mods/594803",
+   "version": "pending",
+   "console_test": "pendiente (no probado en Switch)",
+   "classification": "lote 2026-11-05; pendiente de prueba en consola"
+  },
+  {
+   "fighter": "28ε",
+   "slot": 1,
+   "name": "Revali dark pit",
+   "component": "pitb-yelan-c01",
+   "mod_id": 347784,
+   "author": "pending",
+   "url": "https://gamebanana.com/mods/347784",
+   "version": "pending",
+   "console_test": "pendiente (no probado en Switch)",
+   "classification": "lote 2026-11-05; pendiente de prueba en consola"
+  },
+  {
+   "fighter": "28ε",
+   "slot": 2,
+   "name": "pitb - Akhos",
+   "component": "pitb-akhos-c02",
+   "mod_id": 380933,
+   "author": "pending",
+   "url": "https://gamebanana.com/mods/380933",
+   "version": "pending",
+   "console_test": "pendiente (no probado en Switch)",
+   "classification": "lote 2026-11-05; pendiente de prueba en consola"
+  },
+  {
+   "fighter": "28ε",
+   "slot": 3,
+   "name": "pitb - Krystal",
+   "component": "pitb-krystal-c03",
+   "mod_id": 175016,
+   "author": "pending",
+   "url": "https://gamebanana.com/mods/175016",
+   "version": "pending",
+   "console_test": "pendiente (no probado en Switch)",
+   "classification": "lote 2026-11-05; pendiente de prueba en consola"
+  },
+  {
+   "fighter": "28ε",
+   "slot": 4,
+   "name": "pitb - Freddy",
+   "component": "pitb-freddy-c04",
+   "mod_id": 340077,
+   "author": "pending",
+   "url": "https://gamebanana.com/mods/340077",
+   "version": "pending",
+   "console_test": "pendiente (no probado en Switch)",
+   "classification": "lote 2026-11-05; pendiente de prueba en consola"
+  },
+  {
+   "fighter": "28ε",
+   "slot": 5,
+   "name": "pitb - Ruby",
+   "component": "pitb-ruby-c05",
+   "mod_id": 175015,
+   "author": "pending",
+   "url": "https://gamebanana.com/mods/175015",
+   "version": "pending",
+   "console_test": "pendiente (no probado en Switch)",
+   "classification": "lote 2026-11-05; pendiente de prueba en consola"
+  },
+  {
+   "fighter": "28ε",
+   "slot": 7,
+   "name": "pitb - Ganyu",
+   "component": "pitb-ganyu-c07",
+   "mod_id": 476245,
+   "author": "pending",
+   "url": "https://gamebanana.com/mods/476245",
+   "version": "pending",
+   "console_test": "pendiente (no probado en Switch)",
+   "classification": "lote 2026-11-05; pendiente de prueba en consola"
+  },
+  {
+   "fighter": "20",
+   "slot": 0,
+   "name": "N64 Falco",
+   "component": "falco-tokoyami-c00",
+   "mod_id": 174558,
+   "author": "pending",
+   "url": "https://gamebanana.com/mods/174558",
+   "version": "pending",
+   "console_test": "pendiente (no probado en Switch)",
+   "classification": "lote 2026-11-05; pendiente de prueba en consola"
+  },
+  {
+   "fighter": "20",
+   "slot": 1,
+   "name": "falco - Ratchet",
+   "component": "falco-ratchet-c01",
+   "mod_id": 322968,
+   "author": "pending",
+   "url": "https://gamebanana.com/mods/322968",
+   "version": "pending",
+   "console_test": "pendiente (no probado en Switch)",
+   "classification": "lote 2026-11-05; pendiente de prueba en consola"
+  },
+  {
+   "fighter": "20",
+   "slot": 2,
+   "name": "falco - Pingu",
+   "component": "falco-pingu-c02",
+   "mod_id": 453394,
+   "author": "pending",
+   "url": "https://gamebanana.com/mods/453394",
+   "version": "pending",
+   "console_test": "pendiente (no probado en Switch)",
+   "classification": "lote 2026-11-05; pendiente de prueba en consola"
+  },
+  {
+   "fighter": "20",
+   "slot": 3,
+   "name": "falco - Melee",
+   "component": "falco-melee-c03",
+   "mod_id": 387025,
+   "author": "pending",
+   "url": "https://gamebanana.com/mods/387025",
+   "version": "pending",
+   "console_test": "pendiente (no probado en Switch)",
+   "classification": "lote 2026-11-05; pendiente de prueba en consola"
+  },
+  {
+   "fighter": "20",
+   "slot": 4,
+   "name": "falco - Katt",
+   "component": "falco-katt-c04",
+   "mod_id": 616220,
+   "author": "pending",
+   "url": "https://gamebanana.com/mods/616220",
+   "version": "pending",
+   "console_test": "pendiente (no probado en Switch)",
+   "classification": "lote 2026-11-05; pendiente de prueba en consola"
+  },
+  {
+   "fighter": "20",
+   "slot": 5,
+   "name": "falco - Donald",
+   "component": "falco-donald-c05",
+   "mod_id": 429034,
+   "author": "pending",
+   "url": "https://gamebanana.com/mods/429034",
+   "version": "pending",
+   "console_test": "pendiente (no probado en Switch)",
+   "classification": "lote 2026-11-05; pendiente de prueba en consola"
+  },
+  {
+   "fighter": "20",
+   "slot": 6,
+   "name": "falco - Daffy",
+   "component": "falco-daffy-c06",
+   "mod_id": 503660,
+   "author": "pending",
+   "url": "https://gamebanana.com/mods/503660",
+   "version": "pending",
+   "console_test": "pendiente (no probado en Switch)",
+   "classification": "lote 2026-11-05; pendiente de prueba en consola"
+  },
+  {
+   "fighter": "20",
+   "slot": 7,
+   "name": "falco - Peppy",
+   "component": "falco-peppy-c07",
+   "mod_id": 460621,
+   "author": "pending",
+   "url": "https://gamebanana.com/mods/460621",
+   "version": "pending",
+   "console_test": "pendiente (no probado en Switch)",
+   "classification": "lote 2026-11-05; pendiente de prueba en consola"
+  },
+  {
+   "fighter": "50",
+   "slot": 0,
+   "name": "gekkouga - Froppy",
+   "component": "gekkouga-froppy-c00",
+   "mod_id": 487685,
+   "author": "pending",
+   "url": "https://gamebanana.com/mods/487685",
+   "version": "pending",
+   "console_test": "pendiente (no probado en Switch)",
+   "classification": "lote 2026-11-05; pendiente de prueba en consola"
+  },
+  {
+   "fighter": "50",
+   "slot": 1,
+   "name": "gekkouga - Squidward",
+   "component": "gekkouga-squidward-c01",
+   "mod_id": 369035,
+   "author": "pending",
+   "url": "https://gamebanana.com/mods/369035",
+   "version": "pending",
+   "console_test": "pendiente (no probado en Switch)",
+   "classification": "lote 2026-11-05; pendiente de prueba en consola"
+  },
+  {
+   "fighter": "50",
+   "slot": 2,
+   "name": "gekkouga - Frogadier",
+   "component": "gekkouga-frogadier-c02",
+   "mod_id": 414098,
+   "author": "pending",
+   "url": "https://gamebanana.com/mods/414098",
+   "version": "pending",
+   "console_test": "pendiente (no probado en Switch)",
+   "classification": "lote 2026-11-05; pendiente de prueba en consola"
+  },
+  {
+   "fighter": "50",
+   "slot": 3,
+   "name": "gekkouga - Zorori",
+   "component": "gekkouga-zorori-c03",
+   "mod_id": 498216,
+   "author": "pending",
+   "url": "https://gamebanana.com/mods/498216",
+   "version": "pending",
+   "console_test": "pendiente (no probado en Switch)",
+   "classification": "lote 2026-11-05; pendiente de prueba en consola"
+  },
+  {
+   "fighter": "50",
+   "slot": 4,
+   "name": "gekkouga - Spider-Man",
+   "component": "gekkouga-spiderman-c04",
+   "mod_id": 705979,
+   "author": "pending",
+   "url": "https://gamebanana.com/mods/705979",
+   "version": "pending",
+   "console_test": "pendiente (no probado en Switch)",
+   "classification": "lote 2026-11-05; pendiente de prueba en consola"
+  },
+  {
+   "fighter": "50",
+   "slot": 5,
+   "name": "gekkouga - Klinger",
+   "component": "gekkouga-klinger-c05",
+   "mod_id": 675188,
+   "author": "pending",
+   "url": "https://gamebanana.com/mods/675188",
+   "version": "pending",
+   "console_test": "pendiente (no probado en Switch)",
+   "classification": "lote 2026-11-05; pendiente de prueba en consola"
+  },
+  {
+   "fighter": "50",
+   "slot": 6,
+   "name": "gekkouga - Ash",
+   "component": "gekkouga-ash-c06",
+   "mod_id": 371933,
+   "author": "pending",
+   "url": "https://gamebanana.com/mods/371933",
+   "version": "pending",
+   "console_test": "pendiente (no probado en Switch)",
+   "classification": "lote 2026-11-05; pendiente de prueba en consola"
+  },
+  {
+   "fighter": "50",
+   "slot": 7,
+   "name": "gekkouga - Consul M",
+   "component": "gekkouga-consul-m-c07",
+   "mod_id": 501650,
+   "author": "pending",
+   "url": "https://gamebanana.com/mods/501650",
+   "version": "pending",
+   "console_test": "pendiente (no probado en Switch)",
+   "classification": "lote 2026-11-05; pendiente de prueba en consola"
+  },
+  {
+   "fighter": "15",
+   "slot": 0,
+   "name": "popo - Toad y Toadette",
+   "component": "popo-toad-toadette-c00",
+   "mod_id": 549171,
+   "author": "pending",
+   "url": "https://gamebanana.com/mods/549171",
+   "version": "pending",
+   "console_test": "pendiente (no probado en Switch)",
+   "classification": "lote 2026-11-05; pendiente de prueba en consola"
+  },
+  {
+   "fighter": "15",
+   "slot": 1,
+   "name": "popo - Minions",
+   "component": "popo-minions-c01",
+   "mod_id": 286826,
+   "author": "pending",
+   "url": "https://gamebanana.com/mods/286826",
+   "version": "pending",
+   "console_test": "pendiente (no probado en Switch)",
+   "classification": "lote 2026-11-05; pendiente de prueba en consola"
+  },
+  {
+   "fighter": "15",
+   "slot": 2,
+   "name": "popo - Prune y Klee",
+   "component": "popo-prune-klee-c02",
+   "mod_id": 683538,
+   "author": "pending",
+   "url": "https://gamebanana.com/mods/683538",
+   "version": "pending",
+   "console_test": "pendiente (no probado en Switch)",
+   "classification": "lote 2026-11-05; pendiente de prueba en consola"
+  },
+  {
+   "fighter": "15",
+   "slot": 3,
+   "name": "popo - Polar Bear",
+   "component": "popo-polar-bear-c03",
+   "mod_id": 405331,
+   "author": "pending",
+   "url": "https://gamebanana.com/mods/405331",
+   "version": "pending",
+   "console_test": "pendiente (no probado en Switch)",
+   "classification": "lote 2026-11-05; pendiente de prueba en consola"
+  },
+  {
+   "fighter": "15",
+   "slot": 4,
+   "name": "popo - Monty y Rocky",
+   "component": "popo-monty-rocky-c04",
+   "mod_id": 467810,
+   "author": "pending",
+   "url": "https://gamebanana.com/mods/467810",
+   "version": "pending",
+   "console_test": "pendiente (no probado en Switch)",
+   "classification": "lote 2026-11-05; pendiente de prueba en consola"
+  },
+  {
+   "fighter": "15",
+   "slot": 5,
+   "name": "popo - Polar Bear",
+   "component": "popo-polar-bear-c05",
+   "mod_id": 405331,
+   "author": "pending",
+   "url": "https://gamebanana.com/mods/405331",
+   "version": "pending",
+   "console_test": "pendiente (no probado en Switch)",
+   "classification": "lote 2026-11-05; pendiente de prueba en consola"
+  },
+  {
+   "fighter": "15",
+   "slot": 6,
+   "name": "popo - Tandemaus",
+   "component": "popo-tandemaus-c06",
+   "mod_id": 431748,
+   "author": "pending",
+   "url": "https://gamebanana.com/mods/431748",
+   "version": "pending",
+   "console_test": "pendiente (no probado en Switch)",
+   "classification": "lote 2026-11-05; pendiente de prueba en consola"
+  },
+  {
+   "fighter": "15",
+   "slot": 7,
+   "name": "popo - Bob Esponja y Patricio",
+   "component": "popo-spongebob-patrick-c07",
+   "mod_id": 501567,
+   "author": "pending",
+   "url": "https://gamebanana.com/mods/501567",
+   "version": "pending",
+   "console_test": "pendiente (no probado en Switch)",
+   "classification": "lote 2026-11-05; pendiente de prueba en consola"
+  },
+  {
+   "fighter": "67",
+   "slot": 0,
+   "name": "krool - Pooh",
+   "component": "krool-pooh-c00",
+   "mod_id": 375500,
+   "author": "pending",
+   "url": "https://gamebanana.com/mods/375500",
+   "version": "pending",
+   "console_test": "pendiente (no probado en Switch)",
+   "classification": "lote 2026-11-05; pendiente de prueba en consola"
+  },
+  {
+   "fighter": "67",
+   "slot": 1,
+   "name": "krool - Kaptain",
+   "component": "krool-kaptain-c01",
+   "mod_id": 322328,
+   "author": "pending",
+   "url": "https://gamebanana.com/mods/322328",
+   "version": "pending",
+   "console_test": "pendiente (no probado en Switch)",
+   "classification": "lote 2026-11-05; pendiente de prueba en consola"
+  },
+  {
+   "fighter": "67",
+   "slot": 2,
+   "name": "krool - Meg",
+   "component": "krool-meg-c02",
+   "mod_id": 175439,
+   "author": "pending",
+   "url": "https://gamebanana.com/mods/175439",
+   "version": "pending",
+   "console_test": "pendiente (no probado en Switch)",
+   "classification": "lote 2026-11-05; pendiente de prueba en consola"
+  },
+  {
+   "fighter": "67",
+   "slot": 3,
+   "name": "krool - Big Al",
+   "component": "krool-big-al-c03",
+   "mod_id": 439830,
+   "author": "pending",
+   "url": "https://gamebanana.com/mods/439830",
+   "version": "pending",
+   "console_test": "pendiente (no probado en Switch)",
+   "classification": "lote 2026-11-05; pendiente de prueba en consola"
+  },
+  {
+   "fighter": "67",
+   "slot": 4,
+   "name": "krool - Moto Moto",
+   "component": "krool-moto-c04",
+   "mod_id": 539185,
+   "author": "pending",
+   "url": "https://gamebanana.com/mods/539185",
+   "version": "pending",
+   "console_test": "pendiente (no probado en Switch)",
+   "classification": "lote 2026-11-05; pendiente de prueba en consola"
+  },
+  {
+   "fighter": "67",
+   "slot": 5,
+   "name": "krool - Bubble Bass",
+   "component": "krool-bubble-bass-c05",
+   "mod_id": 519308,
+   "author": "pending",
+   "url": "https://gamebanana.com/mods/519308",
+   "version": "pending",
+   "console_test": "pendiente (no probado en Switch)",
+   "classification": "lote 2026-11-05; pendiente de prueba en consola"
+  },
+  {
+   "fighter": "67",
+   "slot": 6,
+   "name": "krool - Tim Lockwood",
+   "component": "krool-tim-lockwood-c06",
+   "mod_id": 459149,
+   "author": "pending",
+   "url": "https://gamebanana.com/mods/459149",
+   "version": "pending",
+   "console_test": "pendiente (no probado en Switch)",
+   "classification": "lote 2026-11-05; pendiente de prueba en consola"
+  },
+  {
+   "fighter": "67",
+   "slot": 7,
+   "name": "krool - Whomp",
+   "component": "krool-whomp-c07",
+   "mod_id": 634365,
+   "author": "pending",
+   "url": "https://gamebanana.com/mods/634365",
+   "version": "pending",
+   "console_test": "pendiente (no probado en Switch)",
+   "classification": "lote 2026-11-05; pendiente de prueba en consola"
+  },
+  {
+   "fighter": "43",
+   "slot": 0,
+   "name": "toonlink - Voxel",
+   "component": "toonlink-voxel-c00",
+   "mod_id": 174411,
+   "author": "pending",
+   "url": "https://gamebanana.com/mods/174411",
+   "version": "pending",
+   "console_test": "pendiente (no probado en Switch)",
+   "classification": "lote 2026-11-05; pendiente de prueba en consola"
+  },
+  {
+   "fighter": "43",
+   "slot": 1,
+   "name": "toonlink - Puss",
+   "component": "toonlink-puss-c01",
+   "mod_id": 483159,
+   "author": "pending",
+   "url": "https://gamebanana.com/mods/483159",
+   "version": "pending",
+   "console_test": "pendiente (no probado en Switch)",
+   "classification": "lote 2026-11-05; pendiente de prueba en consola"
+  },
+  {
+   "fighter": "43",
+   "slot": 2,
+   "name": "toonlink - Fox tunic",
+   "component": "toonlink-fox-tunic-c02",
+   "mod_id": 478154,
+   "author": "pending",
+   "url": "https://gamebanana.com/mods/478154",
+   "version": "pending",
+   "console_test": "pendiente (no probado en Switch)",
+   "classification": "lote 2026-11-05; pendiente de prueba en consola"
+  },
+  {
+   "fighter": "43",
+   "slot": 3,
+   "name": "toonlink - Scrooge",
+   "component": "toonlink-scrooge-c03",
+   "mod_id": 583403,
+   "author": "pending",
+   "url": "https://gamebanana.com/mods/583403",
+   "version": "pending",
+   "console_test": "pendiente (no probado en Switch)",
+   "classification": "lote 2026-11-05; pendiente de prueba en consola"
+  },
+  {
+   "fighter": "43",
+   "slot": 4,
+   "name": "toonlink - Wind Waker HD",
+   "component": "toonlink-wwhd-c04",
+   "mod_id": 407438,
+   "author": "pending",
+   "url": "https://gamebanana.com/mods/407438",
+   "version": "pending",
+   "console_test": "pendiente (no probado en Switch)",
+   "classification": "lote 2026-11-05; pendiente de prueba en consola"
+  },
+  {
+   "fighter": "43",
+   "slot": 5,
+   "name": "toonlink - Tetra",
+   "component": "toonlink-tetra-c05",
+   "mod_id": 366757,
+   "author": "pending",
+   "url": "https://gamebanana.com/mods/366757",
+   "version": "pending",
+   "console_test": "pendiente (no probado en Switch)",
+   "classification": "lote 2026-11-05; pendiente de prueba en consola"
+  },
+  {
+   "fighter": "43",
+   "slot": 6,
+   "name": "toonlink - Chibi Lightning",
+   "component": "toonlink-lightning-c06",
+   "mod_id": 380524,
+   "author": "pending",
+   "url": "https://gamebanana.com/mods/380524",
+   "version": "pending",
+   "console_test": "pendiente (no probado en Switch)",
+   "classification": "lote 2026-11-05; pendiente de prueba en consola"
+  },
+  {
+   "fighter": "43",
+   "slot": 7,
+   "name": "toonlink - Trunks",
+   "component": "toonlink-trunks-c07",
+   "mod_id": 543802,
+   "author": "pending",
+   "url": "https://gamebanana.com/mods/543802",
+   "version": "pending",
+   "console_test": "pendiente (no probado en Switch)",
+   "classification": "lote 2026-11-05; pendiente de prueba en consola"
+  },
+  {
+   "fighter": "45",
+   "slot": 0,
+   "name": "murabito - SpongeBob",
+   "component": "murabito-spongebob-c00",
+   "mod_id": 432394,
+   "author": "pending",
+   "url": "https://gamebanana.com/mods/432394",
+   "version": "pending",
+   "console_test": "pendiente (no probado en Switch)",
+   "classification": "lote 2026-11-05; pendiente de prueba en consola"
+  },
+  {
+   "fighter": "45",
+   "slot": 1,
+   "name": "murabito - Chara",
+   "component": "murabito-chara-c01",
+   "mod_id": 686571,
+   "author": "pending",
+   "url": "https://gamebanana.com/mods/686571",
+   "version": "pending",
+   "console_test": "pendiente (no probado en Switch)",
+   "classification": "lote 2026-11-05; pendiente de prueba en consola"
+  },
+  {
+   "fighter": "45",
+   "slot": 2,
+   "name": "murabito - Isaac",
+   "component": "murabito-isaac-c02",
+   "mod_id": 477314,
+   "author": "pending",
+   "url": "https://gamebanana.com/mods/477314",
+   "version": "pending",
+   "console_test": "pendiente (no probado en Switch)",
+   "classification": "lote 2026-11-05; pendiente de prueba en consola"
+  },
+  {
+   "fighter": "45",
+   "slot": 3,
+   "name": "murabito - Miku",
+   "component": "murabito-miku-c03",
+   "mod_id": 439141,
+   "author": "pending",
+   "url": "https://gamebanana.com/mods/439141",
+   "version": "pending",
+   "console_test": "pendiente (no probado en Switch)",
+   "classification": "lote 2026-11-05; pendiente de prueba en consola"
+  },
+  {
+   "fighter": "45",
+   "slot": 4,
+   "name": "murabito - Shy Guy",
+   "component": "murabito-shyguy-c04",
+   "mod_id": 438389,
+   "author": "pending",
+   "url": "https://gamebanana.com/mods/438389",
+   "version": "pending",
+   "console_test": "pendiente (no probado en Switch)",
+   "classification": "lote 2026-11-05; pendiente de prueba en consola"
+  },
+  {
+   "fighter": "45",
+   "slot": 6,
+   "name": "murabito - RPG Mario",
+   "component": "murabito-rpg-mario-c06",
+   "mod_id": 486640,
+   "author": "pending",
+   "url": "https://gamebanana.com/mods/486640",
+   "version": "pending",
+   "console_test": "pendiente (no probado en Switch)",
+   "classification": "lote 2026-11-05; pendiente de prueba en consola"
+  },
+  {
+   "fighter": "47",
+   "slot": 0,
+   "name": "wiifit - Marcus",
+   "component": "wiifit-marcus-c00",
+   "mod_id": 697562,
+   "author": "pending",
+   "url": "https://gamebanana.com/mods/697562",
+   "version": "pending",
+   "console_test": "pendiente (no probado en Switch)",
+   "classification": "lote 2026-11-05; pendiente de prueba en consola"
+  },
+  {
+   "fighter": "47",
+   "slot": 1,
+   "name": "wiifit - Handsome Squidward",
+   "component": "wiifit-squidward-c01",
+   "mod_id": 538968,
+   "author": "pending",
+   "url": "https://gamebanana.com/mods/538968",
+   "version": "pending",
+   "console_test": "pendiente (no probado en Switch)",
+   "classification": "lote 2026-11-05; pendiente de prueba en consola"
+  },
+  {
+   "fighter": "47",
+   "slot": 2,
+   "name": "wiifit - Poppi",
+   "component": "wiifit-poppi-c02",
+   "mod_id": 175112,
+   "author": "pending",
+   "url": "https://gamebanana.com/mods/175112",
+   "version": "pending",
+   "console_test": "pendiente (no probado en Switch)",
+   "classification": "lote 2026-11-05; pendiente de prueba en consola"
+  },
+  {
+   "fighter": "47",
+   "slot": 3,
+   "name": "wiifit - Homer",
+   "component": "wiifit-homer-c03",
+   "mod_id": 558536,
+   "author": "pending",
+   "url": "https://gamebanana.com/mods/558536",
+   "version": "pending",
+   "console_test": "pendiente (no probado en Switch)",
+   "classification": "lote 2026-11-05; pendiente de prueba en consola"
+  },
+  {
+   "fighter": "47",
+   "slot": 4,
+   "name": "wiifit - Miku Boxing",
+   "component": "wiifit-miku-boxing-c04",
+   "mod_id": 614758,
+   "author": "pending",
+   "url": "https://gamebanana.com/mods/614758",
+   "version": "pending",
+   "console_test": "pendiente (no probado en Switch)",
+   "classification": "lote 2026-11-05; pendiente de prueba en consola"
+  },
+  {
+   "fighter": "47",
+   "slot": 5,
+   "name": "wiifit - Benny",
+   "component": "wiifit-benny-c05",
+   "mod_id": 529224,
+   "author": "pending",
+   "url": "https://gamebanana.com/mods/529224",
+   "version": "pending",
+   "console_test": "pendiente (no probado en Switch)",
+   "classification": "lote 2026-11-05; pendiente de prueba en consola"
+  },
+  {
+   "fighter": "47",
+   "slot": 6,
+   "name": "wiifit - Kanan",
+   "component": "wiifit-kanan-c06",
+   "mod_id": 376692,
+   "author": "pending",
+   "url": "https://gamebanana.com/mods/376692",
+   "version": "pending",
+   "console_test": "pendiente (no probado en Switch)",
+   "classification": "lote 2026-11-05; pendiente de prueba en consola"
+  },
+  {
+   "fighter": "47",
+   "slot": 7,
+   "name": "wiifit - Lilligant",
+   "component": "wiifit-lilligant-c07",
+   "mod_id": 498594,
+   "author": "pending",
+   "url": "https://gamebanana.com/mods/498594",
+   "version": "pending",
+   "console_test": "pendiente (no probado en Switch)",
+   "classification": "lote 2026-11-05; pendiente de prueba en consola"
+  },
+  {
+   "fighter": "62",
+   "slot": 0,
+   "name": "kamui - Chainsaw",
+   "component": "kamui-chainsaw-c00",
+   "mod_id": 485009,
+   "author": "pending",
+   "url": "https://gamebanana.com/mods/485009",
+   "version": "pending",
+   "console_test": "pendiente (no probado en Switch)",
+   "classification": "lote 2026-11-05; pendiente de prueba en consola"
+  },
+  {
+   "fighter": "62",
+   "slot": 1,
+   "name": "kamui - Spearondorf",
+   "component": "kamui-spearondorf-c01",
+   "mod_id": 706859,
+   "author": "pending",
+   "url": "https://gamebanana.com/mods/706859",
+   "version": "pending",
+   "console_test": "pendiente (no probado en Switch)",
+   "classification": "lote 2026-11-05; pendiente de prueba en consola"
+  },
+  {
+   "fighter": "62",
+   "slot": 2,
+   "name": "kamui - Helmet",
+   "component": "kamui-helmet-c02",
+   "mod_id": 526795,
+   "author": "pending",
+   "url": "https://gamebanana.com/mods/526795",
+   "version": "pending",
+   "console_test": "pendiente (no probado en Switch)",
+   "classification": "lote 2026-11-05; pendiente de prueba en consola"
+  },
+  {
+   "fighter": "62",
+   "slot": 3,
+   "name": "kamui - Sailor",
+   "component": "kamui-sailor-c03",
+   "mod_id": 490976,
+   "author": "pending",
+   "url": "https://gamebanana.com/mods/490976",
+   "version": "pending",
+   "console_test": "pendiente (no probado en Switch)",
+   "classification": "lote 2026-11-05; pendiente de prueba en consola"
+  },
+  {
+   "fighter": "62",
+   "slot": 4,
+   "name": "kamui - Orochimaru",
+   "component": "kamui-orochimaru-c04",
+   "mod_id": 461161,
+   "author": "pending",
+   "url": "https://gamebanana.com/mods/461161",
+   "version": "pending",
+   "console_test": "pendiente (no probado en Switch)",
+   "classification": "lote 2026-11-05; pendiente de prueba en consola"
+  },
+  {
+   "fighter": "62",
+   "slot": 5,
+   "name": "kamui - D.Va",
+   "component": "kamui-dva-c05",
+   "mod_id": 378051,
+   "author": "pending",
+   "url": "https://gamebanana.com/mods/378051",
+   "version": "pending",
+   "console_test": "pendiente (no probado en Switch)",
+   "classification": "lote 2026-11-05; pendiente de prueba en consola"
+  },
+  {
+   "fighter": "62",
+   "slot": 6,
+   "name": "kamui - Spider-Carnage",
+   "component": "kamui-spider-carnage-c06",
+   "mod_id": 689039,
+   "author": "pending",
+   "url": "https://gamebanana.com/mods/689039",
+   "version": "pending",
+   "console_test": "pendiente (no probado en Switch)",
+   "classification": "lote 2026-11-05; pendiente de prueba en consola"
+  },
+  {
+   "fighter": "11",
+   "slot": 7,
+   "name": "captain - Mirko",
+   "component": "captain-mirko-c07",
+   "mod_id": 639956,
+   "author": "pending",
+   "url": "https://gamebanana.com/mods/639956",
+   "version": "pending",
+   "console_test": "pendiente (no probado en Switch)",
+   "classification": "lote 2026-11-05; pendiente de prueba en consola"
+  },
+  {
+   "fighter": "21ε",
+   "slot": 0,
+   "name": "2B (mastaklo)",
+   "component": "lucina-kyoka-c00",
+   "mod_id": 362052,
+   "author": "pending",
+   "url": "https://gamebanana.com/mods/362052",
+   "version": "pending",
+   "console_test": "pendiente (no probado en Switch)",
+   "classification": "lote 2026-11-05; pendiente de prueba en consola"
+  },
+  {
+   "fighter": "54",
+   "slot": 0,
+   "name": "palutena - Momo",
+   "component": "palutena-momo-c00",
+   "mod_id": 519870,
+   "author": "pending",
+   "url": "https://gamebanana.com/mods/519870",
+   "version": "pending",
+   "console_test": "pendiente (no probado en Switch)",
+   "classification": "lote 2026-11-05; pendiente de prueba en consola"
+  },
+  {
+   "fighter": "28ε",
+   "slot": 6,
+   "name": "pitb - Ethel",
+   "component": "pitb-ethel-c06",
+   "mod_id": 431718,
+   "author": "pending",
+   "url": "https://gamebanana.com/mods/431718",
+   "version": "pending",
+   "console_test": "pendiente (no probado en Switch)",
+   "classification": "lote 2026-11-05; pendiente de prueba en consola"
+  },
+  {
+   "fighter": "45",
+   "slot": 5,
+   "name": "murabito - Bomberman",
+   "component": "murabito-bomberman-c05",
+   "mod_id": 469593,
+   "author": "pending",
+   "url": "https://gamebanana.com/mods/469593",
+   "version": "pending",
+   "console_test": "pendiente (no probado en Switch)",
+   "classification": "lote 2026-11-05; pendiente de prueba en consola"
+  },
+  {
+   "fighter": "45",
+   "slot": 7,
+   "name": "murabito - Toadette Explorer",
+   "component": "murabito-toadette-c07",
+   "mod_id": 298054,
+   "author": "pending",
+   "url": "https://gamebanana.com/mods/298054",
+   "version": "pending",
+   "console_test": "pendiente (no probado en Switch)",
+   "classification": "lote 2026-11-05; pendiente de prueba en consola"
   }
  ]
 }
