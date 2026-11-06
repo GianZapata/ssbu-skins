@@ -67,6 +67,7 @@ input { caret-color: var(--color-pend); }
 * { scrollbar-width: thin; scrollbar-color: var(--color-line) transparent; }
 
 :focus-visible { outline: 2px solid var(--color-pend); outline-offset: 2px; border-radius: 4px; }
+.q-btn:focus-visible, .q-field--focused .q-field__control { outline: 2px solid var(--color-pend); outline-offset: 2px; }
 .q-dialog__inner:focus-visible, .q-dialog__inner > div:focus-visible { outline: 0; }
 
 .sr-only {
