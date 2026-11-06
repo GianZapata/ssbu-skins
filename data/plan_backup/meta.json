@@ -547,6 +547,7 @@
      "main": 8
     }
    },
+   "downloaded_unaudited": 147,
    "fighters": 89,
    "fighters_with_alternatives": 85,
    "looks": 1245,
@@ -570,7 +571,29 @@
   },
   "generated": "2026-10-25T23:15:00-06:00",
   "timezone": "America/Monterrey",
-  "updatedAt": "2026-10-27T17:10:58.390115+00:00"
+  "updatedAt": "2026-11-03T14:58:06.024680+00:00"
+ },
+ "drive": {
+  "counts": {
+   "bytes": 9422962648,
+   "files": 471,
+   "listed": 379,
+   "mods": 253,
+   "origins": {
+    "búsqueda": 11,
+    "búsqueda + enlace del usuario": 6,
+    "desconocido": 17,
+    "enlace del usuario": 115,
+    "perfil del modpack": 9,
+    "perfil del modpack + enlace del usuario": 1,
+    "sin registro": 94
+   },
+   "other": 79,
+   "touches_c00": 136,
+   "unlisted": 13
+  },
+  "source": "Google Drive · SSBU_mods",
+  "updatedAt": "2026-11-03T14:58:07.651698+00:00"
  },
  "installed": {
   "note": "Esto es lo que se pudo revisar en los repositorios, no un inventario comprobado en la consola.",
@@ -578,9 +601,228 @@
    "components": [
     "roxas-sora-reslot",
     "ventus-sora",
-    "funky-dk",
     "terra-ike",
-    "aqua-pyra-reslot"
+    "aqua-pyra-reslot",
+    "kh-music-gian",
+    "lucina-2b-alts-c01-c07",
+    "ganon-angeal-c01",
+    "lucas-banette-c02",
+    "bulma-szs-c00",
+    "shizue-chibi-komi-c07",
+    "snake-chris-c01",
+    "ike-dante-c01",
+    "younglink-dark-matter-c00",
+    "master-dimitri-c02",
+    "reflet-dorothea-c03",
+    "reflet-strange-c06",
+    "zelda-elise-c07",
+    "funky-dk-c01",
+    "simon-gabriel-c01",
+    "ganon-exdeath-c05",
+    "ganon-pr12",
+    "ganon-pain-c07",
+    "lucas-hoopa-c00",
+    "samus-iron-man-c00",
+    "mario-kellytoy",
+    "reflet-leo-c02",
+    "link-linkle-c07",
+    "luigi-swole-pr10",
+    "lucas-maglor-c01",
+    "koopajr-nabbit-c04",
+    "edge-navarre-c07",
+    "pitb-revali-c01",
+    "captain-gallade-c04",
+    "ganon-sidon-c02",
+    "ness-susie-c00",
+    "terry-gogeta-ssj",
+    "terry-gogeta-ssj4",
+    "terry-gohan-c00",
+    "terry-goku-black",
+    "terry-vegeta-c02",
+    "zelda-tharja-c06",
+    "ike-thor-c05",
+    "ui-ready-to-fight-es",
+    "ui-shit-on-narrated",
+    "ui-sort-by-series",
+    "captain-vegito-c06",
+    "snake-wesker-c00",
+    "cloud-yomi-c06",
+    "master-yuri-c03",
+    "cloud-zack-fair-new-c02",
+    "szerosuit-jill",
+    "bayonetta-chromatica-c07",
+    "bayonetta-evie-c06",
+    "bayonetta-kat-c01",
+    "bayonetta-linkle-c04",
+    "bayonetta-raven-c00",
+    "bayonetta-rouge-c02",
+    "bayonetta-sailor-c05",
+    "bayonetta-tingle-c03",
+    "brave-trunks-futuro-c06",
+    "captain-buff-perry-c01",
+    "captain-buzz-lightyear-c00",
+    "captain-frozone-c03",
+    "captain-shaggy-c02",
+    "captain-troll-face-c05",
+    "chrom-raiden-c01",
+    "chrom-squall-negro-c00",
+    "cloud-1997-c03",
+    "cloud-crisis-core-cloud-c00",
+    "cloud-nomura-c04",
+    "cloud-trunks-c07",
+    "cloud-wheelchair-cloud-c01",
+    "cloud-zabuza-c05",
+    "demon-coach-c01",
+    "demon-devil-jin-c05",
+    "demon-frieza-c00",
+    "demon-goku-ultra-instinto-c06",
+    "demon-jin-c07",
+    "demon-not-chuck-c02",
+    "demon-perfect-cell-c03",
+    "demon-superboy-c04",
+    "diddy-baby-c06",
+    "diddy-cranky-c02",
+    "diddy-dkjr-c04",
+    "diddy-dk64-c07",
+    "diddy-dixie-c00",
+    "diddy-spongegar-c03",
+    "diddy-stitch-c01",
+    "dolly-tifa-segundo-traje-c03",
+    "donkey-buff-kirby-c05",
+    "donkey-mario-party-c00",
+    "donkey-omega-c07",
+    "donkey-tank-left-4-dead-c03",
+    "donkey-venom-c06",
+    "edge-ariana-grande-c01-c02",
+    "edge-darth-luigi-c05",
+    "edge-sandbag-c04",
+    "edge-sephirot-clown-c00",
+    "edge-ultimate-sukuna-c06",
+    "eflame-a2-2b-9s-c07",
+    "falco-n64-falco-c00",
+    "fox-gohan-c03",
+    "ganon-pikadorf-c04",
+    "gaogaen-freddie-freaker-c04",
+    "gaogaen-garfield-c07",
+    "gaogaen-johnny-c02",
+    "gaogaen-leo-c03",
+    "gaogaen-incredible-c06",
+    "gaogaen-rock-c05",
+    "gaogaen-tigger-c00",
+    "gaogaen-tony-c01",
+    "shizue-chopper-c02",
+    "shizue-hello-kitty-c04",
+    "shizue-kk-slider-c00",
+    "shizue-marin-c03",
+    "shizue-melody-c06",
+    "shizue-korone-c05",
+    "shizue-nook-c01",
+    "kamui-2b-corrin-c07",
+    "koopa-barney-c01",
+    "koopa-blastoise-c05",
+    "koopa-dry-bowser-c06",
+    "koopa-jiraiya-c00",
+    "koopa-king-koopa-c03",
+    "koopa-kurama-c07",
+    "koopa-midbus-c02",
+    "koopa-trex-c04",
+    "link-goblin-c04",
+    "link-goku-black-c00",
+    "link-link-female-c05",
+    "link-phantom-c06",
+    "link-smash64-c02",
+    "link-totk-c01",
+    "link-twilight-c03",
+    "littlemac-deku-c04",
+    "littlemac-doc-louis-c00",
+    "littlemac-fernanfloo-c02",
+    "littlemac-ghondor-oggy-c07",
+    "littlemac-macloud-c01",
+    "littlemac-punchout-c06",
+    "littlemac-spiderman-c03",
+    "littlemac-squiddle-c05",
+    "lucina-2b-mastaklo-c00",
+    "luigi-dancing-banana-c01",
+    "luigi-fred-c03",
+    "luigi-gura-c05",
+    "luigi-golf-c06",
+    "luigi-ml-c04",
+    "luigi-patrick-c07",
+    "luigi-smash64-c02",
+    "mario-dry-bones-c04",
+    "mario-hotel-c07",
+    "mario-malario-c06",
+    "mario-moogle-c03",
+    "mario-paper-mario-c00",
+    "mario-phineas-c05",
+    "mario-wheelchair-mario-c02",
+    "mariod-bomberman-c06",
+    "mariod-crash-c05",
+    "mariod-hammer-c04",
+    "mariod-hatless-c02",
+    "mariod-machop-c07",
+    "mariod-mini-ganondorf-c03",
+    "mariod-penguin-c00",
+    "mariod-timeless-river-c01",
+    "marth-hook-c04",
+    "marth-kermit-c00",
+    "marth-lyn-c05",
+    "marth-nia-c01",
+    "marth-papyrus-c07",
+    "marth-ranger-c02",
+    "marth-sasuke-c06",
+    "marth-sigurd-c03",
+    "ness-kid-buu-c03",
+    "palutena-aeris-c06",
+    "pickel-jockey-c06",
+    "pickel-chicken-c07",
+    "pickel-creeper-c05",
+    "pickel-lego-batman-c04",
+    "pickel-roblox-c03",
+    "pickel-steviroth-c00",
+    "pickel-stick-c02",
+    "pickel-villager-c01",
+    "robot-eggman-c01",
+    "robot-guardian-c05",
+    "robot-magnezone-c02",
+    "robot-princess-c06",
+    "robot-rob64-c03",
+    "robot-thomas-c07",
+    "robot-wall-e-c00",
+    "robot-windows-xp-c04",
+    "roy-simple-c05",
+    "ryu-goku-super-saiyan-c05",
+    "sheik-android18-c07",
+    "sheik-haku-c02",
+    "sheik-jane-c03",
+    "sheik-lucy-c05",
+    "sheik-nobody-c00",
+    "sheik-spider-man-c01",
+    "sheik-tengen-c04",
+    "sheik-yuffie-c06",
+    "szerosuit-ada-c01",
+    "szerosuit-jill-368929-c05",
+    "szerosuit-jinx-c02",
+    "szerosuit-lucy-c04",
+    "szerosuit-gwen-c03",
+    "trail-kairi-c06",
+    "trail-riku-kh3-c07",
+    "trail-riku-c02",
+    "trail-riku-dark-c03",
+    "trail-vanitas-c01",
+    "trail-xion-c00",
+    "wario-chungus-c00",
+    "wario-krabs-c04",
+    "wario-potato-c03",
+    "wario-peppino-c01",
+    "wario-sans-c07",
+    "wario-knuckles-c05",
+    "wario-man-c06",
+    "wario-wayonetta-c02",
+    "wolf-vegeta-c01",
+    "zelda-aerith-c00",
+    "zelda-aerith-c01",
+    "zelda-jean-grey-c02"
    ],
    "components_info": [
     {
@@ -597,12 +839,6 @@
     },
     {
      "dlc": null,
-     "id": "funky-dk",
-     "test": "OK 2026-10-24 (Gian; Smash 13.0.5, ARCropolis 4.1.1, emuMMC sin conexion): DK c01/c03/c05/c07 en seleccion y combate local. No certifica online",
-     "version": "2.0.0"
-    },
-    {
-     "dlc": null,
      "id": "terra-ike",
      "test": "OK 2026-10-24 (Gian; Smash 13.0.5, ARCropolis 4.1.1, emuMMC sin conexion): Ike c00 (Terra) contra Funky y c02 (Terranort) contra Ventus en combate local. No certifica online",
      "version": "pending"
@@ -611,6 +847,1326 @@
      "dlc": "Pyra/Mythra (Gian confirma tener los DLC, 2026-10-24)",
      "id": "aqua-pyra-reslot",
      "test": "OK 2026-10-24 (Gian; Smash 13.0.5, ARCropolis 4.1.1, emuMMC sin conexion): Pyra y Mythra c00 en combate local. No certifica online",
+     "version": "pending"
+    },
+    {
+     "dlc": null,
+     "id": "kh-music-gian",
+     "test": "pendiente (no probado en Switch)",
+     "version": "pending"
+    },
+    {
+     "dlc": null,
+     "id": "lucina-2b-alts-c01-c07",
+     "test": "pendiente (no probado en Switch)",
+     "version": "pending"
+    },
+    {
+     "dlc": null,
+     "id": "ganon-angeal-c01",
+     "test": "pendiente (no probado en Switch)",
+     "version": "pending"
+    },
+    {
+     "dlc": null,
+     "id": "lucas-banette-c02",
+     "test": "pendiente (no probado en Switch)",
+     "version": "pending"
+    },
+    {
+     "dlc": null,
+     "id": "bulma-szs-c00",
+     "test": "pendiente (no probado en Switch)",
+     "version": "pending"
+    },
+    {
+     "dlc": null,
+     "id": "shizue-chibi-komi-c07",
+     "test": "pendiente (no probado en Switch)",
+     "version": "pending"
+    },
+    {
+     "dlc": null,
+     "id": "snake-chris-c01",
+     "test": "pendiente (no probado en Switch)",
+     "version": "pending"
+    },
+    {
+     "dlc": null,
+     "id": "ike-dante-c01",
+     "test": "pendiente (no probado en Switch)",
+     "version": "pending"
+    },
+    {
+     "dlc": null,
+     "id": "younglink-dark-matter-c00",
+     "test": "pendiente (no probado en Switch)",
+     "version": "pending"
+    },
+    {
+     "dlc": null,
+     "id": "master-dimitri-c02",
+     "test": "pendiente (no probado en Switch)",
+     "version": "pending"
+    },
+    {
+     "dlc": null,
+     "id": "reflet-dorothea-c03",
+     "test": "pendiente (no probado en Switch)",
+     "version": "pending"
+    },
+    {
+     "dlc": null,
+     "id": "reflet-strange-c06",
+     "test": "pendiente (no probado en Switch)",
+     "version": "pending"
+    },
+    {
+     "dlc": null,
+     "id": "zelda-elise-c07",
+     "test": "pendiente (no probado en Switch)",
+     "version": "pending"
+    },
+    {
+     "dlc": null,
+     "id": "funky-dk-c01",
+     "test": "pendiente para esta variante (funky-dk OK 2026-10-24)",
+     "version": "pending"
+    },
+    {
+     "dlc": null,
+     "id": "simon-gabriel-c01",
+     "test": "pendiente (no probado en Switch)",
+     "version": "pending"
+    },
+    {
+     "dlc": null,
+     "id": "ganon-exdeath-c05",
+     "test": "pendiente (no probado en Switch)",
+     "version": "pending"
+    },
+    {
+     "dlc": null,
+     "id": "ganon-pr12",
+     "test": "pendiente (no probado en Switch)",
+     "version": "pending"
+    },
+    {
+     "dlc": null,
+     "id": "ganon-pain-c07",
+     "test": "pendiente (no probado en Switch)",
+     "version": "pending"
+    },
+    {
+     "dlc": null,
+     "id": "lucas-hoopa-c00",
+     "test": "pendiente (no probado en Switch)",
+     "version": "pending"
+    },
+    {
+     "dlc": null,
+     "id": "samus-iron-man-c00",
+     "test": "pendiente (no probado en Switch)",
+     "version": "pending"
+    },
+    {
+     "dlc": null,
+     "id": "mario-kellytoy",
+     "test": "pendiente (no probado en Switch)",
+     "version": "1.0 (info.toml)"
+    },
+    {
+     "dlc": null,
+     "id": "reflet-leo-c02",
+     "test": "pendiente (no probado en Switch)",
+     "version": "pending"
+    },
+    {
+     "dlc": null,
+     "id": "link-linkle-c07",
+     "test": "pendiente (no probado en Switch)",
+     "version": "pending"
+    },
+    {
+     "dlc": null,
+     "id": "luigi-swole-pr10",
+     "test": "pendiente (no probado en Switch)",
+     "version": "pending"
+    },
+    {
+     "dlc": null,
+     "id": "lucas-maglor-c01",
+     "test": "pendiente (no probado en Switch)",
+     "version": "pending"
+    },
+    {
+     "dlc": null,
+     "id": "koopajr-nabbit-c04",
+     "test": "pendiente (no probado en Switch)",
+     "version": "pending"
+    },
+    {
+     "dlc": null,
+     "id": "edge-navarre-c07",
+     "test": "pendiente (no probado en Switch)",
+     "version": "pending"
+    },
+    {
+     "dlc": null,
+     "id": "pitb-revali-c01",
+     "test": "pendiente (no probado en Switch)",
+     "version": "pending"
+    },
+    {
+     "dlc": null,
+     "id": "captain-gallade-c04",
+     "test": "pendiente (no probado en Switch)",
+     "version": "pending"
+    },
+    {
+     "dlc": null,
+     "id": "ganon-sidon-c02",
+     "test": "pendiente (no probado en Switch)",
+     "version": "pending"
+    },
+    {
+     "dlc": null,
+     "id": "ness-susie-c00",
+     "test": "pendiente (no probado en Switch)",
+     "version": "pending"
+    },
+    {
+     "dlc": "Terry (confirmado: todos los DLC)",
+     "id": "terry-gogeta-ssj",
+     "test": "pendiente (no probado en Switch)",
+     "version": "pending"
+    },
+    {
+     "dlc": "Terry (confirmado: todos los DLC)",
+     "id": "terry-gogeta-ssj4",
+     "test": "pendiente (no probado en Switch)",
+     "version": "v1.3 (nombre del archivo)"
+    },
+    {
+     "dlc": "Terry (confirmado: todos los DLC)",
+     "id": "terry-gohan-c00",
+     "test": "pendiente (no probado en Switch)",
+     "version": "pending"
+    },
+    {
+     "dlc": "Terry (confirmado: todos los DLC)",
+     "id": "terry-goku-black",
+     "test": "pendiente (no probado en Switch)",
+     "version": "pending"
+    },
+    {
+     "dlc": "Terry (confirmado: todos los DLC)",
+     "id": "terry-vegeta-c02",
+     "test": "pendiente (no probado en Switch)",
+     "version": "pending"
+    },
+    {
+     "dlc": null,
+     "id": "zelda-tharja-c06",
+     "test": "pendiente (no probado en Switch)",
+     "version": "pending"
+    },
+    {
+     "dlc": null,
+     "id": "ike-thor-c05",
+     "test": "pendiente (no probado en Switch)",
+     "version": "pending"
+    },
+    {
+     "dlc": null,
+     "id": "ui-ready-to-fight-es",
+     "test": "pendiente (no probado en Switch)",
+     "version": "pending"
+    },
+    {
+     "dlc": null,
+     "id": "ui-shit-on-narrated",
+     "test": "pendiente (no probado en Switch)",
+     "version": "pending"
+    },
+    {
+     "dlc": null,
+     "id": "ui-sort-by-series",
+     "test": "pendiente (no probado en Switch)",
+     "version": "pending"
+    },
+    {
+     "dlc": null,
+     "id": "captain-vegito-c06",
+     "test": "pendiente (no probado en Switch)",
+     "version": "pending"
+    },
+    {
+     "dlc": null,
+     "id": "snake-wesker-c00",
+     "test": "pendiente (no probado en Switch)",
+     "version": "pending"
+    },
+    {
+     "dlc": null,
+     "id": "cloud-yomi-c06",
+     "test": "pendiente (no probado en Switch)",
+     "version": "pending"
+    },
+    {
+     "dlc": null,
+     "id": "master-yuri-c03",
+     "test": "pendiente (no probado en Switch)",
+     "version": "pending"
+    },
+    {
+     "dlc": null,
+     "id": "cloud-zack-fair-new-c02",
+     "test": "pendiente (no probado en Switch)",
+     "version": "pending"
+    },
+    {
+     "dlc": null,
+     "id": "szerosuit-jill",
+     "test": "pendiente (no probado en Switch); Bulma y Spider-Gwen: negras en consola 2026-10-25 (Gian)",
+     "version": "pending"
+    },
+    {
+     "dlc": null,
+     "id": "bayonetta-chromatica-c07",
+     "test": "pendiente (no probado en Switch)",
+     "version": "pending"
+    },
+    {
+     "dlc": null,
+     "id": "bayonetta-evie-c06",
+     "test": "pendiente (no probado en Switch)",
+     "version": "pending"
+    },
+    {
+     "dlc": null,
+     "id": "bayonetta-kat-c01",
+     "test": "pendiente (no probado en Switch)",
+     "version": "pending"
+    },
+    {
+     "dlc": null,
+     "id": "bayonetta-linkle-c04",
+     "test": "pendiente (no probado en Switch)",
+     "version": "pending"
+    },
+    {
+     "dlc": null,
+     "id": "bayonetta-raven-c00",
+     "test": "pendiente (no probado en Switch)",
+     "version": "pending"
+    },
+    {
+     "dlc": null,
+     "id": "bayonetta-rouge-c02",
+     "test": "pendiente (no probado en Switch)",
+     "version": "pending"
+    },
+    {
+     "dlc": null,
+     "id": "bayonetta-sailor-c05",
+     "test": "pendiente (no probado en Switch)",
+     "version": "pending"
+    },
+    {
+     "dlc": null,
+     "id": "bayonetta-tingle-c03",
+     "test": "pendiente (no probado en Switch)",
+     "version": "pending"
+    },
+    {
+     "dlc": null,
+     "id": "brave-trunks-futuro-c06",
+     "test": "pendiente (no probado en Switch)",
+     "version": "pending"
+    },
+    {
+     "dlc": null,
+     "id": "captain-buff-perry-c01",
+     "test": "pendiente (no probado en Switch)",
+     "version": "pending"
+    },
+    {
+     "dlc": null,
+     "id": "captain-buzz-lightyear-c00",
+     "test": "pendiente (no probado en Switch)",
+     "version": "pending"
+    },
+    {
+     "dlc": null,
+     "id": "captain-frozone-c03",
+     "test": "pendiente (no probado en Switch)",
+     "version": "pending"
+    },
+    {
+     "dlc": null,
+     "id": "captain-shaggy-c02",
+     "test": "pendiente (no probado en Switch)",
+     "version": "pending"
+    },
+    {
+     "dlc": null,
+     "id": "captain-troll-face-c05",
+     "test": "pendiente (no probado en Switch)",
+     "version": "pending"
+    },
+    {
+     "dlc": null,
+     "id": "chrom-raiden-c01",
+     "test": "pendiente (no probado en Switch)",
+     "version": "pending"
+    },
+    {
+     "dlc": null,
+     "id": "chrom-squall-negro-c00",
+     "test": "pendiente (no probado en Switch)",
+     "version": "pending"
+    },
+    {
+     "dlc": null,
+     "id": "cloud-1997-c03",
+     "test": "pendiente (no probado en Switch)",
+     "version": "pending"
+    },
+    {
+     "dlc": null,
+     "id": "cloud-crisis-core-cloud-c00",
+     "test": "pendiente (no probado en Switch)",
+     "version": "pending"
+    },
+    {
+     "dlc": null,
+     "id": "cloud-nomura-c04",
+     "test": "pendiente (no probado en Switch)",
+     "version": "pending"
+    },
+    {
+     "dlc": null,
+     "id": "cloud-trunks-c07",
+     "test": "pendiente (no probado en Switch)",
+     "version": "pending"
+    },
+    {
+     "dlc": null,
+     "id": "cloud-wheelchair-cloud-c01",
+     "test": "pendiente (no probado en Switch)",
+     "version": "pending"
+    },
+    {
+     "dlc": null,
+     "id": "cloud-zabuza-c05",
+     "test": "pendiente (no probado en Switch)",
+     "version": "pending"
+    },
+    {
+     "dlc": null,
+     "id": "demon-coach-c01",
+     "test": "pendiente (no probado en Switch)",
+     "version": "pending"
+    },
+    {
+     "dlc": null,
+     "id": "demon-devil-jin-c05",
+     "test": "pendiente (no probado en Switch)",
+     "version": "pending"
+    },
+    {
+     "dlc": null,
+     "id": "demon-frieza-c00",
+     "test": "pendiente (no probado en Switch)",
+     "version": "pending"
+    },
+    {
+     "dlc": null,
+     "id": "demon-goku-ultra-instinto-c06",
+     "test": "pendiente (no probado en Switch)",
+     "version": "pending"
+    },
+    {
+     "dlc": null,
+     "id": "demon-jin-c07",
+     "test": "pendiente (no probado en Switch)",
+     "version": "pending"
+    },
+    {
+     "dlc": null,
+     "id": "demon-not-chuck-c02",
+     "test": "pendiente (no probado en Switch)",
+     "version": "pending"
+    },
+    {
+     "dlc": null,
+     "id": "demon-perfect-cell-c03",
+     "test": "pendiente (no probado en Switch)",
+     "version": "pending"
+    },
+    {
+     "dlc": null,
+     "id": "demon-superboy-c04",
+     "test": "pendiente (no probado en Switch)",
+     "version": "pending"
+    },
+    {
+     "dlc": null,
+     "id": "diddy-baby-c06",
+     "test": "pendiente (no probado en Switch)",
+     "version": "pending"
+    },
+    {
+     "dlc": null,
+     "id": "diddy-cranky-c02",
+     "test": "pendiente (no probado en Switch)",
+     "version": "pending"
+    },
+    {
+     "dlc": null,
+     "id": "diddy-dkjr-c04",
+     "test": "pendiente (no probado en Switch)",
+     "version": "pending"
+    },
+    {
+     "dlc": null,
+     "id": "diddy-dk64-c07",
+     "test": "pendiente (no probado en Switch)",
+     "version": "pending"
+    },
+    {
+     "dlc": null,
+     "id": "diddy-dixie-c00",
+     "test": "pendiente (no probado en Switch)",
+     "version": "pending"
+    },
+    {
+     "dlc": null,
+     "id": "diddy-spongegar-c03",
+     "test": "pendiente (no probado en Switch)",
+     "version": "pending"
+    },
+    {
+     "dlc": null,
+     "id": "diddy-stitch-c01",
+     "test": "pendiente (no probado en Switch)",
+     "version": "pending"
+    },
+    {
+     "dlc": null,
+     "id": "dolly-tifa-segundo-traje-c03",
+     "test": "pendiente (no probado en Switch)",
+     "version": "pending"
+    },
+    {
+     "dlc": null,
+     "id": "donkey-buff-kirby-c05",
+     "test": "pendiente (no probado en Switch)",
+     "version": "pending"
+    },
+    {
+     "dlc": null,
+     "id": "donkey-mario-party-c00",
+     "test": "pendiente (no probado en Switch)",
+     "version": "pending"
+    },
+    {
+     "dlc": null,
+     "id": "donkey-omega-c07",
+     "test": "pendiente (no probado en Switch)",
+     "version": "pending"
+    },
+    {
+     "dlc": null,
+     "id": "donkey-tank-left-4-dead-c03",
+     "test": "pendiente (no probado en Switch)",
+     "version": "pending"
+    },
+    {
+     "dlc": null,
+     "id": "donkey-venom-c06",
+     "test": "pendiente (no probado en Switch)",
+     "version": "pending"
+    },
+    {
+     "dlc": null,
+     "id": "edge-ariana-grande-c01-c02",
+     "test": "pendiente (no probado en Switch)",
+     "version": "pending"
+    },
+    {
+     "dlc": null,
+     "id": "edge-darth-luigi-c05",
+     "test": "pendiente (no probado en Switch)",
+     "version": "pending"
+    },
+    {
+     "dlc": null,
+     "id": "edge-sandbag-c04",
+     "test": "pendiente (no probado en Switch)",
+     "version": "pending"
+    },
+    {
+     "dlc": null,
+     "id": "edge-sephirot-clown-c00",
+     "test": "pendiente (no probado en Switch)",
+     "version": "pending"
+    },
+    {
+     "dlc": null,
+     "id": "edge-ultimate-sukuna-c06",
+     "test": "pendiente (no probado en Switch)",
+     "version": "pending"
+    },
+    {
+     "dlc": null,
+     "id": "eflame-a2-2b-9s-c07",
+     "test": "pendiente (no probado en Switch)",
+     "version": "pending"
+    },
+    {
+     "dlc": null,
+     "id": "falco-n64-falco-c00",
+     "test": "pendiente (no probado en Switch)",
+     "version": "pending"
+    },
+    {
+     "dlc": null,
+     "id": "fox-gohan-c03",
+     "test": "pendiente (no probado en Switch)",
+     "version": "pending"
+    },
+    {
+     "dlc": null,
+     "id": "ganon-pikadorf-c04",
+     "test": "pendiente (no probado en Switch)",
+     "version": "pending"
+    },
+    {
+     "dlc": null,
+     "id": "gaogaen-freddie-freaker-c04",
+     "test": "pendiente (no probado en Switch)",
+     "version": "pending"
+    },
+    {
+     "dlc": null,
+     "id": "gaogaen-garfield-c07",
+     "test": "pendiente (no probado en Switch)",
+     "version": "pending"
+    },
+    {
+     "dlc": null,
+     "id": "gaogaen-johnny-c02",
+     "test": "pendiente (no probado en Switch)",
+     "version": "pending"
+    },
+    {
+     "dlc": null,
+     "id": "gaogaen-leo-c03",
+     "test": "pendiente (no probado en Switch)",
+     "version": "pending"
+    },
+    {
+     "dlc": null,
+     "id": "gaogaen-incredible-c06",
+     "test": "pendiente (no probado en Switch)",
+     "version": "pending"
+    },
+    {
+     "dlc": null,
+     "id": "gaogaen-rock-c05",
+     "test": "pendiente (no probado en Switch)",
+     "version": "pending"
+    },
+    {
+     "dlc": null,
+     "id": "gaogaen-tigger-c00",
+     "test": "pendiente (no probado en Switch)",
+     "version": "pending"
+    },
+    {
+     "dlc": null,
+     "id": "gaogaen-tony-c01",
+     "test": "pendiente (no probado en Switch)",
+     "version": "pending"
+    },
+    {
+     "dlc": null,
+     "id": "shizue-chopper-c02",
+     "test": "pendiente (no probado en Switch)",
+     "version": "pending"
+    },
+    {
+     "dlc": null,
+     "id": "shizue-hello-kitty-c04",
+     "test": "pendiente (no probado en Switch)",
+     "version": "pending"
+    },
+    {
+     "dlc": null,
+     "id": "shizue-kk-slider-c00",
+     "test": "pendiente (no probado en Switch)",
+     "version": "pending"
+    },
+    {
+     "dlc": null,
+     "id": "shizue-marin-c03",
+     "test": "pendiente (no probado en Switch)",
+     "version": "pending"
+    },
+    {
+     "dlc": null,
+     "id": "shizue-melody-c06",
+     "test": "pendiente (no probado en Switch)",
+     "version": "pending"
+    },
+    {
+     "dlc": null,
+     "id": "shizue-korone-c05",
+     "test": "pendiente (no probado en Switch)",
+     "version": "pending"
+    },
+    {
+     "dlc": null,
+     "id": "shizue-nook-c01",
+     "test": "pendiente (no probado en Switch)",
+     "version": "pending"
+    },
+    {
+     "dlc": null,
+     "id": "kamui-2b-corrin-c07",
+     "test": "pendiente (no probado en Switch)",
+     "version": "pending"
+    },
+    {
+     "dlc": null,
+     "id": "koopa-barney-c01",
+     "test": "pendiente (no probado en Switch)",
+     "version": "pending"
+    },
+    {
+     "dlc": null,
+     "id": "koopa-blastoise-c05",
+     "test": "pendiente (no probado en Switch)",
+     "version": "pending"
+    },
+    {
+     "dlc": null,
+     "id": "koopa-dry-bowser-c06",
+     "test": "pendiente (no probado en Switch)",
+     "version": "pending"
+    },
+    {
+     "dlc": null,
+     "id": "koopa-jiraiya-c00",
+     "test": "pendiente (no probado en Switch)",
+     "version": "pending"
+    },
+    {
+     "dlc": null,
+     "id": "koopa-king-koopa-c03",
+     "test": "pendiente (no probado en Switch)",
+     "version": "pending"
+    },
+    {
+     "dlc": null,
+     "id": "koopa-kurama-c07",
+     "test": "pendiente (no probado en Switch)",
+     "version": "pending"
+    },
+    {
+     "dlc": null,
+     "id": "koopa-midbus-c02",
+     "test": "pendiente (no probado en Switch)",
+     "version": "pending"
+    },
+    {
+     "dlc": null,
+     "id": "koopa-trex-c04",
+     "test": "pendiente (no probado en Switch)",
+     "version": "pending"
+    },
+    {
+     "dlc": null,
+     "id": "link-goblin-c04",
+     "test": "pendiente (no probado en Switch)",
+     "version": "pending"
+    },
+    {
+     "dlc": null,
+     "id": "link-goku-black-c00",
+     "test": "pendiente (no probado en Switch)",
+     "version": "pending"
+    },
+    {
+     "dlc": null,
+     "id": "link-link-female-c05",
+     "test": "pendiente (no probado en Switch)",
+     "version": "pending"
+    },
+    {
+     "dlc": null,
+     "id": "link-phantom-c06",
+     "test": "pendiente (no probado en Switch)",
+     "version": "pending"
+    },
+    {
+     "dlc": null,
+     "id": "link-smash64-c02",
+     "test": "pendiente (no probado en Switch)",
+     "version": "pending"
+    },
+    {
+     "dlc": null,
+     "id": "link-totk-c01",
+     "test": "pendiente (no probado en Switch)",
+     "version": "pending"
+    },
+    {
+     "dlc": null,
+     "id": "link-twilight-c03",
+     "test": "pendiente (no probado en Switch)",
+     "version": "pending"
+    },
+    {
+     "dlc": null,
+     "id": "littlemac-deku-c04",
+     "test": "pendiente (no probado en Switch)",
+     "version": "pending"
+    },
+    {
+     "dlc": null,
+     "id": "littlemac-doc-louis-c00",
+     "test": "pendiente (no probado en Switch)",
+     "version": "pending"
+    },
+    {
+     "dlc": null,
+     "id": "littlemac-fernanfloo-c02",
+     "test": "pendiente (no probado en Switch)",
+     "version": "pending"
+    },
+    {
+     "dlc": null,
+     "id": "littlemac-ghondor-oggy-c07",
+     "test": "pendiente (no probado en Switch)",
+     "version": "pending"
+    },
+    {
+     "dlc": null,
+     "id": "littlemac-macloud-c01",
+     "test": "pendiente (no probado en Switch)",
+     "version": "pending"
+    },
+    {
+     "dlc": null,
+     "id": "littlemac-punchout-c06",
+     "test": "pendiente (no probado en Switch)",
+     "version": "pending"
+    },
+    {
+     "dlc": null,
+     "id": "littlemac-spiderman-c03",
+     "test": "pendiente (no probado en Switch)",
+     "version": "pending"
+    },
+    {
+     "dlc": null,
+     "id": "littlemac-squiddle-c05",
+     "test": "pendiente (no probado en Switch)",
+     "version": "pending"
+    },
+    {
+     "dlc": null,
+     "id": "lucina-2b-mastaklo-c00",
+     "test": "pendiente (no probado en Switch)",
+     "version": "pending"
+    },
+    {
+     "dlc": null,
+     "id": "luigi-dancing-banana-c01",
+     "test": "pendiente (no probado en Switch)",
+     "version": "pending"
+    },
+    {
+     "dlc": null,
+     "id": "luigi-fred-c03",
+     "test": "pendiente (no probado en Switch)",
+     "version": "pending"
+    },
+    {
+     "dlc": null,
+     "id": "luigi-gura-c05",
+     "test": "pendiente (no probado en Switch)",
+     "version": "pending"
+    },
+    {
+     "dlc": null,
+     "id": "luigi-golf-c06",
+     "test": "pendiente (no probado en Switch)",
+     "version": "pending"
+    },
+    {
+     "dlc": null,
+     "id": "luigi-ml-c04",
+     "test": "pendiente (no probado en Switch)",
+     "version": "pending"
+    },
+    {
+     "dlc": null,
+     "id": "luigi-patrick-c07",
+     "test": "pendiente (no probado en Switch)",
+     "version": "pending"
+    },
+    {
+     "dlc": null,
+     "id": "luigi-smash64-c02",
+     "test": "pendiente (no probado en Switch)",
+     "version": "pending"
+    },
+    {
+     "dlc": null,
+     "id": "mario-dry-bones-c04",
+     "test": "pendiente (no probado en Switch)",
+     "version": "pending"
+    },
+    {
+     "dlc": null,
+     "id": "mario-hotel-c07",
+     "test": "pendiente (no probado en Switch)",
+     "version": "pending"
+    },
+    {
+     "dlc": null,
+     "id": "mario-malario-c06",
+     "test": "pendiente (no probado en Switch)",
+     "version": "pending"
+    },
+    {
+     "dlc": null,
+     "id": "mario-moogle-c03",
+     "test": "pendiente (no probado en Switch)",
+     "version": "pending"
+    },
+    {
+     "dlc": null,
+     "id": "mario-paper-mario-c00",
+     "test": "pendiente (no probado en Switch)",
+     "version": "pending"
+    },
+    {
+     "dlc": null,
+     "id": "mario-phineas-c05",
+     "test": "pendiente (no probado en Switch)",
+     "version": "pending"
+    },
+    {
+     "dlc": null,
+     "id": "mario-wheelchair-mario-c02",
+     "test": "pendiente (no probado en Switch)",
+     "version": "pending"
+    },
+    {
+     "dlc": null,
+     "id": "mariod-bomberman-c06",
+     "test": "pendiente (no probado en Switch)",
+     "version": "pending"
+    },
+    {
+     "dlc": null,
+     "id": "mariod-crash-c05",
+     "test": "pendiente (no probado en Switch)",
+     "version": "pending"
+    },
+    {
+     "dlc": null,
+     "id": "mariod-hammer-c04",
+     "test": "pendiente (no probado en Switch)",
+     "version": "pending"
+    },
+    {
+     "dlc": null,
+     "id": "mariod-hatless-c02",
+     "test": "pendiente (no probado en Switch)",
+     "version": "pending"
+    },
+    {
+     "dlc": null,
+     "id": "mariod-machop-c07",
+     "test": "pendiente (no probado en Switch)",
+     "version": "pending"
+    },
+    {
+     "dlc": null,
+     "id": "mariod-mini-ganondorf-c03",
+     "test": "pendiente (no probado en Switch)",
+     "version": "pending"
+    },
+    {
+     "dlc": null,
+     "id": "mariod-penguin-c00",
+     "test": "pendiente (no probado en Switch)",
+     "version": "pending"
+    },
+    {
+     "dlc": null,
+     "id": "mariod-timeless-river-c01",
+     "test": "pendiente (no probado en Switch)",
+     "version": "pending"
+    },
+    {
+     "dlc": null,
+     "id": "marth-hook-c04",
+     "test": "pendiente (no probado en Switch)",
+     "version": "pending"
+    },
+    {
+     "dlc": null,
+     "id": "marth-kermit-c00",
+     "test": "pendiente (no probado en Switch)",
+     "version": "pending"
+    },
+    {
+     "dlc": null,
+     "id": "marth-lyn-c05",
+     "test": "pendiente (no probado en Switch)",
+     "version": "pending"
+    },
+    {
+     "dlc": null,
+     "id": "marth-nia-c01",
+     "test": "pendiente (no probado en Switch)",
+     "version": "pending"
+    },
+    {
+     "dlc": null,
+     "id": "marth-papyrus-c07",
+     "test": "pendiente (no probado en Switch)",
+     "version": "pending"
+    },
+    {
+     "dlc": null,
+     "id": "marth-ranger-c02",
+     "test": "pendiente (no probado en Switch)",
+     "version": "pending"
+    },
+    {
+     "dlc": null,
+     "id": "marth-sasuke-c06",
+     "test": "pendiente (no probado en Switch)",
+     "version": "pending"
+    },
+    {
+     "dlc": null,
+     "id": "marth-sigurd-c03",
+     "test": "pendiente (no probado en Switch)",
+     "version": "pending"
+    },
+    {
+     "dlc": null,
+     "id": "ness-kid-buu-c03",
+     "test": "pendiente (no probado en Switch)",
+     "version": "pending"
+    },
+    {
+     "dlc": null,
+     "id": "palutena-aeris-c06",
+     "test": "pendiente (no probado en Switch)",
+     "version": "pending"
+    },
+    {
+     "dlc": null,
+     "id": "pickel-jockey-c06",
+     "test": "pendiente (no probado en Switch)",
+     "version": "pending"
+    },
+    {
+     "dlc": null,
+     "id": "pickel-chicken-c07",
+     "test": "pendiente (no probado en Switch)",
+     "version": "pending"
+    },
+    {
+     "dlc": null,
+     "id": "pickel-creeper-c05",
+     "test": "pendiente (no probado en Switch)",
+     "version": "pending"
+    },
+    {
+     "dlc": null,
+     "id": "pickel-lego-batman-c04",
+     "test": "pendiente (no probado en Switch)",
+     "version": "pending"
+    },
+    {
+     "dlc": null,
+     "id": "pickel-roblox-c03",
+     "test": "pendiente (no probado en Switch)",
+     "version": "pending"
+    },
+    {
+     "dlc": null,
+     "id": "pickel-steviroth-c00",
+     "test": "pendiente (no probado en Switch)",
+     "version": "pending"
+    },
+    {
+     "dlc": null,
+     "id": "pickel-stick-c02",
+     "test": "pendiente (no probado en Switch)",
+     "version": "pending"
+    },
+    {
+     "dlc": null,
+     "id": "pickel-villager-c01",
+     "test": "pendiente (no probado en Switch)",
+     "version": "pending"
+    },
+    {
+     "dlc": null,
+     "id": "robot-eggman-c01",
+     "test": "pendiente (no probado en Switch)",
+     "version": "pending"
+    },
+    {
+     "dlc": null,
+     "id": "robot-guardian-c05",
+     "test": "pendiente (no probado en Switch)",
+     "version": "pending"
+    },
+    {
+     "dlc": null,
+     "id": "robot-magnezone-c02",
+     "test": "pendiente (no probado en Switch)",
+     "version": "pending"
+    },
+    {
+     "dlc": null,
+     "id": "robot-princess-c06",
+     "test": "pendiente (no probado en Switch)",
+     "version": "pending"
+    },
+    {
+     "dlc": null,
+     "id": "robot-rob64-c03",
+     "test": "pendiente (no probado en Switch)",
+     "version": "pending"
+    },
+    {
+     "dlc": null,
+     "id": "robot-thomas-c07",
+     "test": "pendiente (no probado en Switch)",
+     "version": "pending"
+    },
+    {
+     "dlc": null,
+     "id": "robot-wall-e-c00",
+     "test": "pendiente (no probado en Switch)",
+     "version": "pending"
+    },
+    {
+     "dlc": null,
+     "id": "robot-windows-xp-c04",
+     "test": "pendiente (no probado en Switch)",
+     "version": "pending"
+    },
+    {
+     "dlc": null,
+     "id": "roy-simple-c05",
+     "test": "pendiente (no probado en Switch)",
+     "version": "pending"
+    },
+    {
+     "dlc": null,
+     "id": "ryu-goku-super-saiyan-c05",
+     "test": "pendiente (no probado en Switch)",
+     "version": "pending"
+    },
+    {
+     "dlc": null,
+     "id": "sheik-android18-c07",
+     "test": "pendiente (no probado en Switch)",
+     "version": "pending"
+    },
+    {
+     "dlc": null,
+     "id": "sheik-haku-c02",
+     "test": "pendiente (no probado en Switch)",
+     "version": "pending"
+    },
+    {
+     "dlc": null,
+     "id": "sheik-jane-c03",
+     "test": "pendiente (no probado en Switch)",
+     "version": "pending"
+    },
+    {
+     "dlc": null,
+     "id": "sheik-lucy-c05",
+     "test": "pendiente (no probado en Switch)",
+     "version": "pending"
+    },
+    {
+     "dlc": null,
+     "id": "sheik-nobody-c00",
+     "test": "pendiente (no probado en Switch)",
+     "version": "pending"
+    },
+    {
+     "dlc": null,
+     "id": "sheik-spider-man-c01",
+     "test": "pendiente (no probado en Switch)",
+     "version": "pending"
+    },
+    {
+     "dlc": null,
+     "id": "sheik-tengen-c04",
+     "test": "pendiente (no probado en Switch)",
+     "version": "pending"
+    },
+    {
+     "dlc": null,
+     "id": "sheik-yuffie-c06",
+     "test": "pendiente (no probado en Switch)",
+     "version": "pending"
+    },
+    {
+     "dlc": null,
+     "id": "szerosuit-ada-c01",
+     "test": "pendiente (no probado en Switch)",
+     "version": "pending"
+    },
+    {
+     "dlc": null,
+     "id": "szerosuit-jill-368929-c05",
+     "test": "pendiente (no probado en Switch)",
+     "version": "pending"
+    },
+    {
+     "dlc": null,
+     "id": "szerosuit-jinx-c02",
+     "test": "pendiente (no probado en Switch)",
+     "version": "pending"
+    },
+    {
+     "dlc": null,
+     "id": "szerosuit-lucy-c04",
+     "test": "pendiente (no probado en Switch)",
+     "version": "pending"
+    },
+    {
+     "dlc": null,
+     "id": "szerosuit-gwen-c03",
+     "test": "pendiente (no probado en Switch)",
+     "version": "pending"
+    },
+    {
+     "dlc": null,
+     "id": "trail-kairi-c06",
+     "test": "pendiente (no probado en Switch)",
+     "version": "pending"
+    },
+    {
+     "dlc": null,
+     "id": "trail-riku-kh3-c07",
+     "test": "pendiente (no probado en Switch)",
+     "version": "pending"
+    },
+    {
+     "dlc": null,
+     "id": "trail-riku-c02",
+     "test": "pendiente (no probado en Switch)",
+     "version": "pending"
+    },
+    {
+     "dlc": null,
+     "id": "trail-riku-dark-c03",
+     "test": "pendiente (no probado en Switch)",
+     "version": "pending"
+    },
+    {
+     "dlc": null,
+     "id": "trail-vanitas-c01",
+     "test": "pendiente (no probado en Switch)",
+     "version": "pending"
+    },
+    {
+     "dlc": null,
+     "id": "trail-xion-c00",
+     "test": "pendiente (no probado en Switch)",
+     "version": "pending"
+    },
+    {
+     "dlc": null,
+     "id": "wario-chungus-c00",
+     "test": "pendiente (no probado en Switch)",
+     "version": "pending"
+    },
+    {
+     "dlc": null,
+     "id": "wario-krabs-c04",
+     "test": "pendiente (no probado en Switch)",
+     "version": "pending"
+    },
+    {
+     "dlc": null,
+     "id": "wario-potato-c03",
+     "test": "pendiente (no probado en Switch)",
+     "version": "pending"
+    },
+    {
+     "dlc": null,
+     "id": "wario-peppino-c01",
+     "test": "pendiente (no probado en Switch)",
+     "version": "pending"
+    },
+    {
+     "dlc": null,
+     "id": "wario-sans-c07",
+     "test": "pendiente (no probado en Switch)",
+     "version": "pending"
+    },
+    {
+     "dlc": null,
+     "id": "wario-knuckles-c05",
+     "test": "pendiente (no probado en Switch)",
+     "version": "pending"
+    },
+    {
+     "dlc": null,
+     "id": "wario-man-c06",
+     "test": "pendiente (no probado en Switch)",
+     "version": "pending"
+    },
+    {
+     "dlc": null,
+     "id": "wario-wayonetta-c02",
+     "test": "pendiente (no probado en Switch)",
+     "version": "pending"
+    },
+    {
+     "dlc": null,
+     "id": "wolf-vegeta-c01",
+     "test": "pendiente (no probado en Switch)",
+     "version": "pending"
+    },
+    {
+     "dlc": null,
+     "id": "zelda-aerith-c00",
+     "test": "pendiente (no probado en Switch)",
+     "version": "pending"
+    },
+    {
+     "dlc": null,
+     "id": "zelda-aerith-c01",
+     "test": "pendiente (no probado en Switch)",
+     "version": "pending"
+    },
+    {
+     "dlc": null,
+     "id": "zelda-jean-grey-c02",
+     "test": "pendiente (no probado en Switch)",
      "version": "pending"
     }
    ],
@@ -623,18 +2179,856 @@
    ],
    "excluded_base_slots": [
     {
+     "fighter": "01",
+     "slot": 1
+    },
+    {
+     "fighter": "01",
+     "slot": 2
+    },
+    {
+     "fighter": "01",
+     "slot": 3
+    },
+    {
+     "fighter": "01",
+     "slot": 4
+    },
+    {
+     "fighter": "01",
+     "slot": 5
+    },
+    {
+     "fighter": "01",
+     "slot": 6
+    },
+    {
+     "fighter": "01",
+     "slot": 7
+    },
+    {
+     "fighter": "02",
+     "slot": 6
+    },
+    {
+     "fighter": "03",
+     "slot": 2
+    },
+    {
+     "fighter": "03",
+     "slot": 3
+    },
+    {
+     "fighter": "03",
+     "slot": 4
+    },
+    {
+     "fighter": "03",
+     "slot": 5
+    },
+    {
+     "fighter": "03",
+     "slot": 6
+    },
+    {
+     "fighter": "03",
+     "slot": 7
+    },
+    {
+     "fighter": "04",
+     "slot": 0
+    },
+    {
+     "fighter": "07",
+     "slot": 3
+    },
+    {
+     "fighter": "07",
+     "slot": 5
+    },
+    {
+     "fighter": "07",
+     "slot": 6
+    },
+    {
+     "fighter": "07",
+     "slot": 7
+    },
+    {
+     "fighter": "09",
+     "slot": 0
+    },
+    {
+     "fighter": "09",
+     "slot": 1
+    },
+    {
+     "fighter": "09",
+     "slot": 2
+    },
+    {
+     "fighter": "09",
+     "slot": 3
+    },
+    {
+     "fighter": "09",
+     "slot": 4
+    },
+    {
+     "fighter": "09",
+     "slot": 5
+    },
+    {
+     "fighter": "09",
+     "slot": 6
+    },
+    {
+     "fighter": "09",
+     "slot": 7
+    },
+    {
+     "fighter": "10",
+     "slot": 0
+    },
+    {
+     "fighter": "10",
+     "slot": 2
+    },
+    {
+     "fighter": "10",
+     "slot": 6
+    },
+    {
+     "fighter": "11",
+     "slot": 0
+    },
+    {
+     "fighter": "11",
+     "slot": 2
+    },
+    {
+     "fighter": "11",
+     "slot": 3
+    },
+    {
+     "fighter": "11",
+     "slot": 4
+    },
+    {
+     "fighter": "11",
+     "slot": 5
+    },
+    {
+     "fighter": "11",
+     "slot": 6
+    },
+    {
+     "fighter": "14",
+     "slot": 0
+    },
+    {
+     "fighter": "14",
+     "slot": 1
+    },
+    {
+     "fighter": "14",
+     "slot": 2
+    },
+    {
+     "fighter": "14",
+     "slot": 3
+    },
+    {
+     "fighter": "14",
+     "slot": 4
+    },
+    {
+     "fighter": "14",
+     "slot": 6
+    },
+    {
+     "fighter": "14",
+     "slot": 7
+    },
+    {
+     "fighter": "16",
+     "slot": 0
+    },
+    {
+     "fighter": "16",
+     "slot": 2
+    },
+    {
+     "fighter": "16",
+     "slot": 3
+    },
+    {
+     "fighter": "16",
+     "slot": 7
+    },
+    {
+     "fighter": "17",
+     "slot": 3
+    },
+    {
+     "fighter": "17",
+     "slot": 4
+    },
+    {
+     "fighter": "17",
+     "slot": 5
+    },
+    {
+     "fighter": "17",
+     "slot": 6
+    },
+    {
+     "fighter": "17",
+     "slot": 7
+    },
+    {
+     "fighter": "18",
+     "slot": 2
+    },
+    {
+     "fighter": "18",
+     "slot": 3
+    },
+    {
+     "fighter": "18",
+     "slot": 5
+    },
+    {
+     "fighter": "20",
+     "slot": 1
+    },
+    {
+     "fighter": "20",
+     "slot": 3
+    },
+    {
+     "fighter": "20",
+     "slot": 7
+    },
+    {
+     "fighter": "21",
+     "slot": 1
+    },
+    {
+     "fighter": "21",
+     "slot": 3
+    },
+    {
+     "fighter": "21",
+     "slot": 4
+    },
+    {
+     "fighter": "21",
+     "slot": 5
+    },
+    {
+     "fighter": "21ε",
+     "slot": 0
+    },
+    {
+     "fighter": "21ε",
+     "slot": 1
+    },
+    {
+     "fighter": "21ε",
+     "slot": 2
+    },
+    {
+     "fighter": "21ε",
+     "slot": 3
+    },
+    {
+     "fighter": "21ε",
+     "slot": 4
+    },
+    {
+     "fighter": "21ε",
+     "slot": 5
+    },
+    {
+     "fighter": "21ε",
+     "slot": 6
+    },
+    {
+     "fighter": "21ε",
+     "slot": 7
+    },
+    {
+     "fighter": "22",
+     "slot": 0
+    },
+    {
+     "fighter": "23",
+     "slot": 1
+    },
+    {
+     "fighter": "23",
+     "slot": 2
+    },
+    {
+     "fighter": "23",
+     "slot": 4
+    },
+    {
+     "fighter": "23",
+     "slot": 5
+    },
+    {
+     "fighter": "23",
+     "slot": 7
+    },
+    {
+     "fighter": "25",
+     "slot": 5
+    },
+    {
+     "fighter": "25ε",
+     "slot": 2
+    },
+    {
+     "fighter": "25ε",
+     "slot": 6
+    },
+    {
+     "fighter": "25ε",
+     "slot": 7
+    },
+    {
+     "fighter": "28ε",
+     "slot": 1
+    },
+    {
+     "fighter": "29",
+     "slot": 1
+    },
+    {
+     "fighter": "29",
+     "slot": 2
+    },
+    {
+     "fighter": "29",
+     "slot": 3
+    },
+    {
+     "fighter": "29",
+     "slot": 4
+    },
+    {
+     "fighter": "29",
+     "slot": 5
+    },
+    {
+     "fighter": "30",
+     "slot": 1
+    },
+    {
+     "fighter": "30",
+     "slot": 2
+    },
+    {
+     "fighter": "30",
+     "slot": 3
+    },
+    {
+     "fighter": "30",
+     "slot": 5
+    },
+    {
+     "fighter": "30",
+     "slot": 6
+    },
+    {
+     "fighter": "30",
+     "slot": 7
+    },
+    {
+     "fighter": "31",
+     "slot": 0
+    },
+    {
+     "fighter": "31",
+     "slot": 1
+    },
+    {
+     "fighter": "31",
+     "slot": 4
+    },
+    {
+     "fighter": "32",
+     "slot": 0
+    },
+    {
+     "fighter": "32",
+     "slot": 1
+    },
+    {
+     "fighter": "32",
+     "slot": 5
+    },
+    {
+     "fighter": "33",
+     "slot": 0
+    },
+    {
+     "fighter": "33",
+     "slot": 3
+    },
+    {
+     "fighter": "34",
+     "slot": 3
+    },
+    {
+     "fighter": "35",
+     "slot": 3
+    },
+    {
+     "fighter": "36",
+     "slot": 1
+    },
+    {
+     "fighter": "36",
+     "slot": 2
+    },
+    {
+     "fighter": "36",
+     "slot": 4
+    },
+    {
+     "fighter": "37",
+     "slot": 0
+    },
+    {
+     "fighter": "37",
+     "slot": 1
+    },
+    {
+     "fighter": "37",
+     "slot": 2
+    },
+    {
+     "fighter": "42",
+     "slot": 1
+    },
+    {
+     "fighter": "42",
+     "slot": 2
+    },
+    {
+     "fighter": "42",
+     "slot": 4
+    },
+    {
+     "fighter": "42",
+     "slot": 7
+    },
+    {
+     "fighter": "44",
+     "slot": 1
+    },
+    {
+     "fighter": "44",
+     "slot": 3
+    },
+    {
+     "fighter": "44",
+     "slot": 4
+    },
+    {
+     "fighter": "44",
+     "slot": 5
+    },
+    {
+     "fighter": "47",
+     "slot": 2
+    },
+    {
+     "fighter": "49",
+     "slot": 1
+    },
+    {
+     "fighter": "49",
+     "slot": 2
+    },
+    {
+     "fighter": "54",
+     "slot": 6
+    },
+    {
+     "fighter": "56",
+     "slot": 2
+    },
+    {
+     "fighter": "56",
+     "slot": 3
+    },
+    {
+     "fighter": "56",
+     "slot": 6
+    },
+    {
+     "fighter": "58",
+     "slot": 4
+    },
+    {
+     "fighter": "60",
+     "slot": 1
+    },
+    {
+     "fighter": "60",
+     "slot": 3
+    },
+    {
+     "fighter": "60",
+     "slot": 4
+    },
+    {
+     "fighter": "60",
+     "slot": 5
+    },
+    {
+     "fighter": "60",
+     "slot": 7
+    },
+    {
+     "fighter": "61",
+     "slot": 0
+    },
+    {
+     "fighter": "61",
+     "slot": 1
+    },
+    {
+     "fighter": "61",
+     "slot": 2
+    },
+    {
+     "fighter": "61",
+     "slot": 3
+    },
+    {
+     "fighter": "61",
+     "slot": 4
+    },
+    {
+     "fighter": "61",
+     "slot": 5
+    },
+    {
+     "fighter": "61",
+     "slot": 6
+    },
+    {
+     "fighter": "61",
+     "slot": 7
+    },
+    {
+     "fighter": "62",
+     "slot": 1
+    },
+    {
+     "fighter": "62",
+     "slot": 2
+    },
+    {
+     "fighter": "62",
+     "slot": 3
+    },
+    {
+     "fighter": "62",
+     "slot": 5
+    },
+    {
+     "fighter": "62",
+     "slot": 7
+    },
+    {
+     "fighter": "63",
+     "slot": 1
+    },
+    {
+     "fighter": "63",
+     "slot": 2
+    },
+    {
+     "fighter": "63",
+     "slot": 3
+    },
+    {
+     "fighter": "63",
+     "slot": 4
+    },
+    {
+     "fighter": "63",
+     "slot": 5
+    },
+    {
+     "fighter": "63",
+     "slot": 7
+    },
+    {
+     "fighter": "66",
+     "slot": 1
+    },
+    {
+     "fighter": "68",
+     "slot": 4
+    },
+    {
+     "fighter": "68",
+     "slot": 6
+    },
+    {
+     "fighter": "68",
+     "slot": 7
+    },
+    {
+     "fighter": "69",
+     "slot": 2
+    },
+    {
+     "fighter": "69",
+     "slot": 3
+    },
+    {
+     "fighter": "69",
+     "slot": 4
+    },
+    {
+     "fighter": "69",
+     "slot": 5
+    },
+    {
+     "fighter": "69",
+     "slot": 6
+    },
+    {
+     "fighter": "69",
+     "slot": 7
+    },
+    {
+     "fighter": "72",
+     "slot": 3
+    },
+    {
+     "fighter": "72",
+     "slot": 4
+    },
+    {
+     "fighter": "72",
+     "slot": 5
+    },
+    {
+     "fighter": "72",
+     "slot": 6
+    },
+    {
+     "fighter": "72",
+     "slot": 7
+    },
+    {
+     "fighter": "74",
+     "slot": 1
+    },
+    {
+     "fighter": "74",
+     "slot": 2
+    },
+    {
+     "fighter": "74",
+     "slot": 3
+    },
+    {
+     "fighter": "74",
+     "slot": 6
+    },
+    {
+     "fighter": "74",
+     "slot": 7
+    },
+    {
+     "fighter": "75",
+     "slot": 0
+    },
+    {
+     "fighter": "75",
+     "slot": 1
+    },
+    {
+     "fighter": "75",
+     "slot": 2
+    },
+    {
+     "fighter": "75",
+     "slot": 3
+    },
+    {
+     "fighter": "75",
+     "slot": 4
+    },
+    {
+     "fighter": "75",
+     "slot": 5
+    },
+    {
+     "fighter": "75",
+     "slot": 6
+    },
+    {
+     "fighter": "77",
+     "slot": 0
+    },
+    {
+     "fighter": "77",
+     "slot": 1
+    },
+    {
+     "fighter": "77",
+     "slot": 2
+    },
+    {
+     "fighter": "77",
+     "slot": 3
+    },
+    {
+     "fighter": "77",
+     "slot": 4
+    },
+    {
+     "fighter": "77",
+     "slot": 5
+    },
+    {
+     "fighter": "77",
+     "slot": 6
+    },
+    {
+     "fighter": "77",
+     "slot": 7
+    },
+    {
+     "fighter": "78",
+     "slot": 1
+    },
+    {
+     "fighter": "78",
+     "slot": 2
+    },
+    {
+     "fighter": "78",
+     "slot": 4
+    },
+    {
+     "fighter": "78",
+     "slot": 5
+    },
+    {
+     "fighter": "78",
+     "slot": 7
+    },
+    {
+     "fighter": "79",
+     "slot": 1
+    },
+    {
+     "fighter": "79",
+     "slot": 2
+    },
+    {
+     "fighter": "79",
+     "slot": 3
+    },
+    {
+     "fighter": "79",
+     "slot": 4
+    },
+    {
+     "fighter": "79",
+     "slot": 5
+    },
+    {
+     "fighter": "79",
+     "slot": 6
+    },
+    {
+     "fighter": "79",
+     "slot": 7
+    },
+    {
+     "fighter": "80",
+     "slot": 1
+    },
+    {
+     "fighter": "80",
+     "slot": 2
+    },
+    {
+     "fighter": "80",
+     "slot": 3
+    },
+    {
+     "fighter": "80",
+     "slot": 4
+    },
+    {
+     "fighter": "80",
+     "slot": 5
+    },
+    {
+     "fighter": "80",
+     "slot": 6
+    },
+    {
+     "fighter": "80",
+     "slot": 7
+    },
+    {
+     "fighter": "81",
+     "slot": 2
+    },
+    {
+     "fighter": "81",
+     "slot": 3
+    },
+    {
+     "fighter": "81",
+     "slot": 4
+    },
+    {
+     "fighter": "81",
+     "slot": 5
+    },
+    {
+     "fighter": "81",
+     "slot": 6
+    },
+    {
+     "fighter": "81",
+     "slot": 7
+    },
+    {
+     "fighter": "82",
+     "slot": 6
+    },
+    {
      "fighter": "82",
      "slot": 7
     }
    ],
-   "name": "gian-sin-musica",
+   "name": "gian-prs",
    "other_profiles": [
     "default",
+    "gian-sin-musica",
+    "gian-skins-kh",
     "opt-aqua",
     "opt-aqua-alt",
     "opt-helmetless-ventus"
    ],
-   "ref": "claude/vigilant-keller-6i5s1d@8adc365"
+   "ref": "claude/vigilant-keller-6i5s1d@8e788e6"
   },
   "scanned_at": "2026-10-25T21:26:21Z",
   "sources": [
@@ -647,8 +3041,8 @@
    },
    {
     "id": "perfil",
-    "label": "Perfil local «gian-sin-musica»",
-    "ref": "claude/vigilant-keller-6i5s1d@8adc365",
+    "label": "Perfil local «gian-prs»",
+    "ref": "claude/vigilant-keller-6i5s1d@8e788e6",
     "verification": "Perfil armado y verificado en archivos; pruebas en consola sin conexión anotadas por componente (no certifican online)"
    },
    {
@@ -659,8 +3053,16 @@
     "verification": "En preparación: sin confirmar en la consola"
    }
   ],
-  "updatedAt": "2026-10-26T03:00:09.008981+00:00",
+  "updatedAt": "2026-11-03T08:20:55.952494+00:00",
   "verification": "parcial",
-  "version": "f1485896"
+  "version": "17743eea"
+ },
+ "slot_plan": {
+  "approved": 252,
+  "fighters": 51,
+  "proposed": 97,
+  "seededAt": "2026-11-03T14:58:08.956625+00:00",
+  "undecided": 59,
+  "updatedAt": "2026-11-01T20:30:00-06:00"
  }
 }
