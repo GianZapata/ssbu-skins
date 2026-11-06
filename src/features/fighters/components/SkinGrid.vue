@@ -3,6 +3,7 @@ import { QBtn, QIcon, QInput } from 'quasar'
 import AppImg from '../../../components/AppImg.vue'
 import { S } from '../../../composables/useApp'
 import { trajeName } from '../../../shared/helpers/text'
+import { useGridDensity } from '../../explore/composables/useGridDensity'
 
 interface SkinRow {
   vid: string
@@ -19,8 +20,15 @@ interface SkinGridProps {
   total: number
 }
 
+interface SkinGridEmits {
+  pick: [vid: string]
+  detail: [vid: string]
+}
+
 const props = defineProps<SkinGridProps>()
-const emit = defineEmits<{ (e: 'pick', vid: string): void, (e: 'detail', vid: string): void }>()
+const emit = defineEmits<SkinGridEmits>()
+
+const { compact, toggle } = useGridDensity()
 </script>
 
 <template>
@@ -31,32 +39,44 @@ const emit = defineEmits<{ (e: 'pick', vid: string): void, (e: 'detail', vid: st
     </div>
 
     <template v-else>
-      <q-input
-        v-model="S.tc.q"
-        class="search"
-        outlined
-        type="search"
-        placeholder="Buscar skin"
-        aria-label="Buscar skin"
-        id="skin-search"
-        autocomplete="off"
-      >
-        <template #prepend><q-icon name="search" aria-hidden="true" /></template>
-        <template #append>
-          <q-btn v-if="S.tc.q" flat round dense icon="close" aria-label="Borrar búsqueda" class="search__clear" @click="S.tc.q = ''" />
-        </template>
-      </q-input>
+      <div class="skins__tools">
+        <q-input
+          v-model="S.tc.q"
+          class="search"
+          outlined
+          type="search"
+          placeholder="Buscar skin"
+          aria-label="Buscar skin"
+          id="skin-search"
+          autocomplete="off"
+        >
+          <template #prepend><q-icon name="search" aria-hidden="true" /></template>
+          <template #append>
+            <q-btn v-if="S.tc.q" flat round dense icon="close" aria-label="Borrar búsqueda" class="search__clear" @click="S.tc.q = ''" />
+          </template>
+        </q-input>
+        <button
+          type="button"
+          class="explore__size"
+          :aria-label="compact ? 'Ampliar' : 'Compactar'"
+          :aria-pressed="!compact"
+          @click="toggle"
+        >
+          <q-icon :name="compact ? 'grid_view' : 'view_module'" size="22px" aria-hidden="true" />
+          <span class="explore__size-label">{{ compact ? 'Ampliar' : 'Compactar' }}</span>
+        </button>
+      </div>
 
       <div v-if="!props.rows.length" class="empty" role="status">
         <q-icon name="search_off" size="40px" aria-hidden="true" />
         <b>Sin resultados</b>
       </div>
 
-      <div v-else class="sgrid">
+      <div v-else class="sgrid" :class="{ 'sgrid--compact': compact, 'sgrid--large': !compact }">
         <div v-for="row in props.rows" :key="row.vid" class="card" :class="{ 'card--on': row.chosen }">
-          <button type="button" class="card__btn" :aria-label="row.label" :aria-pressed="row.chosen" :data-skin="row.vid" :data-vid="row.vid" @click="emit('pick', row.vid)">
+          <button type="button" class="card__btn" :aria-label="row.label" :aria-pressed="row.chosen" :data-skin="row.vid" :data-vid="row.vid" :data-keep="row.vid" @click="emit('pick', row.vid)">
             <span class="card__img">
-              <AppImg :src="row.img" fit="contain" />
+              <AppImg :src="row.img" :missing="row.img ? '' : 'Sin retrato'" fit="contain" />
               <span v-if="row.chosen" class="card__check" aria-hidden="true"><q-icon name="check" size="18px" /></span>
               <span v-else-if="row.other !== null" class="card__where" aria-hidden="true">{{ trajeName(row.other) }}</span>
             </span>

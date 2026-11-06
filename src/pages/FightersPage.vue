@@ -1,17 +1,19 @@
 <script setup lang="ts">
 import { QBtn, QIcon, QInput, QPage, QSkeleton } from 'quasar'
 import AppImg from '../components/AppImg.vue'
+import { useGridDensity } from '../features/explore/composables/useGridDensity'
 import Destinations from '../features/fighters/components/Destinations.vue'
 import { fighterQuery, useFightersPage } from './composables/useFightersPage'
 
 const { loading, rows } = useFightersPage()
+const { compact, toggle } = useGridDensity()
 </script>
 
 <template>
   <q-page class="page fighters-page">
     <h1 class="sr-only">Luchadores</h1>
     <Destinations />
-    <div class="search-row">
+    <div class="search-row skins__tools">
       <q-input
         v-model="fighterQuery"
         class="search"
@@ -27,9 +29,20 @@ const { loading, rows } = useFightersPage()
           <q-btn v-if="fighterQuery" flat round dense icon="close" aria-label="Borrar búsqueda" class="search__clear" @click="fighterQuery = ''" />
         </template>
       </q-input>
+      <button
+        type="button"
+        class="explore__size"
+        :aria-label="compact ? 'Ampliar' : 'Compactar'"
+        :aria-pressed="!compact"
+        :disabled="loading"
+        @click="toggle"
+      >
+        <q-icon :name="compact ? 'grid_view' : 'view_module'" size="22px" aria-hidden="true" />
+        <span class="explore__size-label">{{ compact ? 'Ampliar' : 'Compactar' }}</span>
+      </button>
     </div>
 
-    <div v-if="loading" class="fgrid" role="status" aria-busy="true" aria-label="Cargando luchadores">
+    <div v-if="loading" class="fgrid" :class="{ 'fgrid--compact': compact, 'fgrid--large': !compact }" role="status" aria-busy="true" aria-label="Cargando luchadores">
       <div v-for="n in 18" :key="n" class="ft ft--ghost">
         <q-skeleton class="ft__img" animation="pulse" square />
         <q-skeleton class="ft__name-sk" animation="pulse" type="text" />
@@ -41,7 +54,7 @@ const { loading, rows } = useFightersPage()
       <b>Sin resultados</b>
     </div>
 
-    <div v-else class="fgrid">
+    <div v-else class="fgrid" :class="{ 'fgrid--compact': compact, 'fgrid--large': !compact }">
       <a v-for="row in rows" :key="row.fighter.code" class="ft" :href="row.href" :aria-label="row.label" :data-fighter="row.fighter.code">
         <span class="ft__img">
           <AppImg v-if="row.fighter.portrait" :src="row.fighter.portrait" fit="contain" eager />

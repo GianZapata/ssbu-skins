@@ -94,16 +94,37 @@ test('curOf distingue original, mod, pendiente, desconocido, Mii y preparación'
   assert.equal(SSBU.curOf('82', 0, ctx).img.startsWith('data:image/svg+xml'), true);
   assert.equal(SSBU.curOf('01', 1, ctx).kind, 'mod');
   assert.equal(SSBU.curOf('01', 1, ctx).name, 'Gorra');
+  assert.equal(SSBU.curOf('01', 1, ctx).img, null);
+  assert.notEqual(SSBU.curOf('01', 1, ctx).img, mario.portrait);
   const marked = SSBU.curOf('01', 1, { byCode, idx, INV: { fighters: { '01': { slots: { 1: { src: 'perfil', name: 'Kellytoy', replace: 'WuBoy' } } } } } });
   assert.equal(marked.kind, 'mod');
   assert.equal(marked.replace, 'WuBoy');
+  assert.equal(marked.img, null);
   assert.equal(SSBU.curOf('01', 2, ctx).kind, 'pending');
+  assert.equal(SSBU.curOf('01', 2, ctx).img, null);
   assert.equal(SSBU.curOf('01', 3, ctx).kind, 'unknown');
   assert.match(SSBU.curOf('01', 3, ctx).verif, /emuMMC sin conexion/);
   assert.equal(SSBU.curOf('01', 4, ctx).kind, 'original');
   assert.equal(SSBU.curOf('01', 4, ctx).staged.name, 'En rama');
   assert.equal(SSBU.curOf('mii', 0, ctx).kind, 'na');
   assert.equal(SSBU.curOf('no', 0, ctx), null);
+});
+
+test('un mod sin retrato SHA no usa arte original ni s.img', () => {
+  const sha = 'a'.repeat(64);
+  const withSha = SSBU.curOf('01', 1, {
+    byCode,
+    INV: { fighters: { '01': { slots: { 1: { src: 'perfil', name: 'Kellytoy', portrait: sha, img: 'g.webp' } } } } },
+  });
+  const without = SSBU.curOf('01', 1, {
+    byCode,
+    INV: { fighters: { '01': { slots: { 1: { src: 'perfil', name: 'Kellytoy', img: 'g.webp' } } } } },
+  });
+  assert.equal(withSha.kind, 'mod');
+  assert.equal(withSha.img, 'https://res.cloudinary.com/gian-dev/image/upload/f_auto,q_auto,w_512/ssbu/portraits/' + sha);
+  assert.equal(without.img, null);
+  assert.notEqual(without.img, mario.portrait);
+  assert.notEqual(without.img, 'g.webp');
 });
 
 test('onlineOf no trata una declaración como una auditoría ni como incompatible', () => {

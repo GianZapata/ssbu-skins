@@ -51,8 +51,7 @@ const choose = (code: string) => hide(() => selectFighter(code))
         <div v-for="row in rows" :key="row.key" class="card">
           <a class="card__btn" :href="row.href" :aria-label="row.label" :data-keep="row.key">
             <span class="card__img">
-              <AppImg v-if="row.img" :src="row.img" fit="contain" />
-              <span v-else class="card__missing">Sin imagen</span>
+              <AppImg :src="row.img" :missing="row.img ? '' : 'Sin retrato'" fit="contain" />
             </span>
             <span class="card__name">{{ row.title }}</span>
             <span v-if="row.sub" class="card__sub">{{ row.sub }}</span>

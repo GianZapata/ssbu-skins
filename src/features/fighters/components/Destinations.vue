@@ -29,5 +29,5 @@ const planUpdated = computed(() => {
     <a href="#/catalogo" :aria-current="current === 'catalogo' ? 'page' : undefined">Catálogo</a>
     <a href="#/instaladas" :aria-current="current === 'instaladas' ? 'page' : undefined">Instaladas</a>
   </nav>
-  <p v-if="planUpdated" style="margin: 0 0 12px; color: var(--tx-mu); font-size: 13px; line-height: 18px; font-weight: 600;">{{ planUpdated }}</p>
+  <p v-if="planUpdated" class="dest__when">{{ planUpdated }}</p>
 </template>

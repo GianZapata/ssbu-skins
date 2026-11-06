@@ -45,9 +45,9 @@ test('el catálogo compacto filtra por personaje y limpia sin perder el tamaño'
   expect(columns.split(' ').length).toBe(3);
   await page.getByRole('button', { name: 'Personaje: Todos los personajes' }).click();
   await page.getByRole('button', { name: /^Mario, \d+ apariencias/ }).click();
-  await expect(page.getByRole('button', { name: 'Dry Bones (v3.1 Update)' })).toBeVisible();
+  await expect(page.getByRole('button', { name: 'Tanooki Mario' })).toBeVisible();
   await expect(page.getByRole('button', { name: 'Breath of the Wild Princess Zelda' })).toHaveCount(0);
-  await page.getByLabel('Buscar skin').fill('Dry');
+  await page.getByLabel('Buscar skin').fill('Tanooki');
   await expect(page.getByText('1 apariencia')).toBeVisible();
   const before = await page.evaluate(() => JSON.stringify(window.planEntries()));
   await page.getByRole('button', { name: 'Limpiar filtros' }).click();
@@ -59,12 +59,12 @@ test('el catálogo compacto filtra por personaje y limpia sin perder el tamaño'
 test('catálogo e instaladas están aparte y no hay Historial', async ({ page }) => {
   await page.setViewportSize({ width: 390, height: 844 });
   await page.goto('/#/catalogo');
-  await expect(page.getByRole('button', { name: 'Dry Bones (v3.1 Update)' })).toBeVisible();
+  await expect(page.getByRole('button', { name: 'Tanooki Mario' })).toBeVisible();
   await expect(page.getByRole('button', { name: 'Instalar' })).toHaveCount(0);
   await expect(page.getByRole('button', { name: 'Historial' })).toHaveCount(0);
   await page.goto('/#/instaladas');
   await expect(page.getByRole('link', { name: /Ventus/ })).toBeVisible();
-  await expect(page.getByRole('link', { name: /Dry Bones/ })).toHaveCount(0);
+  await expect(page.getByRole('link', { name: /Tanooki/ })).toHaveCount(0);
   await page.goto('/#/notas');
   await expect(page.getByText('Aún no hay búsquedas pendientes')).toBeVisible();
 });
@@ -84,6 +84,37 @@ test('el indicador de sync no pierde su clase', async ({ page }) => {
   await page.setViewportSize({ width: 390, height: 844 });
   await page.goto('/#/luchadores');
   await expect(page.locator('#sync')).toHaveClass(/sync-word/);
+});
+
+test('un traje con mod sin retrato muestra Sin retrato y no una imagen ajena', async ({ page }) => {
+  await page.setViewportSize({ width: 390, height: 844 });
+  await page.goto('/#/tarjeta');
+  await page.getByLabel('Buscar luchador o skin').fill('Duck Hunt');
+  await page.waitForSelector('#f-59 .board-tile');
+  const tile = page.locator('#f-59 .board-tile').first();
+  await expect(tile.locator('.app-img__missing')).toHaveText('Sin retrato');
+  await expect(tile.locator('img')).toHaveCount(0);
+  await expect(tile.locator('.q-img')).toHaveCount(0);
+  await page.goto('/#/luchador/59/1');
+  await expect(page.locator('.cmp__img--cur .app-img__missing')).toHaveText('Sin retrato');
+  await expect(page.locator('.cmp__img--cur img')).toHaveCount(0);
+  await expect(page.locator('.cmp__img--cur .q-img')).toHaveCount(0);
+});
+
+test('la tarjeta muestra el mosaico y Cambios', async ({ page }) => {
+  await page.setViewportSize({ width: 390, height: 844 });
+  await page.goto('/#/tarjeta');
+  await page.waitForSelector('#f-01 .board-tile');
+  await expect(page.locator('#f-01 .board-tile')).toHaveCount(8);
+  await expect(page.locator('#ttl')).toBeVisible();
+  await expect(page.getByRole('button', { name: 'Ver elegidas, 0' })).toBeVisible();
+  await expect(page.getByRole('button', { name: 'Ver elegidas, 0' })).toHaveText('Cambios · 0');
+  await expect(page.getByText('Variantes: aún no disponibles').first()).toBeVisible();
+  await expect(page.getByRole('button', { name: 'Ampliar' })).toBeVisible();
+  await page.getByRole('button', { name: 'Ver elegidas, 0' }).click();
+  await expect(page.getByRole('dialog', { name: 'Elegidas' })).toBeVisible();
+  await expect(page.getByRole('button', { name: 'Exportar' })).toHaveCount(0);
+  await expect(page.locator('[data-undo]')).toHaveCount(0);
 });
 
 test('un enlace directo no sale de la app con Volver', async ({ page }) => {
@@ -128,7 +159,7 @@ test('mirar el detalle no cambia la candidata', async ({ page }) => {
 test('el catálogo pide elegir traje y no escribe el plan', async ({ page }) => {
   await page.setViewportSize({ width: 390, height: 844 });
   await page.goto('/#/catalogo');
-  await page.getByRole('button', { name: 'Dry Bones (v3.1 Update)' }).click();
+  await page.getByRole('button', { name: 'Tanooki Mario' }).click();
   const before = await page.evaluate(() => JSON.stringify(window.planEntries()));
   await expect(page.getByRole('button', { name: 'Elegir traje' })).toBeVisible();
   await expect(page.getByRole('button', { name: 'Guardar elección' })).toHaveCount(0);
@@ -167,7 +198,7 @@ test('filtrar un personaje no suma profundidad', async ({ page }) => {
 test('la ficha del catálogo deja el catálogo debajo', async ({ page }) => {
   await page.setViewportSize({ width: 320, height: 700 });
   await page.goto('/#/catalogo');
-  await page.getByRole('button', { name: 'Dry Bones (v3.1 Update)' }).click();
+  await page.getByRole('button', { name: 'Tanooki Mario' }).click();
   await expect(page.getByRole('dialog', { name: /Detalle de/ })).toBeVisible();
   await expect(page.locator('.list-page--catalog [data-vid]').first()).toBeAttached();
 });
@@ -199,11 +230,11 @@ test('al bajar, la lista y el personaje caben en la barra que ya estaba', async 
 test('volver del detalle conserva la búsqueda', async ({ page }) => {
   await page.setViewportSize({ width: 390, height: 844 });
   await page.goto('/#/catalogo');
-  await page.getByLabel('Buscar skin').fill('Dry');
-  await page.getByRole('button', { name: /Dry Bones/ }).first().click();
+  await page.getByLabel('Buscar skin').fill('Tanooki');
+  await page.getByRole('button', { name: /Tanooki Mario/ }).first().click();
   const before = await page.evaluate(() => window.planEntries().length);
   await page.getByRole('button', { name: 'Cerrar' }).click();
-  await expect(page.getByLabel('Buscar skin')).toHaveValue('Dry');
+  await expect(page.getByLabel('Buscar skin')).toHaveValue('Tanooki');
   await expect.poll(() => page.evaluate(() => window.planEntries().length)).toBe(before);
 });
 

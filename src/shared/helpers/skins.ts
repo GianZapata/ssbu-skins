@@ -24,3 +24,7 @@ export const currentName = (current: Current | null) => {
   if (current.kind === 'mod' || current.kind === 'pending' || current.kind === 'unknown') return current.name
   return ''
 }
+
+export const missingPortrait = () => 'Sin retrato'
+
+export const missingPortraitOf = (name: string) => 'Sin retrato, ' + name

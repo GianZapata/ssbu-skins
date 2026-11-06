@@ -1,67 +1,23 @@
 <script setup lang="ts">
-import { computed, shallowRef, watch } from 'vue'
 import { QBtn, QDialog, QIcon } from 'quasar'
 import AppImg from '../../../components/AppImg.vue'
-import { back, fighterOf, route, swap, tick } from '../../../composables/useApp'
-import { useDesktop } from '../../../composables/useDesktop'
-import { clearAt, planGroups } from '../../plan/composables/usePlan'
-import { useSaveStatus } from '../../plan/saveStatus'
-import { curOf, skinOf } from '../../plan/helpers/lookup'
-import { currentName, thumbOf } from '../../../shared/helpers/skins'
-import { trajeName } from '../../../shared/helpers/text'
+import { useSummarySheet } from '../composables/useSummarySheet'
 
-const desktop = useDesktop()
-const { saving, saved, savedHere } = useSaveStatus()
-
-const open = computed(() => {
-  tick.value
-  return route.value.v === 'cambios'
-})
-
-const groups = computed(() => {
-  tick.value
-  return planGroups().map((group) => ({
-    code: group.fighter.code,
-    name: group.fighter.name,
-    portrait: group.fighter.portrait || null,
-    rows: group.rows.map((row) => {
-      const cur = curOf(row.code, row.n)
-      const skin = skinOf(row.vid)
-      const from = currentName(cur)
-      const to = skin ? skin.name : 'Skin sin nombre'
-      const shown = cur?.kind === 'original' ? 'Original' : from
-      return {
-        code: row.code,
-        n: row.n,
-        t: trajeName(row.n),
-        from: shown,
-        to,
-        fromImg: cur ? cur.img : null,
-        toImg: thumbOf(skin),
-        label: group.fighter.name + ', ' + trajeName(row.n) + ': ' + (shown || 'skin sin nombre') + ' cambia a ' + to,
-        quitar: 'Quitar elección, ' + trajeName(row.n) + ' de ' + group.fighter.name,
-      }
-    }),
-  }))
-})
-
-const kept = shallowRef<typeof groups.value>([])
-
-const shown = computed(() => (open.value ? groups.value : kept.value))
-
-const empty = computed(() => open.value && !groups.value.length)
-
-const close = () => { if (route.value.v === 'cambios') back() }
-
-const chooseFighter = () => { swap('#/luchadores') }
-
-const goTo = (code: string, n: number) => {
-  if (!fighterOf(code)) return
-
-  swap('#/luchador/' + encodeURIComponent(code) + '/' + (n + 1))
-}
-
-watch(groups, (value) => { if (value.length) kept.value = value }, { immediate: true })
+const {
+  desktop,
+  saving,
+  saved,
+  savedHere,
+  open,
+  shownMine,
+  shownFriends,
+  empty,
+  friendTitle,
+  close,
+  chooseFighter,
+  goTo,
+  undo,
+} = useSummarySheet()
 </script>
 
 <template>
@@ -93,25 +49,51 @@ watch(groups, (value) => { if (value.length) kept.value = value }, { immediate: 
       </div>
 
       <div v-else class="sheet__scroll">
-        <section v-for="group in shown" :key="group.code" class="grp">
+        <section v-for="group in shownMine" :key="group.code" class="grp">
           <div class="grp__head">
             <span class="grp__face"><AppImg :src="group.portrait" fit="contain" /></span>
             <span class="grp__name">{{ group.name }}</span>
           </div>
           <div v-for="row in group.rows" :key="row.code + '_' + row.n" class="srow">
             <button type="button" class="srow__go" :aria-label="row.label" @click="goTo(row.code, row.n)">
-              <span class="srow__from"><AppImg :src="row.fromImg" fit="contain" /></span>
+              <span class="srow__from"><AppImg :src="row.fromImg" :missing="row.fromImg ? '' : 'Sin retrato'" fit="contain" /></span>
               <q-icon name="east" size="18px" class="srow__arrow" aria-hidden="true" />
-              <span class="srow__to"><AppImg :src="row.toImg" fit="contain" /></span>
+              <span class="srow__to"><AppImg :src="row.toImg" :missing="row.toImg ? '' : 'Sin retrato'" fit="contain" /></span>
               <span class="srow__txt">
                 <span class="srow__t">{{ row.t }}</span>
                 <span class="srow__new">{{ row.to }}</span>
                 <span v-if="row.from" class="srow__old">Sustituye a {{ row.from }}</span>
               </span>
             </button>
-            <q-btn flat round padding="0" class="srow__x" :aria-label="row.quitar" :data-undo="row.code + '_' + row.n" @click="clearAt(row.code, row.n)">
+            <q-btn flat round padding="0" class="srow__x" :aria-label="row.quitar" :data-undo="row.code + '_' + row.n" @click="undo(row.code, row.n)">
               <span class="srow__x-dot"><q-icon name="close" size="16px" aria-hidden="true" /></span>
             </q-btn>
+          </div>
+        </section>
+
+        <section v-if="shownFriends.length" class="grp grp--friends">
+          <h3 class="grp__origin">{{ friendTitle }}</h3>
+          <div v-for="group in shownFriends" :key="'f-' + group.code">
+            <div class="grp__head">
+              <span class="grp__face"><AppImg :src="group.portrait" fit="contain" /></span>
+              <span class="grp__name">{{ group.name }}</span>
+            </div>
+            <div v-for="row in group.rows" :key="row.code + '_' + row.n" class="srow">
+              <button type="button" class="srow__go" :aria-label="row.label" @click="goTo(row.code, row.n)">
+                <span class="srow__from"><AppImg :src="row.fromImg" :missing="row.fromImg ? '' : 'Sin retrato'" fit="contain" /></span>
+                <q-icon name="east" size="18px" class="srow__arrow" aria-hidden="true" />
+                <span class="srow__to"><AppImg :src="row.toImg" :missing="row.toImg ? '' : 'Sin retrato'" fit="contain" /></span>
+                <span class="srow__txt">
+                  <span class="srow__t">{{ row.t }}</span>
+                  <span class="srow__new">{{ row.to }}</span>
+                  <span v-if="row.from" class="srow__old">Sustituye a {{ row.from }}</span>
+                  <span class="srow__who">{{ row.author }}{{ row.when ? ' · ' + row.when : '' }}</span>
+                </span>
+              </button>
+              <q-btn flat round padding="0" class="srow__x" :aria-label="row.quitar" :data-undo="row.code + '_' + row.n" @click="undo(row.code, row.n)">
+                <span class="srow__x-dot"><q-icon name="close" size="16px" aria-hidden="true" /></span>
+              </q-btn>
+            </div>
           </div>
         </section>
       </div>

@@ -8,3 +8,10 @@ export const previewUrl = (publicId: string) =>
 
 export const isSha = (value: unknown): value is string =>
   typeof value === 'string' && /^[a-f0-9]{64}$/.test(value)
+
+export const costumeSrc = (sha: unknown, isOriginal: boolean, originalArt?: string | null) => {
+  if (isSha(sha)) return portraitUrl(sha)
+  if (isOriginal) return originalArt || ''
+
+  return ''
+}
