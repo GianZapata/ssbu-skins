@@ -117,6 +117,28 @@ test('la tarjeta muestra el mosaico y Cambios', async ({ page }) => {
   await expect(page.locator('[data-undo]')).toHaveCount(0);
 });
 
+test('la tarjeta tiene una barra compacta y trajes grandes', async ({ page }) => {
+  await page.setViewportSize({ width: 1280, height: 800 });
+  await page.goto('/#/tarjeta');
+  await page.waitForSelector('#f-01 .board-tile');
+  const head = await page.locator('#f-01 .board-f__head').boundingBox();
+  expect(head.y).toBeLessThan(280);
+  const tile = await page.locator('#f-01 .board-tile').first().boundingBox();
+  expect(tile.width).toBeGreaterThan(200);
+  await expect(page.getByText('Variantes: aún no disponibles')).toHaveCount(1);
+  await expect(page.locator('.dest a[aria-current="page"]')).toHaveText('Tarjeta');
+  await page.setViewportSize({ width: 390, height: 844 });
+  const head390 = await page.locator('#f-01 .board-f__head').boundingBox();
+  expect(head390.y).toBeLessThan(420);
+});
+
+test('luchadores muestra cuántos trajes son tuyos', async ({ page }) => {
+  await page.goto('/#/luchadores');
+  await page.waitForSelector('.ft');
+  await expect(page.locator('.ft[data-fighter="01"] .ft__own')).toHaveText('8/8');
+  await expect(page.locator('.ft[data-fighter="01"]')).toHaveAttribute('aria-label', /8 de 8 trajes tuyos/);
+});
+
 test('un enlace directo no sale de la app con Volver', async ({ page }) => {
   await page.setViewportSize({ width: 390, height: 844 });
   await page.goto('/#/catalogo');

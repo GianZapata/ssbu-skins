@@ -148,7 +148,8 @@ input { caret-color: var(--color-pend); }
 .sync-word:empty { display: none; }
 .q-btn.hdr-btn { flex: none; min-height: 48px; padding: 0 8px; color: var(--tx) !important; font-weight: 600; white-space: nowrap; }
 .q-btn.hdr-btn--on { color: var(--color-pend) !important; }
-.sync-fail, .notice { display: flex; align-items: center; gap: 8px; padding: 0 12px 8px; color: var(--tx); font-size: 14px; }
+.sync-fail, .notice { display: flex; align-items: center; gap: 8px; padding: 0 16px 8px; color: var(--tx); font-size: 14px; }
+.sync-fail .q-btn.hdr-btn { min-height: 40px; padding: 0 12px; margin-left: auto; border: 1px solid var(--bd-active); border-radius: 8px; background: var(--s2); color: var(--tx) !important; font-size: 13px; }
 .sync-fail span, .notice span { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 
 @media (max-width: 1023px) {
@@ -235,6 +236,9 @@ button.ft { appearance: none; border: 0; margin: 0; padding: 0; background: tran
 .ft__badge { position: absolute; top: 6px; right: 6px; min-width: 24px; height: 24px; box-sizing: border-box; padding: 0 6px; border-radius: 12px; background: var(--s3); color: var(--tx); font-size: 14px; font-weight: 700; display: flex; align-items: center; justify-content: center; z-index: 2; }
 .ft__badge--chosen { background: var(--ac); color: var(--ac-ink); }
 
+.ft__own { align-self: center; margin-top: -4px; padding: 0 8px; border-radius: 999px; background: var(--color-raise); color: var(--color-mute); font-size: 12px; line-height: 18px; font-weight: 700; font-variant-numeric: tabular-nums; }
+.ft__own--full { background: var(--color-actualbg); color: var(--color-actual); }
+.ft__own--none { background: transparent; color: var(--color-dim); font-weight: 600; }
 .ft--ghost .ft__img { border-radius: 16px; height: auto; aspect-ratio: 1 / 1; border: 0; }
 .ft--ghost .ft__name-sk { height: 14px; width: 70%; margin: 2px auto; }
 .q-skeleton { background: var(--s2) !important; }
@@ -417,9 +421,12 @@ button.ft { appearance: none; border: 0; margin: 0; padding: 0; background: tran
 .pswp__thumbs button[aria-current="true"] { opacity: 1; outline: 2px solid var(--ac); }
 .pswp__thumbs img { width: 100%; height: 100%; object-fit: cover; }
 
-.dest { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; margin-bottom: 4px; }
-.dest a { min-height: 48px; display: flex; align-items: center; justify-content: center; border-radius: 12px; background: var(--s2); color: var(--tx); text-decoration: none; font-weight: 600; border: 1px solid var(--bd); }
-.dest a[aria-current="page"] { background: var(--s3); border-color: var(--tx); }
+.dest-bar { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 12px; border-bottom: 1px solid var(--bd); }
+.dest { display: flex; gap: 4px; min-width: 0; }
+.dest a { min-height: 44px; padding: 0 12px; display: flex; align-items: center; color: var(--tx-mu); text-decoration: none; font-weight: 600; font-size: 15px; border-bottom: 2px solid transparent; margin-bottom: -1px; transition: color 140ms, border-color 140ms; }
+.dest a:hover { color: var(--tx); }
+.dest a[aria-current="page"] { color: var(--tx); border-bottom-color: var(--ac); }
+.dest a:first-child { padding-left: 0; }
 .search-row--pair { display: flex; gap: 8px; align-items: flex-start; }
 .search-row--pair .search { flex: 1; min-width: 0; }
 .cgroup { display: flex; flex-direction: column; margin-top: 20px; }
@@ -459,7 +466,8 @@ a.card__btn { text-decoration: none; }
 .list-page--catalog .card__img { aspect-ratio: 4 / 3; }
 .list-page .card__name { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; white-space: normal; font-size: 13px; line-height: 18px; padding: 8px; min-height: calc(18px * 2 + 16px); }
 .list-page .card--ghost .card__name-sk, .fighter-ghost .card--ghost .card__name-sk { height: 36px; width: 70%; margin: 8px; }
-.list-page .card__sub { margin-top: 0; padding: 0 8px 8px; }
+.list-page .card__sub { margin: 0 0 8px; padding: 0 8px; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; white-space: normal; }
+.list-page .card__btn .card__name:has(+ .card__sub) { min-height: 0; padding-bottom: 2px; }
 .explore { display: flex; flex-direction: column; gap: 8px; }
 .explore__tools { display: flex; gap: 8px; }
 .explore__fighter { flex: 1; min-width: 0; height: 48px; display: flex; align-items: center; gap: 8px; padding: 0 10px; border-radius: 14px; border: 1px solid var(--bd); background: var(--s2); color: var(--tx); font: inherit; font-size: 15px; font-weight: 500; cursor: pointer; }
@@ -475,7 +483,8 @@ a.card__btn { text-decoration: none; }
 .explore__meta span { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; color: var(--tx-mu); font-size: 14px; }
 .explore__clear { flex: none; height: 48px; padding: 0 12px; border: 0; background: none; color: var(--tx-mu); font: inherit; font-size: 14px; font-weight: 600; cursor: pointer; }
 .card__missing { display: flex; align-items: center; justify-content: center; width: 100%; height: 100%; color: var(--color-mute); font-size: 13px; line-height: 18px; text-align: center; padding: 8px; }
-.dest__when { margin: 0 0 12px; color: var(--color-mute); font-size: 13px; line-height: 18px; font-weight: 600; }
+.dest__when { flex: none; margin: 0; color: var(--color-mute); font-size: 12px; line-height: 16px; font-weight: 600; font-variant-numeric: tabular-nums; }
+@media (max-width: 559px) { .dest__when { position: absolute; width: 1px; height: 1px; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; } }
 .fgrid--compact { gap: 10px 8px; }
 .fgrid--large { gap: 16px 14px; }
 .fighter-page .sgrid--compact { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; }
@@ -508,6 +517,16 @@ a.card__btn { text-decoration: none; }
   .list-page .sgrid--compact { grid-template-columns: repeat(6, minmax(0, 1fr)); }
   .list-page .sgrid--large { grid-template-columns: repeat(4, minmax(0, 1fr)); }
 }
+
+/* ============================ Capturas de skins sin franja muerta ============================ */
+.fighter-page .card__img { aspect-ratio: 4 / 3; }
+
+/* ============================ Guías de interfaz web ============================ */
+button, a, .q-btn, .card__btn, .ft, .board-tile__hit { touch-action: manipulation; }
+.q-dialog__inner, .sheet__body, .sheet__scroll, .board-rail, .board-filters__list { overscroll-behavior: contain; }
+.board-counts, .board-f__own, .board-rail__own, .board-rail__pend, .picked__n, .cgroup__n, .explore__meta span, .ft__badge { font-variant-numeric: tabular-nums; }
+h1, h2, h3 { text-wrap: balance; }
+html { -webkit-tap-highlight-color: color-mix(in srgb, var(--color-pend) 20%, transparent); }
 
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }

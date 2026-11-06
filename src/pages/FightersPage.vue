@@ -62,6 +62,7 @@ const { compact, toggle } = useGridDensity()
           <span v-if="row.count" class="ft__badge ft__badge--chosen" aria-hidden="true">{{ row.count }}</span>
         </span>
         <span class="ft__name">{{ row.fighter.name }}</span>
+        <span class="ft__own" :class="{ 'ft__own--full': row.own === 8, 'ft__own--none': row.own === 0 }" aria-hidden="true">{{ row.own }}/8</span>
       </a>
     </div>
   </q-page>

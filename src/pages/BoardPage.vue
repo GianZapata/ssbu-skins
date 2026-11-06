@@ -109,6 +109,12 @@ const {
       </select>
     </div>
 
+    <p v-if="!loading && fighters.length" class="board-note">
+      <span class="board-note__key"><i class="board-dot board-dot--own" aria-hidden="true"></i>Tu skin</span>
+      <span class="board-note__key"><i class="board-dot" aria-hidden="true"></i>Original o WuBoy</span>
+      <span class="board-note__soon">{{ variantsLabel }}</span>
+    </p>
+
     <div v-if="loading" class="board-skel" role="status" aria-busy="true" aria-label="Cargando tarjeta">
       <span class="sr-only">Cargando tarjeta</span>
       <q-skeleton v-for="n in 8" :key="n" class="board-skel__tile" animation="pulse" square />
@@ -181,7 +187,7 @@ const {
                 type="button"
                 class="board-tile__hit"
                 :aria-disabled="!pick || pick.code !== fighter.code"
-                :aria-label="'Traje ' + n + ', ' + costumeName(fighter.code, n - 1) + (pick && pick.code === fighter.code ? '. Poner aquí ' + pick.name : '')"
+                :aria-label="'Traje ' + n + ', ' + costumeName(fighter.code, n - 1) + (isOwn(fighter.code, n - 1) ? ', tu skin' : '') + (pick && pick.code === fighter.code ? '. Poner aquí ' + pick.name : '')"
                 @click="choose(fighter.code, n - 1)"
               >
                 <span class="board-tile__img">
@@ -193,11 +199,10 @@ const {
                   />
                 </span>
                 <span class="board-tile__name">
-                  <b>Traje {{ n }}</b>
+                  <b><i class="board-dot" :class="{ 'board-dot--own': isOwn(fighter.code, n - 1) }" aria-hidden="true"></i>Traje {{ n }}</b>
                   <span>{{ costumeName(fighter.code, n - 1) }}</span>
                 </span>
               </button>
-              <p class="board-tile__variants">{{ variantsLabel }}</p>
               <div v-if="chosenVid(fighter.code, n - 1)" class="board-tile__pend">
                 <p>{{ pendingStrip(fighter.code, n - 1) }}</p>
                 <q-btn
@@ -246,7 +251,6 @@ const {
                   >
                     Elegir
                   </button>
-                  <p class="board-alt__variants">{{ variantsLabel }}</p>
                 </div>
               </li>
             </ul>
@@ -279,9 +283,11 @@ const {
 <style scoped>
 .board { padding-bottom: calc(96px + var(--safe-bot)); }
 
-.board-tools { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; }
-.board-tools .search { flex: 1 1 16rem; }
-.board-counts { margin: 0; flex: 1 1 12rem; font-size: 12px; line-height: 16px; color: var(--color-mute); }
+.board-tools { display: grid; grid-template-columns: minmax(0, 1fr) auto auto; align-items: center; gap: 8px; position: static; padding-bottom: 8px; }
+.board-tools .search { grid-column: 1 / -1; }
+.board-counts { grid-column: 1; grid-row: 2; margin: 0; min-width: 0; font-size: 12px; line-height: 16px; color: var(--color-mute); display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+.board-filters { grid-row: 2; }
+.board-density { grid-row: 2; }
 .board-filters { position: relative; }
 .board-filters summary {
   list-style: none;
@@ -335,7 +341,12 @@ const {
   font: inherit;
   font-size: 12px;
 }
-.board-jump { margin-top: 8px; }
+.board-jump { position: sticky; top: var(--hdr-off); z-index: 4; padding: 4px 0 8px; background: var(--bg); }
+.board-note { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 16px; margin: 0 0 4px; font-size: 12px; line-height: 16px; color: var(--color-mute); }
+.board-note__key { display: inline-flex; align-items: center; gap: 6px; }
+.board-note__soon { color: var(--color-dim); }
+.board-dot { flex: none; display: inline-block; width: 8px; height: 8px; box-sizing: border-box; border: 1.5px solid var(--color-dim); border-radius: 50%; }
+.board-dot--own { border-color: var(--color-actual); background: var(--color-actual); }
 .board-jump__select {
   width: 100%;
   min-height: 44px;
@@ -400,18 +411,12 @@ const {
   cursor: default;
 }
 .board-tile--target .board-tile__hit { cursor: pointer; }
-.board-tile__img { position: relative; display: block; aspect-ratio: 104 / 105; background: var(--color-stage); }
-.board--expanded .board-tile__img { min-height: 10rem; }
-.board-tile__name { display: grid; gap: 2px; padding: 8px 10px; font-size: 14px; line-height: 20px; min-width: 0; }
-.board-tile__name b { color: var(--color-ink); }
+.board-tile__img { position: relative; display: block; box-sizing: border-box; height: clamp(8rem, 16vw, 11rem); padding: 8px; background: var(--color-stage); }
+.board-tile__img :deep(.app-img) { background: transparent; }
+.board--expanded .board-tile__img { height: clamp(10rem, 20vw, 13.5rem); }
+.board-tile__name { display: grid; gap: 2px; padding: 8px 10px 10px; font-size: 14px; line-height: 20px; min-width: 0; }
+.board-tile__name b { display: flex; align-items: center; gap: 6px; color: var(--color-ink); }
 .board-tile__name span { color: var(--color-mute); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-.board-tile__variants, .board-alt__variants {
-  margin: 0;
-  padding: 0 10px 8px;
-  font-size: 12px;
-  line-height: 16px;
-  color: var(--color-dim);
-}
 .board-tile__pend {
   display: flex;
   flex-direction: column;
@@ -457,12 +462,15 @@ const {
 .board-dock p { flex: 1; min-width: 0; margin: 0; font-size: 15px; line-height: 20px; }
 .board-dock b { overflow-wrap: anywhere; }
 
-@media (min-width: 700px) { .board-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+@media (min-width: 700px) { .board-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; } }
 @media (min-width: 1024px) {
   .board-jump { display: none; }
+  .board-tools { display: flex; flex-wrap: wrap; position: sticky; }
+  .board-tools .search { flex: 1 1 16rem; }
+  .board-counts { flex: 1 1 12rem; display: block; }
   .board-layout { grid-template-columns: 9.5rem minmax(0, 1fr); align-items: start; gap: 24px; }
   .board-rail { display: flex; flex-direction: column; position: sticky; top: calc(var(--hdr-off) + 8px); max-height: calc(100dvh - var(--hdr-off) - 24px); overflow-y: auto; }
-  .board-grid { grid-template-columns: repeat(8, minmax(0, 1fr)); gap: 8px; }
+  .board-grid { gap: 16px; }
 }
 @media (prefers-reduced-motion: reduce) { .board-f { transition: none; } }
 </style>

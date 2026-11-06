@@ -76,7 +76,7 @@ const { compact, toggle } = useGridDensity()
         <div v-for="row in props.rows" :key="row.vid" class="card" :class="{ 'card--on': row.chosen }">
           <button type="button" class="card__btn" :aria-label="row.label" :aria-pressed="row.chosen" :data-skin="row.vid" :data-vid="row.vid" :data-keep="row.vid" @click="emit('pick', row.vid)">
             <span class="card__img">
-              <AppImg :src="row.img" :missing="row.img ? '' : 'Sin retrato'" fit="contain" />
+              <AppImg :src="row.img" :missing="row.img ? '' : 'Sin retrato'" fit="cover" />
               <span v-if="row.chosen" class="card__check" aria-hidden="true"><q-icon name="check" size="18px" /></span>
               <span v-else-if="row.other !== null" class="card__where" aria-hidden="true">{{ trajeName(row.other) }}</span>
             </span>
