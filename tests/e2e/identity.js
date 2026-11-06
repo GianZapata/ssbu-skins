@@ -37,7 +37,7 @@ module.exports = async (b, base) => {
   }
   await P.goto(base + '#/luchador/75/1'); await P.waitForSelector('.cmp__img--cur img'); ok(await P.evaluate(() => { const i = document.querySelector('.cmp__img--cur img'); return !!i && i.complete && i.naturalWidth > 0; }), 'la pantalla del traje también muestra la imagen del original');
   // inventario del perfil gian-prs
-  const inv = await P.evaluate(() => { const k = (c, n) => { const x = curOf(c, n); return { kind: x.kind, name: x.name, verif: x.verif, stg: !!x.staged, rep: x.replace || null }; }; return { sora4: k('82', 4), sora5: k('82', 5), samus1: k('04', 1), samus5: k('04', 5), mario1: k('01', 1), mario2: k('01', 2), pyra0: k('79', 0), myth0: k('80', 0), steve0: k('77', 0), steve1: k('77', 1), steve2: k('77', 2), steve3: k('77', 3), cap2: k('11', 2), ike0: k('32', 0), dk1: k('02', 1), meta: INV.meta.profile && INV.meta.profile.name, ver: INV.meta.version }; });
+  const inv = await P.evaluate(() => { const k = (c, n) => { const x = curOf(c, n); return { kind: x.kind, name: x.name, verif: x.verif, stg: !!x.staged, rep: x.replace || null }; }; return { sora4: k('82', 4), sora5: k('82', 5), daisy1: k('13', 1), daisy3: k('13', 2), mario1: k('01', 1), mario2: k('01', 2), pyra0: k('79', 0), myth0: k('80', 0), steve0: k('77', 0), steve1: k('77', 1), steve2: k('77', 2), steve3: k('77', 3), cap2: k('11', 2), ike0: k('32', 0), dk1: k('02', 1), meta: INV.meta.profile && INV.meta.profile.name, ver: INV.meta.version }; });
   ok(inv.meta === 'gian-prs', 'el inventario representa el perfil gian-prs');
   ok(inv.sora4.name === 'Ventus (Dusk)' && /13\.0\.5/.test(inv.sora4.verif), 'Sora c04 Ventus: nombre y prueba en consola del ModPack (13.0.5, sin conexión)');
   ok(inv.sora5.name.includes('Roxas') && inv.ike0.name === 'Terra' && inv.dk1.name === 'Funky Kong', 'favoritos del perfil: Roxas, Terra y Funky Kong en sus trajes');
@@ -45,11 +45,11 @@ module.exports = async (b, base) => {
   ok(inv.steve0.name === 'Steviroth' && inv.steve1.name === 'Villager' && inv.steve2.name === 'Stick Figures' && inv.steve3.name === 'ROBLOX Noob', 'Steve: los 8 colores vienen del perfil; «Optionals» excluido');
   ok(inv.mario1.kind === 'mod' && inv.mario1.name === 'Kellytoy Mario' && inv.cap2.name === 'Shaggy' && inv.cap2.rep === null && inv.cap2.kind === 'mod', 'skins de los PR con prioridad: Kellytoy en Mario traje 2 y Shaggy en Captain Falcon traje 3 (sin pendientes de reemplazo)');
   ok(inv.mario2.kind === 'mod' && inv.mario2.name === 'Wheelchair Mario', 'Mario traje 3: Wheelchair Mario del plan de slots');
-  ok(inv.samus1.kind === 'original' && inv.samus5.kind === 'pending', 'originales y trajes por identificar se distinguen');
+  ok(inv.daisy1.kind === 'original' && inv.daisy3.kind === 'pending', 'originales y trajes por identificar se distinguen');
   // la tira muestra «Traje N»; el nombre de cada traje va en la etiqueta accesible del botón
-  await P.goto(base + '#/luchador/04'); await P.waitForSelector('[data-view="fighter:04"] .strip .cell__btn');
-  const tags = (await P.$$eval('[data-view="fighter:04"] .strip .cell__btn', bs => bs.map(b => b.getAttribute('aria-label') || ''))).join(' | ');
-  ok(tags.includes('Traje 6: Nombre pendiente') && !/Apariencia sin identificar/.test(tags), 'la pantalla del luchador usa «Nombre pendiente», sin etiquetas duplicadas');
+  await P.goto(base + '#/luchador/13'); await P.waitForSelector('[data-view="fighter:13"] .strip .cell__btn');
+  const tags = (await P.$$eval('[data-view="fighter:13"] .strip .cell__btn', bs => bs.map(b => b.getAttribute('aria-label') || ''))).join(' | ');
+  ok(tags.includes('Traje 3: Nombre pendiente') && !/Apariencia sin identificar/.test(tags), 'la pantalla del luchador usa «Nombre pendiente», sin etiquetas duplicadas');
   await P.goto(base + '#/luchador/11/3'); await P.waitForSelector('.cmp'); ok(/Shaggy/.test(await P.textContent('.cmp')), 'Shaggy sigue instalado en su traje');
   // regresión Shadow Mewtwo
   const mw = await P.evaluate(() => { const f = F.find(f => /Mewtwo/.test(f.name)); const sm = f.picks.find(p => /Shadow Mewtwo/i.test(p.name)); return { code: f.code, vid: sm && sm.vid }; });
