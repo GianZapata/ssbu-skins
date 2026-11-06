@@ -1,6 +1,6 @@
 {
  "_nota": "Decisiones de slots de Gian. state: mod|wuboy|vanilla; source: drive|profile|wuboy|vanilla; approved false = propuesta. Regenerar el informe: python3 tools/slot_plan.py [--check]. Un grupo [a, b] en priority comparte posición (Pyra y Mythra). updated_at cambia solo cuando cambia una decisión, no al copiar el plan.",
- "updated_at": "2026-11-05T22:30:00-06:00",
+ "updated_at": "2026-11-06T10:40:57-06:00",
  "priority": [
   "01",
   "09",
@@ -346,13 +346,13 @@
     },
     "5": {
      "state": "mod",
-     "name": "Phineas",
-     "mod_id": 444343,
+     "name": "Mario - N64 Promo Single Slot",
+     "mod_id": 556949,
      "source": "profile",
-     "reslot_from": null,
+     "reslot_from": 0,
      "file": null,
      "approved": true,
-     "nota": "Instalada en la SD (mario-phineas-c05); plan alineado con la SD el 2026-11-01"
+     "nota": "Instalada en la SD (mario-n64-single-c05); plan alineado con la SD el 2026-11-06; antes: Phineas"
     },
     "6": {
      "state": "mod",
@@ -1331,13 +1331,13 @@
     },
     "5": {
      "state": "mod",
-     "name": "Troll Face",
-     "mod_id": 296237,
+     "name": "Captain Falcon - Goku Super Saiyan 4",
+     "mod_id": 322135,
      "source": "profile",
-     "reslot_from": null,
+     "reslot_from": 2,
      "file": null,
      "approved": true,
-     "nota": "Instalada en la SD (captain-troll-face-c05); plan alineado con la SD el 2026-11-01"
+     "nota": "Instalada en la SD (captain-goku-ss4-c05); plan alineado con la SD el 2026-11-06; antes: Troll Face"
     },
     "6": {
      "state": "mod",
@@ -2717,13 +2717,13 @@
     },
     "6": {
      "state": "mod",
-     "name": "Yomi Cloud",
-     "mod_id": 347784,
+     "name": "cloud - Clouwn",
+     "mod_id": 422932,
      "source": "profile",
      "reslot_from": null,
      "file": null,
      "approved": true,
-     "nota": "Instalada en la SD (cloud-yomi-c06); plan alineado con la SD el 2026-11-01"
+     "nota": "Instalada en la SD (cloud-clouwn-c06); plan alineado con la SD el 2026-11-06; antes: Yomi Cloud"
     },
     "7": {
      "state": "mod",
@@ -3192,13 +3192,13 @@
     },
     "4": {
      "state": "mod",
-     "name": "Nabbit bowser jr",
-     "mod_id": 347784,
+     "name": "Bowser Jr - Bill Board",
+     "mod_id": 174221,
      "source": "profile",
      "reslot_from": null,
      "file": null,
      "approved": true,
-     "nota": "Instalada en la SD (koopajr-nabbit-c04); plan alineado con la SD el 2026-11-01"
+     "nota": "Instalada en la SD (koopajr-bill-board-c04); plan alineado con la SD el 2026-11-06; antes: Nabbit bowser jr"
     },
     "5": {
      "state": "mod",
@@ -3332,13 +3332,13 @@
     },
     "1": {
      "state": "mod",
-     "name": "Revali dark pit",
-     "mod_id": 347784,
+     "name": "pitb - Yelan",
+     "mod_id": 383270,
      "source": "profile",
      "reslot_from": null,
      "file": null,
      "approved": true,
-     "nota": "Instalada en la SD (pitb-revali-c01); plan alineado con la SD el 2026-11-01"
+     "nota": "Instalada en la SD (pitb-yelan-c01); plan alineado con la SD el 2026-11-06; antes: Revali dark pit"
     },
     "2": {
      "state": "mod",
@@ -3577,13 +3577,13 @@
    "slots": {
     "0": {
      "state": "mod",
-     "name": "Iron Man Samus All slots",
-     "mod_id": 347784,
+     "name": "Samus - Metroid Prime Remastered",
+     "mod_id": 471661,
      "source": "profile",
      "reslot_from": null,
      "file": null,
      "approved": true,
-     "nota": "Instalada en la SD (samus-iron-man-c00); plan alineado con la SD el 2026-11-01"
+     "nota": "Instalada en la SD (samus-prime-c00); plan alineado con la SD el 2026-11-06; antes: Iron Man Samus All slots"
     },
     "1": {
      "state": "mod",
@@ -3787,43 +3787,43 @@
     },
     "4": {
      "state": "mod",
-     "name": "Mr Krabs",
-     "mod_id": 376188,
+     "name": "Wario - Red M&M",
+     "mod_id": 528699,
      "source": "profile",
      "reslot_from": null,
      "file": null,
      "approved": true,
-     "nota": "Instalada en la SD (wario-krabs-c04); plan alineado con la SD el 2026-11-01"
+     "nota": "Instalada en la SD (wario-red-mm-c04); plan alineado con la SD el 2026-11-06; antes: Mr Krabs"
     },
     "5": {
      "state": "mod",
-     "name": "Ugandan Knuckles",
-     "mod_id": 455070,
+     "name": "Wario - Shaven Wario classic",
+     "mod_id": 345198,
      "source": "profile",
      "reslot_from": null,
      "file": null,
      "approved": true,
-     "nota": "Instalada en la SD (wario-knuckles-c05); plan alineado con la SD el 2026-11-01"
+     "nota": "Instalada en la SD (wario-shaven-c05); plan alineado con la SD el 2026-11-06; antes: Ugandan Knuckles"
     },
     "6": {
      "state": "mod",
-     "name": "Wario Man",
-     "mod_id": 325793,
+     "name": "Wario - Wawario",
+     "mod_id": 715003,
      "source": "profile",
      "reslot_from": null,
      "file": null,
      "approved": true,
-     "nota": "Instalada en la SD (wario-man-c06); plan alineado con la SD el 2026-11-01"
+     "nota": "Instalada en la SD (wario-wawario-c06); plan alineado con la SD el 2026-11-06; antes: Wario Man"
     },
     "7": {
      "state": "mod",
-     "name": "Sans",
-     "mod_id": 589845,
+     "name": "Wario - Sea Turtle",
+     "mod_id": 719608,
      "source": "profile",
      "reslot_from": null,
      "file": null,
      "approved": true,
-     "nota": "Instalada en la SD (wario-sans-c07); plan alineado con la SD el 2026-11-01"
+     "nota": "Instalada en la SD (wario-sea-turtle-c07); plan alineado con la SD el 2026-11-06; antes: Sans"
     }
    }
   },

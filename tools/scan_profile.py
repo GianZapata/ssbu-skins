@@ -73,15 +73,18 @@ def skin_slots(base_paths, globs):
             if s: out.add((SKIN_ALIASES.get(p[1], p[1]), int(s[1:])))
     return out
 TARGET_SLOT = re.compile(r'\bc(\d\d)\b')
+ORIGIN_REF = re.compile(r'(?:movido desde|desde|modelo|movimientos)\s+c\d\d')
+def target_slot_numbers(target_slots):
+    """Slots de destino de `target_slots`, sin las referencias de origen («desde c01», «modelo c01», «movimientos c00»)."""
+    return sorted({int(x) for x in TARGET_SLOT.findall(ORIGIN_REF.sub('', target_slots or ''))})
 def derived_slots(m, internal, plan):
     """Componente fuera de COMPONENT_SLOTS: sus slots salen de target_slots («c01 (color 2), c03 (color 4)» o «c05, movido
     desde c01»; «movido desde cNN» es el origen y no cuenta) y el nombre y el mod, del plan de slots
     → [(código, slot, nombre, id de GameBanana)]."""
     code = internal.get(m.get('fighter'))
     if not (code and m.get('kind') == 'mods'): return []
-    target = re.sub(r'(?:movido desde|desde|modelo|movimientos)\s+c\d\d', '', m.get('target_slots') or '')
     out = []
-    for n in sorted({int(x) for x in TARGET_SLOT.findall(target)}):
+    for n in target_slot_numbers(m.get('target_slots')):
         d = plan['fighters'][code]['slots'][str(n)]
         if d['state'] != 'mod': raise SystemExit(f"{m['id']}: c{n:02d} de {code} no es un mod en el plan de slots")
         out.append((code, n, d['name'], d['mod_id']))

@@ -3,9 +3,9 @@
  "id": "perfil",
  "label": "Perfil local «gian-prs»",
  "profile": "gian-prs",
- "ref": "main@5fc0963",
+ "ref": "main@1b426fd",
  "document": "catalog/profiles.json + catalog/mods.json",
- "scanned_at": "2026-11-06T05:36:55Z",
+ "scanned_at": "2026-11-06T16:41:00Z",
  "verification": "Perfil armado y verificado en archivos; pruebas en consola sin conexión anotadas por componente (no certifican online)",
  "components": [
   {
@@ -5511,11 +5511,11 @@
   {
    "fighter": "61",
    "slot": 6,
-   "name": "Yomi Cloud",
+   "name": "cloud - Clouwn",
    "component": "cloud-clouwn-c06",
-   "mod_id": 347784,
+   "mod_id": 422932,
    "author": "pending",
-   "url": "https://gamebanana.com/mods/347784",
+   "url": "https://gamebanana.com/mods/422932",
    "version": "pending",
    "console_test": "pendiente (no probado en Switch)",
    "classification": "lista oficial 2026-10-29; pendiente de prueba en consola"
@@ -5715,11 +5715,11 @@
   {
    "fighter": "11",
    "slot": 5,
-   "name": "Troll Face",
+   "name": "Captain Falcon - Goku Super Saiyan 4",
    "component": "captain-goku-ss4-c05",
-   "mod_id": 296237,
+   "mod_id": 322135,
    "author": "pending",
-   "url": "https://gamebanana.com/mods/296237",
+   "url": "https://gamebanana.com/mods/322135",
    "version": "pending",
    "console_test": null,
    "classification": null
@@ -6807,11 +6807,11 @@
   {
    "fighter": "01",
    "slot": 5,
-   "name": "Phineas",
+   "name": "Mario - N64 Promo Single Slot",
    "component": "mario-n64-single-c05",
-   "mod_id": 444343,
+   "mod_id": 556949,
    "author": "pending",
-   "url": "https://gamebanana.com/mods/444343",
+   "url": "https://gamebanana.com/mods/556949",
    "version": "pending",
    "console_test": null,
    "classification": null
@@ -7899,11 +7899,11 @@
   {
    "fighter": "58",
    "slot": 4,
-   "name": "Nabbit bowser jr",
+   "name": "Bowser Jr - Bill Board",
    "component": "koopajr-bill-board-c04",
-   "mod_id": 347784,
+   "mod_id": 174221,
    "author": "pending",
-   "url": "https://gamebanana.com/mods/347784",
+   "url": "https://gamebanana.com/mods/174221",
    "version": "pending",
    "console_test": null,
    "classification": null
@@ -7947,11 +7947,11 @@
   {
    "fighter": "04",
    "slot": 0,
-   "name": "Iron Man Samus All slots",
+   "name": "Samus - Metroid Prime Remastered",
    "component": "samus-prime-c00",
-   "mod_id": 347784,
+   "mod_id": 471661,
    "author": "pending",
-   "url": "https://gamebanana.com/mods/347784",
+   "url": "https://gamebanana.com/mods/471661",
    "version": "pending",
    "console_test": null,
    "classification": null
@@ -8043,11 +8043,11 @@
   {
    "fighter": "30",
    "slot": 5,
-   "name": "Ugandan Knuckles",
+   "name": "Wario - Shaven Wario classic",
    "component": "wario-shaven-c05",
-   "mod_id": 455070,
+   "mod_id": 345198,
    "author": "pending",
-   "url": "https://gamebanana.com/mods/455070",
+   "url": "https://gamebanana.com/mods/345198",
    "version": "pending",
    "console_test": null,
    "classification": null
@@ -8055,11 +8055,11 @@
   {
    "fighter": "30",
    "slot": 4,
-   "name": "Mr Krabs",
+   "name": "Wario - Red M&M",
    "component": "wario-red-mm-c04",
-   "mod_id": 376188,
+   "mod_id": 528699,
    "author": "pending",
-   "url": "https://gamebanana.com/mods/376188",
+   "url": "https://gamebanana.com/mods/528699",
    "version": "pending",
    "console_test": null,
    "classification": null
@@ -8067,11 +8067,11 @@
   {
    "fighter": "30",
    "slot": 6,
-   "name": "Wario Man",
+   "name": "Wario - Wawario",
    "component": "wario-wawario-c06",
-   "mod_id": 325793,
+   "mod_id": 715003,
    "author": "pending",
-   "url": "https://gamebanana.com/mods/325793",
+   "url": "https://gamebanana.com/mods/715003",
    "version": "pending",
    "console_test": null,
    "classification": null
@@ -8079,11 +8079,11 @@
   {
    "fighter": "30",
    "slot": 7,
-   "name": "Sans",
+   "name": "Wario - Sea Turtle",
    "component": "wario-sea-turtle-c07",
-   "mod_id": 589845,
+   "mod_id": 719608,
    "author": "pending",
-   "url": "https://gamebanana.com/mods/589845",
+   "url": "https://gamebanana.com/mods/719608",
    "version": "pending",
    "console_test": null,
    "classification": null
@@ -8103,11 +8103,11 @@
   {
    "fighter": "28ε",
    "slot": 1,
-   "name": "Revali dark pit",
+   "name": "pitb - Yelan",
    "component": "pitb-yelan-c01",
-   "mod_id": 347784,
+   "mod_id": 383270,
    "author": "pending",
-   "url": "https://gamebanana.com/mods/347784",
+   "url": "https://gamebanana.com/mods/383270",
    "version": "pending",
    "console_test": "pendiente (no probado en Switch)",
    "classification": "lote 2026-11-05; pendiente de prueba en consola"

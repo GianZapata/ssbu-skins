@@ -1,6 +1,6 @@
 # Plan de slots
 
-_Generado por `tools/slot_plan.py` a partir de `data/slot_plan.json`, `installed.json`, `inventory_profile.json` y `drive.json`; no editar a mano. Nada de esto está instalado ni probado en consola. Plan actualizado: 2026-11-05T22:30:00-06:00._
+_Generado por `tools/slot_plan.py` a partir de `data/slot_plan.json`, `installed.json`, `inventory_profile.json` y `drive.json`; no editar a mano. Nada de esto está instalado ni probado en consola. Plan actualizado: 2026-11-06T10:40:57-06:00._
 
 **65 luchadores · 347 slots aprobados · 82 propuestos · 91 sin decidir (de 520)**
 
@@ -37,21 +37,21 @@ Orígenes de los mods del Drive: usuario 115 · búsqueda 11 · búsqueda + usua
 | 24 | Mythra (80) | 1/8 | 7 | 0 | 0 | 0 |
 | 25 | Ryu (60) | 0/8 | 7 | 1 | 0 | 0 |
 | 26 | Ken (60ε) | 0/8 | 0 | 8 | 9 | 0 |
-| 27 | Cloud (61) | 5/8 | 3 | 0 | 3 | 3 |
+| 27 | Cloud (61) | 5/8 | 3 | 0 | 2 | 2 |
 | 28 | Sephiroth (78) | 4/8 | 4 | 0 | 1 | 0 |
 | 29 | Bayonetta (63) | 8/8 | 0 | 0 | 2 | 2 |
 | 30 | Hero (72) | 0/8 | 6 | 2 | 9 | 0 |
 | 31 | Steve (77) | 6/8 | 2 | 0 | 4 | 1 |
 | 32 | Kazuya (81) | 8/8 | 0 | 0 | 3 | 1 |
 | 33 | Sora (82) | 4/8 | 4 | 0 | 0 | 0 |
-| 34 | Bowser Jr. (58) | 8/8 | 0 | 0 | 1 | 0 |
+| 34 | Bowser Jr. (58) | 8/8 | 0 | 0 | 0 | 0 |
 | 35 | Lucas (37) | 8/8 | 0 | 0 | 0 | 0 |
-| 36 | Dark Pit (28ε) | 8/8 | 0 | 0 | 1 | 0 |
+| 36 | Dark Pit (28ε) | 8/8 | 0 | 0 | 0 | 0 |
 | 37 | Robin (56) | 8/8 | 0 | 0 | 8 | 0 |
 | 38 | Roy (25) | 8/8 | 0 | 0 | 1 | 0 |
-| 39 | Samus (04) | 8/8 | 0 | 0 | 1 | 0 |
+| 39 | Samus (04) | 8/8 | 0 | 0 | 0 | 0 |
 | 40 | Simon (66) | 8/8 | 0 | 0 | 8 | 0 |
-| 41 | Wario (30) | 8/8 | 0 | 0 | 5 | 0 |
+| 41 | Wario (30) | 8/8 | 0 | 0 | 5 | 4 |
 | 42 | Young Link (22) | 8/8 | 0 | 0 | 0 | 0 |
 | — | Kirby (06) | 0/8 | 0 | 8 | 8 | 0 |
 | — | Ness (10) | 1/8 | 3 | 4 | 7 | 0 |
@@ -87,7 +87,7 @@ _Regla de Gian: 1 skin por mod. Otros looks de Dry Bones, Wheelchair y Moogle qu
 | c02 | perfil · Wheelchair Mario | Wheelchair Mario (GB 324701) · el mod trae 2 looks (c02, c03); aquí solo uno | propuesto |
 | c03 | perfil · Moogle | Moogle (GB 374147) · reslot desde c00 · el mod trae 3 looks; aquí solo el clásico (c00). Solo la skin: se quita ef_mario.eff (efectos de todos los Mario) | propuesto |
 | c04 | perfil · Dry Bones | Dry Bones (GB 174057) · reslot desde c01 · el pack trae 8 looks; aqui solo el de c01. El config.json se quito el 2026-10-29: la clave new_dir_files no la lee ARCropolis y declaraba otros colores. Queda el motion de c04. | propuesto |
-| c05 | perfil · Phineas | perfil · Phineas (GB 444343) · Instalada en la SD (mario-phineas-c05); plan alineado con la SD el 2026-11-01 | aprobado |
+| c05 | perfil · Mario - N64 Promo Single Slot | perfil · Mario - N64 Promo Single Slot (GB 556949) · reslot desde c00 · Instalada en la SD (mario-n64-single-c05); plan alineado con la SD el 2026-11-06; antes: Phineas | aprobado |
 | c06 | perfil · Malario | perfil · Malario (GB 457306) · Instalada en la SD (mario-malario-c06); plan alineado con la SD el 2026-11-01 | aprobado |
 | c07 | perfil · Hotel Mario | perfil · Hotel Mario (GB 456122) · Instalada en la SD (mario-hotel-c07); plan alineado con la SD el 2026-11-01 | aprobado |
 
@@ -98,7 +98,7 @@ Mods del Drive sin asignar:
 | 294695 | sm64_mario | usuario | c00, c01, c02, c03, c04, c05, c06, c07 | — | sí |
 | 326019 | sandy_cheeks | usuario | c01 | — | no |
 | 386018 | voxel_mario_v2 | usuario | c00, c01, c02, c03, c04, c05, c06, c07 | explícita | sí |
-| 556949 | n64_promo_mario | usuario | c00, c01, c02, c03, c04, c05, c06, c07 | condicionada | sí |
+| 444343 | phineas_flynn | usuario | c05 | — | no |
 
 ## 2. Luigi (09)
 
@@ -377,7 +377,7 @@ _Pendiente: Garnet (c02) choca con Dark Falcon (perfil, PR #4, c02). Opciones: e
 | c02 | perfil · Shaggy | perfil · Shaggy (GB 174748) · Instalada en la SD (captain-shaggy-c02); plan alineado con la SD el 2026-11-01 | aprobado |
 | c03 | perfil · Frozone | perfil · Frozone (GB 344942) · Instalada en la SD (captain-frozone-c03); plan alineado con la SD el 2026-11-01 | aprobado |
 | c04 | perfil · Shiny Gallade | Shiny Gallade · All Might salió. En la SD está Shiny Gallade, no All Might. | aprobado |
-| c05 | perfil · Troll Face | perfil · Troll Face (GB 296237) · Instalada en la SD (captain-troll-face-c05); plan alineado con la SD el 2026-11-01 | aprobado |
+| c05 | perfil · Captain Falcon - Goku Super Saiyan 4 | perfil · Captain Falcon - Goku Super Saiyan 4 (GB 322135) · reslot desde c02 · Instalada en la SD (captain-goku-ss4-c05); plan alineado con la SD el 2026-11-06; antes: Troll Face | aprobado |
 | c06 | perfil · Vegito base | perfil · Vegito base (GB 460246) · Instalada en la SD (captain-vegito-c06); plan alineado con la SD el 2026-11-01 | aprobado |
 | c07 | perfil · captain - Mirko | perfil · captain - Mirko (GB 639956) · Instalada en la SD (captain-mirko-c07); plan alineado con la SD el 2026-11-05 | aprobado |
 
@@ -387,7 +387,7 @@ Mods del Drive sin asignar:
 |---|---|---|---|---|---|
 | 174741 | phoenix_wright | usuario | c03, c04 | — | no |
 | 174747 | waluigi | usuario | c00, c01, c02, c03, c04, c05, c06, c07 | — | sí |
-| 322135 | goku_ss4 | usuario | c02 | — | no |
+| 296237 | troll_face | usuario | c00, c01, c02, c03, c04, c05, c06, c07 | explícita | sí |
 | 323945 | captain_america | usuario | c04 | — | no |
 | 466057 | garnet_over_captain_falcon | búsqueda + usuario | c02 | — | no |
 | 628142 | mega_starmie | usuario | c01 | — | no |
@@ -630,7 +630,7 @@ Mods del Drive sin asignar:
 | c03 | perfil · 1997 Cloud | perfil · 1997 Cloud (GB 325562) · Instalada en la SD (cloud-1997-c03); plan alineado con la SD el 2026-11-01 | aprobado |
 | c04 | perfil · Nomura | perfil · Nomura (GB 500234) · Instalada en la SD (cloud-nomura-c04); plan alineado con la SD el 2026-11-01 | aprobado |
 | c05 | perfil · Zabuza Momochi | perfil · Zabuza Momochi (GB 398823) · Instalada en la SD (cloud-zabuza-c05); plan alineado con la SD el 2026-11-01 | aprobado |
-| c06 | perfil · Yomi Cloud | perfil · Yomi Cloud (GB 347784) · Instalada en la SD (cloud-yomi-c06); plan alineado con la SD el 2026-11-01 | aprobado |
+| c06 | perfil · cloud - Clouwn | perfil · cloud - Clouwn (GB 422932) · Instalada en la SD (cloud-clouwn-c06); plan alineado con la SD el 2026-11-06; antes: Yomi Cloud | aprobado |
 | c07 | perfil · Trunks | perfil · Trunks (GB 424500) · Instalada en la SD (cloud-trunks-c07); plan alineado con la SD el 2026-11-01 | aprobado |
 
 Mods del Drive sin asignar:
@@ -638,7 +638,6 @@ Mods del Drive sin asignar:
 | Mod | Nombre | Origen | Slots nativos | Wifi | Toca c00 |
 |---|---|---|---|---|---|
 | 349262 | colonel_sanders | usuario | c06 | explícita | no |
-| 422932 | clouwn | usuario | c06 | — | no |
 | 439447 | zack_fair | usuario | sin listar | — | ? |
 
 ## 28. Sephiroth (78)
@@ -781,16 +780,10 @@ _Agregado al alinear el plan con la SD el 2026-11-01._
 | c01 | perfil · Bowser Jr - Koopa Kid | perfil · Bowser Jr - Koopa Kid (GB 174222) · Instalada en la SD (koopajr-koopa-kid-c01); plan alineado con la SD el 2026-11-05 | aprobado |
 | c02 | perfil · Bowser Jr - Plankton | perfil · Bowser Jr - Plankton (GB 325455) · Instalada en la SD (koopajr-plankton-c02); plan alineado con la SD el 2026-11-05 | aprobado |
 | c03 | perfil · Bowser Jr - Skibidi Toilet | perfil · Bowser Jr - Skibidi Toilet (GB 454913) · Instalada en la SD (koopajr-skibidi-c03); plan alineado con la SD el 2026-11-05 | aprobado |
-| c04 | perfil · Nabbit bowser jr | perfil · Nabbit bowser jr (GB 347784) · Instalada en la SD (koopajr-nabbit-c04); plan alineado con la SD el 2026-11-01 | aprobado |
+| c04 | perfil · Bowser Jr - Bill Board | perfil · Bowser Jr - Bill Board (GB 174221) · Instalada en la SD (koopajr-bill-board-c04); plan alineado con la SD el 2026-11-06; antes: Nabbit bowser jr | aprobado |
 | c05 | perfil · Bowser Jr - Dry Bowser Jr | perfil · Bowser Jr - Dry Bowser Jr (GB 390825) · Instalada en la SD (koopajr-dry-c05); plan alineado con la SD el 2026-11-05 | aprobado |
 | c06 | perfil · Bowser Jr - Dr Zomboss | perfil · Bowser Jr - Dr Zomboss (GB 469280) · Instalada en la SD (koopajr-dr-zomboss-c06); plan alineado con la SD el 2026-11-05 | aprobado |
 | c07 | perfil · Bowser Jr - Dr Eggman | perfil · Bowser Jr - Dr Eggman (GB 529043) · Instalada en la SD (koopajr-dr-eggman-c07); plan alineado con la SD el 2026-11-05 | aprobado |
-
-Mods del Drive sin asignar:
-
-| Mod | Nombre | Origen | Slots nativos | Wifi | Toca c00 |
-|---|---|---|---|---|---|
-| 174221 | bill_board | — | c01 | — | no |
 
 ## 35. Lucas (37)
 
@@ -814,19 +807,13 @@ _Agregado al alinear el plan con la SD el 2026-11-01._
 | Slot | Hoy | Plan | Estado |
 |---|---|---|---|
 | c00 | perfil · pitb - Batman | perfil · pitb - Batman (GB 594803) · Instalada en la SD (pitb-batman-c00); plan alineado con la SD el 2026-11-05 | aprobado |
-| c01 | perfil · Revali dark pit | perfil · Revali dark pit (GB 347784) · Instalada en la SD (pitb-revali-c01); plan alineado con la SD el 2026-11-01 | aprobado |
+| c01 | perfil · pitb - Yelan | perfil · pitb - Yelan (GB 383270) · Instalada en la SD (pitb-yelan-c01); plan alineado con la SD el 2026-11-06; antes: Revali dark pit | aprobado |
 | c02 | perfil · pitb - Akhos | perfil · pitb - Akhos (GB 380933) · Instalada en la SD (pitb-akhos-c02); plan alineado con la SD el 2026-11-05 | aprobado |
 | c03 | perfil · pitb - Krystal | perfil · pitb - Krystal (GB 175016) · Instalada en la SD (pitb-krystal-c03); plan alineado con la SD el 2026-11-05 | aprobado |
 | c04 | perfil · pitb - Freddy | perfil · pitb - Freddy (GB 340077) · Instalada en la SD (pitb-freddy-c04); plan alineado con la SD el 2026-11-05 | aprobado |
 | c05 | perfil · pitb - Ruby | perfil · pitb - Ruby (GB 175015) · Instalada en la SD (pitb-ruby-c05); plan alineado con la SD el 2026-11-05 | aprobado |
 | c06 | perfil · pitb - Ethel | perfil · pitb - Ethel (GB 431718) · Instalada en la SD (pitb-ethel-c06); plan alineado con la SD el 2026-11-05 | aprobado |
 | c07 | perfil · pitb - Ganyu | perfil · pitb - Ganyu (GB 476245) · Instalada en la SD (pitb-ganyu-c07); plan alineado con la SD el 2026-11-05 | aprobado |
-
-Mods del Drive sin asignar:
-
-| Mod | Nombre | Origen | Slots nativos | Wifi | Toca c00 |
-|---|---|---|---|---|---|
-| 383270 | yelan | — | c01 | — | no |
 
 ## 37. Robin (56)
 
@@ -883,7 +870,7 @@ _Agregado al alinear el plan con la SD el 2026-11-01._
 
 | Slot | Hoy | Plan | Estado |
 |---|---|---|---|
-| c00 | perfil · Iron Man Samus All slots | perfil · Iron Man Samus All slots (GB 347784) · Instalada en la SD (samus-iron-man-c00); plan alineado con la SD el 2026-11-01 | aprobado |
+| c00 | perfil · Samus - Metroid Prime Remastered | perfil · Samus - Metroid Prime Remastered (GB 471661) · Instalada en la SD (samus-prime-c00); plan alineado con la SD el 2026-11-06; antes: Iron Man Samus All slots | aprobado |
 | c01 | perfil · Samus - Aigis | perfil · Samus - Aigis (GB 174427) · Instalada en la SD (samus-aigis-c01); plan alineado con la SD el 2026-11-05 | aprobado |
 | c02 | perfil · Samus - Barret | perfil · Samus - Barret (GB 519027) · Instalada en la SD (samus-barret-c02); plan alineado con la SD el 2026-11-05 | aprobado |
 | c03 | perfil · Samus - Mecha Sonic | perfil · Samus - Mecha Sonic (GB 416946) · Instalada en la SD (samus-mecha-sonic-c03); plan alineado con la SD el 2026-11-05 | aprobado |
@@ -891,12 +878,6 @@ _Agregado al alinear el plan con la SD el 2026-11-01._
 | c05 | perfil · Samus - Gunship | perfil · Samus - Gunship (GB 623602) · Instalada en la SD (samus-gunship-c05); plan alineado con la SD el 2026-11-05 | aprobado |
 | c06 | perfil · Samus - Mazinger Z | perfil · Samus - Mazinger Z (GB 459144) · Instalada en la SD (samus-mazinger-z-c06); plan alineado con la SD el 2026-11-05 | aprobado |
 | c07 | perfil · Samus - Fighting Polygon | perfil · Samus - Fighting Polygon (GB 630739) · Instalada en la SD (samus-fighting-polygon-c07); plan alineado con la SD el 2026-11-05 | aprobado |
-
-Mods del Drive sin asignar:
-
-| Mod | Nombre | Origen | Slots nativos | Wifi | Toca c00 |
-|---|---|---|---|---|---|
-| 471661 | samus_metroid_prime_remastered | — | c02, c04, c06 | — | ? |
 
 ## 40. Simon (66)
 
@@ -936,20 +917,20 @@ _Agregado al alinear el plan con la SD el 2026-11-01._
 | c01 | perfil · Peppino | perfil · Peppino (GB 435681) · Instalada en la SD (wario-peppino-c01); plan alineado con la SD el 2026-11-01 | aprobado |
 | c02 | perfil · Wayonetta | perfil · Wayonetta (GB 457916) · Instalada en la SD (wario-wayonetta-c02); plan alineado con la SD el 2026-11-01 | aprobado |
 | c03 | perfil · Mr Potato Head | perfil · Mr Potato Head (GB 690278) · Instalada en la SD (wario-potato-c03); plan alineado con la SD el 2026-11-01 | aprobado |
-| c04 | perfil · Mr Krabs | perfil · Mr Krabs (GB 376188) · Instalada en la SD (wario-krabs-c04); plan alineado con la SD el 2026-11-01 | aprobado |
-| c05 | perfil · Ugandan Knuckles | perfil · Ugandan Knuckles (GB 455070) · Instalada en la SD (wario-knuckles-c05); plan alineado con la SD el 2026-11-01 | aprobado |
-| c06 | perfil · Wario Man | perfil · Wario Man (GB 325793) · Instalada en la SD (wario-man-c06); plan alineado con la SD el 2026-11-01 | aprobado |
-| c07 | perfil · Sans | perfil · Sans (GB 589845) · Instalada en la SD (wario-sans-c07); plan alineado con la SD el 2026-11-01 | aprobado |
+| c04 | perfil · Wario - Red M&M | perfil · Wario - Red M&M (GB 528699) · Instalada en la SD (wario-red-mm-c04); plan alineado con la SD el 2026-11-06; antes: Mr Krabs | aprobado |
+| c05 | perfil · Wario - Shaven Wario classic | perfil · Wario - Shaven Wario classic (GB 345198) · Instalada en la SD (wario-shaven-c05); plan alineado con la SD el 2026-11-06; antes: Ugandan Knuckles | aprobado |
+| c06 | perfil · Wario - Wawario | perfil · Wario - Wawario (GB 715003) · Instalada en la SD (wario-wawario-c06); plan alineado con la SD el 2026-11-06; antes: Wario Man | aprobado |
+| c07 | perfil · Wario - Sea Turtle | perfil · Wario - Sea Turtle (GB 719608) · Instalada en la SD (wario-sea-turtle-c07); plan alineado con la SD el 2026-11-06; antes: Sans | aprobado |
 
 Mods del Drive sin asignar:
 
 | Mod | Nombre | Origen | Slots nativos | Wifi | Toca c00 |
 |---|---|---|---|---|---|
+| 325793 | wario_man | usuario | c00, c02, c04, c06 | explícita | sí |
+| 376188 | moar_krabs | usuario | c01, c03, c04, c05, c07 | — | no |
+| 455070 | ugandan_knuckles | usuario | c03, c05 | — | no |
+| 589845 | sans | usuario | c01 | — | no |
 | 175041 | mr_krabs | — | c01, c03, c05, c07 | — | no |
-| 345198 | shaven_wario | — | c00, c01, c02, c03, c04, c05, c06, c07 | — | sí |
-| 528699 | red_mm | — | c00, c02 | — | sí |
-| 715003 | wawario_over_wario_c00 | — | c00 | — | sí |
-| 719608 | sea_turtle_wario | — | c05 | — | no |
 
 ## 42. Young Link (22)
 
