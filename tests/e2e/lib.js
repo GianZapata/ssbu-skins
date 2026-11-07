@@ -24,8 +24,9 @@ function serve() { // servidor estático mínimo sobre SITE; devuelve {url, clos
   return new Promise(res => srv.listen(0, '127.0.0.1', () => { const port = srv.address().port; res({ url: `http://localhost:${port}/index.html?fbemu`, close: () => srv.close() }); }));
 }
 async function browser() { return chromium.launch(); }
-async function mk(b, { w = 390, h = 844, mobile = true, badImg = false, noFirebase = false, deferChanges = false } = {}) {
+async function mk(b, { w = 390, h = 844, mobile = true, badImg = false, noFirebase = false, deferChanges = false, person = 'Gian' } = {}) {
   const ctx = await b.newContext({ viewport: { width: w, height: h }, isMobile: mobile, hasTouch: mobile, deviceScaleFactor: mobile ? 2 : 1 });
+  if (person) await ctx.addInitScript(name => { try { localStorage.setItem('ssbu_person', name); } catch (_) {} }, person);
   await ctx.route('**/images.gamebanana.com/**', r => badImg ? r.abort() : r.fulfill({ status: 200, contentType: 'image/svg+xml', body: svg }));
   await ctx.route('**/cdn.jsdelivr.net/npm/photoswipe@5.4.4/dist/**', r => { const f = r.request().url().split('/').pop(); const fp = path.join(TESTS, 'node_modules/photoswipe/dist', f);
     r.fulfill({ status: 200, contentType: f.endsWith('css') ? 'text/css' : 'text/javascript', headers: { 'access-control-allow-origin': '*' }, body: fs.readFileSync(fp) }); });
