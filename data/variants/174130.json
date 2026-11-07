@@ -14,8 +14,8 @@
      "duplicate_of": null,
      "files_count": 54,
      "has_model": true,
-     "portrait": "f341e7394f5314493a2b55bdf28967023eb98118c3d204494f02b7731eca7894",
-     "portrait_source": "Full/ui/replace/chara/chara_0/chara_0_luigi_00.bntx",
+     "portrait": "ea3a454db6361c166c3fb81bf486e4dc58681df617d34e26ce93ce73b21cd3db",
+     "portrait_source": "Full/ui/replace/chara/chara_3/chara_3_luigi_00.bntx",
      "slot": "c00",
      "variant_id": "09:174130:44c52519:c00"
     },
@@ -25,8 +25,8 @@
      "duplicate_of": null,
      "files_count": 26,
      "has_model": true,
-     "portrait": "f06964f7f4a348cadbbd293cc72a24fbbd389c8e30e07284c7eddd07b5ef9bfd",
-     "portrait_source": "Full/ui/replace/chara/chara_0/chara_0_luigi_01.bntx",
+     "portrait": "9bc684c9d0f45fcc3fb5abafa6c30327049d861c1c78d6508fdd1008a60c6968",
+     "portrait_source": "Full/ui/replace/chara/chara_3/chara_3_luigi_01.bntx",
      "slot": "c01",
      "variant_id": "09:174130:44c52519:c01"
     },
@@ -36,8 +36,8 @@
      "duplicate_of": null,
      "files_count": 26,
      "has_model": true,
-     "portrait": "d706e2ed15c542aa9cfc41ac6f75bcbc15a054f731d22e7b7bb16ade79059c22",
-     "portrait_source": "Full/ui/replace/chara/chara_0/chara_0_luigi_02.bntx",
+     "portrait": "855d283e179ac3811353b09a348b4125fe4f47323f3ea1dbc244090996a69c6f",
+     "portrait_source": "Full/ui/replace/chara/chara_3/chara_3_luigi_02.bntx",
      "slot": "c02",
      "variant_id": "09:174130:44c52519:c02"
     },
@@ -47,8 +47,8 @@
      "duplicate_of": null,
      "files_count": 26,
      "has_model": true,
-     "portrait": "7cf92103ca7473876c4f129a7bcbeee1e924ff3b97b1a4c2f5b66adfd711c8b1",
-     "portrait_source": "Full/ui/replace/chara/chara_0/chara_0_luigi_03.bntx",
+     "portrait": "ad271619ba412933127d2ebee1057d1f8f1147d9045eccead7f30c148c2dedf1",
+     "portrait_source": "Full/ui/replace/chara/chara_3/chara_3_luigi_03.bntx",
      "slot": "c03",
      "variant_id": "09:174130:44c52519:c03"
     },
@@ -58,8 +58,8 @@
      "duplicate_of": null,
      "files_count": 26,
      "has_model": true,
-     "portrait": "8516963ea41fec264cbd8ea7614d3bf46f3d3c7b4c490d44787ef02f5fe4fbee",
-     "portrait_source": "Full/ui/replace/chara/chara_0/chara_0_luigi_04.bntx",
+     "portrait": "280abd0e0b21e6174f3992c6adb9b22d0e01d4ed623475697db6abd2403ea037",
+     "portrait_source": "Full/ui/replace/chara/chara_3/chara_3_luigi_04.bntx",
      "slot": "c04",
      "variant_id": "09:174130:44c52519:c04"
     },
@@ -69,8 +69,8 @@
      "duplicate_of": null,
      "files_count": 26,
      "has_model": true,
-     "portrait": "fc5a9db00a41a5fb2550e5705b564e49a73976b262262a640b24365999f95a59",
-     "portrait_source": "Full/ui/replace/chara/chara_0/chara_0_luigi_05.bntx",
+     "portrait": "e3a40ba8dbe2f8afec95504e9e1b92ec9d3a7caada09f000b390c3812afc90b4",
+     "portrait_source": "Full/ui/replace/chara/chara_3/chara_3_luigi_05.bntx",
      "slot": "c05",
      "variant_id": "09:174130:44c52519:c05"
     },
@@ -80,8 +80,8 @@
      "duplicate_of": null,
      "files_count": 26,
      "has_model": true,
-     "portrait": "10aebe98f48bbd3931146a52c9f92cec4c71faf5f97fc3c0bc871e8a8b64f7de",
-     "portrait_source": "Full/ui/replace/chara/chara_0/chara_0_luigi_06.bntx",
+     "portrait": "d9721ccae915d318784456fa7b14f17936b9978e3b3491e2cc0ec4ed7b25a904",
+     "portrait_source": "Full/ui/replace/chara/chara_3/chara_3_luigi_06.bntx",
      "slot": "c06",
      "variant_id": "09:174130:44c52519:c06"
     },
@@ -91,8 +91,8 @@
      "duplicate_of": null,
      "files_count": 26,
      "has_model": true,
-     "portrait": "08507aae48372b177107de422bc63c141d6f9e02ece2e01db411a2d1225ca497",
-     "portrait_source": "Full/ui/replace/chara/chara_0/chara_0_luigi_07.bntx",
+     "portrait": "a6fd050cc1ce3278fe1fe0f2d5ee8ff68b91d7c6be489fa53aab63df770f1b4e",
+     "portrait_source": "Full/ui/replace/chara/chara_3/chara_3_luigi_07.bntx",
      "slot": "c07",
      "variant_id": "09:174130:44c52519:c07"
     }

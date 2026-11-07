@@ -17,8 +17,8 @@
      "duplicate_of": null,
      "files_count": 71,
      "has_model": true,
-     "portrait": "df50cdd02ba67e5aec9bb4ca76be73cb153edd7747bd44e59121227ecbff35d6",
-     "portrait_source": "aerith_c00_c01/Zelda Aerith c00/ui/replace/chara/chara_1/chara_1_zelda_00.bntx",
+     "portrait": "306f7e46511ad8fbd3a1430a5fc58ac6c3fd505ffee22ecd589da60de56a0a6b",
+     "portrait_source": "aerith_c00_c01/Zelda Aerith c00/ui/replace/chara/chara_3/chara_3_zelda_00.bntx",
      "slot": "c00",
      "variant_id": "17:535222:c9904ffb:c00"
     },
@@ -28,8 +28,8 @@
      "duplicate_of": null,
      "files_count": 68,
      "has_model": true,
-     "portrait": "336d0c8ee34ed9b69604d33fba5af2cf615ae527ebd7ab654095a91477ceb7de",
-     "portrait_source": "aerith_c00_c01/Zelda Aerith c01/ui/replace/chara/chara_1/chara_1_zelda_01.bntx",
+     "portrait": "3669cf1d862833132a52e286bbb80105c206019c3f9ccfcfba3905e90f8d669d",
+     "portrait_source": "aerith_c00_c01/Zelda Aerith c01/ui/replace/chara/chara_3/chara_3_zelda_01.bntx",
      "slot": "c01",
      "variant_id": "17:535222:c9904ffb:c01"
     }

@@ -17,8 +17,8 @@
      "duplicate_of": null,
      "files_count": 32,
      "has_model": true,
-     "portrait": "dc390b2b4e31d6f3845086f8da9d8a063bc2c1375deea0ea752001f32401d91e",
-     "portrait_source": "dancing banana/ui/replace/chara/chara_0/chara_0_luigi_01.bntx",
+     "portrait": "aeb2bfbfba4c7c6a2a864bc4210a4012c9f95e0b3a8ad8dc9883901a9bc9af45",
+     "portrait_source": "dancing banana/ui/replace/chara/chara_3/chara_3_luigi_01.bntx",
      "slot": "c01",
      "variant_id": "09:432574:50ade927:c01"
     },
@@ -28,8 +28,8 @@
      "duplicate_of": null,
      "files_count": 32,
      "has_model": true,
-     "portrait": "8c2faf59a6d1de600fbc70d184954bf171a8e4300e78b1d925dfa4cd7a6cf27e",
-     "portrait_source": "dancing banana/ui/replace/chara/chara_0/chara_0_luigi_02.bntx",
+     "portrait": "34c906cc2ad700c37836adfbe2a3fa94cf38667c7899c0917f2d8339c7c9ec9f",
+     "portrait_source": "dancing banana/ui/replace/chara/chara_3/chara_3_luigi_02.bntx",
      "slot": "c02",
      "variant_id": "09:432574:50ade927:c02"
     }
@@ -52,8 +52,8 @@
      "duplicate_of": null,
      "files_count": 32,
      "has_model": true,
-     "portrait": "dc390b2b4e31d6f3845086f8da9d8a063bc2c1375deea0ea752001f32401d91e",
-     "portrait_source": "dancing banana/ui/replace/chara/chara_0/chara_0_luigi_01.bntx",
+     "portrait": "aeb2bfbfba4c7c6a2a864bc4210a4012c9f95e0b3a8ad8dc9883901a9bc9af45",
+     "portrait_source": "dancing banana/ui/replace/chara/chara_3/chara_3_luigi_01.bntx",
      "slot": "c01",
      "variant_id": "09:432574:edeb2003:c01"
     },
@@ -63,8 +63,8 @@
      "duplicate_of": null,
      "files_count": 32,
      "has_model": true,
-     "portrait": "8c2faf59a6d1de600fbc70d184954bf171a8e4300e78b1d925dfa4cd7a6cf27e",
-     "portrait_source": "dancing banana/ui/replace/chara/chara_0/chara_0_luigi_02.bntx",
+     "portrait": "34c906cc2ad700c37836adfbe2a3fa94cf38667c7899c0917f2d8339c7c9ec9f",
+     "portrait_source": "dancing banana/ui/replace/chara/chara_3/chara_3_luigi_02.bntx",
      "slot": "c02",
      "variant_id": "09:432574:edeb2003:c02"
     }

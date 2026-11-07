@@ -19,8 +19,8 @@
      "duplicate_of": null,
      "files_count": 19,
      "has_model": true,
-     "portrait": "a4b278758a2bc1a20300b28f5a4e522a24067582955275734f472520b1b73a3e",
-     "portrait_source": "Even Slots/Kazuya_PS1/ui/replace_patch/chara/chara_0/chara_0_demon_00.bntx",
+     "portrait": "242ca216e9f3b14490891bf6b5867628ae88eb277844d1359d94505e2d77bcc0",
+     "portrait_source": "Even Slots/Kazuya_PS1/ui/replace_patch/chara/chara_3/chara_3_demon_00.bntx",
      "slot": "c00",
      "variant_id": "81:309238:644e2d19:c00"
     },
@@ -30,8 +30,8 @@
      "duplicate_of": null,
      "files_count": 19,
      "has_model": true,
-     "portrait": "7087f72f11db888d1177916d0496eb44d32f1eb123c213c6c7f88b79a07513fa",
-     "portrait_source": "Even Slots/Kazuya_PS1/ui/replace_patch/chara/chara_0/chara_0_demon_02.bntx",
+     "portrait": "ffdf71462cbf79b9034630d116988f1a19b9c9fd27ad98d0e505bef17d2665ab",
+     "portrait_source": "Even Slots/Kazuya_PS1/ui/replace_patch/chara/chara_3/chara_3_demon_02.bntx",
      "slot": "c02",
      "variant_id": "81:309238:644e2d19:c02"
     },
@@ -41,8 +41,8 @@
      "duplicate_of": null,
      "files_count": 19,
      "has_model": true,
-     "portrait": "dc242aa41a1aea6bf1d68cad7a057ba90f05f0b14168d2c4cb0b3c0ff7773819",
-     "portrait_source": "Even Slots/Kazuya_PS1/ui/replace_patch/chara/chara_0/chara_0_demon_04.bntx",
+     "portrait": "7accc6d5c059afb00d7fdd26c484cdeccfdc5b37d8e68bbca1140be822772ba9",
+     "portrait_source": "Even Slots/Kazuya_PS1/ui/replace_patch/chara/chara_3/chara_3_demon_04.bntx",
      "slot": "c04",
      "variant_id": "81:309238:644e2d19:c04"
     },
@@ -52,8 +52,8 @@
      "duplicate_of": null,
      "files_count": 20,
      "has_model": true,
-     "portrait": "9b0090e2c1750ec49c459367f33ab45d27ec0c702d7d8bee1515caceb37372e6",
-     "portrait_source": "Even Slots/Kazuya_PS1/ui/replace_patch/chara/chara_0/chara_0_demon_06.bntx",
+     "portrait": "5041185c2da72df0946b18fe914ec26ab74f5fc3250411d864999bdba0c71cb4",
+     "portrait_source": "Even Slots/Kazuya_PS1/ui/replace_patch/chara/chara_3/chara_3_demon_06.bntx",
      "slot": "c06",
      "variant_id": "81:309238:644e2d19:c06"
     }
@@ -78,8 +78,8 @@
      "duplicate_of": null,
      "files_count": 19,
      "has_model": true,
-     "portrait": "a4b278758a2bc1a20300b28f5a4e522a24067582955275734f472520b1b73a3e",
-     "portrait_source": "Odd Slots/Kazuya_PS1/ui/replace_patch/chara/chara_0/chara_0_demon_01.bntx",
+     "portrait": "242ca216e9f3b14490891bf6b5867628ae88eb277844d1359d94505e2d77bcc0",
+     "portrait_source": "Odd Slots/Kazuya_PS1/ui/replace_patch/chara/chara_3/chara_3_demon_01.bntx",
      "slot": "c01",
      "variant_id": "81:309238:745d5fc3:c01"
     },
@@ -89,8 +89,8 @@
      "duplicate_of": null,
      "files_count": 19,
      "has_model": true,
-     "portrait": "7087f72f11db888d1177916d0496eb44d32f1eb123c213c6c7f88b79a07513fa",
-     "portrait_source": "Odd Slots/Kazuya_PS1/ui/replace_patch/chara/chara_0/chara_0_demon_03.bntx",
+     "portrait": "ffdf71462cbf79b9034630d116988f1a19b9c9fd27ad98d0e505bef17d2665ab",
+     "portrait_source": "Odd Slots/Kazuya_PS1/ui/replace_patch/chara/chara_3/chara_3_demon_03.bntx",
      "slot": "c03",
      "variant_id": "81:309238:745d5fc3:c03"
     },
@@ -100,8 +100,8 @@
      "duplicate_of": null,
      "files_count": 19,
      "has_model": true,
-     "portrait": "dc242aa41a1aea6bf1d68cad7a057ba90f05f0b14168d2c4cb0b3c0ff7773819",
-     "portrait_source": "Odd Slots/Kazuya_PS1/ui/replace_patch/chara/chara_0/chara_0_demon_05.bntx",
+     "portrait": "7accc6d5c059afb00d7fdd26c484cdeccfdc5b37d8e68bbca1140be822772ba9",
+     "portrait_source": "Odd Slots/Kazuya_PS1/ui/replace_patch/chara/chara_3/chara_3_demon_05.bntx",
      "slot": "c05",
      "variant_id": "81:309238:745d5fc3:c05"
     },
@@ -111,8 +111,8 @@
      "duplicate_of": null,
      "files_count": 20,
      "has_model": true,
-     "portrait": "9b0090e2c1750ec49c459367f33ab45d27ec0c702d7d8bee1515caceb37372e6",
-     "portrait_source": "Odd Slots/Kazuya_PS1/ui/replace_patch/chara/chara_0/chara_0_demon_07.bntx",
+     "portrait": "5041185c2da72df0946b18fe914ec26ab74f5fc3250411d864999bdba0c71cb4",
+     "portrait_source": "Odd Slots/Kazuya_PS1/ui/replace_patch/chara/chara_3/chara_3_demon_07.bntx",
      "slot": "c07",
      "variant_id": "81:309238:745d5fc3:c07"
     }

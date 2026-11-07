@@ -56,8 +56,8 @@
      "duplicate_of": null,
      "files_count": 75,
      "has_model": true,
-     "portrait": "6aee2b1b8505ef466d3c080607edab4592e6993aaf63dd39d49fc5075900ad14",
-     "portrait_source": "Thomas The Tank Engine (Birthday Wishes - c02)/Thomas The Tank Engine (Birthday Wishes - c02)/ui/replace/chara/chara_0/chara_0_robot_02.bntx",
+     "portrait": "3e017417bd4c0e09b29871819bceff34b1ea0ed73bf5d427609492046c5014c2",
+     "portrait_source": "Thomas The Tank Engine (Birthday Wishes - c02)/Thomas The Tank Engine (Birthday Wishes - c02)/ui/replace/chara/chara_3/chara_3_robot_02.bntx",
      "slot": "c02",
      "variant_id": "42:594024:57f7c05f:c02"
     }
@@ -97,8 +97,8 @@
      "duplicate_of": null,
      "files_count": 76,
      "has_model": true,
-     "portrait": "5f067d19f1a8b8ead8b65f6d6044d1dd8f56b23f3b09d2de5106848f7e0a3487",
-     "portrait_source": "Thomas The Tank Engine (c01)/Thomas The Tank Engine/ui/replace/chara/chara_0/chara_0_robot_01.bntx",
+     "portrait": "e367410085e91cc2fd42446a50a787f539748acada9227a5755a4b75773f892f",
+     "portrait_source": "Thomas The Tank Engine (c01)/Thomas The Tank Engine/ui/replace/chara/chara_3/chara_3_robot_01.bntx",
      "slot": "c01",
      "variant_id": "42:594024:c3a16fd6:c01"
     }
@@ -127,8 +127,8 @@
      "duplicate_of": null,
      "files_count": 69,
      "has_model": true,
-     "portrait": "bed14cf4c4e52613cd0f7f40bfe2d3b80643fc941c0d27c47cababae5d53012a",
-     "portrait_source": "Thomas The Tank Engine (Classic - c00)/Thomas The Tank Engine (Classic - c00)/ui/replace/chara/chara_0/chara_0_robot_00.bntx",
+     "portrait": "4364a3e07056e9a4407e29468932838957ff556783f925f15ebb87c0cbc2a9dd",
+     "portrait_source": "Thomas The Tank Engine (Classic - c00)/Thomas The Tank Engine (Classic - c00)/ui/replace/chara/chara_3/chara_3_robot_00.bntx",
      "slot": "c00",
      "variant_id": "42:594024:dc70d750:c00"
     },
@@ -168,8 +168,8 @@
      "duplicate_of": null,
      "files_count": 69,
      "has_model": true,
-     "portrait": "bed14cf4c4e52613cd0f7f40bfe2d3b80643fc941c0d27c47cababae5d53012a",
-     "portrait_source": "Thomas the Tank Engine (Full Slot Replacement - John Hasler)/Thomas the Tank Engine (Full Slot Replacement)/ui/replace/chara/chara_0/chara_0_robot_00.bntx",
+     "portrait": "4364a3e07056e9a4407e29468932838957ff556783f925f15ebb87c0cbc2a9dd",
+     "portrait_source": "Thomas the Tank Engine (Full Slot Replacement - John Hasler)/Thomas the Tank Engine (Full Slot Replacement)/ui/replace/chara/chara_3/chara_3_robot_00.bntx",
      "slot": "c00",
      "variant_id": "42:594024:ded24f2d:c00"
     },
@@ -179,8 +179,8 @@
      "duplicate_of": null,
      "files_count": 76,
      "has_model": true,
-     "portrait": "5f067d19f1a8b8ead8b65f6d6044d1dd8f56b23f3b09d2de5106848f7e0a3487",
-     "portrait_source": "Thomas the Tank Engine (Full Slot Replacement - John Hasler)/Thomas the Tank Engine (Full Slot Replacement)/ui/replace/chara/chara_0/chara_0_robot_01.bntx",
+     "portrait": "e367410085e91cc2fd42446a50a787f539748acada9227a5755a4b75773f892f",
+     "portrait_source": "Thomas the Tank Engine (Full Slot Replacement - John Hasler)/Thomas the Tank Engine (Full Slot Replacement)/ui/replace/chara/chara_3/chara_3_robot_01.bntx",
      "slot": "c01",
      "variant_id": "42:594024:ded24f2d:c01"
     },
@@ -190,8 +190,8 @@
      "duplicate_of": null,
      "files_count": 74,
      "has_model": true,
-     "portrait": "6aee2b1b8505ef466d3c080607edab4592e6993aaf63dd39d49fc5075900ad14",
-     "portrait_source": "Thomas the Tank Engine (Full Slot Replacement - John Hasler)/Thomas the Tank Engine (Full Slot Replacement)/ui/replace/chara/chara_0/chara_0_robot_02.bntx",
+     "portrait": "3e017417bd4c0e09b29871819bceff34b1ea0ed73bf5d427609492046c5014c2",
+     "portrait_source": "Thomas the Tank Engine (Full Slot Replacement - John Hasler)/Thomas the Tank Engine (Full Slot Replacement)/ui/replace/chara/chara_3/chara_3_robot_02.bntx",
      "slot": "c02",
      "variant_id": "42:594024:ded24f2d:c02"
     },
@@ -201,8 +201,8 @@
      "duplicate_of": null,
      "files_count": 74,
      "has_model": true,
-     "portrait": "7d6a286fbaff271969298b7aedf8a40acd8cc88f08d0b86b8228a2c762e0cb45",
-     "portrait_source": "Thomas the Tank Engine (Full Slot Replacement - John Hasler)/Thomas the Tank Engine (Full Slot Replacement)/ui/replace/chara/chara_0/chara_0_robot_03.bntx",
+     "portrait": "b19e8b87da3a3eaba162517c0419d71bafaee9eedab1473530da0fa925732ca6",
+     "portrait_source": "Thomas the Tank Engine (Full Slot Replacement - John Hasler)/Thomas the Tank Engine (Full Slot Replacement)/ui/replace/chara/chara_3/chara_3_robot_03.bntx",
      "slot": "c03",
      "variant_id": "42:594024:ded24f2d:c03"
     },
@@ -212,8 +212,8 @@
      "duplicate_of": null,
      "files_count": 74,
      "has_model": true,
-     "portrait": "5f56f4528897b778245a68cd44b9cc9463eb74f1f5bc533bdf883659e18285a5",
-     "portrait_source": "Thomas the Tank Engine (Full Slot Replacement - John Hasler)/Thomas the Tank Engine (Full Slot Replacement)/ui/replace/chara/chara_0/chara_0_robot_04.bntx",
+     "portrait": "69c11b67da1de36fa227d237d04dbd8f9e53f8b28da8e5b2b32cb577d29b68e7",
+     "portrait_source": "Thomas the Tank Engine (Full Slot Replacement - John Hasler)/Thomas the Tank Engine (Full Slot Replacement)/ui/replace/chara/chara_3/chara_3_robot_04.bntx",
      "slot": "c04",
      "variant_id": "42:594024:ded24f2d:c04"
     },
@@ -223,8 +223,8 @@
      "duplicate_of": null,
      "files_count": 74,
      "has_model": true,
-     "portrait": "162189c89f73ac86a7f90712690c876831400da9bfd96336d5bb13e62df8f2e5",
-     "portrait_source": "Thomas the Tank Engine (Full Slot Replacement - John Hasler)/Thomas the Tank Engine (Full Slot Replacement)/ui/replace/chara/chara_0/chara_0_robot_05.bntx",
+     "portrait": "e7600242bf2a6cd1abe6b983127cd6e89377da5c3b028fb49038aa8cbdb499d2",
+     "portrait_source": "Thomas the Tank Engine (Full Slot Replacement - John Hasler)/Thomas the Tank Engine (Full Slot Replacement)/ui/replace/chara/chara_3/chara_3_robot_05.bntx",
      "slot": "c05",
      "variant_id": "42:594024:ded24f2d:c05"
     },
@@ -234,8 +234,8 @@
      "duplicate_of": null,
      "files_count": 72,
      "has_model": true,
-     "portrait": "be5dc6de136d9741183f2f8b706c5476f54595444b227fb2303318ca85322c94",
-     "portrait_source": "Thomas the Tank Engine (Full Slot Replacement - John Hasler)/Thomas the Tank Engine (Full Slot Replacement)/ui/replace/chara/chara_0/chara_0_robot_06.bntx",
+     "portrait": "ddf51c9eb22dd540fabb1a7ee680b9abc2723d0673ef5c5ee53de1152b938013",
+     "portrait_source": "Thomas the Tank Engine (Full Slot Replacement - John Hasler)/Thomas the Tank Engine (Full Slot Replacement)/ui/replace/chara/chara_3/chara_3_robot_06.bntx",
      "slot": "c06",
      "variant_id": "42:594024:ded24f2d:c06"
     },
@@ -245,8 +245,8 @@
      "duplicate_of": null,
      "files_count": 75,
      "has_model": true,
-     "portrait": "77325003ddb3d7d89ed6fc66e14be6795163c3ff0c9cfca51a96ca4443db3117",
-     "portrait_source": "Thomas the Tank Engine (Full Slot Replacement - John Hasler)/Thomas the Tank Engine (Full Slot Replacement)/ui/replace/chara/chara_0/chara_0_robot_07.bntx",
+     "portrait": "1db343f4b6e2735aeb6c91a322129051b4e2da83c47794bcf7b484fe769dc9e9",
+     "portrait_source": "Thomas the Tank Engine (Full Slot Replacement - John Hasler)/Thomas the Tank Engine (Full Slot Replacement)/ui/replace/chara/chara_3/chara_3_robot_07.bntx",
      "slot": "c07",
      "variant_id": "42:594024:ded24f2d:c07"
     }
@@ -275,8 +275,8 @@
      "duplicate_of": null,
      "files_count": 69,
      "has_model": true,
-     "portrait": "bed14cf4c4e52613cd0f7f40bfe2d3b80643fc941c0d27c47cababae5d53012a",
-     "portrait_source": "Thomas the Tank Engine (Full Slot Replacement)/Thomas the Tank Engine (Full Slot Replacement)/ui/replace/chara/chara_0/chara_0_robot_00.bntx",
+     "portrait": "4364a3e07056e9a4407e29468932838957ff556783f925f15ebb87c0cbc2a9dd",
+     "portrait_source": "Thomas the Tank Engine (Full Slot Replacement)/Thomas the Tank Engine (Full Slot Replacement)/ui/replace/chara/chara_3/chara_3_robot_00.bntx",
      "slot": "c00",
      "variant_id": "42:594024:304956d8:c00"
     },
@@ -286,8 +286,8 @@
      "duplicate_of": null,
      "files_count": 76,
      "has_model": true,
-     "portrait": "5f067d19f1a8b8ead8b65f6d6044d1dd8f56b23f3b09d2de5106848f7e0a3487",
-     "portrait_source": "Thomas the Tank Engine (Full Slot Replacement)/Thomas the Tank Engine (Full Slot Replacement)/ui/replace/chara/chara_0/chara_0_robot_01.bntx",
+     "portrait": "e367410085e91cc2fd42446a50a787f539748acada9227a5755a4b75773f892f",
+     "portrait_source": "Thomas the Tank Engine (Full Slot Replacement)/Thomas the Tank Engine (Full Slot Replacement)/ui/replace/chara/chara_3/chara_3_robot_01.bntx",
      "slot": "c01",
      "variant_id": "42:594024:304956d8:c01"
     },
@@ -297,8 +297,8 @@
      "duplicate_of": null,
      "files_count": 74,
      "has_model": true,
-     "portrait": "6aee2b1b8505ef466d3c080607edab4592e6993aaf63dd39d49fc5075900ad14",
-     "portrait_source": "Thomas the Tank Engine (Full Slot Replacement)/Thomas the Tank Engine (Full Slot Replacement)/ui/replace/chara/chara_0/chara_0_robot_02.bntx",
+     "portrait": "3e017417bd4c0e09b29871819bceff34b1ea0ed73bf5d427609492046c5014c2",
+     "portrait_source": "Thomas the Tank Engine (Full Slot Replacement)/Thomas the Tank Engine (Full Slot Replacement)/ui/replace/chara/chara_3/chara_3_robot_02.bntx",
      "slot": "c02",
      "variant_id": "42:594024:304956d8:c02"
     },
@@ -308,8 +308,8 @@
      "duplicate_of": null,
      "files_count": 74,
      "has_model": true,
-     "portrait": "7d6a286fbaff271969298b7aedf8a40acd8cc88f08d0b86b8228a2c762e0cb45",
-     "portrait_source": "Thomas the Tank Engine (Full Slot Replacement)/Thomas the Tank Engine (Full Slot Replacement)/ui/replace/chara/chara_0/chara_0_robot_03.bntx",
+     "portrait": "b19e8b87da3a3eaba162517c0419d71bafaee9eedab1473530da0fa925732ca6",
+     "portrait_source": "Thomas the Tank Engine (Full Slot Replacement)/Thomas the Tank Engine (Full Slot Replacement)/ui/replace/chara/chara_3/chara_3_robot_03.bntx",
      "slot": "c03",
      "variant_id": "42:594024:304956d8:c03"
     },
@@ -319,8 +319,8 @@
      "duplicate_of": null,
      "files_count": 74,
      "has_model": true,
-     "portrait": "5f56f4528897b778245a68cd44b9cc9463eb74f1f5bc533bdf883659e18285a5",
-     "portrait_source": "Thomas the Tank Engine (Full Slot Replacement)/Thomas the Tank Engine (Full Slot Replacement)/ui/replace/chara/chara_0/chara_0_robot_04.bntx",
+     "portrait": "69c11b67da1de36fa227d237d04dbd8f9e53f8b28da8e5b2b32cb577d29b68e7",
+     "portrait_source": "Thomas the Tank Engine (Full Slot Replacement)/Thomas the Tank Engine (Full Slot Replacement)/ui/replace/chara/chara_3/chara_3_robot_04.bntx",
      "slot": "c04",
      "variant_id": "42:594024:304956d8:c04"
     },
@@ -330,8 +330,8 @@
      "duplicate_of": null,
      "files_count": 74,
      "has_model": true,
-     "portrait": "162189c89f73ac86a7f90712690c876831400da9bfd96336d5bb13e62df8f2e5",
-     "portrait_source": "Thomas the Tank Engine (Full Slot Replacement)/Thomas the Tank Engine (Full Slot Replacement)/ui/replace/chara/chara_0/chara_0_robot_05.bntx",
+     "portrait": "e7600242bf2a6cd1abe6b983127cd6e89377da5c3b028fb49038aa8cbdb499d2",
+     "portrait_source": "Thomas the Tank Engine (Full Slot Replacement)/Thomas the Tank Engine (Full Slot Replacement)/ui/replace/chara/chara_3/chara_3_robot_05.bntx",
      "slot": "c05",
      "variant_id": "42:594024:304956d8:c05"
     },
@@ -341,8 +341,8 @@
      "duplicate_of": null,
      "files_count": 72,
      "has_model": true,
-     "portrait": "be5dc6de136d9741183f2f8b706c5476f54595444b227fb2303318ca85322c94",
-     "portrait_source": "Thomas the Tank Engine (Full Slot Replacement)/Thomas the Tank Engine (Full Slot Replacement)/ui/replace/chara/chara_0/chara_0_robot_06.bntx",
+     "portrait": "ddf51c9eb22dd540fabb1a7ee680b9abc2723d0673ef5c5ee53de1152b938013",
+     "portrait_source": "Thomas the Tank Engine (Full Slot Replacement)/Thomas the Tank Engine (Full Slot Replacement)/ui/replace/chara/chara_3/chara_3_robot_06.bntx",
      "slot": "c06",
      "variant_id": "42:594024:304956d8:c06"
     },
@@ -352,8 +352,8 @@
      "duplicate_of": null,
      "files_count": 75,
      "has_model": true,
-     "portrait": "77325003ddb3d7d89ed6fc66e14be6795163c3ff0c9cfca51a96ca4443db3117",
-     "portrait_source": "Thomas the Tank Engine (Full Slot Replacement)/Thomas the Tank Engine (Full Slot Replacement)/ui/replace/chara/chara_0/chara_0_robot_07.bntx",
+     "portrait": "1db343f4b6e2735aeb6c91a322129051b4e2da83c47794bcf7b484fe769dc9e9",
+     "portrait_source": "Thomas the Tank Engine (Full Slot Replacement)/Thomas the Tank Engine (Full Slot Replacement)/ui/replace/chara/chara_3/chara_3_robot_07.bntx",
      "slot": "c07",
      "variant_id": "42:594024:304956d8:c07"
     }
@@ -404,8 +404,8 @@
      "duplicate_of": null,
      "files_count": 75,
      "has_model": true,
-     "portrait": "77325003ddb3d7d89ed6fc66e14be6795163c3ff0c9cfca51a96ca4443db3117",
-     "portrait_source": "Thomas The Tank Engine (James - c07)/Thomas the Tank Engine (James - c07)/ui/replace/chara/chara_0/chara_0_robot_07.bntx",
+     "portrait": "1db343f4b6e2735aeb6c91a322129051b4e2da83c47794bcf7b484fe769dc9e9",
+     "portrait_source": "Thomas The Tank Engine (James - c07)/Thomas the Tank Engine (James - c07)/ui/replace/chara/chara_3/chara_3_robot_07.bntx",
      "slot": "c07",
      "variant_id": "42:594024:115f2d82:c07"
     }
@@ -456,8 +456,8 @@
      "duplicate_of": null,
      "files_count": 72,
      "has_model": true,
-     "portrait": "be5dc6de136d9741183f2f8b706c5476f54595444b227fb2303318ca85322c94",
-     "portrait_source": "Thomas The Tank Engine (Minis - c06)/Thomas the Tank Engine (Minis - c06)/ui/replace/chara/chara_0/chara_0_robot_06.bntx",
+     "portrait": "ddf51c9eb22dd540fabb1a7ee680b9abc2723d0673ef5c5ee53de1152b938013",
+     "portrait_source": "Thomas The Tank Engine (Minis - c06)/Thomas the Tank Engine (Minis - c06)/ui/replace/chara/chara_3/chara_3_robot_06.bntx",
      "slot": "c06",
      "variant_id": "42:594024:8660492b:c06"
     }
@@ -508,8 +508,8 @@
      "duplicate_of": null,
      "files_count": 75,
      "has_model": true,
-     "portrait": "7d6a286fbaff271969298b7aedf8a40acd8cc88f08d0b86b8228a2c762e0cb45",
-     "portrait_source": "Thomas The Tank Engine (Rosie - c03)/Thomas the Tank Engine (Rosie - c03)/ui/replace/chara/chara_0/chara_0_robot_03.bntx",
+     "portrait": "b19e8b87da3a3eaba162517c0419d71bafaee9eedab1473530da0fa925732ca6",
+     "portrait_source": "Thomas The Tank Engine (Rosie - c03)/Thomas the Tank Engine (Rosie - c03)/ui/replace/chara/chara_3/chara_3_robot_03.bntx",
      "slot": "c03",
      "variant_id": "42:594024:e9bde51d:c03"
     }
@@ -560,8 +560,8 @@
      "duplicate_of": null,
      "files_count": 75,
      "has_model": true,
-     "portrait": "5f56f4528897b778245a68cd44b9cc9463eb74f1f5bc533bdf883659e18285a5",
-     "portrait_source": "Thomas The Tank Engine (TATMR - c04)/Thomas the Tank Engine (TATMR - c04)/ui/replace/chara/chara_0/chara_0_robot_04.bntx",
+     "portrait": "69c11b67da1de36fa227d237d04dbd8f9e53f8b28da8e5b2b32cb577d29b68e7",
+     "portrait_source": "Thomas The Tank Engine (TATMR - c04)/Thomas the Tank Engine (TATMR - c04)/ui/replace/chara/chara_3/chara_3_robot_04.bntx",
      "slot": "c04",
      "variant_id": "42:594024:41b92b02:c04"
     }
@@ -612,8 +612,8 @@
      "duplicate_of": null,
      "files_count": 74,
      "has_model": true,
-     "portrait": "162189c89f73ac86a7f90712690c876831400da9bfd96336d5bb13e62df8f2e5",
-     "portrait_source": "Thomas The Tank Engine (The Adventure Begins - c05)/Thomas the Tank Engine (LBSC 70 - c05)/ui/replace/chara/chara_0/chara_0_robot_05.bntx",
+     "portrait": "e7600242bf2a6cd1abe6b983127cd6e89377da5c3b028fb49038aa8cbdb499d2",
+     "portrait_source": "Thomas The Tank Engine (The Adventure Begins - c05)/Thomas the Tank Engine (LBSC 70 - c05)/ui/replace/chara/chara_3/chara_3_robot_05.bntx",
      "slot": "c05",
      "variant_id": "42:594024:be3c571a:c05"
     }

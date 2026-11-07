@@ -20,8 +20,8 @@
      "duplicate_of": null,
      "files_count": 36,
      "has_model": true,
-     "portrait": "1deae480b5143aac11063dc8ce0f3ec26ebc775d55efc1afc91abf2d747ed814",
-     "portrait_source": "Goku over Ken (c00-c07)/ui/replace/chara/chara_0/chara_0_ken_00.bntx",
+     "portrait": "2b4f272e4ae4fc7fd8e7b8071fcda0f94780a0429e0767533acfac49c4441192",
+     "portrait_source": "Goku over Ken (c00-c07)/ui/replace/chara/chara_3/chara_3_ken_00.bntx",
      "slot": "c00",
      "variant_id": "60ε:498005:f6f50302:c00"
     },
@@ -31,8 +31,8 @@
      "duplicate_of": null,
      "files_count": 35,
      "has_model": true,
-     "portrait": "a0cbcd4e4627b419d8350af7e5176f797fd1a1370e5f87b80120ab19c4b331d7",
-     "portrait_source": "Goku over Ken (c00-c07)/ui/replace/chara/chara_0/chara_0_ken_01.bntx",
+     "portrait": "72a8b79e2223bf1fe4dc78e6e5b879cfd5f96dbf6277002fb8f703044571d39d",
+     "portrait_source": "Goku over Ken (c00-c07)/ui/replace/chara/chara_3/chara_3_ken_01.bntx",
      "slot": "c01",
      "variant_id": "60ε:498005:f6f50302:c01"
     },
@@ -42,8 +42,8 @@
      "duplicate_of": null,
      "files_count": 36,
      "has_model": true,
-     "portrait": "056e34b618ff0c3553aa976663069c3ba0ac33b6d91274d1e10d353ff89eee54",
-     "portrait_source": "Goku over Ken (c00-c07)/ui/replace/chara/chara_0/chara_0_ken_02.bntx",
+     "portrait": "3b0fa578f4393be23d36bcfe69eb2792623ec6ed8b5956d04f0159ae070c9cc5",
+     "portrait_source": "Goku over Ken (c00-c07)/ui/replace/chara/chara_3/chara_3_ken_02.bntx",
      "slot": "c02",
      "variant_id": "60ε:498005:f6f50302:c02"
     },
@@ -53,8 +53,8 @@
      "duplicate_of": null,
      "files_count": 35,
      "has_model": true,
-     "portrait": "e9c75ec1d41a343c053a5c221236eef4890e9c53642b79786c89622f5aacf0b2",
-     "portrait_source": "Goku over Ken (c00-c07)/ui/replace/chara/chara_0/chara_0_ken_03.bntx",
+     "portrait": "0684c21bddc2df4eff6df5e085bb3280c3f40757297b0289198aa05b0c3f8e29",
+     "portrait_source": "Goku over Ken (c00-c07)/ui/replace/chara/chara_3/chara_3_ken_03.bntx",
      "slot": "c03",
      "variant_id": "60ε:498005:f6f50302:c03"
     },
@@ -64,8 +64,8 @@
      "duplicate_of": null,
      "files_count": 35,
      "has_model": true,
-     "portrait": "c0830352d59fe8c9fc0e334c52c9514464163597f08729caf7c9fbb3653f299d",
-     "portrait_source": "Goku over Ken (c00-c07)/ui/replace/chara/chara_0/chara_0_ken_04.bntx",
+     "portrait": "3a3da80ccdd52ff03afb7eb9df20a9a1316403215a6154a35000ee09c03135bd",
+     "portrait_source": "Goku over Ken (c00-c07)/ui/replace/chara/chara_3/chara_3_ken_04.bntx",
      "slot": "c04",
      "variant_id": "60ε:498005:f6f50302:c04"
     },
@@ -75,8 +75,8 @@
      "duplicate_of": null,
      "files_count": 35,
      "has_model": true,
-     "portrait": "9c1ff7649a4b0c79adf9d196e4cda141e4354c009647b5acee40769cf5c655b3",
-     "portrait_source": "Goku over Ken (c00-c07)/ui/replace/chara/chara_0/chara_0_ken_05.bntx",
+     "portrait": "48fbb526bb424784f439a2063d265f8b6a4c2e656dddfc2a4e8f7c638e31e99e",
+     "portrait_source": "Goku over Ken (c00-c07)/ui/replace/chara/chara_3/chara_3_ken_05.bntx",
      "slot": "c05",
      "variant_id": "60ε:498005:f6f50302:c05"
     },
@@ -86,8 +86,8 @@
      "duplicate_of": null,
      "files_count": 35,
      "has_model": true,
-     "portrait": "4db2b66166d813c5426c4637bef2d6e4c51c6f3871b9c6de4261d870f30a752f",
-     "portrait_source": "Goku over Ken (c00-c07)/ui/replace/chara/chara_0/chara_0_ken_06.bntx",
+     "portrait": "05cb86a44ed893a1d2c39fcfb6d5597c1da1da688f707ff818449ea32f3bf8d2",
+     "portrait_source": "Goku over Ken (c00-c07)/ui/replace/chara/chara_3/chara_3_ken_06.bntx",
      "slot": "c06",
      "variant_id": "60ε:498005:f6f50302:c06"
     },
@@ -97,8 +97,8 @@
      "duplicate_of": null,
      "files_count": 35,
      "has_model": true,
-     "portrait": "98d243062125b9e103c1ecaf6a9ee92ffcada60ecd352b98bfec1912803433cb",
-     "portrait_source": "Goku over Ken (c00-c07)/ui/replace/chara/chara_0/chara_0_ken_07.bntx",
+     "portrait": "26d3af8172d3355dae761328bb945e2319efa72f22616243712c78c6ec8c3540",
+     "portrait_source": "Goku over Ken (c00-c07)/ui/replace/chara/chara_3/chara_3_ken_07.bntx",
      "slot": "c07",
      "variant_id": "60ε:498005:f6f50302:c07"
     }

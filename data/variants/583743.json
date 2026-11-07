@@ -14,8 +14,8 @@
      "duplicate_of": null,
      "files_count": 23,
      "has_model": true,
-     "portrait": "16364b111ad3bccff2538e499f23274ba34bd2ee25b4d8a0de9f18d5cac39668",
-     "portrait_source": "friendly neighborhood spider-man/ui/replace/chara/chara_0/chara_0_littlemac_03.bntx",
+     "portrait": "0305bef4c9357e71a22843a1067e5d8ee7affe027b40c8f5d5a69c572d72ce83",
+     "portrait_source": "friendly neighborhood spider-man/ui/replace/chara/chara_3/chara_3_littlemac_03.bntx",
      "slot": "c03",
      "variant_id": "49:583743:0b9b6612:c03"
     },
@@ -25,8 +25,8 @@
      "duplicate_of": null,
      "files_count": 23,
      "has_model": true,
-     "portrait": "006c0f2065d7b1a7437de04a1a427dad7d991bba37ea710d89e73df474f9973f",
-     "portrait_source": "friendly neighborhood spider-man/ui/replace/chara/chara_0/chara_0_littlemac_04.bntx",
+     "portrait": "6afcb833794283164c955a7f904ba83dc7c8e0723b8052a4809699240f9e9dd0",
+     "portrait_source": "friendly neighborhood spider-man/ui/replace/chara/chara_3/chara_3_littlemac_04.bntx",
      "slot": "c04",
      "variant_id": "49:583743:0b9b6612:c04"
     }
@@ -46,8 +46,8 @@
      "duplicate_of": null,
      "files_count": 22,
      "has_model": true,
-     "portrait": "4e3edb50266aa8e496247759062b1be91db2fa67b8037721d50e0a03876ce0d0",
-     "portrait_source": "the human spider/ui/replace/chara/chara_0/chara_0_littlemac_03.bntx",
+     "portrait": "14deeb8dbea227cbe0a57b5ce2ff20e8ce976d3dcfbb95f1aa55dbeacca39624",
+     "portrait_source": "the human spider/ui/replace/chara/chara_3/chara_3_littlemac_03.bntx",
      "slot": "c03",
      "variant_id": "49:583743:163a7fab:c03"
     }

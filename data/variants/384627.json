@@ -16,8 +16,8 @@
      "duplicate_of": null,
      "files_count": 16,
      "has_model": true,
-     "portrait": "36db7eeb86ad0f30f18050554694967e39f9f0b6760f28d846d8d3e459934b22",
-     "portrait_source": "Timeless River Doctor/ui/replace/chara/chara_0/chara_0_mariod_01.bntx",
+     "portrait": "b01aac26c9bddfc671035b09473e9e61e83c8d3995f1e011a79be604fa4351c4",
+     "portrait_source": "Timeless River Doctor/ui/replace/chara/chara_3/chara_3_mariod_01.bntx",
      "slot": "c01",
      "variant_id": "18:384627:22310ba6:c01"
     }
@@ -39,8 +39,8 @@
      "duplicate_of": null,
      "files_count": 16,
      "has_model": true,
-     "portrait": "36db7eeb86ad0f30f18050554694967e39f9f0b6760f28d846d8d3e459934b22",
-     "portrait_source": "Timeless River Doctor/ui/replace/chara/chara_0/chara_0_mariod_07.bntx",
+     "portrait": "b01aac26c9bddfc671035b09473e9e61e83c8d3995f1e011a79be604fa4351c4",
+     "portrait_source": "Timeless River Doctor/ui/replace/chara/chara_3/chara_3_mariod_07.bntx",
      "slot": "c07",
      "variant_id": "18:384627:c752f9ff:c07"
     }

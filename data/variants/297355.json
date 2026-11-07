@@ -17,8 +17,8 @@
      "duplicate_of": null,
      "files_count": 18,
      "has_model": true,
-     "portrait": "1397bdf65721063ad4222508de5a08e6912f14c80e7637fd90e6222c1b677124",
-     "portrait_source": "Princess R.O.B/ui/replace/chara/chara_1/chara_1_robot_00.bntx",
+     "portrait": "be5bcb99b176b9300ce96fb86172711f09f20a457ccdaef6ac584ea37acf3ee2",
+     "portrait_source": "Princess R.O.B/ui/replace/chara/chara_3/chara_3_robot_00.bntx",
      "slot": "c00",
      "variant_id": "42:297355:7bfa1f5b:c00"
     },
@@ -28,8 +28,8 @@
      "duplicate_of": null,
      "files_count": 22,
      "has_model": true,
-     "portrait": "26016662e56793e43417b80b60ac483262400f20a153473cc290493e783f5c65",
-     "portrait_source": "Princess R.O.B/ui/replace/chara/chara_0/chara_0_robot_01.bntx",
+     "portrait": "6700a23a51f09495add52c37a3c9318fe676e10c6ffef424dc345f4117b00311",
+     "portrait_source": "Princess R.O.B/ui/replace/chara/chara_3/chara_3_robot_01.bntx",
      "slot": "c01",
      "variant_id": "42:297355:7bfa1f5b:c01"
     }

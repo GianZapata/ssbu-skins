@@ -25,8 +25,8 @@
      "duplicate_of": null,
      "files_count": 79,
      "has_model": true,
-     "portrait": "2a2f098dc73f79f95343fc4af25f704fd03ccf101df76af7935129840d18f42c",
-     "portrait_source": "TOTK_Link_Cellshaded/ui/replace/chara/chara_0/chara_0_link_00.bntx",
+     "portrait": "9b3135129814c21cab1ec3f648fe8bd37e6903e2a3f1804494a74cfec7dcc8fb",
+     "portrait_source": "TOTK_Link_Cellshaded/ui/replace/chara/chara_3/chara_3_link_00.bntx",
      "slot": "c00",
      "variant_id": "03:474851:cc762c47:c00"
     },
@@ -36,8 +36,8 @@
      "duplicate_of": null,
      "files_count": 73,
      "has_model": true,
-     "portrait": "3cb28a7b11c02097f9ccf66069a4dce67c04ce9a1e7a3de991690813a1731fa6",
-     "portrait_source": "TOTK_Link_Cellshaded/ui/replace/chara/chara_0/chara_0_link_01.bntx",
+     "portrait": "56d248e473f65ee1dc6e76189af2a94d8fd27d3148fdab0488074d9d9466090a",
+     "portrait_source": "TOTK_Link_Cellshaded/ui/replace/chara/chara_3/chara_3_link_01.bntx",
      "slot": "c01",
      "variant_id": "03:474851:cc762c47:c01"
     },
@@ -47,8 +47,8 @@
      "duplicate_of": null,
      "files_count": 78,
      "has_model": true,
-     "portrait": "a5a3dcc6e3bf9640c4ef5b45d986e61bee3aee060377715f7bb72fd4627eb672",
-     "portrait_source": "TOTK_Link_Cellshaded/ui/replace/chara/chara_0/chara_0_link_02.bntx",
+     "portrait": "a8c58a1d6048c47aa814e10b22592177667880761fadffd7f39558191b124a50",
+     "portrait_source": "TOTK_Link_Cellshaded/ui/replace/chara/chara_3/chara_3_link_02.bntx",
      "slot": "c02",
      "variant_id": "03:474851:cc762c47:c02"
     },
@@ -58,8 +58,8 @@
      "duplicate_of": null,
      "files_count": 80,
      "has_model": true,
-     "portrait": "708c5c47ea7278f74cbad04f6a8369eb731a426c41cd5b6cdaa4e3f29e03114a",
-     "portrait_source": "TOTK_Link_Cellshaded/ui/replace/chara/chara_0/chara_0_link_03.bntx",
+     "portrait": "a759cd7231414edf11861eab440eb135944a127de59faee53cc1ff1dd44faf15",
+     "portrait_source": "TOTK_Link_Cellshaded/ui/replace/chara/chara_3/chara_3_link_03.bntx",
      "slot": "c03",
      "variant_id": "03:474851:cc762c47:c03"
     },
@@ -69,8 +69,8 @@
      "duplicate_of": null,
      "files_count": 75,
      "has_model": true,
-     "portrait": "2b2ba76e9be93a72a9587237155bc1dfbc609cafe24d9f9e0d5f13eaf18a7b9d",
-     "portrait_source": "TOTK_Link_Cellshaded/ui/replace/chara/chara_0/chara_0_link_04.bntx",
+     "portrait": "c0067767d24c61036eba1a2826cd5fa595dae570bba5344c0badc7e6a43426f3",
+     "portrait_source": "TOTK_Link_Cellshaded/ui/replace/chara/chara_3/chara_3_link_04.bntx",
      "slot": "c04",
      "variant_id": "03:474851:cc762c47:c04"
     },
@@ -80,8 +80,8 @@
      "duplicate_of": null,
      "files_count": 81,
      "has_model": true,
-     "portrait": "65c63e30a63946656c875b3f6a57efbd7365e5afabca9edda7ca4068db97312c",
-     "portrait_source": "TOTK_Link_Cellshaded/ui/replace/chara/chara_0/chara_0_link_05.bntx",
+     "portrait": "f5a888dba164114d4ce5882bebfdcb772256261165cb950a0b92f171a9060ddb",
+     "portrait_source": "TOTK_Link_Cellshaded/ui/replace/chara/chara_3/chara_3_link_05.bntx",
      "slot": "c05",
      "variant_id": "03:474851:cc762c47:c05"
     },
@@ -91,8 +91,8 @@
      "duplicate_of": null,
      "files_count": 77,
      "has_model": true,
-     "portrait": "6fda849f6d61f56cf056f0fcc43fd43ce1efc323dcd8e1e27d695d526b97104f",
-     "portrait_source": "TOTK_Link_Cellshaded/ui/replace/chara/chara_0/chara_0_link_06.bntx",
+     "portrait": "3600a0224380248d9be66518c1c5961b010e7e397a131f10b6d16c2355ade089",
+     "portrait_source": "TOTK_Link_Cellshaded/ui/replace/chara/chara_3/chara_3_link_06.bntx",
      "slot": "c06",
      "variant_id": "03:474851:cc762c47:c06"
     },
@@ -102,8 +102,8 @@
      "duplicate_of": null,
      "files_count": 75,
      "has_model": true,
-     "portrait": "1d95e4b2c68eaadb15e7d6fb63adf6f1239da7ecd8e32a0d941d66e4b1e42577",
-     "portrait_source": "TOTK_Link_Cellshaded/ui/replace/chara/chara_0/chara_0_link_07.bntx",
+     "portrait": "5409be85e01853724f0a8c0c8dfe15748d889d545551c292eb0c47eb583ec3bd",
+     "portrait_source": "TOTK_Link_Cellshaded/ui/replace/chara/chara_3/chara_3_link_07.bntx",
      "slot": "c07",
      "variant_id": "03:474851:cc762c47:c07"
     }

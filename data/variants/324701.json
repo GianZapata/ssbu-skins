@@ -14,8 +14,8 @@
      "duplicate_of": null,
      "files_count": 29,
      "has_model": true,
-     "portrait": "b8f112b30ebf843fbee66442fc161b824686a2d1493b53b749ee148401ab3557",
-     "portrait_source": "MarioInAWheelchair/ui/replace/chara/chara_0/chara_0_mario_02.bntx",
+     "portrait": "8bbc95b43d3e5ec5536bdd2f6fe93ca993a566f9fac86555b6c79530051c1123",
+     "portrait_source": "MarioInAWheelchair/ui/replace/chara/chara_3/chara_3_mario_02.bntx",
      "slot": "c02",
      "variant_id": "01:324701:d6916d12:c02"
     },
@@ -25,8 +25,8 @@
      "duplicate_of": null,
      "files_count": 29,
      "has_model": true,
-     "portrait": "1d18f519841f37f87dbce16bac9161b9cc491a8fdc38c44a19b2f2cbfac26292",
-     "portrait_source": "MarioInAWheelchair/ui/replace/chara/chara_0/chara_0_mario_03.bntx",
+     "portrait": "ac0ce5e0c5acda9f6a227d2ce845ad663e8d60b803aed6157db49621a9512754",
+     "portrait_source": "MarioInAWheelchair/ui/replace/chara/chara_3/chara_3_mario_03.bntx",
      "slot": "c03",
      "variant_id": "01:324701:d6916d12:c03"
     }

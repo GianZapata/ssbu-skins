@@ -16,8 +16,8 @@
      "duplicate_of": null,
      "files_count": 63,
      "has_model": true,
-     "portrait": "b8fae53006aeb9a904665f273c1f9fab19a995b06dd8942bf2f7f8215f8ef238",
-     "portrait_source": "UI Elements/chara_0/chara_0_mario_00.bntx",
+     "portrait": "2dce2a5df32739027354d2acc573e16cf3a4473e037d4d4c49406376723bf02c",
+     "portrait_source": "UI Elements/chara_3/chara_3_mario_00.bntx",
      "slot": "c00",
      "variant_id": "01:294695:c176e8b5:c00"
     },
@@ -27,8 +27,8 @@
      "duplicate_of": null,
      "files_count": 35,
      "has_model": true,
-     "portrait": "87890e709f462e997286f184a338d68a869ea8d107a168e699f87dd7713ffdc6",
-     "portrait_source": "UI Elements/chara_0/chara_0_mario_01.bntx",
+     "portrait": "e6a24e2a7227b5cc048e8a766e5eccf8cd2d37c5eb6fd1cca774a4095b02c750",
+     "portrait_source": "UI Elements/chara_3/chara_3_mario_01.bntx",
      "slot": "c01",
      "variant_id": "01:294695:c176e8b5:c01"
     },
@@ -38,8 +38,8 @@
      "duplicate_of": null,
      "files_count": 35,
      "has_model": true,
-     "portrait": "c10be95813b0addf4107aa64a2e19d46e2ec5a3a36682ca2d48c37234d6432bd",
-     "portrait_source": "UI Elements/chara_0/chara_0_mario_02.bntx",
+     "portrait": "0707e5995cead88609427cc5ba54a8850a98ad25c3a91ce64229b24a3b9a33f5",
+     "portrait_source": "UI Elements/chara_3/chara_3_mario_02.bntx",
      "slot": "c02",
      "variant_id": "01:294695:c176e8b5:c02"
     },
@@ -49,8 +49,8 @@
      "duplicate_of": null,
      "files_count": 35,
      "has_model": true,
-     "portrait": "a474f08e03946c96ef9223b38556c82b80bb25c9b0f17de913f32f87e047412b",
-     "portrait_source": "UI Elements/chara_0/chara_0_mario_03.bntx",
+     "portrait": "16e293681b5dad11a56f8cb492cd161c2b2127fed1287fe10a9bda7976782021",
+     "portrait_source": "UI Elements/chara_3/chara_3_mario_03.bntx",
      "slot": "c03",
      "variant_id": "01:294695:c176e8b5:c03"
     },
@@ -60,8 +60,8 @@
      "duplicate_of": null,
      "files_count": 35,
      "has_model": true,
-     "portrait": "39a9140d854dc89e349992af2400bb0b2094314ccd3f3fa7bddedae90899d3db",
-     "portrait_source": "UI Elements/chara_0/chara_0_mario_04.bntx",
+     "portrait": "2b7b4bd8264b09a941213f3146a778ca678beb6524e0bbcb966e00f9c955d3f7",
+     "portrait_source": "UI Elements/chara_3/chara_3_mario_04.bntx",
      "slot": "c04",
      "variant_id": "01:294695:c176e8b5:c04"
     },
@@ -71,8 +71,8 @@
      "duplicate_of": null,
      "files_count": 35,
      "has_model": true,
-     "portrait": "c9ea9378e552dcaf329bfca07a92bf4e6980c13590433f27572a6c80586497d7",
-     "portrait_source": "UI Elements/chara_0/chara_0_mario_05.bntx",
+     "portrait": "a82ac690d293c798c0d37f58097f3532bf51dfc92a57c9abeb7e7ec5b5f09216",
+     "portrait_source": "UI Elements/chara_3/chara_3_mario_05.bntx",
      "slot": "c05",
      "variant_id": "01:294695:c176e8b5:c05"
     },
@@ -82,8 +82,8 @@
      "duplicate_of": null,
      "files_count": 38,
      "has_model": true,
-     "portrait": "a18294c9d4743bcb3a556e781adeded6b8137228bc4fa02e19e30cc24954848b",
-     "portrait_source": "UI Elements/chara_0/chara_0_mario_06.bntx",
+     "portrait": "9fed3e7a22d50fc03c87334064b3a7378350a05a1e0e7ca1721fa1430bc43d8d",
+     "portrait_source": "UI Elements/chara_3/chara_3_mario_06.bntx",
      "slot": "c06",
      "variant_id": "01:294695:c176e8b5:c06"
     },
@@ -93,8 +93,8 @@
      "duplicate_of": null,
      "files_count": 38,
      "has_model": true,
-     "portrait": "667f5e6457444f0c2df0724380df6293f63a243ff52bc534420b944c58c2f452",
-     "portrait_source": "UI Elements/chara_0/chara_0_mario_07.bntx",
+     "portrait": "0b777f40db805db1f7c6a230d74fd6bd28b76693e1e369a5c129e3a0683fc29f",
+     "portrait_source": "UI Elements/chara_3/chara_3_mario_07.bntx",
      "slot": "c07",
      "variant_id": "01:294695:c176e8b5:c07"
     }

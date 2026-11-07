@@ -17,8 +17,8 @@
      "duplicate_of": null,
      "files_count": 36,
      "has_model": true,
-     "portrait": "06da9b5f9324786d788a5ef0ec89ad56c8ba819925dfa2fe3e0a5beb1b629688",
-     "portrait_source": "Sukuna V2 c02/ui/replace_patch/chara/chara_0/chara_0_demon_02.bntx",
+     "portrait": "26bfdf0f865191b171477cb316090e14c2e2626c3b0f33dd3f1f1c1775768bab",
+     "portrait_source": "Sukuna V2 c02/ui/replace_patch/chara/chara_3/chara_3_demon_02.bntx",
      "slot": "c02",
      "variant_id": "81:655278:142ccb3c:c02"
     }
@@ -41,8 +41,8 @@
      "duplicate_of": null,
      "files_count": 36,
      "has_model": true,
-     "portrait": "4c60b17eba98de4d0199a79b369cf936ae63b51645189e4e79c7ad77fe2273f6",
-     "portrait_source": "Sukuna V2 c04/ui/replace_patch/chara/chara_0/chara_0_demon_04.bntx",
+     "portrait": "aa3a75ec616614c539ab64660770553e4f94708656e6de3085e801d88f0e81d9",
+     "portrait_source": "Sukuna V2 c04/ui/replace_patch/chara/chara_3/chara_3_demon_04.bntx",
      "slot": "c04",
      "variant_id": "81:655278:e06028bd:c04"
     }
@@ -65,8 +65,8 @@
      "duplicate_of": null,
      "files_count": 36,
      "has_model": true,
-     "portrait": "96886177f0f6b876f63c7c1d7f304592dbb4850fb7c89b42c25506137e59fd99",
-     "portrait_source": "Sukuna V2 c06/ui/replace_patch/chara/chara_0/chara_0_demon_06.bntx",
+     "portrait": "3eae7e81f1ee4f8c89e90671704259344dadf9830ccaa0b87be85a80490d710e",
+     "portrait_source": "Sukuna V2 c06/ui/replace_patch/chara/chara_3/chara_3_demon_06.bntx",
      "slot": "c06",
      "variant_id": "81:655278:45e11396:c06"
     }
@@ -86,8 +86,8 @@
      "duplicate_of": null,
      "files_count": 12,
      "has_model": true,
-     "portrait": "77aa853006901045db59f905b84ccaa737410c9fdef23a0f05525a8f46a5ed77",
-     "portrait_source": "Sukuna (c02)/ui/replace_patch/chara/chara_1/chara_1_demon_02.bntx",
+     "portrait": "14c041034d5eb3016014ac7530cfe96b5f67850bd1faba8afa3d7a713dddc1d2",
+     "portrait_source": "Sukuna (c02)/ui/replace_patch/chara/chara_3/chara_3_demon_02.bntx",
      "slot": "c02",
      "variant_id": "81:655278:a2941c47:c02"
     }
@@ -107,8 +107,8 @@
      "duplicate_of": null,
      "files_count": 12,
      "has_model": true,
-     "portrait": "77aa853006901045db59f905b84ccaa737410c9fdef23a0f05525a8f46a5ed77",
-     "portrait_source": "Sukuna (c04)/ui/replace_patch/chara/chara_1/chara_1_demon_04.bntx",
+     "portrait": "14c041034d5eb3016014ac7530cfe96b5f67850bd1faba8afa3d7a713dddc1d2",
+     "portrait_source": "Sukuna (c04)/ui/replace_patch/chara/chara_3/chara_3_demon_04.bntx",
      "slot": "c04",
      "variant_id": "81:655278:7a5b86b9:c04"
     }
@@ -128,8 +128,8 @@
      "duplicate_of": null,
      "files_count": 12,
      "has_model": true,
-     "portrait": "77aa853006901045db59f905b84ccaa737410c9fdef23a0f05525a8f46a5ed77",
-     "portrait_source": "Sukuna (c06)/ui/replace_patch/chara/chara_1/chara_1_demon_06.bntx",
+     "portrait": "14c041034d5eb3016014ac7530cfe96b5f67850bd1faba8afa3d7a713dddc1d2",
+     "portrait_source": "Sukuna (c06)/ui/replace_patch/chara/chara_3/chara_3_demon_06.bntx",
      "slot": "c06",
      "variant_id": "81:655278:f97d394a:c06"
     }
@@ -149,8 +149,8 @@
      "duplicate_of": null,
      "files_count": 12,
      "has_model": true,
-     "portrait": "1eb32bd03ad1186d4861f2453bced356662ed4a2363f9f6dd0cddfca2b4c910c",
-     "portrait_source": "Yuji (c02)/ui/replace_patch/chara/chara_1/chara_1_demon_02.bntx",
+     "portrait": "cc80e4f9e7b55c00089f7be29acfc31e0fc6f5f3b35562645500727e7c95551c",
+     "portrait_source": "Yuji (c02)/ui/replace_patch/chara/chara_3/chara_3_demon_02.bntx",
      "slot": "c02",
      "variant_id": "81:655278:b3353fd3:c02"
     }
@@ -170,8 +170,8 @@
      "duplicate_of": null,
      "files_count": 12,
      "has_model": true,
-     "portrait": "1eb32bd03ad1186d4861f2453bced356662ed4a2363f9f6dd0cddfca2b4c910c",
-     "portrait_source": "Yuji (c04)/ui/replace_patch/chara/chara_1/chara_1_demon_04.bntx",
+     "portrait": "cc80e4f9e7b55c00089f7be29acfc31e0fc6f5f3b35562645500727e7c95551c",
+     "portrait_source": "Yuji (c04)/ui/replace_patch/chara/chara_3/chara_3_demon_04.bntx",
      "slot": "c04",
      "variant_id": "81:655278:bd1fd5b0:c04"
     }
@@ -191,8 +191,8 @@
      "duplicate_of": null,
      "files_count": 12,
      "has_model": true,
-     "portrait": "1eb32bd03ad1186d4861f2453bced356662ed4a2363f9f6dd0cddfca2b4c910c",
-     "portrait_source": "Yuji (c06)/ui/replace_patch/chara/chara_1/chara_1_demon_06.bntx",
+     "portrait": "cc80e4f9e7b55c00089f7be29acfc31e0fc6f5f3b35562645500727e7c95551c",
+     "portrait_source": "Yuji (c06)/ui/replace_patch/chara/chara_3/chara_3_demon_06.bntx",
      "slot": "c06",
      "variant_id": "81:655278:b478fa0d:c06"
     }

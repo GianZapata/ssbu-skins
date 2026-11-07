@@ -25,8 +25,8 @@
      "duplicate_of": null,
      "files_count": 11,
      "has_model": true,
-     "portrait": "7e0ec583f6a3394d55085ab3c358f96f56623d50f5caa2afbb848c6ad5a8dd38",
-     "portrait_source": "Son Goku (SS1-SSG-SSB) (Ryu c05-06-07)/Goku SS1/ui/replace/chara/chara_1/chara_1_ryu_05.bntx",
+     "portrait": "0da69884050acf18922aa63359d0afef329b68f86516429f6ea2296da47df40f",
+     "portrait_source": "Son Goku (SS1-SSG-SSB) (Ryu c05-06-07)/Goku SS1/ui/replace/chara/chara_3/chara_3_ryu_05.bntx",
      "slot": "c05",
      "variant_id": "60:487736:e5d1238c:c05"
     },
@@ -36,8 +36,8 @@
      "duplicate_of": null,
      "files_count": 11,
      "has_model": true,
-     "portrait": "7882d79bb9e6291f609bc7d6d6f49f58d804e9f3fc06bd132fad79481945f134",
-     "portrait_source": "Son Goku (SS1-SSG-SSB) (Ryu c05-06-07)/Goku SSB/ui/replace/chara/chara_1/chara_1_ryu_06.bntx",
+     "portrait": "d1dbcba86eafe1a8c995cd2715175b944e1dda280576667a488099a6d3b102bd",
+     "portrait_source": "Son Goku (SS1-SSG-SSB) (Ryu c05-06-07)/Goku SSB/ui/replace/chara/chara_3/chara_3_ryu_06.bntx",
      "slot": "c06",
      "variant_id": "60:487736:e5d1238c:c06"
     },
@@ -47,8 +47,8 @@
      "duplicate_of": null,
      "files_count": 22,
      "has_model": true,
-     "portrait": "9a1f0cbc7d14575c28bd39c22d358abfb899b690f817b6f5a36b10fe7e75bb83",
-     "portrait_source": "Son Goku (SS1-SSG-SSB) (Ryu c05-06-07)/Goku SSG/SSG Goku/ui/replace/chara/chara_1/chara_1_ryu_07.bntx",
+     "portrait": "06041d650385b2e591269b42fb1fd98f1386623803fc11f68a5df03d4d6be705",
+     "portrait_source": "Son Goku (SS1-SSG-SSB) (Ryu c05-06-07)/Goku SSG/SSG Goku/ui/replace/chara/chara_3/chara_3_ryu_07.bntx",
      "slot": "c07",
      "variant_id": "60:487736:e5d1238c:c07"
     }

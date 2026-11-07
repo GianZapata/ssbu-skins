@@ -48,8 +48,8 @@
      "duplicate_of": null,
      "files_count": 42,
      "has_model": true,
-     "portrait": "581e184e36e066174f68b3820dfaeb504c1a7a038ea75f68398ffec8bb0781b3",
-     "portrait_source": "Midbus_FullReplacement/Midbus_FullReplacement/ui/replace/chara/chara_0/chara_0_koopa_00.bntx",
+     "portrait": "c12c1b6f5a176da999c75af36443c168ecd017359a96abc13ca380700230b17c",
+     "portrait_source": "Midbus_FullReplacement/Midbus_FullReplacement/ui/replace/chara/chara_3/chara_3_koopa_00.bntx",
      "slot": "c00",
      "variant_id": "14:427685:8cd171cd:c00"
     },
@@ -59,8 +59,8 @@
      "duplicate_of": null,
      "files_count": 40,
      "has_model": true,
-     "portrait": "ea5856491223ae8a31af9aa6fc975eadadab051c03793140d3f1297c22bbf846",
-     "portrait_source": "Midbus_FullReplacement/Midbus_FullReplacement/ui/replace/chara/chara_0/chara_0_koopa_01.bntx",
+     "portrait": "69d1b26665badf7939027fe05e473c8a982961877d3d0bb3c9254d3d8e83652a",
+     "portrait_source": "Midbus_FullReplacement/Midbus_FullReplacement/ui/replace/chara/chara_3/chara_3_koopa_01.bntx",
      "slot": "c01",
      "variant_id": "14:427685:8cd171cd:c01"
     },
@@ -70,8 +70,8 @@
      "duplicate_of": null,
      "files_count": 40,
      "has_model": true,
-     "portrait": "d20d68f37d77f0b6a34c513090769e97fe75dd0bb4597da6dcbbc63850adcaad",
-     "portrait_source": "Midbus_FullReplacement/Midbus_FullReplacement/ui/replace/chara/chara_0/chara_0_koopa_02.bntx",
+     "portrait": "6cbb978d8c8d763fecadb1f3c07494a6751da009d9313c120fd22d071b8b6b0f",
+     "portrait_source": "Midbus_FullReplacement/Midbus_FullReplacement/ui/replace/chara/chara_3/chara_3_koopa_02.bntx",
      "slot": "c02",
      "variant_id": "14:427685:8cd171cd:c02"
     },
@@ -81,8 +81,8 @@
      "duplicate_of": null,
      "files_count": 40,
      "has_model": true,
-     "portrait": "cb6121325444423c979a4f06171ae5a6b9f11ae7c70058605e0cc03d6e5ba790",
-     "portrait_source": "Midbus_FullReplacement/Midbus_FullReplacement/ui/replace/chara/chara_0/chara_0_koopa_03.bntx",
+     "portrait": "64efc2d9ec4f230dd54eade03e3b9b0f1d6716bcc85adbe8ceb2fe3dfd28d7d2",
+     "portrait_source": "Midbus_FullReplacement/Midbus_FullReplacement/ui/replace/chara/chara_3/chara_3_koopa_03.bntx",
      "slot": "c03",
      "variant_id": "14:427685:8cd171cd:c03"
     },
@@ -92,8 +92,8 @@
      "duplicate_of": null,
      "files_count": 40,
      "has_model": true,
-     "portrait": "a017fb3222f6187f079211e1e7d3503b0ad804fb4eede6e46f344fc4b90f466d",
-     "portrait_source": "Midbus_FullReplacement/Midbus_FullReplacement/ui/replace/chara/chara_0/chara_0_koopa_04.bntx",
+     "portrait": "45f74969c59f61a83e552519e2ac1bb41252fbe3ee6b056b90508a1e7d68a198",
+     "portrait_source": "Midbus_FullReplacement/Midbus_FullReplacement/ui/replace/chara/chara_3/chara_3_koopa_04.bntx",
      "slot": "c04",
      "variant_id": "14:427685:8cd171cd:c04"
     },
@@ -103,8 +103,8 @@
      "duplicate_of": null,
      "files_count": 40,
      "has_model": true,
-     "portrait": "3b1674d025244982e70353b66ac65d6301d03e6e80c8825107dd2b080ca2a83d",
-     "portrait_source": "Midbus_FullReplacement/Midbus_FullReplacement/ui/replace/chara/chara_0/chara_0_koopa_05.bntx",
+     "portrait": "8601ee96927271cfd3967c4562a5337e211d6a9dbad62bd44d7cfaee327d4dc3",
+     "portrait_source": "Midbus_FullReplacement/Midbus_FullReplacement/ui/replace/chara/chara_3/chara_3_koopa_05.bntx",
      "slot": "c05",
      "variant_id": "14:427685:8cd171cd:c05"
     },
@@ -114,8 +114,8 @@
      "duplicate_of": null,
      "files_count": 40,
      "has_model": true,
-     "portrait": "02dcc4ef21f14955d6b2ac02d7cb1fc288030715db945da557bb197c422f4a0f",
-     "portrait_source": "Midbus_FullReplacement/Midbus_FullReplacement/ui/replace/chara/chara_0/chara_0_koopa_06.bntx",
+     "portrait": "1faf62aa076c5236d854d4f838d35e64fe48f1fa3e17b70316e84f98ae57a1e2",
+     "portrait_source": "Midbus_FullReplacement/Midbus_FullReplacement/ui/replace/chara/chara_3/chara_3_koopa_06.bntx",
      "slot": "c06",
      "variant_id": "14:427685:8cd171cd:c06"
     },
@@ -125,8 +125,8 @@
      "duplicate_of": null,
      "files_count": 40,
      "has_model": true,
-     "portrait": "a3a96a7f149a61a957f4883de12913969d5f3042e653af53578577c8958d742f",
-     "portrait_source": "Midbus_FullReplacement/Midbus_FullReplacement/ui/replace/chara/chara_0/chara_0_koopa_07.bntx",
+     "portrait": "6796eee24f574382a4a773e24392b2a1ba73fe51c0a0b6442b4935c2b2c3cefd",
+     "portrait_source": "Midbus_FullReplacement/Midbus_FullReplacement/ui/replace/chara/chara_3/chara_3_koopa_07.bntx",
      "slot": "c07",
      "variant_id": "14:427685:8cd171cd:c07"
     }
@@ -157,8 +157,8 @@
      "duplicate_of": null,
      "files_count": 40,
      "has_model": true,
-     "portrait": "b08067ea29f72a8fcff14916efa67501b7d6a8af5ac993ef7dd6e718d1f1ada1",
-     "portrait_source": "Midbus_TwoSlots/Midbus_TwoSlots/ui/replace/chara/chara_1/chara_1_koopa_06.bntx",
+     "portrait": "c12c1b6f5a176da999c75af36443c168ecd017359a96abc13ca380700230b17c",
+     "portrait_source": "Midbus_TwoSlots/Midbus_TwoSlots/ui/replace/chara/chara_3/chara_3_koopa_06.bntx",
      "slot": "c06",
      "variant_id": "14:427685:28e4d700:c06"
     },
@@ -168,8 +168,8 @@
      "duplicate_of": null,
      "files_count": 40,
      "has_model": true,
-     "portrait": "49869e5d928a7ab91fd3140f86faed00a87ff852a6bd67bf58f609b21c8d92fb",
-     "portrait_source": "Midbus_TwoSlots/Midbus_TwoSlots/ui/replace/chara/chara_1/chara_1_koopa_07.bntx",
+     "portrait": "6796eee24f574382a4a773e24392b2a1ba73fe51c0a0b6442b4935c2b2c3cefd",
+     "portrait_source": "Midbus_TwoSlots/Midbus_TwoSlots/ui/replace/chara/chara_3/chara_3_koopa_07.bntx",
      "slot": "c07",
      "variant_id": "14:427685:28e4d700:c07"
     }

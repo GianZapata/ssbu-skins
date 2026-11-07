@@ -14,8 +14,8 @@
      "duplicate_of": null,
      "files_count": 46,
      "has_model": true,
-     "portrait": "5909f19d616866a903ec23b7c668a93d5e4f2733412b17b6eb099061dd5adcdb",
-     "portrait_source": "FirstClass/ui/replace/chara/chara_0/chara_0_cloud_00.bntx",
+     "portrait": "4d0f44bb49dad62c24d85bb2f08bc5d30f7caaf601bb269c01e73d747f8dc78c",
+     "portrait_source": "FirstClass/ui/replace/chara/chara_3/chara_3_cloud_00.bntx",
      "slot": "c00",
      "variant_id": "61:175327:4a8f1872:c00"
     },
@@ -25,8 +25,8 @@
      "duplicate_of": null,
      "files_count": 45,
      "has_model": true,
-     "portrait": "5e6a4547b74804d561a7665e0ae5d0754a8a00dca427449944eaecffdb00291e",
-     "portrait_source": "FirstClass/ui/replace/chara/chara_0/chara_0_cloud_02.bntx",
+     "portrait": "8ff39c48509f9db18b2afaab9deb940e82dfe0142ce006429f35226162c78970",
+     "portrait_source": "FirstClass/ui/replace/chara/chara_3/chara_3_cloud_02.bntx",
      "slot": "c02",
      "variant_id": "61:175327:4a8f1872:c02"
     },
@@ -36,8 +36,8 @@
      "duplicate_of": null,
      "files_count": 45,
      "has_model": true,
-     "portrait": "0c9aba4d943b60d3f2ae3266a26f993d4c7227b15321f86e04a6a512b9f6f9c2",
-     "portrait_source": "FirstClass/ui/replace/chara/chara_0/chara_0_cloud_04.bntx",
+     "portrait": "dee92a5802865dc568d48a868cc43ad93f6ffe3052677fb158d4767070199d12",
+     "portrait_source": "FirstClass/ui/replace/chara/chara_3/chara_3_cloud_04.bntx",
      "slot": "c04",
      "variant_id": "61:175327:4a8f1872:c04"
     },
@@ -47,8 +47,8 @@
      "duplicate_of": null,
      "files_count": 45,
      "has_model": true,
-     "portrait": "4da97103225ef816985dc30b0c7b004e1b7820466f29355fbe0d8dc1de776363",
-     "portrait_source": "FirstClass/ui/replace/chara/chara_0/chara_0_cloud_06.bntx",
+     "portrait": "5a36800f1fd6e288fbd6b36f7f6fcc53292fa461aa80138627bd1b49f9ff7c12",
+     "portrait_source": "FirstClass/ui/replace/chara/chara_3/chara_3_cloud_06.bntx",
      "slot": "c06",
      "variant_id": "61:175327:4a8f1872:c06"
     }
@@ -68,8 +68,8 @@
      "duplicate_of": null,
      "files_count": 45,
      "has_model": true,
-     "portrait": "9dc425a4e57591b74449e7b0c9e3437e2070d9113604449d2b1d0ba363d8b5d6",
-     "portrait_source": "SecondClass/ui/replace/chara/chara_0/chara_0_cloud_00.bntx",
+     "portrait": "2ebb0fa932bf6d6fc30d6e3387dd7ba7f922937aca46dd9bbabbbee0fa9eae56",
+     "portrait_source": "SecondClass/ui/replace/chara/chara_3/chara_3_cloud_00.bntx",
      "slot": "c00",
      "variant_id": "61:175327:993e781c:c00"
     },
@@ -79,8 +79,8 @@
      "duplicate_of": null,
      "files_count": 44,
      "has_model": true,
-     "portrait": "b13b1ddd17b1f19525a903f00a6fc6d22a67f94fe3239de3b8189fc583aa65bc",
-     "portrait_source": "SecondClass/ui/replace/chara/chara_0/chara_0_cloud_02.bntx",
+     "portrait": "2dd60faf2fa9f95e6d7eec200f910ba313b60f35377aa4971b0587a2dc375146",
+     "portrait_source": "SecondClass/ui/replace/chara/chara_3/chara_3_cloud_02.bntx",
      "slot": "c02",
      "variant_id": "61:175327:993e781c:c02"
     },
@@ -90,8 +90,8 @@
      "duplicate_of": null,
      "files_count": 43,
      "has_model": true,
-     "portrait": "015f342d3e966b09f15a0bab1600cc9ce60020ba94d48b5c13b16841d743577c",
-     "portrait_source": "SecondClass/ui/replace/chara/chara_0/chara_0_cloud_04.bntx",
+     "portrait": "21b16ca40aaf3ee155e75f0e9d9ac8612464f74fc8c7eb7bbe00dc5c93814388",
+     "portrait_source": "SecondClass/ui/replace/chara/chara_3/chara_3_cloud_04.bntx",
      "slot": "c04",
      "variant_id": "61:175327:993e781c:c04"
     },
@@ -101,8 +101,8 @@
      "duplicate_of": null,
      "files_count": 43,
      "has_model": true,
-     "portrait": "cab39ef129721196c651e11db14bc844d8a57b163e44022e46b789a2352a7384",
-     "portrait_source": "SecondClass/ui/replace/chara/chara_0/chara_0_cloud_06.bntx",
+     "portrait": "adc59bb377bd98c616945d0631ada2fefd56eb88de45e6a88b4d3a0496475b97",
+     "portrait_source": "SecondClass/ui/replace/chara/chara_3/chara_3_cloud_06.bntx",
      "slot": "c06",
      "variant_id": "61:175327:993e781c:c06"
     }

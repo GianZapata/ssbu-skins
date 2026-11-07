@@ -18,8 +18,8 @@
      "duplicate_of": null,
      "files_count": 73,
      "has_model": true,
-     "portrait": "effa68d0e6e5cc95fb7277fe167894a7799f33929216250af114779740eff1b9",
-     "portrait_source": "aaMagnezone/ui/replace/chara/chara_0/chara_0_robot_02.bntx",
+     "portrait": "985b935e380541bc595f5b8711069accbe4a3b7a7aebf26daa5d80230cc4025e",
+     "portrait_source": "aaMagnezone/ui/replace/chara/chara_3/chara_3_robot_02.bntx",
      "slot": "c02",
      "variant_id": "42:423647:3f9149eb:c02"
     }
@@ -43,8 +43,8 @@
      "duplicate_of": null,
      "files_count": 73,
      "has_model": true,
-     "portrait": "170a4edd910057c66734c7ec356aabf13b6e812fec7fce4e5b7b351aef81e016",
-     "portrait_source": "aaMagnezoneShiny/ui/replace/chara/chara_0/chara_0_robot_03.bntx",
+     "portrait": "c761106cf280dc21c67233a5374ff736aa5b625bd647a2ca905e447995f1046d",
+     "portrait_source": "aaMagnezoneShiny/ui/replace/chara/chara_3/chara_3_robot_03.bntx",
      "slot": "c03",
      "variant_id": "42:423647:c39e41b6:c03"
     }

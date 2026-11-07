@@ -25,8 +25,8 @@
      "duplicate_of": null,
      "files_count": 28,
      "has_model": true,
-     "portrait": "c9da3162a36ed6d420cf639a1740839b25bd8cdbdce7cc495d97d97fbaa6918e",
-     "portrait_source": "Xion over Sora/ui/replace_patch/chara/chara_0/chara_0_trail_00.bntx",
+     "portrait": "6e0f054804fe10075ac3920dd432b6834d71aa2b24fe9df2600634f7e58c4a4a",
+     "portrait_source": "Xion over Sora/ui/replace_patch/chara/chara_3/chara_3_trail_00.bntx",
      "slot": "c00",
      "variant_id": "82:471722:591e9740:c00"
     },
@@ -36,8 +36,8 @@
      "duplicate_of": null,
      "files_count": 27,
      "has_model": true,
-     "portrait": "c9da3162a36ed6d420cf639a1740839b25bd8cdbdce7cc495d97d97fbaa6918e",
-     "portrait_source": "Xion over Sora/ui/replace_patch/chara/chara_0/chara_0_trail_01.bntx",
+     "portrait": "6e98660c4ffd41089c5c4d7187a552289b38c598f4d41ca7f38abc8f3166f2c6",
+     "portrait_source": "Xion over Sora/ui/replace_patch/chara/chara_3/chara_3_trail_01.bntx",
      "slot": "c01",
      "variant_id": "82:471722:591e9740:c01"
     },
@@ -47,8 +47,8 @@
      "duplicate_of": null,
      "files_count": 31,
      "has_model": true,
-     "portrait": "c9da3162a36ed6d420cf639a1740839b25bd8cdbdce7cc495d97d97fbaa6918e",
-     "portrait_source": "Xion over Sora/ui/replace_patch/chara/chara_0/chara_0_trail_02.bntx",
+     "portrait": "4d2a0d08988fb85f507b295c0c24b92601e5ba143643d6dd023592bc3369a071",
+     "portrait_source": "Xion over Sora/ui/replace_patch/chara/chara_3/chara_3_trail_02.bntx",
      "slot": "c02",
      "variant_id": "82:471722:591e9740:c02"
     },
@@ -58,8 +58,8 @@
      "duplicate_of": null,
      "files_count": 28,
      "has_model": true,
-     "portrait": "c9da3162a36ed6d420cf639a1740839b25bd8cdbdce7cc495d97d97fbaa6918e",
-     "portrait_source": "Xion over Sora/ui/replace_patch/chara/chara_0/chara_0_trail_03.bntx",
+     "portrait": "277cea9dcc47b53f771e740e7df29633bda2af17284df12d1711f81f02f360c8",
+     "portrait_source": "Xion over Sora/ui/replace_patch/chara/chara_3/chara_3_trail_03.bntx",
      "slot": "c03",
      "variant_id": "82:471722:591e9740:c03"
     },
@@ -69,8 +69,8 @@
      "duplicate_of": null,
      "files_count": 38,
      "has_model": true,
-     "portrait": "c9da3162a36ed6d420cf639a1740839b25bd8cdbdce7cc495d97d97fbaa6918e",
-     "portrait_source": "Xion over Sora/ui/replace_patch/chara/chara_0/chara_0_trail_04.bntx",
+     "portrait": "6e0f054804fe10075ac3920dd432b6834d71aa2b24fe9df2600634f7e58c4a4a",
+     "portrait_source": "Xion over Sora/ui/replace_patch/chara/chara_3/chara_3_trail_04.bntx",
      "slot": "c04",
      "variant_id": "82:471722:591e9740:c04"
     },
@@ -80,8 +80,8 @@
      "duplicate_of": null,
      "files_count": 27,
      "has_model": true,
-     "portrait": "c9da3162a36ed6d420cf639a1740839b25bd8cdbdce7cc495d97d97fbaa6918e",
-     "portrait_source": "Xion over Sora/ui/replace_patch/chara/chara_0/chara_0_trail_05.bntx",
+     "portrait": "6e98660c4ffd41089c5c4d7187a552289b38c598f4d41ca7f38abc8f3166f2c6",
+     "portrait_source": "Xion over Sora/ui/replace_patch/chara/chara_3/chara_3_trail_05.bntx",
      "slot": "c05",
      "variant_id": "82:471722:591e9740:c05"
     },
@@ -91,8 +91,8 @@
      "duplicate_of": null,
      "files_count": 27,
      "has_model": true,
-     "portrait": "c9da3162a36ed6d420cf639a1740839b25bd8cdbdce7cc495d97d97fbaa6918e",
-     "portrait_source": "Xion over Sora/ui/replace_patch/chara/chara_0/chara_0_trail_06.bntx",
+     "portrait": "4d2a0d08988fb85f507b295c0c24b92601e5ba143643d6dd023592bc3369a071",
+     "portrait_source": "Xion over Sora/ui/replace_patch/chara/chara_3/chara_3_trail_06.bntx",
      "slot": "c06",
      "variant_id": "82:471722:591e9740:c06"
     },
@@ -102,8 +102,8 @@
      "duplicate_of": null,
      "files_count": 27,
      "has_model": true,
-     "portrait": "c9da3162a36ed6d420cf639a1740839b25bd8cdbdce7cc495d97d97fbaa6918e",
-     "portrait_source": "Xion over Sora/ui/replace_patch/chara/chara_0/chara_0_trail_07.bntx",
+     "portrait": "277cea9dcc47b53f771e740e7df29633bda2af17284df12d1711f81f02f360c8",
+     "portrait_source": "Xion over Sora/ui/replace_patch/chara/chara_3/chara_3_trail_07.bntx",
      "slot": "c07",
      "variant_id": "82:471722:591e9740:c07"
     }

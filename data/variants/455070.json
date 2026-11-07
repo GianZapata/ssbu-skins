@@ -14,8 +14,8 @@
      "duplicate_of": null,
      "files_count": 63,
      "has_model": true,
-     "portrait": "e3a37c703cc9037d3d81096a26a325c7ff94422fa1926072678514767144837e",
-     "portrait_source": "Wario - Ugandan Knuckles Sonic Alt (c05)/ui/replace/chara/chara_0/chara_0_wario_05.bntx",
+     "portrait": "4178d44e2c292ad479b3937320a515a6ffc8f02ee8e31d573168b9afc00a1e6c",
+     "portrait_source": "Wario - Ugandan Knuckles Sonic Alt (c05)/ui/replace/chara/chara_3/chara_3_wario_05.bntx",
      "slot": "c05",
      "variant_id": "30:455070:210b221d:c05"
     }
@@ -35,8 +35,8 @@
      "duplicate_of": null,
      "files_count": 63,
      "has_model": true,
-     "portrait": "aab3a6d99e543b1e1d70475a0eb78427eefc068732046ecfe737ef7d1e19cceb",
-     "portrait_source": "Wario c03 - Ugandan Knuckles/ui/replace/chara/chara_0/chara_0_wario_03.bntx",
+     "portrait": "9cdd1213727ce4ed9796e86d6f37afec2618bb9886d03fc55ae781dc82bf4c81",
+     "portrait_source": "Wario c03 - Ugandan Knuckles/ui/replace/chara/chara_3/chara_3_wario_03.bntx",
      "slot": "c03",
      "variant_id": "30:455070:fcab05eb:c03"
     }

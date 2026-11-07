@@ -16,8 +16,8 @@
      "duplicate_of": null,
      "files_count": 15,
      "has_model": true,
-     "portrait": "5d60d7a5a4f65fe15390adce6883b1acc0cf0e5ae5c080eb1e6be9be9524f5b2",
-     "portrait_source": "Marin over Isabelle C03 (Watapascul)/ui/replace/chara/chara_0/chara_0_shizue_03.bntx",
+     "portrait": "4e79e3ad95b4e007d9adc43a377dc21c33dd741910e1f76696ad760231ebefc9",
+     "portrait_source": "Marin over Isabelle C03 (Watapascul)/ui/replace/chara/chara_3/chara_3_shizue_03.bntx",
      "slot": "c03",
      "variant_id": "68:304314:89ced0bb:c03"
     },
@@ -27,8 +27,8 @@
      "duplicate_of": null,
      "files_count": 15,
      "has_model": true,
-     "portrait": "22757237152bbda5f284729634938ac2016fa735a8b3891a858e322b067a7574",
-     "portrait_source": "Marin Blonde over Isabelle C07 (Watapascul)/ui/replace/chara/chara_0/chara_0_shizue_07.bntx",
+     "portrait": "ef59460bea857c3fe5db54033967be2e7ac92082fafb2e7be73f0e756466369e",
+     "portrait_source": "Marin Blonde over Isabelle C07 (Watapascul)/ui/replace/chara/chara_3/chara_3_shizue_07.bntx",
      "slot": "c07",
      "variant_id": "68:304314:89ced0bb:c07"
     }
@@ -52,8 +52,8 @@
      "duplicate_of": null,
      "files_count": 34,
      "has_model": true,
-     "portrait": "8a7d2ab227d577fcb4285dbac0db0223686f4870c7cf7a96a13174a32ee875ed",
-     "portrait_source": "Marin over Isabelle C03 (Watapascul)/ui/replace/chara/chara_0/chara_0_shizue_03.bntx",
+     "portrait": "a864f09fb4068c9cb14afac3198a58d4811ad78bf5b3dfb186f958ce64527af3",
+     "portrait_source": "Marin over Isabelle C03 (Watapascul)/ui/replace/chara/chara_3/chara_3_shizue_03.bntx",
      "slot": "c03",
      "variant_id": "68:304314:e0a9abea:c03"
     }
@@ -84,8 +84,8 @@
      "duplicate_of": null,
      "files_count": 34,
      "has_model": true,
-     "portrait": "8a7d2ab227d577fcb4285dbac0db0223686f4870c7cf7a96a13174a32ee875ed",
-     "portrait_source": "Marin over Isabelle C04 (Watapascul)/ui/replace/chara/chara_0/chara_0_shizue_04.bntx",
+     "portrait": "a864f09fb4068c9cb14afac3198a58d4811ad78bf5b3dfb186f958ce64527af3",
+     "portrait_source": "Marin over Isabelle C04 (Watapascul)/ui/replace/chara/chara_3/chara_3_shizue_04.bntx",
      "slot": "c04",
      "variant_id": "68:304314:3cd0b471:c04"
     }

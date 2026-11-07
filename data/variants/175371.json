@@ -16,8 +16,8 @@
      "duplicate_of": null,
      "files_count": 57,
      "has_model": true,
-     "portrait": "988212877b49b69466279f3366d7ca1b11083b2d8b702eb88f46d57df21bd3b0",
-     "portrait_source": "Install GR2 Kat Alpha [Bayo1 slots]/ui/replace/chara/chara_0/chara_0_bayonetta_03.bntx",
+     "portrait": "23d5d8d7b1f680e739eef536935574cad2baeb4b0a9151c3bcdc80ab16696695",
+     "portrait_source": "Install GR2 Kat Alpha [Bayo1 slots]/ui/replace/chara/chara_3/chara_3_bayonetta_03.bntx",
      "slot": "c03",
      "variant_id": "63:175371:ffa7ff4f:c03"
     }
@@ -52,8 +52,8 @@
      "duplicate_of": null,
      "files_count": 28,
      "has_model": true,
-     "portrait": "988212877b49b69466279f3366d7ca1b11083b2d8b702eb88f46d57df21bd3b0",
-     "portrait_source": "Install GR2 Kat Alpha [Bayo1 slots]/ui/replace/chara/chara_0/chara_0_bayonetta_01.bntx",
+     "portrait": "23d5d8d7b1f680e739eef536935574cad2baeb4b0a9151c3bcdc80ab16696695",
+     "portrait_source": "Install GR2 Kat Alpha [Bayo1 slots]/ui/replace/chara/chara_3/chara_3_bayonetta_01.bntx",
      "slot": "c01",
      "variant_id": "63:175371:f9163c74:c01"
     },
@@ -63,8 +63,8 @@
      "duplicate_of": null,
      "files_count": 23,
      "has_model": true,
-     "portrait": "bb8a7488ebe637102f4daa908532e7be3a44983af9918302fd7d2f2d5587490c",
-     "portrait_source": "Install GR2 Kat Alpha [Bayo1 slots]/ui/replace/chara/chara_0/chara_0_bayonetta_03.bntx",
+     "portrait": "e4c74e80e96988ef4dc38e85eba6746eae6cfb4b5911edd972276096718b1394",
+     "portrait_source": "Install GR2 Kat Alpha [Bayo1 slots]/ui/replace/chara/chara_3/chara_3_bayonetta_03.bntx",
      "slot": "c03",
      "variant_id": "63:175371:f9163c74:c03"
     },
@@ -74,8 +74,8 @@
      "duplicate_of": null,
      "files_count": 23,
      "has_model": true,
-     "portrait": "8605e371144586fc1e4324c653496d772eaabace7ed129bef503cfec8308e66d",
-     "portrait_source": "Install GR2 Kat Alpha [Bayo1 slots]/ui/replace/chara/chara_0/chara_0_bayonetta_05.bntx",
+     "portrait": "5adc031ec3ffc68531845de13531d45ab092a49cae6d1442da24c2a6b35c6c57",
+     "portrait_source": "Install GR2 Kat Alpha [Bayo1 slots]/ui/replace/chara/chara_3/chara_3_bayonetta_05.bntx",
      "slot": "c05",
      "variant_id": "63:175371:f9163c74:c05"
     },
@@ -85,8 +85,8 @@
      "duplicate_of": null,
      "files_count": 23,
      "has_model": true,
-     "portrait": "45d5237474626ec0eb6b041381f6bae476f663f5886e82d486366b8d04882e66",
-     "portrait_source": "Install GR2 Kat Alpha [Bayo1 slots]/ui/replace/chara/chara_0/chara_0_bayonetta_07.bntx",
+     "portrait": "b6ae1ff51e44f59d71fc1b56ff51c61f84bf81189fcad5b9aed268437a6023c3",
+     "portrait_source": "Install GR2 Kat Alpha [Bayo1 slots]/ui/replace/chara/chara_3/chara_3_bayonetta_07.bntx",
      "slot": "c07",
      "variant_id": "63:175371:f9163c74:c07"
     }

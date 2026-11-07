@@ -16,8 +16,8 @@
      "duplicate_of": null,
      "files_count": 41,
      "has_model": true,
-     "portrait": "e5eb51e7ad8a6fae15dce4ab7595a83c96662db44c94135dd45fd15451b9d090",
-     "portrait_source": "Naruto/ui/replace_patch/chara/chara_0/chara_0_demon_00.bntx",
+     "portrait": "1a1d6c07d0228a13deef9da5a6b106a60160ab709c889635fc6c8873122102dd",
+     "portrait_source": "Naruto/ui/replace_patch/chara/chara_3/chara_3_demon_00.bntx",
      "slot": "c00",
      "variant_id": "81:426461:71eac270:c00"
     },
@@ -27,8 +27,8 @@
      "duplicate_of": null,
      "files_count": 44,
      "has_model": true,
-     "portrait": "273dbc8c5884d3c5d629616cbb7a59a429e26934d95279ab71e4b99463db93b0",
-     "portrait_source": "Naruto/ui/replace_patch/chara/chara_0/chara_0_demon_01.bntx",
+     "portrait": "990be287a030a84de67104b2c73239bf0a61ff9bd71d07a8dffdf8ceb94da909",
+     "portrait_source": "Naruto/ui/replace_patch/chara/chara_3/chara_3_demon_01.bntx",
      "slot": "c01",
      "variant_id": "81:426461:71eac270:c01"
     }

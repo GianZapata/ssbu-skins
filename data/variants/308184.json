@@ -16,8 +16,8 @@
      "duplicate_of": null,
      "files_count": 24,
      "has_model": true,
-     "portrait": "831aa15004c4e3c54d48a6f6a2f2773547553218b847f956304244e862fefe72",
-     "portrait_source": "N64 Link over Link C01 (Watapascul)/ui/replace/chara/chara_0/chara_0_link_01.bntx",
+     "portrait": "210ac366b1b8496a1a1b0a9f900cdf4f1c426b0096438eaae612cca539f034a6",
+     "portrait_source": "N64 Link over Link C01 (Watapascul)/ui/replace/chara/chara_3/chara_3_link_01.bntx",
      "slot": "c01",
      "variant_id": "03:308184:384c2459:c01"
     },
@@ -27,8 +27,8 @@
      "duplicate_of": null,
      "files_count": 24,
      "has_model": true,
-     "portrait": "98155a5a7f36902070d51fb8430349badcdd935fcaeb85fbfae6beefe1cdc37e",
-     "portrait_source": "Blue N64 Link over Link C05 (Watapascul)/ui/replace/chara/chara_0/chara_0_link_05.bntx",
+     "portrait": "906b390f2a5e1433ad81aba6a60ff8ca2175d64d830d8f7f883dd763b5fa3f93",
+     "portrait_source": "Blue N64 Link over Link C05 (Watapascul)/ui/replace/chara/chara_3/chara_3_link_05.bntx",
      "slot": "c05",
      "variant_id": "03:308184:384c2459:c05"
     },
@@ -38,8 +38,8 @@
      "duplicate_of": null,
      "files_count": 24,
      "has_model": true,
-     "portrait": "aa16df33101a95bc19b27c80a0186c5513938634493c35c75c7f25100c1566de",
-     "portrait_source": "Red N64 Link over Link C07 (Watapascul)/ui/replace/chara/chara_0/chara_0_link_07.bntx",
+     "portrait": "c8c23067d8b1ec198735ec6e6b8af8ac6d65a2fc5eecc969c0c9afdf671c2f38",
+     "portrait_source": "Red N64 Link over Link C07 (Watapascul)/ui/replace/chara/chara_3/chara_3_link_07.bntx",
      "slot": "c07",
      "variant_id": "03:308184:384c2459:c07"
     }

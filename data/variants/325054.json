@@ -25,8 +25,8 @@
      "duplicate_of": null,
      "files_count": 19,
      "has_model": true,
-     "portrait": "4fd0c59d1c2bc15b5cf822a38e8c81f090beb4c204cd16ec1726709bb852942d",
-     "portrait_source": "Cooler Over Ganondorf (c01)/ui/replace/chara/chara_0/chara_0_ganon_01.bntx",
+     "portrait": "a1c145cf3ba17422b06b5b43ad3e5d27a8bacb45462cd1d46f7ef23035772bc5",
+     "portrait_source": "Cooler Over Ganondorf (c01)/ui/replace/chara/chara_3/chara_3_ganon_01.bntx",
      "slot": "c01",
      "variant_id": "23:325054:cd9f59d3:c01"
     }
@@ -57,8 +57,8 @@
      "duplicate_of": null,
      "files_count": 18,
      "has_model": true,
-     "portrait": "51b3aa8bb35155fd0adf44d12357f9f924e36ec55b18b7f03a534188b22fafcb",
-     "portrait_source": "Cooler Over Ganondorf (c01)/ui/replace/chara/chara_0/chara_0_ganon_01.bntx",
+     "portrait": "2cfb995c121b0f1e4ebddb9da1c7c8b45d803ce86699f6b31eb8099703eeb072",
+     "portrait_source": "Cooler Over Ganondorf (c01)/ui/replace/chara/chara_3/chara_3_ganon_01.bntx",
      "slot": "c01",
      "variant_id": "23:325054:cabfe675:c01"
     }

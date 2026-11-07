@@ -14,8 +14,8 @@
      "duplicate_of": null,
      "files_count": 19,
      "has_model": true,
-     "portrait": "d079705df1acf74026cb9458101ec0bd94aa3bef4a496e102b8de6a8f18497a5",
-     "portrait_source": "Link - c00 - Linkle/ui/replace/chara/chara_0/chara_0_link_00.bntx",
+     "portrait": "6ea936ee63e7d6f2f6910909800ee54a30944949fd4a5623b7c3466803a4e04c",
+     "portrait_source": "Link - c00 - Linkle/ui/replace/chara/chara_3/chara_3_link_00.bntx",
      "slot": "c00",
      "variant_id": "03:490111:7197b866:c00"
     }
@@ -35,8 +35,8 @@
      "duplicate_of": null,
      "files_count": 19,
      "has_model": true,
-     "portrait": "d079705df1acf74026cb9458101ec0bd94aa3bef4a496e102b8de6a8f18497a5",
-     "portrait_source": "Link - c00 - Linkle - Feet/ui/replace/chara/chara_0/chara_0_link_00.bntx",
+     "portrait": "9e685b8c90bfa71cbc07865a3f03c53ec897fd91707574d33d84c0a307f3159e",
+     "portrait_source": "Link - c00 - Linkle - Feet/ui/replace/chara/chara_3/chara_3_link_00.bntx",
      "slot": "c00",
      "variant_id": "03:490111:8da3e9d1:c00"
     }
@@ -56,8 +56,8 @@
      "duplicate_of": null,
      "files_count": 17,
      "has_model": true,
-     "portrait": "8d19f8a0d9cbf409540b04f8c910e777f7c7e19699d34f9ae7cd50ebf5e1868d",
-     "portrait_source": "Link - c03 - Linkle/ui/replace/chara/chara_0/chara_0_link_03.bntx",
+     "portrait": "b1a7afa03b9997252189dbce0ebf6b7245a9c86f85264beef41dd421ac51a37f",
+     "portrait_source": "Link - c03 - Linkle/ui/replace/chara/chara_3/chara_3_link_03.bntx",
      "slot": "c03",
      "variant_id": "03:490111:0492bf34:c03"
     }
@@ -77,8 +77,8 @@
      "duplicate_of": null,
      "files_count": 17,
      "has_model": true,
-     "portrait": "0bca961bf807396c3b3669c0f76d22d4238b2bf69a2f2714a3bea1b656d49fa0",
-     "portrait_source": "Link - c05 - Linkle/ui/replace/chara/chara_0/chara_0_link_05.bntx",
+     "portrait": "bada24d617f5344367539aa02e93962914e9be44ad10586a7d212ee6830186c2",
+     "portrait_source": "Link - c05 - Linkle/ui/replace/chara/chara_3/chara_3_link_05.bntx",
      "slot": "c05",
      "variant_id": "03:490111:7bea3355:c05"
     }
@@ -98,8 +98,8 @@
      "duplicate_of": null,
      "files_count": 17,
      "has_model": true,
-     "portrait": "ec93cce402b0209ce4d151780a9a15cbc9a64ddf2cc1548e17d19c2e1b769602",
-     "portrait_source": "Link - c07 - Linkle/ui/replace/chara/chara_0/chara_0_link_07.bntx",
+     "portrait": "15ea8b479d021747a5071e7fe996458f5cd6f0f0d29c526a825f696b4cd34f5c",
+     "portrait_source": "Link - c07 - Linkle/ui/replace/chara/chara_3/chara_3_link_07.bntx",
      "slot": "c07",
      "variant_id": "03:490111:6b625872:c07"
     }

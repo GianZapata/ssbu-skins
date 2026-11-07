@@ -16,8 +16,8 @@
      "duplicate_of": null,
      "files_count": 23,
      "has_model": true,
-     "portrait": "3ecdf50611279f8c4816c0fcb9e4cf6a565a6bd0efafdc83813c7542d4e1c52c",
-     "portrait_source": "Luigi-C06 - Rayman/ui/replace/chara/chara_0/chara_0_luigi_06.bntx",
+     "portrait": "c1f076d2ca52f142b2beec20b6c74c58923a8748e265367d8e93ef8f1cc1b4cb",
+     "portrait_source": "Luigi-C06 - Rayman/ui/replace/chara/chara_3/chara_3_luigi_06.bntx",
      "slot": "c06",
      "variant_id": "09:391570:49639fb9:c06"
     }
@@ -37,8 +37,8 @@
      "duplicate_of": null,
      "files_count": 30,
      "has_model": true,
-     "portrait": "3ecdf50611279f8c4816c0fcb9e4cf6a565a6bd0efafdc83813c7542d4e1c52c",
-     "portrait_source": "Luigi-C07 - Rayman/ui/replace/chara/chara_0/chara_0_luigi_07.bntx",
+     "portrait": "c1f076d2ca52f142b2beec20b6c74c58923a8748e265367d8e93ef8f1cc1b4cb",
+     "portrait_source": "Luigi-C07 - Rayman/ui/replace/chara/chara_3/chara_3_luigi_07.bntx",
      "slot": "c07",
      "variant_id": "09:391570:6da06dd0:c07"
     }

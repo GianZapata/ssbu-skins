@@ -25,8 +25,8 @@
      "duplicate_of": null,
      "files_count": 35,
      "has_model": true,
-     "portrait": "3459a6df109fc6434caaaf40df659a30ca152c483c9d052feb1d62b15e6a8e78",
-     "portrait_source": "chunky_update_v31/ui/replace/chara/chara_0/chara_0_wario_00.bntx",
+     "portrait": "63d039a324af7d8cceb6714787c8369df8aa0f555c805849ea945324cec4c00d",
+     "portrait_source": "chunky_update_v31/ui/replace/chara/chara_3/chara_3_wario_00.bntx",
      "slot": "c00",
      "variant_id": "30:175036:05a4f842:c00"
     },
@@ -36,8 +36,8 @@
      "duplicate_of": null,
      "files_count": 37,
      "has_model": true,
-     "portrait": "363900b493188324e6866162ecf04400b9cdae030304de160f28b48d0d5cefad",
-     "portrait_source": "chunky_update_v31/ui/replace/chara/chara_0/chara_0_wario_01.bntx",
+     "portrait": "0f855335a43cc69435c06345978f9590830b628f95ac144343d257a1aa861d02",
+     "portrait_source": "chunky_update_v31/ui/replace/chara/chara_3/chara_3_wario_01.bntx",
      "slot": "c01",
      "variant_id": "30:175036:05a4f842:c01"
     },
@@ -47,8 +47,8 @@
      "duplicate_of": null,
      "files_count": 34,
      "has_model": true,
-     "portrait": "690c692bef01575e007a6c7ef4c047fd5a8d99a171ed877bfe00c9f9b29fd153",
-     "portrait_source": "chunky_update_v31/ui/replace/chara/chara_0/chara_0_wario_02.bntx",
+     "portrait": "c44202a4043c7d59de4cd17dc8009b5d2af11edf16dc4a670be6dcce8003a927",
+     "portrait_source": "chunky_update_v31/ui/replace/chara/chara_3/chara_3_wario_02.bntx",
      "slot": "c02",
      "variant_id": "30:175036:05a4f842:c02"
     },
@@ -58,8 +58,8 @@
      "duplicate_of": null,
      "files_count": 34,
      "has_model": true,
-     "portrait": "09989c1ef4093dbaa7a1bf3c654ed55879a430ee1257ca1b161a67d6f518da7a",
-     "portrait_source": "chunky_update_v31/ui/replace/chara/chara_0/chara_0_wario_03.bntx",
+     "portrait": "72b95d8c94a0efdedf4483953583185a07e3bf483051ea2967079e459f829233",
+     "portrait_source": "chunky_update_v31/ui/replace/chara/chara_3/chara_3_wario_03.bntx",
      "slot": "c03",
      "variant_id": "30:175036:05a4f842:c03"
     },
@@ -69,8 +69,8 @@
      "duplicate_of": null,
      "files_count": 34,
      "has_model": true,
-     "portrait": "93546a06ec87d1ec2f648de640ec1a6be84b9c7549b0ae1b9a5d6bff82b3c5dd",
-     "portrait_source": "chunky_update_v31/ui/replace/chara/chara_0/chara_0_wario_04.bntx",
+     "portrait": "d76944cec42db13889f0d0a61966803ab84f7362834a5e5e99be6fff761f65c5",
+     "portrait_source": "chunky_update_v31/ui/replace/chara/chara_3/chara_3_wario_04.bntx",
      "slot": "c04",
      "variant_id": "30:175036:05a4f842:c04"
     },
@@ -80,8 +80,8 @@
      "duplicate_of": null,
      "files_count": 37,
      "has_model": true,
-     "portrait": "018739d115ec8a40436abd76bd73064dd7ac385fa236846816ce0e42ac567b9a",
-     "portrait_source": "chunky_update_v31/ui/replace/chara/chara_0/chara_0_wario_05.bntx",
+     "portrait": "477c1ace071b027c42adb6109e2f872c1dd9739786cbdbbf62d8d98322440ef0",
+     "portrait_source": "chunky_update_v31/ui/replace/chara/chara_3/chara_3_wario_05.bntx",
      "slot": "c05",
      "variant_id": "30:175036:05a4f842:c05"
     },
@@ -91,8 +91,8 @@
      "duplicate_of": null,
      "files_count": 38,
      "has_model": true,
-     "portrait": "2366c9b2bfe94d9e1e56f8a21d5270717e8d67d5ec066be30e2676810706207d",
-     "portrait_source": "chunky_update_v31/ui/replace/chara/chara_0/chara_0_wario_06.bntx",
+     "portrait": "f56e026386e99a4632919c3f3a7d3a187630d9e37128e300df50faf759eabf0b",
+     "portrait_source": "chunky_update_v31/ui/replace/chara/chara_3/chara_3_wario_06.bntx",
      "slot": "c06",
      "variant_id": "30:175036:05a4f842:c06"
     },
@@ -102,8 +102,8 @@
      "duplicate_of": null,
      "files_count": 38,
      "has_model": true,
-     "portrait": "69201c5b9ed3929ecb2030b0b74408c96248164373a8d087b99868aaa4698cd8",
-     "portrait_source": "chunky_update_v31/ui/replace/chara/chara_0/chara_0_wario_07.bntx",
+     "portrait": "248dac857cc1e38e9cfa179010696f71be46b91deb66914480674ff57b75b793",
+     "portrait_source": "chunky_update_v31/ui/replace/chara/chara_3/chara_3_wario_07.bntx",
      "slot": "c07",
      "variant_id": "30:175036:05a4f842:c07"
     }

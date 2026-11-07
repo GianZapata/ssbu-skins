@@ -17,8 +17,8 @@
      "duplicate_of": null,
      "files_count": 15,
      "has_model": true,
-     "portrait": "166c8334fb4b250733951db763720a36531f1f82af7ad03ad34a7a877f0af0cc",
-     "portrait_source": "Sukuna pack/ui/replace_patch/chara/chara_0/chara_0_edge_00.bntx",
+     "portrait": "6a11cfd41a57b4982ddbd72aab7239d47a738ab3bf56f00117c330d5238675b5",
+     "portrait_source": "Sukuna pack/ui/replace_patch/chara/chara_3/chara_3_edge_00.bntx",
      "slot": "c00",
      "variant_id": "78:672428:459a0c33:c00"
     },
@@ -28,8 +28,8 @@
      "duplicate_of": null,
      "files_count": 16,
      "has_model": true,
-     "portrait": "8644819bd8d70a2cfd9a656bd2c13d4467af7f2afc93faea2f9b089fb43677be",
-     "portrait_source": "Sukuna pack/ui/replace_patch/chara/chara_1/chara_1_edge_01.bntx",
+     "portrait": "1db322290dc7aa662144970924becdbeba8a8d007d741c5e14e0c73986c5a32d",
+     "portrait_source": "Sukuna pack/ui/replace_patch/chara/chara_3/chara_3_edge_01.bntx",
      "slot": "c01",
      "variant_id": "78:672428:459a0c33:c01"
     },
@@ -39,8 +39,8 @@
      "duplicate_of": null,
      "files_count": 14,
      "has_model": true,
-     "portrait": "f2a713a05966a21c7323f48c5326aadee95fba27381ba49a2d0a95cecd1dfba4",
-     "portrait_source": "Sukuna pack/ui/replace_patch/chara/chara_1/chara_1_edge_02.bntx",
+     "portrait": "b69a8867a8e8d8a279411e0fc9a7dd22deaeaffa96123035cee8ef37a674cab5",
+     "portrait_source": "Sukuna pack/ui/replace_patch/chara/chara_3/chara_3_edge_02.bntx",
      "slot": "c02",
      "variant_id": "78:672428:459a0c33:c02"
     },
@@ -50,8 +50,8 @@
      "duplicate_of": null,
      "files_count": 17,
      "has_model": true,
-     "portrait": "a85c72566b82998f2d4370bf9d779e365afab230681ad1ef264ae2fc634f1996",
-     "portrait_source": "Sukuna pack/ui/replace_patch/chara/chara_0/chara_0_edge_03.bntx",
+     "portrait": "7156ae76d6304c9bc7c37651ef901b4136ec461ab8932a7d9f7ce2286261300c",
+     "portrait_source": "Sukuna pack/ui/replace_patch/chara/chara_3/chara_3_edge_03.bntx",
      "slot": "c03",
      "variant_id": "78:672428:459a0c33:c03"
     }
