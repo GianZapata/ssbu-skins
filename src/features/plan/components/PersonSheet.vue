@@ -14,7 +14,7 @@ interface PersonSheetEmits {
 const props = defineProps<PersonSheetProps>()
 const emit = defineEmits<PersonSheetEmits>()
 
-const { desktop, people, activePerson, selectPerson, onDialogUpdate } = usePersonSheet(emit)
+const { desktop, grid, people, activePerson, selectPerson, onDialogUpdate, focusInitial } = usePersonSheet(emit)
 const { loop } = useFocusLoop()
 </script>
 
@@ -26,10 +26,13 @@ const { loop } = useFocusLoop()
     :transition-show="desktop ? 'scale' : 'slide-up'"
     :transition-hide="desktop ? 'scale' : 'slide-down'"
     :transition-duration="desktop ? 220 : 280"
+    no-refocus
+    aria-labelledby="person-sheet-title"
     class="sheet-dialog"
+    @show="focusInitial"
     @update:model-value="onDialogUpdate"
   >
-    <div class="sheet sheet--person" role="dialog" aria-labelledby="person-sheet-title" @keydown="loop">
+    <div class="sheet sheet--person" @keydown="loop">
       <div class="sheet__grab" aria-hidden="true"></div>
       <div class="sheet__head">
         <h2 id="person-sheet-title" class="sheet__h">¿Quién propone?</h2>
@@ -37,7 +40,7 @@ const { loop } = useFocusLoop()
       </div>
       <div class="sheet__scroll">
         <p class="person-note">El nombre se elige entre amigos; no pide contraseña.</p>
-        <div class="person-grid">
+        <div ref="grid" class="person-grid">
           <button
             v-for="person in people"
             :key="person"

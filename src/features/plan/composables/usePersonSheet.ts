@@ -1,3 +1,4 @@
+import { ref } from 'vue'
 import { useDesktop } from '../../../composables/useDesktop'
 import type { PersonName } from '../enums/PersonName'
 import { choosePerson, usePerson } from './usePerson'
@@ -7,6 +8,8 @@ interface UsePersonSheetEmits {
 }
 
 export const usePersonSheet = (emit: UsePersonSheetEmits) => {
+  const grid = ref<HTMLElement | null>(null)
+
   const desktop = useDesktop()
   const { people, activePerson } = usePerson()
 
@@ -18,11 +21,19 @@ export const usePersonSheet = (emit: UsePersonSheetEmits) => {
     if (!nextOpen) emit('close')
   }
 
+  const focusInitial = () => {
+    const target = grid.value?.querySelector<HTMLElement>('.person-btn--on, .person-btn')
+
+    target?.focus()
+  }
+
   return {
     desktop,
+    grid,
     people,
     activePerson,
     selectPerson,
     onDialogUpdate,
+    focusInitial,
   }
 }

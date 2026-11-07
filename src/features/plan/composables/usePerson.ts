@@ -1,4 +1,4 @@
-import { computed, ref } from 'vue'
+import { computed, nextTick, ref } from 'vue'
 import { useStorage, type StorageLike } from '@vueuse/core'
 import type { PersonName } from '../enums/PersonName'
 import { PlanHelper } from '../helpers/plan.helper'
@@ -36,8 +36,27 @@ const safeStorage: StorageLike = {
 const storedPerson = useStorage<string>('ssbu_person', '', safeStorage)
 export const isOpenPerson = ref(false)
 
+let opener: HTMLElement | null = null
 let pendingCallback: ((person: PersonName) => void) | null = null
 let onPersonSync: (person: PersonName | null) => void = () => {}
+
+const rememberOpener = () => {
+  const current = document.activeElement
+
+  opener = current instanceof HTMLElement && current !== document.body ? current : null
+}
+
+const restoreFocus = () => {
+  const target = opener
+
+  opener = null
+
+  nextTick(() => {
+    if (target?.isConnected) return target.focus()
+
+    document.querySelector<HTMLElement>('[data-person-opener]')?.focus()
+  })
+}
 
 export const activePerson = computed<PersonName | null>(() => {
   const value = storedPerson.value
@@ -65,6 +84,7 @@ export const syncStoredPerson = (person: string | null) => {
 }
 
 export const openPersonSheet = () => {
+  rememberOpener()
   pendingCallback = null
   isOpenPerson.value = true
 }
@@ -72,6 +92,7 @@ export const openPersonSheet = () => {
 export const closePersonSheet = () => {
   pendingCallback = null
   isOpenPerson.value = false
+  restoreFocus()
 }
 
 export const choosePerson = (person: PersonName) => {
@@ -82,6 +103,7 @@ export const choosePerson = (person: PersonName) => {
 
   pendingCallback = null
   isOpenPerson.value = false
+  restoreFocus()
 
   if (callback) callback(person)
 }
@@ -95,6 +117,7 @@ export const requirePerson = (action: (person: PersonName) => void): boolean => 
     return true
   }
 
+  rememberOpener()
   pendingCallback = action
   isOpenPerson.value = true
 

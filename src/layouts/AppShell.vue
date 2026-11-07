@@ -35,7 +35,7 @@ const {
         </q-avatar>
         <h1 id="ttl" class="app-header__title" tabindex="-1">{{ title }}</h1>
         <span id="sync" class="sync-word"></span>
-        <q-btn flat round padding="0" class="icon-btn" icon="more_vert" aria-label="Más opciones">
+        <q-btn flat round padding="0" class="icon-btn" icon="more_vert" aria-label="Más opciones" data-person-opener>
           <q-menu anchor="bottom right" self="top right">
             <q-list>
               <q-item v-close-popup clickable data-person-menu @click="openPersonSheet">
@@ -74,6 +74,6 @@ const {
     </q-page-container>
 
     <SummarySheet />
-    <PersonSheet v-if="isOpenPerson" :is-open="isOpenPerson" @close="closePersonSheet" />
+    <PersonSheet :is-open="isOpenPerson" @close="closePersonSheet" />
   </q-layout>
 </template>
