@@ -14,8 +14,8 @@
      "duplicate_of": null,
      "files_count": 6,
      "has_model": false,
-     "portrait": "1b9db5dcbf21f358bb9fdc10cb49500d9e0be5c8d342dc28700405d3fdde3904",
-     "portrait_source": "Custom pose UI/Over c06/ui/replace_patch/chara/chara_0/chara_0_demon_06.bntx",
+     "portrait": "6a7e097bfd7846e7649a78fbf875892ac38dd235d4a91b16c183ad99c5b31fe3",
+     "portrait_source": "Custom pose UI/Over c06/ui/replace_patch/chara/chara_3/chara_3_demon_06.bntx",
      "slot": "c06",
      "variant_id": "81:373189:57df636e:c06"
     },
@@ -25,8 +25,8 @@
      "duplicate_of": null,
      "files_count": 8,
      "has_model": false,
-     "portrait": "f849c48a3100e2fb142604674094ec0edb0d6c843f7a42020196ec048524b686",
-     "portrait_source": "Custom pose UI/Over c06/ui/replace_patch/chara/chara_3/Nouveau dossier/chara_3_demon_07.bntx",
+     "portrait": "6a7e097bfd7846e7649a78fbf875892ac38dd235d4a91b16c183ad99c5b31fe3",
+     "portrait_source": "Custom pose UI/Over c07/ui/replace_patch/chara/chara_3/chara_3_demon_07.bntx",
      "slot": "c07",
      "variant_id": "81:373189:57df636e:c07"
     }
@@ -48,8 +48,8 @@
      "duplicate_of": null,
      "files_count": 74,
      "has_model": true,
-     "portrait": "da569214cbe9ab49f371cb6da3c3c7816098a9c5108c96f7cfe91d2ad8714010",
-     "portrait_source": "Devil Jin/ui/replace_patch/chara/chara_0/chara_0_demon_07.bntx",
+     "portrait": "05c054bfac6e062626554a384493b99d09ac3294f8daf176191de21b28f423e8",
+     "portrait_source": "Devil Jin/ui/replace_patch/chara/chara_3/chara_3_demon_07.bntx",
      "slot": "c07",
      "variant_id": "81:373189:ab926ffd:c07"
     }
@@ -71,8 +71,8 @@
      "duplicate_of": null,
      "files_count": 74,
      "has_model": true,
-     "portrait": "da569214cbe9ab49f371cb6da3c3c7816098a9c5108c96f7cfe91d2ad8714010",
-     "portrait_source": "Devil Jin/ui/replace_patch/chara/chara_0/chara_0_demon_06.bntx",
+     "portrait": "05c054bfac6e062626554a384493b99d09ac3294f8daf176191de21b28f423e8",
+     "portrait_source": "Devil Jin/ui/replace_patch/chara/chara_3/chara_3_demon_06.bntx",
      "slot": "c06",
      "variant_id": "81:373189:7ddce287:c06"
     }

@@ -25,8 +25,8 @@
      "duplicate_of": null,
      "files_count": 17,
      "has_model": true,
-     "portrait": "155c901c4254945fbb6a000c8759b65dae83076cdce2f997b8e52a3c5e51babf",
-     "portrait_source": "Kermit over Marth (c00-c07)/ui/replace/chara/chara_0/chara_0_marth_00.bntx",
+     "portrait": "1bc00cd266b433f1e79ed8f6557ac0d84ca01804e54be27be309a12a30fc2b5f",
+     "portrait_source": "Kermit over Marth (c00-c07)/ui/replace/chara/chara_3/chara_3_marth_00.bntx",
      "slot": "c00",
      "variant_id": "21:504236:b7b50aa0:c00"
     },
@@ -36,8 +36,8 @@
      "duplicate_of": null,
      "files_count": 16,
      "has_model": true,
-     "portrait": "0ca76fe67adbd666fd1c3db2f5a66365369abad11a161baacf306042cff8b189",
-     "portrait_source": "Kermit over Marth (c00-c07)/ui/replace/chara/chara_0/chara_0_marth_01.bntx",
+     "portrait": "9f02a4305fc8f7ad9d154db5970d5c43f9a861bf4ce41bdf8487d9ef6c8841f0",
+     "portrait_source": "Kermit over Marth (c00-c07)/ui/replace/chara/chara_3/chara_3_marth_01.bntx",
      "slot": "c01",
      "variant_id": "21:504236:b7b50aa0:c01"
     },
@@ -47,8 +47,8 @@
      "duplicate_of": null,
      "files_count": 16,
      "has_model": true,
-     "portrait": "30e56924661b7925c5a314f43ed37e3e728370ea07b15270011e32e65ec42219",
-     "portrait_source": "Kermit over Marth (c00-c07)/ui/replace/chara/chara_0/chara_0_marth_02.bntx",
+     "portrait": "7176dccc0e2bfd485be2da9a6b5d6043df48234a0bfbf6daa6510e0302a6460d",
+     "portrait_source": "Kermit over Marth (c00-c07)/ui/replace/chara/chara_3/chara_3_marth_02.bntx",
      "slot": "c02",
      "variant_id": "21:504236:b7b50aa0:c02"
     },
@@ -58,8 +58,8 @@
      "duplicate_of": null,
      "files_count": 16,
      "has_model": true,
-     "portrait": "c4f99a78b0f3abebec3b2dc3db545276076eed08f29257c141b20b19f69f8bcd",
-     "portrait_source": "Kermit over Marth (c00-c07)/ui/replace/chara/chara_0/chara_0_marth_03.bntx",
+     "portrait": "ab17853fa2d4ccc2890bf28eb9abb493daabbd98765443d5306fbd7a36197829",
+     "portrait_source": "Kermit over Marth (c00-c07)/ui/replace/chara/chara_3/chara_3_marth_03.bntx",
      "slot": "c03",
      "variant_id": "21:504236:b7b50aa0:c03"
     },
@@ -69,8 +69,8 @@
      "duplicate_of": null,
      "files_count": 16,
      "has_model": true,
-     "portrait": "94fcf75208eb3d228afe561644e14e33114858b2fc5996d44c9ad3441de18c44",
-     "portrait_source": "Kermit over Marth (c00-c07)/ui/replace/chara/chara_0/chara_0_marth_04.bntx",
+     "portrait": "11b79b19c197d622aa4b3eb44ed7a1be0d453035167d1aa593fb6b4d73fe4b07",
+     "portrait_source": "Kermit over Marth (c00-c07)/ui/replace/chara/chara_3/chara_3_marth_04.bntx",
      "slot": "c04",
      "variant_id": "21:504236:b7b50aa0:c04"
     },
@@ -80,8 +80,8 @@
      "duplicate_of": null,
      "files_count": 16,
      "has_model": true,
-     "portrait": "513fcdbfc5e0ee637926d099677c68061e4d8b1b220c20a0a1eac53025305bff",
-     "portrait_source": "Kermit over Marth (c00-c07)/ui/replace/chara/chara_0/chara_0_marth_05.bntx",
+     "portrait": "dae2293e87eab903b3b217f65223c7f6722a0554533738eead2919f1850f449c",
+     "portrait_source": "Kermit over Marth (c00-c07)/ui/replace/chara/chara_3/chara_3_marth_05.bntx",
      "slot": "c05",
      "variant_id": "21:504236:b7b50aa0:c05"
     },
@@ -91,8 +91,8 @@
      "duplicate_of": null,
      "files_count": 16,
      "has_model": true,
-     "portrait": "ea973ae49f15e5ecf1ba146c62ca30a6015c037de651085348bd8708cbcc3ab8",
-     "portrait_source": "Kermit over Marth (c00-c07)/ui/replace/chara/chara_0/chara_0_marth_06.bntx",
+     "portrait": "1767bf55be6f1a3a42bfde35b94690f0138f0173c6f19af17f1cf9b90ef8f0c2",
+     "portrait_source": "Kermit over Marth (c00-c07)/ui/replace/chara/chara_3/chara_3_marth_06.bntx",
      "slot": "c06",
      "variant_id": "21:504236:b7b50aa0:c06"
     },
@@ -102,8 +102,8 @@
      "duplicate_of": null,
      "files_count": 16,
      "has_model": true,
-     "portrait": "ae945d59ecf2b9f104fd2c41e81b3139c9e4188a0394035d2c6a83b5022ae51a",
-     "portrait_source": "Kermit over Marth (c00-c07)/ui/replace/chara/chara_0/chara_0_marth_07.bntx",
+     "portrait": "c8399b2ad8f97ceeb602fff554623e47cb23cfe348e5c00da172da6e83ff5e42",
+     "portrait_source": "Kermit over Marth (c00-c07)/ui/replace/chara/chara_3/chara_3_marth_07.bntx",
      "slot": "c07",
      "variant_id": "21:504236:b7b50aa0:c07"
     }

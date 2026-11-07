@@ -14,8 +14,8 @@
      "duplicate_of": null,
      "files_count": 15,
      "has_model": true,
-     "portrait": "38e98a2adadc193e636f643ce53403938aabb262c50d9d1585ca06d0d7070ea5",
-     "portrait_source": "Trunks_Brave/ui/replace_patch/chara/chara_0/chara_0_brave_02.bntx",
+     "portrait": "d89e638fad4b3b0666106b4f22b75e5ea6fd20dbbe9e940976d484e630f0602b",
+     "portrait_source": "Trunks_Brave/ui/replace_patch/chara/chara_3/chara_3_brave_02.bntx",
      "slot": "c02",
      "variant_id": "72:175735:1c4540df:c02"
     },
@@ -25,8 +25,8 @@
      "duplicate_of": null,
      "files_count": 15,
      "has_model": true,
-     "portrait": "1c0c8b1479e3f7af3fa8db268070754c5a3284f92ccb1e0ea0b859581ae53efb",
-     "portrait_source": "Trunks_Brave/ui/replace_patch/chara/chara_0/chara_0_brave_06.bntx",
+     "portrait": "a17c219ccf61f255fbcf1983d4273f618ead769b00940654d8ad027f768b2348",
+     "portrait_source": "Trunks_Brave/ui/replace_patch/chara/chara_3/chara_3_brave_06.bntx",
      "slot": "c06",
      "variant_id": "72:175735:1c4540df:c06"
     }

@@ -48,8 +48,8 @@
      "duplicate_of": null,
      "files_count": 19,
      "has_model": true,
-     "portrait": "73dc00363b26ac835c01124eea2da6dfad76d08f01f28bc705d806cf3b4b0322",
-     "portrait_source": "KuramaLinkedandSusanooArmor/ui/replace/chara/chara_0/chara_0_koopa_05.bntx",
+     "portrait": "a9958ba0b4fd55640de3dfac2057d52f0f1cfa0b9a54fa2e2bc9bec39092beaf",
+     "portrait_source": "KuramaLinkedandSusanooArmor/ui/replace/chara/chara_3/chara_3_koopa_05.bntx",
      "slot": "c05",
      "variant_id": "14:386111:0e82a609:c05"
     },
@@ -59,8 +59,8 @@
      "duplicate_of": null,
      "files_count": 20,
      "has_model": true,
-     "portrait": "81f303bc9fef370771a7d282ce6714d7567c0bf9b9fc0a38c8e133fefdab8522",
-     "portrait_source": "KuramaLinkedandSusanooArmor/ui/replace/chara/chara_0/chara_0_koopa_06.bntx",
+     "portrait": "3ac72d77d14fae4bd85c02b26bebeaee4247cda90ed9a0cb45adcfea8ef0076c",
+     "portrait_source": "KuramaLinkedandSusanooArmor/ui/replace/chara/chara_3/chara_3_koopa_06.bntx",
      "slot": "c06",
      "variant_id": "14:386111:0e82a609:c06"
     }

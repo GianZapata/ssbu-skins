@@ -25,8 +25,8 @@
      "duplicate_of": null,
      "files_count": 45,
      "has_model": true,
-     "portrait": "219ea986e96ddad94c8aada4fa9254e5d29bc626e828f7e2b99def767a5d924d",
-     "portrait_source": "Terra & Terranort Over Ike (c00 & c02)/ui/replace/chara/chara_0/chara_0_ike_00.bntx",
+     "portrait": "a60bf8573d7bfc1d57b11c6c6e216f6fbb0be077009b71c6b6410ab9639cef36",
+     "portrait_source": "Terra & Terranort Over Ike (c00 & c02)/ui/replace/chara/chara_3/chara_3_ike_00.bntx",
      "slot": "c00",
      "variant_id": "32:381503:8673515c:c00"
     },
@@ -36,8 +36,8 @@
      "duplicate_of": null,
      "files_count": 45,
      "has_model": true,
-     "portrait": "fcb1c585fbac3ed0eb1780c0df8a1b122c74f0dae84e3e92bf009d49e036c804",
-     "portrait_source": "Terra & Terranort Over Ike (c00 & c02)/ui/replace/chara/chara_0/chara_0_ike_02.bntx",
+     "portrait": "9092f6d9bc183b31fbd135a3d37995bec6515bca1bc34829672d276206a165b5",
+     "portrait_source": "Terra & Terranort Over Ike (c00 & c02)/ui/replace/chara/chara_3/chara_3_ike_02.bntx",
      "slot": "c02",
      "variant_id": "32:381503:8673515c:c02"
     }

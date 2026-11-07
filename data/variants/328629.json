@@ -46,8 +46,8 @@
      "duplicate_of": null,
      "files_count": 39,
      "has_model": true,
-     "portrait": "7377d36c8ca18df13da3cd3eb19fd68686a02de63d027fccc2ed37a4073202e2",
-     "portrait_source": "DiddyKong_cODDS_Dixie/ui/replace/chara/chara_0/chara_0_diddy_01.bntx",
+     "portrait": "cba795c74935380d9243d67aac3799163a7e2560fb5701f37a371d16d0ba6219",
+     "portrait_source": "DiddyKong_cODDS_Dixie/ui/replace/chara/chara_3/chara_3_diddy_01.bntx",
      "slot": "c01",
      "variant_id": "36:328629:75bdc261:c01"
     },
@@ -57,8 +57,8 @@
      "duplicate_of": null,
      "files_count": 39,
      "has_model": true,
-     "portrait": "74833756430cd54c8a8059ecc61389d60c101b6d6e03f71d5e30d524cbd05a11",
-     "portrait_source": "DiddyKong_cODDS_Dixie/ui/replace/chara/chara_0/chara_0_diddy_03.bntx",
+     "portrait": "05939d1921523069509c6e633d275f41a64effb156de944ee0f25c3df3479ef8",
+     "portrait_source": "DiddyKong_cODDS_Dixie/ui/replace/chara/chara_3/chara_3_diddy_03.bntx",
      "slot": "c03",
      "variant_id": "36:328629:75bdc261:c03"
     },
@@ -68,8 +68,8 @@
      "duplicate_of": null,
      "files_count": 39,
      "has_model": true,
-     "portrait": "1b95d6efbb419a25ebc37f81d9ae088c8e80bae3792597d16253f0a293c1cdbb",
-     "portrait_source": "DiddyKong_cODDS_Dixie/ui/replace/chara/chara_0/chara_0_diddy_05.bntx",
+     "portrait": "acb2ebe0a03d1cfc702a8a8f6d40ab80b1bda27454a36e1df3bcc78ba9416fc7",
+     "portrait_source": "DiddyKong_cODDS_Dixie/ui/replace/chara/chara_3/chara_3_diddy_05.bntx",
      "slot": "c05",
      "variant_id": "36:328629:75bdc261:c05"
     },
@@ -79,8 +79,8 @@
      "duplicate_of": null,
      "files_count": 39,
      "has_model": true,
-     "portrait": "40bdf2a337eb3f7c8ff0bca0d752d14ee1a573e3f92318b80eaf47265779b945",
-     "portrait_source": "DiddyKong_cODDS_Dixie/ui/replace/chara/chara_0/chara_0_diddy_07.bntx",
+     "portrait": "953689276e6a4603c2f638c45ab97d37607c35782a0ea8681e5e3c687469780c",
+     "portrait_source": "DiddyKong_cODDS_Dixie/ui/replace/chara/chara_3/chara_3_diddy_07.bntx",
      "slot": "c07",
      "variant_id": "36:328629:75bdc261:c07"
     }
@@ -169,8 +169,8 @@
      "duplicate_of": null,
      "files_count": 6,
      "has_model": false,
-     "portrait": "f6f48752783c83ea559eff75937795b3ff11819b21bbd9cf2623fbcd9ddea448",
-     "portrait_source": "Dixie Kong Black UI/ui/replace/chara/chara_0/chara_0_diddy_07.bntx",
+     "portrait": "4e60bc53165a98aafaf2cc262388afc2e7bd3f0e329e49bbbf1ffdf9a97131a4",
+     "portrait_source": "Dixie Kong Black UI/ui/replace/chara/chara_3/chara_3_diddy_07.bntx",
      "slot": "c07",
      "variant_id": "36:328629:bdc41a15:c07"
     }

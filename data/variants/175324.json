@@ -14,8 +14,8 @@
      "duplicate_of": null,
      "files_count": 42,
      "has_model": true,
-     "portrait": "5adfe4d3107523aaee43f02f0a744471bb15f4932754a9cc350c15fcb959bfdb",
-     "portrait_source": "Crisis Core Cloud/ui/replace/chara/chara_0/chara_0_cloud_00.bntx",
+     "portrait": "0376a86c9008ca1d3ffb6149a51b6af32ac3511f66300ab18f2fe5a45187fd3c",
+     "portrait_source": "Crisis Core Cloud/ui/replace/chara/chara_3/chara_3_cloud_00.bntx",
      "slot": "c00",
      "variant_id": "61:175324:a7332bfb:c00"
     },
@@ -25,8 +25,8 @@
      "duplicate_of": null,
      "files_count": 39,
      "has_model": true,
-     "portrait": "4dbfbb59259486aab0edd45eafc8398da5a199e268b0a4e1a27f5d726d23774f",
-     "portrait_source": "Crisis Core Cloud/ui/replace/chara/chara_0/chara_0_cloud_02.bntx",
+     "portrait": "0c29bebb912c8ab65c18720ca03becafa812e6da23ada0d2dc3bf5cb53cf01b4",
+     "portrait_source": "Crisis Core Cloud/ui/replace/chara/chara_3/chara_3_cloud_02.bntx",
      "slot": "c02",
      "variant_id": "61:175324:a7332bfb:c02"
     },
@@ -36,8 +36,8 @@
      "duplicate_of": null,
      "files_count": 39,
      "has_model": true,
-     "portrait": "9e4230f146ddeee35b0c323e847eb0b74022dad507941e2b2dd23c209c5f1ba0",
-     "portrait_source": "Crisis Core Cloud/ui/replace/chara/chara_0/chara_0_cloud_04.bntx",
+     "portrait": "3cd68028e0aac3b30537e4d1250e1d81538670eb0f3af9b9daff2bf0f9a0b689",
+     "portrait_source": "Crisis Core Cloud/ui/replace/chara/chara_3/chara_3_cloud_04.bntx",
      "slot": "c04",
      "variant_id": "61:175324:a7332bfb:c04"
     },
@@ -47,8 +47,8 @@
      "duplicate_of": null,
      "files_count": 39,
      "has_model": true,
-     "portrait": "a733cd40514610d704142c382a1e36d47deffffeace7018b90c631dafb4df8d5",
-     "portrait_source": "Crisis Core Cloud/ui/replace/chara/chara_0/chara_0_cloud_06.bntx",
+     "portrait": "b2ed5d78ee5835010ca86f701a5b487ee6a4cc1cebf89711566439985424bff7",
+     "portrait_source": "Crisis Core Cloud/ui/replace/chara/chara_3/chara_3_cloud_06.bntx",
      "slot": "c06",
      "variant_id": "61:175324:a7332bfb:c06"
     }

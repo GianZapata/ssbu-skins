@@ -16,8 +16,8 @@
      "duplicate_of": null,
      "files_count": 34,
      "has_model": true,
-     "portrait": "db78420c3a5de5d0db19ae21097c8248abe15381a65113330ea5c6065fce4fc3",
-     "portrait_source": "(Mario - All) Dry Bones V3.1 Update/ui/replace/chara/chara_0/chara_0_mario_00.bntx",
+     "portrait": "30869215e82bf11480fd74c9a11ba6646d11af08ecb988fe9f5c2ffa13493c7f",
+     "portrait_source": "(Mario - All) Dry Bones V3.1 Update/ui/replace/chara/chara_3/chara_3_mario_00.bntx",
      "slot": "c00",
      "variant_id": "01:174057:aaeedf35:c00"
     },
@@ -27,8 +27,8 @@
      "duplicate_of": null,
      "files_count": 33,
      "has_model": true,
-     "portrait": "5accab43fd8c12b5eb400f8a52ab5e0d390183a4026f349f6c61a2563171059c",
-     "portrait_source": "(Mario - All) Dry Bones V3.1 Update/ui/replace/chara/chara_0/chara_0_mario_01.bntx",
+     "portrait": "5aaed0411ec42e7e48e751412fb3c569b156fa1699c171662ce30ce426c8b472",
+     "portrait_source": "(Mario - All) Dry Bones V3.1 Update/ui/replace/chara/chara_3/chara_3_mario_01.bntx",
      "slot": "c01",
      "variant_id": "01:174057:aaeedf35:c01"
     },
@@ -38,8 +38,8 @@
      "duplicate_of": null,
      "files_count": 33,
      "has_model": true,
-     "portrait": "74adf7036f3b9be709dbf1ccca1f260fe93f3d1ea92d3edddfeb427486147563",
-     "portrait_source": "(Mario - All) Dry Bones V3.1 Update/ui/replace/chara/chara_0/chara_0_mario_02.bntx",
+     "portrait": "79999129893e07a143fb590b038d95989d15ac2bd7885a3e4f9cd389fed565c2",
+     "portrait_source": "(Mario - All) Dry Bones V3.1 Update/ui/replace/chara/chara_3/chara_3_mario_02.bntx",
      "slot": "c02",
      "variant_id": "01:174057:aaeedf35:c02"
     },
@@ -49,8 +49,8 @@
      "duplicate_of": null,
      "files_count": 33,
      "has_model": true,
-     "portrait": "4e7023dfe029361cc634a00c90a249718ed737548c4ba3e8266fa228c4002113",
-     "portrait_source": "(Mario - All) Dry Bones V3.1 Update/ui/replace/chara/chara_0/chara_0_mario_03.bntx",
+     "portrait": "7b56b05ab75758dbc41ea3cd87beee422e24bc13fc44486a093df0fc988a1c8e",
+     "portrait_source": "(Mario - All) Dry Bones V3.1 Update/ui/replace/chara/chara_3/chara_3_mario_03.bntx",
      "slot": "c03",
      "variant_id": "01:174057:aaeedf35:c03"
     },
@@ -60,8 +60,8 @@
      "duplicate_of": null,
      "files_count": 39,
      "has_model": true,
-     "portrait": "0ab5d5dcd7de99b4803635221c623952d7b810e1db550c5fe600f1d52b6b253a",
-     "portrait_source": "(Mario - All) Dry Bones V3.1 Update/ui/replace/chara/chara_0/chara_0_mario_04.bntx",
+     "portrait": "2748220164dd45a596691adf3ecdc37fa60a6dda7d193ef790b14b32cb9db272",
+     "portrait_source": "(Mario - All) Dry Bones V3.1 Update/ui/replace/chara/chara_3/chara_3_mario_04.bntx",
      "slot": "c04",
      "variant_id": "01:174057:aaeedf35:c04"
     },
@@ -71,8 +71,8 @@
      "duplicate_of": null,
      "files_count": 37,
      "has_model": true,
-     "portrait": "9db6b9d9c9a5b880936d87d8a2f3083f79598842f8edc46bb16e9e65858c19a5",
-     "portrait_source": "(Mario - All) Dry Bones V3.1 Update/ui/replace/chara/chara_0/chara_0_mario_05.bntx",
+     "portrait": "e10c8c844ccb1a6236c8d2c5d8cab5e949dc243541dfd1af82ef836cd42367fe",
+     "portrait_source": "(Mario - All) Dry Bones V3.1 Update/ui/replace/chara/chara_3/chara_3_mario_05.bntx",
      "slot": "c05",
      "variant_id": "01:174057:aaeedf35:c05"
     },
@@ -82,8 +82,8 @@
      "duplicate_of": null,
      "files_count": 45,
      "has_model": true,
-     "portrait": "8ab5f53229af678147a25a856be34e80e6a0f4ac1166c9116d4d0a12f7dfffbd",
-     "portrait_source": "(Mario - All) Dry Bones V3.1 Update/ui/replace/chara/chara_0/chara_0_mario_06.bntx",
+     "portrait": "a287f59a0b630145ed1447578a4933c2d24ff68b75ec58f6f26569a2b4975a26",
+     "portrait_source": "(Mario - All) Dry Bones V3.1 Update/ui/replace/chara/chara_3/chara_3_mario_06.bntx",
      "slot": "c06",
      "variant_id": "01:174057:aaeedf35:c06"
     },
@@ -93,8 +93,8 @@
      "duplicate_of": null,
      "files_count": 39,
      "has_model": true,
-     "portrait": "ceb16d63ce22a6904d12d15dd36d9fe7f7ef898932ebf2d283b06d75f4824ea8",
-     "portrait_source": "(Mario - All) Dry Bones V3.1 Update/ui/replace/chara/chara_0/chara_0_mario_07.bntx",
+     "portrait": "195f8b99897dc2c12a483f89c4bdf938d92919e3fbd181711d6ee1d59a290215",
+     "portrait_source": "(Mario - All) Dry Bones V3.1 Update/ui/replace/chara/chara_3/chara_3_mario_07.bntx",
      "slot": "c07",
      "variant_id": "01:174057:aaeedf35:c07"
     }
@@ -235,8 +235,8 @@
      "duplicate_of": null,
      "files_count": 33,
      "has_model": true,
-     "portrait": "db78420c3a5de5d0db19ae21097c8248abe15381a65113330ea5c6065fce4fc3",
-     "portrait_source": "(Mario - c01) Dry Bones V3.1 - Single Slot/ui/replace/chara/chara_0/chara_0_mario_01.bntx",
+     "portrait": "30869215e82bf11480fd74c9a11ba6646d11af08ecb988fe9f5c2ffa13493c7f",
+     "portrait_source": "(Mario - c01) Dry Bones V3.1 - Single Slot/ui/replace/chara/chara_3/chara_3_mario_01.bntx",
      "slot": "c01",
      "variant_id": "01:174057:f3cd0cd8:c01"
     }

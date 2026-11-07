@@ -14,8 +14,8 @@
      "duplicate_of": null,
      "files_count": 54,
      "has_model": true,
-     "portrait": "d5d868c1adc0eebe8e4cf92bc87c0b831104f0e75c20c3f5bc5d203538baaeca",
-     "portrait_source": "Coated Riku Over Sora (c05) - Blindfold/ui/replace_patch/chara/chara_0/chara_0_trail_05.bntx",
+     "portrait": "68482baafc797c3c611b64bf16637479706f4191fe9f70646d83c57278af533a",
+     "portrait_source": "Coated Riku Over Sora (c05) - Blindfold/ui/replace_patch/chara/chara_3/chara_3_trail_05.bntx",
      "slot": "c05",
      "variant_id": "82:357266:64d05595:c05"
     }
@@ -35,8 +35,8 @@
      "duplicate_of": null,
      "files_count": 66,
      "has_model": true,
-     "portrait": "2da863918ef417893a419b7fabcec6ee7a893f749d560e77e4889cdb055d87b0",
-     "portrait_source": "Dark Mode Riku Over Sora_KoPH (c03)/ui/replace_patch/chara/chara_0/chara_0_trail_03.bntx",
+     "portrait": "ad51b88edca500b00d3ff3453b9ca4289e365cf22b12fc442875451ec6034633",
+     "portrait_source": "Dark Mode Riku Over Sora_KoPH (c03)/ui/replace_patch/chara/chara_3/chara_3_trail_03.bntx",
      "slot": "c03",
      "variant_id": "82:357266:3061118b:c03"
     }
@@ -56,8 +56,8 @@
      "duplicate_of": null,
      "files_count": 6,
      "has_model": false,
-     "portrait": "b544658220fcbe4f793f688d60bd82c8bf651008d2f141f8eb0f47d31abc1a2d",
-     "portrait_source": "KH1 Riku Alternate UI (c04 & c05)/ui/replace_patch/chara/chara_0/chara_0_trail_04.bntx",
+     "portrait": "85053c395e7db667fc5978f87c059a307076ced05e701013b5f5ce3e6c7d33f0",
+     "portrait_source": "KH1 Riku Alternate UI (c04 & c05)/ui/replace_patch/chara/chara_3/chara_3_trail_04.bntx",
      "slot": "c04",
      "variant_id": "82:357266:4be1e9b9:c04"
     },
@@ -67,8 +67,8 @@
      "duplicate_of": null,
      "files_count": 6,
      "has_model": false,
-     "portrait": "b544658220fcbe4f793f688d60bd82c8bf651008d2f141f8eb0f47d31abc1a2d",
-     "portrait_source": "KH1 Riku Alternate UI (c04 & c05)/ui/replace_patch/chara/chara_0/chara_0_trail_05.bntx",
+     "portrait": "77b64bc21dd0f005365ed02328f7e5b03d076c2fac79e5a1232c97baf0fa7c2a",
+     "portrait_source": "KH1 Riku Alternate UI (c04 & c05)/ui/replace_patch/chara/chara_3/chara_3_trail_05.bntx",
      "slot": "c05",
      "variant_id": "82:357266:4be1e9b9:c05"
     }
@@ -88,8 +88,8 @@
      "duplicate_of": null,
      "files_count": 36,
      "has_model": true,
-     "portrait": "84c9a8e72743a9ed95dd867a9bc6c1cedfb513b3f78399f51b3f5573633e255d",
-     "portrait_source": "Riku (Child) Over Sora (c02) - Gazing Eye/ui/replace_patch/chara/chara_0/chara_0_trail_02.bntx",
+     "portrait": "8cbd14f52b71be826a888265a4fe33abffc5123849376e669d03f99d5e18c929",
+     "portrait_source": "Riku (Child) Over Sora (c02) - Gazing Eye/ui/replace_patch/chara/chara_3/chara_3_trail_02.bntx",
      "slot": "c02",
      "variant_id": "82:357266:224ee524:c02"
     }
@@ -109,8 +109,8 @@
      "duplicate_of": null,
      "files_count": 27,
      "has_model": true,
-     "portrait": "601ab531854149916cfcd5013bf2a7963fff6bc3de8c4911091bc513ec5f571f",
-     "portrait_source": "Riku (DDD) Over Sora (c04)/ui/replace_patch/chara/chara_0/chara_0_trail_04.bntx",
+     "portrait": "3d40b5b0c36cea2bb0d03d40c5611ac5ef6db64df27c8015a4a2ba3474a3c82a",
+     "portrait_source": "Riku (DDD) Over Sora (c04)/ui/replace_patch/chara/chara_3/chara_3_trail_04.bntx",
      "slot": "c04",
      "variant_id": "82:357266:c1847748:c04"
     },
@@ -120,8 +120,8 @@
      "duplicate_of": null,
      "files_count": 24,
      "has_model": true,
-     "portrait": "1dad7e345c0a1c8383a73a79f2f7221a610fd6614e6a01dde2db47157194ba61",
-     "portrait_source": "Riku (DDD) Over Sora (c05)/ui/replace_patch/chara/chara_0/chara_0_trail_05.bntx",
+     "portrait": "046a624a9affd6b3d581f10e9c740fe0d6aaf1ee22802ed6da86afeb7921d1ca",
+     "portrait_source": "Riku (DDD) Over Sora (c05)/ui/replace_patch/chara/chara_3/chara_3_trail_05.bntx",
      "slot": "c05",
      "variant_id": "82:357266:c1847748:c05"
     }
@@ -141,8 +141,8 @@
      "duplicate_of": null,
      "files_count": 24,
      "has_model": true,
-     "portrait": "4ee7c9ae0f5ab547088c4f01047d3304633ad49c44e0db6d75c2ebd539d8e96d",
-     "portrait_source": "Riku (KH1) Over Sora (c04)/ui/replace_patch/chara/chara_0/chara_0_trail_04.bntx",
+     "portrait": "37492e16d98b8e278426e3e506fa5fdb7a12950854c4c711fab6dec77631dc02",
+     "portrait_source": "Riku (KH1) Over Sora (c04)/ui/replace_patch/chara/chara_3/chara_3_trail_04.bntx",
      "slot": "c04",
      "variant_id": "82:357266:571296b9:c04"
     },
@@ -152,8 +152,8 @@
      "duplicate_of": null,
      "files_count": 27,
      "has_model": true,
-     "portrait": "4ee7c9ae0f5ab547088c4f01047d3304633ad49c44e0db6d75c2ebd539d8e96d",
-     "portrait_source": "Riku (KH1) Over Sora (c05)/ui/replace_patch/chara/chara_0/chara_0_trail_05.bntx",
+     "portrait": "9c4ac7445fd5e3348143b00923e006d757114f7b2731d0187fa2a7aff27f85de",
+     "portrait_source": "Riku (KH1) Over Sora (c05)/ui/replace_patch/chara/chara_3/chara_3_trail_05.bntx",
      "slot": "c05",
      "variant_id": "82:357266:571296b9:c05"
     }
@@ -173,8 +173,8 @@
      "duplicate_of": null,
      "files_count": 33,
      "has_model": true,
-     "portrait": "bf638d0a77129933184e4f6e6265b8e6b46a7a77ee5892563ef70a25bfbdf62e",
-     "portrait_source": "Riku (KH2) Over Sora (c01)/ui/replace_patch/chara/chara_0/chara_0_trail_01.bntx",
+     "portrait": "44a5946d98f4eda1e56a788ad1462120cd6d5e57b191c3551145bca03e0ec6ba",
+     "portrait_source": "Riku (KH2) Over Sora (c01)/ui/replace_patch/chara/chara_3/chara_3_trail_01.bntx",
      "slot": "c01",
      "variant_id": "82:357266:608112e6:c01"
     },
@@ -184,8 +184,8 @@
      "duplicate_of": null,
      "files_count": 24,
      "has_model": true,
-     "portrait": "bf638d0a77129933184e4f6e6265b8e6b46a7a77ee5892563ef70a25bfbdf62e",
-     "portrait_source": "Riku (KH2) Over Sora (c04)/ui/replace_patch/chara/chara_0/chara_0_trail_04.bntx",
+     "portrait": "5c0e17ca8c3e68d0b22f0b1de0d32b24968013ea299ffa7758c2055958b05b0f",
+     "portrait_source": "Riku (KH2) Over Sora (c04)/ui/replace_patch/chara/chara_3/chara_3_trail_04.bntx",
      "slot": "c04",
      "variant_id": "82:357266:608112e6:c04"
     }
@@ -205,8 +205,8 @@
      "duplicate_of": null,
      "files_count": 60,
      "has_model": true,
-     "portrait": "7d66f19140c7dddb4bd88700fa066a0bbd55c19a090106e18ff59c9fac0391c2",
-     "portrait_source": "Riku (KH3) Over Sora (c07) - Braveheart/ui/replace_patch/chara/chara_0/chara_0_trail_07.bntx",
+     "portrait": "c1cc6057e718a3dc18e575058357837402ab75dbabed6eba7613e679e872b9fd",
+     "portrait_source": "Riku (KH3) Over Sora (c07) - Braveheart/ui/replace_patch/chara/chara_3/chara_3_trail_07.bntx",
      "slot": "c07",
      "variant_id": "82:357266:c7103f6a:c07"
     }
@@ -226,8 +226,8 @@
      "duplicate_of": null,
      "files_count": 28,
      "has_model": true,
-     "portrait": "57de42c21df75a6b137cc4a1cbf945ce431b6add891b8fad39af41cf50ee0f1e",
-     "portrait_source": "Tron Riku Over Sora (c06)/ui/replace_patch/chara/chara_0/chara_0_trail_06.bntx",
+     "portrait": "8e5aed2b4a1423ab3cf94c4cd4533d8d20a6df2560fb0e0ac72d442a825035b5",
+     "portrait_source": "Tron Riku Over Sora (c06)/ui/replace_patch/chara/chara_3/chara_3_trail_06.bntx",
      "slot": "c06",
      "variant_id": "82:357266:67fca05d:c06"
     }

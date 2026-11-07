@@ -23,8 +23,8 @@
      "duplicate_of": null,
      "files_count": 39,
      "has_model": true,
-     "portrait": "8a050c1a025e9902ddef192ff9c5d150055bd5bfefd61bf3c113d76267db7321",
-     "portrait_source": "CURIOUS GEORGE (c04)/ui/replace/chara/chara_0/chara_0_donkey_04.bntx",
+     "portrait": "3ec2f934dca90107c334efa4eb3ad04c0e7f93462e058a87861b50e1ffdf86ad",
+     "portrait_source": "CURIOUS GEORGE (c04)/ui/replace/chara/chara_3/chara_3_donkey_04.bntx",
      "slot": "c04",
      "variant_id": "36:471006:0e6b3e94:c04"
     }
@@ -47,8 +47,8 @@
      "duplicate_of": null,
      "files_count": 78,
      "has_model": true,
-     "portrait": "3be20e3f1f30aaf1eead83c04be0bbe5bffbe70da367376eb006b95c2906f41c",
-     "portrait_source": "CURIOUS GEORGE (Diddy Kong Edition) (c07)/ui/replace/chara/chara_0/chara_0_diddy_07.bntx",
+     "portrait": "8f0bd68ece7094cf44e62a16429d38825304f14e5e6aaad106ef4f1a30fd3491",
+     "portrait_source": "CURIOUS GEORGE (Diddy Kong Edition) (c07)/ui/replace/chara/chara_3/chara_3_diddy_07.bntx",
      "slot": "c07",
      "variant_id": "36:471006:6e31b277:c07"
     }

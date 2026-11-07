@@ -19,8 +19,8 @@
      "duplicate_of": null,
      "files_count": 14,
      "has_model": true,
-     "portrait": "fc3073e855293f82a299d839e66ada70280b6efe9f813dc9af5536d88a2a24a2",
-     "portrait_source": "{Skin} (Terry c02-c03) Vegeta/ui/replace_patch/chara/chara_0/chara_0_dolly_02.bntx",
+     "portrait": "8639fcf3faad0a6f7b7c3767bb50a09cf36e1c43468a4848cebe9f6799c9443c",
+     "portrait_source": "{Skin} (Terry c02-c03) Vegeta/ui/replace_patch/chara/chara_3/chara_3_dolly_02.bntx",
      "slot": "c02",
      "variant_id": "74:609500:6f4cbb6d:c02"
     },
@@ -30,8 +30,8 @@
      "duplicate_of": null,
      "files_count": 14,
      "has_model": true,
-     "portrait": "5c8703343c254ca52bb25e226eea4cf722cbb18171614cd2b64b172dcab0c9e3",
-     "portrait_source": "{Skin} (Terry c02-c03) Vegeta/ui/replace_patch/chara/chara_0/chara_0_dolly_03.bntx",
+     "portrait": "66ac06a466d9c3ba5b07e7217ee74328e9dbc966d70b98d1132af30a23d1a22b",
+     "portrait_source": "{Skin} (Terry c02-c03) Vegeta/ui/replace_patch/chara/chara_3/chara_3_dolly_03.bntx",
      "slot": "c03",
      "variant_id": "74:609500:6f4cbb6d:c03"
     }

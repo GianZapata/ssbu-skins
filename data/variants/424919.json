@@ -20,8 +20,8 @@
      "duplicate_of": null,
      "files_count": 26,
      "has_model": true,
-     "portrait": "f687e391beaf04ec6662281cb3549cb0d2c83ba61b42738ab280bcd9d386788d",
-     "portrait_source": "Blastoise over Bowser C05 (by Watapascul)/ui/replace/chara/chara_0/chara_0_koopa_05.bntx",
+     "portrait": "c7d2fa9ba58acd3a5a0cb21f48eba698393a3eb4d268ca92240cb974ad7871d9",
+     "portrait_source": "Blastoise over Bowser C05 (by Watapascul)/ui/replace/chara/chara_3/chara_3_koopa_05.bntx",
      "slot": "c05",
      "variant_id": "14:424919:46fafd91:c05"
     }
@@ -87,8 +87,8 @@
      "duplicate_of": null,
      "files_count": 19,
      "has_model": true,
-     "portrait": "961deb8dcea35654c2a6891c599e61f9c8a5013be7eca5cf7e6a8d74cdd0fa02",
-     "portrait_source": "Mega Blastoise over Giga Bowser (by Watapascul)/ui/replace/chara/chara_0/chara_0_koopag_00.bntx",
+     "portrait": "3fbe1adca2760f38875d7fea74818a6f67c16c494e7c2224b063becf6d7126fa",
+     "portrait_source": "Mega Blastoise over Giga Bowser (by Watapascul)/ui/replace/chara/chara_3/chara_3_koopag_00.bntx",
      "slot": "c00",
      "variant_id": "14:424919:15c41688:c00"
     }

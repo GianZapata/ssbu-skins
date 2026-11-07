@@ -14,8 +14,8 @@
      "duplicate_of": null,
      "files_count": 7,
      "has_model": true,
-     "portrait": "202e43f140e2904cb8b419ca6bfea7a1e0e9c6b82ef1e2cceaaf7ba3106eb777",
-     "portrait_source": "falco-n64skin---v-1-4b/ui/replace/chara/chara_0/chara_0_falco_00.bntx",
+     "portrait": "8d32e72caf1609c12ccd7603c6252e158fd047eb97b61539eccab8abf498b13c",
+     "portrait_source": "falco-n64skin---v-1-4b/ui/replace/chara/chara_3/chara_3_falco_00.bntx",
      "slot": "c00",
      "variant_id": "20:174558:ccc3b447:c00"
     },
@@ -25,8 +25,8 @@
      "duplicate_of": null,
      "files_count": 7,
      "has_model": true,
-     "portrait": "d19e52fa5e4f1ec82e93983c4ff8ff4061fa579001a5e3a7d9dcc24a81dc2311",
-     "portrait_source": "falco-n64skin---v-1-4b/ui/replace/chara/chara_0/chara_0_falco_01.bntx",
+     "portrait": "74e845259b1f64ddd9a47e13041ef4dc264ffae5c69717a27db578ba175c4990",
+     "portrait_source": "falco-n64skin---v-1-4b/ui/replace/chara/chara_3/chara_3_falco_01.bntx",
      "slot": "c01",
      "variant_id": "20:174558:ccc3b447:c01"
     },
@@ -36,8 +36,8 @@
      "duplicate_of": null,
      "files_count": 7,
      "has_model": true,
-     "portrait": "ab6a46935bf3995ee1531739a430e3b9a3858f49704fd7e763392e38a24394f5",
-     "portrait_source": "falco-n64skin---v-1-4b/ui/replace/chara/chara_0/chara_0_falco_02.bntx",
+     "portrait": "07c5e36e94e248e4881aaeff389bace0a6dab1a98db9352dc445c3b85525a104",
+     "portrait_source": "falco-n64skin---v-1-4b/ui/replace/chara/chara_3/chara_3_falco_02.bntx",
      "slot": "c02",
      "variant_id": "20:174558:ccc3b447:c02"
     }

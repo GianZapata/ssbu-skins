@@ -18,8 +18,8 @@
      "duplicate_of": null,
      "files_count": 77,
      "has_model": true,
-     "portrait": "8ddbf6fd03ed7f1a0c98a028403e925173608a13638621c36f56c93ff3786906",
-     "portrait_source": "Mod Jin/ui/replace_patch/chara/chara_0/chara_0_demon_06.bntx",
+     "portrait": "b04dcd986854b007967a6f2ebfafc72128f2b354df78e12c88b0c9f910a439a1",
+     "portrait_source": "Mod Jin/ui/replace_patch/chara/chara_3/chara_3_demon_06.bntx",
      "slot": "c06",
      "variant_id": "81:335512:4b6995a1:c06"
     },
@@ -29,8 +29,8 @@
      "duplicate_of": null,
      "files_count": 78,
      "has_model": true,
-     "portrait": "273149bf506a381fd99154b82393c76c42ff71a98ee8f4aef2fe652fc0ef0c00",
-     "portrait_source": "Mod Jin/ui/replace_patch/chara/chara_0/chara_0_demon_07.bntx",
+     "portrait": "1728f7c5fbd9ebf57cf77b399e6108f9d3d8380682304f412fe67d6026d7d060",
+     "portrait_source": "Mod Jin/ui/replace_patch/chara/chara_3/chara_3_demon_07.bntx",
      "slot": "c07",
      "variant_id": "81:335512:4b6995a1:c07"
     }

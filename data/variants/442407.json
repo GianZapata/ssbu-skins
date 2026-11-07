@@ -25,8 +25,8 @@
      "duplicate_of": null,
      "files_count": 17,
      "has_model": true,
-     "portrait": "5e27a18edfb6c0e7d935d8b8f4077d5783409c4edaf850ce8c54efb71987ae1e",
-     "portrait_source": "Yuffie over Sheik (c00-c01)/ui/replace/chara/chara_0/chara_0_sheik_00.bntx",
+     "portrait": "ec8885112ce398b48cb7e4fe0a92e8e731abf2ef4b04868afec4d0974c1dd203",
+     "portrait_source": "Yuffie over Sheik (c00-c01)/ui/replace/chara/chara_3/chara_3_sheik_00.bntx",
      "slot": "c00",
      "variant_id": "16:442407:4fea43e3:c00"
     },
@@ -36,8 +36,8 @@
      "duplicate_of": null,
      "files_count": 19,
      "has_model": true,
-     "portrait": "cef82ad96b6cdfcec71b9b788f080f34ee18c48fa6cc78f8240307696713b865",
-     "portrait_source": "Yuffie over Sheik (c00-c01)/ui/replace/chara/chara_0/chara_0_sheik_01.bntx",
+     "portrait": "16e295f6ad36483523fcd5f4e2c0b5b3dc5736fee1017679aa9cf99dbac4ba61",
+     "portrait_source": "Yuffie over Sheik (c00-c01)/ui/replace/chara/chara_3/chara_3_sheik_01.bntx",
      "slot": "c01",
      "variant_id": "16:442407:4fea43e3:c01"
     }

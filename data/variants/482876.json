@@ -19,8 +19,8 @@
      "duplicate_of": null,
      "files_count": 12,
      "has_model": true,
-     "portrait": "647f71053e1dc307032f7274918cd76ad232fffdf36548c40b35d624e9a15bc0",
-     "portrait_source": "Fighting Stick Figures (Animator vs. Animation)/ui/replace_patch/chara/chara_0/chara_0_pickel_02.bntx",
+     "portrait": "1983dbc842b292b473c1b9133d8cca03bffa39b8defc50c58ab6fb586ed21aaa",
+     "portrait_source": "Fighting Stick Figures (Animator vs. Animation)/ui/replace_patch/chara/chara_3/chara_3_pickel_02.bntx",
      "slot": "c02",
      "variant_id": "77:482876:bbc7792d:c02"
     },
@@ -30,8 +30,8 @@
      "duplicate_of": null,
      "files_count": 12,
      "has_model": true,
-     "portrait": "97d19b63d8d232b7e6cae60b8496783dcb092d35a46df0cbe30f722f9127b9b6",
-     "portrait_source": "Fighting Stick Figures (Animator vs. Animation)/ui/replace_patch/chara/chara_0/chara_0_pickel_03.bntx",
+     "portrait": "51db55f4365f4ab977496114165d43c12e50c15dfdb2dd3691fe81d7b5f4bf30",
+     "portrait_source": "Fighting Stick Figures (Animator vs. Animation)/ui/replace_patch/chara/chara_3/chara_3_pickel_03.bntx",
      "slot": "c03",
      "variant_id": "77:482876:bbc7792d:c03"
     },
@@ -41,8 +41,8 @@
      "duplicate_of": null,
      "files_count": 12,
      "has_model": true,
-     "portrait": "c6bd92382d77c73ad75074928fdc501be16d6a3dc761c6eaff906f6be3b13812",
-     "portrait_source": "Fighting Stick Figures (Animator vs. Animation)/ui/replace_patch/chara/chara_0/chara_0_pickel_04.bntx",
+     "portrait": "ad8583e5b0a88101e40fa09adede31c2c7fa0565a11d2149a2b0122ec7c5a0ef",
+     "portrait_source": "Fighting Stick Figures (Animator vs. Animation)/ui/replace_patch/chara/chara_3/chara_3_pickel_04.bntx",
      "slot": "c04",
      "variant_id": "77:482876:bbc7792d:c04"
     },
@@ -52,8 +52,8 @@
      "duplicate_of": null,
      "files_count": 12,
      "has_model": true,
-     "portrait": "8170b1902ecfcaeb965222673654d5daf12f6ad8feee7da666da404a31e5dd03",
-     "portrait_source": "Fighting Stick Figures (Animator vs. Animation)/ui/replace_patch/chara/chara_0/chara_0_pickel_05.bntx",
+     "portrait": "36c3cbb16de70b9974c3ce69dea8be64316e6e25b4d8a3fce8422ca1e05afd3e",
+     "portrait_source": "Fighting Stick Figures (Animator vs. Animation)/ui/replace_patch/chara/chara_3/chara_3_pickel_05.bntx",
      "slot": "c05",
      "variant_id": "77:482876:bbc7792d:c05"
     },
@@ -63,8 +63,8 @@
      "duplicate_of": null,
      "files_count": 12,
      "has_model": true,
-     "portrait": "919f548554ac427cf51aa805590d350eafd2616e57130463b5f620b03deb3ff5",
-     "portrait_source": "Fighting Stick Figures (Animator vs. Animation)/ui/replace_patch/chara/chara_0/chara_0_pickel_06.bntx",
+     "portrait": "c3e91b012af4b10dd9719fee71c265c63bb626c42748c7cc494102dfdcf0664b",
+     "portrait_source": "Fighting Stick Figures (Animator vs. Animation)/ui/replace_patch/chara/chara_3/chara_3_pickel_06.bntx",
      "slot": "c06",
      "variant_id": "77:482876:bbc7792d:c06"
     },
@@ -74,8 +74,8 @@
      "duplicate_of": null,
      "files_count": 13,
      "has_model": true,
-     "portrait": "75074f0793326b9706c3faea4f006c34ab5e20f21a70a540b51ac34333939e4e",
-     "portrait_source": "Fighting Stick Figures (Animator vs. Animation)/ui/replace_patch/chara/chara_0/chara_0_pickel_07.bntx",
+     "portrait": "1bc5c775c3baeb890f65f6b301083c9c42787422dcc425285731dc3631094e0f",
+     "portrait_source": "Fighting Stick Figures (Animator vs. Animation)/ui/replace_patch/chara/chara_3/chara_3_pickel_07.bntx",
      "slot": "c07",
      "variant_id": "77:482876:bbc7792d:c07"
     }
@@ -99,8 +99,8 @@
      "duplicate_of": null,
      "files_count": 12,
      "has_model": true,
-     "portrait": "97d19b63d8d232b7e6cae60b8496783dcb092d35a46df0cbe30f722f9127b9b6",
-     "portrait_source": "Red (Animator vs. Animation)/ui/replace_patch/chara/chara_0/chara_0_pickel_06.bntx",
+     "portrait": "51db55f4365f4ab977496114165d43c12e50c15dfdb2dd3691fe81d7b5f4bf30",
+     "portrait_source": "Red (Animator vs. Animation)/ui/replace_patch/chara/chara_3/chara_3_pickel_06.bntx",
      "slot": "c06",
      "variant_id": "77:482876:96549751:c06"
     }
@@ -124,8 +124,8 @@
      "duplicate_of": null,
      "files_count": 13,
      "has_model": true,
-     "portrait": "75074f0793326b9706c3faea4f006c34ab5e20f21a70a540b51ac34333939e4e",
-     "portrait_source": "The Second Coming (Animator vs. Animation)/ui/replace_patch/chara/chara_0/chara_0_pickel_07.bntx",
+     "portrait": "1bc5c775c3baeb890f65f6b301083c9c42787422dcc425285731dc3631094e0f",
+     "portrait_source": "The Second Coming (Animator vs. Animation)/ui/replace_patch/chara/chara_3/chara_3_pickel_07.bntx",
      "slot": "c07",
      "variant_id": "77:482876:f2a5f857:c07"
     }

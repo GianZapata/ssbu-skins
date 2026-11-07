@@ -14,8 +14,8 @@
      "duplicate_of": null,
      "files_count": 15,
      "has_model": true,
-     "portrait": "5b3231ba5c30e2f4ceb7cb582a3273efbc43a69f4a85ab9770584170e228ffff",
-     "portrait_source": "1997 Cloud (even slots only)/ui/replace/chara/chara_0/chara_0_cloud_00.bntx",
+     "portrait": "7973b052ed566b3aa1e9da98cdb789df2cb541b8d9a0943ca265489da26783b6",
+     "portrait_source": "1997 Cloud (even slots only)/ui/replace/chara/chara_3/chara_3_cloud_00.bntx",
      "slot": "c00",
      "variant_id": "61:325562:5ad7871a:c00"
     }
@@ -35,8 +35,8 @@
      "duplicate_of": null,
      "files_count": 15,
      "has_model": true,
-     "portrait": "b21739bb5d336124a67469623d931bf451df9be5eafd16b1a05f7cfcb8581cf8",
-     "portrait_source": "1997 Cloud (odd slots only)/ui/replace/chara/chara_0/chara_0_cloud_01.bntx",
+     "portrait": "1798f121705ff88c888bf9b7eb737a5d4292a6a223dc654d5cac208d829be3ef",
+     "portrait_source": "1997 Cloud (odd slots only)/ui/replace/chara/chara_3/chara_3_cloud_01.bntx",
      "slot": "c01",
      "variant_id": "61:325562:6ef07f8d:c01"
     }

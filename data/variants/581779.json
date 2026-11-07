@@ -20,8 +20,8 @@
      "duplicate_of": null,
      "files_count": 75,
      "has_model": true,
-     "portrait": "bc5a36e4c6235d8be0382959720fa5d04c37092f10a467579efceaa349ff9fae",
-     "portrait_source": "Jane Doe V2/ui/replace/chara/chara_0/chara_0_sheik_03.bntx",
+     "portrait": "34fe1eef0ad1dd7819df6fc8c0256a3710710d23d7f52df193f51b68a534ccca",
+     "portrait_source": "Jane Doe V2/ui/replace/chara/chara_3/chara_3_sheik_03.bntx",
      "slot": "c03",
      "variant_id": "16:581779:4596950b:c03"
     },
@@ -31,8 +31,8 @@
      "duplicate_of": null,
      "files_count": 77,
      "has_model": true,
-     "portrait": "b12826928b33e86252d40ba3d7da269df00a54a015df8d09cab7672d46136bfb",
-     "portrait_source": "Jane Doe V2/ui/replace/chara/chara_0/chara_0_sheik_04.bntx",
+     "portrait": "d534c04e5310087b89832e789ab09c1fa3db8e3f3fb1e3ccca2da9b51d58f985",
+     "portrait_source": "Jane Doe V2/ui/replace/chara/chara_3/chara_3_sheik_04.bntx",
      "slot": "c04",
      "variant_id": "16:581779:4596950b:c04"
     }
@@ -58,8 +58,8 @@
      "duplicate_of": null,
      "files_count": 75,
      "has_model": true,
-     "portrait": "bc5a36e4c6235d8be0382959720fa5d04c37092f10a467579efceaa349ff9fae",
-     "portrait_source": "Jane Doe V2 - Default Outfit only/ui/replace/chara/chara_0/chara_0_sheik_03.bntx",
+     "portrait": "34fe1eef0ad1dd7819df6fc8c0256a3710710d23d7f52df193f51b68a534ccca",
+     "portrait_source": "Jane Doe V2 - Default Outfit only/ui/replace/chara/chara_3/chara_3_sheik_03.bntx",
      "slot": "c03",
      "variant_id": "16:581779:2c353922:c03"
     }

@@ -25,8 +25,8 @@
      "duplicate_of": null,
      "files_count": 102,
      "has_model": true,
-     "portrait": "53fba80dcf76ece1cad13fdb0b87d1bd6fa33f907d789cb04ae46a25584796da",
-     "portrait_source": "[Mods] - Crash Bandicoot (wifi safe pack)/ui/replace/chara/chara_0/chara_0_mariod_06.bntx",
+     "portrait": "69a0f474ac6c9302a028a44d7d531fc60bbd86a8db035c625790c01b28256a14",
+     "portrait_source": "[Mods] - Crash Bandicoot (wifi safe pack)/ui/replace/chara/chara_3/chara_3_mariod_06.bntx",
      "slot": "c06",
      "variant_id": "18:390349:75e78d83:c06"
     },
@@ -36,8 +36,8 @@
      "duplicate_of": null,
      "files_count": 102,
      "has_model": true,
-     "portrait": "3029476dc1ee69f77f117acb23381b0822bffcbcad11abfa2a95c9ce5c70df38",
-     "portrait_source": "[Mods] - Crash Bandicoot (wifi safe pack)/ui/replace/chara/chara_0/chara_0_mariod_07.bntx",
+     "portrait": "12fb771b256037205b1f4d81dad2275eefe320d648b575cd69c127500e4a5e0c",
+     "portrait_source": "[Mods] - Crash Bandicoot (wifi safe pack)/ui/replace/chara/chara_3/chara_3_mariod_07.bntx",
      "slot": "c07",
      "variant_id": "18:390349:75e78d83:c07"
     }
@@ -83,8 +83,8 @@
      "duplicate_of": null,
      "files_count": 6,
      "has_model": true,
-     "portrait": "f82b96762d3fa567ffce64300179e63f6e775d55de7ac07d2023b4686ef3789f",
-     "portrait_source": "ui/replace/chara/chara_0/chara_0_mariod_00.bntx",
+     "portrait": "aab565a5b3debcaba890cc0d7c8446e48cbdcff44152c5ad31f85a776b29ea25",
+     "portrait_source": "ui/replace/chara/chara_3/chara_3_mariod_00.bntx",
      "slot": "c00",
      "variant_id": "18:390349:5f7cb115:c00"
     }

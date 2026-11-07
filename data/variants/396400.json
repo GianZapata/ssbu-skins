@@ -14,8 +14,8 @@
      "duplicate_of": null,
      "files_count": 18,
      "has_model": true,
-     "portrait": "91af014f104694182c4005bdf5b46c6c49b6bf5d485295bc398ba2bbd17db1f1",
-     "portrait_source": "tingle even numb/ui/replace/chara/chara_0/chara_0_bayonetta_00.bntx",
+     "portrait": "362ed84b46a0d6699df5783468e941edbea95aedb312a211807e7d4bfaf098fe",
+     "portrait_source": "tingle even numb/ui/replace/chara/chara_3/chara_3_bayonetta_00.bntx",
      "slot": "c00",
      "variant_id": "63:396400:a7689556:c00"
     }
@@ -35,8 +35,8 @@
      "duplicate_of": null,
      "files_count": 17,
      "has_model": true,
-     "portrait": "91af014f104694182c4005bdf5b46c6c49b6bf5d485295bc398ba2bbd17db1f1",
-     "portrait_source": "tingle odd numb/ui/replace/chara/chara_0/chara_0_bayonetta_01.bntx",
+     "portrait": "362ed84b46a0d6699df5783468e941edbea95aedb312a211807e7d4bfaf098fe",
+     "portrait_source": "tingle odd numb/ui/replace/chara/chara_3/chara_3_bayonetta_01.bntx",
      "slot": "c01",
      "variant_id": "63:396400:76b7533b:c01"
     }

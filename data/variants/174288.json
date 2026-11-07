@@ -36,8 +36,8 @@
      "duplicate_of": null,
      "files_count": 60,
      "has_model": true,
-     "portrait": "17d01c6e740d694191042615edcc4974231987f87f5b0eb3969b138acbdbe76a",
-     "portrait_source": "OoT_Link_Extras/ui/replace/chara/chara_0/chara_0_link_03.bntx",
+     "portrait": "18f1f8248939d8e2ef17d815b198c17fe127d7445c2dcada556de0caced77a27",
+     "portrait_source": "OoT_Link_Extras/ui/replace/chara/chara_3/chara_3_link_03.bntx",
      "slot": "c03",
      "variant_id": "03:174288:7abe2d97:c03"
     },
@@ -47,8 +47,8 @@
      "duplicate_of": null,
      "files_count": 60,
      "has_model": true,
-     "portrait": "2c71c9d4040e5c910cbedbb72f0dacd574ca1a5d55d7edadd13a111243e9e5a6",
-     "portrait_source": "OoT_Link_Extras/ui/replace/chara/chara_0/chara_0_link_04.bntx",
+     "portrait": "414d30e4ea04619fb8548cfd6b702a0dcf775377747331edce6bb46d662e2be0",
+     "portrait_source": "OoT_Link_Extras/ui/replace/chara/chara_3/chara_3_link_04.bntx",
      "slot": "c04",
      "variant_id": "03:174288:7abe2d97:c04"
     },
@@ -58,8 +58,8 @@
      "duplicate_of": null,
      "files_count": 57,
      "has_model": true,
-     "portrait": "051fe59acd5c4606836a76018b6061cbdaed791ef4f4c978c53e181442ac4661",
-     "portrait_source": "OoT_Link_Extras/ui/replace/chara/chara_0/chara_0_link_07.bntx",
+     "portrait": "fea6097646fdf16848def15a7c9a4e3f55516c750b7b9b60367d90166c4c3463",
+     "portrait_source": "OoT_Link_Extras/ui/replace/chara/chara_3/chara_3_link_07.bntx",
      "slot": "c07",
      "variant_id": "03:174288:7abe2d97:c07"
     }
@@ -95,8 +95,8 @@
      "duplicate_of": null,
      "files_count": 60,
      "has_model": true,
-     "portrait": "ed54e18a220fe995e85f8460c466210ba943c082e497ccdfccb0c310b2313e3e",
-     "portrait_source": "OoT_Link_Solo/ui/replace/chara/chara_0/chara_0_link_01.bntx",
+     "portrait": "10320cfff07d8e2ce7eaf9f80a497a0dbf9b7712d5a9c3c889f0a4ea108e6974",
+     "portrait_source": "OoT_Link_Solo/ui/replace/chara/chara_3/chara_3_link_01.bntx",
      "slot": "c01",
      "variant_id": "03:174288:eccb4413:c01"
     }

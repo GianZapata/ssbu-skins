@@ -30,8 +30,8 @@
      "duplicate_of": null,
      "files_count": 24,
      "has_model": true,
-     "portrait": "6c6f204b4c24c36207278218492b3d814958aa1ed9c394586ba31044b267379f",
-     "portrait_source": "BigSmoke/ui/replace/chara/chara_0/chara_0_ganon_02.bntx",
+     "portrait": "915c59fdbc09a70d98ba2f1f3953f5fa8977d07751c395472405906b8534edd3",
+     "portrait_source": "BigSmoke/ui/replace/chara/chara_3/chara_3_ganon_02.bntx",
      "slot": "c02",
      "variant_id": "23:447428:86afdc0c:c02"
     },
@@ -41,8 +41,8 @@
      "duplicate_of": null,
      "files_count": 24,
      "has_model": true,
-     "portrait": "f16b68b435b5b2d70fee224f5c97ffa8db7adc27bb6f605b5d7777aa3cc44579",
-     "portrait_source": "BigSmoke/ui/replace/chara/chara_0/chara_0_ganon_03.bntx",
+     "portrait": "26b24afd907a52c66b96a966504556780e734abe00e808dff2dc9aadf5aec0fc",
+     "portrait_source": "BigSmoke/ui/replace/chara/chara_3/chara_3_ganon_03.bntx",
      "slot": "c03",
      "variant_id": "23:447428:86afdc0c:c03"
     }

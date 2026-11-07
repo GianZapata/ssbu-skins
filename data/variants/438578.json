@@ -25,8 +25,8 @@
      "duplicate_of": null,
      "files_count": 16,
      "has_model": true,
-     "portrait": "be91ff760ae6f1ba5f051d90c5778b1d7cdcad1a90bb76861c50295fb225a51a",
-     "portrait_source": "Nobodies over Sheik/ui/replace/chara/chara_0/chara_0_sheik_00.bntx",
+     "portrait": "e128d5155b3e891c457c6ae814135719cd588e06aaae0e22ae3a4f9ed6a771c3",
+     "portrait_source": "Nobodies over Sheik/ui/replace/chara/chara_3/chara_3_sheik_00.bntx",
      "slot": "c00",
      "variant_id": "16:438578:43abab05:c00"
     },
@@ -36,8 +36,8 @@
      "duplicate_of": null,
      "files_count": 22,
      "has_model": true,
-     "portrait": "cf9b8252a3393d357330b4ed95457f097543eaaf359db2f10728ffb21561ea43",
-     "portrait_source": "Nobodies over Sheik/ui/replace/chara/chara_0/chara_0_sheik_01.bntx",
+     "portrait": "44888d9fe8033bf0a692a2b0114ef6f706c0bd7b19f663361f146465b859b38a",
+     "portrait_source": "Nobodies over Sheik/ui/replace/chara/chara_3/chara_3_sheik_01.bntx",
      "slot": "c01",
      "variant_id": "16:438578:43abab05:c01"
     }

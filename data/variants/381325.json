@@ -17,8 +17,8 @@
      "duplicate_of": null,
      "files_count": 35,
      "has_model": true,
-     "portrait": "2b4ba3c7f0cba081a0d92d37f9d8242085743f724840b740ed99d32b65c56d99",
-     "portrait_source": "manithurtstobethis/leolustermod/ui/replace/chara/chara_0/chara_0_gaogaen_03.bntx",
+     "portrait": "f6fb3c4fbf39ee31c37a007915828dcdefebfcd7728540ea59136e1265228c81",
+     "portrait_source": "manithurtstobethis/leolustermod/ui/replace/chara/chara_3/chara_3_gaogaen_03.bntx",
      "slot": "c03",
      "variant_id": "69:381325:5d874c10:c03"
     },
@@ -28,8 +28,8 @@
      "duplicate_of": null,
      "files_count": 35,
      "has_model": true,
-     "portrait": "490cd2876df369bdffa47fbc64a4f1d0c6ddf9592a3d1055b010222d9b3fec88",
-     "portrait_source": "manithurtstobethis/leolustermod/ui/replace/chara/chara_0/chara_0_gaogaen_04.bntx",
+     "portrait": "97be731a9b7b039bbdbc93abcebac770c5e02ceaf5faed5f3de18cebe7e84e83",
+     "portrait_source": "manithurtstobethis/leolustermod/ui/replace/chara/chara_3/chara_3_gaogaen_04.bntx",
      "slot": "c04",
      "variant_id": "69:381325:5d874c10:c04"
     }

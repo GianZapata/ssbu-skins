@@ -23,8 +23,8 @@
      "duplicate_of": null,
      "files_count": 81,
      "has_model": true,
-     "portrait": "4af3c686c57e2432b961a3963d4b01ca683e875bb06544399ebb031b83aa7335",
-     "portrait_source": "DryBowser4Slots/ui/replace/chara/chara_0/chara_0_koopa_04.bntx",
+     "portrait": "9130e44af578878fd49275bf8ab4b6a75b5eecf815b4b4d875476d3aa5a2febc",
+     "portrait_source": "DryBowser4Slots/ui/replace/chara/chara_3/chara_3_koopa_04.bntx",
      "slot": "c04",
      "variant_id": "14:174180:e830b952:c04"
     },
@@ -34,8 +34,8 @@
      "duplicate_of": null,
      "files_count": 81,
      "has_model": true,
-     "portrait": "70ec118ac56f770ade441efc52c980cf878e7789b94ce53c1c4c41694941cbd3",
-     "portrait_source": "DryBowser4Slots/ui/replace/chara/chara_0/chara_0_koopa_05.bntx",
+     "portrait": "9108b565b3325775c0dd71c2f1f62ad8dbbdd906059f494350c26a7dfed0c175",
+     "portrait_source": "DryBowser4Slots/ui/replace/chara/chara_3/chara_3_koopa_05.bntx",
      "slot": "c05",
      "variant_id": "14:174180:e830b952:c05"
     },
@@ -45,8 +45,8 @@
      "duplicate_of": null,
      "files_count": 81,
      "has_model": true,
-     "portrait": "63275cb59c5e3b1e52fc81e84b8f5d15e2329dcf975ae14ce2a2e14e7d9a2468",
-     "portrait_source": "DryBowser4Slots/ui/replace/chara/chara_0/chara_0_koopa_06.bntx",
+     "portrait": "884eeb1734feb251feec704527cf11e4ab59876630f964a6281bcff9a24eadc5",
+     "portrait_source": "DryBowser4Slots/ui/replace/chara/chara_3/chara_3_koopa_06.bntx",
      "slot": "c06",
      "variant_id": "14:174180:e830b952:c06"
     },
@@ -56,8 +56,8 @@
      "duplicate_of": null,
      "files_count": 81,
      "has_model": true,
-     "portrait": "f696a7d739f0454041ae0f0423557125493c2bd72a9e1d57c1bb9024ff961f9a",
-     "portrait_source": "DryBowser4Slots/ui/replace/chara/chara_0/chara_0_koopa_07.bntx",
+     "portrait": "5e2ed865680c30dba518688ac973ae5df659faefe8a42350e332cc03fcda1fbe",
+     "portrait_source": "DryBowser4Slots/ui/replace/chara/chara_3/chara_3_koopa_07.bntx",
      "slot": "c07",
      "variant_id": "14:174180:e830b952:c07"
     }
@@ -84,8 +84,8 @@
      "duplicate_of": null,
      "files_count": 110,
      "has_model": true,
-     "portrait": "4af3c686c57e2432b961a3963d4b01ca683e875bb06544399ebb031b83aa7335",
-     "portrait_source": "DryBowserFullReplacement/ui/replace/chara/chara_0/chara_0_koopa_00.bntx",
+     "portrait": "9130e44af578878fd49275bf8ab4b6a75b5eecf815b4b4d875476d3aa5a2febc",
+     "portrait_source": "DryBowserFullReplacement/ui/replace/chara/chara_3/chara_3_koopa_00.bntx",
      "slot": "c00",
      "variant_id": "14:174180:d23124d2:c00"
     },
@@ -95,8 +95,8 @@
      "duplicate_of": null,
      "files_count": 107,
      "has_model": true,
-     "portrait": "c68e51315b6be64bdebbb9c5e08a3862cd96d4ec77786928c3c1a83b1c7dd2a1",
-     "portrait_source": "DryBowserFullReplacement/ui/replace/chara/chara_0/chara_0_koopa_01.bntx",
+     "portrait": "0ecafa36099f80b17e51f85f617b969310bea1b12973bc50249979fccf4313ff",
+     "portrait_source": "DryBowserFullReplacement/ui/replace/chara/chara_3/chara_3_koopa_01.bntx",
      "slot": "c01",
      "variant_id": "14:174180:d23124d2:c01"
     },
@@ -106,8 +106,8 @@
      "duplicate_of": null,
      "files_count": 107,
      "has_model": true,
-     "portrait": "b2edc570ac012aaa3899a2733075e9b4eaaffebde7fb5d8b4a52661a131550ad",
-     "portrait_source": "DryBowserFullReplacement/ui/replace/chara/chara_0/chara_0_koopa_02.bntx",
+     "portrait": "29994462888ed2f73a553d7add506bb7ee84b2a7bfbc75e4c7e8ec8c2b4e66c6",
+     "portrait_source": "DryBowserFullReplacement/ui/replace/chara/chara_3/chara_3_koopa_02.bntx",
      "slot": "c02",
      "variant_id": "14:174180:d23124d2:c02"
     },
@@ -117,8 +117,8 @@
      "duplicate_of": null,
      "files_count": 107,
      "has_model": true,
-     "portrait": "70ec118ac56f770ade441efc52c980cf878e7789b94ce53c1c4c41694941cbd3",
-     "portrait_source": "DryBowserFullReplacement/ui/replace/chara/chara_0/chara_0_koopa_03.bntx",
+     "portrait": "9108b565b3325775c0dd71c2f1f62ad8dbbdd906059f494350c26a7dfed0c175",
+     "portrait_source": "DryBowserFullReplacement/ui/replace/chara/chara_3/chara_3_koopa_03.bntx",
      "slot": "c03",
      "variant_id": "14:174180:d23124d2:c03"
     },
@@ -128,8 +128,8 @@
      "duplicate_of": null,
      "files_count": 107,
      "has_model": true,
-     "portrait": "63275cb59c5e3b1e52fc81e84b8f5d15e2329dcf975ae14ce2a2e14e7d9a2468",
-     "portrait_source": "DryBowserFullReplacement/ui/replace/chara/chara_0/chara_0_koopa_04.bntx",
+     "portrait": "884eeb1734feb251feec704527cf11e4ab59876630f964a6281bcff9a24eadc5",
+     "portrait_source": "DryBowserFullReplacement/ui/replace/chara/chara_3/chara_3_koopa_04.bntx",
      "slot": "c04",
      "variant_id": "14:174180:d23124d2:c04"
     },
@@ -139,8 +139,8 @@
      "duplicate_of": null,
      "files_count": 107,
      "has_model": true,
-     "portrait": "f696a7d739f0454041ae0f0423557125493c2bd72a9e1d57c1bb9024ff961f9a",
-     "portrait_source": "DryBowserFullReplacement/ui/replace/chara/chara_0/chara_0_koopa_05.bntx",
+     "portrait": "5e2ed865680c30dba518688ac973ae5df659faefe8a42350e332cc03fcda1fbe",
+     "portrait_source": "DryBowserFullReplacement/ui/replace/chara/chara_3/chara_3_koopa_05.bntx",
      "slot": "c05",
      "variant_id": "14:174180:d23124d2:c05"
     },
@@ -150,8 +150,8 @@
      "duplicate_of": null,
      "files_count": 107,
      "has_model": true,
-     "portrait": "3ed486bd552b47eab2dc044b5db41279d3d2554f6a350b6f690463ea903942a7",
-     "portrait_source": "DryBowserFullReplacement/ui/replace/chara/chara_0/chara_0_koopa_06.bntx",
+     "portrait": "7683af748467c15275c0de923ae3d64e15af96fa76aae732d2d9d57784d71494",
+     "portrait_source": "DryBowserFullReplacement/ui/replace/chara/chara_3/chara_3_koopa_06.bntx",
      "slot": "c06",
      "variant_id": "14:174180:d23124d2:c06"
     },
@@ -161,8 +161,8 @@
      "duplicate_of": null,
      "files_count": 107,
      "has_model": true,
-     "portrait": "b063c9cb30644c7667d422b98c3e472f0617eb5f80a1ba1e91e19e52c736776f",
-     "portrait_source": "DryBowserFullReplacement/ui/replace/chara/chara_0/chara_0_koopa_07.bntx",
+     "portrait": "7555399a60395e3cb8d67049aed92889d5ea37c40fb14ca83a722aed6590f024",
+     "portrait_source": "DryBowserFullReplacement/ui/replace/chara/chara_3/chara_3_koopa_07.bntx",
      "slot": "c07",
      "variant_id": "14:174180:d23124d2:c07"
     }

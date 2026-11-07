@@ -16,8 +16,8 @@
      "duplicate_of": null,
      "files_count": 46,
      "has_model": true,
-     "portrait": "bd8543a69083c78d398081d6df48fa22afae8406c51f6458f234c0936ccca8c4",
-     "portrait_source": "DkBananza SmashStyle/ui/replace/chara/chara_0/chara_0_donkey_00.bntx",
+     "portrait": "340c71a507b4eac30385e534789bcfb2790e577cc4c1f548b9d94c19ecb7e983",
+     "portrait_source": "DkBananza SmashStyle/ui/replace/chara/chara_3/chara_3_donkey_00.bntx",
      "slot": "c00",
      "variant_id": "02:595992:cd677c98:c00"
     },
@@ -27,8 +27,8 @@
      "duplicate_of": null,
      "files_count": 46,
      "has_model": true,
-     "portrait": "df4f13a7d71746acf40eddbe3e812dbb0f15eb2748a811debdf517a0a179a018",
-     "portrait_source": "DkBananza SmashStyle/ui/replace/chara/chara_0/chara_0_donkey_01.bntx",
+     "portrait": "801df4007155294610c312593e7342e5f7110b26c224b7c93109d041224b7252",
+     "portrait_source": "DkBananza SmashStyle/ui/replace/chara/chara_3/chara_3_donkey_01.bntx",
      "slot": "c01",
      "variant_id": "02:595992:cd677c98:c01"
     },
@@ -38,8 +38,8 @@
      "duplicate_of": null,
      "files_count": 49,
      "has_model": true,
-     "portrait": "f9108cc1510cf3c0f0d4885bf81fdcb04221e6bc0164cb9cc1b30da0da6f78af",
-     "portrait_source": "DkBananza SmashStyle/ui/replace/chara/chara_0/chara_0_donkey_02.bntx",
+     "portrait": "6aa2a6c916514a8a29d55a743b7c80d54a940c1c4c1d7eee3f477409513e3bcb",
+     "portrait_source": "DkBananza SmashStyle/ui/replace/chara/chara_3/chara_3_donkey_02.bntx",
      "slot": "c02",
      "variant_id": "02:595992:cd677c98:c02"
     }
@@ -61,8 +61,8 @@
      "duplicate_of": null,
      "files_count": 43,
      "has_model": true,
-     "portrait": "fb8ff78c6db439ad3663aa5fc1db50b3bd88c2d1f2d6557142b9806a32cd1746",
-     "portrait_source": "Rare DK Bananza Outfit/ui/replace/chara/chara_0/chara_0_donkey_01.bntx",
+     "portrait": "5e06b0eda1d93a64e40f98a2081409657468ca22bbcd95baed8ad5dd72db5c5b",
+     "portrait_source": "Rare DK Bananza Outfit/ui/replace/chara/chara_3/chara_3_donkey_01.bntx",
      "slot": "c01",
      "variant_id": "02:595992:166dc13e:c01"
     },
@@ -72,8 +72,8 @@
      "duplicate_of": null,
      "files_count": 46,
      "has_model": true,
-     "portrait": "53cea06a39cfade127076bc6e5621754b6ac9b8e16e7a830346c77fda67ab7e8",
-     "portrait_source": "Rare DK Bananza Outfit/ui/replace/chara/chara_0/chara_0_donkey_02.bntx",
+     "portrait": "0a32512fd6a91198bc2b373b87143e1731ef1a3b12ffa66030ca8ef5ce5529d5",
+     "portrait_source": "Rare DK Bananza Outfit/ui/replace/chara/chara_3/chara_3_donkey_02.bntx",
      "slot": "c02",
      "variant_id": "02:595992:166dc13e:c02"
     }
