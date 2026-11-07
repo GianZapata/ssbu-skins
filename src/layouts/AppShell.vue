@@ -1,54 +1,27 @@
 <script setup lang="ts">
-import { computed, onMounted, watch } from 'vue'
 import { QAvatar, QBtn, QHeader, QItem, QItemSection, QLayout, QList, QMenu, QPageContainer, QToolbar } from 'quasar'
-import { back, go, portraitOf, route, showBack, start, tick, titleOf } from '../composables/useApp'
-import { hdrHidden, resetReveal, startReveal } from '../composables/useReveal'
 import SummarySheet from '../features/fighters/components/SummarySheet.vue'
-import { bootPlan, countChosen, dismissNotice, notice, retrySync } from '../features/plan/composables/usePlan'
-import { useSaveStatus } from '../features/plan/saveStatus'
+import PersonSheet from '../features/plan/components/PersonSheet.vue'
+import { useAppShell } from './composables/useAppShell'
 
-const { problem } = useSaveStatus()
-
-const title = computed(() => {
-  tick.value
-
-  return titleOf()
-})
-
-const portrait = computed(() => {
-  tick.value
-
-  return portraitOf()
-})
-
-const canBack = computed(() => {
-  tick.value
-
-  return showBack()
-})
-
-const chosen = computed(() => {
-  tick.value
-
-  return countChosen()
-})
-
-const runNotice = () => {
-  const current = notice.value
-
-  if (!current) return
-
-  notice.value = null
-  if (current.fn) current.fn()
-}
-
-watch(() => route.value.v + ':' + route.value.code, () => resetReveal())
-
-onMounted(() => {
-  start()
-  startReveal()
-  bootPlan()
-})
+const {
+  hdrHidden,
+  problem,
+  notice,
+  title,
+  portrait,
+  canBack,
+  chosen,
+  personMenuLabel,
+  isOpenPerson,
+  back,
+  go,
+  retrySync,
+  dismissNotice,
+  openPersonSheet,
+  closePersonSheet,
+  runNotice,
+} = useAppShell()
 </script>
 
 <template>
@@ -65,6 +38,9 @@ onMounted(() => {
         <q-btn flat round padding="0" class="icon-btn" icon="more_vert" aria-label="Más opciones">
           <q-menu anchor="bottom right" self="top right">
             <q-list>
+              <q-item v-close-popup clickable data-person-menu @click="openPersonSheet">
+                <q-item-section>{{ personMenuLabel }}</q-item-section>
+              </q-item>
               <q-item v-close-popup clickable @click="go('#/notas')">
                 <q-item-section>Búsquedas pendientes</q-item-section>
               </q-item>
@@ -98,5 +74,6 @@ onMounted(() => {
     </q-page-container>
 
     <SummarySheet />
+    <PersonSheet v-if="isOpenPerson" :is-open="isOpenPerson" @close="closePersonSheet" />
   </q-layout>
 </template>
