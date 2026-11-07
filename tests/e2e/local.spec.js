@@ -10,7 +10,7 @@ test('el toque no escribe el plan y el botón nombra el traje', async ({ page })
   await page.waitForSelector('[data-skin]');
   const before = await page.evaluate(() => window.planEntries().length);
   await page.locator('[data-skin]').first().click();
-  await expect(page.locator('[data-act]')).toHaveText('Guardar elección');
+  await expect(page.locator('[data-act]')).toHaveText('Guardar propuesta');
   await expect(page.getByText('Mario · Traje 3')).toBeVisible();
   await expect.poll(() => page.evaluate(() => window.planEntries().length)).toBe(before);
 });
@@ -56,14 +56,15 @@ test('el catálogo compacto filtra por personaje y limpia sin perder el tamaño'
   await expect.poll(() => page.evaluate(() => localStorage.getItem('ssbu_grid'))).toBe('compacta');
 });
 
-test('catálogo e instaladas están aparte y no hay Historial', async ({ page }) => {
+test('catálogo y notas están aparte, no hay Historial y las rutas viejas redirigen', async ({ page }) => {
   await page.setViewportSize({ width: 390, height: 844 });
   await page.goto('/#/catalogo');
   await expect(page.getByRole('button', { name: 'Tanooki Mario' })).toBeVisible();
   await expect(page.getByRole('button', { name: 'Instalar' })).toHaveCount(0);
   await expect(page.getByRole('button', { name: 'Historial' })).toHaveCount(0);
   await page.goto('/#/instaladas');
-  await expect(page.getByRole('link', { name: /Ventus/ })).toBeVisible();
+  await expect(page).toHaveURL(/#\/luchadores\?filtro=perfil/);
+  await expect(page.getByRole('link', { name: /: Ventus/ }).first()).toBeVisible();
   await expect(page.getByRole('link', { name: /Tanooki/ })).toHaveCount(0);
   await page.goto('/#/notas');
   await expect(page.getByText('Aún no hay búsquedas pendientes')).toBeVisible();
@@ -88,10 +89,10 @@ test('el indicador de sync no pierde su clase', async ({ page }) => {
 
 test('un traje con mod sin retrato muestra Sin retrato y no una imagen ajena', async ({ page }) => {
   await page.setViewportSize({ width: 390, height: 844 });
-  await page.goto('/#/tarjeta');
+  await page.goto('/#/luchadores');
   await page.getByLabel('Buscar luchador o skin').fill('Duck Hunt');
-  await page.waitForSelector('#f-59 .board-tile');
-  const tile = page.locator('#f-59 .board-tile').first();
+  await page.waitForSelector('[data-fighter="59"] .rcost');
+  const tile = page.locator('[data-fighter="59"] .rcost').first();
   await expect(tile.locator('.app-img__missing')).toHaveText('Sin retrato');
   await expect(tile.locator('img')).toHaveCount(0);
   await expect(tile.locator('.q-img')).toHaveCount(0);
@@ -101,42 +102,52 @@ test('un traje con mod sin retrato muestra Sin retrato y no una imagen ajena', a
   await expect(page.locator('.cmp__img--cur .q-img')).toHaveCount(0);
 });
 
-test('la tarjeta muestra el mosaico y Cambios', async ({ page }) => {
+test('luchadores muestra los 8 trajes de cada uno y Cambios', async ({ page }) => {
   await page.setViewportSize({ width: 390, height: 844 });
-  await page.goto('/#/tarjeta');
-  await page.waitForSelector('#f-01 .board-tile');
-  await expect(page.locator('#f-01 .board-tile')).toHaveCount(8);
+  await page.goto('/#/luchadores');
+  await page.waitForSelector('[data-fighter="01"] .rcost');
+  await expect(page.locator('[data-fighter="01"] .rcost')).toHaveCount(8);
   await expect(page.locator('#ttl')).toBeVisible();
-  await expect(page.getByRole('button', { name: 'Ver elegidas, 0' })).toBeVisible();
-  await expect(page.getByRole('button', { name: 'Ver elegidas, 0' })).toHaveText('Cambios · 0');
-  await expect(page.getByText('Variantes: aún no disponibles').first()).toBeVisible();
-  await expect(page.getByRole('button', { name: 'Ampliar' })).toBeVisible();
-  await page.getByRole('button', { name: 'Ver elegidas, 0' }).click();
-  await expect(page.getByRole('dialog', { name: 'Elegidas' })).toBeVisible();
+  await expect(page.getByRole('button', { name: 'Ver cambios, 0' })).toBeVisible();
+  await expect(page.getByRole('button', { name: 'Ver cambios, 0' })).toHaveText('Cambios · 0');
+  await expect(page.getByText('Variantes: aún no disponibles')).toHaveCount(0);
+  await expect(page.getByRole('button', { name: 'Trajes grandes' })).toBeVisible();
+  await page.getByRole('button', { name: 'Ver cambios, 0' }).click();
+  await expect(page.getByRole('dialog', { name: 'Cambios' })).toBeVisible();
   await expect(page.getByRole('button', { name: 'Exportar' })).toHaveCount(0);
   await expect(page.locator('[data-undo]')).toHaveCount(0);
 });
 
-test('la tarjeta tiene una barra compacta y trajes grandes', async ({ page }) => {
+test('los trajes grandes muestran cada traje con su nombre y estado', async ({ page }) => {
   await page.setViewportSize({ width: 1280, height: 800 });
-  await page.goto('/#/tarjeta');
-  await page.waitForSelector('#f-01 .board-tile');
-  const head = await page.locator('#f-01 .board-f__head').boundingBox();
-  expect(head.y).toBeLessThan(280);
-  const tile = await page.locator('#f-01 .board-tile').first().boundingBox();
-  expect(tile.width).toBeGreaterThan(200);
-  await expect(page.getByText('Variantes: aún no disponibles')).toHaveCount(1);
-  await expect(page.locator('.dest a[aria-current="page"]')).toHaveText('Tarjeta');
+  await page.goto('/#/luchadores');
+  await page.getByRole('button', { name: 'Trajes grandes' }).click();
+  await page.waitForSelector('[data-fighter="01"].rrow--large .rcost');
+  const head = await page.locator('[data-fighter="01"] .rrow__head').boundingBox();
+  expect(head.y).toBeLessThan(420);
+  const tile = await page.locator('[data-fighter="01"] .rcost').first().boundingBox();
+  expect(tile.width).toBeGreaterThan(70);
+  await expect(page.locator('[data-fighter="01"] .rcost').first().locator('.rcost__txt')).toBeVisible();
+  await expect(page.locator('.dest a[aria-current="page"]')).toHaveText('Luchadores');
   await page.setViewportSize({ width: 390, height: 844 });
-  const head390 = await page.locator('#f-01 .board-f__head').boundingBox();
-  expect(head390.y).toBeLessThan(420);
+  const head390 = await page.locator('[data-fighter="01"] .rrow__head').boundingBox();
+  expect(head390.y).toBeLessThan(520);
 });
 
-test('luchadores muestra cuántos trajes son tuyos', async ({ page }) => {
+test('los contadores separan perfil, pack base y originales y no dicen instalada', async ({ page }) => {
   await page.goto('/#/luchadores');
-  await page.waitForSelector('.ft');
-  await expect(page.locator('.ft[data-fighter="01"] .ft__own')).toHaveText('8/8');
-  await expect(page.locator('.ft[data-fighter="01"]')).toHaveAttribute('aria-label', /8 de 8 trajes tuyos/);
+  await page.waitForSelector('.rrow');
+  await expect(page.locator('[data-fighter="01"] .meter')).toHaveAttribute('aria-label', '8 de 8 trajes con mod de tu perfil');
+  const summary = await page.locator('.roster-counts summary').textContent();
+  const [, profile, total] = /^(\d+) de (\d+) trajes con mod de tu perfil$/.exec((summary || '').trim()) || [];
+  expect(Number(profile)).toBeGreaterThan(0);
+  await page.locator('.roster-counts summary').click();
+  const detail = await page.locator('.roster-counts p').textContent();
+  const [, base, original] = /^(\d+) del pack base(?: \(\d+ sin identificar\))? · (\d+) originales$/.exec((detail || '').trim()) || [];
+  expect(Number(profile) + Number(base) + Number(original)).toBe(Number(total));
+  expect(await page.locator('.rcost--profile').count()).toBe(Number(profile));
+  const text = (await page.locator('main').textContent()) || '';
+  expect(text).not.toMatch(/instalad|en la SD|propios/i);
 });
 
 test('un enlace directo no sale de la app con Volver', async ({ page }) => {
@@ -147,7 +158,7 @@ test('un enlace directo no sale de la app con Volver', async ({ page }) => {
   expect(depth).toBe(0);
   await page.getByRole('button', { name: 'Volver' }).click();
   await expect(page).toHaveURL(/#\/luchadores/);
-  await expect(page.locator('.ft').first()).toBeVisible();
+  await expect(page.locator('.rrow').first()).toBeVisible();
 });
 
 test('el plan conserva el luchador y su candidata', async ({ page }) => {
@@ -162,47 +173,50 @@ test('el plan conserva el luchador y su candidata', async ({ page }) => {
     document.body.appendChild(link);
     link.click();
   });
-  await expect(page.getByRole('dialog', { name: 'Elegidas' })).toBeVisible();
+  await expect(page.getByRole('dialog', { name: 'Cambios' })).toBeVisible();
   await expect(page.getByRole('button', { name: 'Exportar' })).toHaveCount(0);
   await expect(page.locator('[data-skin="' + vid + '"][aria-pressed="true"]')).toHaveCount(1);
 });
 
-test('mirar el detalle no cambia la candidata', async ({ page }) => {
+test('ampliar una imagen no cambia la candidata', async ({ page }) => {
   await page.setViewportSize({ width: 390, height: 844 });
   await page.goto('/#/luchador/01/3');
   await page.waitForSelector('[data-skin]');
   await page.locator('[data-skin]').first().click();
   const vid = await page.locator('[data-skin][aria-pressed="true"]').getAttribute('data-skin');
-  await page.locator('[aria-label^="Ver detalle"]').nth(1).click();
-  await page.getByRole('button', { name: 'Cerrar' }).click();
+  await page.locator('[aria-label^="Ampliar imagen de"]').nth(1).click();
+  await expect(page.locator('.pswp')).toBeVisible();
+  await page.waitForTimeout(800);
+  await page.getByRole('button', { name: 'Cerrar' }).last().click();
+  await expect(page.locator('.pswp')).toHaveCount(0);
   await expect(page.locator('[data-skin="' + vid + '"][aria-pressed="true"]')).toHaveCount(1);
 });
 
-test('el catálogo pide elegir traje y no escribe el plan', async ({ page }) => {
+test('el catálogo lleva al luchador con la skin y pide elegir traje sin escribir el plan', async ({ page }) => {
   await page.setViewportSize({ width: 390, height: 844 });
   await page.goto('/#/catalogo');
   await page.getByRole('button', { name: 'Tanooki Mario' }).click();
   const before = await page.evaluate(() => JSON.stringify(window.planEntries()));
-  await expect(page.getByRole('button', { name: 'Elegir traje' })).toBeVisible();
-  await expect(page.getByRole('button', { name: 'Guardar elección' })).toHaveCount(0);
-  await page.getByRole('button', { name: 'Elegir traje' }).click();
-  await expect(page).toHaveURL(/#\/luchador\/01\/1/);
-  await expect.poll(() => page.evaluate(() => JSON.stringify(window.planEntries()))).toBe(before);
+  await expect(page).toHaveURL(/#\/luchador\/01\?skin=/);
+  await expect(page.getByText('Elegir traje para')).toBeVisible();
+  await expect(page.getByRole('button', { name: 'Guardar propuesta' })).toHaveCount(0);
   const vid = await page.locator('[aria-pressed="true"][data-skin]').getAttribute('data-skin');
   await page.locator('[data-slot="1"]').click();
+  await expect(page).toHaveURL(/#\/luchador\/01\/2\?skin=/);
   await expect(page.locator('[aria-pressed="true"][data-skin="' + vid + '"]')).toHaveCount(1);
-  await expect(page.getByText('Toca un traje para compararla ahí')).toBeVisible();
+  await expect(page.getByRole('button', { name: 'Guardar propuesta' })).toBeVisible();
+  await expect.poll(() => page.evaluate(() => JSON.stringify(window.planEntries()))).toBe(before);
 });
 
-test('Volver y Adelante recorren Catálogo e Instaladas', async ({ page }) => {
+test('Volver y Adelante recorren Catálogo y Luchadores', async ({ page }) => {
   await page.setViewportSize({ width: 390, height: 844 });
   await page.goto('/#/catalogo');
-  await page.getByRole('link', { name: 'Instaladas' }).click();
-  await expect(page).toHaveURL(/#\/instaladas/);
-  await page.getByRole('button', { name: 'Volver' }).click();
+  await page.getByRole('link', { name: 'Luchadores', exact: true }).click();
+  await expect(page).toHaveURL(/#\/luchadores/);
+  await page.goBack();
   await expect(page).toHaveURL(/#\/catalogo/);
   await page.goForward();
-  await expect(page).toHaveURL(/#\/instaladas/);
+  await expect(page).toHaveURL(/#\/luchadores/);
 });
 
 test('filtrar un personaje no suma profundidad', async ({ page }) => {
@@ -215,14 +229,6 @@ test('filtrar un personaje no suma profundidad', async ({ page }) => {
   await expect(page.getByRole('dialog', { name: 'Personaje' })).toBeHidden();
   const after = await page.evaluate(() => history.state && history.state.depth);
   expect(after).toBe(before);
-});
-
-test('la ficha del catálogo deja el catálogo debajo', async ({ page }) => {
-  await page.setViewportSize({ width: 320, height: 700 });
-  await page.goto('/#/catalogo');
-  await page.getByRole('button', { name: 'Tanooki Mario' }).click();
-  await expect(page.getByRole('dialog', { name: /Detalle de/ })).toBeVisible();
-  await expect(page.locator('.list-page--catalog [data-vid]').first()).toBeAttached();
 });
 
 test('Atrás cierra el selector de personaje', async ({ page }) => {
@@ -249,13 +255,13 @@ test('al bajar, la lista y el personaje caben en la barra que ya estaba', async 
   expect(after.height).toBeLessThanOrEqual(before.height + 1);
 });
 
-test('volver del detalle conserva la búsqueda', async ({ page }) => {
+test('volver del luchador conserva la búsqueda del catálogo', async ({ page }) => {
   await page.setViewportSize({ width: 390, height: 844 });
   await page.goto('/#/catalogo');
   await page.getByLabel('Buscar skin').fill('Tanooki');
   await page.getByRole('button', { name: /Tanooki Mario/ }).first().click();
   const before = await page.evaluate(() => window.planEntries().length);
-  await page.getByRole('button', { name: 'Cerrar' }).click();
+  await page.getByRole('button', { name: 'Volver' }).click();
   await expect(page.getByLabel('Buscar skin')).toHaveValue('Tanooki');
   await expect.poll(() => page.evaluate(() => window.planEntries().length)).toBe(before);
 });
@@ -280,4 +286,88 @@ test('cambiar el tamaño conserva la tarjeta visible', async ({ page }) => {
     if (!card) return 999;
     return Math.abs(card.getBoundingClientRect().top - top);
   }, before)).toBeLessThan(8);
+});
+
+test('recorrido: del luchador al traje, comparar, guardar y deshacer', async ({ page }) => {
+  await page.setViewportSize({ width: 390, height: 844 });
+  await page.goto('/#/luchadores');
+  await page.locator('[data-fighter="01"] .rrow__head').click();
+  await expect(page).toHaveURL(/#\/luchador\/01$/);
+  await page.locator('[data-slot="2"]').click();
+  await expect(page).toHaveURL(/#\/luchador\/01\/3$/);
+  const before = await page.evaluate(() => window.planEntries().length);
+  await page.locator('[data-skin]').first().click();
+  await expect(page.getByText('Actual', { exact: true })).toBeVisible();
+  await expect(page.getByText('Nueva', { exact: true })).toBeVisible();
+  await expect(page.locator('[data-act]')).toHaveText('Guardar propuesta');
+  await expect.poll(() => page.evaluate(() => window.planEntries().length)).toBe(before);
+  await page.locator('[data-act]').click();
+  await expect.poll(() => page.evaluate(() => window.planEntries().length)).toBe(before + 1);
+  await expect(page.getByText('Propuesta guardada').first()).toBeVisible();
+  await page.locator('#toast').getByRole('button', { name: 'Deshacer' }).click();
+  await expect.poll(() => page.evaluate(() => window.planEntries().length)).toBe(before);
+});
+
+test('cancelar la candidata quita la skin de la ruta sin escribir el plan', async ({ page }) => {
+  await page.setViewportSize({ width: 390, height: 844 });
+  await page.goto('/#/catalogo');
+  await page.getByRole('button', { name: 'Tanooki Mario' }).click();
+  const before = await page.evaluate(() => JSON.stringify(window.planEntries()));
+  await page.getByRole('button', { name: 'Cancelar' }).click();
+  await expect(page).toHaveURL(/#\/luchador\/01$/);
+  await expect(page.getByText('Elegir traje para')).toHaveCount(0);
+  expect(await page.evaluate(() => JSON.stringify(window.planEntries()))).toBe(before);
+});
+
+test('recargar conserva el traje y la candidata de la ruta', async ({ page }) => {
+  await page.setViewportSize({ width: 390, height: 844 });
+  await page.goto('/#/luchador/01/3');
+  await page.waitForSelector('[data-skin]');
+  await page.locator('[data-skin]').first().click();
+  const vid = await page.locator('[data-skin][aria-pressed="true"]').getAttribute('data-skin');
+  await expect(page).toHaveURL(/#\/luchador\/01\/3\?skin=/);
+  await page.reload();
+  await expect(page.locator('[data-skin="' + vid + '"][aria-pressed="true"]')).toHaveCount(1);
+  await expect(page.locator('[data-slot="2"]')).toHaveAttribute('aria-pressed', 'true');
+});
+
+test('las rutas viejas redirigen sin añadir entradas al historial', async ({ page }) => {
+  await page.goto('/#/luchadores');
+  const start = await page.evaluate(() => history.length);
+  const cases = [
+    ['/#/tarjeta', /#\/luchadores$/],
+    ['/#/instaladas', /#\/luchadores\?filtro=perfil$/],
+    ['/#/instaladas?pj=04', /#\/luchador\/04$/],
+    ['/#/apariencia/01:374147?para=01_2', /#\/luchador\/01\/3\?skin=/],
+    ['/#/apariencia/01:374147?para=01_2&de=catalogo', /#\/luchador\/01\?skin=/],
+  ];
+  for (const [url, expected] of cases) {
+    await page.goto(url);
+    await expect(page).toHaveURL(expected);
+  }
+  const grown = (await page.evaluate(() => history.length)) - start;
+  expect(grown).toBeLessThanOrEqual(cases.length);
+});
+
+test('Atrás vuelve de la comparación al luchador y de ahí a la lista en el mismo punto', async ({ page }) => {
+  await page.setViewportSize({ width: 390, height: 844 });
+  await page.goto('/#/luchadores');
+  await page.waitForSelector('.rrow');
+  await page.evaluate(() => window.scrollTo(0, 900));
+  const before = await page.evaluate(() => window.scrollY);
+  const row = page.locator('.rrow').filter({ has: page.locator('.rrow__head') }).nth(7);
+  await row.scrollIntoViewIfNeeded();
+  const marked = await page.evaluate(() => window.scrollY);
+  await row.locator('.rrow__head').click();
+  await expect(page).toHaveURL(/#\/luchador\/[^/]+$/);
+  await expect.poll(() => page.evaluate(() => window.scrollY)).toBe(0);
+  await page.locator('[data-slot="1"]').click();
+  await expect(page).toHaveURL(/#\/luchador\/[^/]+\/2$/);
+  await expect(page.locator('.cgrid--compact')).toHaveCount(1);
+  await page.goBack();
+  await expect(page).toHaveURL(/#\/luchador\/[^/]+$/);
+  await expect(page.locator('.cgrid--compact')).toHaveCount(0);
+  await page.goBack();
+  await expect(page).toHaveURL(/#\/luchadores/);
+  await expect.poll(() => page.evaluate(() => window.scrollY)).toBeGreaterThan(Math.min(before, marked) - 200);
 });

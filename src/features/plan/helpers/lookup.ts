@@ -17,6 +17,14 @@ export const skinOf = (vid: string | null | undefined) => {
   return entry ? entry.p : null
 }
 
+interface PendOp {
+  code: string
+  slot: number
+}
+
+/** Hay un cambio de este traje que todavía no llegó a Firestore. */
+export const isUnsent = (code: string, slot: number) => (state.PEND as PendOp[]).some((op) => op.code === code && op.slot === slot)
+
 export const changesOf = (code: string) => (planEntries() as PlanRow[]).filter((row) => row.code === code)
 
 export const slotPlanOf = (code: string, slot: number) => {

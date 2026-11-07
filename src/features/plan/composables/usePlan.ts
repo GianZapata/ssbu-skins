@@ -90,15 +90,31 @@ export interface Notice {
   fn: (() => void) | null
 }
 
+export interface NoticeAction {
+  label?: string
+  fn?: () => void
+}
+
 export const notice = ref<Notice | null>(null)
 
-const showNotice = (text: string, action?: { label?: string, fn?: () => void } | null) => {
-  notice.value = {
+let noticeTimer = 0
+
+export const showNotice = (text: string, action?: NoticeAction | null, ms = 0) => {
+  const current: Notice = {
     text,
     label: action && action.label ? action.label : '',
     fn: action && action.fn ? action.fn : null,
   }
+
+  window.clearTimeout(noticeTimer)
+  notice.value = current
   bump()
+
+  if (!ms) return
+
+  noticeTimer = window.setTimeout(() => {
+    if (notice.value === current) notice.value = null
+  }, ms)
 }
 
 export const dismissNotice = () => { notice.value = null }
@@ -201,10 +217,12 @@ export const imgsOf = (skin: Skin): Shot[] => {
 }
 
 export const zoomSkin = (skin: Skin, index: number) => {
+  const origin = document.activeElement as HTMLElement | null
+
   void openGallery(skin.name, imgsOf(skin), index, {
     setIndex: (position) => { S.galI = position },
     onClose: () => {
-      void nextTick(() => document.querySelector<HTMLElement>('[data-zoom]')?.focus())
+      void nextTick(() => origin?.focus())
     },
   })
 }

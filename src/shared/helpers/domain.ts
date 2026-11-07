@@ -141,16 +141,17 @@ const SSBU = (() => {
       const base = {
         ...rep, img, src: s.src, vid: s.vid || null, author: known(s.author), url: s.url, version: known(s.version), staged: stg,
         badge: prof ? 'Perfil' : 'Pack base',
+        layer: prof ? 'profile' : 'base',
         verif,
       };
 
       if (s.name) return { ...base, kind: 'mod', name: s.name };
-      if (s.img || s.skin) return { ...base, kind: 'pending', name: 'Nombre pendiente' };
+      if (s.img || s.skin) return { ...base, kind: 'unnamed', name: 'Sin nombre' };
 
       return { ...base, kind: 'unknown', name: 'Sin identificar' };
     }
 
-    return { ...rep, kind: 'original', name: 'Original', img: originalArt(f, n), reference, badge: '', art: true, staged: stg, verif: 'Sin ningún mod en el inventario revisado. No está comprobado en la consola.' };
+    return { ...rep, kind: 'original', name: 'Original', img: originalArt(f, n), reference, badge: '', layer: 'original', art: true, staged: stg, verif: 'Sin ningún mod en el inventario revisado. No está comprobado en la consola.' };
   }
 
   const SERIES = {
@@ -223,14 +224,14 @@ const SSBU = (() => {
     const saved = o && o.saved ? o.saved : null;
     const vid = o && o.vid ? o.vid : null;
 
-    if (!vid && saved) return { kind: 'clear', label: 'Quitar elección', line: '', other: null };
+    if (!vid && saved) return { kind: 'clear', label: 'Quitar propuesta', line: '', other: null };
     if (!vid) return none('');
-    if (saved === vid) return { kind: 'clear', label: 'Quitar elección', line: '', other: null };
+    if (saved === vid) return { kind: 'clear', label: 'Quitar propuesta', line: '', other: null };
     const bits = [];
     if (o.incompatible) bits.push('Incompatible online');
     const line = bits.join(' · ');
-    if (saved) return { kind: 'replace', label: 'Guardar elección', line, other: null };
-    return { kind: 'use', label: 'Guardar elección', line, other: null };
+    if (saved) return { kind: 'replace', label: 'Guardar propuesta', line, other: null };
+    return { kind: 'use', label: 'Guardar propuesta', line, other: null };
   }
 
   function assignBlock(entries, code, slot, vid) {

@@ -5,16 +5,14 @@ import { SSBU } from '../shared/helpers/ssbu'
 
 /*
  * Rutas (hash):
- *   #/tarjeta                         Tarjeta (portada)
- *   #/luchadores                      Luchadores
- *   #/catalogo                        Todas las skins, agrupadas
- *   #/instaladas                      Inventario revisado
+ *   #/luchadores[?filtro=]            Luchadores (portada): cada luchador con sus 8 trajes
+ *   #/luchador/:codigo[/:traje]       Luchador (Traje 1 a 8): comparar y proponer
+ *   #/luchador/...?skin=:vid          Con una skin candidata, sin guardar
+ *   #/catalogo[?pj=]                  Todas las skins, agrupadas
  *   #/notas                           Pedidos de búsqueda
- *   #/luchador/:codigo[/:traje]       Luchador (Traje 1 a 8)
- *   #/apariencia/:vid?para=cod_n      Detalle de skin: hoja sobre Luchador
- *   #/cambios                         Resumen "Elegidas": hoja sobre Luchadores
- * La hoja de detalle y la de resumen son rutas, así que el gesto o botón
- * "atrás" del móvil las cierra sin código extra.
+ *   #/cambios                         Cambios: hoja sobre la pantalla actual
+ * Redirigen por enlaces ya compartidos: #/tarjeta, #/instaladas y #/apariencia.
+ * La hoja de cambios es una ruta, así que el gesto o botón "atrás" del móvil la cierra.
  */
 export interface AppRoute {
   v: string
@@ -23,6 +21,7 @@ export interface AppRoute {
   vid: string
   q: Record<string, string>
   key: string
+  to: string
 }
 
 export const tick = ref(0)
@@ -34,8 +33,8 @@ export const S = reactive({
   fresh: true,
   galI: 0,
 })
-export const route = shallowRef<AppRoute>({ v: '', code: '', n: 0, vid: '', q: {}, key: '' })
-export const baseRoute = shallowRef<AppRoute>({ v: 'luchadores', code: '', n: 0, vid: '', q: {}, key: '' })
+export const route = shallowRef<AppRoute>({ v: '', code: '', n: 0, vid: '', q: {}, key: '', to: '' })
+export const baseRoute = shallowRef<AppRoute>({ v: 'luchadores', code: '', n: 0, vid: '', q: {}, key: '', to: '' })
 export const scrollMem: Record<string, number> = {}
 
 const enc = encodeURIComponent
@@ -150,46 +149,59 @@ const blank = (partial: Partial<AppRoute>): AppRoute => ({
   vid: '',
   q: {},
   key: '#/luchadores',
+  to: '',
   ...partial,
 })
 
+/** Dirección de un luchador: traje (0 a 7) y candidata opcionales. */
+export const fighterHash = (code: string, slot: number | null = null, skin = '') =>
+  '#/luchador/' + enc(code) + (slot === null ? '' : '/' + (slot + 1)) + (skin ? '?skin=' + enc(skin) : '')
+
+const redirect = (to: string, key: string) => blank({ v: 'redirect', to, key })
+
+const legacyTarget = (view: string, seg: string[], q: Record<string, string>, key: string) => {
+  if (view === 'tarjeta') return redirect('#/luchadores', key)
+  if (view === 'instaladas') return redirect(q.pj ? fighterHash(q.pj) : '#/luchadores?filtro=perfil', key)
+
+  if (view === 'apariencia') {
+    const para = paraOf(q.para)
+    const vid = seg.slice(1).join('/')
+
+    if (!para) return redirect('#/luchadores', key)
+
+    return redirect(fighterHash(para.code, q.de === 'catalogo' ? null : para.n, vid), key)
+  }
+
+  return null
+}
+
 const parse = (hash: string): AppRoute => {
-  const raw = hash.replace(/^#/, '') || '/tarjeta'
+  const raw = hash.replace(/^#/, '') || '/luchadores'
   const [path, qs] = raw.split('?')
   const q = Object.fromEntries(new URLSearchParams(qs || ''))
   const seg = path.split('/').filter(Boolean).map(dec)
-  const view = seg[0] || 'tarjeta'
-  const key = !hash || hash === '#' ? '#/tarjeta' : hash
+  const view = seg[0] || 'luchadores'
+  const key = !hash || hash === '#' ? '#/luchadores' : hash
+  const legacy = legacyTarget(view, seg, q, key)
+
+  if (legacy) return legacy
+
   if (view === 'luchador' && seg[2]) return blank({ v: 'traje', code: seg[1], n: Number(seg[2]) - 1, q, key })
   if (view === 'luchador') return blank({ v: 'luchador', code: seg[1], q, key })
-  if (view === 'apariencia') {
-    const para = paraOf(q.para)
-    return blank({ v: 'ficha', vid: seg.slice(1).join('/'), code: para ? para.code : '', n: para ? para.n : 0, q, key })
-  }
-
   if (view === 'cambios') return blank({ v: 'cambios', q, key })
-  if (view === 'tarjeta' || view === 'catalogo' || view === 'instaladas' || view === 'notas') return blank({ v: view, q, key })
-  return blank({ v: view === 'luchadores' ? 'luchadores' : 'redirect', q, key })
+  if (view === 'catalogo' || view === 'notas' || view === 'luchadores') return blank({ v: view, q, key })
+
+  return redirect('#/luchadores', key)
 }
 
-const isFighterView = (r: AppRoute) => r.v === 'luchador' || r.v === 'traje' || r.v === 'ficha'
+const isFighterView = (r: AppRoute) => r.v === 'luchador' || r.v === 'traje'
 
-const isSheet = (r: AppRoute) => r.v === 'ficha' || r.v === 'cambios'
+const isSheet = (r: AppRoute) => r.v === 'cambios'
 
 /** Página que queda debajo de una hoja. Una hoja no la sustituye. */
 export const viewRoute = () => (isSheet(route.value) ? baseRoute.value : route.value)
 
-const fallbackBase = (next: AppRoute): AppRoute => {
-  if (next.v === 'ficha' && next.q.de === 'catalogo') return blank({ v: 'catalogo', key: '#/catalogo' })
-
-  if (next.v === 'ficha' && next.code) {
-    const key = '#/luchador/' + enc(next.code) + '/' + (next.n + 1)
-
-    return blank({ v: 'traje', code: next.code, n: next.n, key })
-  }
-
-  return blank({ v: 'luchadores', key: '#/luchadores' })
-}
+const fallbackBase = (): AppRoute => blank({ v: 'luchadores', key: '#/luchadores' })
 
 const rememberBase = (next: AppRoute) => {
   if (!isSheet(next)) {
@@ -200,7 +212,7 @@ const rememberBase = (next: AppRoute) => {
 
   if (baseRoute.value.key) return
 
-  baseRoute.value = fallbackBase(next)
+  baseRoute.value = fallbackBase()
 }
 
 /** Luchador abierto (también cuando la hoja de detalle está encima). */
@@ -218,14 +230,17 @@ export const slotOf = () => {
   return current.v === 'traje' && SSBU.validSlot(current.n) ? current.n : 0
 }
 
+/** Hay un traje elegido en la ruta (Traje 1 a 8), no solo el luchador. */
+export const hasSlot = () => viewRoute().v === 'traje' && SSBU.validSlot(viewRoute().n)
+
+/** Skin candidata de la ruta: sin guardar, solo para comparar. */
+export const skinParam = () => viewRoute().q.skin || ''
+
 export const titleOf = () => {
   const current = route.value
 
-  if (current.v === 'tarjeta') return 'Tarjeta'
-  if (current.v === 'cambios') return 'Elegidas'
-  if (current.v === 'catalogo' || (current.v === 'ficha' && viewRoute().v === 'catalogo')) return 'Catálogo'
-  if (current.v === 'ficha' && viewRoute().v === 'instaladas') return 'Instaladas'
-  if (current.v === 'instaladas') return 'Instaladas'
+  if (current.v === 'cambios') return 'Cambios'
+  if (current.v === 'catalogo') return 'Catálogo'
   if (current.v === 'notas') return 'Búsquedas pendientes'
   if (isFighterView(current)) return fighterOf(current.code)?.name || 'Luchador'
   return 'Luchadores'
@@ -233,7 +248,8 @@ export const titleOf = () => {
 
 export const showBack = () => {
   const view = route.value.v
-  return isFighterView(route.value) || view === 'catalogo' || view === 'instaladas' || view === 'notas'
+
+  return isFighterView(route.value) || view === 'catalogo' || view === 'notas'
 }
 
 /** Navega y añade una entrada al historial. */
@@ -248,28 +264,28 @@ const applyHash = (force: boolean, replace = false) => {
   if (!force && next.key === route.value.key) return
 
   if (next.v === 'redirect') {
+    location.replace(next.to)
+
+    return
+  }
+
+  if (next.v === 'traje' && (fighterOf(next.code)?.mii || !SSBU.validSlot(next.n))) {
+    location.replace(fighterHash(next.code, null, next.q.skin))
+
+    return
+  }
+
+  if (isFighterView(next) && !fighterOf(next.code)) {
     location.replace('#/luchadores')
 
     return
   }
 
-  if (next.v === 'traje' && fighterOf(next.code)?.mii) {
-    location.replace('#/luchador/' + enc(next.code))
+  if (isFighterView(next) && next.q.skin) {
+    const entry = skinEntry(next.q.skin)
 
-    return
-  }
-
-  if (next.v === 'ficha') {
-    const entry = skinEntry(next.vid)
-
-    if (!entry) {
-      location.replace(next.code ? '#/luchador/' + enc(next.code) + '/' + (next.n + 1) : '#/luchadores')
-
-      return
-    }
-
-    if (!next.code) {
-      location.replace('#/apariencia/' + enc(next.vid) + '?para=' + enc(entry.f.code + '_0'))
+    if (!entry || entry.f.code !== next.code) {
+      location.replace(fighterHash(next.code, next.v === 'traje' ? next.n : null))
 
       return
     }
@@ -286,8 +302,6 @@ const applyHash = (force: boolean, replace = false) => {
     S.tc = SSBU.emptyCat()
     S.galI = 0
   }
-
-  if (next.v === 'ficha') S.galI = 0
 
   const fresh = S.fresh
 
@@ -313,9 +327,7 @@ const applyHash = (force: boolean, replace = false) => {
   if (replace) return
 
   // Abrir o cerrar una hoja no mueve la página de abajo.
-  const sheet = (r: AppRoute) => r.v === 'ficha' || r.v === 'cambios'
-
-  if (sheet(next) || sheet(prev)) return
+  if (isSheet(next) || isSheet(prev)) return
 
   const y = fresh ? 0 : (scrollMem[next.key] || 0)
 
@@ -340,25 +352,42 @@ export const back = () => {
     history.back()
     return
   }
+
   const current = route.value
-  if (current.v === 'ficha') {
-    swap('#/luchador/' + enc(current.code) + '/' + (current.n + 1))
+
+  if (current.v === 'traje') {
+    swap(fighterHash(current.code, null, current.q.skin))
     return
   }
-  if (current.v === 'cambios' || current.v === 'catalogo' || current.v === 'instaladas' || current.v === 'notas') {
-    swap('#/luchadores')
-    return
-  }
+
   swap('#/luchadores')
 }
 
-export const selectSlot = (slot: number) => {
-  if (!route.value.code || !SSBU.validSlot(slot)) return
-  swap('#/luchador/' + enc(route.value.code) + '/' + (slot + 1))
+/** Abre un traje, o cambia de traje sin añadir historial. La candidata viaja con él salvo que se pida lo contrario. */
+export const selectSlot = (slot: number, keepSkin = true) => {
+  const current = viewRoute()
+
+  if (!current.code || !SSBU.validSlot(slot)) return
+
+  const target = fighterHash(current.code, slot, keepSkin ? current.q.skin : '')
+
+  // Abrir el primer traje suma una entrada: Atrás vuelve a la cuadrícula. Cambiar de traje no.
+  if (current.v === 'traje') swap(target)
+  else go(target)
 }
 
-export const openSkin = (code: string, slot: number, vid: string, from = '') => {
-  go('#/apariencia/' + enc(vid) + '?para=' + enc(code + '_' + slot) + (from ? '&de=' + from : ''))
+/** Deja una skin como candidata del luchador abierto, o la quita con una cadena vacía. */
+export const setSkin = (vid: string) => {
+  const current = viewRoute()
+
+  if (!current.code) return
+
+  swap(fighterHash(current.code, current.v === 'traje' ? current.n : null, vid))
+}
+
+/** Abre un luchador con una skin candidata. Es la entrada «skin primero» del catálogo. */
+export const openSkin = (code: string, vid: string) => {
+  go(fighterHash(code, null, vid))
 }
 
 export const start = () => {

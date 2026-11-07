@@ -100,7 +100,10 @@ test('curOf distingue original, mod, pendiente, desconocido, Mii y preparación'
   assert.equal(marked.kind, 'mod');
   assert.equal(marked.replace, 'WuBoy');
   assert.equal(marked.img, null);
-  assert.equal(SSBU.curOf('01', 2, ctx).kind, 'pending');
+  assert.equal(marked.layer, 'profile');
+  assert.equal(SSBU.curOf('01', 1, ctx).layer, 'base');
+  assert.equal(SSBU.curOf('01', 4, ctx).layer, 'original');
+  assert.equal(SSBU.curOf('01', 2, ctx).kind, 'unnamed');
   assert.equal(SSBU.curOf('01', 2, ctx).img, null);
   assert.equal(SSBU.curOf('01', 3, ctx).kind, 'unknown');
   assert.match(SSBU.curOf('01', 3, ctx).verif, /emuMMC sin conexion/);
@@ -164,16 +167,16 @@ test('catList busca solo el nombre de la skin', () => {
   assert.equal(SSBU.catList(all, null, st('Dry')).length, 1);
 });
 
-test('stageChoice confirma con Guardar elección y no copia', () => {
+test('stageChoice confirma con Guardar propuesta y no copia', () => {
   const base = { slot: 2, vid: null, saved: null, elsewhere: null, withdrawn: false, mii: false, incompatible: false };
   assert.equal(SSBU.stageChoice({ ...base, vid: '01:a' }).kind, 'use');
-  assert.equal(SSBU.stageChoice({ ...base, vid: '01:a' }).label, 'Guardar elección');
+  assert.equal(SSBU.stageChoice({ ...base, vid: '01:a' }).label, 'Guardar propuesta');
   assert.equal(SSBU.stageChoice({ ...base, vid: '01:a' }).line, '');
   const replaced = SSBU.stageChoice({ ...base, vid: '01:b', saved: '01:a' });
   assert.equal(replaced.kind, 'replace');
-  assert.equal(replaced.label, 'Guardar elección');
+  assert.equal(replaced.label, 'Guardar propuesta');
   assert.equal(SSBU.stageChoice({ ...base, saved: '01:a' }).kind, 'clear');
-  assert.equal(SSBU.stageChoice({ ...base, saved: '01:a' }).label, 'Quitar elección');
+  assert.equal(SSBU.stageChoice({ ...base, saved: '01:a' }).label, 'Quitar propuesta');
   const gone = SSBU.stageChoice({ ...base, vid: '01:a', elsewhere: 0 });
   assert.equal(gone.kind, 'goto');
   assert.equal(gone.other, 0);

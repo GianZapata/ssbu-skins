@@ -45,15 +45,15 @@ export const useSaveStatus = () => {
 
     const count = pendingCount()
 
-    if (state.syncKind === 'service') return 'No se pudo guardar la elección'
+    if (state.syncKind === 'service') return 'No se pudo guardar la propuesta'
 
     if (state.syncKind !== 'offline') return ''
 
     if (count === 0) return 'Sin conexión'
 
-    if (count === 1) return 'Sin conexión · 1 elección pendiente'
+    if (count === 1) return 'Sin conexión · 1 propuesta sin enviar'
 
-    return 'Sin conexión · ' + count + ' elecciones pendientes'
+    return 'Sin conexión · ' + count + ' propuestas sin enviar'
   })
 
   return { saving, saved, savedHere, problem }

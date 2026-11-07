@@ -3,7 +3,6 @@ import { computed, onMounted, watch } from 'vue'
 import { QAvatar, QBtn, QHeader, QItem, QItemSection, QLayout, QList, QMenu, QPageContainer, QToolbar } from 'quasar'
 import { back, go, portraitOf, route, showBack, start, tick, titleOf } from '../composables/useApp'
 import { hdrHidden, resetReveal, startReveal } from '../composables/useReveal'
-import SkinSheet from '../features/fighters/components/SkinSheet.vue'
 import SummarySheet from '../features/fighters/components/SummarySheet.vue'
 import { bootPlan, countChosen, dismissNotice, notice, retrySync } from '../features/plan/composables/usePlan'
 import { useSaveStatus } from '../features/plan/saveStatus'
@@ -78,7 +77,7 @@ onMounted(() => {
           class="hdr-btn"
           :class="{ 'hdr-btn--on': chosen > 0 }"
           :label="'Cambios · ' + chosen"
-          :aria-label="'Ver elegidas, ' + chosen"
+          :aria-label="'Ver cambios, ' + chosen"
           @click="go('#/cambios')"
         />
       </q-toolbar>
@@ -98,7 +97,6 @@ onMounted(() => {
       <slot />
     </q-page-container>
 
-    <SkinSheet />
     <SummarySheet />
   </q-layout>
 </template>
