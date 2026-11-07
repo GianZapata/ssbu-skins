@@ -1,5 +1,8 @@
 # Plan de rediseño: la web de `ssbu-skins` con el diseño del tablero «En la tarjeta»
 
+> **Superado en parte (2026-11-07):** las secciones 4 a 7 (diseño, variantes, pasos) las reemplaza
+> [`PLAN-PANTALLA-UNICA.md`](PLAN-PANTALLA-UNICA.md). Las reglas (sección 3) y los comandos (sección 9) siguen vigentes.
+
 Documento para entregar a otro modelo. Es autocontenido: léelo entero, luego `AGENTS.md` de este repo y el del ModPack
 (`../Gian-Ultimate-Modpack-private/AGENTS.md`). Idioma de código visible y textos: español. Escrito el 2026-11-06.
 
