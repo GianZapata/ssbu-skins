@@ -161,6 +161,18 @@ class ReviewByPersonTests(unittest.TestCase):
         v = self._pick()['vid']
         it, g = rp.review([{'code': '01', 'slot': 0, 'vid': v, 'person': 'Gian'}, {'code': '01', 'slot': 2, 'vid': v, 'person': 'Gian'}], [], F, INV)
         self.assertTrue(any('(Gian)' in x and 'está en 2 trajes' in x for x in msgs(it, g, 'AVISO')))
+    def test_ocho_trajes_se_cuentan_por_persona(self):
+        v = self._pick()['vid']
+        rows = [{'code': '01', 'slot': n, 'vid': v, 'person': 'Gian' if n < 4 else 'Alan'} for n in range(8)]
+        it, g = rp.review(rows, [], F, INV)
+        self.assertFalse(any('los 8 trajes' in x for x in msgs(it, g)))
+        it, g = rp.review([{'code': '01', 'slot': n, 'vid': v, 'person': 'Gian'} for n in range(8)], [], F, INV)
+        self.assertTrue(any('(Gian)' in x and 'los 8 trajes' in x for x in msgs(it, g)))
+    def test_pyra_mythra_se_coordina_por_persona(self):
+        p = next(p for p in next(f for f in F if f['code'] == '79')['picks'] if not p['withdrawn'])
+        q = next(p for p in next(f for f in F if f['code'] == '80')['picks'] if not p['withdrawn'])
+        it, g = rp.review([{'code': '79', 'slot': 3, 'vid': p['vid'], 'person': 'Gian'}, {'code': '80', 'slot': 3, 'vid': q['vid'], 'person': 'Alan'}], [], F, INV)
+        self.assertEqual(sum('Pyra y Mythra' in x for x in msgs(it, g, 'AVISO')), 2)
     def test_persona_desde_el_id_y_otros_para_documentos_sin_name(self):
         self.assertEqual(rp._person_of({'_id': '01_0_Ches'}), 'Ches')
         self.assertEqual(rp._person_of({'_id': '01_0'}, default_other=True), 'Otros')

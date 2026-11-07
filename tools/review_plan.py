@@ -186,14 +186,18 @@ def review(changes, history, fighters, inv, plan_inv_version=None, families=None
     for mid, lst in per_mod.items():
         fs = sorted({c for c, _, _ in lst})
         if len(fs) > 1: add(F, 'INFO', f'el mod {mid} («{lst[0][2]["name"]}») sirve a {len(fs)} luchadores del plan: se descarga una sola vez')
-    changed = {(c['code'], c['slot']) for c in rows}
-    for a, b in PAIRS:
-        for n in range(8):
-            if ((a, n) in changed) != ((b, n) in changed):
-                add(F, 'AVISO', f'Pyra y Mythra comparten traje: cambiaste el c0{n} de {"Pyra" if (a, n) in changed else "Mythra"} pero no el del otro; el perfil exige coordinar el par')
-    pm = collections.Counter(c['code'] for c in rows)
-    for code, k in pm.items():
-        if k == 8: add(F, 'INFO', f'{by_code[code]["name"]}: cambiaste los 8 trajes, no queda ninguno original')
+    people = sorted({_person_of(c) or '' for c in rows}, key=lambda w: PEOPLE_ORDER.index(w) if w in PEOPLE_ORDER else -1)
+    for who_key in people:
+        who = f' ({who_key})' if who_key else ''
+        mine = [c for c in rows if (_person_of(c) or '') == who_key]
+        changed = {(c['code'], c['slot']) for c in mine}
+        for a, b in PAIRS:
+            for n in range(8):
+                if ((a, n) in changed) != ((b, n) in changed):
+                    add(F, 'AVISO', f'Pyra y Mythra comparten traje{who}: cambiaste el c0{n} de {"Pyra" if (a, n) in changed else "Mythra"} pero no el del otro; el perfil exige coordinar el par')
+        pm = collections.Counter(code for code, _ in changed)
+        for code, k in pm.items():
+            if k == 8: add(F, 'INFO', f'{by_code[code]["name"]}{who}: cambiaste los 8 trajes, no queda ninguno original')
     if inv and plan_inv_version and plan_inv_version != inv['meta'].get('version'):
         add(F, 'AVISO', f'la exportación se hizo con otra versión del inventario ({plan_inv_version}) que la actual ({inv["meta"].get("version")})')
     # historial: cambios de opinión recientes
