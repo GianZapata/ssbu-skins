@@ -1290,5 +1290,5 @@ Expected: `typecheck` sin errores, `unittest` OK, `node --test` OK, `local.spec.
 
 ## Orden de despliegue y entrega (bloqueado hasta OK de Gian)
 
-1. **Antes de fusionar el PR en `master`:** pedir autorización explícita a Gian para publicar primero `firestore.rules` en Firebase (`ssbu-441b1`), ya que el cliente nuevo escribe en `changes/{code}_{slot}_{name}` con el campo `name` e `history` con `name`.
-2. Con `firestore.rules` publicadas y CI («Pruebas») en verde, fusionar `feat/fase3-propuestas-persona` en `master` para que Vercel despliegue la aplicación actualizada sin ventana de error de permisos.
+1. Pedir autorización explícita a Gian y fusionar primero `feat/fase3-propuestas-persona` en `master` con CI («Pruebas») en verde. Esperar a que Vercel marque «Ready».
+2. Solo entonces publicar `firestore.rules` en Firebase (`ssbu-441b1`). El cliente nuevo, rechazado por las reglas viejas, conserva sus operaciones en la cola y las reintenta; al revés se perderían las escrituras del cliente viejo durante la ventana. Las pestañas viejas abiertas no podrán escribir hasta recargar.
