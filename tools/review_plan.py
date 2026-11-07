@@ -16,10 +16,20 @@ import argparse, collections, datetime, json, os, re, sys, urllib.request
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import catalog_data as cd
 
+PEOPLE_ORDER = ('Gian', 'Alan', 'Ches', 'Samu', 'Otros')
 PAIRS = [('79', '80')]   # Pyra/Mythra: el perfil exige coordinar el par (slot_pairs nivel error en opt-aqua)
 ONLINE = {'autor_explicito': 'declarado por el autor', 'autor_condicionado': 'declarado con condiciones', 'tercero': 'solo según terceros',
           'sin_evidencia': 'sin datos', 'incompatible': 'incompatible'}
 NRO = re.compile(r'\.nro|plugin|smashline|one.?slot|file addition|exo', re.I)
+
+def _person_of(c, default_other=False):
+    raw = c.get('person') or c.get('name')
+    if raw in PEOPLE_ORDER:
+        return raw
+    parts = str(c.get('_id') or '').split('_')
+    if len(parts) == 3 and parts[2] in PEOPLE_ORDER[:4]:
+        return parts[2]
+    return 'Otros' if default_other else None
 
 def _val(v):
     if 'stringValue' in v: return v['stringValue']
@@ -71,6 +81,7 @@ def read_file(path):
         'variant': c.get('variant') or ((c.get('proposal') or {}).get('chosen_variant') or {}).get('id'),
         'at': None,
         'by': None,
+        'person': _person_of(c, default_other=('name' in c or 'person' in c)),
     } for c in d.get('changes', [])]
     return ch, d.get('history', []), d.get('inventory', {}).get('version')
 
@@ -91,13 +102,16 @@ def review(changes, history, fighters, inv, plan_inv_version=None, families=None
     by_code = {f['code']: f for f in fighters}; idx = {p['vid']: (f, p) for f in fighters for p in f['picks']}
     items, F = [], []   # items: un registro por cambio; F: hallazgos globales
     def add(lst, sev, msg): lst.append({'sev': sev, 'msg': msg})
-    rows = sorted(changes, key=lambda c: (list(by_code).index(c['code']) if c['code'] in by_code else 999, c['slot']))
+    def _pidx(c):
+        who = _person_of(c)
+        return PEOPLE_ORDER.index(who) if who in PEOPLE_ORDER else 99
+    rows = sorted(changes, key=lambda c: (list(by_code).index(c['code']) if c['code'] in by_code else 999, c['slot'], _pidx(c)))
     per_fighter, per_mod = collections.defaultdict(list), collections.defaultdict(list)
     for c in rows:
         code, n, vid = c['code'], c['slot'], c['vid']
         chosen_variant = c.get('variant')
         f, p = idx.get(vid, (None, None)); fi = by_code.get(code)
-        it = {'fighter': fi['name'] if fi else code, 'roster_no': code, 'traje': n + 1, 'slot': f'c0{n}', 'vid': vid, 'chosen_variant': chosen_variant, 'name': p['name'] if p else None, 'notes': []}
+        it = {'fighter': fi['name'] if fi else code, 'roster_no': code, 'traje': n + 1, 'slot': f'c0{n}', 'vid': vid, 'chosen_variant': chosen_variant, 'name': p['name'] if p else None, 'person': _person_of(c), 'notes': []}
         N = it['notes']
         if not fi: add(N, 'ERROR', f'el luchador {code} no existe en el catálogo')
         elif not (0 <= n <= 7): add(N, 'ERROR', f'traje {n + 1} fuera de rango')
@@ -106,7 +120,7 @@ def review(changes, history, fighters, inv, plan_inv_version=None, families=None
         it.update(author=p['author'], url=p['url'], role='alternativa' if p['role'] == 'alternativa' else 'recomendada', variant=p['variant'])
         if f['code'] != code: add(N, 'ERROR', f'la apariencia es de {f["name"]}, no de {fi["name"] if fi else code}')
         if p['withdrawn']: add(N, 'ERROR', 'la apariencia está RETIRADA del catálogo')
-        per_fighter[code].append((n, p, chosen_variant)); per_mod[p['id']].append((code, n, p))
+        per_fighter[(it['person'] or '', code)].append((n, p, chosen_variant)); per_mod[p['id']].append((code, n, p))
         # lo que reemplaza
         s = slot_now(inv, code, n); cur = 'original'
         if s.get('src') == 'perfil':
@@ -156,7 +170,8 @@ def review(changes, history, fighters, inv, plan_inv_version=None, families=None
         if p['console_test'] and 'pendiente' in p['console_test']: add(N, 'INFO', 'sin prueba en consola; compatibilidad 13.0.5 sin verificar')
         items.append(it)
     # globales
-    for code, lst in per_fighter.items():
+    for (person_key, code), lst in per_fighter.items():
+        who = f' ({person_key})' if person_key else ''
         c = collections.Counter(p['id'] for _, p, _ in lst)
         for mid, k in c.items():
             if k <= 1:
@@ -165,9 +180,9 @@ def review(changes, history, fighters, inv, plan_inv_version=None, families=None
             slots_str = ', '.join(f'c{n:02d}' for n, _ in rows_m)
             variants_m = [cv for _, cv in rows_m if cv]
             if len(variants_m) == k and len(set(variants_m)) == k:
-                add(F, 'INFO', f'{by_code[code]["name"]}: {k} variantes distintas del mod {mid} en {slots_str}')
+                add(F, 'INFO', f'{by_code[code]["name"]}{who}: {k} variantes distintas del mod {mid} en {slots_str}')
             else:
-                add(F, 'AVISO', f'{by_code[code]["name"]}: el mismo mod ({mid}) está en {k} trajes ({slots_str}); si es un pack de varios diseños está bien, si no es un duplicado')
+                add(F, 'AVISO', f'{by_code[code]["name"]}{who}: el mismo mod ({mid}) está en {k} trajes ({slots_str}); si es un pack de varios diseños está bien, si no es un duplicado')
     for mid, lst in per_mod.items():
         fs = sorted({c for c, _, _ in lst})
         if len(fs) > 1: add(F, 'INFO', f'el mod {mid} («{lst[0][2]["name"]}») sirve a {len(fs)} luchadores del plan: se descarga una sola vez')
@@ -197,15 +212,33 @@ def render(items, F, meta):
     icon = {'ERROR': '⛔', 'AVISO': '⚠️', 'INFO': 'ℹ️'}
     if F:
         L += ['## Generales', ''] + [f'- {icon[x["sev"]]} {x["msg"]}' for x in sorted(F, key=lambda x: ['ERROR', 'AVISO', 'INFO'].index(x['sev']))] + ['']
-    cur = None
-    for it in items:
-        if it['fighter'] != cur: cur = it['fighter']; L += [f'## {cur}', '']
-        worst = min((['ERROR', 'AVISO', 'INFO'].index(x['sev']) for x in it['notes']), default=3)
-        L.append(f'### {["⛔", "⚠️", "ℹ️", "✅"][worst]} Traje {it["traje"]} ({it["slot"]}): {it.get("current", "?")} → {it["name"] or it["vid"]}')
-        meta_bits = [b for b in (it.get('role'), it.get('author') and 'por ' + it['author'], it.get('url')) if b]
-        if meta_bits: L.append('_' + ' · '.join(meta_bits) + '_')
-        L += [f'- {icon[x["sev"]]} {x["msg"]}' for x in sorted(it['notes'], key=lambda x: ['ERROR', 'AVISO', 'INFO'].index(x['sev']))] or ['- ✅ sin observaciones']
-        L.append('')
+    sev_order = ['ERROR', 'AVISO', 'INFO']
+    faces = ['⛔', '⚠️', 'ℹ️', '✅']
+    def worst_of(group):
+        return min((sev_order.index(x['sev']) for g in group for x in g['notes']), default=3)
+    def body(g):
+        meta_bits = [b for b in (g.get('role'), g.get('author') and 'por ' + g['author'], g.get('url')) if b]
+        out = ['_' + ' · '.join(meta_bits) + '_'] if meta_bits else []
+        notes = [f'- {icon[x["sev"]]} {x["msg"]}' for x in sorted(g['notes'], key=lambda x: sev_order.index(x['sev']))]
+        return out + (notes or ['- ✅ sin observaciones'])
+    cur, i = None, 0
+    while i < len(items):
+        it = items[i]
+        if it['fighter'] != cur:
+            cur = it['fighter']; L += [f'## {cur}', '']
+        group = [it]
+        while i + len(group) < len(items) and items[i + len(group)]['fighter'] == cur and items[i + len(group)]['traje'] == it['traje']:
+            group.append(items[i + len(group)])
+        i += len(group)
+        if len(group) == 1 and not it.get('person'):
+            L.append(f'### {faces[worst_of(group)]} Traje {it["traje"]} ({it["slot"]}): {it.get("current", "?")} → {it["name"] or it["vid"]}')
+            L += body(it) + ['']
+        else:
+            L.append(f'### {faces[worst_of(group)]} Traje {it["traje"]} ({it["slot"]}) · actual: {it.get("current", "?")}')
+            for g in group:
+                L.append(f'#### {faces[worst_of([g])]} {g.get("person") or "Otros"} → {g["name"] or g["vid"]}')
+                L += body(g)
+            L.append('')
     return '\n'.join(L)
 
 def main():
@@ -215,12 +248,15 @@ def main():
     a = ap.parse_args()
     fighters, cmeta = cd.load(); inv = cd.load_inventory(fighters); ver = None
     missing = []
-    def _rows(ch):
+    def _rows(ch, default_other=False):
         rows = []
         for c in ch:
             if not c.get('vid'):
                 continue
             row = {'code': c['code'], 'slot': int(c['slot']), 'vid': c['vid']}
+            person = _person_of(c, default_other=default_other)
+            if person:
+                row['person'] = person
             if c.get('variant'):
                 row['variant'] = c['variant']
             rows.append(row)
@@ -231,10 +267,10 @@ def main():
         changes = _rows(ch)
     elif a.source == 'admin':
         ch, hi = read_admin()
-        changes = _rows(ch)
+        changes = _rows(ch, default_other=True)
     elif a.source == 'changes':
         pid = (cd.load_firebase() or {}).get('projectId'); ch, hi = read_rest(pid, a.rest_base)
-        changes = _rows(ch)
+        changes = _rows(ch, default_other=True)
     else:
         changes, missing = from_git(); hi = []
     items, F = review(changes, hi, fighters, inv, ver)
