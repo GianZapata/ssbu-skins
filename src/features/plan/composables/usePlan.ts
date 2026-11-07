@@ -18,6 +18,7 @@ import {
   markNote,
   paintSync,
   planEntries,
+  planVariant,
   planVid,
   savePend,
   startDb,
@@ -27,14 +28,50 @@ import {
 /** Última vez que ESTE dispositivo cambió cada traje; sirve para distinguir un cambio en vivo de otra persona. */
 export const touched: Record<string, number> = {}
 
+export interface ChosenVariant {
+  id: string
+  source_slot: string
+  destination_slot: string
+}
+
+interface InventorySnapshot {
+  meta?: Record<string, unknown>
+}
+
+interface HistoryRecord {
+  code: string
+  slot: number
+  from: string | null
+  to: string | null
+  from_variant?: string | null
+  variant?: string | null
+  kind: string
+  t: number | null
+}
+
+interface StatusRecord {
+  status?: string
+  result?: string | null
+}
+
+interface SkinLookupEntry {
+  p: Skin
+}
+
 /** El botón del escenario guarda. La cuadrícula no llama aquí. */
-export const proposeAt = (code: string, slot: number, vid: string) => {
+export const proposeAt = (code: string, slot: number, vid: string, variant: string | null = null) => {
   if (!SSBU.validSlot(slot)) return false
+
   const prev = planVid(code, slot) as string | null
-  const block = SSBU.assignBlock(planEntries(), code, slot, vid)
+  const prevVariant = planVariant(code, slot) as string | null
+  const block = SSBU.assignBlock(planEntries(), code, slot, vid, variant)
+
   if (block.kind === 'duplicate' || block.kind === 'same' || block.kind === 'bad-slot') return false
-  const op = SSBU.setOp(code, slot, vid, prev)
+
+  const op = SSBU.setOp(code, slot, vid, prev, variant, prevVariant)
+
   if (!op) return false
+
   touched[keyOf(code, slot)] = Date.now()
   enqueue(op)
   return true
@@ -42,10 +79,24 @@ export const proposeAt = (code: string, slot: number, vid: string) => {
 
 export const clearAt = (code: string, slot: number) => {
   const prev = planVid(code, slot) as string | null
-  const op = SSBU.clearOp(code, slot, prev)
+  const prevVariant = planVariant(code, slot) as string | null
+  const op = SSBU.clearOp(code, slot, prev, prevVariant)
+
   if (!op) return false
+
+  const skin = prev ? (state.idx as Record<string, SkinLookupEntry>)[prev]?.p : null
+  const label = skin ? skin.name : 'Elección'
+
   touched[keyOf(code, slot)] = Date.now()
   enqueue(op)
+  showNotice('Se quitó ' + label, {
+    label: 'Deshacer',
+    fn: () => {
+      dismissNotice()
+      proposeAt(code, slot, prev as string, prevVariant)
+    },
+  })
+
   return true
 }
 
@@ -121,13 +172,19 @@ export const showNotice = (text: string, action?: NoticeAction | null, ms = 0) =
 
 export const dismissNotice = () => { notice.value = null }
 
+const chosenVariantOf = (entry: PlanRow): ChosenVariant => ({
+  id: entry.variant as string,
+  source_slot: (entry.variant as string).slice(-3),
+  destination_slot: 'c0' + entry.n,
+})
+
 export const exportPlan = () => {
   const meta = globalThis.META
-  const inventory = state.INV as { meta?: Record<string, unknown> } | null
+  const inventory = state.INV as InventorySnapshot | null
   const header = (inventory && inventory.meta) || {}
   const entries = planEntries() as PlanRow[]
-  const history = (state.HIST as Array<{ code: string, slot: number, from: string | null, to: string | null, kind: string, t: number | null }>).slice(0, 50)
-  const status = state.STATUS as Record<string, { status?: string, result?: string | null }>
+  const history = (state.HIST as HistoryRecord[]).slice(0, 50)
+  const status = state.STATUS as Record<string, StatusRecord>
   return {
     schema: 3,
     generated_at: new Date().toISOString(),
@@ -143,7 +200,7 @@ export const exportPlan = () => {
     changes: entries.map((entry) => {
       const fighter = fighterOf(entry.code)
       const current = curOf(entry.code, entry.n)
-      const skin = (state.idx as Record<string, { p: Skin }>)[entry.vid]?.p
+      const skin = (state.idx as Record<string, SkinLookupEntry>)[entry.vid]?.p
       const row = status[entry.vid] || {}
       return {
         fighter: fighter ? fighter.name : entry.code,
@@ -172,9 +229,11 @@ export const exportPlan = () => {
           dest_hint: skin.dest || null,
           pack: skin.pack,
           withdrawn: !!skin.withdrawn,
+          chosen_variant: entry.variant ? chosenVariantOf(entry) : null,
         } : null,
         missing_in_catalog: !skin,
         vid: entry.vid,
+        variant: entry.variant || null,
         status: row.status || 'wanted',
         result: row.result || null,
       }
@@ -185,6 +244,8 @@ export const exportPlan = () => {
       traje: row.slot + 1,
       from: row.from,
       to: row.to,
+      from_variant: row.from_variant || null,
+      variant: row.variant || null,
       kind: row.kind,
     })),
   }
@@ -244,6 +305,7 @@ const publish = () => {
   host.planEntries = planEntries
   host.planVid = planVid
   host.proposeAt = proposeAt
+  host.planVariant = planVariant
   host.buildExport = exportPlan
   host.curOf = curOf
   host.isAlt = (skin: Skin) => SSBU.isAlt(skin)

@@ -47,6 +47,14 @@ export interface SummarySection {
 
 const ORDER = [ProposalOrigin.Unsent, ProposalOrigin.Mine, ProposalOrigin.Friend]
 
+const variantSuffix = (variant?: string | null) => {
+  if (!variant) return ''
+
+  const match = /:c0([0-7])$/.exec(variant)
+
+  return match ? ' · Color ' + (Number(match[1]) + 1) : ''
+}
+
 const sectionsOf = (groups: Array<SummaryGroup & { rows: SummaryRow[] }>): SummarySection[] =>
   ORDER
     .map((origin) => ({
@@ -83,7 +91,7 @@ export const useSummarySheet = () => {
         const cur = curOf(row.code, row.n)
         const skin = skinOf(row.vid)
         const from = currentName(cur)
-        const to = skin ? skin.name : 'Skin sin nombre'
+        const to = (skin ? skin.name : 'Skin sin nombre') + variantSuffix(row.variant)
         const shown = cur?.kind === 'original' ? 'Original' : from
         const key = keyOf(row.code, row.n)
         const entry = (state.PLAN as Record<string, PlanEntry>)[key]
