@@ -41,11 +41,11 @@ const onKeys = (event: KeyboardEvent) => {
       >
         <button type="button" class="cell__btn" :aria-label="cell.label" :aria-pressed="cell.sel" :data-slot="cell.n" @click="emit('select', cell.n)">
           <template v-if="!cell.next">
-            <AppImg :src="cell.current.img" eager class="cell__img" />
+            <AppImg :src="cell.current.img" :missing="cell.current.img ? '' : 'Sin retrato'" eager class="cell__img" />
           </template>
           <template v-else>
-            <AppImg :src="cell.current.img" eager class="cell__img cell__img--cur" />
-            <AppImg :src="cell.next.img" eager class="cell__img cell__img--new" />
+            <AppImg :src="cell.current.img" :missing="cell.current.img ? '' : 'Sin retrato'" eager class="cell__img cell__img--cur" />
+            <AppImg :src="cell.next.img" :missing="cell.next.img ? '' : 'Sin retrato'" eager class="cell__img cell__img--new" />
             <span class="cell__arrow" aria-hidden="true"><q-icon name="east" size="14px" /></span>
           </template>
           <span class="cell__tag">{{ trajeName(cell.n) }}</span>

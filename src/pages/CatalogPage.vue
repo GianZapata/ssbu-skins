@@ -51,7 +51,7 @@ const choose = (code: string) => hide(() => selectFighter(code))
         <div v-for="skin in skins" :key="skin.vid" class="card">
           <button type="button" class="card__btn" :aria-label="skin.label" :data-vid="skin.vid" :data-keep="skin.vid" @click="viewSkin(skin.code, skin.vid)">
             <span class="card__img">
-              <AppImg :src="skin.img" :srcset="skin.srcset" :sizes="compact ? '33vw' : '50vw'" fit="contain" />
+              <AppImg :src="skin.img" :srcset="skin.srcset" :sizes="compact ? '33vw' : '50vw'" :missing="skin.img ? '' : 'Sin retrato'" fit="cover" />
               <span v-if="skin.withdrawn" class="card__where" aria-hidden="true">Retirada</span>
             </span>
             <span class="card__name">{{ skin.name }}</span>
@@ -71,7 +71,7 @@ const choose = (code: string) => hide(() => selectFighter(code))
           <div v-for="skin in group.skins" :key="skin.vid" class="card">
             <button type="button" class="card__btn" :aria-label="skin.label" :data-vid="skin.vid" :data-keep="skin.vid" @click="viewSkin(skin.code, skin.vid)">
               <span class="card__img">
-                <AppImg :src="skin.img" :srcset="skin.srcset" :sizes="compact ? '33vw' : '50vw'" fit="contain" />
+                <AppImg :src="skin.img" :srcset="skin.srcset" :sizes="compact ? '33vw' : '50vw'" :missing="skin.img ? '' : 'Sin retrato'" fit="cover" />
                 <span v-if="skin.withdrawn" class="card__where" aria-hidden="true">Retirada</span>
               </span>
               <span class="card__name">{{ skin.name }}</span>

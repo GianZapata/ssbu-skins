@@ -11,6 +11,7 @@ const SSBU = (() => {
     sin_evidencia: ['', 'Online: sin datos'],
     incompatible: ['r', 'Incompatible online'],
   };
+
   const WIFI_KEYS = ['autor_explicito', 'autor_condicionado', 'tercero', 'sin_evidencia', 'incompatible'];
   const FILTER_KEYS = ['rec', ...WIFI_KEYS, 'unaudited', 'avail'];
 
@@ -30,6 +31,7 @@ const SSBU = (() => {
       st.autor_explicito = true;
       st.autor_condicionado = true;
     }
+
     FILTER_KEYS.forEach(k => { if (saved[k]) st[k] = true; });
     return st;
   }
@@ -61,6 +63,7 @@ const SSBU = (() => {
       const vid = planVid(code, n, ctx);
       if (vid && byCode[code]) out.push({ code, n, vid });
     });
+
     const ord = Object.keys(byCode);
     out.sort((a, b) => ord.indexOf(a.code) - ord.indexOf(b.code) || a.n - b.n);
     return out;
@@ -108,28 +111,45 @@ const SSBU = (() => {
   function curOf(code, n, ctx) {
     const byCode = ctx.byCode || {};
     const inv = ctx.INV;
-    const idx = ctx.idx || {};
     const f = byCode[code];
+
     if (!f) return null;
     if (f.mii) return { kind: 'na', name: 'Sin trajes de este tipo', img: null, badge: '' };
+
     const slots = inv && inv.fighters && inv.fighters[code] && inv.fighters[code].slots;
     const s = slots && slots[String(n)];
     const stg = s && s.staged ? { name: s.staged.name, img: s.staged.img, branch: (s.staged.branch || '').split('/').pop(), src: s.staged.name_src } : null;
     const rep = s && s.replace ? { replace: s.replace } : {};
     const reference = n === 0 && f.original_ref && f.original_ref.costume === 'c00' && f.original_ref.verified === true ? f.original_ref : null;
+
     if (s && s.src) {
       const prof = s.src === 'perfil';
-      const p = s.vid && idx[s.vid] ? idx[s.vid].p : null;
-      const img = s.img || (p && p.img) || null;
+      const sha = s.portrait;
+      let img = null;
+
+      if (typeof sha === 'string' && /^[a-f0-9]{64}$/.test(sha)) {
+        img = 'https://res.cloudinary.com/gian-dev/image/upload/f_auto,q_auto,w_512/ssbu/portraits/' + sha;
+      }
+
       const known = v => v && v !== 'pending' ? v : null;
+      let verif = 'Revisado en el repositorio del ModPack; no probado en la consola.';
+
+      if (prof) {
+        verif = s.test ? 'Según el ModPack: ' + s.test : 'Perfil armado y verificado en archivos; sin prueba en consola anotada.';
+      }
+
       const base = {
         ...rep, img, src: s.src, vid: s.vid || null, author: known(s.author), url: s.url, version: known(s.version), staged: stg,
         badge: prof ? 'Perfil' : 'Pack base',
-        verif: prof ? (s.test ? 'Según el ModPack: ' + s.test : 'Perfil armado y verificado en archivos; sin prueba en consola anotada.') : 'Revisado en el repositorio del ModPack; no probado en la consola.',
+        verif,
       };
+
       if (s.name) return { ...base, kind: 'mod', name: s.name };
-      return (s.img || s.skin) ? { ...base, kind: 'pending', name: 'Nombre pendiente' } : { ...base, kind: 'unknown', name: 'Sin identificar' };
+      if (s.img || s.skin) return { ...base, kind: 'pending', name: 'Nombre pendiente' };
+
+      return { ...base, kind: 'unknown', name: 'Sin identificar' };
     }
+
     return { ...rep, kind: 'original', name: 'Original', img: originalArt(f, n), reference, badge: '', art: true, staged: stg, verif: 'Sin ningún mod en el inventario revisado. No está comprobado en la consola.' };
   }
 
@@ -175,6 +195,7 @@ const SSBU = (() => {
     '81': 'tekken',
     '82': 'kingdomhearts',
   };
+
   const SERIES_LABEL = {
     mario: 'Mario', donkey: 'Donkey Kong', zelda: 'The Legend of Zelda', metroid: 'Metroid', yoshi: 'Yoshi',
     kirby: 'Kirby', starfox: 'Star Fox', pokemon: 'Pokémon', earthbound: 'EarthBound', fzero: 'F-Zero', ice: 'Ice Climber',
@@ -215,8 +236,11 @@ const SSBU = (() => {
   function assignBlock(entries, code, slot, vid) {
     if (!validSlot(slot)) return { kind: 'bad-slot' };
     const dup = (entries || []).find(e => e.code === code && e.vid === vid && e.n !== slot);
+
     if (dup) return { kind: 'duplicate', other: dup.n };
+
     const cur = (entries || []).find(e => e.code === code && e.n === slot);
+
     if (cur && cur.vid === vid) return { kind: 'same' };
     if (cur) return { kind: 'replace', currentVid: cur.vid };
     return { kind: 'free' };

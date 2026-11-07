@@ -36,7 +36,7 @@ const { saving, saved, savedHere } = useSaveStatus()
     <div class="cmp__col">
       <div class="cmp__label">Actual</div>
       <div class="cmp__img cmp__img--cur">
-        <AppImg :src="props.stage.current.img" :alt="'Skin actual' + (props.stage.current.name ? ': ' + props.stage.current.name : '')" fit="contain" eager />
+        <AppImg :src="props.stage.current.img" :alt="'Skin actual' + (props.stage.current.name ? ': ' + props.stage.current.name : '')" :missing="props.stage.current.img ? '' : 'Sin retrato'" fit="contain" eager />
       </div>
       <div class="cmp__name cmp__name--cur">{{ props.stage.current.name || ' ' }}</div>
     </div>
@@ -50,7 +50,7 @@ const { saving, saved, savedHere } = useSaveStatus()
         :aria-label="'Ver detalle de ' + props.preview.name"
         @click="emit('detail')"
       >
-        <AppImg :src="props.preview.img" :alt="'Skin nueva: ' + props.preview.name" fit="contain" eager />
+        <AppImg :src="props.preview.img" :alt="'Skin nueva: ' + props.preview.name" :missing="props.preview.img ? '' : 'Sin retrato'" fit="contain" eager />
       </button>
       <button
         v-else

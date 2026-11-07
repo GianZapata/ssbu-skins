@@ -72,6 +72,7 @@ const sizeLabel = computed(() => (props.compact ? 'Ampliar' : 'Compactar'))
         type="button"
         class="explore__size"
         :aria-label="sizeLabel"
+        :aria-pressed="!props.compact"
         :disabled="props.loading"
         @click="emit('toggleDensity')"
       >

@@ -154,15 +154,24 @@ npm run dev                                   # app Vue en local (regenera publi
 npm run build                                 # lo que corre Vercel
 npm run typecheck                             # vue-tsc
 python3 -m unittest discover -s tests/unit -p 'test_*.py'    # 90 tests, sin emuladores
-tests/run.sh --sin-webkit                     # e2e completos; necesitan emuladores de Firebase (firebase CLI)
+tests/run.sh --sin-webkit                     # e2e completos con emuladores locales (sin credenciales; proyecto demo-ssbu)
 python3 tools/sync_sd.py --package <paquete>/ultimate/mods   # sincronizar datos (dry-run); --apply para publicar
 gh run list --limit 5                          # estado de «Pruebas» y «Sincronizar Firestore» tras un push
 ```
 
-Credenciales (no las imprimas ni las commitees): Firestore con `GOOGLE_APPLICATION_CREDENTIALS=~/.secrets/ssbu-441b1.json`
-y `.venv/bin/python` (tiene `google-cloud-firestore`); Cloudinary en `../Gian-Ultimate-Modpack-private/.env.local`.
-`tests/run.sh` necesita el CLI de Firebase y los emuladores, que **no** están instalados en la Mac de Gian: si no
-puedes correrlos, apóyate en la Action «Pruebas» de GitHub y dilo en el PR.
+**Para probar no hace falta ninguna credencial ni cuenta de Firebase.** Los e2e usan los emuladores locales de Auth y
+Firestore con el proyecto falso `demo-ssbu` (nunca tocan `ssbu-441b1`). Requisitos que se vieron en la Mac de Gian el
+2026-11-06: Node 20+ (hay 24), Java 17 (Zulu 17), `tests/node_modules/.bin/firebase` (firebase-tools 13.35.1, local, no
+global), Chromium de Playwright y Pillow. Si falta algo: `cd tests && npm ci && npx playwright install chromium`.
+**No se ha confirmado una corrida completa de `tests/run.sh` en local** (el primer intento falló en `npm ci`, ver abajo):
+si falla, apóyate en la Action «Pruebas». Los tests de WebKit y las capturas (`visual.spec.js`) solo corren en Linux.
+Ojo: `run.sh` ejecuta `npm ci` en `tests/` y en la raíz, que **borra `node_modules` antes de reinstalar**. No lo lances
+mientras otro proceso (otro agente, `npm run dev`, Playwright) use esas carpetas.
+
+**Solo hacen falta credenciales para publicar datos** (no para el rediseño, que no debería publicar):
+Firestore con `GOOGLE_APPLICATION_CREDENTIALS=~/.secrets/ssbu-441b1.json` y `.venv/bin/python` (tiene
+`google-cloud-firestore`); Cloudinary en `../Gian-Ultimate-Modpack-private/.env.local`. No las imprimas ni las commitees.
+Si no puedes correr los e2e en local, apóyate en la Action «Pruebas» de GitHub y dilo en el PR.
 
 ## 10. Qué no hacer
 

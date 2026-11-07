@@ -73,11 +73,11 @@ onMounted(() => {
           </q-menu>
         </q-btn>
         <q-btn
-          v-if="chosen > 0"
           flat
           no-caps
           class="hdr-btn"
-          :label="'Elegidas · ' + chosen"
+          :class="{ 'hdr-btn--on': chosen > 0 }"
+          :label="'Cambios · ' + chosen"
           :aria-label="'Ver elegidas, ' + chosen"
           @click="go('#/cambios')"
         />
