@@ -399,7 +399,7 @@ export const back = () => {
   swap(fighterHash(defaultFighterCode()))
 }
 
-/** Abre un traje, o cambia de traje sin añadir historial. La candidata viaja con él salvo que se pida lo contrario. */
+/** Cambia el traje activo del luchador abierto sin añadir historial. La skin candidata viaja con él salvo que se pida lo contrario. */
 export const selectSlot = (slot: number, keepSkin = true) => {
   const current = viewRoute()
 

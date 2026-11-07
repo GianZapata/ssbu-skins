@@ -53,8 +53,10 @@ export const runDirectionalTransition = (
     transition = doc.startViewTransition(update)
   }
 
-  void transition.finished.finally(() => {
-    focusHeading()
-    onFinished?.()
-  })
+  void transition.finished
+    .catch(() => {})
+    .finally(() => {
+      focusHeading()
+      onFinished?.()
+    })
 }
