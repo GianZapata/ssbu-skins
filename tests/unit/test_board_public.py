@@ -49,6 +49,17 @@ class Variants(unittest.TestCase):
         self.assertIsNone(bp.variants_of(manifest)[0]['portrait'])
         self.assertEqual(bp.variants_of(manifest, pub)[0]['portrait'], sha_sd)
 
+    def test_published_portraits_accepts_dict(self):
+        sha = 'c' * 64
+        self.assertEqual(bp.published_portraits(None, {'01:9:aaaaaaaa:c00': sha, 'x': 'corto'}), {sha})
+
+    def test_incomplete_variants_are_skipped(self):
+        manifest = self.manifest()
+        manifest['archives'][1]['variants'].append({'has_model': True, 'color': 3})
+        manifest['archives'][1]['variants'].append({'has_model': True, 'content_sha256': 'z', 'variant_id': 'q'})
+        manifest['archives'].append({'inspected': True, 'kind': 'original', 'variants': []})
+        self.assertEqual(bp.variants_of(manifest), bp.variants_of(self.manifest()))
+
     def test_no_manifest_means_no_variants(self):
         self.assertEqual(bp.variants_of(None), [])
 

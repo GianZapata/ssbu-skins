@@ -133,5 +133,41 @@ class Fallback(unittest.TestCase):
             self.assertEqual(iv.extract('x.rar', dest), '7zz falló; unar falló')
 
 
+class Robustness(Tree):
+    def test_unsupported_zip_leaves_no_partial_tree(self):
+        from unittest import mock
+        base = tempfile.mkdtemp()
+        archive = os.path.join(base, 'a.zip')
+        make_zip(archive, {'c00/a.nutexb': b'x'})
+        dest = os.path.join(base, 'out')
+        with mock.patch.object(iv.zipfile.ZipFile, 'extractall', side_effect=NotImplementedError('compression type 99')):
+            reason = iv.extract(archive, dest)
+        self.assertIn('NotImplementedError', reason)
+        self.assertFalse(os.path.exists(dest))
+        self.assertFalse(os.path.exists(dest + '.partial'))
+        with mock.patch.object(iv.zipfile.ZipFile, 'extractall', side_effect=RuntimeError('encrypted')):
+            self.assertIsNotNone(iv.extract(archive, dest))
+        self.assertIsNone(iv.extract(archive, dest))
+        self.assertTrue(os.path.isfile(os.path.join(dest, 'c00', 'a.nutexb')))
+
+    def test_dangling_symlink_is_ignored(self):
+        root = self.tree({'fighter/mario/model/body/c00/a.nutexb': b'x'})
+        os.symlink('/nonexistent/nope', os.path.join(root, 'fighter/mario/model/body/c00/b.nutexb'))
+        found, shared = iv.variants_in(root)
+        self.assertEqual([v['files_count'] for v in found], [1])
+
+    def test_keeps_previous_manifest_when_nothing_inspected(self):
+        import json
+        path = os.path.join(tempfile.mkdtemp(), 'm.json')
+        self.assertFalse(iv.keeps_previous(path, 0))
+        with open(path, 'w') as f:
+            json.dump({'archives': [{'inspected': True}]}, f)
+        self.assertTrue(iv.keeps_previous(path, 0))
+        self.assertFalse(iv.keeps_previous(path, 1))
+        with open(path, 'w') as f:
+            json.dump({'archives': [{'inspected': False}]}, f)
+        self.assertFalse(iv.keeps_previous(path, 0))
+
+
 if __name__ == '__main__':
     unittest.main()

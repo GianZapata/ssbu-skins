@@ -53,7 +53,8 @@ def load_variants():
     if os.path.isdir(folder):
         for name in sorted(os.listdir(folder)):
             if name.endswith('.json'):
-                found[name[:-5]] = json.load(open(os.path.join(folder, name), encoding='utf-8'))
+                with open(os.path.join(folder, name), encoding='utf-8') as f:
+                    found[name[:-5]] = json.load(f)
     return found
 
 
@@ -66,6 +67,8 @@ def published_portraits(sd_map=None, extra=None):
         for sha in slots.values()
         if isinstance(sha, str) and len(sha) == 64
     }
+    if isinstance(extra, dict):
+        extra = extra.values()
     for sha in extra or []:
         if isinstance(sha, str) and len(sha) == 64:
             found.add(sha)
@@ -77,11 +80,13 @@ def variants_of(manifest, published=frozenset()):
 
     Dos archivos con el mismo contenido de un color (pack completo y single_slot) son una sola apariencia: gana el que trae más colores.
     El retrato solo se ofrece si ya está publicado; nunca se sustituye por otra imagen."""
-    archives = [a for a in (manifest or {}).get('archives') or [] if a.get('inspected') and a.get('kind') == 'original']
+    archives = [a for a in (manifest or {}).get('archives') or [] if a.get('inspected') and a.get('kind') == 'original' and a.get('path')]
     archives.sort(key=lambda a: (-len(a.get('variants') or []), a['path']))
     seen, out = set(), []
     for archive in archives:
         for v in archive.get('variants') or []:
+            if not v.get('content_sha256') or not v.get('variant_id') or not isinstance(v.get('color'), int):
+                continue
             if not v.get('has_model') or v.get('duplicate_of') or v['content_sha256'] in seen:
                 continue
             seen.add(v['content_sha256'])
@@ -146,13 +151,17 @@ def main():
     missing = sum(1 for row in rows if not row['vid'])
     dest = os.path.join(cd.R, 'public', 'drive-alts.json')
     if args.check:
-        current = json.load(open(dest, encoding='utf-8')) if os.path.isfile(dest) else None
+        current = None
+        if os.path.isfile(dest):
+            with open(dest, encoding='utf-8') as f:
+                current = json.load(f)
         if current != rows:
             print(f'drive-alts.json no cuadra ({missing} sin vid de {len(rows)})')
             return 1
     else:
         os.makedirs(os.path.dirname(dest), exist_ok=True)
-        json.dump(rows, open(dest, 'w', encoding='utf-8'), ensure_ascii=False)
+        with open(dest, 'w', encoding='utf-8') as f:
+            json.dump(rows, f, ensure_ascii=False)
         print(f'ok · {dest} · {len(rows)} alternativas · {missing} sin vid')
     return 0
 
