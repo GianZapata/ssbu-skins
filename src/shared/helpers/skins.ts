@@ -21,7 +21,7 @@ export const coverOf = (skin: Skin | null | undefined) => {
 export const currentName = (current: Current | null) => {
   if (!current) return ''
   if (current.kind === 'original') return 'Original'
-  if (current.kind === 'mod' || current.kind === 'pending' || current.kind === 'unknown') return current.name
+  if (current.kind === 'mod' || current.kind === 'unnamed' || current.kind === 'unknown') return current.name
   return ''
 }
 

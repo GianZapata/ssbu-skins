@@ -44,7 +44,7 @@ const choose = (code: string) => hide(() => selectFighter(code))
     <div v-else-if="!groups.length && !skins.length" class="empty" role="status">
       <q-icon name="search_off" size="40px" aria-hidden="true" />
       <b>{{ hasFilters ? 'Sin resultados' : 'Sin skins por ahora' }}</b>
-      <a v-if="fighter" class="explore-link" :href="'#/instaladas?pj=' + encodeURIComponent(fighter.code)">Ver instaladas de {{ fighter.name }}</a>
+      <a v-if="fighter" class="explore-link" :href="'#/luchador/' + encodeURIComponent(fighter.code)">Ver trajes de {{ fighter.name }}</a>
     </div>
     <template v-else-if="fighter">
       <div class="sgrid" :class="{ 'sgrid--compact': compact, 'sgrid--large': !compact }">
@@ -58,7 +58,7 @@ const choose = (code: string) => hide(() => selectFighter(code))
           </button>
         </div>
       </div>
-      <a class="explore-link" :href="'#/instaladas?pj=' + encodeURIComponent(fighter.code)">Ver instaladas de {{ fighter.name }}</a>
+      <a class="explore-link" :href="'#/luchador/' + encodeURIComponent(fighter.code)">Ver trajes de {{ fighter.name }}</a>
     </template>
     <div v-else class="groups">
       <section v-for="group in groups" :key="group.id" class="cgroup">

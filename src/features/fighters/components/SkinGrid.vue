@@ -13,16 +13,19 @@ interface SkinRow {
   other: number | null
   label: string
   detail: string
+  tag: string
 }
 
 interface SkinGridProps {
   rows: SkinRow[]
   total: number
+  onlyDownloaded: boolean
 }
 
 interface SkinGridEmits {
   pick: [vid: string]
   detail: [vid: string]
+  toggleDownloaded: []
 }
 
 const props = defineProps<SkinGridProps>()
@@ -55,15 +58,16 @@ const { compact, toggle } = useGridDensity()
             <q-btn v-if="S.tc.q" flat round dense icon="close" aria-label="Borrar búsqueda" class="search__clear" @click="S.tc.q = ''" />
           </template>
         </q-input>
+        <button type="button" class="chip" :aria-pressed="props.onlyDownloaded" @click="emit('toggleDownloaded')">Descargadas</button>
         <button
           type="button"
           class="explore__size"
-          :aria-label="compact ? 'Ampliar' : 'Compactar'"
+          :aria-label="compact ? 'Skins grandes' : 'Compactar'"
           :aria-pressed="!compact"
           @click="toggle"
         >
           <q-icon :name="compact ? 'grid_view' : 'view_module'" size="22px" aria-hidden="true" />
-          <span class="explore__size-label">{{ compact ? 'Ampliar' : 'Compactar' }}</span>
+          <span class="explore__size-label">{{ compact ? 'Skins grandes' : 'Compactar' }}</span>
         </button>
       </div>
 
@@ -81,9 +85,10 @@ const { compact, toggle } = useGridDensity()
               <span v-else-if="row.other !== null" class="card__where" aria-hidden="true">{{ trajeName(row.other) }}</span>
             </span>
             <span class="card__name">{{ row.name }}</span>
+            <span v-if="row.tag" class="card__tag">{{ row.tag }}</span>
           </button>
           <q-btn flat round padding="0" class="card__more" :aria-label="row.detail" @click="emit('detail', row.vid)">
-            <span class="card__more-dot"><q-icon name="open_in_full" size="16px" aria-hidden="true" /></span>
+            <span class="card__more-dot"><q-icon name="zoom_in" size="18px" aria-hidden="true" /></span>
           </q-btn>
         </div>
       </div>

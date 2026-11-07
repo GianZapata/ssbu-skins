@@ -127,7 +127,7 @@ export const useCatalogPage = () => {
   const pickerTotal = computed(() => picker.value.reduce((sum, row) => sum + row.count, 0))
 
   const viewSkin = (code: string, vid: string) => {
-    openSkin(code, 0, vid, 'catalogo')
+    openSkin(code, vid)
   }
 
   const clearFilters = () => {

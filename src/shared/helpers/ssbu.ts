@@ -33,6 +33,7 @@ export interface Current {
   name: string
   img: string | null
   badge?: string
+  layer?: string
   verif?: string
   replace?: string
   staged?: { name?: string } | null

@@ -6,14 +6,19 @@ interface ProposalOriginMeta {
 
 export class PlanHelper {
   static readonly originMeta: Record<ProposalOrigin, ProposalOriginMeta> = {
+    [ProposalOrigin.Unsent]: {
+      get label() {
+        return 'Sin enviar'
+      },
+    },
     [ProposalOrigin.Mine]: {
       get label() {
-        return 'Tus cambios'
+        return 'Tuyas'
       },
     },
     [ProposalOrigin.Friend]: {
       get label() {
-        return 'Propuestas de amigos'
+        return 'De otros'
       },
     },
   }
