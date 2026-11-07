@@ -99,7 +99,7 @@ function mergeChanges(m,changes){
 
  return m}
 let PEND=namedOps(J('ssbu_pend3',[]));
-const droppedPend=(J('ssbu_pend3',[])||[]).length-PEND.length;
+let droppedPend=(J('ssbu_pend3',[])||[]).length-PEND.length;
 savePend();
 let HIST = []
 let STATUS = {}
@@ -356,8 +356,8 @@ async function flush(){
  render(true)}
 // otra persona cambió ese traje mientras tanto: se conserva su opción y se ofrece repetir la mía
 function enqueue(op){PEND.push(op);savePend();paintSync();render(true);flush()}
-function conflict(op,cur,curVariant=null){const mine=op.to&&idx[op.to]?idx[op.to].p.name:null,theirs=cur&&idx[cur]?idx[cur].p.name:null;
- toast(`${trajeName(op.slot)}: ${theirs?'alguien eligió «'+theirs+'»':'alguien lo cambió'}. Se conservó su opción.`,mine?{label:'Usar la mía',fn:()=>enqueue({code:op.code,slot:op.slot,name:op.name||activePerson,to:op.to,exp:cur,expVariant:curVariant,...(op.variant?{variant:op.variant}:{}),kind:'set'})}:null)}
+function conflict(op,cur,curVariant=null){const mine=op.to&&idx[op.to]?idx[op.to].p.name:null;
+ toast(`${trajeName(op.slot)}: esta propuesta cambió en otro dispositivo. Se conservó la que ya estaba guardada.`,mine?{label:'Usar la mía',fn:()=>enqueue({code:op.code,slot:op.slot,name:op.name||activePerson,to:op.to,exp:cur,expVariant:curVariant,...(op.variant?{variant:op.variant}:{}),kind:'set'})}:null)}
 addEventListener('online',()=>{syncKind=syncKind==='offline'?null:syncKind;paintSync();flush();if(!_fb&&FBCFG)startDb()});addEventListener('offline',()=>{syncKind='offline';paintSync()});
 setInterval(()=>{if(PEND.length&&Date.now()>=nextTry)flush()},5000);
 /* --- catálogo, inventario, plan e historial en vivo --- */
@@ -422,7 +422,15 @@ async function markNote(id,done){if(!id)return
 function bind(hooks) {
   if (hooks.render) render = hooks.render
   if (hooks.noteSaved) noteSaved = hooks.noteSaved
-  if (hooks.toast) toast = hooks.toast
+  if (hooks.toast) {
+    toast = hooks.toast
+
+    if (droppedPend > 0) {
+      toast('Se descartaron ' + droppedPend + (droppedPend === 1 ? ' cambio sin guardar' : ' cambios sin guardar') + ' de una versión anterior')
+      droppedPend = 0
+    }
+  }
+
   if (hooks.rebuild) rebuild = hooks.rebuild
   if (hooks.paint) paint = hooks.paint
 }
