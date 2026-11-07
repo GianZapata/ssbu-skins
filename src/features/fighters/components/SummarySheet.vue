@@ -17,9 +17,7 @@ const {
   close,
   chooseFighter,
   goTo,
-  isConfirming,
   undo,
-  keep,
 } = useSummarySheet()
 
 const { loop } = useFocusLoop()
@@ -75,14 +73,9 @@ const { loop } = useFocusLoop()
                   <span v-if="section.origin === ProposalOrigin.Friend" class="srow__who">{{ row.author }}{{ row.when ? ' · ' + row.when : '' }}</span>
                 </span>
               </button>
-              <q-btn v-if="!isConfirming(row)" flat round padding="0" class="srow__x" :aria-label="row.quitar" :data-undo="row.code + '_' + row.n" @click="undo(row)">
+              <q-btn v-if="row.canUndo" flat round padding="0" class="srow__x" :aria-label="row.quitar" :data-undo="row.key" @click="undo(row)">
                 <span class="srow__x-dot"><q-icon name="close" size="16px" aria-hidden="true" /></span>
               </q-btn>
-              <div v-else class="srow__ask" role="group" :aria-label="'Confirmar: ' + row.quitar">
-                <span>Quitar la propuesta de {{ row.author }}</span>
-                <q-btn no-caps unelevated class="btn-quiet" label="Quitar" :data-undo-confirm="row.code + '_' + row.n" @click="undo(row)" />
-                <q-btn no-caps flat label="Conservar" @click="keep" />
-              </div>
             </div>
           </div>
         </section>

@@ -3,6 +3,25 @@
 /* Lógica del plan y del catálogo, sin DOM. La página la concatena antes de ui.js. */
 const SSBU = (() => {
   const keyOf = (c, n) => c + '_' + n;
+  const PEOPLE = ['Gian', 'Alan', 'Ches', 'Samu'];
+  const validPerson = name => PEOPLE.includes(name);
+  const docKey = (c, n, name) => (validPerson(name) ? c + '_' + n + '_' + name : c + '_' + n);
+
+  function parseDocKey(key) {
+    const parts = String(key || '').split('_');
+
+    if (parts.length !== 2 && parts.length !== 3) return null;
+
+    const slot = Number(parts[1]);
+
+    if (!validSlot(slot) || !parts[0]) return null;
+
+    const name = parts.length === 3 ? parts[2] : null;
+
+    if (name !== null && !validPerson(name)) return null;
+    return { code: parts[0], slot, name };
+  }
+
   const norm = s => String(s || '').normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase();
   const ONLINE = {
     autor_explicito: ['g', 'Online: lo declara el autor'],
@@ -102,41 +121,145 @@ const SSBU = (() => {
     return [];
   }
 
+  function proposalsAt(code, n, ctx) {
+    const plan = (ctx && ctx.PLAN) || {};
+    const pend = (ctx && ctx.PEND) || [];
+    const person = ctx && validPerson(ctx.person) ? ctx.person : null;
+    const byAuthor = new Map();
+
+    Object.entries(plan).forEach(([k, val]) => {
+      const parsed = parseDocKey(k);
+
+      if (!parsed || parsed.code !== code || parsed.slot !== n || !val || !val.vid) return;
+
+      const author = parsed.name || (validPerson(val.name) ? val.name : null);
+
+      byAuthor.set(author || '__legacy__', {
+        key: k,
+        code,
+        n,
+        vid: val.vid,
+        variant: val.variant || null,
+        name: author,
+        by: val.by || null,
+        at: val.at ?? null,
+        unsent: false,
+      });
+    });
+
+    for (const o of pend) {
+      const opName = validPerson(o.name) ? o.name : person;
+
+      if (o.code !== code || o.slot !== n || !opName) continue;
+
+      if (o.to) {
+        byAuthor.set(opName, {
+          key: docKey(code, n, opName),
+          code,
+          n,
+          vid: o.to,
+          variant: o.variant || null,
+          name: opName,
+          by: null,
+          at: Date.now(),
+          unsent: true,
+        });
+      } else {
+        byAuthor.delete(opName);
+      }
+    }
+
+    const list = Array.from(byAuthor.values());
+
+    list.sort((a, b) => {
+      const aMine = person && a.name === person ? 1 : 0;
+      const bMine = person && b.name === person ? 1 : 0;
+
+      if (aMine !== bMine) return bMine - aMine;
+
+      const aLegacy = a.name === null ? 1 : 0;
+      const bLegacy = b.name === null ? 1 : 0;
+
+      if ((b.at || 0) !== (a.at || 0)) return (b.at || 0) - (a.at || 0);
+      if (aLegacy !== bLegacy) return aLegacy - bLegacy;
+
+      return PEOPLE.indexOf(a.name) - PEOPLE.indexOf(b.name);
+    });
+
+    return list;
+  }
+
+  function ownVid(code, n, ctx) {
+    const person = ctx && validPerson(ctx.person) ? ctx.person : null;
+
+    if (!person) return null;
+
+    const hit = proposalsAt(code, n, ctx).find(item => item.name === person);
+
+    return hit ? hit.vid : null;
+  }
+
+  function ownVariant(code, n, ctx) {
+    const person = ctx && validPerson(ctx.person) ? ctx.person : null;
+
+    if (!person) return null;
+
+    const hit = proposalsAt(code, n, ctx).find(item => item.name === person);
+
+    return hit ? (hit.variant || null) : null;
+  }
+
   function planVid(code, n, ctx) {
-    const plan = ctx.PLAN || {};
-    const pend = ctx.PEND || [];
-    const k = keyOf(code, n);
-    let v = (plan[k] || {}).vid || null;
-    for (const o of pend) if (o.code === code && o.slot === n) v = o.to;
-    return v;
+    const first = proposalsAt(code, n, ctx)[0];
+
+    return first ? first.vid : null;
   }
 
   function planVariant(code, n, ctx) {
-    const plan = ctx.PLAN || {};
-    const pend = ctx.PEND || [];
-    let v = (plan[keyOf(code, n)] || {}).variant || null;
-    for (const o of pend) if (o.code === code && o.slot === n) v = o.to ? (o.variant || null) : null;
-    return v;
+    const first = proposalsAt(code, n, ctx)[0];
+
+    return first ? (first.variant || null) : null;
   }
 
   function planEntries(ctx) {
-    const plan = ctx.PLAN || {};
-    const pend = ctx.PEND || [];
-    const byCode = ctx.byCode || {};
-    const ks = new Set(Object.keys(plan));
-    pend.forEach(o => ks.add(keyOf(o.code, o.slot)));
+    const plan = (ctx && ctx.PLAN) || {};
+    const pend = (ctx && ctx.PEND) || [];
+    const byCode = (ctx && ctx.byCode) || {};
+    const pairs = new Set();
+
+    Object.keys(plan).forEach(k => {
+      const parsed = parseDocKey(k);
+
+      if (parsed && byCode[parsed.code]) pairs.add(parsed.code + '_' + parsed.slot);
+    });
+
+    pend.forEach(o => {
+      if (byCode[o.code] && validSlot(o.slot)) pairs.add(o.code + '_' + o.slot);
+    });
+
     const out = [];
-    ks.forEach(k => {
-      const i = k.lastIndexOf('_');
-      const code = k.slice(0, i);
-      const n = +k.slice(i + 1);
-      const vid = planVid(code, n, ctx);
-      if (vid && byCode[code]) out.push({ code, n, vid, variant: planVariant(code, n, ctx) });
+
+    pairs.forEach(pair => {
+      const idxSep = pair.lastIndexOf('_');
+      const code = pair.slice(0, idxSep);
+      const n = Number(pair.slice(idxSep + 1));
+
+      proposalsAt(code, n, ctx).forEach(row => out.push(row));
     });
 
     const ord = Object.keys(byCode);
-    out.sort((a, b) => ord.indexOf(a.code) - ord.indexOf(b.code) || a.n - b.n);
+    const rank = row => (row.name === null ? 99 : PEOPLE.indexOf(row.name));
+
+    out.sort((a, b) => ord.indexOf(a.code) - ord.indexOf(b.code) || a.n - b.n || rank(a) - rank(b));
     return out;
+  }
+
+  function ownEntries(ctx) {
+    const person = ctx && validPerson(ctx.person) ? ctx.person : null;
+
+    if (!person) return [];
+
+    return planEntries(ctx).filter(row => row.name === person);
   }
 
   function isAlt(p) {
@@ -321,22 +444,24 @@ const SSBU = (() => {
     return { kind: 'free' };
   }
 
-  function setOp(code, n, vid, prev, variant, prevVariant) {
+  function setOp(code, n, vid, prev, variant, prevVariant, name) {
     if (!validSlot(n)) return null;
     if (prev === vid && (variant || null) === (prevVariant || null)) return null;
 
     const op = { code, slot: n, to: vid, exp: prev, kind: 'set' };
 
+    if (validPerson(name)) op.name = name;
     if (variant) op.variant = variant;
     op.expVariant = prevVariant || null;
     return op;
   }
 
-  function clearOp(code, n, prev, prevVariant) {
+  function clearOp(code, n, prev, prevVariant, name) {
     if (!validSlot(n) || !prev) return null;
 
     const op = { code, slot: n, to: null, exp: prev, kind: 'clear' };
 
+    if (validPerson(name)) op.name = name;
     op.expVariant = prevVariant || null;
     return op;
   }
@@ -361,6 +486,7 @@ const SSBU = (() => {
   return {
     keyOf, norm, ONLINE, WIFI_KEYS, FILTER_KEYS, emptyCat, migrateCat, validSlot,
     familiesOf, sameFamily, compatibleSlots, sourceSlotsOf,
+    PEOPLE, validPerson, docKey, parseDocKey, proposalsAt, ownVid, ownVariant, ownEntries,
     planVid, planVariant, planEntries, isAlt, onlineOf, catList, initials, originalArt, curOf,
     assignBlock, setOp, clearOp, withOp, stageChoice, seriesOf, seriesLabel, installFace,
   };

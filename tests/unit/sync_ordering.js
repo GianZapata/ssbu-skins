@@ -14,15 +14,16 @@ function between(start, end) {
   return source.slice(a, b);
 }
 const flushSource = between('async function flush(){', '// otra persona cambió');
-const planVidSource = between('function planVid(', '\nfunction planEntries(');
+const keyHelpersSource = between('const PEOPLE =', 'let activePerson');
+const planVidSource = between('function proposalsAt(', '\nfunction planEntries(');
 const timestampSource = between('const ts=', '\nasync function startDb(');
 const reconciliationSource = source.includes('function confirmPlan(') ? between('const confirmedPlan=', 'let PEND=') : '';
 const listenerMarker = "sub(f.collection(f.db,'changes'),";
 const listenerSource = between(listenerMarker, '\n  sub(f.query').slice(listenerMarker.length).trim().replace(/\);$/, '');
 
-const key = '82_0';
+const key = '82_0_Gian';
 const timestamp = milliseconds => ({ toMillis: () => milliseconds });
-const stored = (vid, at = 1) => ({ code: '82', slot: 0, vid, by: 'fixture-user', at: timestamp(at) });
+const stored = (vid, at = 1, name = 'Gian') => ({ code: '82', slot: 0, vid, name, by: 'fixture-user', at: timestamp(at) });
 const document = (id, data) => ({ id, exists: () => !!data, data: () => data });
 function snapshot(entries, changes) {
   return {
@@ -36,11 +37,11 @@ function harness({ to = 'B', current = 'A', readAt = 1, commitAt = 2, afterCommi
   let resolvedRead = current ? stored(current, readAt) : null;
   const context = {
     PLAN: current ? { [key]: { vid: current, at: readAt, by: 'fixture-user' } } : {},
-    PEND: [{ code: '82', slot: 0, to, exp: current, kind: to === null ? 'clear' : 'set' }],
+    PEND: [{ code: '82', slot: 0, to, exp: current, name: 'Gian', kind: to === null ? 'clear' : 'set' }],
     planVersions: { [key]: 1 },
     FBCFG: { projectId: 'unit-test-only' }, navigator: { onLine: true },
     flushing: false, planLoaded: true, idx: { A: {}, B: {}, C: {} },
-    keyOf: (code, slot) => `${code}_${slot}`,
+    keyOf: (code, slot) => `${code}_${slot}`, activePerson: 'Gian', byCode: { '01': {}, '82': {} },
     LS: () => {}, savePend: () => {}, render: () => {}, paintSync: () => {}, good: () => {},
     noteSaved: () => {}, toast: () => {}, stable: value => JSON.stringify(value),
     conflict: () => {}, classify: () => 'other',
@@ -64,7 +65,7 @@ function harness({ to = 'B', current = 'A', readAt = 1, commitAt = 2, afterCommi
   };
   context.fb = async () => api;
   vm.createContext(context);
-  vm.runInContext(`${timestampSource}\n${reconciliationSource}\n${planVidSource}\n${flushSource}\nthis.deliver = (${listenerSource});`, context);
+  vm.runInContext(`${keyHelpersSource}\n${timestampSource}\n${reconciliationSource}\n${planVidSource}\n${flushSource}\nthis.deliver = (${listenerSource});`, context);
   return {
     state: context,
     flush: () => context.flush(),
@@ -107,14 +108,14 @@ test('an older snapshot delivered during undo cannot resurrect the acknowledged 
 
 test('a late unrelated snapshot cannot restore an older value after a set was acknowledged', async () => {
   const h = harness(); await h.flush(); acknowledged(h, 'B');
-  h.deliver({ [key]: stored('A', 1), '01_1': stored('X', 2) }, [{ id: '01_1', data: stored('X', 2) }]);
+  h.deliver({ [key]: stored('A', 1), '01_1_Alan': stored('X', 2, 'Alan') }, [{ id: '01_1_Alan', data: stored('X', 2, 'Alan') }]);
   acknowledged(h, 'B');
-  assert.equal(h.state.PLAN['01_1'].vid, 'X', 'the unrelated remote update remains visible');
+  assert.equal(h.state.PLAN['01_1_Alan'].vid, 'X', 'the unrelated remote update remains visible');
 });
 
 test('a late unrelated snapshot cannot resurrect a proposal after undo was acknowledged', async () => {
   const h = harness({ to: null }); await h.flush(); acknowledged(h, null);
-  h.deliver({ [key]: stored('A', 1), '01_1': stored('X', 2) }, [{ id: '01_1', data: stored('X', 2) }]);
+  h.deliver({ [key]: stored('A', 1), '01_1_Alan': stored('X', 2, 'Alan') }, [{ id: '01_1_Alan', data: stored('X', 2, 'Alan') }]);
   acknowledged(h, null);
 });
 
@@ -143,7 +144,7 @@ test('a historical removal cannot hide a new set after undo has already reached 
   const h = harness({ to: null }); await h.flush(); acknowledged(h, null);
   h.deliver({}, [{ type: 'removed', data: stored('A', 1) }]);
   h.resolveReadFrom(null);
-  h.state.PEND.push({ code: '82', slot: 0, to: 'B', exp: null, kind: 'set' });
+  h.state.PEND.push({ code: '82', slot: 0, to: 'B', exp: null, name: 'Gian', kind: 'set' });
   await h.flush(); acknowledged(h, 'B');
 });
 
@@ -169,7 +170,7 @@ test('replacing one variant with another of the same mod preserves the chosen va
   const h = harness({ current: 'A', readAt: 1, commitAt: 2 });
   h.resolveReadFrom({ code: '82', slot: 0, vid: 'A', variant: 'A:11111111:c00', by: 'fixture-user', at: timestamp(1) });
   h.state.PLAN[key] = { vid: 'A', variant: 'A:11111111:c00', at: 1, by: 'fixture-user' };
-  h.state.PEND = [{ code: '82', slot: 0, to: 'A', exp: 'A', expVariant: 'A:11111111:c00', variant: 'A:11111111:c03', kind: 'set' }];
+  h.state.PEND = [{ code: '82', slot: 0, name: 'Gian', to: 'A', exp: 'A', expVariant: 'A:11111111:c00', variant: 'A:11111111:c03', kind: 'set' }];
   await h.flush();
   acknowledged(h, 'A');
   assert.equal(h.state.planVariant('82', 0), 'A:11111111:c03');
@@ -177,7 +178,7 @@ test('replacing one variant with another of the same mod preserves the chosen va
   let conflicted = false;
   h.state.conflict = () => { conflicted = true; };
   h.resolveReadFrom({ code: '82', slot: 0, vid: 'A', variant: 'A:11111111:c05', by: 'other', at: timestamp(3) });
-  h.state.PEND.push({ code: '82', slot: 0, to: 'A', exp: 'A', expVariant: 'A:11111111:c03', variant: 'A:11111111:c07', kind: 'set' });
+  h.state.PEND.push({ code: '82', slot: 0, name: 'Gian', to: 'A', exp: 'A', expVariant: 'A:11111111:c03', variant: 'A:11111111:c07', kind: 'set' });
   await h.flush();
   assert.equal(conflicted, true);
   assert.equal(h.state.planVariant('82', 0), 'A:11111111:c05');
@@ -187,8 +188,8 @@ function variantHarness({ remote, op }) {
   const h = harness({ current: 'A', readAt: 1, commitAt: 2 });
   let conflicted = false;
   h.state.conflict = () => { conflicted = true; };
-  h.resolveReadFrom(remote && { code: '82', slot: 0, by: 'other', at: timestamp(1), ...remote });
-  h.state.PEND = [{ code: '82', slot: 0, ...op }];
+  h.resolveReadFrom(remote && { code: '82', slot: 0, name: 'Gian', by: 'other', at: timestamp(1), ...remote });
+  h.state.PEND = [{ code: '82', slot: 0, name: 'Gian', ...op }];
   return { h, conflicted: () => conflicted };
 }
 
@@ -239,4 +240,71 @@ test('an op equal to the remote vid and variant is a noop', async () => {
   assert.equal(conflicted(), false);
   assert.equal(writes.length, 0);
   acknowledged(h, 'A');
+});
+
+const other = '82_0_Alan';
+const legacy = '82_0';
+const plain = value => JSON.parse(JSON.stringify(value));
+
+test('an edit or snapshot of another person never overrides or conflicts with my proposal', async () => {
+  const h = harness(); await h.flush(); acknowledged(h, 'B');
+  h.deliver({ [key]: stored('B', 2), [other]: stored('C', 3, 'Alan') }, [{ id: other, data: stored('C', 3, 'Alan') }]);
+  assert.equal(h.state.PLAN[key].vid, 'B', 'my proposal remains');
+  assert.equal(h.state.PLAN[other].vid, 'C', 'the other proposal lives beside mine');
+  assert.equal(h.visible(), 'B', 'mine is shown first');
+  assert.deepEqual(plain(h.state.proposalsAt('82', 0).map(row => row.name)), ['Gian', 'Alan']);
+  h.deliver({ [key]: stored('B', 2) }, [{ id: other, type: 'removed', data: stored('C', 3, 'Alan') }]);
+  assert.equal(h.state.PLAN[other], undefined);
+  assert.equal(h.visible(), 'B');
+});
+
+test('a transaction only reads and writes the document of the operation person', async () => {
+  const seen = [];
+  const h = harness({ to: 'B', current: null });
+  const original = h.state.fb;
+  h.state.fb = async () => {
+    const api = await original();
+    const run = api.runTransaction;
+    api.runTransaction = (db, callback) => run(db, tx => callback({ ...tx, set: (ref, data) => seen.push([ref.id, data.name]) }));
+    return api;
+  };
+  h.state.PEND = [{ code: '82', slot: 0, to: 'B', exp: null, name: 'Alan', kind: 'set' }];
+  h.resolveReadFrom(null);
+  await h.flush();
+  assert.equal(h.state.PEND.length, 0);
+  assert.deepEqual(plain(seen[0]), ['82_0_Alan', 'Alan']);
+  assert.equal(seen[1][1], 'Alan', 'the history row carries the person too');
+  assert.equal(h.state.PLAN[other].vid, 'B');
+  assert.equal(h.state.PLAN[key], undefined, 'the doc of the active person is untouched');
+});
+
+test('an old document without name coexists as read-only legacy beside named proposals', () => {
+  const h = harness({ current: null });
+  h.deliver({ [legacy]: { vid: 'L', variant: null, by: 'old', at: timestamp(1) }, [key]: stored('B', 2) }, [{ id: legacy, data: { vid: 'L', at: timestamp(1) } }]);
+  assert.equal(h.state.PLAN[legacy].vid, 'L');
+  assert.equal(h.state.PLAN[legacy].name, null);
+  assert.deepEqual(plain(h.state.proposalsAt('82', 0).map(row => row.name)), ['Gian', null]);
+  assert.equal(h.state.ownVid('82', 0), 'B');
+  h.deliver({ [legacy]: { vid: 'L', at: timestamp(1) }, '82_0_Otro': stored('X', 1, 'Otro') }, []);
+  assert.equal(h.state.PLAN['82_0_Otro'], undefined, 'a name outside the closed list is ignored');
+});
+
+test('queued operations saved before the person split are dropped, named ones are kept', () => {
+  const context = { LS: () => null };
+  vm.createContext(context);
+  vm.runInContext(`${keyHelpersSource}\nthis.migrate = namedOps;`, context);
+  const kept = context.migrate([
+    { code: '82', slot: 0, to: 'A', exp: null, kind: 'set' },
+    { code: '82', slot: 1, to: 'B', exp: null, name: 'Samu', kind: 'set' },
+    { code: '82', slot: 2, to: null, exp: 'C', name: 'Otro', kind: 'clear' },
+  ]);
+  assert.deepEqual(plain(kept.map(op => op.slot)), [1]);
+  assert.deepEqual(plain(context.migrate(null)), []);
+});
+
+test('an operation without name falls back to the active person and flushes to that document', async () => {
+  const h = harness();
+  h.state.PEND = [{ code: '82', slot: 0, to: 'B', exp: 'A', kind: 'set' }];
+  await h.flush(); acknowledged(h, 'B');
+  assert.equal(h.state.PLAN[key].name, 'Gian');
 });

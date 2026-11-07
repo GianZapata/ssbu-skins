@@ -4,7 +4,7 @@ import { fighterOf, hasSlot, selectSlot, setSkin, skinParam, S, tick, viewRoute 
 import { commitStage } from '../../features/fighters/stage'
 import { clearAt, touched, zoomImage, zoomSkin } from '../../features/plan/composables/usePlan'
 import { curOf, isUnsent, skinOf, slotPlanOf } from '../../features/plan/helpers/lookup'
-import { keyOf, planEntries, planVid, state } from '../../features/plan/services/sync'
+import { keyOf, ownEntries, ownVid, planVid, state } from '../../features/plan/services/sync'
 import { PreviewSource } from '../../features/fighters/enums/PreviewSource'
 import { PulseKind } from '../../features/fighters/enums/PulseKind'
 import { downloadedVids, loadDriveAlts, unauditedVids } from '../../features/roster/driveAlts'
@@ -133,7 +133,7 @@ export const useFighterPage = () => {
     // La cuadrícula solo marca la candidata. El plan no cambia hasta el botón.
     const staged = usable ? skinOf(skinParam()) : null
     const placed = new Map<string, number>()
-    const mine = (planEntries() as PlanRow[]).filter((row) => row.code === code)
+    const mine = (ownEntries() as PlanRow[]).filter((row) => row.code === code)
 
     mine.forEach((row) => placed.set(row.vid, row.n))
 
@@ -234,9 +234,9 @@ export const useFighterPage = () => {
 
     const m = model.value
     const skin = candidate.value
-    const saved = stage.value ? stage.value.vid : null
+    const saved = stage.value ? (ownVid(m.code, m.slot) as string | null) : null
     const placed = skin
-      ? (planEntries() as PlanRow[]).find((row) => row.code === m.code && row.vid === skin.vid && row.n !== m.slot)
+      ? (ownEntries() as PlanRow[]).find((row) => row.code === m.code && row.vid === skin.vid && row.n !== m.slot)
       : null
 
     return SSBU.stageChoice({

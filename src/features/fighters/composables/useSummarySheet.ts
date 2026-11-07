@@ -1,20 +1,15 @@
-import { computed, onMounted, ref, shallowRef, watch } from 'vue'
+import { computed, shallowRef, watch } from 'vue'
 import { back, fighterHash, fighterOf, route, swap, tick } from '../../../composables/useApp'
 import { useDesktop } from '../../../composables/useDesktop'
 import { currentName, thumbOf } from '../../../shared/helpers/skins'
 import { trajeName } from '../../../shared/helpers/text'
 import { ProposalOrigin } from '../../plan/enums/ProposalOrigin'
 import { PlanHelper } from '../../plan/helpers/plan.helper'
-import { curOf, isUnsent, skinOf } from '../../plan/helpers/lookup'
-import { clearAt, planGroups, touched } from '../../plan/composables/usePlan'
+import { curOf, skinOf } from '../../plan/helpers/lookup'
+import { clearAt, planGroups } from '../../plan/composables/usePlan'
+import { activePerson } from '../../plan/composables/usePerson'
 import { useSaveStatus } from '../../plan/saveStatus'
-import { fb, keyOf, state } from '../../plan/services/sync'
-
-interface PlanEntry {
-  vid: string
-  by?: string
-  at?: number | null
-}
+import { docKey } from '../../plan/services/sync'
 
 export interface SummaryRow {
   code: string
@@ -30,6 +25,7 @@ export interface SummaryRow {
   origin: ProposalOrigin
   author: string
   when: string
+  canUndo: boolean
 }
 
 export interface SummaryGroup {
@@ -67,8 +63,6 @@ const sectionsOf = (groups: Array<SummaryGroup & { rows: SummaryRow[] }>): Summa
     .filter((section) => section.groups.length)
 
 export const useSummarySheet = () => {
-  const uid = ref<string | null>(null)
-  const confirming = ref('')
   const kept = shallowRef<SummarySection[]>([])
 
   const desktop = useDesktop()
@@ -93,10 +87,7 @@ export const useSummarySheet = () => {
         const from = currentName(cur)
         const to = (skin ? skin.name : 'Skin sin nombre') + variantSuffix(row.variant)
         const shown = cur?.kind === 'original' ? 'Original' : from
-        const key = keyOf(row.code, row.n)
-        const entry = (state.PLAN as Record<string, PlanEntry>)[key]
-        const unsent = isUnsent(row.code, row.n)
-        const owner = PlanHelper.originOf(entry?.by, uid.value, Boolean(touched[key]))
+        const key = row.key || docKey(row.code, row.n, row.name || undefined)
 
         return {
           code: row.code,
@@ -109,9 +100,10 @@ export const useSummarySheet = () => {
           toImg: thumbOf(skin),
           label: group.fighter.name + ', ' + trajeName(row.n) + ': ' + (shown || 'skin sin nombre') + ' cambia a ' + to,
           quitar: 'Quitar propuesta, ' + trajeName(row.n) + ' de ' + group.fighter.name,
-          origin: unsent ? ProposalOrigin.Unsent : owner,
-          author: PlanHelper.authorLabel(entry?.by),
-          when: PlanHelper.whenLabel(entry?.at ?? null),
+          origin: PlanHelper.originOfPerson(row.name, activePerson.value, Boolean(row.unsent)),
+          author: PlanHelper.personLabel(row.name),
+          when: PlanHelper.whenLabel(row.at ?? null),
+          canUndo: Boolean(activePerson.value && row.name === activePerson.value),
         }
       }),
     }))
@@ -139,36 +131,15 @@ export const useSummarySheet = () => {
     swap(fighterHash(code, n))
   }
 
-  const isConfirming = (row: SummaryRow) => confirming.value === row.key
-
   const undo = (row: SummaryRow) => {
-    if (row.origin === ProposalOrigin.Friend && confirming.value !== row.key) {
-      confirming.value = row.key
+    if (!row.canUndo) return
 
-      return
-    }
-
-    confirming.value = ''
     clearAt(row.code, row.n)
-  }
-
-  const keep = () => {
-    confirming.value = ''
   }
 
   watch(live, (value) => {
     if (value.length) kept.value = value
   }, { immediate: true })
-
-  onMounted(async () => {
-    try {
-      const client = await fb()
-
-      uid.value = client.auth.currentUser?.uid || null
-    } catch {
-      uid.value = null
-    }
-  })
 
   return {
     desktop,
@@ -182,8 +153,6 @@ export const useSummarySheet = () => {
     close,
     chooseFighter,
     goTo,
-    isConfirming,
     undo,
-    keep,
   }
 }

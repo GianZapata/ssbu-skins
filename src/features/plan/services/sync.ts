@@ -5,6 +5,42 @@ const LS = (k, v) => { try { if (v === undefined) return localStorage.getItem(k)
 const J = (k, d) => { try { return JSON.parse(LS(k) || 'null') ?? d } catch (e) { return d } }
 const stable = (o) => JSON.stringify(o, (k, v) => v && typeof v === 'object' && !Array.isArray(v) ? Object.fromEntries(Object.keys(v).sort().map((x) => [x, v[x]])) : v)
 const keyOf = (c, n) => c + '_' + n
+const PEOPLE = ['Gian', 'Alan', 'Ches', 'Samu']
+const validPerson = (name) => PEOPLE.includes(name)
+const docKey = (c, n, name) => (validPerson(name) ? c + '_' + n + '_' + name : c + '_' + n)
+function parseDocKey(key) {
+  const parts = String(key || '').split('_')
+
+  if (parts.length !== 2 && parts.length !== 3) return null
+
+  const slot = Number(parts[1])
+
+  if (!Number.isInteger(slot) || slot < 0 || slot > 7 || !parts[0]) return null
+
+  const name = parts.length === 3 ? parts[2] : null
+
+  if (name !== null && !validPerson(name)) return null
+
+  return { code: parts[0], slot, name }
+}
+/* La cola guardada antes de las propuestas por persona apunta al documento antiguo, que ahora es de solo lectura,
+   y no dice quién la hizo: atribuirla a quien abra la página sería inventar un autor. Esas operaciones se descartan. */
+const namedOps = (ops) => (Array.isArray(ops) ? ops.filter((o) => o && validPerson(o.name)) : [])
+let activePerson = validPerson(LS('ssbu_person')) ? LS('ssbu_person') : null
+function getPerson() { return activePerson }
+function setPerson(name) {
+  const next = validPerson(name) ? name : null
+
+  if (activePerson === next) return next
+
+  activePerson = next
+  LS('ssbu_person', next)
+  render(true)
+
+  if (next && PEND.length) flush()
+
+  return next
+}
 const byCode = {}
 const idx = {}
 const legacyMap = {}
@@ -39,27 +75,121 @@ function buildData() {
 buildData()
 
 const confirmedPlan={},removedPlanAt={};
-function confirmPlan(key,vid,after,variant=null){
+function confirmPlan(key,vid,after,variant=null,name=null){
  if((PLAN[key]?.at||0)>after||(removedPlanAt[key]||0)>after)return;
- confirmedPlan[key]={vid,after,variant};if(vid)PLAN[key]={vid,variant};else delete PLAN[key];LS('ssbu_plan_cache',JSON.stringify(PLAN))}
+
+ const parsed=parseDocKey(key);
+ let person=validPerson(name)?name:null;
+
+ if(!person&&parsed)person=parsed.name;
+
+ confirmedPlan[key]={vid,after,variant,name:person};
+
+ if(vid)PLAN[key]={vid,variant,...(person?{name:person}:{})};
+ else delete PLAN[key];
+
+ LS('ssbu_plan_cache',JSON.stringify(PLAN))}
 function mergeChanges(m,changes){
  for(const c of changes)if(c.type==='removed')removedPlanAt[c.doc.id]=ts(c.doc.data().at)||0;
  for(const [key,a] of Object.entries(confirmedPlan)){
   const value=m[key],removed=changes.find(c=>c.doc.id===key&&c.type==='removed'),removedAt=removed?(ts(removed.doc.data().at)||0):null;
   if((value&&((value.vid===a.vid&&(value.variant||null)===(a.variant||null)&&value.at!==null&&value.at>=a.after)||(value.at||0)>a.after))||(removedAt!==null&&(a.vid===null?removedAt>=a.after:removedAt>a.after)))delete confirmedPlan[key];
-  else if(a.vid)m[key]={vid:a.vid,variant:a.variant||null};else delete m[key];
+  else if(a.vid)m[key]={vid:a.vid,variant:a.variant||null,...(a.name?{name:a.name}:{})};else delete m[key];
  }
 
  return m}
-let PEND=J('ssbu_pend3',[]);
+let PEND=namedOps(J('ssbu_pend3',[]));
+savePend();
 let HIST = []
 let STATUS = {}
 let lastAct = null
-function planVid(code,n){let v=(PLAN[keyOf(code,n)]||{}).vid||null;for(const o of PEND)if(o.code===code&&o.slot===n)v=o.to;return v}
-function planVariant(code,n){let v=(PLAN[keyOf(code,n)]||{}).variant||null;for(const o of PEND)if(o.code===code&&o.slot===n)v=o.to?(o.variant||null):null;return v}
-function planEntries(){const ks=new Set(Object.keys(PLAN));PEND.forEach(o=>ks.add(keyOf(o.code,o.slot)));const out=[];
- ks.forEach(k=>{const i=k.lastIndexOf('_'),code=k.slice(0,i),n=+k.slice(i+1),vid=planVid(code,n);if(vid&&byCode[code])out.push({code,n,vid,variant:planVariant(code,n)})});
- const ord=Object.keys(byCode);out.sort((a,b)=>ord.indexOf(a.code)-ord.indexOf(b.code)||a.n-b.n);return out}
+function proposalsAt(code,n){
+ const byAuthor=new Map();
+
+ Object.entries(PLAN).forEach(([k,val])=>{
+  const parsed=parseDocKey(k);
+
+  if(!parsed||parsed.code!==code||parsed.slot!==n||!val||!val.vid)return;
+
+  const author=parsed.name||(validPerson(val.name)?val.name:null);
+
+  byAuthor.set(author||'__legacy__',{key:k,code,n,vid:val.vid,variant:val.variant||null,name:author,by:val.by||null,at:val.at??null,unsent:false});
+ });
+
+ for(const o of PEND){
+  const opName=validPerson(o.name)?o.name:activePerson;
+
+  if(o.code!==code||o.slot!==n||!opName)continue;
+
+  if(o.to)byAuthor.set(opName,{key:docKey(code,n,opName),code,n,vid:o.to,variant:o.variant||null,name:opName,by:null,at:Date.now(),unsent:true});
+  else byAuthor.delete(opName);
+ }
+
+ const list=Array.from(byAuthor.values());
+
+ list.sort((a,b)=>{
+  const aMine=activePerson&&a.name===activePerson?1:0;
+  const bMine=activePerson&&b.name===activePerson?1:0;
+
+  if(aMine!==bMine)return bMine-aMine;
+
+  const aLeg=a.name===null?1:0;
+  const bLeg=b.name===null?1:0;
+
+  if((b.at||0)!==(a.at||0))return (b.at||0)-(a.at||0);
+  if(aLeg!==bLeg)return aLeg-bLeg;
+
+  return PEOPLE.indexOf(a.name)-PEOPLE.indexOf(b.name);
+ });
+
+ return list}
+function ownVid(code,n){
+ if(!activePerson)return null;
+
+ const hit=proposalsAt(code,n).find(x=>x.name===activePerson);
+
+ return hit?hit.vid:null}
+function ownVariant(code,n){
+ if(!activePerson)return null;
+
+ const hit=proposalsAt(code,n).find(x=>x.name===activePerson);
+
+ return hit?(hit.variant||null):null}
+function planVid(code,n){const first=proposalsAt(code,n)[0];return first?first.vid:null}
+function planVariant(code,n){const first=proposalsAt(code,n)[0];return first?(first.variant||null):null}
+function planEntries(){
+ const pairs=new Set();
+
+ Object.keys(PLAN).forEach(k=>{
+  const p=parseDocKey(k);
+
+  if(p&&byCode[p.code])pairs.add(p.code+'_'+p.slot);
+ });
+
+ PEND.forEach(o=>{
+  if(byCode[o.code]&&Number.isInteger(o.slot)&&o.slot>=0&&o.slot<=7)pairs.add(o.code+'_'+o.slot);
+ });
+
+ const out=[];
+
+ pairs.forEach(pair=>{
+  const i=pair.lastIndexOf('_');
+  const code=pair.slice(0,i);
+  const n=+pair.slice(i+1);
+
+  proposalsAt(code,n).forEach(r=>out.push(r));
+ });
+
+ const ord=Object.keys(byCode);
+ const rank=r=>(r.name===null?99:PEOPLE.indexOf(r.name));
+
+ out.sort((a,b)=>ord.indexOf(a.code)-ord.indexOf(b.code)||a.n-b.n||rank(a)-rank(b));
+
+ return out}
+function ownEntries(){
+ if(!activePerson)return [];
+
+ return planEntries().filter(r=>r.name===activePerson)}
 const META = globalThis.META
 const FBCFG=META.firebase||null;
 const EMU=location.hostname==='localhost'&&/[?&]fbemu/.test(location.search);   // solo pruebas con emuladores
@@ -126,40 +256,104 @@ function paintSaveErr(){const el=$('saveErr');if(!el)return;const show=syncKind=
 function fail(where,e){const k=diag(where,e);syncKind=k==='offline'?'offline':'service';if(dbState!=='ok')dbState='err';
  backoff=syncKind==='offline'?15000:Math.min(backoff*2,300000);nextTry=Date.now()+backoff;paintSync();return k}
 function good(){syncKind=null;dbState='ok';lastOkAt=Date.now();lastOk=new Date(lastOkAt).toISOString();backoff=15000;nextTry=0}
-async function flush(){if(flushing||!PEND.length)return;
+async function flush(){
+ if(flushing||!PEND.length)return;
+
  if(!FBCFG){// sin base de datos: el plan queda en este dispositivo
-  PEND.forEach(o=>{const k=keyOf(o.code,o.slot);if(o.to)PLAN[k]={vid:o.to,variant:o.variant||null};else delete PLAN[k]});PEND=[];savePend();LS('ssbu_plan_cache',JSON.stringify(PLAN));noteSaved(null);render(true);paintSync();return}
- if(!navigator.onLine){syncKind='offline';paintSync();return}
- flushing=true;paintSync();
- try{const f=await fb();const uid=f.auth.currentUser.uid;
-  while(PEND.length){const op=PEND[0];
-   const key=keyOf(op.code,op.slot);
+  PEND.forEach(o=>{
+   const opName=validPerson(o.name)?o.name:activePerson;
+
+   if(!opName)return;
+
+   const k=docKey(o.code,o.slot,opName);
+
+   if(o.to)PLAN[k]={vid:o.to,variant:o.variant||null,name:opName};
+   else delete PLAN[k];
+  });
+
+  PEND=[];
+  savePend();
+  LS('ssbu_plan_cache',JSON.stringify(PLAN));
+  noteSaved(null);
+  render(true);
+  paintSync();
+
+  return}
+
+ if(!navigator.onLine){
+  syncKind='offline';
+  paintSync();
+
+  return}
+
+ flushing=true;
+ paintSync();
+
+ try{
+  const f=await fb();
+  const uid=f.auth.currentUser.uid;
+
+  while(PEND.length){
+   const op=PEND[0];
+   const opName=validPerson(op.name)?op.name:activePerson;
+
+   if(!opName)break;
+
+   const key=docKey(op.code,op.slot,opName);
    let res;
-   try{res=await f.runTransaction(f.db,async tx=>{const ref=f.doc(f.db,'changes',key),s=await tx.get(ref),cur=s.exists()?s.data().vid:null,curVariant=s.exists()?(s.data().variant||null):null;
-    const observedAt=s.exists()?(ts(s.data().at)||0):(PLAN[key]?.at||removedPlanAt[key]||0);
-    if(cur===op.to&&curVariant===(op.variant||null))return {noop:true,observedAt};
-    if(cur!==op.exp||('expVariant' in op&&curVariant!==(op.expVariant||null)))return {conflict:true,cur,curVariant,observedAt};
-    const h=f.doc(f.collection(f.db,'history'));
-    if(op.to===null)tx.delete(ref);else tx.set(ref,{code:op.code,slot:op.slot,vid:op.to,...(op.variant?{variant:op.variant}:{}),by:uid,at:f.serverTimestamp()});
-    tx.set(h,{code:op.code,slot:op.slot,from:cur,to:op.to,...(curVariant?{from_variant:curVariant}:{}),...(op.variant?{variant:op.variant}:{}),kind:op.kind||(op.to===null?'clear':'set'),by:uid,at:f.serverTimestamp()});return {ok:true,observedAt}})}
+
+   try{
+    res=await f.runTransaction(f.db,async tx=>{
+     const ref=f.doc(f.db,'changes',key);
+     const s=await tx.get(ref);
+     const cur=s.exists()?s.data().vid:null;
+     const curVariant=s.exists()?(s.data().variant||null):null;
+     const observedAt=s.exists()?(ts(s.data().at)||0):(PLAN[key]?.at||removedPlanAt[key]||0);
+
+     if(cur===op.to&&curVariant===(op.variant||null))return {noop:true,observedAt};
+     if(cur!==op.exp||('expVariant' in op&&curVariant!==(op.expVariant||null)))return {conflict:true,cur,curVariant,observedAt};
+
+     const h=f.doc(f.collection(f.db,'history'));
+
+     if(op.to===null)tx.delete(ref);
+     else tx.set(ref,{code:op.code,slot:op.slot,vid:op.to,name:opName,...(op.variant?{variant:op.variant}:{}),by:uid,at:f.serverTimestamp()});
+
+     tx.set(h,{code:op.code,slot:op.slot,name:opName,from:cur,to:op.to,...(curVariant?{from_variant:curVariant}:{}),...(op.variant?{variant:op.variant}:{}),kind:op.kind||(op.to===null?'clear':'set'),by:uid,at:f.serverTimestamp()});
+
+     return {ok:true,observedAt}})}
    catch(e){ // las reglas rechazan una apariencia que ya no existe: ese cambio se descarta para no bloquear la cola.
              // Con una apariencia conocida, un rechazo apunta a configuración (reglas sin publicar): se conserva el cambio
-    if(classify(e)==='perm'&&op.to&&!idx[op.to]){PEND.shift();savePend();diag('descartado',e,{op:op.code+'_'+op.slot,to:op.to});toast('Un cambio ya no es válido y se descartó');continue}
+    if(classify(e)==='perm'&&op.to&&!idx[op.to]){
+     PEND.shift();
+     savePend();
+     diag('descartado',e,{op:op.code+'_'+op.slot,to:op.to});
+     toast('Un cambio ya no es válido y se descartó');
+
+     continue}
+
     throw e}
+
    // El commit puede resolverse antes del listener. El plan confirmado entra antes de soltar la cola,
    // así una instantánea vieja no borra la propuesta ni la revive al deshacer.
-   confirmPlan(key,res.conflict?res.cur:op.to,res.observedAt,res.conflict?res.curVariant:(op.variant||null));
-   PEND.shift();savePend();
+   confirmPlan(key,res.conflict?res.cur:op.to,res.observedAt,res.conflict?res.curVariant:(op.variant||null),opName);
+   PEND.shift();
+   savePend();
+
    if(!res.conflict)noteSaved(op);
    if(res.conflict)conflict(op,res.cur,res.curVariant);
+
    render(true)}
+
   good()
  }catch(e){fail('flush',e)}
- flushing=false;paintSync();render(true)}
+
+ flushing=false;
+ paintSync();
+ render(true)}
 // otra persona cambió ese traje mientras tanto: se conserva su opción y se ofrece repetir la mía
 function enqueue(op){PEND.push(op);savePend();paintSync();render(true);flush()}
 function conflict(op,cur,curVariant=null){const mine=op.to&&idx[op.to]?idx[op.to].p.name:null,theirs=cur&&idx[cur]?idx[cur].p.name:null;
- toast(`${trajeName(op.slot)}: ${theirs?'alguien eligió «'+theirs+'»':'alguien lo cambió'}. Se conservó su opción.`,mine?{label:'Usar la mía',fn:()=>enqueue({code:op.code,slot:op.slot,to:op.to,exp:cur,expVariant:curVariant,...(op.variant?{variant:op.variant}:{}),kind:'set'})}:null)}
+ toast(`${trajeName(op.slot)}: ${theirs?'alguien eligió «'+theirs+'»':'alguien lo cambió'}. Se conservó su opción.`,mine?{label:'Usar la mía',fn:()=>enqueue({code:op.code,slot:op.slot,name:op.name||activePerson,to:op.to,exp:cur,expVariant:curVariant,...(op.variant?{variant:op.variant}:{}),kind:'set'})}:null)}
 addEventListener('online',()=>{syncKind=syncKind==='offline'?null:syncKind;paintSync();flush();if(!_fb&&FBCFG)startDb()});addEventListener('offline',()=>{syncKind='offline';paintSync()});
 setInterval(()=>{if(PEND.length&&Date.now()>=nextTry)flush()},5000);
 /* --- catálogo, inventario, plan e historial en vivo --- */
@@ -181,10 +375,33 @@ async function startDb(){if(!FBCFG){paintSync();return}
   sub(f.doc(f.db,'meta','slot_plan'),s=>{metaSlots=s.exists()?s.data():null;applySlotPlan()});
   sub(f.collection(f.db,'slot_plan'),s=>{slotSnap=s;applySlotPlan()});
   sub(f.collection(f.db,'status'),s=>{STATUS={};s.forEach(d=>{const v=d.data();STATUS[v.vid||d.id]=v})});
-  sub(f.collection(f.db,'changes'),s=>{const m={};s.forEach(d=>{const v=d.data();m[d.id]={vid:v.vid,variant:v.variant||null,by:v.by,at:ts(v.at)}});const next=mergeChanges(m,s.docChanges());const same=stable(PLAN)===stable(next);PLAN=next;LS('ssbu_plan_cache',JSON.stringify(PLAN));
-   good();paintSync();if(!same)render(true);planLoaded=true;flush()});
+  sub(f.collection(f.db,'changes'),s=>{
+   const m={};
 
-  sub(f.query(f.collection(f.db,'history'),f.orderBy('at','desc'),f.limit(40)),s=>{HIST=[];s.forEach(d=>{const v=d.data();HIST.push({code:v.code,slot:v.slot,from:v.from,to:v.to,from_variant:v.from_variant||null,variant:v.variant||null,kind:v.kind,t:ts(v.at)})})})
+   s.forEach(d=>{
+    const parsed=parseDocKey(d.id);
+
+    if(!parsed)return;
+
+    const v=d.data();
+    const author=parsed.name||(validPerson(v.name)?v.name:null);
+
+    m[d.id]={vid:v.vid,variant:v.variant||null,name:author,by:v.by,at:ts(v.at)}});
+
+   const next=mergeChanges(m,s.docChanges());
+   const same=stable(PLAN)===stable(next);
+
+   PLAN=next;
+   LS('ssbu_plan_cache',JSON.stringify(PLAN));
+   good();
+   paintSync();
+
+   if(!same)render(true);
+
+   planLoaded=true;
+   flush()});
+
+  sub(f.query(f.collection(f.db,'history'),f.orderBy('at','desc'),f.limit(40)),s=>{HIST=[];s.forEach(d=>{const v=d.data();HIST.push({code:v.code,slot:v.slot,from:v.from,to:v.to,from_variant:v.from_variant||null,variant:v.variant||null,name:v.name||null,kind:v.kind,t:ts(v.at)})})})
   unsubs.push(f.onSnapshot(f.collection(f.db,'requests'),s=>readNotes(s),()=>{}))
  }catch(e){if(gen===dbGen)fail('inicio',e)}}
 let NOTES=[]
@@ -232,10 +449,11 @@ const state = {
   get DIAG() { return DIAG },
   get nextTry() { return nextTry },
   set nextTry(v) { nextTry = v },
+  get activePerson() { return activePerson },
   get lastAct() { return lastAct },
   set lastAct(v) { lastAct = v },
   get NOTES() { return NOTES },
   get SLOT_PLAN() { return SLOT_PLAN },
   get slotPlanReady() { return slotPlanReady },
 }
-export { bind, state, buildData, confirmPlan, mergeChanges, planVid, planVariant, planEntries, flush, startDb, paintSync, keyOf, stable, fb, fail, good, enqueue, savePend, classify, syncInfo, addNote, markNote }
+export { bind, state, buildData, confirmPlan, mergeChanges, planVid, planVariant, planEntries, proposalsAt, ownVid, ownVariant, ownEntries, docKey, parseDocKey, getPerson, setPerson, flush, startDb, paintSync, keyOf, stable, fb, fail, good, enqueue, savePend, classify, syncInfo, addNote, markNote }
