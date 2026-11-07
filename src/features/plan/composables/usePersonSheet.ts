@@ -22,7 +22,9 @@ export const usePersonSheet = (emit: UsePersonSheetEmits) => {
   }
 
   const focusInitial = () => {
-    const target = grid.value?.querySelector<HTMLElement>('.person-btn--on, .person-btn')
+    const target =
+      grid.value?.querySelector<HTMLElement>('.person-btn--on') ??
+      grid.value?.querySelector<HTMLElement>('.person-btn')
 
     target?.focus()
   }
