@@ -162,11 +162,17 @@ export const showNotice = (text: string, action?: NoticeAction | null, ms = 0) =
 
 export const dismissNotice = () => { notice.value = null }
 
-const chosenVariantOf = (entry: PlanRow): ChosenVariant => ({
-  id: entry.variant as string,
-  source_slot: (entry.variant as string).slice(-3),
-  destination_slot: 'c0' + entry.n,
-})
+const VARIANT_ID = /^.+:[0-9a-f]{8}:c0[0-7]$/
+
+const chosenVariantOf = (entry: PlanRow, variant: string | null | undefined): ChosenVariant | null => {
+  if (!variant || !VARIANT_ID.test(variant)) return null
+
+  return {
+    id: variant,
+    source_slot: variant.slice(-3),
+    destination_slot: 'c0' + entry.n,
+  }
+}
 
 export const exportPlan = () => {
   const meta = globalThis.META
@@ -219,7 +225,7 @@ export const exportPlan = () => {
           dest_hint: skin.dest || null,
           pack: skin.pack,
           withdrawn: !!skin.withdrawn,
-          chosen_variant: entry.variant ? chosenVariantOf(entry) : null,
+          chosen_variant: chosenVariantOf(entry, entry.variant),
         } : null,
         missing_in_catalog: !skin,
         vid: entry.vid,
