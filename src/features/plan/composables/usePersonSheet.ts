@@ -17,7 +17,7 @@ export const usePersonSheet = (emit: UsePersonSheetEmits) => {
     choosePerson(person)
   }
 
-  const onDialogUpdate = (nextOpen: boolean) => {
+  const onOpenChange = (nextOpen: boolean) => {
     if (!nextOpen) emit('close')
   }
 
@@ -35,7 +35,7 @@ export const usePersonSheet = (emit: UsePersonSheetEmits) => {
     people,
     activePerson,
     selectPerson,
-    onDialogUpdate,
+    onOpenChange,
     focusInitial,
   }
 }

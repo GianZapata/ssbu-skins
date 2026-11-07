@@ -1,43 +1,52 @@
 import { ref, watch } from 'vue'
 import { closedOverlay, ovDone, ovPush } from '../../../composables/useApp'
 
+export const isOpenFighterPick = ref(false)
+
 const focusOpener = () => {
   document.querySelector<HTMLElement>('[data-fighter-pick]')?.focus()
 }
 
-export const useFighterPick = () => {
-  const open = ref(false)
+export const openFighterPick = () => {
+  if (isOpenFighterPick.value) return
 
-  const show = () => {
-    if (open.value) return
+  isOpenFighterPick.value = true
+  ovPush('fighters')
+}
 
-    open.value = true
-    ovPush('fighters')
-  }
-
-  const hide = (then?: () => void) => {
-    if (!open.value) {
-      if (then) then()
-
-      return
-    }
-
-    open.value = false
-
-    if (ovDone('fighters', then)) return
-
+export const closeFighterPick = (then?: () => void) => {
+  if (!isOpenFighterPick.value) {
     if (then) then()
 
-    focusOpener()
+    return
   }
 
-  watch(closedOverlay, (id) => {
-    if (id !== 'fighters' || !open.value) return
+  isOpenFighterPick.value = false
 
-    closedOverlay.value = ''
-    open.value = false
-    focusOpener()
-  })
+  if (ovDone('fighters', then)) return
 
-  return { open, show, hide }
+  if (then) then()
+
+  focusOpener()
+}
+
+let bound = false
+
+export const useFighterPick = () => {
+  if (!bound) {
+    bound = true
+    watch(closedOverlay, (id) => {
+      if (id !== 'fighters' || !isOpenFighterPick.value) return
+
+      closedOverlay.value = ''
+      isOpenFighterPick.value = false
+      focusOpener()
+    })
+  }
+
+  return {
+    isOpenFighterPick,
+    openFighterPick,
+    closeFighterPick,
+  }
 }

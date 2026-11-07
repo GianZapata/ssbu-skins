@@ -1,7 +1,6 @@
 import { nextTick, ref } from 'vue'
 import type { Fighter, Skin } from '../../../boot'
 import { bump, fighterOf, S, scrollMem, route } from '../../../composables/useApp'
-import { hdrHidden } from '../../../composables/useReveal'
 import { openGallery } from '../../gallery/composables/useGallery'
 import { SSBU, type PlanRow } from '../../../shared/helpers/ssbu'
 import { curOf } from '../helpers/lookup'
@@ -65,7 +64,22 @@ interface StatusRecord {
   result?: string | null
 }
 
-const commitProposal = (person: PersonName, code: string, slot: number, vid: string, variant: string | null): boolean => {
+export interface SavedPulse {
+  code: string
+  slot: number
+  at: number
+}
+
+export const lastSavedPulse = ref<SavedPulse | null>(null)
+
+const commitProposal = (
+  person: PersonName,
+  code: string,
+  slot: number,
+  vid: string,
+  variant: string | null,
+  onCommitted?: () => void,
+): boolean => {
   const prev = ownVid(code, slot) as string | null
   const prevVariant = ownVariant(code, slot) as string | null
 
@@ -83,6 +97,8 @@ const commitProposal = (person: PersonName, code: string, slot: number, vid: str
   touched[docKey(code, slot, person)] = Date.now()
   touched[keyOf(code, slot)] = Date.now()
   enqueue(op)
+  lastSavedPulse.value = { code, slot, at: Date.now() }
+  onCommitted?.()
 
   return true
 }
@@ -93,16 +109,14 @@ export const proposeAt = (
   slot: number,
   vid: string,
   variant: string | null = null,
-  onSaved?: () => void,
+  onCommitted?: () => void,
 ): boolean => {
   if (!SSBU.validSlot(slot)) return false
 
   let saved = false
 
   const hasPerson = requirePerson((person) => {
-    saved = commitProposal(person, code, slot, vid, variant)
-
-    if (saved && onSaved) onSaved()
+    saved = commitProposal(person, code, slot, vid, variant, onCommitted)
   })
 
   if (!hasPerson) return false
@@ -190,7 +204,6 @@ export const showNotice = (text: string, action?: NoticeAction | null, ms = 0) =
 
   window.clearTimeout(noticeTimer)
   notice.value = current
-  hdrHidden.value = false
   bump()
 
   if (!ms) return

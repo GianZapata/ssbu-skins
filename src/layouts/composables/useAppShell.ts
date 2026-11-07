@@ -1,15 +1,20 @@
-import { computed, onMounted, watch } from 'vue'
-import { back, go, portraitOf, route, showBack, start, tick, titleOf } from '../../composables/useApp'
-import { hdrHidden, resetReveal, startReveal } from '../../composables/useReveal'
+import { computed, onMounted, ref, watch } from 'vue'
+import { back, fighterOf, go, onFighter, portraitOf, showBack, start, stepFighter, tick, titleOf, viewRoute } from '../../composables/useApp'
+import { useFighterPick } from '../../features/explore/composables/useFighterPick'
 import { activePerson, closePersonSheet, isOpenPerson, openPersonSheet } from '../../features/plan/composables/usePerson'
 import { bootPlan, countChosen, dismissNotice, notice, retrySync } from '../../features/plan/composables/usePlan'
 import { useSaveStatus } from '../../features/plan/saveStatus'
 
 export const useAppShell = () => {
+  const countPulse = ref(false)
+
   const { problem } = useSaveStatus()
+  const { isOpenFighterPick, openFighterPick, closeFighterPick } = useFighterPick()
 
   const title = computed(() => {
     tick.value
+
+    if (onFighter() && !showBack()) return fighterOf(viewRoute().code)?.name ?? titleOf()
 
     return titleOf()
   })
@@ -26,6 +31,12 @@ export const useAppShell = () => {
     return showBack()
   })
 
+  const isFighterHeader = computed(() => {
+    tick.value
+
+    return onFighter() && !showBack()
+  })
+
   const chosen = computed(() => {
     tick.value
 
@@ -40,6 +51,18 @@ export const useAppShell = () => {
     return 'Elegir persona'
   })
 
+  const prevFighter = () => {
+    stepFighter(-1)
+  }
+
+  const nextFighter = () => {
+    stepFighter(1)
+  }
+
+  const closePicker = () => {
+    closeFighterPick()
+  }
+
   const runNotice = () => {
     const current = notice.value
 
@@ -49,29 +72,38 @@ export const useAppShell = () => {
     if (current.fn) current.fn()
   }
 
-  watch(
-    () => route.value.v + ':' + route.value.code,
-    () => resetReveal(),
-  )
+  watch(chosen, (next, prev) => {
+    if (next === prev) return
+
+    countPulse.value = true
+    window.setTimeout(() => {
+      countPulse.value = false
+    }, 260)
+  })
 
   onMounted(() => {
     start()
-    startReveal()
     bootPlan()
   })
 
   return {
-    hdrHidden,
     problem,
     notice,
     title,
     portrait,
     canBack,
+    isFighterHeader,
     chosen,
+    countPulse,
     personMenuLabel,
     isOpenPerson,
+    isOpenFighterPick,
     back,
     go,
+    prevFighter,
+    nextFighter,
+    openFighterPick,
+    closePicker,
     retrySync,
     dismissNotice,
     openPersonSheet,

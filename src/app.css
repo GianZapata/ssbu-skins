@@ -139,7 +139,6 @@ input { caret-color: var(--color-pend); }
   color: var(--tx);
   border-bottom: 1px solid var(--bd);
   padding-top: var(--safe-top);
-  transition: transform 200ms var(--ease-out);
 }
 
 .app-frame { max-width: 1200px; margin: 0 auto; }
@@ -155,10 +154,17 @@ input { caret-color: var(--color-pend); }
 .sync-fail .q-btn.hdr-btn { min-height: 40px; padding: 0 12px; margin-left: auto; border: 1px solid var(--bd-active); border-radius: 8px; background: var(--s2); color: var(--tx) !important; font-size: 13px; }
 .sync-fail span, .notice span { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 
-@media (max-width: 1023px) {
-  .app-header--hide { transform: translateY(-100%); }
-  .app--hdr-hidden { --hdr-off: 0px; }
-}
+/* Selector de luchador: el nombre abre la lista; las flechas viajan al vecino. */
+.app-header__title:has(.fighter-trigger) { display: flex; justify-content: center; }
+.fighter-trigger { display: flex; align-items: center; gap: 8px; min-width: 0; max-width: 100%; min-height: 48px; padding: 0 8px; border: 0; border-radius: 12px; background: transparent; color: inherit; font: inherit; letter-spacing: inherit; cursor: pointer; }
+.fighter-trigger:hover { background: var(--s2); }
+.fighter-trigger__name { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; outline: 0; }
+.fighter-trigger__chev { flex: none; color: var(--tx-mu); }
+.app-header__face { display: flex; width: 32px; height: 32px; }
+.app-header__face img { width: 100%; height: 100%; }
+@keyframes hdr-pulse { 0% { transform: scale(1); } 40% { transform: scale(1.12); } 100% { transform: scale(1); } }
+.q-btn.hdr-btn--pulse { animation: hdr-pulse 260ms var(--ease-pop); }
+@media (prefers-reduced-motion: reduce) { .q-btn.hdr-btn--pulse { animation: none; } }
 
 /* ============================ Páginas y vacíos ============================ */
 .page { max-width: 1200px; margin: 0 auto; box-sizing: border-box; }
@@ -609,3 +615,44 @@ html:has(.cbar) { scroll-padding-top: 88px; }
 .person-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
 .person-btn { min-height: 52px; padding: 10px 16px; border: 1px solid var(--bd-active); border-radius: 12px; background: var(--s2); color: var(--tx); font-size: 17px; font-weight: 700; text-align: center; }
 .person-btn--on { border-color: var(--ac); background: var(--color-propuesta-bg); color: var(--color-propuesta); }
+
+/* ============================ Hojas inferiores (vaul-vue) ============================ */
+.vaul-overlay { position: fixed; inset: 0; z-index: 5999; background: rgba(0, 0, 0, 0.6); }
+.vaul-overlay--top { z-index: 6001; }
+.vaul-sheet { position: fixed; left: 0; right: 0; bottom: 0; z-index: 6000; box-sizing: border-box; display: flex; flex-direction: column; overflow: hidden; height: calc(100dvh - 96px); background: var(--s1); color: var(--tx); border-top: 1px solid var(--bd); border-radius: 16px 16px 0 0; outline: 0; }
+.vaul-sheet--top { z-index: 6002; }
+.vaul-sheet.sheet--person { height: auto; max-height: calc(100dvh - 96px); }
+
+/* ============================ Selector global de luchador ============================ */
+.pick-search { position: relative; flex: none; padding: 0 16px 12px; }
+.pick-search__input { width: 100%; height: 48px; box-sizing: border-box; padding: 0 48px 0 16px; border: 1px solid var(--bd); border-radius: 14px; background: var(--s2); color: var(--tx); font: inherit; font-size: 16px; }
+.pick-search__input::placeholder { color: var(--tx-mu); opacity: 1; }
+.pick-search__input:focus { outline: 2px solid var(--ac); outline-offset: 0; border-color: transparent; }
+.pick-search__input::-webkit-search-cancel-button { display: none; }
+.pick-search__clear { position: absolute; right: 16px; top: 0; width: 48px; height: 48px; border: 0; background: transparent; color: var(--tx-mu); font-size: 16px; cursor: pointer; }
+.pick-fighters { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; }
+.pick-tile { position: relative; display: flex; flex-direction: column; align-items: center; gap: 6px; min-width: 0; min-height: 48px; padding: 10px 6px 8px; border: 1px solid var(--bd); border-radius: 14px; background: var(--s2); color: var(--tx); font: inherit; text-align: center; cursor: pointer; }
+.pick-tile--on { border-color: var(--ac); }
+.pick-tile__face { position: relative; width: 44px; height: 44px; border-radius: 10px; background: var(--s3); }
+.pick-tile__face img { width: 100%; height: 100%; border-radius: 10px; object-fit: cover; }
+.pick-tile__dot { position: absolute; right: -3px; top: -3px; width: 10px; height: 10px; border-radius: 5px; background: var(--color-pend); box-shadow: 0 0 0 2px var(--s2); }
+.pick-tile__name { display: block; max-width: 100%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-size: 13px; line-height: 18px; font-weight: 600; }
+.pick-skins { display: flex; flex-direction: column; gap: 4px; }
+.pick-skins__h { margin: 0 0 4px; color: var(--tx-mu); font-size: 13px; line-height: 18px; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; }
+.pick-skin-row { display: flex; align-items: center; gap: 12px; min-height: 56px; padding: 4px 8px 4px 4px; border: 0; border-radius: 12px; background: transparent; color: var(--tx); font: inherit; text-align: left; cursor: pointer; }
+.pick-skin-row__thumb { flex: none; width: 48px; height: 48px; overflow: hidden; border-radius: 10px; background: var(--s3); }
+.pick-skin-row__txt { display: flex; flex-direction: column; min-width: 0; }
+.pick-skin-row__name { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-size: 15px; line-height: 20px; font-weight: 600; }
+.pick-skin-row__sub { color: var(--tx-mu); font-size: 13px; line-height: 18px; }
+@media (min-width: 480px) { .pick-fighters { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+@media (min-width: 1024px) {
+  .pick-fighters { grid-template-columns: repeat(5, minmax(0, 1fr)); }
+  .q-dialog__inner > .sheet.sheet--pick { height: min(720px, calc(100dvh - 64px)); }
+}
+@media (hover: hover) {
+  .pick-tile:hover, .pick-skin-row:hover { background: var(--s3); }
+}
+@media (min-width: 1024px) {
+  .app-header__title:has(.fighter-trigger) { flex: 0 1 auto; }
+  .app-header__bar > .icon-btn[data-person-opener] { margin-left: auto; }
+}
