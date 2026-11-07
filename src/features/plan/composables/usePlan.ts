@@ -54,16 +54,16 @@ interface StatusRecord {
   result?: string | null
 }
 
-interface SkinLookupEntry {
-  p: Skin
-}
-
 /** El botón del escenario guarda. La cuadrícula no llama aquí. */
 export const proposeAt = (code: string, slot: number, vid: string, variant: string | null = null) => {
   if (!SSBU.validSlot(slot)) return false
 
   const prev = planVid(code, slot) as string | null
   const prevVariant = planVariant(code, slot) as string | null
+
+  // Sin selector de variantes en la UI, repetir la misma skin no debe borrar la variante que eligió otra persona.
+  if (variant === null && vid === prev && prevVariant) return false
+
   const block = SSBU.assignBlock(planEntries(), code, slot, vid, variant)
 
   if (block.kind === 'duplicate' || block.kind === 'same' || block.kind === 'bad-slot') return false
@@ -84,18 +84,8 @@ export const clearAt = (code: string, slot: number) => {
 
   if (!op) return false
 
-  const skin = prev ? (state.idx as Record<string, SkinLookupEntry>)[prev]?.p : null
-  const label = skin ? skin.name : 'Elección'
-
   touched[keyOf(code, slot)] = Date.now()
   enqueue(op)
-  showNotice('Se quitó ' + label, {
-    label: 'Deshacer',
-    fn: () => {
-      dismissNotice()
-      proposeAt(code, slot, prev as string, prevVariant)
-    },
-  })
 
   return true
 }
@@ -200,7 +190,7 @@ export const exportPlan = () => {
     changes: entries.map((entry) => {
       const fighter = fighterOf(entry.code)
       const current = curOf(entry.code, entry.n)
-      const skin = (state.idx as Record<string, SkinLookupEntry>)[entry.vid]?.p
+      const skin = (state.idx as Record<string, { p: Skin }>)[entry.vid]?.p
       const row = status[entry.vid] || {}
       return {
         fighter: fighter ? fighter.name : entry.code,
