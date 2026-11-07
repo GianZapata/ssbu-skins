@@ -11,7 +11,10 @@
 #   python3 tools/db.py plan                              imprime la orden de Git (schema 4), no el borrador de Firestore
 #   python3 tools/db.py draft                             imprime el borrador de Firestore (schema 3: changes, history)
 #   python3 tools/db.py status VID installed|failed|skipped [--result TEXTO]   anota el resultado de una instalación
-#   python3 tools/db.py migrate                           pasa la selección anterior (selection/main) al plan compartido (idempotente)
+#   python3 tools/db.py migrate --person Gian             pasa la selección anterior (selection/main) al plan compartido, como propuestas de esa persona (idempotente)
+#   python3 tools/db.py legacy [--code C] [--slot N]      lista las propuestas antiguas changes/{luchador}_{traje} sin `name` (solo lee)
+#   python3 tools/db.py legacy --assign Gian --apply      las pasa a changes/{luchador}_{traje}_Gian y borra la antigua (no pisa una existente)
+#   python3 tools/db.py legacy --remove --apply           las borra. Sin --apply solo muestra qué haría
 #
 # Credenciales: GOOGLE_APPLICATION_CREDENTIALS apuntando al JSON de una cuenta de servicio del proyecto
 # (Configuración del proyecto → Cuentas de servicio → Generar clave privada). Para pruebas locales,
@@ -175,7 +178,7 @@ def set_status(db, vid, status, result):
     db.collection('status').document(vid).set({'vid': vid, 'status': status, 'result': result, 'updated_at': now().isoformat()})
     print('ok ·', vid, '→', status)
 
-def migrate(db):
+def migrate(db, person):
     """selection/main (modelo anterior: una lista por dueño con slot por skin) → un cambio por traje en `changes`.
     No pisa lo que ya haya propuesto alguien en ese traje. Las claves antiguas «luchador:mod» se traducen a identificadores de variante."""
     snap = db.collection('selection').document('main').get()
@@ -190,13 +193,39 @@ def migrate(db):
         code, slot = key.split(':')[0], v.get('slot'); vid = legacy.get(key)
         fi = next((x for x in fighters if x['code'] == code), None)
         if vid is None or slot is None or fi is None or fi.get('mii'): skipped += 1; continue
-        ref = db.collection('changes').document(f'{code}_{slot}')
+        ref = db.collection('changes').document(f'{code}_{slot}_{person}')
         if ref.get().exists: skipped += 1; continue
-        ref.set({'code': code, 'slot': int(slot), 'vid': vid, 'by': 'migracion', 'at': now()})
-        db.collection('history').add({'code': code, 'slot': int(slot), 'from': None, 'to': vid, 'kind': 'migrate', 'by': 'migracion', 'at': now()})
+        ref.set({'code': code, 'slot': int(slot), 'vid': vid, 'name': person, 'by': 'migracion', 'at': now()})
+        db.collection('history').add({'code': code, 'slot': int(slot), 'from': None, 'to': vid, 'name': person, 'kind': 'migrate', 'by': 'migracion', 'at': now()})
         done += 1
     db.collection('meta').document('plan').set({'migrated_at': now(), 'from': 'selection/main', 'migrated': done, 'skipped': skipped})
     print(f'ok · migrados {done} cambios; omitidos {skipped} (ya existían, sin traje o sin equivalente)')
+
+PEOPLE = ('Gian', 'Alan', 'Ches', 'Samu')
+
+def legacy(db, assign=None, remove=False, code=None, slot=None, apply=False):
+    """Propuestas antiguas changes/{code}_{slot} sin `name`: lista, asigna a una persona o borra. Dry-run salvo apply."""
+    docs = [d for d in db.collection('changes').stream() if not (d.to_dict() or {}).get('name')]
+    docs = [d for d in docs if (code is None or d.to_dict().get('code') == code) and (slot is None or d.to_dict().get('slot') == slot)]
+    docs.sort(key=lambda d: d.id)
+    if not assign and not remove:
+        for d in docs: print(f"{d.id} · vid {d.to_dict().get('vid')}")
+        print(f'{len(docs)} propuestas antiguas sin name'); return 0
+    done = skipped = 0
+    batch = db.batch()
+    for d in docs:
+        c = d.to_dict()
+        if remove:
+            print(('borra ' if apply else 'borraría ') + d.id)
+            batch.delete(d.reference); done += 1; continue
+        new = db.collection('changes').document(f"{c['code']}_{c['slot']}_{assign}")
+        if new.get().exists:
+            print(f'omite {d.id}: ya existe {new.id}'); skipped += 1; continue
+        print(('mueve ' if apply else 'movería ') + f'{d.id} → {new.id}')
+        batch.set(new, {**c, 'name': assign}); batch.delete(d.reference); done += 1
+    if apply: batch.commit()
+    print(f"{'hecho' if apply else 'dry-run (usa --apply para escribir)'} · {done} procesadas, {skipped} omitidas")
+    return 0
 
 if __name__ == '__main__':
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
@@ -204,7 +233,10 @@ if __name__ == '__main__':
     s = sp.add_parser('seed'); s.add_argument('--only', choices=['catalog', 'installed', 'all', 'drive', 'slots'], required=True, help='qué sincronizar; el inventario nunca se sincroniza sin pedirlo')
     s.add_argument('--dry-run', action='store_true', help='no escribe: muestra qué documentos se crean, cambian o borran')
     b = sp.add_parser('backup'); b.add_argument('--out', default=os.path.join(cd.R, 'data', 'plan_backup'))
-    sp.add_parser('plan'); sp.add_parser('draft'); sp.add_parser('migrate')
+    sp.add_parser('plan'); sp.add_parser('draft')
+    m = sp.add_parser('migrate'); m.add_argument('--person', choices=PEOPLE, required=True)
+    g = sp.add_parser('legacy'); g.add_argument('--assign', choices=PEOPLE); g.add_argument('--remove', action='store_true'); g.add_argument('--code'); g.add_argument('--slot', type=int)
+    g.add_argument('--apply', action='store_true'); g.add_argument('--dry-run', action='store_true', help='es el comportamiento por defecto')
     t = sp.add_parser('status'); t.add_argument('vid'); t.add_argument('status', choices=['installed', 'failed', 'skipped', 'wanted']); t.add_argument('--result')
     a = ap.parse_args()
     if a.cmd == 'plan':
@@ -215,5 +247,8 @@ if __name__ == '__main__':
         db = client()
         if a.cmd == 'seed': seed(db, a.only, a.dry_run)
         elif a.cmd == 'backup': backup(db, a.out)
-        elif a.cmd == 'migrate': migrate(db)
+        elif a.cmd == 'migrate': migrate(db, a.person)
+        elif a.cmd == 'legacy':
+            if a.assign and a.remove: ap.error('--assign y --remove son excluyentes')
+            legacy(db, a.assign, a.remove, a.code, a.slot, a.apply and not a.dry_run)
         else: set_status(db, a.vid, a.status, a.result)

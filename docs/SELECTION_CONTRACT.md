@@ -81,3 +81,13 @@ Cuando quieras instalar, no hace falta exportar a mano: **pídele a Claude «rev
 4. no instala ni modifica nada.
 
 Alternativas: `python3 tools/review_plan.py --source changes` (propuestas, API REST pública), `--source admin` (con credenciales o emulador) o `--source file exportacion.json` (la exportación de propuestas). Con `--strict` termina con código 1 si hay errores. La instalación sigue siendo manual y la hace quien tiene el ModPack, con el informe delante.
+
+## Propuestas antiguas sin persona
+
+Los documentos `changes/{luchador}_{traje}` anteriores no tienen `name`; la web los muestra como `Otros` y las reglas no dejan editarlos ni borrarlos. Quien mantiene el proyecto los gestiona con `tools/db.py legacy` (credenciales de administrador). Por defecto solo muestra qué haría; escribe únicamente con `--apply`:
+
+- `python3 tools/db.py legacy [--code 01] [--slot 2]`: lista las antiguas.
+- `python3 tools/db.py legacy --assign Gian --apply`: crea `changes/{luchador}_{traje}_Gian` con los mismos `vid`, `variant`, `by` y `at`, y borra la antigua, en un solo lote. Si ya existe el documento con nombre, avisa y la salta.
+- `python3 tools/db.py legacy --remove --apply`: las borra.
+
+`python3 tools/db.py migrate --person Gian` exige indicar la persona y crea `changes/{luchador}_{traje}_{persona}` con `name`.
