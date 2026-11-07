@@ -2,13 +2,14 @@
 import { QBtn, QPage, QSkeleton } from 'quasar'
 import { go } from '../composables/useApp'
 import CompareCards from '../features/fighters/components/CompareCards.vue'
+import CompareBar from '../features/fighters/components/CompareBar.vue'
 import CostumeGrid from '../features/fighters/components/CostumeGrid.vue'
 import PlacingBand from '../features/fighters/components/PlacingBand.vue'
 import SkinGrid from '../features/fighters/components/SkinGrid.vue'
 import { useFighterPage } from './composables/useFighterPage'
 import { state } from '../features/plan/services/sync'
 
-const { model, stage, preview, choice, placeLabel, placing, onlyDownloaded, pulse, pick, openDetail, openStage, commit, discard, clear, toggleDownloaded, focusSearch, selectSlot } = useFighterPage()
+const { model, stage, preview, choice, placeLabel, placing, onlyDownloaded, panel, barOn, pulse, pick, openDetail, openStage, zoomCell, zoomCurrent, step, commit, discard, clear, toggleDownloaded, focusSearch, selectSlot } = useFighterPage()
 </script>
 
 <template>
@@ -32,12 +33,13 @@ const { model, stage, preview, choice, placeLabel, placing, onlyDownloaded, puls
     <div v-else class="fighter-grid" :data-view="'fighter:' + model.code">
       <div class="fighter-left">
         <PlacingBand v-if="placing" :name="placing.name" :img="placing.img" @cancel="discard" />
-        <CostumeGrid :cells="model.cells" :pulse="pulse" :compact="model.withSlot" @select="selectSlot" @clear="clear" />
+        <CostumeGrid :cells="model.cells" :pulse="pulse" :compact="model.withSlot" @select="selectSlot" @clear="clear" @zoom="zoomCell" />
       </div>
-      <div class="fighter-panel">
-        <CompareCards :stage="stage" :preview="preview" :choice="choice" :place="placeLabel" @detail="openStage" @act="commit" @find="focusSearch" @discard="discard" />
+      <div ref="panel" class="fighter-panel">
+        <CompareCards :stage="stage" :preview="preview" :choice="choice" :place="placeLabel" @zoom-current="zoomCurrent" @zoom-new="openStage" @act="commit" @find="focusSearch" @discard="discard" @step="step" />
       </div>
       <div class="fighter-right">
+        <CompareBar v-if="barOn && stage" :stage="stage" :preview="preview" :choice="choice" @act="commit" />
         <SkinGrid :rows="model.rows" :total="model.total" :only-downloaded="onlyDownloaded" @pick="pick" @detail="openDetail" @toggle-downloaded="toggleDownloaded" />
       </div>
     </div>

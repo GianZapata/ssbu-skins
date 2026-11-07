@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { QIcon, QPage, QSkeleton } from 'quasar'
+import { QBtn, QIcon, QPage, QSkeleton } from 'quasar'
 import AppImg from '../components/AppImg.vue'
 import ExploreBar from '../features/explore/components/ExploreBar.vue'
 import FighterPickSheet from '../features/explore/components/FighterPickSheet.vue'
@@ -8,7 +8,7 @@ import { useGridDensity } from '../features/explore/composables/useGridDensity'
 import Destinations from '../features/fighters/components/Destinations.vue'
 import { catalogQuery, useCatalogPage } from './composables/useCatalogPage'
 
-const { loading, groups, skins, fighter, fighterCode, countLabel, hasFilters, picker, pickerTotal, viewSkin, selectFighter, clearFilters } = useCatalogPage()
+const { loading, groups, skins, fighter, fighterCode, countLabel, hasFilters, picker, pickerTotal, viewSkin, zoom, selectFighter, clearFilters } = useCatalogPage()
 const { compact, toggle } = useGridDensity()
 const { open, show, hide } = useFighterPick()
 
@@ -56,6 +56,9 @@ const choose = (code: string) => hide(() => selectFighter(code))
             </span>
             <span class="card__name">{{ skin.name }}</span>
           </button>
+          <q-btn flat round padding="0" class="card__more" :aria-label="'Ampliar imagen de ' + skin.name" @click="zoom(skin.vid)">
+            <span class="card__more-dot"><q-icon name="zoom_in" size="18px" aria-hidden="true" /></span>
+          </q-btn>
         </div>
       </div>
       <a class="explore-link" :href="'#/luchador/' + encodeURIComponent(fighter.code)">Ver trajes de {{ fighter.name }}</a>
@@ -76,6 +79,9 @@ const choose = (code: string) => hide(() => selectFighter(code))
               </span>
               <span class="card__name">{{ skin.name }}</span>
             </button>
+            <q-btn flat round padding="0" class="card__more" :aria-label="'Ampliar imagen de ' + skin.name" @click="zoom(skin.vid)">
+              <span class="card__more-dot"><q-icon name="zoom_in" size="18px" aria-hidden="true" /></span>
+            </q-btn>
           </div>
         </div>
       </section>

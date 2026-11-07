@@ -71,7 +71,7 @@ module.exports = async (b, base) => {
   await A.waitForSelector('[data-skin]');
   await A.locator('[data-skin]').first().click();
   const vid = await A.locator('[data-skin][aria-pressed="true"]').getAttribute('data-skin');
-  await A.locator('[aria-label^="Ampliar imagen de"]').first().click();
+  await A.locator('.card__more').first().click();
   await A.waitForSelector('.pswp--open', { timeout: 8000 });
   await A.waitForTimeout(800);
   await A.getByRole('button', { name: 'Cerrar' }).last().click();
@@ -111,8 +111,8 @@ module.exports = async (b, base) => {
   await A.keyboard.press('Escape');
 
   await A.goto(base + '#/luchador/01/1');
-  await A.waitForSelector('[aria-label^="Ampliar imagen de"]');
-  await A.locator('[aria-label^="Ampliar imagen de"]').first().click();
+  await A.waitForSelector('.card__more');
+  await A.locator('.card__more').first().click();
   await A.waitForSelector('.pswp', { timeout: 8000 });
   await A.waitForTimeout(800);
   await A.goBack();

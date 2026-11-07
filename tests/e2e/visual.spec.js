@@ -38,10 +38,20 @@ test('selector', async ({ page }) => {
 test('galeria', async ({ page }) => {
   await page.goto('/index.html#/luchador/01/1');
   await page.waitForSelector('[data-skin]');
-  await page.locator('[aria-label^="Ampliar imagen de"]').first().click();
+  await page.locator('.card__more').first().click();
   await page.waitForSelector('.pswp--open');
   await page.waitForFunction(() => { const i = document.querySelector('.pswp img.pswp__img'); return !!(i && i.complete && i.naturalWidth > 0); });
   await shot(page, 'galeria');
+});
+
+test('comparar-abajo', async ({ page }) => {
+  await page.goto('/index.html#/luchador/01/3');
+  await page.waitForSelector('[data-skin]');
+  await page.locator('[data-skin]').first().click();
+  await page.evaluate(() => window.scrollTo(0, 900));
+  await page.waitForSelector('.cbar');
+  await page.waitForFunction(() => [...document.querySelectorAll('.cbar img')].every(i => i.complete));
+  await shot(page, 'comparar-abajo');
 });
 
 test('comparar', async ({ page }) => {

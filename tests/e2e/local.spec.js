@@ -45,8 +45,8 @@ test('el catálogo compacto filtra por personaje y limpia sin perder el tamaño'
   expect(columns.split(' ').length).toBe(3);
   await page.getByRole('button', { name: 'Personaje: Todos los personajes' }).click();
   await page.getByRole('button', { name: /^Mario, \d+ apariencias/ }).click();
-  await expect(page.getByRole('button', { name: 'Tanooki Mario' })).toBeVisible();
-  await expect(page.getByRole('button', { name: 'Breath of the Wild Princess Zelda' })).toHaveCount(0);
+  await expect(page.getByRole('button', { name: 'Tanooki Mario', exact: true })).toBeVisible();
+  await expect(page.getByRole('button', { name: 'Breath of the Wild Princess Zelda', exact: true })).toHaveCount(0);
   await page.getByLabel('Buscar skin').fill('Tanooki');
   await expect(page.getByText('1 apariencia')).toBeVisible();
   const before = await page.evaluate(() => JSON.stringify(window.planEntries()));
@@ -59,7 +59,7 @@ test('el catálogo compacto filtra por personaje y limpia sin perder el tamaño'
 test('catálogo y notas están aparte, no hay Historial y las rutas viejas redirigen', async ({ page }) => {
   await page.setViewportSize({ width: 390, height: 844 });
   await page.goto('/#/catalogo');
-  await expect(page.getByRole('button', { name: 'Tanooki Mario' })).toBeVisible();
+  await expect(page.getByRole('button', { name: 'Tanooki Mario', exact: true })).toBeVisible();
   await expect(page.getByRole('button', { name: 'Instalar' })).toHaveCount(0);
   await expect(page.getByRole('button', { name: 'Historial' })).toHaveCount(0);
   await page.goto('/#/instaladas');
@@ -184,7 +184,7 @@ test('ampliar una imagen no cambia la candidata', async ({ page }) => {
   await page.waitForSelector('[data-skin]');
   await page.locator('[data-skin]').first().click();
   const vid = await page.locator('[data-skin][aria-pressed="true"]').getAttribute('data-skin');
-  await page.locator('[aria-label^="Ampliar imagen de"]').nth(1).click();
+  await page.locator('.card__more').nth(1).click();
   await expect(page.locator('.pswp')).toBeVisible();
   await page.waitForTimeout(800);
   await page.getByRole('button', { name: 'Cerrar' }).last().click();
@@ -195,7 +195,7 @@ test('ampliar una imagen no cambia la candidata', async ({ page }) => {
 test('el catálogo lleva al luchador con la skin y pide elegir traje sin escribir el plan', async ({ page }) => {
   await page.setViewportSize({ width: 390, height: 844 });
   await page.goto('/#/catalogo');
-  await page.getByRole('button', { name: 'Tanooki Mario' }).click();
+  await page.getByRole('button', { name: 'Tanooki Mario', exact: true }).click();
   const before = await page.evaluate(() => JSON.stringify(window.planEntries()));
   await expect(page).toHaveURL(/#\/luchador\/01\?skin=/);
   await expect(page.getByText('Elegir traje para')).toBeVisible();
@@ -280,7 +280,7 @@ test('cambiar el tamaño conserva la tarjeta visible', async ({ page }) => {
     return { key: card.getAttribute('data-keep') || '', top: card.getBoundingClientRect().top };
   });
   expect(before.key).not.toBe('');
-  await page.getByRole('button', { name: 'Ampliar' }).click();
+  await page.getByRole('button', { name: 'Ampliar', exact: true }).click();
   await expect.poll(() => page.evaluate(({ key, top }) => {
     const card = document.querySelector('[data-keep="' + key + '"]');
     if (!card) return 999;
@@ -311,7 +311,7 @@ test('recorrido: del luchador al traje, comparar, guardar y deshacer', async ({ 
 test('cancelar la candidata quita la skin de la ruta sin escribir el plan', async ({ page }) => {
   await page.setViewportSize({ width: 390, height: 844 });
   await page.goto('/#/catalogo');
-  await page.getByRole('button', { name: 'Tanooki Mario' }).click();
+  await page.getByRole('button', { name: 'Tanooki Mario', exact: true }).click();
   const before = await page.evaluate(() => JSON.stringify(window.planEntries()));
   await page.getByRole('button', { name: 'Cancelar' }).click();
   await expect(page).toHaveURL(/#\/luchador\/01$/);
@@ -370,4 +370,108 @@ test('Atrás vuelve de la comparación al luchador y de ahí a la lista en el mi
   await page.goBack();
   await expect(page).toHaveURL(/#\/luchadores/);
   await expect.poll(() => page.evaluate(() => window.scrollY)).toBeGreaterThan(Math.min(before, marked) - 200);
+});
+
+for (const width of [320, 360, 390, 430]) {
+  test('a ' + width + ' px los ocho trajes van en 2 columnas por 4 filas, sin desborde ni controles tapados', async ({ page }) => {
+    await page.setViewportSize({ width, height: 800 });
+    await page.goto('/#/luchador/04');
+    await page.waitForSelector('.cgrid .cell');
+    const grid = await page.evaluate(() => {
+      const cells = [...document.querySelectorAll('.cgrid .cell')];
+      const tops = new Set(cells.map((cell) => Math.round(cell.getBoundingClientRect().top)));
+      const lefts = new Set(cells.map((cell) => Math.round(cell.getBoundingClientRect().left)));
+      return { cells: cells.length, rows: tops.size, columns: lefts.size, overflow: document.documentElement.scrollWidth - innerWidth };
+    });
+    expect(grid).toEqual({ cells: 8, rows: 4, columns: 2, overflow: expect.any(Number) });
+    expect(grid.overflow).toBeLessThanOrEqual(1);
+    const bad = await page.evaluate(() => [...document.querySelectorAll('.cell__btn, .cell__zoom, .chip, .card__btn, .card__more')]
+      .filter((el) => el.getBoundingClientRect().width > 0)
+      .map((el) => {
+        const box = el.getBoundingClientRect();
+        const top = document.elementFromPoint(box.left + box.width / 2, box.top + box.height / 2);
+        const reachable = box.top + box.height / 2 > innerHeight || (top && (el === top || el.contains(top)));
+        return { label: el.getAttribute('aria-label') || el.textContent.trim().slice(0, 30), w: Math.round(box.width), h: Math.round(box.height), reachable: !!reachable };
+      })
+      .filter((item) => item.w < 44 || item.h < 44 || !item.reachable));
+    expect(bad).toEqual([]);
+  });
+}
+
+test('la lupa abre el visor sin cambiar de página y tocar la imagen elige', async ({ page }) => {
+  await page.setViewportSize({ width: 390, height: 844 });
+  await page.goto('/#/luchador/01');
+  await page.waitForSelector('.cgrid .cell');
+  await page.locator('[data-zoom-cell="2"]').click();
+  await expect(page.locator('.pswp')).toBeVisible();
+  await expect(page).toHaveURL(/#\/luchador\/01$/);
+  await page.waitForTimeout(800);
+  await page.goBack();
+  await expect(page.locator('.pswp')).toHaveCount(0);
+  await expect(page).toHaveURL(/#\/luchador\/01$/);
+  await page.locator('[data-slot="2"]').click();
+  await expect(page).toHaveURL(/#\/luchador\/01\/3$/);
+  await expect(page.locator('.pswp')).toHaveCount(0);
+});
+
+test('la lupa de una skin no la elige', async ({ page }) => {
+  await page.setViewportSize({ width: 390, height: 844 });
+  await page.goto('/#/luchador/01/3');
+  await page.waitForSelector('[data-skin]');
+  await page.locator('.card__more').nth(2).click();
+  await expect(page.locator('.pswp')).toBeVisible();
+  await expect(page.locator('[data-skin][aria-pressed="true"]')).toHaveCount(0);
+  await expect(page).toHaveURL(/#\/luchador\/01\/3$/);
+});
+
+test('el catálogo también amplía la imagen sin salir de la lista', async ({ page }) => {
+  await page.setViewportSize({ width: 390, height: 844 });
+  await page.goto('/#/catalogo');
+  await page.getByRole('button', { name: 'Ampliar imagen de Tanooki Mario' }).click();
+  await expect(page.locator('.pswp')).toBeVisible();
+  await expect(page).toHaveURL(/#\/catalogo$/);
+});
+
+test('el selector de traje avanza sin añadir historial y lleva la candidata', async ({ page }) => {
+  await page.setViewportSize({ width: 390, height: 844 });
+  await page.goto('/#/luchador/01/1');
+  await page.waitForSelector('[data-skin]');
+  await expect(page.getByRole('button', { name: 'Traje anterior' })).toBeDisabled();
+  await page.locator('[data-skin]').first().click();
+  const vid = await page.locator('[data-skin][aria-pressed="true"]').getAttribute('data-skin');
+  const depth = await page.evaluate(() => history.length);
+  await page.getByRole('button', { name: 'Traje siguiente' }).click();
+  await expect(page).toHaveURL(/#\/luchador\/01\/2\?skin=/);
+  await expect(page.getByText('Traje 2 de 8')).toBeVisible();
+  expect(await page.evaluate(() => history.length)).toBe(depth);
+  await expect(page.locator('[data-skin="' + vid + '"][aria-pressed="true"]')).toHaveCount(1);
+});
+
+test('al bajar queda fijo el resumen con el botón de guardar', async ({ page }) => {
+  await page.setViewportSize({ width: 390, height: 844 });
+  await page.goto('/#/luchador/01/3');
+  await page.waitForSelector('[data-skin]');
+  await expect(page.locator('.cbar')).toHaveCount(0);
+  await page.locator('[data-skin]').first().click();
+  await page.evaluate(() => window.scrollTo(0, 900));
+  await expect(page.locator('.cbar')).toBeVisible();
+  expect(await page.evaluate(() => getComputedStyle(document.documentElement).scrollPaddingTop)).toBe('88px');
+  const before = await page.evaluate(() => window.planEntries().length);
+  await page.locator('[data-bar-act]').click();
+  await expect.poll(() => page.evaluate(() => window.planEntries().length)).toBe(before + 1);
+});
+
+test('una imagen que no carga lo dice y se puede reintentar; sin retrato es otra cosa', async ({ page, context }) => {
+  const png = Buffer.from('iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNkYPhfDwAChwGA60e6kgAAAABJRU5ErkJggg==', 'base64');
+  let block = true;
+  await context.route(/res\.cloudinary\.com/, (route) => (block ? route.abort() : route.fulfill({ status: 200, contentType: 'image/png', body: png })));
+  await page.setViewportSize({ width: 390, height: 844 });
+  await page.goto('/#/luchador/01/3');
+  await expect(page.locator('.cmp__img--cur .app-img__ph--failed')).toContainText('No cargó la imagen');
+  block = false;
+  await page.locator('.cmp__img--cur').getByRole('button', { name: 'Reintentar' }).click();
+  await expect(page.locator('.cmp__img--cur .app-img__ph--failed')).toHaveCount(0);
+  await page.goto('/#/luchador/59/1');
+  await expect(page.locator('.cmp__img--cur .app-img__ph--missing .app-img__missing')).toHaveText('Sin retrato');
+  await expect(page.locator('.cmp__img--cur .app-img__ph--failed')).toHaveCount(0);
 });

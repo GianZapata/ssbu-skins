@@ -1,7 +1,8 @@
 import { computed, onBeforeUnmount, reactive, ref, watch } from 'vue'
+import { useOutOfView } from '../../composables/useOutOfView'
 import { fighterOf, hasSlot, selectSlot, setSkin, skinParam, S, tick, viewRoute } from '../../composables/useApp'
 import { commitStage } from '../../features/fighters/stage'
-import { clearAt, touched, zoomSkin } from '../../features/plan/composables/usePlan'
+import { clearAt, touched, zoomImage, zoomSkin } from '../../features/plan/composables/usePlan'
 import { curOf, isUnsent, skinOf, slotPlanOf } from '../../features/plan/helpers/lookup'
 import { keyOf, planEntries, planVid, state } from '../../features/plan/services/sync'
 import { PreviewSource } from '../../features/fighters/enums/PreviewSource'
@@ -66,6 +67,9 @@ export const useFighterPage = () => {
   const pulse = reactive<Record<number, PulseKind>>({})
 
   const onlyDownloaded = ref(false)
+  const panel = ref<HTMLElement | null>(null)
+
+  const panelOut = useOutOfView(panel)
 
   let timers: number[] = []
   let baseline = ''
@@ -236,6 +240,9 @@ export const useFighterPage = () => {
     return name + ' · ' + trajeName(model.value.slot)
   })
 
+  /** Con un traje abierto y la comparación ya fuera de pantalla, su resumen queda fijo arriba. */
+  const barOn = computed(() => panelOut.value && !!stage.value)
+
   /** Con una skin candidata y sin traje, la página pide el traje. */
   const placing = computed(() => {
     const skin = candidate.value
@@ -262,6 +269,24 @@ export const useFighterPage = () => {
     const shown = preview.value
 
     if (shown) openDetail(shown.vid)
+  }
+
+  const zoomCell = (n: number) => {
+    const cell = model.value.cells[n]
+
+    if (cell && cell.current.img) zoomImage(cell.label, cell.current.img)
+  }
+
+  const zoomCurrent = () => {
+    const current = stage.value
+
+    if (current && current.current.img) zoomImage(current.current.name || trajeName(current.n), current.current.img)
+  }
+
+  const step = (delta: number) => {
+    const next = model.value.slot + delta
+
+    if (model.value.withSlot && next >= 0 && next < SLOTS.length) selectSlot(next)
   }
 
   const commit = () => {
@@ -320,5 +345,5 @@ export const useFighterPage = () => {
     timers.forEach((id) => window.clearTimeout(id))
   })
 
-  return { model, stage, preview, choice, placeLabel, placing, onlyDownloaded, pulse, pick, openDetail, openStage, commit, discard, clear, toggleDownloaded, focusSearch, selectSlot }
+  return { model, stage, preview, choice, placeLabel, placing, onlyDownloaded, panel, barOn, pulse, pick, openDetail, openStage, zoomCell, zoomCurrent, step, commit, discard, clear, toggleDownloaded, focusSearch, selectSlot }
 }

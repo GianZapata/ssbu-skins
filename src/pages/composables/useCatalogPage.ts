@@ -2,6 +2,8 @@ import { computed, ref } from 'vue'
 import type { Fighter, Skin } from '../../boot'
 import { fighterOf, openSkin, swap, tick, viewRoute } from '../../composables/useApp'
 import type { PickerFighter } from '../../features/explore/composables/useFighterPickSheet'
+import { zoomSkin } from '../../features/plan/composables/usePlan'
+import { skinOf } from '../../features/plan/helpers/lookup'
 import { state } from '../../features/plan/services/sync'
 import { SSBU } from '../../shared/helpers/ssbu'
 import { coverOf } from '../../shared/helpers/skins'
@@ -130,6 +132,12 @@ export const useCatalogPage = () => {
     openSkin(code, vid)
   }
 
+  const zoom = (vid: string) => {
+    const skin = skinOf(vid)
+
+    if (skin) zoomSkin(skin, 0)
+  }
+
   const clearFilters = () => {
     catalogQuery.value = ''
     goFighter('')
@@ -147,6 +155,7 @@ export const useCatalogPage = () => {
     picker,
     pickerTotal,
     viewSkin,
+    zoom,
     selectFighter: goFighter,
     clearFilters,
   }

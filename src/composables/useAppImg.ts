@@ -14,16 +14,19 @@ export interface UseAppImgProps {
 
 export const useAppImg = (props: UseAppImgProps) => {
   const failed = ref(false)
+  const loaded = ref(false)
   const attempt = ref(0)
 
   const retryLoad = () => {
     failed.value = false
+    loaded.value = false
     attempt.value += 1
   }
 
   watch(() => props.src, () => {
     failed.value = false
+    loaded.value = false
   })
 
-  return { failed, attempt, retryLoad }
+  return { failed, loaded, attempt, retryLoad }
 }
