@@ -47,6 +47,8 @@ export interface Fighter {
   original_ref?: { costume?: string, verified?: boolean, source?: string, source_page?: string, scope?: string }
 }
 
+export type FamilyGroups = Record<string, number[][]>
+
 export interface BootMeta {
   generated?: string
   plan_updated_at?: string | null
@@ -54,6 +56,7 @@ export interface BootMeta {
   inventory: { meta?: Record<string, unknown>, fighters?: Record<string, { slots?: Record<string, Record<string, unknown>> }> } | null
   firebase: Record<string, string> | null
   embed?: boolean
+  families?: FamilyGroups
 }
 
 declare global {

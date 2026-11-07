@@ -269,3 +269,56 @@ test('variantes de un mismo mod: se pueden poner en trajes distintos, no repetir
   assert.equal(SSBU.assignBlock(withVariant, '01', 1, '01:a', '01:a:aaaaaaaa:c03').kind, 'duplicate');
   assert.equal(SSBU.assignBlock(withVariant, '01', 1, '01:a', '01:a:aaaaaaaa:c03').other, 0);
 });
+
+test('sameFamily y compatibleSlots respetan familias reales y habilitan los 8 cuando no hay datos', () => {
+  const families = JSON.parse(fs.readFileSync(new URL('../../data/families.json', import.meta.url), 'utf8'));
+  sandbox.META = { families };
+
+  assert.equal(SSBU.sameFamily('61', 0, 2), true);
+  assert.equal(SSBU.sameFamily('61', 0, 1), false);
+  assert.equal(SSBU.sameFamily('61', -1, 0), false);
+  assert.equal(SSBU.sameFamily('58', 0, 1), false);
+  assert.equal(SSBU.sameFamily('11', 0, 7), true);
+
+  assert.deepEqual(Array.from(SSBU.compatibleSlots('61', [1])), [1, 3, 5, 7]);
+  assert.deepEqual(Array.from(SSBU.compatibleSlots('61', [0, 1])), [0, 1, 2, 3, 4, 5, 6, 7]);
+  assert.deepEqual(Array.from(SSBU.compatibleSlots('78', [6])), [6, 7]);
+  assert.deepEqual(Array.from(SSBU.compatibleSlots('58', [3])), [3]);
+  assert.deepEqual(Array.from(SSBU.compatibleSlots('82', [1])), [1, 5]);
+  assert.deepEqual(Array.from(SSBU.compatibleSlots('61', [])), [0, 1, 2, 3, 4, 5, 6, 7]);
+  assert.deepEqual(Array.from(SSBU.compatibleSlots('61', null)), [0, 1, 2, 3, 4, 5, 6, 7]);
+});
+
+test('sourceSlotsOf prioriza variant sobre DriveAlt (1..8) y Skin.native (0..7)', () => {
+  const families = JSON.parse(fs.readFileSync(new URL('../../data/families.json', import.meta.url), 'utf8'));
+  sandbox.META = { families };
+
+  const fromVariant = SSBU.sourceSlotsOf({
+    variant: '61:123456:aaeedf35:c03',
+    alt: { any: true, slots: [1, 2, 3, 4, 5, 6, 7, 8] },
+    skin: { native: [0, 2, 4, 6] },
+  });
+  assert.deepEqual(Array.from(fromVariant), [3]);
+  assert.deepEqual(Array.from(SSBU.compatibleSlots('61', fromVariant)), [1, 3, 5, 7]);
+
+  const fromDriveSlots = SSBU.sourceSlotsOf({
+    variant: null,
+    alt: { any: false, slots: [2, 4] },
+    skin: { native: [] },
+  });
+  assert.deepEqual(Array.from(fromDriveSlots), [1, 3]);
+  assert.deepEqual(Array.from(SSBU.compatibleSlots('61', fromDriveSlots)), [1, 3, 5, 7]);
+
+  const fromDriveAny = SSBU.sourceSlotsOf({
+    alt: { any: true, slots: [1] },
+  });
+  assert.deepEqual(Array.from(fromDriveAny), [0, 1, 2, 3, 4, 5, 6, 7]);
+
+  const fromNative = SSBU.sourceSlotsOf({
+    skin: { native: [6] },
+  });
+  assert.deepEqual(Array.from(SSBU.compatibleSlots('49', fromNative)), [6, 7]);
+
+  assert.deepEqual(Array.from(SSBU.sourceSlotsOf({ skin: { native: [] } })), []);
+  assert.deepEqual(Array.from(SSBU.compatibleSlots('58', SSBU.sourceSlotsOf({ skin: { native: [] } }))), [0, 1, 2, 3, 4, 5, 6, 7]);
+});

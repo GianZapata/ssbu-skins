@@ -40,6 +40,64 @@ const SSBU = (() => {
     return Number.isInteger(n) && n >= 0 && n <= 7;
   }
 
+  const ALL_SLOTS = [0, 1, 2, 3, 4, 5, 6, 7];
+
+  function familiesOf(code, families) {
+    const map = families || (globalThis.META && globalThis.META.families) || {};
+    const groups = map[code];
+
+    return Array.isArray(groups) && groups.length ? groups : [ALL_SLOTS];
+  }
+
+  function sameFamily(code, from, to, families) {
+    if (!validSlot(from) || !validSlot(to)) return false;
+
+    return familiesOf(code, families).some((group) => group.includes(from) && group.includes(to));
+  }
+
+  function compatibleSlots(code, sourceSlots, families) {
+    if (!Array.isArray(sourceSlots)) return ALL_SLOTS.slice();
+
+    const valid = sourceSlots.filter(validSlot);
+
+    if (!valid.length) return ALL_SLOTS.slice();
+
+    const out = new Set();
+
+    familiesOf(code, families).forEach((group) => {
+      if (!valid.some((slot) => group.includes(slot))) return;
+
+      group.forEach((slot) => {
+        if (validSlot(slot)) out.add(slot);
+      });
+    });
+
+    return Array.from(out).sort((a, b) => a - b);
+  }
+
+  function sourceSlotsOf(input) {
+    const current = input || {};
+
+    if (typeof current.variant === 'string') {
+      const match = /:c0([0-7])$/.exec(current.variant);
+
+      if (match) return [Number(match[1])];
+    }
+
+    if (current.alt) {
+      if (current.alt.any) return ALL_SLOTS.slice();
+      if (Array.isArray(current.alt.slots) && current.alt.slots.length) {
+        return current.alt.slots.map((slot) => Number(slot) - 1).filter(validSlot);
+      }
+    }
+
+    if (current.skin && Array.isArray(current.skin.native) && current.skin.native.length) {
+      return current.skin.native.filter(validSlot);
+    }
+
+    return [];
+  }
+
   function planVid(code, n, ctx) {
     const plan = ctx.PLAN || {};
     const pend = ctx.PEND || [];
@@ -298,6 +356,7 @@ const SSBU = (() => {
 
   return {
     keyOf, norm, ONLINE, WIFI_KEYS, FILTER_KEYS, emptyCat, migrateCat, validSlot,
+    familiesOf, sameFamily, compatibleSlots, sourceSlotsOf,
     planVid, planVariant, planEntries, isAlt, onlineOf, catList, initials, originalArt, curOf,
     assignBlock, setOp, clearOp, withOp, stageChoice, seriesOf, seriesLabel, installFace,
   };
