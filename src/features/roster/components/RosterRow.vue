@@ -28,7 +28,7 @@ const props = defineProps<RosterRowProps>()
       </span>
       <span class="rrow__name">{{ props.row.fighter.name }}</span>
       <CostumeMeter :costumes="props.row.costumes" :label="props.row.meterLabel" />
-      <span class="rrow__own" aria-hidden="true">{{ props.row.own }}</span>
+      <span class="rrow__own" :class="{ 'rrow__own--none': props.row.own === 0 }" aria-hidden="true">{{ props.row.own }}</span>
       <span v-if="props.row.proposals" class="rrow__prop">{{ props.row.proposalsLabel }}</span>
     </a>
 

@@ -2,6 +2,7 @@
 import { QBtn, QIcon, QPage, QSkeleton } from 'quasar'
 import AppImg from '../components/AppImg.vue'
 import ExploreBar from '../features/explore/components/ExploreBar.vue'
+import CostumeMeter from '../features/roster/components/CostumeMeter.vue'
 import FighterPickSheet from '../features/explore/components/FighterPickSheet.vue'
 import { useFighterPick } from '../features/explore/composables/useFighterPick'
 import { useGridDensity } from '../features/explore/composables/useGridDensity'
@@ -68,6 +69,7 @@ const choose = (code: string) => hide(() => selectFighter(code))
         <button type="button" class="cgroup__head" :aria-label="'Ver solo las skins de ' + group.name + ', ' + group.skins.length" @click="selectFighter(group.id)">
           <span v-if="group.portrait" class="cgroup__face"><AppImg :src="group.portrait" fit="contain" /></span>
           <h2 class="cgroup__name">{{ group.name }}</h2>
+          <CostumeMeter :costumes="group.meter" :label="group.meterLabel" />
           <span class="cgroup__n">{{ group.skins.length }}</span>
         </button>
         <div class="sgrid" :class="{ 'sgrid--compact': compact, 'sgrid--large': !compact }">

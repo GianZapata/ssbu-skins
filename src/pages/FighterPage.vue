@@ -4,6 +4,7 @@ import { go } from '../composables/useApp'
 import CompareCards from '../features/fighters/components/CompareCards.vue'
 import CompareBar from '../features/fighters/components/CompareBar.vue'
 import CostumeGrid from '../features/fighters/components/CostumeGrid.vue'
+import CostumeMeter from '../features/roster/components/CostumeMeter.vue'
 import PlacingBand from '../features/fighters/components/PlacingBand.vue'
 import SkinGrid from '../features/fighters/components/SkinGrid.vue'
 import { useFighterPage } from './composables/useFighterPage'
@@ -32,6 +33,10 @@ const { model, stage, preview, choice, placeLabel, placing, onlyDownloaded, pane
 
     <div v-else class="fighter-grid" :data-view="'fighter:' + model.code">
       <div class="fighter-left">
+        <div class="fhead">
+          <CostumeMeter :costumes="model.meter" :label="model.meterLabel" />
+          <p class="fhead__txt">{{ model.summary }}</p>
+        </div>
         <PlacingBand v-if="placing" :name="placing.name" :img="placing.img" @cancel="discard" />
         <CostumeGrid :cells="model.cells" :pulse="pulse" :compact="model.withSlot" @select="selectSlot" @clear="clear" @zoom="zoomCell" />
       </div>

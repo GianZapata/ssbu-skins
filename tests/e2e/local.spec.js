@@ -475,3 +475,56 @@ test('una imagen que no carga lo dice y se puede reintentar; sin retrato es otra
   await expect(page.locator('.cmp__img--cur .app-img__ph--missing .app-img__missing')).toHaveText('Sin retrato');
   await expect(page.locator('.cmp__img--cur .app-img__ph--failed')).toHaveCount(0);
 });
+
+test('las flechas recorren los trajes por columnas, Inicio y Fin saltan y Enter elige', async ({ page }) => {
+  await page.setViewportSize({ width: 390, height: 844 });
+  await page.goto('/#/luchador/01');
+  await page.waitForSelector('.cgrid .cell__btn');
+  const slot = () => page.evaluate(() => document.activeElement && document.activeElement.getAttribute('data-slot'));
+  await page.locator('[data-slot="0"]').focus();
+  await page.keyboard.press('ArrowDown');
+  expect(await slot()).toBe('2');
+  await page.keyboard.press('ArrowRight');
+  expect(await slot()).toBe('3');
+  await page.keyboard.press('End');
+  expect(await slot()).toBe('7');
+  await page.keyboard.press('Home');
+  expect(await slot()).toBe('0');
+  await page.setViewportSize({ width: 1440, height: 900 });
+  await page.locator('[data-slot="0"]').focus();
+  await page.keyboard.press('ArrowDown');
+  expect(await slot()).toBe('4');
+  await page.keyboard.press('ArrowRight');
+  await page.keyboard.press('Enter');
+  await expect(page).toHaveURL(/#\/luchador\/01\/6$/);
+});
+
+test('cambios atrapa el foco, Esc lo cierra y la ruta vuelve', async ({ page }) => {
+  await page.setViewportSize({ width: 390, height: 844 });
+  await page.goto('/#/luchadores');
+  await page.getByRole('button', { name: /Ver cambios/ }).click();
+  const dialog = page.getByRole('dialog', { name: 'Cambios' });
+  await expect(dialog).toBeVisible();
+  await expect.poll(() => page.evaluate(() => !!(document.activeElement && document.activeElement.closest('.q-dialog__inner')))).toBe(true);
+  for (let step = 0; step < 6; step += 1) {
+    await page.keyboard.press('Tab');
+    expect(await page.evaluate(() => !!(document.activeElement && document.activeElement.closest('.sheet')))).toBe(true);
+  }
+  await page.keyboard.press('Escape');
+  await expect(dialog).toBeHidden();
+  await expect(page).toHaveURL(/#\/luchadores$/);
+});
+
+test('en la cuadrícula pequeña el estado de cada traje va por forma o texto, no solo por color', async ({ page }) => {
+  await page.setViewportSize({ width: 390, height: 844 });
+  await page.goto('/#/luchador/01/3');
+  await page.waitForSelector('.cgrid--compact .cell');
+  await page.evaluate(() => proposeAt('01', 4, byCode['01'].picks[0].vid));
+  const glyphs = await page.evaluate(() => [...document.querySelectorAll('.cgrid .cell')].map((cell) => ({
+    layer: cell.className.match(/cell--(profile|base|original)/)[1],
+    glyph: getComputedStyle(cell.querySelector('.cell__txt b'), '::before').content,
+  })));
+  for (const item of glyphs) expect(item.glyph).toBe({ profile: '"●"', base: '"◐"', original: '"○"' }[item.layer]);
+  await expect(page.locator('.cell--prop .cell__tag')).toHaveText(/Sin enviar|Propuesta/);
+  await expect(page.locator('.cell--prop .cell__btn')).toHaveAttribute('aria-label', /, (Sin enviar|Propuesta)$/);
+});
