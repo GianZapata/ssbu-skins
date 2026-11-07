@@ -22,10 +22,17 @@ export interface StageChoice {
   other: number | null
 }
 
+export interface AssignBlockResult {
+  kind: string
+  other?: number
+  currentVid?: string
+}
+
 export interface PlanRow {
   code: string
   n: number
   vid: string
+  variant?: string | null
 }
 
 export interface Current {
@@ -49,6 +56,8 @@ interface Op {
   slot: number
   to: string | null
   exp: string | null
+  variant?: string | null
+  expVariant?: string | null
   kind: string
 }
 
@@ -72,25 +81,36 @@ export interface InstallFace {
   install: InstallOrder | null
 }
 
+export interface CatListContext {
+  code: string
+}
+
+export interface CatEntry {
+  f: Fighter
+  p: Skin
+}
+
+export interface StageChoiceInput {
+  slot: number
+  vid: string | null
+  saved: string | null
+  elsewhere: number | null
+  withdrawn: boolean
+  mii: boolean
+  incompatible: boolean
+}
+
 export interface Domain {
   keyOf: (code: string, slot: number) => string
   validSlot: (slot: number) => boolean
   emptyCat: () => CatState
   migrateCat: (saved: unknown) => CatState
-  assignBlock: (entries: PlanRow[], code: string, slot: number, vid: string) => { kind: string, other?: number }
-  setOp: (code: string, slot: number, vid: string, prev: string | null) => Op | null
-  clearOp: (code: string, slot: number, prev: string | null) => Op | null
+  assignBlock: (entries: PlanRow[], code: string, slot: number, vid: string, variant?: string | null) => AssignBlockResult
+  setOp: (code: string, slot: number, vid: string, prev: string | null, variant?: string | null, prevVariant?: string | null) => Op | null
+  clearOp: (code: string, slot: number, prev: string | null, prevVariant?: string | null) => Op | null
   curOf: (code: string, slot: number, ctx: unknown) => Current | null
-  catList: (rows: unknown[], ctx: { code: string } | null, st: CatState) => Array<{ f: Fighter, p: Skin }>
-  stageChoice: (input: {
-    slot: number
-    vid: string | null
-    saved: string | null
-    elsewhere: number | null
-    withdrawn: boolean
-    mii: boolean
-    incompatible: boolean
-  }) => StageChoice
+  catList: (rows: unknown[], ctx: CatListContext | null, st: CatState) => CatEntry[]
+  stageChoice: (input: StageChoiceInput) => StageChoice
   seriesOf: (code: string) => string
   seriesLabel: (id: string) => string
   isAlt: (skin: Skin) => boolean

@@ -164,3 +164,21 @@ test('a newer remote deletion delivered before our acknowledgment remains delete
   )) });
   await h.flush(); acknowledged(h, null);
 });
+
+test('replacing one variant with another of the same mod preserves the chosen variant and detects remote variant conflicts', async () => {
+  const h = harness({ current: 'A', readAt: 1, commitAt: 2 });
+  h.resolveReadFrom({ code: '82', slot: 0, vid: 'A', variant: 'A:11111111:c00', by: 'fixture-user', at: timestamp(1) });
+  h.state.PLAN[key] = { vid: 'A', variant: 'A:11111111:c00', at: 1, by: 'fixture-user' };
+  h.state.PEND = [{ code: '82', slot: 0, to: 'A', exp: 'A', expVariant: 'A:11111111:c00', variant: 'A:11111111:c03', kind: 'set' }];
+  await h.flush();
+  acknowledged(h, 'A');
+  assert.equal(h.state.planVariant('82', 0), 'A:11111111:c03');
+
+  let conflicted = false;
+  h.state.conflict = () => { conflicted = true; };
+  h.resolveReadFrom({ code: '82', slot: 0, vid: 'A', variant: 'A:11111111:c05', by: 'other', at: timestamp(3) });
+  h.state.PEND.push({ code: '82', slot: 0, to: 'A', exp: 'A', expVariant: 'A:11111111:c03', variant: 'A:11111111:c07', kind: 'set' });
+  await h.flush();
+  assert.equal(conflicted, true);
+  assert.equal(h.state.planVariant('82', 0), 'A:11111111:c05');
+});

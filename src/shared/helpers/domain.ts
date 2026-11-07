@@ -234,28 +234,41 @@ const SSBU = (() => {
     return { kind: 'use', label: 'Guardar propuesta', line, other: null };
   }
 
-  function assignBlock(entries, code, slot, vid) {
+  const sameLook = (e, vid, variant) =>
+    e.vid === vid && (!variant || !e.variant || e.variant === variant);
+
+  function assignBlock(entries, code, slot, vid, variant) {
     if (!validSlot(slot)) return { kind: 'bad-slot' };
-    const dup = (entries || []).find(e => e.code === code && e.vid === vid && e.n !== slot);
+
+    const dup = (entries || []).find(e => e.code === code && e.n !== slot && sameLook(e, vid, variant));
 
     if (dup) return { kind: 'duplicate', other: dup.n };
 
     const cur = (entries || []).find(e => e.code === code && e.n === slot);
 
-    if (cur && cur.vid === vid) return { kind: 'same' };
+    if (cur && cur.vid === vid && (cur.variant || null) === (variant || null)) return { kind: 'same' };
     if (cur) return { kind: 'replace', currentVid: cur.vid };
     return { kind: 'free' };
   }
 
-  function setOp(code, n, vid, prev) {
+  function setOp(code, n, vid, prev, variant, prevVariant) {
     if (!validSlot(n)) return null;
-    if (prev === vid) return null;
-    return { code, slot: n, to: vid, exp: prev, kind: 'set' };
+    if (prev === vid && (variant || null) === (prevVariant || null)) return null;
+
+    const op = { code, slot: n, to: vid, exp: prev, kind: 'set' };
+
+    if (variant) op.variant = variant;
+    if (prevVariant) op.expVariant = prevVariant;
+    return op;
   }
 
-  function clearOp(code, n, prev) {
+  function clearOp(code, n, prev, prevVariant) {
     if (!validSlot(n) || !prev) return null;
-    return { code, slot: n, to: null, exp: prev, kind: 'clear' };
+
+    const op = { code, slot: n, to: null, exp: prev, kind: 'clear' };
+
+    if (prevVariant) op.expVariant = prevVariant;
+    return op;
   }
 
   function withOp(pend, op) {

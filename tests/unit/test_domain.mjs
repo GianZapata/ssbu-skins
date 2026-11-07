@@ -245,3 +245,18 @@ test('installFace: un mod aprobado es la orden', () => {
   assert.equal(face.install.name, 'Pikadorf')
   assert.equal(face.install.vid, '23:406732')
 })
+
+test('variantes de un mismo mod: se pueden poner en trajes distintos, no repetir la misma', () => {
+  const entries = [{ code: '01', n: 0, vid: '01:a', variant: '01:a:aaaaaaaa:c00' }];
+  assert.equal(SSBU.assignBlock(entries, '01', 1, '01:a', '01:a:aaaaaaaa:c03').kind, 'free');
+  assert.equal(SSBU.assignBlock(entries, '01', 1, '01:a', '01:a:aaaaaaaa:c00').kind, 'duplicate');
+  assert.equal(SSBU.assignBlock(entries, '01', 0, '01:a', '01:a:aaaaaaaa:c00').kind, 'same');
+  assert.equal(SSBU.assignBlock(entries, '01', 0, '01:a', '01:a:aaaaaaaa:c03').kind, 'replace');
+  assert.equal(SSBU.setOp('01', 0, '01:a', '01:a', '01:a:aaaaaaaa:c00', '01:a:aaaaaaaa:c00'), null);
+  const op = SSBU.setOp('01', 0, '01:a', '01:a', '01:a:aaaaaaaa:c03', '01:a:aaaaaaaa:c00');
+  assert.equal(op.variant, '01:a:aaaaaaaa:c03');
+  assert.equal(op.expVariant, '01:a:aaaaaaaa:c00');
+  const cl = SSBU.clearOp('01', 0, '01:a', '01:a:aaaaaaaa:c03');
+  assert.equal(cl.expVariant, '01:a:aaaaaaaa:c03');
+  assert.equal('variant' in SSBU.setOp('01', 1, '01:b', null), false);
+});

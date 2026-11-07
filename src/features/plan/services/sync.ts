@@ -39,24 +39,26 @@ function buildData() {
 buildData()
 
 const confirmedPlan={},removedPlanAt={};
-function confirmPlan(key,vid,after){
+function confirmPlan(key,vid,after,variant=null){
  if((PLAN[key]?.at||0)>after||(removedPlanAt[key]||0)>after)return;
- confirmedPlan[key]={vid,after};if(vid)PLAN[key]={vid};else delete PLAN[key];LS('ssbu_plan_cache',JSON.stringify(PLAN))}
+ confirmedPlan[key]={vid,after,variant};if(vid)PLAN[key]={vid,variant};else delete PLAN[key];LS('ssbu_plan_cache',JSON.stringify(PLAN))}
 function mergeChanges(m,changes){
  for(const c of changes)if(c.type==='removed')removedPlanAt[c.doc.id]=ts(c.doc.data().at)||0;
  for(const [key,a] of Object.entries(confirmedPlan)){
   const value=m[key],removed=changes.find(c=>c.doc.id===key&&c.type==='removed'),removedAt=removed?(ts(removed.doc.data().at)||0):null;
-  if((value&&((value.vid===a.vid&&value.at!==null&&value.at>=a.after)||(value.at||0)>a.after))||(removedAt!==null&&(a.vid===null?removedAt>=a.after:removedAt>a.after)))delete confirmedPlan[key];
-  else if(a.vid)m[key]={vid:a.vid};else delete m[key];
+  if((value&&((value.vid===a.vid&&(value.variant||null)===(a.variant||null)&&value.at!==null&&value.at>=a.after)||(value.at||0)>a.after))||(removedAt!==null&&(a.vid===null?removedAt>=a.after:removedAt>a.after)))delete confirmedPlan[key];
+  else if(a.vid)m[key]={vid:a.vid,variant:a.variant||null};else delete m[key];
  }
+
  return m}
 let PEND=J('ssbu_pend3',[]);
 let HIST = []
 let STATUS = {}
 let lastAct = null
 function planVid(code,n){let v=(PLAN[keyOf(code,n)]||{}).vid||null;for(const o of PEND)if(o.code===code&&o.slot===n)v=o.to;return v}
+function planVariant(code,n){let v=(PLAN[keyOf(code,n)]||{}).variant||null;for(const o of PEND)if(o.code===code&&o.slot===n)v=o.to?(o.variant||null):null;return v}
 function planEntries(){const ks=new Set(Object.keys(PLAN));PEND.forEach(o=>ks.add(keyOf(o.code,o.slot)));const out=[];
- ks.forEach(k=>{const i=k.lastIndexOf('_'),code=k.slice(0,i),n=+k.slice(i+1),vid=planVid(code,n);if(vid&&byCode[code])out.push({code,n,vid})});
+ ks.forEach(k=>{const i=k.lastIndexOf('_'),code=k.slice(0,i),n=+k.slice(i+1),vid=planVid(code,n);if(vid&&byCode[code])out.push({code,n,vid,variant:planVariant(code,n)})});
  const ord=Object.keys(byCode);out.sort((a,b)=>ord.indexOf(a.code)-ord.indexOf(b.code)||a.n-b.n);return out}
 const META = globalThis.META
 const FBCFG=META.firebase||null;
@@ -126,38 +128,38 @@ function fail(where,e){const k=diag(where,e);syncKind=k==='offline'?'offline':'s
 function good(){syncKind=null;dbState='ok';lastOkAt=Date.now();lastOk=new Date(lastOkAt).toISOString();backoff=15000;nextTry=0}
 async function flush(){if(flushing||!PEND.length)return;
  if(!FBCFG){// sin base de datos: el plan queda en este dispositivo
-  PEND.forEach(o=>{const k=keyOf(o.code,o.slot);if(o.to)PLAN[k]={vid:o.to};else delete PLAN[k]});PEND=[];savePend();LS('ssbu_plan_cache',JSON.stringify(PLAN));noteSaved(null);render(true);paintSync();return}
+  PEND.forEach(o=>{const k=keyOf(o.code,o.slot);if(o.to)PLAN[k]={vid:o.to,variant:o.variant||null};else delete PLAN[k]});PEND=[];savePend();LS('ssbu_plan_cache',JSON.stringify(PLAN));noteSaved(null);render(true);paintSync();return}
  if(!navigator.onLine){syncKind='offline';paintSync();return}
  flushing=true;paintSync();
  try{const f=await fb();const uid=f.auth.currentUser.uid;
   while(PEND.length){const op=PEND[0];
    const key=keyOf(op.code,op.slot);
    let res;
-   try{res=await f.runTransaction(f.db,async tx=>{const ref=f.doc(f.db,'changes',key),s=await tx.get(ref),cur=s.exists()?s.data().vid:null;
+   try{res=await f.runTransaction(f.db,async tx=>{const ref=f.doc(f.db,'changes',key),s=await tx.get(ref),cur=s.exists()?s.data().vid:null,curVariant=s.exists()?(s.data().variant||null):null;
     const observedAt=s.exists()?(ts(s.data().at)||0):(PLAN[key]?.at||removedPlanAt[key]||0);
-    if(cur===op.to)return {noop:true,observedAt};
-    if(cur!==op.exp)return {conflict:true,cur,observedAt};
+    if(cur===op.to&&curVariant===(op.variant||null))return {noop:true,observedAt};
+    if(cur!==op.exp||('expVariant' in op&&curVariant!==(op.expVariant||null)))return {conflict:true,cur,curVariant,observedAt};
     const h=f.doc(f.collection(f.db,'history'));
-    if(op.to===null)tx.delete(ref);else tx.set(ref,{code:op.code,slot:op.slot,vid:op.to,by:uid,at:f.serverTimestamp()});
-    tx.set(h,{code:op.code,slot:op.slot,from:cur,to:op.to,kind:op.kind||(op.to===null?'clear':'set'),by:uid,at:f.serverTimestamp()});return {ok:true,observedAt}})}
+    if(op.to===null)tx.delete(ref);else tx.set(ref,{code:op.code,slot:op.slot,vid:op.to,...(op.variant?{variant:op.variant}:{}),by:uid,at:f.serverTimestamp()});
+    tx.set(h,{code:op.code,slot:op.slot,from:cur,to:op.to,...(curVariant?{from_variant:curVariant}:{}),...(op.variant?{variant:op.variant}:{}),kind:op.kind||(op.to===null?'clear':'set'),by:uid,at:f.serverTimestamp()});return {ok:true,observedAt}})}
    catch(e){ // las reglas rechazan una apariencia que ya no existe: ese cambio se descarta para no bloquear la cola.
              // Con una apariencia conocida, un rechazo apunta a configuración (reglas sin publicar): se conserva el cambio
     if(classify(e)==='perm'&&op.to&&!idx[op.to]){PEND.shift();savePend();diag('descartado',e,{op:op.code+'_'+op.slot,to:op.to});toast('Un cambio ya no es válido y se descartó');continue}
     throw e}
    // El commit puede resolverse antes del listener. El plan confirmado entra antes de soltar la cola,
    // así una instantánea vieja no borra la propuesta ni la revive al deshacer.
-   confirmPlan(key,res.conflict?res.cur:op.to,res.observedAt);
+   confirmPlan(key,res.conflict?res.cur:op.to,res.observedAt,res.conflict?res.curVariant:(op.variant||null));
    PEND.shift();savePend();
    if(!res.conflict)noteSaved(op);
-   if(res.conflict)conflict(op,res.cur);
+   if(res.conflict)conflict(op,res.cur,res.curVariant);
    render(true)}
   good()
  }catch(e){fail('flush',e)}
  flushing=false;paintSync();render(true)}
 // otra persona cambió ese traje mientras tanto: se conserva su opción y se ofrece repetir la mía
 function enqueue(op){PEND.push(op);savePend();paintSync();render(true);flush()}
-function conflict(op,cur){const mine=op.to&&idx[op.to]?idx[op.to].p.name:null,theirs=cur&&idx[cur]?idx[cur].p.name:null;
- toast(`${trajeName(op.slot)}: ${theirs?'alguien eligió «'+theirs+'»':'alguien lo cambió'}. Se conservó su opción.`,mine?{label:'Usar la mía',fn:()=>enqueue({code:op.code,slot:op.slot,to:op.to,exp:cur,kind:'set'})}:null)}
+function conflict(op,cur,curVariant=null){const mine=op.to&&idx[op.to]?idx[op.to].p.name:null,theirs=cur&&idx[cur]?idx[cur].p.name:null;
+ toast(`${trajeName(op.slot)}: ${theirs?'alguien eligió «'+theirs+'»':'alguien lo cambió'}. Se conservó su opción.`,mine?{label:'Usar la mía',fn:()=>enqueue({code:op.code,slot:op.slot,to:op.to,exp:cur,expVariant:curVariant,...(op.variant?{variant:op.variant}:{}),kind:'set'})}:null)}
 addEventListener('online',()=>{syncKind=syncKind==='offline'?null:syncKind;paintSync();flush();if(!_fb&&FBCFG)startDb()});addEventListener('offline',()=>{syncKind='offline';paintSync()});
 setInterval(()=>{if(PEND.length&&Date.now()>=nextTry)flush()},5000);
 /* --- catálogo, inventario, plan e historial en vivo --- */
@@ -179,10 +181,10 @@ async function startDb(){if(!FBCFG){paintSync();return}
   sub(f.doc(f.db,'meta','slot_plan'),s=>{metaSlots=s.exists()?s.data():null;applySlotPlan()});
   sub(f.collection(f.db,'slot_plan'),s=>{slotSnap=s;applySlotPlan()});
   sub(f.collection(f.db,'status'),s=>{STATUS={};s.forEach(d=>{const v=d.data();STATUS[v.vid||d.id]=v})});
-  sub(f.collection(f.db,'changes'),s=>{const m={};s.forEach(d=>{const v=d.data();m[d.id]={vid:v.vid,by:v.by,at:ts(v.at)}});const next=mergeChanges(m,s.docChanges());const same=stable(PLAN)===stable(next);PLAN=next;LS('ssbu_plan_cache',JSON.stringify(PLAN));
+  sub(f.collection(f.db,'changes'),s=>{const m={};s.forEach(d=>{const v=d.data();m[d.id]={vid:v.vid,variant:v.variant||null,by:v.by,at:ts(v.at)}});const next=mergeChanges(m,s.docChanges());const same=stable(PLAN)===stable(next);PLAN=next;LS('ssbu_plan_cache',JSON.stringify(PLAN));
    good();paintSync();if(!same)render(true);planLoaded=true;flush()});
 
-  sub(f.query(f.collection(f.db,'history'),f.orderBy('at','desc'),f.limit(40)),s=>{HIST=[];s.forEach(d=>{const v=d.data();HIST.push({code:v.code,slot:v.slot,from:v.from,to:v.to,kind:v.kind,t:ts(v.at)})})})
+  sub(f.query(f.collection(f.db,'history'),f.orderBy('at','desc'),f.limit(40)),s=>{HIST=[];s.forEach(d=>{const v=d.data();HIST.push({code:v.code,slot:v.slot,from:v.from,to:v.to,from_variant:v.from_variant||null,variant:v.variant||null,kind:v.kind,t:ts(v.at)})})})
   unsubs.push(f.onSnapshot(f.collection(f.db,'requests'),s=>readNotes(s),()=>{}))
  }catch(e){if(gen===dbGen)fail('inicio',e)}}
 let NOTES=[]
@@ -236,4 +238,4 @@ const state = {
   get SLOT_PLAN() { return SLOT_PLAN },
   get slotPlanReady() { return slotPlanReady },
 }
-export { bind, state, buildData, confirmPlan, mergeChanges, planVid, planEntries, flush, startDb, paintSync, keyOf, stable, fb, fail, good, enqueue, savePend, classify, syncInfo, addNote, markNote }
+export { bind, state, buildData, confirmPlan, mergeChanges, planVid, planVariant, planEntries, flush, startDb, paintSync, keyOf, stable, fb, fail, good, enqueue, savePend, classify, syncInfo, addNote, markNote }
