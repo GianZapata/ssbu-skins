@@ -1,0 +1,39 @@
+{
+ "archives": [
+  {
+   "inspected": true,
+   "kind": "original",
+   "md5": "d6916d12563e60070fe0ad2b8e464312",
+   "path": "original/marioinawheelchair_e965b.zip",
+   "shared_files": 0,
+   "shared_sample": [],
+   "variants": [
+    {
+     "color": 2,
+     "content_sha256": "a375d275414c9298d77f2b71b059b8b42115f7e143e2c7870eff70446c72a231",
+     "duplicate_of": null,
+     "files_count": 29,
+     "has_model": true,
+     "portrait": "b8f112b30ebf843fbee66442fc161b824686a2d1493b53b749ee148401ab3557",
+     "portrait_source": "MarioInAWheelchair/ui/replace/chara/chara_0/chara_0_mario_02.bntx",
+     "slot": "c02",
+     "variant_id": "01:324701:d6916d12:c02"
+    },
+    {
+     "color": 3,
+     "content_sha256": "24435431f3616537e75513b7c134294e26823bae0ba03d358716e3be66b5e62e",
+     "duplicate_of": null,
+     "files_count": 29,
+     "has_model": true,
+     "portrait": "1d18f519841f37f87dbce16bac9161b9cc491a8fdc38c44a19b2f2cbfac26292",
+     "portrait_source": "MarioInAWheelchair/ui/replace/chara/chara_0/chara_0_mario_03.bntx",
+     "slot": "c03",
+     "variant_id": "01:324701:d6916d12:c03"
+    }
+   ]
+  }
+ ],
+ "code": "01",
+ "folder": "mario/324701_wheelchair_mario",
+ "mod_id": 324701
+}

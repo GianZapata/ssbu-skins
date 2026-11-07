@@ -1,0 +1,111 @@
+{
+ "archives": [
+  {
+   "inspected": true,
+   "kind": "original",
+   "md5": "f6f50302e99ecf39ba429a11a7e2ccf3",
+   "path": "original/goku_over_ken_c00-c07_.rar",
+   "shared_files": 5,
+   "shared_sample": [
+    "Goku over Ken (c00-c07)/Preview.webp",
+    "Goku over Ken (c00-c07)/config.json",
+    "Goku over Ken (c00-c07)/info.toml",
+    "Goku over Ken (c00-c07)/sound/bank/fighter_voice/vc_ken_c00 - Copy.nus3audio",
+    "Goku over Ken (c00-c07)/ui/message/msg_name.xmsbt"
+   ],
+   "variants": [
+    {
+     "color": 0,
+     "content_sha256": "cb672b34eb4e6c3ddc9e05b6aeaf70961949391d3fbf55091f0eebea2fcfe9ab",
+     "duplicate_of": null,
+     "files_count": 36,
+     "has_model": true,
+     "portrait": "1deae480b5143aac11063dc8ce0f3ec26ebc775d55efc1afc91abf2d747ed814",
+     "portrait_source": "Goku over Ken (c00-c07)/ui/replace/chara/chara_0/chara_0_ken_00.bntx",
+     "slot": "c00",
+     "variant_id": "60ε:498005:f6f50302:c00"
+    },
+    {
+     "color": 1,
+     "content_sha256": "a8b1099171e5216211aa76b9129b82392ef68f1c16df7099572759c7c9fbb096",
+     "duplicate_of": null,
+     "files_count": 35,
+     "has_model": true,
+     "portrait": "a0cbcd4e4627b419d8350af7e5176f797fd1a1370e5f87b80120ab19c4b331d7",
+     "portrait_source": "Goku over Ken (c00-c07)/ui/replace/chara/chara_0/chara_0_ken_01.bntx",
+     "slot": "c01",
+     "variant_id": "60ε:498005:f6f50302:c01"
+    },
+    {
+     "color": 2,
+     "content_sha256": "673d7a215e5802bfbd5f275bdd67c6aa0b2c712a974e122768e6fb28329d5490",
+     "duplicate_of": null,
+     "files_count": 36,
+     "has_model": true,
+     "portrait": "056e34b618ff0c3553aa976663069c3ba0ac33b6d91274d1e10d353ff89eee54",
+     "portrait_source": "Goku over Ken (c00-c07)/ui/replace/chara/chara_0/chara_0_ken_02.bntx",
+     "slot": "c02",
+     "variant_id": "60ε:498005:f6f50302:c02"
+    },
+    {
+     "color": 3,
+     "content_sha256": "3a1e9173fa906cec3423b5edebecfa6d0f182d3e8c91b69c72979e7a013134fd",
+     "duplicate_of": null,
+     "files_count": 35,
+     "has_model": true,
+     "portrait": "e9c75ec1d41a343c053a5c221236eef4890e9c53642b79786c89622f5aacf0b2",
+     "portrait_source": "Goku over Ken (c00-c07)/ui/replace/chara/chara_0/chara_0_ken_03.bntx",
+     "slot": "c03",
+     "variant_id": "60ε:498005:f6f50302:c03"
+    },
+    {
+     "color": 4,
+     "content_sha256": "6688b4cf9f65345d7efff20483e1ecb988ee3eab412ef274073439c044b49c34",
+     "duplicate_of": null,
+     "files_count": 35,
+     "has_model": true,
+     "portrait": "c0830352d59fe8c9fc0e334c52c9514464163597f08729caf7c9fbb3653f299d",
+     "portrait_source": "Goku over Ken (c00-c07)/ui/replace/chara/chara_0/chara_0_ken_04.bntx",
+     "slot": "c04",
+     "variant_id": "60ε:498005:f6f50302:c04"
+    },
+    {
+     "color": 5,
+     "content_sha256": "c6f9ac5f9b22c892ab09196d4511ba60f887cba74a83d4cc6c08b86d5a896704",
+     "duplicate_of": null,
+     "files_count": 35,
+     "has_model": true,
+     "portrait": "9c1ff7649a4b0c79adf9d196e4cda141e4354c009647b5acee40769cf5c655b3",
+     "portrait_source": "Goku over Ken (c00-c07)/ui/replace/chara/chara_0/chara_0_ken_05.bntx",
+     "slot": "c05",
+     "variant_id": "60ε:498005:f6f50302:c05"
+    },
+    {
+     "color": 6,
+     "content_sha256": "7469e172c51203a652efb8defbaae364ab257459cbd95417078e34fcf055cc16",
+     "duplicate_of": null,
+     "files_count": 35,
+     "has_model": true,
+     "portrait": "4db2b66166d813c5426c4637bef2d6e4c51c6f3871b9c6de4261d870f30a752f",
+     "portrait_source": "Goku over Ken (c00-c07)/ui/replace/chara/chara_0/chara_0_ken_06.bntx",
+     "slot": "c06",
+     "variant_id": "60ε:498005:f6f50302:c06"
+    },
+    {
+     "color": 7,
+     "content_sha256": "bb8cb255ca40ad3ebf5d15f34df134fce37290adbfb2ba0ee06268070a079959",
+     "duplicate_of": null,
+     "files_count": 35,
+     "has_model": true,
+     "portrait": "98d243062125b9e103c1ecaf6a9ee92ffcada60ecd352b98bfec1912803433cb",
+     "portrait_source": "Goku over Ken (c00-c07)/ui/replace/chara/chara_0/chara_0_ken_07.bntx",
+     "slot": "c07",
+     "variant_id": "60ε:498005:f6f50302:c07"
+    }
+   ]
+  }
+ ],
+ "code": "60ε",
+ "folder": "ken/498005_goku",
+ "mod_id": 498005
+}

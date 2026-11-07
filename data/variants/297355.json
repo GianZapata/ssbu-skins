@@ -1,0 +1,42 @@
+{
+ "archives": [
+  {
+   "inspected": true,
+   "kind": "original",
+   "md5": "7bfa1f5bdc8629e03a2325808f7aa8e8",
+   "path": "original/princess_rob.zip",
+   "shared_files": 2,
+   "shared_sample": [
+    "Princess R.O.B/ui/replace/chara/chara_1/desktop.ini",
+    "Princess R.O.B/ui/replace/chara/chara_3/desktop.ini"
+   ],
+   "variants": [
+    {
+     "color": 0,
+     "content_sha256": "9b5d36395a7b219e215b16b5b3822e13386bb55277e925b3447a9a13742de9d6",
+     "duplicate_of": null,
+     "files_count": 18,
+     "has_model": true,
+     "portrait": "1397bdf65721063ad4222508de5a08e6912f14c80e7637fd90e6222c1b677124",
+     "portrait_source": "Princess R.O.B/ui/replace/chara/chara_1/chara_1_robot_00.bntx",
+     "slot": "c00",
+     "variant_id": "42:297355:7bfa1f5b:c00"
+    },
+    {
+     "color": 1,
+     "content_sha256": "eead06d2bbe5d1bb0eb7fb12689c1495afab2dc5b54838f6d58cb586fa4e042b",
+     "duplicate_of": null,
+     "files_count": 22,
+     "has_model": true,
+     "portrait": "26016662e56793e43417b80b60ac483262400f20a153473cc290493e783f5c65",
+     "portrait_source": "Princess R.O.B/ui/replace/chara/chara_0/chara_0_robot_01.bntx",
+     "slot": "c01",
+     "variant_id": "42:297355:7bfa1f5b:c01"
+    }
+   ]
+  }
+ ],
+ "code": "42",
+ "folder": "rob/297355_Princess_R.O.B._Pack",
+ "mod_id": 297355
+}

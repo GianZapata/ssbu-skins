@@ -1,0 +1,183 @@
+{
+ "archives": [
+  {
+   "inspected": true,
+   "kind": "original",
+   "md5": "75b1ae78d41511ec993a857144c9c667",
+   "path": "original/chara_7_dixie_00.zip",
+   "shared_files": 0,
+   "shared_sample": [],
+   "variants": [
+    {
+     "color": 0,
+     "content_sha256": "07d2e8085d230e1cc50c42e0a09b8be9f3917e3f0849cb168ef416a57e0e3593",
+     "duplicate_of": null,
+     "files_count": 1,
+     "has_model": false,
+     "portrait": "8208fa858592672f685bf97048a001f34eb01cdc85cfade80f85fadb36c6b2b3",
+     "portrait_source": "chara_7_dixie_00.bntx",
+     "slot": "c00",
+     "variant_id": "36:328629:75b1ae78:c00"
+    }
+   ]
+  },
+  {
+   "inspected": true,
+   "kind": "original",
+   "md5": "75bdc261b13c17faa010ca3a286392f4",
+   "path": "original/diddykong_codds_dixie_362d5.zip",
+   "shared_files": 22,
+   "shared_sample": [
+    "DiddyKong_cODDS_Dixie/fighter/diddy/model/body/c08/barreljet_body_col.nutexb",
+    "DiddyKong_cODDS_Dixie/fighter/diddy/model/body/c08/def_diddy_001_col.nutexb",
+    "DiddyKong_cODDS_Dixie/fighter/diddy/model/body/c08/def_diddy_001_nor.nutexb",
+    "DiddyKong_cODDS_Dixie/fighter/diddy/model/body/c08/def_diddy_001_prm.nutexb",
+    "DiddyKong_cODDS_Dixie/fighter/diddy/model/body/c08/deyes_eye_diddy_ouch_wd_col.nutexb",
+    "DiddyKong_cODDS_Dixie/fighter/diddy/model/body/c08/diddy_head_shadow_col.nutexb",
+    "DiddyKong_cODDS_Dixie/fighter/diddy/model/body/c08/eye_diddy_003_col.nutexb",
+    "DiddyKong_cODDS_Dixie/fighter/diddy/model/body/c08/eye_diddy_down_col.nutexb",
+    "DiddyKong_cODDS_Dixie/fighter/diddy/model/body/c08/eye_diddy_ouch_col.nutexb",
+    "DiddyKong_cODDS_Dixie/fighter/diddy/model/body/c08/eye_diddy_ouch_eye_col.nutexb"
+   ],
+   "variants": [
+    {
+     "color": 1,
+     "content_sha256": "11545adac95d3e7b5b894f29ddbc0737d023e25a5e408983b856d611722847f6",
+     "duplicate_of": null,
+     "files_count": 39,
+     "has_model": true,
+     "portrait": "7377d36c8ca18df13da3cd3eb19fd68686a02de63d027fccc2ed37a4073202e2",
+     "portrait_source": "DiddyKong_cODDS_Dixie/ui/replace/chara/chara_0/chara_0_diddy_01.bntx",
+     "slot": "c01",
+     "variant_id": "36:328629:75bdc261:c01"
+    },
+    {
+     "color": 3,
+     "content_sha256": "6ee2cc12498f1596daeca512128ab34d77a8845aa29eca3b45f70a6a5d324ee1",
+     "duplicate_of": null,
+     "files_count": 39,
+     "has_model": true,
+     "portrait": "74833756430cd54c8a8059ecc61389d60c101b6d6e03f71d5e30d524cbd05a11",
+     "portrait_source": "DiddyKong_cODDS_Dixie/ui/replace/chara/chara_0/chara_0_diddy_03.bntx",
+     "slot": "c03",
+     "variant_id": "36:328629:75bdc261:c03"
+    },
+    {
+     "color": 5,
+     "content_sha256": "93aaa72d3299e5e3183431546c150600a06cb9d7725557ac739636981602e0d6",
+     "duplicate_of": null,
+     "files_count": 39,
+     "has_model": true,
+     "portrait": "1b95d6efbb419a25ebc37f81d9ae088c8e80bae3792597d16253f0a293c1cdbb",
+     "portrait_source": "DiddyKong_cODDS_Dixie/ui/replace/chara/chara_0/chara_0_diddy_05.bntx",
+     "slot": "c05",
+     "variant_id": "36:328629:75bdc261:c05"
+    },
+    {
+     "color": 7,
+     "content_sha256": "ffaca94352f8b9356d372cadc4657cc44b51af5421342d7ebd91cf93fbf91413",
+     "duplicate_of": null,
+     "files_count": 39,
+     "has_model": true,
+     "portrait": "40bdf2a337eb3f7c8ff0bca0d752d14ee1a573e3f92318b80eaf47265779b945",
+     "portrait_source": "DiddyKong_cODDS_Dixie/ui/replace/chara/chara_0/chara_0_diddy_07.bntx",
+     "slot": "c07",
+     "variant_id": "36:328629:75bdc261:c07"
+    }
+   ]
+  },
+  {
+   "inspected": true,
+   "kind": "original",
+   "md5": "99325a3a6d6560fee80e5dc3634c9ba8",
+   "path": "original/diddykong_codds_dixieextraeffects.zip",
+   "shared_files": 3,
+   "shared_sample": [
+    "DiddyKong_cODDS_DixieExtraEffects/effect/fighter/diddy/ef_diddy.eff",
+    "DiddyKong_cODDS_DixieExtraEffects/ui/message/msg_name+us_en.msbt",
+    "DiddyKong_cODDS_DixieExtraEffects/ui/param/database/ui_chara_db.prc"
+   ],
+   "variants": [
+    {
+     "color": 0,
+     "content_sha256": "5b1c8239609484a41005cda1dc33f5a861e344a236eb43de966b75d412a4fe2e",
+     "duplicate_of": null,
+     "files_count": 6,
+     "has_model": true,
+     "portrait": null,
+     "portrait_source": null,
+     "slot": "c00",
+     "variant_id": "36:328629:99325a3a:c00"
+    },
+    {
+     "color": 1,
+     "content_sha256": "5b1c8239609484a41005cda1dc33f5a861e344a236eb43de966b75d412a4fe2e",
+     "duplicate_of": "c00",
+     "files_count": 6,
+     "has_model": true,
+     "portrait": null,
+     "portrait_source": null,
+     "slot": "c01",
+     "variant_id": "36:328629:99325a3a:c01"
+    },
+    {
+     "color": 3,
+     "content_sha256": "5b1c8239609484a41005cda1dc33f5a861e344a236eb43de966b75d412a4fe2e",
+     "duplicate_of": "c00",
+     "files_count": 6,
+     "has_model": true,
+     "portrait": null,
+     "portrait_source": null,
+     "slot": "c03",
+     "variant_id": "36:328629:99325a3a:c03"
+    },
+    {
+     "color": 5,
+     "content_sha256": "5b1c8239609484a41005cda1dc33f5a861e344a236eb43de966b75d412a4fe2e",
+     "duplicate_of": "c00",
+     "files_count": 6,
+     "has_model": true,
+     "portrait": null,
+     "portrait_source": null,
+     "slot": "c05",
+     "variant_id": "36:328629:99325a3a:c05"
+    },
+    {
+     "color": 7,
+     "content_sha256": "5b1c8239609484a41005cda1dc33f5a861e344a236eb43de966b75d412a4fe2e",
+     "duplicate_of": "c00",
+     "files_count": 6,
+     "has_model": true,
+     "portrait": null,
+     "portrait_source": null,
+     "slot": "c07",
+     "variant_id": "36:328629:99325a3a:c07"
+    }
+   ]
+  },
+  {
+   "inspected": true,
+   "kind": "original",
+   "md5": "bdc41a15eda3f2539215ab1e6577527b",
+   "path": "original/dixie_kong_black_ui.zip",
+   "shared_files": 0,
+   "shared_sample": [],
+   "variants": [
+    {
+     "color": 7,
+     "content_sha256": "bb171494f65025815f0e578aea6fc1b760e4bbc76e4716c4743ff1429def8f6d",
+     "duplicate_of": null,
+     "files_count": 6,
+     "has_model": false,
+     "portrait": "f6f48752783c83ea559eff75937795b3ff11819b21bbd9cf2623fbcd9ddea448",
+     "portrait_source": "Dixie Kong Black UI/ui/replace/chara/chara_0/chara_0_diddy_07.bntx",
+     "slot": "c07",
+     "variant_id": "36:328629:bdc41a15:c07"
+    }
+   ]
+  }
+ ],
+ "code": "36",
+ "folder": "diddy/328629_Dixie_Kong",
+ "mod_id": 328629
+}

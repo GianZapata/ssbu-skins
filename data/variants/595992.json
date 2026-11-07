@@ -1,0 +1,86 @@
+{
+ "archives": [
+  {
+   "inspected": true,
+   "kind": "original",
+   "md5": "cd677c9891c9066d8d8f9bb2a548a718",
+   "path": "original/dkbananza_smashstyle.rar",
+   "shared_files": 1,
+   "shared_sample": [
+    "DkBananza SmashStyle/config.json"
+   ],
+   "variants": [
+    {
+     "color": 0,
+     "content_sha256": "6494dcc2e07a3a9cc810b3f76a3df58dc885dc07f71601c6f3cec9f4cc18f5f5",
+     "duplicate_of": null,
+     "files_count": 46,
+     "has_model": true,
+     "portrait": "bd8543a69083c78d398081d6df48fa22afae8406c51f6458f234c0936ccca8c4",
+     "portrait_source": "DkBananza SmashStyle/ui/replace/chara/chara_0/chara_0_donkey_00.bntx",
+     "slot": "c00",
+     "variant_id": "02:595992:cd677c98:c00"
+    },
+    {
+     "color": 1,
+     "content_sha256": "a336912c171ec46f5dbfd85dc6b85d15ce43b52e4f3e26d80a0dba07677d915a",
+     "duplicate_of": null,
+     "files_count": 46,
+     "has_model": true,
+     "portrait": "df4f13a7d71746acf40eddbe3e812dbb0f15eb2748a811debdf517a0a179a018",
+     "portrait_source": "DkBananza SmashStyle/ui/replace/chara/chara_0/chara_0_donkey_01.bntx",
+     "slot": "c01",
+     "variant_id": "02:595992:cd677c98:c01"
+    },
+    {
+     "color": 2,
+     "content_sha256": "87d692ceb4d84a2cd79ba3298d95fd439b82ae2705cf3adeca6b216dca593b10",
+     "duplicate_of": null,
+     "files_count": 49,
+     "has_model": true,
+     "portrait": "f9108cc1510cf3c0f0d4885bf81fdcb04221e6bc0164cb9cc1b30da0da6f78af",
+     "portrait_source": "DkBananza SmashStyle/ui/replace/chara/chara_0/chara_0_donkey_02.bntx",
+     "slot": "c02",
+     "variant_id": "02:595992:cd677c98:c02"
+    }
+   ]
+  },
+  {
+   "inspected": true,
+   "kind": "original",
+   "md5": "166dc13ee3cf061c28f3c85a951054d6",
+   "path": "original/rare_dk_bananza_outfit.rar",
+   "shared_files": 1,
+   "shared_sample": [
+    "Rare DK Bananza Outfit/config.json"
+   ],
+   "variants": [
+    {
+     "color": 1,
+     "content_sha256": "43372650582d250b98b523fa08144e43f46a8a3368072c7d77cddc73797e000b",
+     "duplicate_of": null,
+     "files_count": 43,
+     "has_model": true,
+     "portrait": "fb8ff78c6db439ad3663aa5fc1db50b3bd88c2d1f2d6557142b9806a32cd1746",
+     "portrait_source": "Rare DK Bananza Outfit/ui/replace/chara/chara_0/chara_0_donkey_01.bntx",
+     "slot": "c01",
+     "variant_id": "02:595992:166dc13e:c01"
+    },
+    {
+     "color": 2,
+     "content_sha256": "fd87f947fa22003bedd1deb7b611bba043f15a5213a731dcbb9cb4d6b98176eb",
+     "duplicate_of": null,
+     "files_count": 46,
+     "has_model": true,
+     "portrait": "53cea06a39cfade127076bc6e5621754b6ac9b8e16e7a830346c77fda67ab7e8",
+     "portrait_source": "Rare DK Bananza Outfit/ui/replace/chara/chara_0/chara_0_donkey_02.bntx",
+     "slot": "c02",
+     "variant_id": "02:595992:166dc13e:c02"
+    }
+   ]
+  }
+ ],
+ "code": "02",
+ "folder": "dk/595992_donkey_kong_bananza_smash_ultimate_style",
+ "mod_id": 595992
+}

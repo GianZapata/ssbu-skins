@@ -1,0 +1,85 @@
+{
+ "archives": [
+  {
+   "inspected": true,
+   "kind": "original",
+   "md5": "57df636eeb65e1e0af727a853ab974e3",
+   "path": "original/custom_pose_ui.7z",
+   "shared_files": 0,
+   "shared_sample": [],
+   "variants": [
+    {
+     "color": 6,
+     "content_sha256": "a0e927cabc6b5ab5ac12f18ece9b1c066a3cc0ca243ba10acaaa5c33ee731489",
+     "duplicate_of": null,
+     "files_count": 6,
+     "has_model": false,
+     "portrait": "1b9db5dcbf21f358bb9fdc10cb49500d9e0be5c8d342dc28700405d3fdde3904",
+     "portrait_source": "Custom pose UI/Over c06/ui/replace_patch/chara/chara_0/chara_0_demon_06.bntx",
+     "slot": "c06",
+     "variant_id": "81:373189:57df636e:c06"
+    },
+    {
+     "color": 7,
+     "content_sha256": "de52ced82828d43ea82f98813a7c42e472e453f3f33cfe113a65b0591e603e6a",
+     "duplicate_of": null,
+     "files_count": 8,
+     "has_model": false,
+     "portrait": "f849c48a3100e2fb142604674094ec0edb0d6c843f7a42020196ec048524b686",
+     "portrait_source": "Custom pose UI/Over c06/ui/replace_patch/chara/chara_3/Nouveau dossier/chara_3_demon_07.bntx",
+     "slot": "c07",
+     "variant_id": "81:373189:57df636e:c07"
+    }
+   ]
+  },
+  {
+   "inspected": true,
+   "kind": "original",
+   "md5": "ab926ffd37a7fef6285b4c30952bfc12",
+   "path": "original/devil_jin_local_version.7z",
+   "shared_files": 1,
+   "shared_sample": [
+    "Devil Jin/config.json"
+   ],
+   "variants": [
+    {
+     "color": 7,
+     "content_sha256": "e3ae54b0114f99f48a2eeebfa17b9229cf6007fcf0bf331bec1096d6d3f3dd21",
+     "duplicate_of": null,
+     "files_count": 74,
+     "has_model": true,
+     "portrait": "da569214cbe9ab49f371cb6da3c3c7816098a9c5108c96f7cfe91d2ad8714010",
+     "portrait_source": "Devil Jin/ui/replace_patch/chara/chara_0/chara_0_demon_07.bntx",
+     "slot": "c07",
+     "variant_id": "81:373189:ab926ffd:c07"
+    }
+   ]
+  },
+  {
+   "inspected": true,
+   "kind": "original",
+   "md5": "7ddce287701daed89309f9230afbe2ad",
+   "path": "original/devil_jin_wifi_safe_version.7z",
+   "shared_files": 1,
+   "shared_sample": [
+    "Devil Jin/config.json"
+   ],
+   "variants": [
+    {
+     "color": 6,
+     "content_sha256": "e3ae54b0114f99f48a2eeebfa17b9229cf6007fcf0bf331bec1096d6d3f3dd21",
+     "duplicate_of": null,
+     "files_count": 74,
+     "has_model": true,
+     "portrait": "da569214cbe9ab49f371cb6da3c3c7816098a9c5108c96f7cfe91d2ad8714010",
+     "portrait_source": "Devil Jin/ui/replace_patch/chara/chara_0/chara_0_demon_06.bntx",
+     "slot": "c06",
+     "variant_id": "81:373189:7ddce287:c06"
+    }
+   ]
+  }
+ ],
+ "code": "81",
+ "folder": "kazuya/373189_devil_jin",
+ "mod_id": 373189
+}

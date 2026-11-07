@@ -1,0 +1,116 @@
+{
+ "archives": [
+  {
+   "inspected": true,
+   "kind": "original",
+   "md5": "cc762c47988efcf3b8ef4d98221be43b",
+   "path": "original/totk_link_cellshaded.zip",
+   "shared_files": 82,
+   "shared_sample": [
+    "TOTK_Link_Cellshaded/config.json",
+    "TOTK_Link_Cellshaded/fighter/link/model/body/c08/PRM.nutexb",
+    "TOTK_Link_Cellshaded/fighter/link/model/body/c08/alp_link_003_col.nutexb",
+    "TOTK_Link_Cellshaded/fighter/link/model/body/c08/cell_link_001_col.nutexb",
+    "TOTK_Link_Cellshaded/fighter/link/model/body/c08/cell_link_001_nor.nutexb",
+    "TOTK_Link_Cellshaded/fighter/link/model/body/c08/cell_link_002_col.nutexb",
+    "TOTK_Link_Cellshaded/fighter/link/model/body/c08/cell_link_002_nor.nutexb",
+    "TOTK_Link_Cellshaded/fighter/link/model/body/c08/cell_link_004_col.nutexb",
+    "TOTK_Link_Cellshaded/fighter/link/model/body/c08/cell_link_004_nor.nutexb",
+    "TOTK_Link_Cellshaded/fighter/link/model/body/c08/cell_link_005_col.nutexb"
+   ],
+   "variants": [
+    {
+     "color": 0,
+     "content_sha256": "0e8162d3a35deebc31ca0194a8aafcb6329331562e10ef62cd254df46cda28bc",
+     "duplicate_of": null,
+     "files_count": 79,
+     "has_model": true,
+     "portrait": "2a2f098dc73f79f95343fc4af25f704fd03ccf101df76af7935129840d18f42c",
+     "portrait_source": "TOTK_Link_Cellshaded/ui/replace/chara/chara_0/chara_0_link_00.bntx",
+     "slot": "c00",
+     "variant_id": "03:474851:cc762c47:c00"
+    },
+    {
+     "color": 1,
+     "content_sha256": "103c69cabbab10a6abba82b03a0832a112a410081c49baa39dcda0591d12b059",
+     "duplicate_of": null,
+     "files_count": 73,
+     "has_model": true,
+     "portrait": "3cb28a7b11c02097f9ccf66069a4dce67c04ce9a1e7a3de991690813a1731fa6",
+     "portrait_source": "TOTK_Link_Cellshaded/ui/replace/chara/chara_0/chara_0_link_01.bntx",
+     "slot": "c01",
+     "variant_id": "03:474851:cc762c47:c01"
+    },
+    {
+     "color": 2,
+     "content_sha256": "eff22fe4a9b7c65034c31ed25bd5af80aa653246337b1a126a31e2d65a4538aa",
+     "duplicate_of": null,
+     "files_count": 78,
+     "has_model": true,
+     "portrait": "a5a3dcc6e3bf9640c4ef5b45d986e61bee3aee060377715f7bb72fd4627eb672",
+     "portrait_source": "TOTK_Link_Cellshaded/ui/replace/chara/chara_0/chara_0_link_02.bntx",
+     "slot": "c02",
+     "variant_id": "03:474851:cc762c47:c02"
+    },
+    {
+     "color": 3,
+     "content_sha256": "7198dde89dd303b1a87fde22624c62280867f3325305bf6c688a31ecf134a8dd",
+     "duplicate_of": null,
+     "files_count": 80,
+     "has_model": true,
+     "portrait": "708c5c47ea7278f74cbad04f6a8369eb731a426c41cd5b6cdaa4e3f29e03114a",
+     "portrait_source": "TOTK_Link_Cellshaded/ui/replace/chara/chara_0/chara_0_link_03.bntx",
+     "slot": "c03",
+     "variant_id": "03:474851:cc762c47:c03"
+    },
+    {
+     "color": 4,
+     "content_sha256": "3e31f30a2b6eacf6d5a17e32891affd77ec7932efdd10b470761098f9266d774",
+     "duplicate_of": null,
+     "files_count": 75,
+     "has_model": true,
+     "portrait": "2b2ba76e9be93a72a9587237155bc1dfbc609cafe24d9f9e0d5f13eaf18a7b9d",
+     "portrait_source": "TOTK_Link_Cellshaded/ui/replace/chara/chara_0/chara_0_link_04.bntx",
+     "slot": "c04",
+     "variant_id": "03:474851:cc762c47:c04"
+    },
+    {
+     "color": 5,
+     "content_sha256": "bfb3c0476a0508363ffbf7ffdaad5696a194d85f76599caf5259e716bdb5c39f",
+     "duplicate_of": null,
+     "files_count": 81,
+     "has_model": true,
+     "portrait": "65c63e30a63946656c875b3f6a57efbd7365e5afabca9edda7ca4068db97312c",
+     "portrait_source": "TOTK_Link_Cellshaded/ui/replace/chara/chara_0/chara_0_link_05.bntx",
+     "slot": "c05",
+     "variant_id": "03:474851:cc762c47:c05"
+    },
+    {
+     "color": 6,
+     "content_sha256": "0b1ea8968053039726b1f3cfa129441b4dd078f4239eeea513a8a31aa6b61ba6",
+     "duplicate_of": null,
+     "files_count": 77,
+     "has_model": true,
+     "portrait": "6fda849f6d61f56cf056f0fcc43fd43ce1efc323dcd8e1e27d695d526b97104f",
+     "portrait_source": "TOTK_Link_Cellshaded/ui/replace/chara/chara_0/chara_0_link_06.bntx",
+     "slot": "c06",
+     "variant_id": "03:474851:cc762c47:c06"
+    },
+    {
+     "color": 7,
+     "content_sha256": "d0f531abe1144649546481116d3e4925df1db4feeddbf2c43fea7fdcffdb5987",
+     "duplicate_of": null,
+     "files_count": 75,
+     "has_model": true,
+     "portrait": "1d95e4b2c68eaadb15e7d6fb63adf6f1239da7ecd8e32a0d941d66e4b1e42577",
+     "portrait_source": "TOTK_Link_Cellshaded/ui/replace/chara/chara_0/chara_0_link_07.bntx",
+     "slot": "c07",
+     "variant_id": "03:474851:cc762c47:c07"
+    }
+   ]
+  }
+ ],
+ "code": "03",
+ "folder": "link/474851_totk_link",
+ "mod_id": 474851
+}

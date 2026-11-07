@@ -1,0 +1,50 @@
+{
+ "archives": [
+  {
+   "inspected": true,
+   "kind": "original",
+   "md5": "43abab05ab14facd636e8f9601b4ee58",
+   "path": "original/nobodies_over_sheik.7z",
+   "shared_files": 32,
+   "shared_sample": [
+    "Credits.txt",
+    "License.txt",
+    "Screenshots/2023041406514300-E3C989CFB44DEF65091E49497E127F19.jpg",
+    "Screenshots/2023041406531000-E3C989CFB44DEF65091E49497E127F19.jpg",
+    "Screenshots/2023041406533200-E3C989CFB44DEF65091E49497E127F19.jpg",
+    "Screenshots/2023041406534300-E3C989CFB44DEF65091E49497E127F19.jpg",
+    "Screenshots/2023041406541600-E3C989CFB44DEF65091E49497E127F19.jpg",
+    "Screenshots/2023041406543500-E3C989CFB44DEF65091E49497E127F19.jpg",
+    "Screenshots/2023041406552700-E3C989CFB44DEF65091E49497E127F19.jpg",
+    "Screenshots/2023041406564900-E3C989CFB44DEF65091E49497E127F19.jpg"
+   ],
+   "variants": [
+    {
+     "color": 0,
+     "content_sha256": "0f8e707cf1090ba6344da0e9f33b4c001ec7d5d4721d9ff52770a6c98e27359e",
+     "duplicate_of": null,
+     "files_count": 16,
+     "has_model": true,
+     "portrait": "be91ff760ae6f1ba5f051d90c5778b1d7cdcad1a90bb76861c50295fb225a51a",
+     "portrait_source": "Nobodies over Sheik/ui/replace/chara/chara_0/chara_0_sheik_00.bntx",
+     "slot": "c00",
+     "variant_id": "16:438578:43abab05:c00"
+    },
+    {
+     "color": 1,
+     "content_sha256": "c12f28e78a21f7052ac442ca4b9ade880c0ce3988f39792ec525275e8cf2d81b",
+     "duplicate_of": null,
+     "files_count": 22,
+     "has_model": true,
+     "portrait": "cf9b8252a3393d357330b4ed95457f097543eaaf359db2f10728ffb21561ea43",
+     "portrait_source": "Nobodies over Sheik/ui/replace/chara/chara_0/chara_0_sheik_01.bntx",
+     "slot": "c01",
+     "variant_id": "16:438578:43abab05:c01"
+    }
+   ]
+  }
+ ],
+ "code": "16",
+ "folder": "sheik/438578_nobody_over_sheik",
+ "mod_id": 438578
+}

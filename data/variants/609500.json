@@ -1,0 +1,44 @@
+{
+ "archives": [
+  {
+   "inspected": true,
+   "kind": "original",
+   "md5": "6f4cbb6dc98e805c2c5195b4e0685cb5",
+   "path": "original/skin_terry_c02-c03_vegeta.rar",
+   "shared_files": 4,
+   "shared_sample": [
+    "{Skin} (Terry c02-c03) Vegeta/config.json",
+    "{Skin} (Terry c02-c03) Vegeta/ui/message/msg_name.xmsbt",
+    "{Skin} (Terry c02-c03) Vegeta/ui/param/database/ui_chara_db.prcxml",
+    "{Skin} (Terry c02-c03) Vegeta/vc_narration/vc_narration_characall_terryvegeta.idsp"
+   ],
+   "variants": [
+    {
+     "color": 2,
+     "content_sha256": "1012b87b6b5ba677171c483b4d87f782e6cb89ea27a27d07c857723bda965411",
+     "duplicate_of": null,
+     "files_count": 14,
+     "has_model": true,
+     "portrait": "fc3073e855293f82a299d839e66ada70280b6efe9f813dc9af5536d88a2a24a2",
+     "portrait_source": "{Skin} (Terry c02-c03) Vegeta/ui/replace_patch/chara/chara_0/chara_0_dolly_02.bntx",
+     "slot": "c02",
+     "variant_id": "74:609500:6f4cbb6d:c02"
+    },
+    {
+     "color": 3,
+     "content_sha256": "4d2fa8e997ecc5614ae140b6d5e706e174f738afd4afbd143531a91c1f3248f8",
+     "duplicate_of": null,
+     "files_count": 14,
+     "has_model": true,
+     "portrait": "5c8703343c254ca52bb25e226eea4cf722cbb18171614cd2b64b172dcab0c9e3",
+     "portrait_source": "{Skin} (Terry c02-c03) Vegeta/ui/replace_patch/chara/chara_0/chara_0_dolly_03.bntx",
+     "slot": "c03",
+     "variant_id": "74:609500:6f4cbb6d:c03"
+    }
+   ]
+  }
+ ],
+ "code": "74",
+ "folder": "terry/609500_vegeta",
+ "mod_id": 609500
+}

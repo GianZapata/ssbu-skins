@@ -1,0 +1,349 @@
+{
+ "archives": [
+  {
+   "inspected": true,
+   "kind": "original",
+   "md5": "6556d8127f5e2485d152ee6637883218",
+   "path": "original/morrigan_all_slots_bayo_1_slot_compatible.zip",
+   "shared_files": 1,
+   "shared_sample": [
+    "(Bayonetta) Morrigan - All Bayo 1 Slot Compatible (Move to Odd Slots)/effect/fighter/bayonetta/ef_bayonetta.eff"
+   ],
+   "variants": [
+    {
+     "color": 0,
+     "content_sha256": "4a1dc4174bbdb3386d0b1ba3cd90e4eea365faac82fd2983fce81dbec4c0e803",
+     "duplicate_of": null,
+     "files_count": 36,
+     "has_model": true,
+     "portrait": "23d0ce27ccc4138cc38658316434a1c4d34be49a947328b01cd6e3d893837b40",
+     "portrait_source": "(Bayonetta) Morrigan - All Bayo 1 Slot Compatible (Move to Odd Slots)/ui/replace/chara/chara_0/chara_0_bayonetta_00.bntx",
+     "slot": "c00",
+     "variant_id": "63:501311:6556d812:c00"
+    },
+    {
+     "color": 1,
+     "content_sha256": "16cd17ad98fc58584d081456a852751aa74ddc8faf0521ffaac68ec82ce9d2ea",
+     "duplicate_of": null,
+     "files_count": 35,
+     "has_model": true,
+     "portrait": "a573f15f2e68b21f757f4e5d333ea9f37855022c8adb924d800353605a5f9a37",
+     "portrait_source": "(Bayonetta) Morrigan - All Bayo 1 Slot Compatible (Move to Odd Slots)/ui/replace/chara/chara_0/chara_0_bayonetta_01.bntx",
+     "slot": "c01",
+     "variant_id": "63:501311:6556d812:c01"
+    },
+    {
+     "color": 2,
+     "content_sha256": "f946953f6337c86b017964e2647ab23adddf8a58dc87c980c0e938224cccdb68",
+     "duplicate_of": null,
+     "files_count": 35,
+     "has_model": true,
+     "portrait": "29f367c9c50b37f7f749cf6034deba96a18c369a1c03d0a70bcdaecfd42a658e",
+     "portrait_source": "(Bayonetta) Morrigan - All Bayo 1 Slot Compatible (Move to Odd Slots)/ui/replace/chara/chara_0/chara_0_bayonetta_02.bntx",
+     "slot": "c02",
+     "variant_id": "63:501311:6556d812:c02"
+    },
+    {
+     "color": 3,
+     "content_sha256": "f27b70619d89951348b1414b78fd0f386adca5fe449d269f33ae0b64d6f841e4",
+     "duplicate_of": null,
+     "files_count": 35,
+     "has_model": true,
+     "portrait": "7f4953561c3634aa2b10435b074eba26175a7996b789f0bfdf9360b53fc21bc3",
+     "portrait_source": "(Bayonetta) Morrigan - All Bayo 1 Slot Compatible (Move to Odd Slots)/ui/replace/chara/chara_0/chara_0_bayonetta_03.bntx",
+     "slot": "c03",
+     "variant_id": "63:501311:6556d812:c03"
+    },
+    {
+     "color": 4,
+     "content_sha256": "3af6fb3174ddb87a6331793817fada061daa2891dcabc2ccc323b00ac8b6aeaa",
+     "duplicate_of": null,
+     "files_count": 35,
+     "has_model": true,
+     "portrait": "35b2809500be5fdfd47f00d33acd0ce59b58b627625aefd45ea79897c60c7e41",
+     "portrait_source": "(Bayonetta) Morrigan - All Bayo 1 Slot Compatible (Move to Odd Slots)/ui/replace/chara/chara_0/chara_0_bayonetta_04.bntx",
+     "slot": "c04",
+     "variant_id": "63:501311:6556d812:c04"
+    },
+    {
+     "color": 5,
+     "content_sha256": "e5953e182e12d715b779d612e393d58d81cd1f9e83393dddeff5c684dd6fa32f",
+     "duplicate_of": null,
+     "files_count": 35,
+     "has_model": true,
+     "portrait": "3c08fefbacabd462865174e5037e09d65cebf89d8fa57f96a9584280db955a73",
+     "portrait_source": "(Bayonetta) Morrigan - All Bayo 1 Slot Compatible (Move to Odd Slots)/ui/replace/chara/chara_0/chara_0_bayonetta_05.bntx",
+     "slot": "c05",
+     "variant_id": "63:501311:6556d812:c05"
+    },
+    {
+     "color": 6,
+     "content_sha256": "89556428d51630e3a7f3a468fa70ae9e385506b3a79526f2bb9ee7a22ad7557b",
+     "duplicate_of": null,
+     "files_count": 35,
+     "has_model": true,
+     "portrait": "c73edfb39e63675158c4c70b779c6efc6c8b2922846ea8abef120ea6e33c53eb",
+     "portrait_source": "(Bayonetta) Morrigan - All Bayo 1 Slot Compatible (Move to Odd Slots)/ui/replace/chara/chara_0/chara_0_bayonetta_06.bntx",
+     "slot": "c06",
+     "variant_id": "63:501311:6556d812:c06"
+    },
+    {
+     "color": 7,
+     "content_sha256": "bbf7a753227c1658ff7a6981c812753116c326fc041492e11282704b83a2d204",
+     "duplicate_of": null,
+     "files_count": 35,
+     "has_model": true,
+     "portrait": "5f2c4e4aec4b2d5d7fdefb55b75d599c4337743e77caf00b4cb307a6495df352",
+     "portrait_source": "(Bayonetta) Morrigan - All Bayo 1 Slot Compatible (Move to Odd Slots)/ui/replace/chara/chara_0/chara_0_bayonetta_07.bntx",
+     "slot": "c07",
+     "variant_id": "63:501311:6556d812:c07"
+    }
+   ]
+  },
+  {
+   "inspected": true,
+   "kind": "original",
+   "md5": "45d1775386e13f6f6e2a985e6047d772",
+   "path": "original/morrigan_all_slots_bayo_2_slot_compatible.zip",
+   "shared_files": 1,
+   "shared_sample": [
+    "(Bayonetta) Morrigan - All Bayo 2 Slot Compatible (Move to Even Slots)/effect/fighter/bayonetta/ef_bayonetta.eff"
+   ],
+   "variants": [
+    {
+     "color": 0,
+     "content_sha256": "1e7ed20b6ade4a027b858d42d64e3d9594012c37ce82e5bae101b804219a8231",
+     "duplicate_of": null,
+     "files_count": 36,
+     "has_model": true,
+     "portrait": "23d0ce27ccc4138cc38658316434a1c4d34be49a947328b01cd6e3d893837b40",
+     "portrait_source": "(Bayonetta) Morrigan - All Bayo 2 Slot Compatible (Move to Even Slots)/ui/replace/chara/chara_0/chara_0_bayonetta_00.bntx",
+     "slot": "c00",
+     "variant_id": "63:501311:45d17753:c00"
+    },
+    {
+     "color": 1,
+     "content_sha256": "c704ddb9e83cd7048eb4cbf878f4e6a856f4c6e19bb78556f91ba50a1266c661",
+     "duplicate_of": null,
+     "files_count": 35,
+     "has_model": true,
+     "portrait": "a573f15f2e68b21f757f4e5d333ea9f37855022c8adb924d800353605a5f9a37",
+     "portrait_source": "(Bayonetta) Morrigan - All Bayo 2 Slot Compatible (Move to Even Slots)/ui/replace/chara/chara_0/chara_0_bayonetta_01.bntx",
+     "slot": "c01",
+     "variant_id": "63:501311:45d17753:c01"
+    },
+    {
+     "color": 2,
+     "content_sha256": "aa30f9b52d700b3429a098874bd0f2cba67fdf4f26494495baf93179b815a27f",
+     "duplicate_of": null,
+     "files_count": 35,
+     "has_model": true,
+     "portrait": "29f367c9c50b37f7f749cf6034deba96a18c369a1c03d0a70bcdaecfd42a658e",
+     "portrait_source": "(Bayonetta) Morrigan - All Bayo 2 Slot Compatible (Move to Even Slots)/ui/replace/chara/chara_0/chara_0_bayonetta_02.bntx",
+     "slot": "c02",
+     "variant_id": "63:501311:45d17753:c02"
+    },
+    {
+     "color": 3,
+     "content_sha256": "823541624f7512b09c804b0be83511746ed669c32a3a5829244b883ac77a8b91",
+     "duplicate_of": null,
+     "files_count": 35,
+     "has_model": true,
+     "portrait": "7f4953561c3634aa2b10435b074eba26175a7996b789f0bfdf9360b53fc21bc3",
+     "portrait_source": "(Bayonetta) Morrigan - All Bayo 2 Slot Compatible (Move to Even Slots)/ui/replace/chara/chara_0/chara_0_bayonetta_03.bntx",
+     "slot": "c03",
+     "variant_id": "63:501311:45d17753:c03"
+    },
+    {
+     "color": 4,
+     "content_sha256": "ccfd5281266385c09858b8a4a984f55b8caa94c6fad1b3f42ed2169ac245542d",
+     "duplicate_of": null,
+     "files_count": 35,
+     "has_model": true,
+     "portrait": "35b2809500be5fdfd47f00d33acd0ce59b58b627625aefd45ea79897c60c7e41",
+     "portrait_source": "(Bayonetta) Morrigan - All Bayo 2 Slot Compatible (Move to Even Slots)/ui/replace/chara/chara_0/chara_0_bayonetta_04.bntx",
+     "slot": "c04",
+     "variant_id": "63:501311:45d17753:c04"
+    },
+    {
+     "color": 5,
+     "content_sha256": "3f3c0802e629c2df11c124d4dfe8bed80568b2ee91c40c576bbe0c82d13e84b8",
+     "duplicate_of": null,
+     "files_count": 35,
+     "has_model": true,
+     "portrait": "3c08fefbacabd462865174e5037e09d65cebf89d8fa57f96a9584280db955a73",
+     "portrait_source": "(Bayonetta) Morrigan - All Bayo 2 Slot Compatible (Move to Even Slots)/ui/replace/chara/chara_0/chara_0_bayonetta_05.bntx",
+     "slot": "c05",
+     "variant_id": "63:501311:45d17753:c05"
+    },
+    {
+     "color": 6,
+     "content_sha256": "f83fb671504cf6a709c13f682049906639d11c5873c7674e480fc2a3e8be6414",
+     "duplicate_of": null,
+     "files_count": 35,
+     "has_model": true,
+     "portrait": "c73edfb39e63675158c4c70b779c6efc6c8b2922846ea8abef120ea6e33c53eb",
+     "portrait_source": "(Bayonetta) Morrigan - All Bayo 2 Slot Compatible (Move to Even Slots)/ui/replace/chara/chara_0/chara_0_bayonetta_06.bntx",
+     "slot": "c06",
+     "variant_id": "63:501311:45d17753:c06"
+    },
+    {
+     "color": 7,
+     "content_sha256": "12cf05a6de4c0a723f914b1800f65ddf185e9d7f6868f13f7ff1aff16f363204",
+     "duplicate_of": null,
+     "files_count": 35,
+     "has_model": true,
+     "portrait": "5f2c4e4aec4b2d5d7fdefb55b75d599c4337743e77caf00b4cb307a6495df352",
+     "portrait_source": "(Bayonetta) Morrigan - All Bayo 2 Slot Compatible (Move to Even Slots)/ui/replace/chara/chara_0/chara_0_bayonetta_07.bntx",
+     "slot": "c07",
+     "variant_id": "63:501311:45d17753:c07"
+    }
+   ]
+  },
+  {
+   "inspected": true,
+   "kind": "original",
+   "md5": "d677e70eb7e382035134cfa338d63255",
+   "path": "original/morrigan_all_slots_complete_set.zip",
+   "shared_files": 1,
+   "shared_sample": [
+    "(Bayonetta) Morrigan/effect/fighter/bayonetta/ef_bayonetta.eff"
+   ],
+   "variants": [
+    {
+     "color": 0,
+     "content_sha256": "1b8e124b28678ab283df3760c344ba76dac8eacca8977007484edbebeb3dee87",
+     "duplicate_of": null,
+     "files_count": 36,
+     "has_model": true,
+     "portrait": "23d0ce27ccc4138cc38658316434a1c4d34be49a947328b01cd6e3d893837b40",
+     "portrait_source": "(Bayonetta) Morrigan/ui/replace/chara/chara_0/chara_0_bayonetta_00.bntx",
+     "slot": "c00",
+     "variant_id": "63:501311:d677e70e:c00"
+    },
+    {
+     "color": 1,
+     "content_sha256": "78b6918c34249c777e7307f947b95481f5d41886bf1e2232b32000b5a8cf74cd",
+     "duplicate_of": null,
+     "files_count": 35,
+     "has_model": true,
+     "portrait": "a573f15f2e68b21f757f4e5d333ea9f37855022c8adb924d800353605a5f9a37",
+     "portrait_source": "(Bayonetta) Morrigan/ui/replace/chara/chara_0/chara_0_bayonetta_01.bntx",
+     "slot": "c01",
+     "variant_id": "63:501311:d677e70e:c01"
+    },
+    {
+     "color": 2,
+     "content_sha256": "631f624ee150e3c2dcec320e6e11192a1fe4c07eab36eaa86d11b15de959a9f3",
+     "duplicate_of": null,
+     "files_count": 35,
+     "has_model": true,
+     "portrait": "29f367c9c50b37f7f749cf6034deba96a18c369a1c03d0a70bcdaecfd42a658e",
+     "portrait_source": "(Bayonetta) Morrigan/ui/replace/chara/chara_0/chara_0_bayonetta_02.bntx",
+     "slot": "c02",
+     "variant_id": "63:501311:d677e70e:c02"
+    },
+    {
+     "color": 3,
+     "content_sha256": "9757e26a2f46235adb7c41f6ba8ff23585d978d96f7efc20fe2bf3c5cea5ae53",
+     "duplicate_of": null,
+     "files_count": 35,
+     "has_model": true,
+     "portrait": "7f4953561c3634aa2b10435b074eba26175a7996b789f0bfdf9360b53fc21bc3",
+     "portrait_source": "(Bayonetta) Morrigan/ui/replace/chara/chara_0/chara_0_bayonetta_03.bntx",
+     "slot": "c03",
+     "variant_id": "63:501311:d677e70e:c03"
+    },
+    {
+     "color": 4,
+     "content_sha256": "a8524b2cfeb2a1d65a4daf590a12e0104fabc907e42b869e575746f3562c5c31",
+     "duplicate_of": null,
+     "files_count": 35,
+     "has_model": true,
+     "portrait": "35b2809500be5fdfd47f00d33acd0ce59b58b627625aefd45ea79897c60c7e41",
+     "portrait_source": "(Bayonetta) Morrigan/ui/replace/chara/chara_0/chara_0_bayonetta_04.bntx",
+     "slot": "c04",
+     "variant_id": "63:501311:d677e70e:c04"
+    },
+    {
+     "color": 5,
+     "content_sha256": "f689e07836bba4e5860d1e3eb51e0589057c1ea93859eb4570dd67aeb43e0122",
+     "duplicate_of": null,
+     "files_count": 35,
+     "has_model": true,
+     "portrait": "3c08fefbacabd462865174e5037e09d65cebf89d8fa57f96a9584280db955a73",
+     "portrait_source": "(Bayonetta) Morrigan/ui/replace/chara/chara_0/chara_0_bayonetta_05.bntx",
+     "slot": "c05",
+     "variant_id": "63:501311:d677e70e:c05"
+    },
+    {
+     "color": 6,
+     "content_sha256": "881c527921a0c9742d197ba34a7c1862fd4ca5b5ed1ae58eeb8ff3ab1a6d2b9a",
+     "duplicate_of": null,
+     "files_count": 35,
+     "has_model": true,
+     "portrait": "c73edfb39e63675158c4c70b779c6efc6c8b2922846ea8abef120ea6e33c53eb",
+     "portrait_source": "(Bayonetta) Morrigan/ui/replace/chara/chara_0/chara_0_bayonetta_06.bntx",
+     "slot": "c06",
+     "variant_id": "63:501311:d677e70e:c06"
+    },
+    {
+     "color": 7,
+     "content_sha256": "9507c72e1ce9f8127b6c3ff50529b3d393caba28d9d28d63bc08a827e397d57a",
+     "duplicate_of": null,
+     "files_count": 35,
+     "has_model": true,
+     "portrait": "5f2c4e4aec4b2d5d7fdefb55b75d599c4337743e77caf00b4cb307a6495df352",
+     "portrait_source": "(Bayonetta) Morrigan/ui/replace/chara/chara_0/chara_0_bayonetta_07.bntx",
+     "slot": "c07",
+     "variant_id": "63:501311:d677e70e:c07"
+    }
+   ]
+  },
+  {
+   "inspected": true,
+   "kind": "original",
+   "md5": "63458ebc994f8cdd7edeef992ecb90fa",
+   "path": "original/morrigan_single_slot_c02_bayo_2_even_slots_only.zip",
+   "shared_files": 0,
+   "shared_sample": [],
+   "variants": [
+    {
+     "color": 2,
+     "content_sha256": "864528a4a1cd7f7a0c55f6bd1f8b089f15adb20b1efe9736ca5b9b817096ebc1",
+     "duplicate_of": null,
+     "files_count": 35,
+     "has_model": true,
+     "portrait": "23d0ce27ccc4138cc38658316434a1c4d34be49a947328b01cd6e3d893837b40",
+     "portrait_source": "(Bayonetta) Morrigan - Single Slot Bayo 2/ui/replace/chara/chara_0/chara_0_bayonetta_02.bntx",
+     "slot": "c02",
+     "variant_id": "63:501311:63458ebc:c02"
+    }
+   ]
+  },
+  {
+   "inspected": true,
+   "kind": "original",
+   "md5": "0c02dfc69406b9167e30a8eb82ffa4ab",
+   "path": "original/morrigan_single_slot_c03_bayo_1_odd_slots_only.zip",
+   "shared_files": 0,
+   "shared_sample": [],
+   "variants": [
+    {
+     "color": 3,
+     "content_sha256": "135befa4497db5aef0e792b3effda65f64b58199f7fb6a8f70186d7affd14078",
+     "duplicate_of": null,
+     "files_count": 35,
+     "has_model": true,
+     "portrait": "23d0ce27ccc4138cc38658316434a1c4d34be49a947328b01cd6e3d893837b40",
+     "portrait_source": "(Bayonetta) Morrigan - Single Slot Bayo 1 Odd Slots Only/ui/replace/chara/chara_0/chara_0_bayonetta_03.bntx",
+     "slot": "c03",
+     "variant_id": "63:501311:0c02dfc6:c03"
+    }
+   ]
+  }
+ ],
+ "code": "63",
+ "folder": "bayonetta/501311_morrigan_mvc3_design",
+ "mod_id": 501311
+}

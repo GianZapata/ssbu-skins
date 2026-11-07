@@ -1,0 +1,50 @@
+{
+ "archives": [
+  {
+   "inspected": true,
+   "kind": "original",
+   "md5": "4fea43e30e47834e4fb8373e0b01fd73",
+   "path": "original/yuffie_over_sheik_c00-c01_.7z",
+   "shared_files": 23,
+   "shared_sample": [
+    "Credits.txt",
+    "License.txt",
+    "Screenshots/2023050211415600-E3C989CFB44DEF65091E49497E127F19.jpg",
+    "Screenshots/2023050211422100-E3C989CFB44DEF65091E49497E127F19.jpg",
+    "Screenshots/2023050211424900-E3C989CFB44DEF65091E49497E127F19.jpg",
+    "Screenshots/2023050211432100-E3C989CFB44DEF65091E49497E127F19.jpg",
+    "Screenshots/2023050211434400-E3C989CFB44DEF65091E49497E127F19.jpg",
+    "Screenshots/2023050211440500-E3C989CFB44DEF65091E49497E127F19.jpg",
+    "Screenshots/2023050211450700-E3C989CFB44DEF65091E49497E127F19.jpg",
+    "Screenshots/2023050211454900-E3C989CFB44DEF65091E49497E127F19.jpg"
+   ],
+   "variants": [
+    {
+     "color": 0,
+     "content_sha256": "7bc5c71a9ef0b7111db6713e2a49d01fd4f6ff1f7f01f4638e741816442eac77",
+     "duplicate_of": null,
+     "files_count": 17,
+     "has_model": true,
+     "portrait": "5e27a18edfb6c0e7d935d8b8f4077d5783409c4edaf850ce8c54efb71987ae1e",
+     "portrait_source": "Yuffie over Sheik (c00-c01)/ui/replace/chara/chara_0/chara_0_sheik_00.bntx",
+     "slot": "c00",
+     "variant_id": "16:442407:4fea43e3:c00"
+    },
+    {
+     "color": 1,
+     "content_sha256": "f05b71acddce79e4141a24e03b26f84057f9c5773667e0a3580b585e373c7c09",
+     "duplicate_of": null,
+     "files_count": 19,
+     "has_model": true,
+     "portrait": "cef82ad96b6cdfcec71b9b788f080f34ee18c48fa6cc78f8240307696713b865",
+     "portrait_source": "Yuffie over Sheik (c00-c01)/ui/replace/chara/chara_0/chara_0_sheik_01.bntx",
+     "slot": "c01",
+     "variant_id": "16:442407:4fea43e3:c01"
+    }
+   ]
+  }
+ ],
+ "code": "16",
+ "folder": "sheik/442407_yuffie_over_sheik",
+ "mod_id": 442407
+}

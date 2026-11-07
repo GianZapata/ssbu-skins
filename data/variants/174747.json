@@ -1,0 +1,211 @@
+{
+ "archives": [
+  {
+   "inspected": true,
+   "kind": "original",
+   "md5": "d9f5a6eadd57328c79f2af68da81a78c",
+   "path": "original/waluigi_ (1).rar",
+   "shared_files": 3,
+   "shared_sample": [
+    "waluigi_ (1)/Used on All Costumes/0x31C7AF9D8.numatb",
+    "waluigi_ (1)/Used on All Costumes/0x31C7AFDB8.numshb",
+    "waluigi_ (1)/Used on All Costumes/0x31C8285A8.nusktb"
+   ],
+   "variants": [
+    {
+     "color": 0,
+     "content_sha256": "6a77221891218474463c32ef4512f55d206fb6b58ec63b1b7bb9ad09ad7eec25",
+     "duplicate_of": null,
+     "files_count": 2,
+     "has_model": false,
+     "portrait": null,
+     "portrait_source": null,
+     "slot": "c00",
+     "variant_id": "11:174747:d9f5a6ea:c00"
+    },
+    {
+     "color": 1,
+     "content_sha256": "9365c5ec7bd6d4c29a1f78b4f3a6de7398e36f7da572cea94cb3b19e8bb8fcff",
+     "duplicate_of": null,
+     "files_count": 2,
+     "has_model": false,
+     "portrait": null,
+     "portrait_source": null,
+     "slot": "c01",
+     "variant_id": "11:174747:d9f5a6ea:c01"
+    },
+    {
+     "color": 2,
+     "content_sha256": "03eb0745af02c3c25dc2bc29d252d97a442c4c4fbcb06336c4a77a143ccbf568",
+     "duplicate_of": null,
+     "files_count": 2,
+     "has_model": false,
+     "portrait": null,
+     "portrait_source": null,
+     "slot": "c02",
+     "variant_id": "11:174747:d9f5a6ea:c02"
+    },
+    {
+     "color": 3,
+     "content_sha256": "9e8227b28306ae51d2d93e19b3386d10fbe9baf5328af320010f978ff3bd60ad",
+     "duplicate_of": null,
+     "files_count": 2,
+     "has_model": false,
+     "portrait": null,
+     "portrait_source": null,
+     "slot": "c03",
+     "variant_id": "11:174747:d9f5a6ea:c03"
+    },
+    {
+     "color": 4,
+     "content_sha256": "57f88e0dfa7fdab8eb34c6d9387421dd18cbf3cb1e1f85fce04ae24d0902093c",
+     "duplicate_of": null,
+     "files_count": 2,
+     "has_model": false,
+     "portrait": null,
+     "portrait_source": null,
+     "slot": "c04",
+     "variant_id": "11:174747:d9f5a6ea:c04"
+    },
+    {
+     "color": 5,
+     "content_sha256": "a47bcc9dc6bb09551bf4b51f105060172372c1db304a162658f49719241059fd",
+     "duplicate_of": null,
+     "files_count": 2,
+     "has_model": false,
+     "portrait": null,
+     "portrait_source": null,
+     "slot": "c05",
+     "variant_id": "11:174747:d9f5a6ea:c05"
+    },
+    {
+     "color": 6,
+     "content_sha256": "6d870ec7edd763be57c806531dc1503884405e5bcab0a81d6c425d9745a0fcdd",
+     "duplicate_of": null,
+     "files_count": 2,
+     "has_model": false,
+     "portrait": null,
+     "portrait_source": null,
+     "slot": "c06",
+     "variant_id": "11:174747:d9f5a6ea:c06"
+    },
+    {
+     "color": 7,
+     "content_sha256": "632341ede6933eb77b0e05a9bcd22ab0a1a54da3edd714188f790e2da00e13f6",
+     "duplicate_of": null,
+     "files_count": 2,
+     "has_model": false,
+     "portrait": null,
+     "portrait_source": null,
+     "slot": "c07",
+     "variant_id": "11:174747:d9f5a6ea:c07"
+    }
+   ]
+  },
+  {
+   "inspected": true,
+   "kind": "original",
+   "md5": "d9f5a6eadd57328c79f2af68da81a78c",
+   "path": "original/waluigi_.rar",
+   "shared_files": 3,
+   "shared_sample": [
+    "waluigi_ (1)/Used on All Costumes/0x31C7AF9D8.numatb",
+    "waluigi_ (1)/Used on All Costumes/0x31C7AFDB8.numshb",
+    "waluigi_ (1)/Used on All Costumes/0x31C8285A8.nusktb"
+   ],
+   "variants": [
+    {
+     "color": 0,
+     "content_sha256": "6a77221891218474463c32ef4512f55d206fb6b58ec63b1b7bb9ad09ad7eec25",
+     "duplicate_of": null,
+     "files_count": 2,
+     "has_model": false,
+     "portrait": null,
+     "portrait_source": null,
+     "slot": "c00",
+     "variant_id": "11:174747:d9f5a6ea:c00"
+    },
+    {
+     "color": 1,
+     "content_sha256": "9365c5ec7bd6d4c29a1f78b4f3a6de7398e36f7da572cea94cb3b19e8bb8fcff",
+     "duplicate_of": null,
+     "files_count": 2,
+     "has_model": false,
+     "portrait": null,
+     "portrait_source": null,
+     "slot": "c01",
+     "variant_id": "11:174747:d9f5a6ea:c01"
+    },
+    {
+     "color": 2,
+     "content_sha256": "03eb0745af02c3c25dc2bc29d252d97a442c4c4fbcb06336c4a77a143ccbf568",
+     "duplicate_of": null,
+     "files_count": 2,
+     "has_model": false,
+     "portrait": null,
+     "portrait_source": null,
+     "slot": "c02",
+     "variant_id": "11:174747:d9f5a6ea:c02"
+    },
+    {
+     "color": 3,
+     "content_sha256": "9e8227b28306ae51d2d93e19b3386d10fbe9baf5328af320010f978ff3bd60ad",
+     "duplicate_of": null,
+     "files_count": 2,
+     "has_model": false,
+     "portrait": null,
+     "portrait_source": null,
+     "slot": "c03",
+     "variant_id": "11:174747:d9f5a6ea:c03"
+    },
+    {
+     "color": 4,
+     "content_sha256": "57f88e0dfa7fdab8eb34c6d9387421dd18cbf3cb1e1f85fce04ae24d0902093c",
+     "duplicate_of": null,
+     "files_count": 2,
+     "has_model": false,
+     "portrait": null,
+     "portrait_source": null,
+     "slot": "c04",
+     "variant_id": "11:174747:d9f5a6ea:c04"
+    },
+    {
+     "color": 5,
+     "content_sha256": "a47bcc9dc6bb09551bf4b51f105060172372c1db304a162658f49719241059fd",
+     "duplicate_of": null,
+     "files_count": 2,
+     "has_model": false,
+     "portrait": null,
+     "portrait_source": null,
+     "slot": "c05",
+     "variant_id": "11:174747:d9f5a6ea:c05"
+    },
+    {
+     "color": 6,
+     "content_sha256": "6d870ec7edd763be57c806531dc1503884405e5bcab0a81d6c425d9745a0fcdd",
+     "duplicate_of": null,
+     "files_count": 2,
+     "has_model": false,
+     "portrait": null,
+     "portrait_source": null,
+     "slot": "c06",
+     "variant_id": "11:174747:d9f5a6ea:c06"
+    },
+    {
+     "color": 7,
+     "content_sha256": "632341ede6933eb77b0e05a9bcd22ab0a1a54da3edd714188f790e2da00e13f6",
+     "duplicate_of": null,
+     "files_count": 2,
+     "has_model": false,
+     "portrait": null,
+     "portrait_source": null,
+     "slot": "c07",
+     "variant_id": "11:174747:d9f5a6ea:c07"
+    }
+   ]
+  }
+ ],
+ "code": "11",
+ "folder": "captain_falcon/174747_waluigi",
+ "mod_id": 174747
+}

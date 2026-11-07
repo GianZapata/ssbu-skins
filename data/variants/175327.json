@@ -1,0 +1,115 @@
+{
+ "archives": [
+  {
+   "inspected": true,
+   "kind": "original",
+   "md5": "4a8f18728b75b64320cc1ead310c83d2",
+   "path": "original/firstclass.rar",
+   "shared_files": 0,
+   "shared_sample": [],
+   "variants": [
+    {
+     "color": 0,
+     "content_sha256": "81cfee0b02cf71bbe1da75eb43219e14c79021d5345ab22724ad583d158cacc0",
+     "duplicate_of": null,
+     "files_count": 46,
+     "has_model": true,
+     "portrait": "5909f19d616866a903ec23b7c668a93d5e4f2733412b17b6eb099061dd5adcdb",
+     "portrait_source": "FirstClass/ui/replace/chara/chara_0/chara_0_cloud_00.bntx",
+     "slot": "c00",
+     "variant_id": "61:175327:4a8f1872:c00"
+    },
+    {
+     "color": 2,
+     "content_sha256": "8677f2be4c9d693854cd2b3f774fbc5bccb866b87315bc4a009f34b822d35700",
+     "duplicate_of": null,
+     "files_count": 45,
+     "has_model": true,
+     "portrait": "5e6a4547b74804d561a7665e0ae5d0754a8a00dca427449944eaecffdb00291e",
+     "portrait_source": "FirstClass/ui/replace/chara/chara_0/chara_0_cloud_02.bntx",
+     "slot": "c02",
+     "variant_id": "61:175327:4a8f1872:c02"
+    },
+    {
+     "color": 4,
+     "content_sha256": "ad32c5ec39f70a83ebea94c4a903162a029cb45dd3c3f840cadcc9de764d21eb",
+     "duplicate_of": null,
+     "files_count": 45,
+     "has_model": true,
+     "portrait": "0c9aba4d943b60d3f2ae3266a26f993d4c7227b15321f86e04a6a512b9f6f9c2",
+     "portrait_source": "FirstClass/ui/replace/chara/chara_0/chara_0_cloud_04.bntx",
+     "slot": "c04",
+     "variant_id": "61:175327:4a8f1872:c04"
+    },
+    {
+     "color": 6,
+     "content_sha256": "778d3c67019cc2e2ea9725a2f896435efc2c80cc6690198bf880ed0e48565bc0",
+     "duplicate_of": null,
+     "files_count": 45,
+     "has_model": true,
+     "portrait": "4da97103225ef816985dc30b0c7b004e1b7820466f29355fbe0d8dc1de776363",
+     "portrait_source": "FirstClass/ui/replace/chara/chara_0/chara_0_cloud_06.bntx",
+     "slot": "c06",
+     "variant_id": "61:175327:4a8f1872:c06"
+    }
+   ]
+  },
+  {
+   "inspected": true,
+   "kind": "original",
+   "md5": "993e781c6ee4281601c8374a852dbe57",
+   "path": "original/secondclass.rar",
+   "shared_files": 0,
+   "shared_sample": [],
+   "variants": [
+    {
+     "color": 0,
+     "content_sha256": "52f2229c08daec4e55689228b29062b49f29ef3b3a200e318ad5638d52ade2c3",
+     "duplicate_of": null,
+     "files_count": 45,
+     "has_model": true,
+     "portrait": "9dc425a4e57591b74449e7b0c9e3437e2070d9113604449d2b1d0ba363d8b5d6",
+     "portrait_source": "SecondClass/ui/replace/chara/chara_0/chara_0_cloud_00.bntx",
+     "slot": "c00",
+     "variant_id": "61:175327:993e781c:c00"
+    },
+    {
+     "color": 2,
+     "content_sha256": "b2f107d2ffbf9edde3fd589058b07b56de77594bd3266731e4053b962b756163",
+     "duplicate_of": null,
+     "files_count": 44,
+     "has_model": true,
+     "portrait": "b13b1ddd17b1f19525a903f00a6fc6d22a67f94fe3239de3b8189fc583aa65bc",
+     "portrait_source": "SecondClass/ui/replace/chara/chara_0/chara_0_cloud_02.bntx",
+     "slot": "c02",
+     "variant_id": "61:175327:993e781c:c02"
+    },
+    {
+     "color": 4,
+     "content_sha256": "a8df21ce49804fdd94dd17bac8b1853891b34f622eaef570a5c51f3ecb8569e7",
+     "duplicate_of": null,
+     "files_count": 43,
+     "has_model": true,
+     "portrait": "015f342d3e966b09f15a0bab1600cc9ce60020ba94d48b5c13b16841d743577c",
+     "portrait_source": "SecondClass/ui/replace/chara/chara_0/chara_0_cloud_04.bntx",
+     "slot": "c04",
+     "variant_id": "61:175327:993e781c:c04"
+    },
+    {
+     "color": 6,
+     "content_sha256": "19050944bf34320025262ceee4503262ecd50e7f959e826d09523b205ef092d3",
+     "duplicate_of": null,
+     "files_count": 43,
+     "has_model": true,
+     "portrait": "cab39ef129721196c651e11db14bc844d8a57b163e44022e46b789a2352a7384",
+     "portrait_source": "SecondClass/ui/replace/chara/chara_0/chara_0_cloud_06.bntx",
+     "slot": "c06",
+     "variant_id": "61:175327:993e781c:c06"
+    }
+   ]
+  }
+ ],
+ "code": "61",
+ "folder": "cloud/175327_zack_fair_over_cloud_strife",
+ "mod_id": 175327
+}

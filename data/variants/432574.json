@@ -1,0 +1,77 @@
+{
+ "archives": [
+  {
+   "inspected": true,
+   "kind": "original",
+   "md5": "50ade9276326759bf8968a297074a72d",
+   "path": "original/new_banana_this_is_the_one.zip",
+   "shared_files": 2,
+   "shared_sample": [
+    "dancing banana/ui/message/msg_name.xmsbt",
+    "dancing banana/ui/param/database/ui_chara_db.prcxml"
+   ],
+   "variants": [
+    {
+     "color": 1,
+     "content_sha256": "2b7b4f334c4e1db911b977cdceaac819c8ef7fd55c3f74e10f281bb152587e40",
+     "duplicate_of": null,
+     "files_count": 32,
+     "has_model": true,
+     "portrait": "dc390b2b4e31d6f3845086f8da9d8a063bc2c1375deea0ea752001f32401d91e",
+     "portrait_source": "dancing banana/ui/replace/chara/chara_0/chara_0_luigi_01.bntx",
+     "slot": "c01",
+     "variant_id": "09:432574:50ade927:c01"
+    },
+    {
+     "color": 2,
+     "content_sha256": "c34d63db587cb1aa2fb90858df4ec2e57af0ab83627620eedbb4887bc88f3c5f",
+     "duplicate_of": null,
+     "files_count": 32,
+     "has_model": true,
+     "portrait": "8c2faf59a6d1de600fbc70d184954bf171a8e4300e78b1d925dfa4cd7a6cf27e",
+     "portrait_source": "dancing banana/ui/replace/chara/chara_0/chara_0_luigi_02.bntx",
+     "slot": "c02",
+     "variant_id": "09:432574:50ade927:c02"
+    }
+   ]
+  },
+  {
+   "inspected": true,
+   "kind": "original",
+   "md5": "edeb2003751ca4504ab74876bcdd4546",
+   "path": "original/new_dancing_banana.zip",
+   "shared_files": 2,
+   "shared_sample": [
+    "dancing banana/ui/message/msg_name.xmsbt",
+    "dancing banana/ui/param/database/ui_chara_db.prcxml"
+   ],
+   "variants": [
+    {
+     "color": 1,
+     "content_sha256": "150cd701438c7f4067663781718837d983df5cf5cc8805c26018033482d31c91",
+     "duplicate_of": null,
+     "files_count": 32,
+     "has_model": true,
+     "portrait": "dc390b2b4e31d6f3845086f8da9d8a063bc2c1375deea0ea752001f32401d91e",
+     "portrait_source": "dancing banana/ui/replace/chara/chara_0/chara_0_luigi_01.bntx",
+     "slot": "c01",
+     "variant_id": "09:432574:edeb2003:c01"
+    },
+    {
+     "color": 2,
+     "content_sha256": "013c404eef2198f9ee25881b0e2685d71d810a26db8a007d80e19861b5b51be1",
+     "duplicate_of": null,
+     "files_count": 32,
+     "has_model": true,
+     "portrait": "8c2faf59a6d1de600fbc70d184954bf171a8e4300e78b1d925dfa4cd7a6cf27e",
+     "portrait_source": "dancing banana/ui/replace/chara/chara_0/chara_0_luigi_02.bntx",
+     "slot": "c02",
+     "variant_id": "09:432574:edeb2003:c02"
+    }
+   ]
+  }
+ ],
+ "code": "09",
+ "folder": "luigi/432574_dancing_banana",
+ "mod_id": 432574
+}

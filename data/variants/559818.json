@@ -1,0 +1,44 @@
+{
+ "archives": [
+  {
+   "inspected": true,
+   "kind": "original",
+   "md5": "90cffb81f7ef367001c9929def03e1b2",
+   "path": "original/terry_tifa_c00_c01_cf738.rar",
+   "shared_files": 4,
+   "shared_sample": [
+    "terry_tifa_c00_c01_cf738/Terry Tifa c00 c01/config.json",
+    "terry_tifa_c00_c01_cf738/Victory and BGM/bgm_ff05_ff7_jenova.nus3audio",
+    "terry_tifa_c00_c01_cf738/Victory and BGM/bgm_ff06_ff7_prelude.nus3audio",
+    "terry_tifa_c00_c01_cf738/Victory and BGM/bgm_zz01_f_dolly.nus3audio"
+   ],
+   "variants": [
+    {
+     "color": 0,
+     "content_sha256": "e06a59ea2fc1512bed074cfbd1f4ef9dde28e64bea7e9618dfa8a958e468e14e",
+     "duplicate_of": null,
+     "files_count": 67,
+     "has_model": true,
+     "portrait": "c143cad67cdaca1e5dee3ccf6cf9b51ef924ca7f20a1ef156d129ab66a338c2d",
+     "portrait_source": "terry_tifa_c00_c01_cf738/Terry Tifa c00 c01/ui/replace_patch/chara/chara_1/chara_1_dolly_00.bntx",
+     "slot": "c00",
+     "variant_id": "74:559818:90cffb81:c00"
+    },
+    {
+     "color": 1,
+     "content_sha256": "b2affee2d77d9d7a5c6dde138fc74259a41b192a5a5ea15e9c3222f71f73f613",
+     "duplicate_of": null,
+     "files_count": 72,
+     "has_model": true,
+     "portrait": "731e97cb8c77934fc04364588c280371e05bf60fc1b7b8b627b31dca0624eba8",
+     "portrait_source": "terry_tifa_c00_c01_cf738/Terry Tifa c00 c01/ui/replace_patch/chara/chara_1/chara_1_dolly_01.bntx",
+     "slot": "c01",
+     "variant_id": "74:559818:90cffb81:c01"
+    }
+   ]
+  }
+ ],
+ "code": "74",
+ "folder": "terry/559818_tifa_lockhart_terry",
+ "mod_id": 559818
+}

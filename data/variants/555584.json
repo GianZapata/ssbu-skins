@@ -1,0 +1,42 @@
+{
+ "archives": [
+  {
+   "inspected": true,
+   "kind": "original",
+   "md5": "e7464fb28fcddfa62331920dd98a9118",
+   "path": "original/sephiana.zip",
+   "shared_files": 2,
+   "shared_sample": [
+    "config.json",
+    "ui/message/msg_name+us_en.xmsbt"
+   ],
+   "variants": [
+    {
+     "color": 1,
+     "content_sha256": "1cba051987c4e506725332f2b60275514966780698e46793eb6ff7f83ee5b884",
+     "duplicate_of": null,
+     "files_count": 35,
+     "has_model": true,
+     "portrait": "a5905f830bf7012275d0b481bd7e981f64b3bf58af5701d614e7c3dccf8da4a3",
+     "portrait_source": "ui/replace_patch/chara/chara_0/chara_0_edge_01.bntx",
+     "slot": "c01",
+     "variant_id": "78:555584:e7464fb2:c01"
+    },
+    {
+     "color": 2,
+     "content_sha256": "8b48d455b3002673a367c38d6b81a3e0ead5da8fae8392afe5201dbea600d5b4",
+     "duplicate_of": null,
+     "files_count": 35,
+     "has_model": true,
+     "portrait": "3d56a4adca48b561a5350c50e683d2b3570d0052101eccc841e2042b78f0df3d",
+     "portrait_source": "ui/replace_patch/chara/chara_0/chara_0_edge_02.bntx",
+     "slot": "c02",
+     "variant_id": "78:555584:e7464fb2:c02"
+    }
+   ]
+  }
+ ],
+ "code": "78",
+ "folder": "sephiroth/555584_ariana_grande",
+ "mod_id": 555584
+}

@@ -1,0 +1,249 @@
+{
+ "archives": [
+  {
+   "inspected": true,
+   "kind": "original",
+   "md5": "aaeedf35d454b96ef70e0747bf860085",
+   "path": "original/dry_bones_v3-1_all_slots.zip",
+   "shared_files": 1,
+   "shared_sample": [
+    "(Mario - All) Dry Bones V3.1 Update/config.json"
+   ],
+   "variants": [
+    {
+     "color": 0,
+     "content_sha256": "e346ac512110116314de6fcb45aca8385381238fdcd50b2e19b4db743ce8aac5",
+     "duplicate_of": null,
+     "files_count": 34,
+     "has_model": true,
+     "portrait": "db78420c3a5de5d0db19ae21097c8248abe15381a65113330ea5c6065fce4fc3",
+     "portrait_source": "(Mario - All) Dry Bones V3.1 Update/ui/replace/chara/chara_0/chara_0_mario_00.bntx",
+     "slot": "c00",
+     "variant_id": "01:174057:aaeedf35:c00"
+    },
+    {
+     "color": 1,
+     "content_sha256": "447af05a1b82cefbb0facd18d6117a1a2e7b33e424182ded70d8d82996f92bf9",
+     "duplicate_of": null,
+     "files_count": 33,
+     "has_model": true,
+     "portrait": "5accab43fd8c12b5eb400f8a52ab5e0d390183a4026f349f6c61a2563171059c",
+     "portrait_source": "(Mario - All) Dry Bones V3.1 Update/ui/replace/chara/chara_0/chara_0_mario_01.bntx",
+     "slot": "c01",
+     "variant_id": "01:174057:aaeedf35:c01"
+    },
+    {
+     "color": 2,
+     "content_sha256": "a402beb796b65b471c37b29b81b66709471cede4541e1491f0e6d664c1cd398a",
+     "duplicate_of": null,
+     "files_count": 33,
+     "has_model": true,
+     "portrait": "74adf7036f3b9be709dbf1ccca1f260fe93f3d1ea92d3edddfeb427486147563",
+     "portrait_source": "(Mario - All) Dry Bones V3.1 Update/ui/replace/chara/chara_0/chara_0_mario_02.bntx",
+     "slot": "c02",
+     "variant_id": "01:174057:aaeedf35:c02"
+    },
+    {
+     "color": 3,
+     "content_sha256": "3641205ee57755b623676b6ce918bef341142377e3299e504cadf110fed65c06",
+     "duplicate_of": null,
+     "files_count": 33,
+     "has_model": true,
+     "portrait": "4e7023dfe029361cc634a00c90a249718ed737548c4ba3e8266fa228c4002113",
+     "portrait_source": "(Mario - All) Dry Bones V3.1 Update/ui/replace/chara/chara_0/chara_0_mario_03.bntx",
+     "slot": "c03",
+     "variant_id": "01:174057:aaeedf35:c03"
+    },
+    {
+     "color": 4,
+     "content_sha256": "033c6763d87931e7199dd90b57a95902b02990eccc5de7268c562624d3c96b34",
+     "duplicate_of": null,
+     "files_count": 39,
+     "has_model": true,
+     "portrait": "0ab5d5dcd7de99b4803635221c623952d7b810e1db550c5fe600f1d52b6b253a",
+     "portrait_source": "(Mario - All) Dry Bones V3.1 Update/ui/replace/chara/chara_0/chara_0_mario_04.bntx",
+     "slot": "c04",
+     "variant_id": "01:174057:aaeedf35:c04"
+    },
+    {
+     "color": 5,
+     "content_sha256": "318f5835a918d459c162f083d710e3e710fcaafb42b0e253fb7ab45fec0cf644",
+     "duplicate_of": null,
+     "files_count": 37,
+     "has_model": true,
+     "portrait": "9db6b9d9c9a5b880936d87d8a2f3083f79598842f8edc46bb16e9e65858c19a5",
+     "portrait_source": "(Mario - All) Dry Bones V3.1 Update/ui/replace/chara/chara_0/chara_0_mario_05.bntx",
+     "slot": "c05",
+     "variant_id": "01:174057:aaeedf35:c05"
+    },
+    {
+     "color": 6,
+     "content_sha256": "7c37f53f5f85b87f1351683fcf1673ed18c7124b8bce13e9635ae168578db991",
+     "duplicate_of": null,
+     "files_count": 45,
+     "has_model": true,
+     "portrait": "8ab5f53229af678147a25a856be34e80e6a0f4ac1166c9116d4d0a12f7dfffbd",
+     "portrait_source": "(Mario - All) Dry Bones V3.1 Update/ui/replace/chara/chara_0/chara_0_mario_06.bntx",
+     "slot": "c06",
+     "variant_id": "01:174057:aaeedf35:c06"
+    },
+    {
+     "color": 7,
+     "content_sha256": "28f7ff52f68b8ad62e76b88907ddb0f2c1cef634762bce68d89ad12db94da04d",
+     "duplicate_of": null,
+     "files_count": 39,
+     "has_model": true,
+     "portrait": "ceb16d63ce22a6904d12d15dd36d9fe7f7ef898932ebf2d283b06d75f4824ea8",
+     "portrait_source": "(Mario - All) Dry Bones V3.1 Update/ui/replace/chara/chara_0/chara_0_mario_07.bntx",
+     "slot": "c07",
+     "variant_id": "01:174057:aaeedf35:c07"
+    }
+   ]
+  },
+  {
+   "inspected": true,
+   "kind": "original",
+   "md5": "19c63da4af65a59d237fa50c145a2788",
+   "path": "original/dry_bones_v3-1_animations_only_all_slots.zip",
+   "shared_files": 0,
+   "shared_sample": [],
+   "variants": [
+    {
+     "color": 0,
+     "content_sha256": "a7b824957e8914646a8d579bc6635b046e1f2bb7dcd0689fecf5450fae8117c9",
+     "duplicate_of": null,
+     "files_count": 11,
+     "has_model": false,
+     "portrait": null,
+     "portrait_source": null,
+     "slot": "c00",
+     "variant_id": "01:174057:19c63da4:c00"
+    },
+    {
+     "color": 1,
+     "content_sha256": "a7b824957e8914646a8d579bc6635b046e1f2bb7dcd0689fecf5450fae8117c9",
+     "duplicate_of": "c00",
+     "files_count": 11,
+     "has_model": false,
+     "portrait": null,
+     "portrait_source": null,
+     "slot": "c01",
+     "variant_id": "01:174057:19c63da4:c01"
+    },
+    {
+     "color": 2,
+     "content_sha256": "a7b824957e8914646a8d579bc6635b046e1f2bb7dcd0689fecf5450fae8117c9",
+     "duplicate_of": "c00",
+     "files_count": 11,
+     "has_model": false,
+     "portrait": null,
+     "portrait_source": null,
+     "slot": "c02",
+     "variant_id": "01:174057:19c63da4:c02"
+    },
+    {
+     "color": 3,
+     "content_sha256": "a7b824957e8914646a8d579bc6635b046e1f2bb7dcd0689fecf5450fae8117c9",
+     "duplicate_of": "c00",
+     "files_count": 11,
+     "has_model": false,
+     "portrait": null,
+     "portrait_source": null,
+     "slot": "c03",
+     "variant_id": "01:174057:19c63da4:c03"
+    },
+    {
+     "color": 4,
+     "content_sha256": "a7b824957e8914646a8d579bc6635b046e1f2bb7dcd0689fecf5450fae8117c9",
+     "duplicate_of": "c00",
+     "files_count": 11,
+     "has_model": false,
+     "portrait": null,
+     "portrait_source": null,
+     "slot": "c04",
+     "variant_id": "01:174057:19c63da4:c04"
+    },
+    {
+     "color": 5,
+     "content_sha256": "a7b824957e8914646a8d579bc6635b046e1f2bb7dcd0689fecf5450fae8117c9",
+     "duplicate_of": "c00",
+     "files_count": 11,
+     "has_model": false,
+     "portrait": null,
+     "portrait_source": null,
+     "slot": "c05",
+     "variant_id": "01:174057:19c63da4:c05"
+    },
+    {
+     "color": 6,
+     "content_sha256": "a7b824957e8914646a8d579bc6635b046e1f2bb7dcd0689fecf5450fae8117c9",
+     "duplicate_of": "c00",
+     "files_count": 11,
+     "has_model": false,
+     "portrait": null,
+     "portrait_source": null,
+     "slot": "c06",
+     "variant_id": "01:174057:19c63da4:c06"
+    },
+    {
+     "color": 7,
+     "content_sha256": "a7b824957e8914646a8d579bc6635b046e1f2bb7dcd0689fecf5450fae8117c9",
+     "duplicate_of": "c00",
+     "files_count": 11,
+     "has_model": false,
+     "portrait": null,
+     "portrait_source": null,
+     "slot": "c07",
+     "variant_id": "01:174057:19c63da4:c07"
+    }
+   ]
+  },
+  {
+   "inspected": true,
+   "kind": "original",
+   "md5": "e4a32ec61a268740cac23194b9a0f8e4",
+   "path": "original/dry_bones_v3-1_animations_only_single_slot_c01.zip",
+   "shared_files": 0,
+   "shared_sample": [],
+   "variants": [
+    {
+     "color": 1,
+     "content_sha256": "d7f9b252e076c7dda577d2753bee2a3ddbd80f9b82be4744337ced428a203205",
+     "duplicate_of": null,
+     "files_count": 11,
+     "has_model": false,
+     "portrait": null,
+     "portrait_source": null,
+     "slot": "c01",
+     "variant_id": "01:174057:e4a32ec6:c01"
+    }
+   ]
+  },
+  {
+   "inspected": true,
+   "kind": "original",
+   "md5": "f3cd0cd8799f2abc3ad2c6e989bb54a3",
+   "path": "original/dry_bones_v3-1_single_slot_c01.zip",
+   "shared_files": 1,
+   "shared_sample": [
+    "(Mario - c01) Dry Bones V3.1 - Single Slot/config.json"
+   ],
+   "variants": [
+    {
+     "color": 1,
+     "content_sha256": "d8f60eae3b562c353b0d7f17319692bc3152240091b84133229bdf12bfe6719c",
+     "duplicate_of": null,
+     "files_count": 33,
+     "has_model": true,
+     "portrait": "db78420c3a5de5d0db19ae21097c8248abe15381a65113330ea5c6065fce4fc3",
+     "portrait_source": "(Mario - c01) Dry Bones V3.1 - Single Slot/ui/replace/chara/chara_0/chara_0_mario_01.bntx",
+     "slot": "c01",
+     "variant_id": "01:174057:f3cd0cd8:c01"
+    }
+   ]
+  }
+ ],
+ "code": "01",
+ "folder": "mario/174057_dry_bones_v3_1_update",
+ "mod_id": 174057
+}

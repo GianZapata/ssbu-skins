@@ -1,0 +1,41 @@
+{
+ "archives": [
+  {
+   "inspected": true,
+   "kind": "original",
+   "md5": "5b60d52ec170defef5698d184d21e96a",
+   "path": "original/yuffie_over_c01_sheik.rar",
+   "shared_files": 1,
+   "shared_sample": [
+    "(Yuffie) Over_c01_Sheik/config.json"
+   ],
+   "variants": [
+    {
+     "color": 0,
+     "content_sha256": "9173c3d00b5aa62fcc976b2bc875762b7de6398bed37a314a61994c9f0cbffee",
+     "duplicate_of": null,
+     "files_count": 355,
+     "has_model": false,
+     "portrait": null,
+     "portrait_source": null,
+     "slot": "c00",
+     "variant_id": "16:511678:5b60d52e:c00"
+    },
+    {
+     "color": 1,
+     "content_sha256": "43292c72d78be8d3e2cfd4ca5690f446eb0900561ded06e6c7c565169e50528c",
+     "duplicate_of": null,
+     "files_count": 108,
+     "has_model": true,
+     "portrait": "a771af072bab2fe84d236d4cfcd3a0d50680853a997cb0b8e425490dd42d1f35",
+     "portrait_source": "(Yuffie) Over_c01_Sheik/ui/replace/chara/chara_0/chara_0_sheik_01.bntx",
+     "slot": "c01",
+     "variant_id": "16:511678:5b60d52e:c01"
+    }
+   ]
+  }
+ ],
+ "code": "16",
+ "folder": "sheik/511678_yuffie_kisaragi_final_fantasy_vii",
+ "mod_id": 511678
+}

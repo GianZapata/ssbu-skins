@@ -1,0 +1,39 @@
+{
+ "archives": [
+  {
+   "inspected": true,
+   "kind": "original",
+   "md5": "7dc563efe71b1d3c3e3f06c02488805c",
+   "path": "original/phoenix_wright_over_captain_falcon_eac76.zip",
+   "shared_files": 0,
+   "shared_sample": [],
+   "variants": [
+    {
+     "color": 3,
+     "content_sha256": "cb573fbaa0b201e53c098d7d41541ebcce75331e2474a40cfdd6094dfc1c7e00",
+     "duplicate_of": null,
+     "files_count": 25,
+     "has_model": true,
+     "portrait": "b7f7310d925c825bfdfa46fde6b6e5fddcf4955703817a2dc75d568e454a00fa",
+     "portrait_source": "Phoenix Wright over Captain Falcon/ui/replace/chara/chara_0/chara_0_captain_03.bntx",
+     "slot": "c03",
+     "variant_id": "11:174741:7dc563ef:c03"
+    },
+    {
+     "color": 4,
+     "content_sha256": "0ba34e7c09df0de47d5b210346e41d40de8bc00d60b24e85b7925d8f91e5757a",
+     "duplicate_of": null,
+     "files_count": 25,
+     "has_model": true,
+     "portrait": "1c18943e529c6fc334422c2377f6c7b594851ee5a2b2f1cc3593a45d7f8fc7f6",
+     "portrait_source": "Phoenix Wright over Captain Falcon/ui/replace/chara/chara_0/chara_0_captain_04.bntx",
+     "slot": "c04",
+     "variant_id": "11:174741:7dc563ef:c04"
+    }
+   ]
+  }
+ ],
+ "code": "11",
+ "folder": "captain_falcon/174741_phoenix_wright",
+ "mod_id": 174741
+}

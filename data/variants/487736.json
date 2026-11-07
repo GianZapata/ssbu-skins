@@ -1,0 +1,61 @@
+{
+ "archives": [
+  {
+   "inspected": true,
+   "kind": "original",
+   "md5": "e5d1238c93a008729fa684be2369b199",
+   "path": "original/son_goku_ss1-ssg-ssb_ryu_c05-06-07_.rar",
+   "shared_files": 10,
+   "shared_sample": [
+    "Son Goku (SS1-SSG-SSB) (Ryu c05-06-07)/Goku SS1/ui/message/msg_name.xmsbt",
+    "Son Goku (SS1-SSG-SSB) (Ryu c05-06-07)/Goku SS1/ui/param/database/ui_chara_db.prcxml",
+    "Son Goku (SS1-SSG-SSB) (Ryu c05-06-07)/Goku SSB/ui/message/msg_name.xmsbt",
+    "Son Goku (SS1-SSG-SSB) (Ryu c05-06-07)/Goku SSB/ui/param/database/ui_chara_db.prcxml",
+    "Son Goku (SS1-SSG-SSB) (Ryu c05-06-07)/Goku SSG/SSG Goku/stream;/sound/bgm/bgm_z81_f_ryu.nus3audio",
+    "Son Goku (SS1-SSG-SSB) (Ryu c05-06-07)/Goku SSG/SSG Goku/ui/message/msg_name.xmsbt",
+    "Son Goku (SS1-SSG-SSB) (Ryu c05-06-07)/Goku SSG/SSG Goku/ui/param/database/ui_chara_db.prcxml",
+    "Son Goku (SS1-SSG-SSB) (Ryu c05-06-07)/Goku SSG/stream;/sound/bgm/bgm_z81_f_ryu.nus3audio",
+    "Son Goku (SS1-SSG-SSB) (Ryu c05-06-07)/Goku SSG/ui/message/msg_name.xmsbt",
+    "Son Goku (SS1-SSG-SSB) (Ryu c05-06-07)/Goku SSG/ui/param/database/ui_chara_db.prcxml"
+   ],
+   "variants": [
+    {
+     "color": 5,
+     "content_sha256": "9c3876704b638e6b603130ddf811e37ad7ef0bcfe0216b564f8055fb7c452b04",
+     "duplicate_of": null,
+     "files_count": 11,
+     "has_model": true,
+     "portrait": "7e0ec583f6a3394d55085ab3c358f96f56623d50f5caa2afbb848c6ad5a8dd38",
+     "portrait_source": "Son Goku (SS1-SSG-SSB) (Ryu c05-06-07)/Goku SS1/ui/replace/chara/chara_1/chara_1_ryu_05.bntx",
+     "slot": "c05",
+     "variant_id": "60:487736:e5d1238c:c05"
+    },
+    {
+     "color": 6,
+     "content_sha256": "065315f5e7fcf7cbc994c706142f4137aa6c025f2ed8d717ddb9bad827b2c310",
+     "duplicate_of": null,
+     "files_count": 11,
+     "has_model": true,
+     "portrait": "7882d79bb9e6291f609bc7d6d6f49f58d804e9f3fc06bd132fad79481945f134",
+     "portrait_source": "Son Goku (SS1-SSG-SSB) (Ryu c05-06-07)/Goku SSB/ui/replace/chara/chara_1/chara_1_ryu_06.bntx",
+     "slot": "c06",
+     "variant_id": "60:487736:e5d1238c:c06"
+    },
+    {
+     "color": 7,
+     "content_sha256": "13ee946e96cb2f0472e0de429ca2c06f7ee1a0f2db116c06ffab6c36a7bdcce4",
+     "duplicate_of": null,
+     "files_count": 22,
+     "has_model": true,
+     "portrait": "9a1f0cbc7d14575c28bd39c22d358abfb899b690f817b6f5a36b10fe7e75bb83",
+     "portrait_source": "Son Goku (SS1-SSG-SSB) (Ryu c05-06-07)/Goku SSG/SSG Goku/ui/replace/chara/chara_1/chara_1_ryu_07.bntx",
+     "slot": "c07",
+     "variant_id": "60:487736:e5d1238c:c07"
+    }
+   ]
+  }
+ ],
+ "code": "60",
+ "folder": "ryu/487736_goku_transformation_pack",
+ "mod_id": 487736
+}

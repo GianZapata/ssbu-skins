@@ -1,0 +1,124 @@
+{
+ "archives": [
+  {
+   "inspected": true,
+   "kind": "original",
+   "md5": "a58b8cd1d942d71770a3bdacf06eaf4f",
+   "path": "original/totk_ganondorf_effects.rar",
+   "shared_files": 3,
+   "shared_sample": [
+    "[Fighter][Ganondorf][c00-c07] ToTK Ganondorf EFFECTS/config.json",
+    "[Fighter][Ganondorf][c00-c07] ToTK Ganondorf EFFECTS/info.toml",
+    "[Fighter][Ganondorf][c00-c07] ToTK Ganondorf EFFECTS/preview.webp"
+   ],
+   "variants": [
+    {
+     "color": 0,
+     "content_sha256": "021d05f025a481f825a39178f5ce36e8d5db2904eb181ae5464f5936528e98fc",
+     "duplicate_of": null,
+     "files_count": 1,
+     "has_model": false,
+     "portrait": null,
+     "portrait_source": null,
+     "slot": "c00",
+     "variant_id": "23:460620:a58b8cd1:c00"
+    },
+    {
+     "color": 1,
+     "content_sha256": "021d05f025a481f825a39178f5ce36e8d5db2904eb181ae5464f5936528e98fc",
+     "duplicate_of": "c00",
+     "files_count": 1,
+     "has_model": false,
+     "portrait": null,
+     "portrait_source": null,
+     "slot": "c01",
+     "variant_id": "23:460620:a58b8cd1:c01"
+    },
+    {
+     "color": 2,
+     "content_sha256": "021d05f025a481f825a39178f5ce36e8d5db2904eb181ae5464f5936528e98fc",
+     "duplicate_of": "c00",
+     "files_count": 1,
+     "has_model": false,
+     "portrait": null,
+     "portrait_source": null,
+     "slot": "c02",
+     "variant_id": "23:460620:a58b8cd1:c02"
+    },
+    {
+     "color": 3,
+     "content_sha256": "021d05f025a481f825a39178f5ce36e8d5db2904eb181ae5464f5936528e98fc",
+     "duplicate_of": "c00",
+     "files_count": 1,
+     "has_model": false,
+     "portrait": null,
+     "portrait_source": null,
+     "slot": "c03",
+     "variant_id": "23:460620:a58b8cd1:c03"
+    },
+    {
+     "color": 4,
+     "content_sha256": "021d05f025a481f825a39178f5ce36e8d5db2904eb181ae5464f5936528e98fc",
+     "duplicate_of": "c00",
+     "files_count": 1,
+     "has_model": false,
+     "portrait": null,
+     "portrait_source": null,
+     "slot": "c04",
+     "variant_id": "23:460620:a58b8cd1:c04"
+    },
+    {
+     "color": 5,
+     "content_sha256": "021d05f025a481f825a39178f5ce36e8d5db2904eb181ae5464f5936528e98fc",
+     "duplicate_of": "c00",
+     "files_count": 1,
+     "has_model": false,
+     "portrait": null,
+     "portrait_source": null,
+     "slot": "c05",
+     "variant_id": "23:460620:a58b8cd1:c05"
+    },
+    {
+     "color": 6,
+     "content_sha256": "021d05f025a481f825a39178f5ce36e8d5db2904eb181ae5464f5936528e98fc",
+     "duplicate_of": "c00",
+     "files_count": 1,
+     "has_model": false,
+     "portrait": null,
+     "portrait_source": null,
+     "slot": "c06",
+     "variant_id": "23:460620:a58b8cd1:c06"
+    },
+    {
+     "color": 7,
+     "content_sha256": "021d05f025a481f825a39178f5ce36e8d5db2904eb181ae5464f5936528e98fc",
+     "duplicate_of": "c00",
+     "files_count": 1,
+     "has_model": false,
+     "portrait": null,
+     "portrait_source": null,
+     "slot": "c07",
+     "variant_id": "23:460620:a58b8cd1:c07"
+    }
+   ]
+  },
+  {
+   "inspected": true,
+   "kind": "original",
+   "md5": "fd6446237b64d4b7de4fb3c80a396b62",
+   "path": "original/totk_ganondorf_swordtrails.rar",
+   "shared_files": 5,
+   "shared_sample": [
+    "TotK_Ganondorf_SwordTrails/info.toml",
+    "TotK_Ganondorf_SwordTrails/preview.webp",
+    "TotK_Ganondorf_SwordTrails/[Fighter][Ganondorf][c00-c07] ToTK Ganondorf Sword Trails/effect/fighter/ganon/ef_ganon.eff",
+    "TotK_Ganondorf_SwordTrails/[Fighter][Ganondorf][c00-c07] ToTK Ganondorf Sword Trails/effect/fighter/ganon/trail/tex_ganon_sword1.nutexb",
+    "TotK_Ganondorf_SwordTrails/[Fighter][Ganondorf][c00-c07] ToTK Ganondorf Sword Trails/fighter/common/param/fighter_param.prcx"
+   ],
+   "variants": []
+  }
+ ],
+ "code": "23",
+ "folder": "ganondorf/460620_demon_king_ganondorf_totk",
+ "mod_id": 460620
+}

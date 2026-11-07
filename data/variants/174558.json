@@ -1,0 +1,162 @@
+{
+ "archives": [
+  {
+   "inspected": true,
+   "kind": "original",
+   "md5": "ccc3b447e89645fa2f06e69a614127f1",
+   "path": "original/falco-n64skin---v-1-4b.zip",
+   "shared_files": 0,
+   "shared_sample": [],
+   "variants": [
+    {
+     "color": 0,
+     "content_sha256": "df6cbc3805717e061d755db3f0d75f6f05528594a0babe9037d861d179f00f5f",
+     "duplicate_of": null,
+     "files_count": 7,
+     "has_model": true,
+     "portrait": "202e43f140e2904cb8b419ca6bfea7a1e0e9c6b82ef1e2cceaaf7ba3106eb777",
+     "portrait_source": "falco-n64skin---v-1-4b/ui/replace/chara/chara_0/chara_0_falco_00.bntx",
+     "slot": "c00",
+     "variant_id": "20:174558:ccc3b447:c00"
+    },
+    {
+     "color": 1,
+     "content_sha256": "bb49d2c87d9152454bf1c725541072f16bf4239b4c518eb43ba1887e916ea29a",
+     "duplicate_of": null,
+     "files_count": 7,
+     "has_model": true,
+     "portrait": "d19e52fa5e4f1ec82e93983c4ff8ff4061fa579001a5e3a7d9dcc24a81dc2311",
+     "portrait_source": "falco-n64skin---v-1-4b/ui/replace/chara/chara_0/chara_0_falco_01.bntx",
+     "slot": "c01",
+     "variant_id": "20:174558:ccc3b447:c01"
+    },
+    {
+     "color": 2,
+     "content_sha256": "34add4f9206bd3eda3f3f4405ef49699f9e48b70a1b198475ecc78aa7ff6f039",
+     "duplicate_of": null,
+     "files_count": 7,
+     "has_model": true,
+     "portrait": "ab6a46935bf3995ee1531739a430e3b9a3858f49704fd7e763392e38a24394f5",
+     "portrait_source": "falco-n64skin---v-1-4b/ui/replace/chara/chara_0/chara_0_falco_02.bntx",
+     "slot": "c02",
+     "variant_id": "20:174558:ccc3b447:c02"
+    }
+   ]
+  },
+  {
+   "inspected": true,
+   "kind": "original",
+   "md5": "d9c8698f2e23b6e7c361b5604175c8c7",
+   "path": "original/falcon64sound---v1-4d.zip",
+   "shared_files": 2,
+   "shared_sample": [
+    "sound/bank/fighter/se_falco.nus3audio",
+    "sound/bank/fighter_voice/vc_falco.nus3audio"
+   ],
+   "variants": [
+    {
+     "color": 0,
+     "content_sha256": "0fde3a14d44886bf2da3289c33ee9f72a6a5d323f1f77e168a21138116212fbc",
+     "duplicate_of": null,
+     "files_count": 2,
+     "has_model": false,
+     "portrait": null,
+     "portrait_source": null,
+     "slot": "c00",
+     "variant_id": "20:174558:d9c8698f:c00"
+    },
+    {
+     "color": 1,
+     "content_sha256": "0fde3a14d44886bf2da3289c33ee9f72a6a5d323f1f77e168a21138116212fbc",
+     "duplicate_of": "c00",
+     "files_count": 2,
+     "has_model": false,
+     "portrait": null,
+     "portrait_source": null,
+     "slot": "c01",
+     "variant_id": "20:174558:d9c8698f:c01"
+    },
+    {
+     "color": 2,
+     "content_sha256": "0fde3a14d44886bf2da3289c33ee9f72a6a5d323f1f77e168a21138116212fbc",
+     "duplicate_of": "c00",
+     "files_count": 2,
+     "has_model": false,
+     "portrait": null,
+     "portrait_source": null,
+     "slot": "c02",
+     "variant_id": "20:174558:d9c8698f:c02"
+    },
+    {
+     "color": 3,
+     "content_sha256": "0fde3a14d44886bf2da3289c33ee9f72a6a5d323f1f77e168a21138116212fbc",
+     "duplicate_of": "c00",
+     "files_count": 2,
+     "has_model": false,
+     "portrait": null,
+     "portrait_source": null,
+     "slot": "c03",
+     "variant_id": "20:174558:d9c8698f:c03"
+    },
+    {
+     "color": 4,
+     "content_sha256": "0fde3a14d44886bf2da3289c33ee9f72a6a5d323f1f77e168a21138116212fbc",
+     "duplicate_of": "c00",
+     "files_count": 2,
+     "has_model": false,
+     "portrait": null,
+     "portrait_source": null,
+     "slot": "c04",
+     "variant_id": "20:174558:d9c8698f:c04"
+    },
+    {
+     "color": 5,
+     "content_sha256": "0fde3a14d44886bf2da3289c33ee9f72a6a5d323f1f77e168a21138116212fbc",
+     "duplicate_of": "c00",
+     "files_count": 2,
+     "has_model": false,
+     "portrait": null,
+     "portrait_source": null,
+     "slot": "c05",
+     "variant_id": "20:174558:d9c8698f:c05"
+    },
+    {
+     "color": 6,
+     "content_sha256": "0fde3a14d44886bf2da3289c33ee9f72a6a5d323f1f77e168a21138116212fbc",
+     "duplicate_of": "c00",
+     "files_count": 2,
+     "has_model": false,
+     "portrait": null,
+     "portrait_source": null,
+     "slot": "c06",
+     "variant_id": "20:174558:d9c8698f:c06"
+    },
+    {
+     "color": 7,
+     "content_sha256": "0fde3a14d44886bf2da3289c33ee9f72a6a5d323f1f77e168a21138116212fbc",
+     "duplicate_of": "c00",
+     "files_count": 2,
+     "has_model": false,
+     "portrait": null,
+     "portrait_source": null,
+     "slot": "c07",
+     "variant_id": "20:174558:d9c8698f:c07"
+    }
+   ]
+  },
+  {
+   "inspected": true,
+   "kind": "original",
+   "md5": "10ddd587618d3dc7f478f1c660954783",
+   "path": "original/falcon64sqb---v1-4c.zip",
+   "shared_files": 1,
+   "shared_sample": [
+    "falcon64sqb---v1-4c/sound/sequence/fighter/falco.sqb"
+   ],
+   "variants": []
+  }
+ ],
+ "code": "20",
+ "folder": "falco/174558_falco_n64_skin_voice_sfx",
+ "mod_id": 174558
+}

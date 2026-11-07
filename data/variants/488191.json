@@ -1,0 +1,53 @@
+{
+ "archives": [
+  {
+   "inspected": true,
+   "kind": "original",
+   "md5": "d118905df5576cb467861559fee01a43",
+   "path": "original/evie_fortnite_c06.zip",
+   "shared_files": 1,
+   "shared_sample": [
+    "evie_fortnite_c06/config.json"
+   ],
+   "variants": [
+    {
+     "color": 6,
+     "content_sha256": "baf87268939b7d2fb234f27bef5de590ced859be3b6e22a938bb9a5363da1889",
+     "duplicate_of": null,
+     "files_count": 42,
+     "has_model": true,
+     "portrait": "28afd6bf7a6583bd9d33e2f82b8839b907468947ca4ecfb7513c6b9e3531e756",
+     "portrait_source": "evie_fortnite_c06/ui/replace/chara/chara_0/chara_0_bayonetta_06.bntx",
+     "slot": "c06",
+     "variant_id": "63:488191:d118905d:c06"
+    }
+   ]
+  },
+  {
+   "inspected": true,
+   "kind": "original",
+   "md5": "33816d955cd4210e70d647ad3638be37",
+   "path": "original/evie_fortnite_c07.zip",
+   "shared_files": 1,
+   "shared_sample": [
+    "evie_fortnite_c07/config.json"
+   ],
+   "variants": [
+    {
+     "color": 7,
+     "content_sha256": "4920138e2a30a61ceb9aa486ae8a5f4881826616733c906a069844575800432b",
+     "duplicate_of": null,
+     "files_count": 42,
+     "has_model": true,
+     "portrait": "28afd6bf7a6583bd9d33e2f82b8839b907468947ca4ecfb7513c6b9e3531e756",
+     "portrait_source": "evie_fortnite_c07/ui/replace/chara/chara_0/chara_0_bayonetta_07.bntx",
+     "slot": "c07",
+     "variant_id": "63:488191:33816d95:c07"
+    }
+   ]
+  }
+ ],
+ "code": "63",
+ "folder": "bayonetta/488191_evie_fortnite",
+ "mod_id": 488191
+}

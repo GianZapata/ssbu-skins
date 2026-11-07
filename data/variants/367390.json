@@ -1,0 +1,50 @@
+{
+ "archives": [
+  {
+   "inspected": true,
+   "kind": "original",
+   "md5": "d096e9bee487f2a94dd4848e9f4b7200",
+   "path": "original/larxene_over_sheik.7z",
+   "shared_files": 11,
+   "shared_sample": [
+    "Credits.txt",
+    "License.txt",
+    "Screenshots/2022032720202000-0E7DF678130F4F0FA2C88AE72B47AFDF.jpg",
+    "Screenshots/2022032720212200-0E7DF678130F4F0FA2C88AE72B47AFDF.jpg",
+    "Screenshots/2022032720213600-0E7DF678130F4F0FA2C88AE72B47AFDF.jpg",
+    "Screenshots/2022032720215000-0E7DF678130F4F0FA2C88AE72B47AFDF.jpg",
+    "Screenshots/2022032720220000-0E7DF678130F4F0FA2C88AE72B47AFDF.jpg",
+    "Screenshots/2022032720224600-0E7DF678130F4F0FA2C88AE72B47AFDF.jpg",
+    "Screenshots/2022032720235200-0E7DF678130F4F0FA2C88AE72B47AFDF.jpg",
+    "Screenshots/Banner.png"
+   ],
+   "variants": [
+    {
+     "color": 0,
+     "content_sha256": "a1ec33dd7473d4a70835d2214d018354af39c24b4667bfaa96c2b6639c40ff6e",
+     "duplicate_of": null,
+     "files_count": 41,
+     "has_model": true,
+     "portrait": "e18f46d596b328f5c3d855a0e6e48b5eb4f702931456890057281791837ea033",
+     "portrait_source": "Larxene over Sheik (c00)/ui/replace/chara/chara_0/chara_0_sheik_00.bntx",
+     "slot": "c00",
+     "variant_id": "16:367390:d096e9be:c00"
+    },
+    {
+     "color": 1,
+     "content_sha256": "f4d1bad69fbaf796ebcc259c577017e69687bc22b80cf15b0c0171733511bf54",
+     "duplicate_of": null,
+     "files_count": 41,
+     "has_model": true,
+     "portrait": "e18f46d596b328f5c3d855a0e6e48b5eb4f702931456890057281791837ea033",
+     "portrait_source": "Larxene (Hooded) over Sheik (c01)/ui/replace/chara/chara_0/chara_0_sheik_01.bntx",
+     "slot": "c01",
+     "variant_id": "16:367390:d096e9be:c01"
+    }
+   ]
+  }
+ ],
+ "code": "16",
+ "folder": "sheik/367390_larxene_over_sheik",
+ "mod_id": 367390
+}

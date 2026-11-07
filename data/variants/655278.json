@@ -1,0 +1,205 @@
+{
+ "archives": [
+  {
+   "inspected": true,
+   "kind": "original",
+   "md5": "142ccb3c47e0d0fe7e2b02bd9d45a028",
+   "path": "original/sukuna-v2-kazuya-c02_b0ded.zip",
+   "shared_files": 2,
+   "shared_sample": [
+    "Sukuna V2 c02/config.json",
+    "Sukuna V2 c02/info.toml"
+   ],
+   "variants": [
+    {
+     "color": 2,
+     "content_sha256": "aa0db94a8487a4baa5005c7c5c7e88f2251f92adaf2d23f997c3784432634eea",
+     "duplicate_of": null,
+     "files_count": 36,
+     "has_model": true,
+     "portrait": "06da9b5f9324786d788a5ef0ec89ad56c8ba819925dfa2fe3e0a5beb1b629688",
+     "portrait_source": "Sukuna V2 c02/ui/replace_patch/chara/chara_0/chara_0_demon_02.bntx",
+     "slot": "c02",
+     "variant_id": "81:655278:142ccb3c:c02"
+    }
+   ]
+  },
+  {
+   "inspected": true,
+   "kind": "original",
+   "md5": "e06028bde0eeeeb2f673950f8489bbc4",
+   "path": "original/sukuna-v2-kazuya-c04_c437d.zip",
+   "shared_files": 2,
+   "shared_sample": [
+    "Sukuna V2 c04/config.json",
+    "Sukuna V2 c04/info.toml"
+   ],
+   "variants": [
+    {
+     "color": 4,
+     "content_sha256": "eea2419a6b2505cc7fb60657d4d7e511b4a1ecef6f56b4547f122c5f9fcb4bf0",
+     "duplicate_of": null,
+     "files_count": 36,
+     "has_model": true,
+     "portrait": "4c60b17eba98de4d0199a79b369cf936ae63b51645189e4e79c7ad77fe2273f6",
+     "portrait_source": "Sukuna V2 c04/ui/replace_patch/chara/chara_0/chara_0_demon_04.bntx",
+     "slot": "c04",
+     "variant_id": "81:655278:e06028bd:c04"
+    }
+   ]
+  },
+  {
+   "inspected": true,
+   "kind": "original",
+   "md5": "45e113962049bc0b5e7538554dd81069",
+   "path": "original/sukuna-v2-kazuya-c06_afbed.zip",
+   "shared_files": 2,
+   "shared_sample": [
+    "Sukuna V2 c06/config.json",
+    "Sukuna V2 c06/info.toml"
+   ],
+   "variants": [
+    {
+     "color": 6,
+     "content_sha256": "19d0a9a5d4764ab7983197e32b371d3690695118b57d3617ac84673f4b820fb0",
+     "duplicate_of": null,
+     "files_count": 36,
+     "has_model": true,
+     "portrait": "96886177f0f6b876f63c7c1d7f304592dbb4850fb7c89b42c25506137e59fd99",
+     "portrait_source": "Sukuna V2 c06/ui/replace_patch/chara/chara_0/chara_0_demon_06.bntx",
+     "slot": "c06",
+     "variant_id": "81:655278:45e11396:c06"
+    }
+   ]
+  },
+  {
+   "inspected": true,
+   "kind": "original",
+   "md5": "a2941c474bb0980b27bd509bf8d8aba1",
+   "path": "original/sukuna_c02_.zip",
+   "shared_files": 0,
+   "shared_sample": [],
+   "variants": [
+    {
+     "color": 2,
+     "content_sha256": "941027fa409b2759881fb9b7169296a772749c20e3ed2ee8f41483bcc8a2febd",
+     "duplicate_of": null,
+     "files_count": 12,
+     "has_model": true,
+     "portrait": "77aa853006901045db59f905b84ccaa737410c9fdef23a0f05525a8f46a5ed77",
+     "portrait_source": "Sukuna (c02)/ui/replace_patch/chara/chara_1/chara_1_demon_02.bntx",
+     "slot": "c02",
+     "variant_id": "81:655278:a2941c47:c02"
+    }
+   ]
+  },
+  {
+   "inspected": true,
+   "kind": "original",
+   "md5": "7a5b86b93dead0ca371b4f533897822e",
+   "path": "original/sukuna_c04_.zip",
+   "shared_files": 0,
+   "shared_sample": [],
+   "variants": [
+    {
+     "color": 4,
+     "content_sha256": "f1db19bbe60667bad31fcbb53e2faeac61f0c34ac5b7a3865c64f2816ed66966",
+     "duplicate_of": null,
+     "files_count": 12,
+     "has_model": true,
+     "portrait": "77aa853006901045db59f905b84ccaa737410c9fdef23a0f05525a8f46a5ed77",
+     "portrait_source": "Sukuna (c04)/ui/replace_patch/chara/chara_1/chara_1_demon_04.bntx",
+     "slot": "c04",
+     "variant_id": "81:655278:7a5b86b9:c04"
+    }
+   ]
+  },
+  {
+   "inspected": true,
+   "kind": "original",
+   "md5": "f97d394a523438ac05077212195aad72",
+   "path": "original/sukuna_c06_.zip",
+   "shared_files": 0,
+   "shared_sample": [],
+   "variants": [
+    {
+     "color": 6,
+     "content_sha256": "41ffc35126162574f977a28b675defd0ab02b15254e57c68f975f796d01b7c5a",
+     "duplicate_of": null,
+     "files_count": 12,
+     "has_model": true,
+     "portrait": "77aa853006901045db59f905b84ccaa737410c9fdef23a0f05525a8f46a5ed77",
+     "portrait_source": "Sukuna (c06)/ui/replace_patch/chara/chara_1/chara_1_demon_06.bntx",
+     "slot": "c06",
+     "variant_id": "81:655278:f97d394a:c06"
+    }
+   ]
+  },
+  {
+   "inspected": true,
+   "kind": "original",
+   "md5": "b3353fd3b848b80690cb6f8a0bb6923b",
+   "path": "original/yuji_c02_.zip",
+   "shared_files": 0,
+   "shared_sample": [],
+   "variants": [
+    {
+     "color": 2,
+     "content_sha256": "4e6b19d5e491ff8ab39c0f04335e28b55f0f2f4d9fcb2b91686b899e3e38d443",
+     "duplicate_of": null,
+     "files_count": 12,
+     "has_model": true,
+     "portrait": "1eb32bd03ad1186d4861f2453bced356662ed4a2363f9f6dd0cddfca2b4c910c",
+     "portrait_source": "Yuji (c02)/ui/replace_patch/chara/chara_1/chara_1_demon_02.bntx",
+     "slot": "c02",
+     "variant_id": "81:655278:b3353fd3:c02"
+    }
+   ]
+  },
+  {
+   "inspected": true,
+   "kind": "original",
+   "md5": "bd1fd5b08a813927d16470df5275c28a",
+   "path": "original/yuji_c04_.zip",
+   "shared_files": 0,
+   "shared_sample": [],
+   "variants": [
+    {
+     "color": 4,
+     "content_sha256": "fe505013d59a03dbc7e4f96bc84527d608a16fdfd5cf20f7a32b56db34693bef",
+     "duplicate_of": null,
+     "files_count": 12,
+     "has_model": true,
+     "portrait": "1eb32bd03ad1186d4861f2453bced356662ed4a2363f9f6dd0cddfca2b4c910c",
+     "portrait_source": "Yuji (c04)/ui/replace_patch/chara/chara_1/chara_1_demon_04.bntx",
+     "slot": "c04",
+     "variant_id": "81:655278:bd1fd5b0:c04"
+    }
+   ]
+  },
+  {
+   "inspected": true,
+   "kind": "original",
+   "md5": "b478fa0d881ebbcaa3a81280e625b993",
+   "path": "original/yuji_c06_.zip",
+   "shared_files": 0,
+   "shared_sample": [],
+   "variants": [
+    {
+     "color": 6,
+     "content_sha256": "1d8b28e490f03c48bf447a3c58e3bd49ce0f5822c22838d55ba3eed23aa9ae78",
+     "duplicate_of": null,
+     "files_count": 12,
+     "has_model": true,
+     "portrait": "1eb32bd03ad1186d4861f2453bced356662ed4a2363f9f6dd0cddfca2b4c910c",
+     "portrait_source": "Yuji (c06)/ui/replace_patch/chara/chara_1/chara_1_demon_06.bntx",
+     "slot": "c06",
+     "variant_id": "81:655278:b478fa0d:c06"
+    }
+   ]
+  }
+ ],
+ "code": "81",
+ "folder": "kazuya/655278_sukuna_yuji",
+ "mod_id": 655278
+}

@@ -1,0 +1,195 @@
+{
+ "archives": [
+  {
+   "inspected": true,
+   "kind": "original",
+   "md5": "e830b952af4110addda645f688676080",
+   "path": "original/drybowserrelease4_1_4slotsversion.7z",
+   "shared_files": 8,
+   "shared_sample": [
+    "README.txt",
+    "DryBowser4Slots/info.toml",
+    "DryBowser4Slots/preview.webp",
+    "DryBowser4Slots/ui/message/msg_name.xmsbt",
+    "DryBowser4Slots/ui/param/database/ui_chara_db.prcxml",
+    "DryBowser4SlotsBlueFire/config.json",
+    "DryBowser4SlotsBlueFire/info.toml",
+    "DryBowser4SlotsBlueFire/preview.webp"
+   ],
+   "variants": [
+    {
+     "color": 4,
+     "content_sha256": "f1482b5dac5093a701208159417c5cc90b3cd9fa4a1cb904d22d935113f96491",
+     "duplicate_of": null,
+     "files_count": 81,
+     "has_model": true,
+     "portrait": "4af3c686c57e2432b961a3963d4b01ca683e875bb06544399ebb031b83aa7335",
+     "portrait_source": "DryBowser4Slots/ui/replace/chara/chara_0/chara_0_koopa_04.bntx",
+     "slot": "c04",
+     "variant_id": "14:174180:e830b952:c04"
+    },
+    {
+     "color": 5,
+     "content_sha256": "0477ef42b6cb7cb44bddf5f4abd1e0982a129b16fd0a48ec94d6211d842a58fa",
+     "duplicate_of": null,
+     "files_count": 81,
+     "has_model": true,
+     "portrait": "70ec118ac56f770ade441efc52c980cf878e7789b94ce53c1c4c41694941cbd3",
+     "portrait_source": "DryBowser4Slots/ui/replace/chara/chara_0/chara_0_koopa_05.bntx",
+     "slot": "c05",
+     "variant_id": "14:174180:e830b952:c05"
+    },
+    {
+     "color": 6,
+     "content_sha256": "b93197dbbc062f279242cf5d0c9268002d5dea3a10592ab463f697ac02b9b741",
+     "duplicate_of": null,
+     "files_count": 81,
+     "has_model": true,
+     "portrait": "63275cb59c5e3b1e52fc81e84b8f5d15e2329dcf975ae14ce2a2e14e7d9a2468",
+     "portrait_source": "DryBowser4Slots/ui/replace/chara/chara_0/chara_0_koopa_06.bntx",
+     "slot": "c06",
+     "variant_id": "14:174180:e830b952:c06"
+    },
+    {
+     "color": 7,
+     "content_sha256": "360a81ac231c0e9640f4a3daf6ec7b130972c2a9f66495e9aef753b372b88bd6",
+     "duplicate_of": null,
+     "files_count": 81,
+     "has_model": true,
+     "portrait": "f696a7d739f0454041ae0f0423557125493c2bd72a9e1d57c1bb9024ff961f9a",
+     "portrait_source": "DryBowser4Slots/ui/replace/chara/chara_0/chara_0_koopa_07.bntx",
+     "slot": "c07",
+     "variant_id": "14:174180:e830b952:c07"
+    }
+   ]
+  },
+  {
+   "inspected": true,
+   "kind": "original",
+   "md5": "d23124d2c1ae0c65ff2df390a2655023",
+   "path": "original/drybowserrelease4_1_fullreplacementversion.7z",
+   "shared_files": 6,
+   "shared_sample": [
+    "README.txt",
+    "DryBowserFullReplacement/info.toml",
+    "DryBowserFullReplacement/preview.webp",
+    "DryBowserFullReplacement/effect/fighter/koopa/ef_koopa.eff",
+    "DryBowserFullReplacement/effect/fighter/koopag/ef_koopag.eff",
+    "DryBowserFullReplacement/ui/message/msg_name.xmsbt"
+   ],
+   "variants": [
+    {
+     "color": 0,
+     "content_sha256": "cbab390667a00aba21ee2ace5ef718f8fae28b8eee79601adc66c448f2006bd7",
+     "duplicate_of": null,
+     "files_count": 110,
+     "has_model": true,
+     "portrait": "4af3c686c57e2432b961a3963d4b01ca683e875bb06544399ebb031b83aa7335",
+     "portrait_source": "DryBowserFullReplacement/ui/replace/chara/chara_0/chara_0_koopa_00.bntx",
+     "slot": "c00",
+     "variant_id": "14:174180:d23124d2:c00"
+    },
+    {
+     "color": 1,
+     "content_sha256": "4549cf174b2b1b861f3342a07818a867faa149bcf50b1619d8b33fa494b9cf86",
+     "duplicate_of": null,
+     "files_count": 107,
+     "has_model": true,
+     "portrait": "c68e51315b6be64bdebbb9c5e08a3862cd96d4ec77786928c3c1a83b1c7dd2a1",
+     "portrait_source": "DryBowserFullReplacement/ui/replace/chara/chara_0/chara_0_koopa_01.bntx",
+     "slot": "c01",
+     "variant_id": "14:174180:d23124d2:c01"
+    },
+    {
+     "color": 2,
+     "content_sha256": "e8a7905b3664df2d48d206531b8c476a3e53e760d1e690dd6d9a54ccab07fe55",
+     "duplicate_of": null,
+     "files_count": 107,
+     "has_model": true,
+     "portrait": "b2edc570ac012aaa3899a2733075e9b4eaaffebde7fb5d8b4a52661a131550ad",
+     "portrait_source": "DryBowserFullReplacement/ui/replace/chara/chara_0/chara_0_koopa_02.bntx",
+     "slot": "c02",
+     "variant_id": "14:174180:d23124d2:c02"
+    },
+    {
+     "color": 3,
+     "content_sha256": "73077850bb16da8502340cf4934274d546d6b470b2e2712235b15db0492fccda",
+     "duplicate_of": null,
+     "files_count": 107,
+     "has_model": true,
+     "portrait": "70ec118ac56f770ade441efc52c980cf878e7789b94ce53c1c4c41694941cbd3",
+     "portrait_source": "DryBowserFullReplacement/ui/replace/chara/chara_0/chara_0_koopa_03.bntx",
+     "slot": "c03",
+     "variant_id": "14:174180:d23124d2:c03"
+    },
+    {
+     "color": 4,
+     "content_sha256": "beaaf1e03a8fa3a1f7c0ef1dcb1e2e69f62b9100ba3a103b0cd32f2ac5201170",
+     "duplicate_of": null,
+     "files_count": 107,
+     "has_model": true,
+     "portrait": "63275cb59c5e3b1e52fc81e84b8f5d15e2329dcf975ae14ce2a2e14e7d9a2468",
+     "portrait_source": "DryBowserFullReplacement/ui/replace/chara/chara_0/chara_0_koopa_04.bntx",
+     "slot": "c04",
+     "variant_id": "14:174180:d23124d2:c04"
+    },
+    {
+     "color": 5,
+     "content_sha256": "03d8bf97b7e98f13d16270f7bbe799c406f766435c1eea5d87756e9cf485c544",
+     "duplicate_of": null,
+     "files_count": 107,
+     "has_model": true,
+     "portrait": "f696a7d739f0454041ae0f0423557125493c2bd72a9e1d57c1bb9024ff961f9a",
+     "portrait_source": "DryBowserFullReplacement/ui/replace/chara/chara_0/chara_0_koopa_05.bntx",
+     "slot": "c05",
+     "variant_id": "14:174180:d23124d2:c05"
+    },
+    {
+     "color": 6,
+     "content_sha256": "db1d253423164af69fd852e2fc7864e271ef94836e167a9587d1dfb02326604f",
+     "duplicate_of": null,
+     "files_count": 107,
+     "has_model": true,
+     "portrait": "3ed486bd552b47eab2dc044b5db41279d3d2554f6a350b6f690463ea903942a7",
+     "portrait_source": "DryBowserFullReplacement/ui/replace/chara/chara_0/chara_0_koopa_06.bntx",
+     "slot": "c06",
+     "variant_id": "14:174180:d23124d2:c06"
+    },
+    {
+     "color": 7,
+     "content_sha256": "f87d1af9e3ee9b3519d5f65f3e2d8d4d9acda3edaa488be76e7e476329d1bb0a",
+     "duplicate_of": null,
+     "files_count": 107,
+     "has_model": true,
+     "portrait": "b063c9cb30644c7667d422b98c3e472f0617eb5f80a1ba1e91e19e52c736776f",
+     "portrait_source": "DryBowserFullReplacement/ui/replace/chara/chara_0/chara_0_koopa_07.bntx",
+     "slot": "c07",
+     "variant_id": "14:174180:d23124d2:c07"
+    }
+   ]
+  },
+  {
+   "inspected": true,
+   "kind": "original",
+   "md5": "05dba5969acb001235d5b1642ed6ad58",
+   "path": "original/drybowserrelease4a_extraslotsversion.7z",
+   "shared_files": 747,
+   "shared_sample": [
+    "README.txt",
+    "DryBowserExtraSlots/config.json",
+    "DryBowserExtraSlots/info.toml",
+    "DryBowserExtraSlots/preview.webp",
+    "DryBowserExtraSlots/fighter/koopa/model/body/c08/dark_model.numatb",
+    "DryBowserExtraSlots/fighter/koopa/model/body/c08/deyes_eye_koopa_d_col.nutexb",
+    "DryBowserExtraSlots/fighter/koopa/model/body/c08/deyes_eye_koopa_wd_col.nutexb",
+    "DryBowserExtraSlots/fighter/koopa/model/body/c08/eye_koopa_b_col.nutexb",
+    "DryBowserExtraSlots/fighter/koopa/model/body/c08/eye_koopa_shell_col.nutexb",
+    "DryBowserExtraSlots/fighter/koopa/model/body/c08/eye_koopa_w_col.nutexb"
+   ],
+   "variants": []
+  }
+ ],
+ "code": "14",
+ "folder": "bowser/174180_dry_bowser",
+ "mod_id": 174180
+}

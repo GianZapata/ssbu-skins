@@ -1,0 +1,240 @@
+{
+ "archives": [
+  {
+   "inspected": true,
+   "kind": "original",
+   "md5": "64d0559542b380052afeecdf7b160b31",
+   "path": "original/coated_riku_over_sora_c05_.zip",
+   "shared_files": 0,
+   "shared_sample": [],
+   "variants": [
+    {
+     "color": 5,
+     "content_sha256": "90fafc53e0623556dc09f4ec415c37a2f806de13229000ad2901bbfea32250dc",
+     "duplicate_of": null,
+     "files_count": 54,
+     "has_model": true,
+     "portrait": "d5d868c1adc0eebe8e4cf92bc87c0b831104f0e75c20c3f5bc5d203538baaeca",
+     "portrait_source": "Coated Riku Over Sora (c05) - Blindfold/ui/replace_patch/chara/chara_0/chara_0_trail_05.bntx",
+     "slot": "c05",
+     "variant_id": "82:357266:64d05595:c05"
+    }
+   ]
+  },
+  {
+   "inspected": true,
+   "kind": "original",
+   "md5": "3061118b6ba9112215a9077a56c6f14c",
+   "path": "original/dark_mode_riku_over_sora_se_koph_c03_.zip",
+   "shared_files": 0,
+   "shared_sample": [],
+   "variants": [
+    {
+     "color": 3,
+     "content_sha256": "35f9d0af3b0317558af86a6a9b2c97b8ec4c6b19327bf33e0a487650a9cab11e",
+     "duplicate_of": null,
+     "files_count": 66,
+     "has_model": true,
+     "portrait": "2da863918ef417893a419b7fabcec6ee7a893f749d560e77e4889cdb055d87b0",
+     "portrait_source": "Dark Mode Riku Over Sora_KoPH (c03)/ui/replace_patch/chara/chara_0/chara_0_trail_03.bntx",
+     "slot": "c03",
+     "variant_id": "82:357266:3061118b:c03"
+    }
+   ]
+  },
+  {
+   "inspected": true,
+   "kind": "original",
+   "md5": "4be1e9b9d961dde4adc9d0c25709cd78",
+   "path": "original/kh1_riku_alternate_ui_c04_c05_.7z",
+   "shared_files": 0,
+   "shared_sample": [],
+   "variants": [
+    {
+     "color": 4,
+     "content_sha256": "51424ab7cd14112a749c72913df9755d99ee66f5c3e7aecd7c6a2ddd686553c3",
+     "duplicate_of": null,
+     "files_count": 6,
+     "has_model": false,
+     "portrait": "b544658220fcbe4f793f688d60bd82c8bf651008d2f141f8eb0f47d31abc1a2d",
+     "portrait_source": "KH1 Riku Alternate UI (c04 & c05)/ui/replace_patch/chara/chara_0/chara_0_trail_04.bntx",
+     "slot": "c04",
+     "variant_id": "82:357266:4be1e9b9:c04"
+    },
+    {
+     "color": 5,
+     "content_sha256": "d7f01ef53ff8f0c9c12723048855caa834b9d1ddd78cab5cde71662f709bd41a",
+     "duplicate_of": null,
+     "files_count": 6,
+     "has_model": false,
+     "portrait": "b544658220fcbe4f793f688d60bd82c8bf651008d2f141f8eb0f47d31abc1a2d",
+     "portrait_source": "KH1 Riku Alternate UI (c04 & c05)/ui/replace_patch/chara/chara_0/chara_0_trail_05.bntx",
+     "slot": "c05",
+     "variant_id": "82:357266:4be1e9b9:c05"
+    }
+   ]
+  },
+  {
+   "inspected": true,
+   "kind": "original",
+   "md5": "224ee524bfe5967450a64ecc59dc3421",
+   "path": "original/riku_child_over_sora_c02_-_multiple_swords.zip",
+   "shared_files": 0,
+   "shared_sample": [],
+   "variants": [
+    {
+     "color": 2,
+     "content_sha256": "31fa750ebfea937c50ec16bda6e87c4993d42f6e834624a973b2aadb6e35d516",
+     "duplicate_of": null,
+     "files_count": 36,
+     "has_model": true,
+     "portrait": "84c9a8e72743a9ed95dd867a9bc6c1cedfb513b3f78399f51b3f5573633e255d",
+     "portrait_source": "Riku (Child) Over Sora (c02) - Gazing Eye/ui/replace_patch/chara/chara_0/chara_0_trail_02.bntx",
+     "slot": "c02",
+     "variant_id": "82:357266:224ee524:c02"
+    }
+   ]
+  },
+  {
+   "inspected": true,
+   "kind": "original",
+   "md5": "c1847748a8bcff26abca624a14e863ff",
+   "path": "original/riku_ddd_over_sora_c04_c05_.zip",
+   "shared_files": 0,
+   "shared_sample": [],
+   "variants": [
+    {
+     "color": 4,
+     "content_sha256": "002a137577f348d6f3165ca3288bbd3da54922af1d583ae9f0842d8f6e54e1d6",
+     "duplicate_of": null,
+     "files_count": 27,
+     "has_model": true,
+     "portrait": "601ab531854149916cfcd5013bf2a7963fff6bc3de8c4911091bc513ec5f571f",
+     "portrait_source": "Riku (DDD) Over Sora (c04)/ui/replace_patch/chara/chara_0/chara_0_trail_04.bntx",
+     "slot": "c04",
+     "variant_id": "82:357266:c1847748:c04"
+    },
+    {
+     "color": 5,
+     "content_sha256": "32c10070e265728cf8ce3881c1061bec931d98e2b75e6b8a9fcbf292e71fcced",
+     "duplicate_of": null,
+     "files_count": 24,
+     "has_model": true,
+     "portrait": "1dad7e345c0a1c8383a73a79f2f7221a610fd6614e6a01dde2db47157194ba61",
+     "portrait_source": "Riku (DDD) Over Sora (c05)/ui/replace_patch/chara/chara_0/chara_0_trail_05.bntx",
+     "slot": "c05",
+     "variant_id": "82:357266:c1847748:c05"
+    }
+   ]
+  },
+  {
+   "inspected": true,
+   "kind": "original",
+   "md5": "571296b99d773b20a74a7f8b774f7a32",
+   "path": "original/riku_kh1_over_sora_c04_c05_.zip",
+   "shared_files": 0,
+   "shared_sample": [],
+   "variants": [
+    {
+     "color": 4,
+     "content_sha256": "2fedf5c72f104fd3165c7c9feecbe17a88081f6660e075019e6262840d12bdf1",
+     "duplicate_of": null,
+     "files_count": 24,
+     "has_model": true,
+     "portrait": "4ee7c9ae0f5ab547088c4f01047d3304633ad49c44e0db6d75c2ebd539d8e96d",
+     "portrait_source": "Riku (KH1) Over Sora (c04)/ui/replace_patch/chara/chara_0/chara_0_trail_04.bntx",
+     "slot": "c04",
+     "variant_id": "82:357266:571296b9:c04"
+    },
+    {
+     "color": 5,
+     "content_sha256": "616f7563c2ded99fae074582493131342060377c25257899f34f4e820fbd0c85",
+     "duplicate_of": null,
+     "files_count": 27,
+     "has_model": true,
+     "portrait": "4ee7c9ae0f5ab547088c4f01047d3304633ad49c44e0db6d75c2ebd539d8e96d",
+     "portrait_source": "Riku (KH1) Over Sora (c05)/ui/replace_patch/chara/chara_0/chara_0_trail_05.bntx",
+     "slot": "c05",
+     "variant_id": "82:357266:571296b9:c05"
+    }
+   ]
+  },
+  {
+   "inspected": true,
+   "kind": "original",
+   "md5": "608112e60d3c3b3c4527761b4ae16cd9",
+   "path": "original/riku_kh2_over_sora_c01_c04_.zip",
+   "shared_files": 0,
+   "shared_sample": [],
+   "variants": [
+    {
+     "color": 1,
+     "content_sha256": "c51ffd6a5d4e14629690875c64639bd9331d615b33f69e0fd3266a2673f2b3d9",
+     "duplicate_of": null,
+     "files_count": 33,
+     "has_model": true,
+     "portrait": "bf638d0a77129933184e4f6e6265b8e6b46a7a77ee5892563ef70a25bfbdf62e",
+     "portrait_source": "Riku (KH2) Over Sora (c01)/ui/replace_patch/chara/chara_0/chara_0_trail_01.bntx",
+     "slot": "c01",
+     "variant_id": "82:357266:608112e6:c01"
+    },
+    {
+     "color": 4,
+     "content_sha256": "33951870d3d299f4ec5b2324482a242bf68089b18a2d28c16427b071b7508a1f",
+     "duplicate_of": null,
+     "files_count": 24,
+     "has_model": true,
+     "portrait": "bf638d0a77129933184e4f6e6265b8e6b46a7a77ee5892563ef70a25bfbdf62e",
+     "portrait_source": "Riku (KH2) Over Sora (c04)/ui/replace_patch/chara/chara_0/chara_0_trail_04.bntx",
+     "slot": "c04",
+     "variant_id": "82:357266:608112e6:c04"
+    }
+   ]
+  },
+  {
+   "inspected": true,
+   "kind": "original",
+   "md5": "c7103f6a44ea5da00a7871f0ff9aaa79",
+   "path": "original/riku_kh3_over_sora_c07_.zip",
+   "shared_files": 0,
+   "shared_sample": [],
+   "variants": [
+    {
+     "color": 7,
+     "content_sha256": "c3cdb8f47412e9dafbb1fc40827a210e2c0209e52c4eeea2957a61a7952be053",
+     "duplicate_of": null,
+     "files_count": 60,
+     "has_model": true,
+     "portrait": "7d66f19140c7dddb4bd88700fa066a0bbd55c19a090106e18ff59c9fac0391c2",
+     "portrait_source": "Riku (KH3) Over Sora (c07) - Braveheart/ui/replace_patch/chara/chara_0/chara_0_trail_07.bntx",
+     "slot": "c07",
+     "variant_id": "82:357266:c7103f6a:c07"
+    }
+   ]
+  },
+  {
+   "inspected": true,
+   "kind": "original",
+   "md5": "67fca05d818b71a70e8663c974b165dc",
+   "path": "original/tron_riku_over_sora_c06_.zip",
+   "shared_files": 0,
+   "shared_sample": [],
+   "variants": [
+    {
+     "color": 6,
+     "content_sha256": "5d3cfe855b1bb79c607c8759b2b5814772657f44c578312728c86df99d1d739b",
+     "duplicate_of": null,
+     "files_count": 28,
+     "has_model": true,
+     "portrait": "57de42c21df75a6b137cc4a1cbf945ce431b6add891b8fad39af41cf50ee0f1e",
+     "portrait_source": "Tron Riku Over Sora (c06)/ui/replace_patch/chara/chara_0/chara_0_trail_06.bntx",
+     "slot": "c06",
+     "variant_id": "82:357266:67fca05d:c06"
+    }
+   ]
+  }
+ ],
+ "code": "82",
+ "folder": "sora/357266_Riku_over_Sora",
+ "mod_id": 357266
+}

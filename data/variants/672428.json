@@ -1,0 +1,64 @@
+{
+ "archives": [
+  {
+   "inspected": true,
+   "kind": "original",
+   "md5": "459a0c33d6621a7e491d69f93b5e57ee",
+   "path": "original/ryomen_sukuna_pack.rar",
+   "shared_files": 2,
+   "shared_sample": [
+    "Sukuna pack/config.json",
+    "Sukuna pack/ui/message/msg_name+us_en.xmsbt"
+   ],
+   "variants": [
+    {
+     "color": 0,
+     "content_sha256": "271cd54259aa89afe0f819fd4e1346c3dbf07393c4a21575960ad15b80ecb67c",
+     "duplicate_of": null,
+     "files_count": 15,
+     "has_model": true,
+     "portrait": "166c8334fb4b250733951db763720a36531f1f82af7ad03ad34a7a877f0af0cc",
+     "portrait_source": "Sukuna pack/ui/replace_patch/chara/chara_0/chara_0_edge_00.bntx",
+     "slot": "c00",
+     "variant_id": "78:672428:459a0c33:c00"
+    },
+    {
+     "color": 1,
+     "content_sha256": "aa04bf4b3e4ff9a95a5ab0e183024f56e7a4cc2432fe1ada0a942c88dc9eef9f",
+     "duplicate_of": null,
+     "files_count": 16,
+     "has_model": true,
+     "portrait": "8644819bd8d70a2cfd9a656bd2c13d4467af7f2afc93faea2f9b089fb43677be",
+     "portrait_source": "Sukuna pack/ui/replace_patch/chara/chara_1/chara_1_edge_01.bntx",
+     "slot": "c01",
+     "variant_id": "78:672428:459a0c33:c01"
+    },
+    {
+     "color": 2,
+     "content_sha256": "5dbeb671a739cd5eb5a715dc0512709e601e5cf7adb8cb456524a5a61df4040c",
+     "duplicate_of": null,
+     "files_count": 14,
+     "has_model": true,
+     "portrait": "f2a713a05966a21c7323f48c5326aadee95fba27381ba49a2d0a95cecd1dfba4",
+     "portrait_source": "Sukuna pack/ui/replace_patch/chara/chara_1/chara_1_edge_02.bntx",
+     "slot": "c02",
+     "variant_id": "78:672428:459a0c33:c02"
+    },
+    {
+     "color": 3,
+     "content_sha256": "a845bcbdbe639b9634b1cbbf93d52689d433ec8809730df0cb5d2185104b0c3b",
+     "duplicate_of": null,
+     "files_count": 17,
+     "has_model": true,
+     "portrait": "a85c72566b82998f2d4370bf9d779e365afab230681ad1ef264ae2fc634f1996",
+     "portrait_source": "Sukuna pack/ui/replace_patch/chara/chara_0/chara_0_edge_03.bntx",
+     "slot": "c03",
+     "variant_id": "78:672428:459a0c33:c03"
+    }
+   ]
+  }
+ ],
+ "code": "78",
+ "folder": "sephiroth/672428_ultimate_sukuna_pack",
+ "mod_id": 672428
+}

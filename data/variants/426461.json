@@ -1,0 +1,55 @@
+{
+ "archives": [
+  {
+   "inspected": true,
+   "kind": "original",
+   "md5": "71eac270bf0e6a742e656cd9a9f259a4",
+   "path": "original/naruto_6f91a.zip",
+   "shared_files": 1,
+   "shared_sample": [
+    "Naruto/config.json"
+   ],
+   "variants": [
+    {
+     "color": 0,
+     "content_sha256": "3a4245a6f4d2806e24aa7c9da33f7f59df3768e2df8b4b324fb7ed86b329d15c",
+     "duplicate_of": null,
+     "files_count": 41,
+     "has_model": true,
+     "portrait": "e5eb51e7ad8a6fae15dce4ab7595a83c96662db44c94135dd45fd15451b9d090",
+     "portrait_source": "Naruto/ui/replace_patch/chara/chara_0/chara_0_demon_00.bntx",
+     "slot": "c00",
+     "variant_id": "81:426461:71eac270:c00"
+    },
+    {
+     "color": 1,
+     "content_sha256": "38788d64c3bf0fa3e67a51dc01ce42121c34a27e7ca6e51b8025d5c16f052a97",
+     "duplicate_of": null,
+     "files_count": 44,
+     "has_model": true,
+     "portrait": "273dbc8c5884d3c5d629616cbb7a59a429e26934d95279ab71e4b99463db93b0",
+     "portrait_source": "Naruto/ui/replace_patch/chara/chara_0/chara_0_demon_01.bntx",
+     "slot": "c01",
+     "variant_id": "81:426461:71eac270:c01"
+    }
+   ]
+  },
+  {
+   "inspected": true,
+   "kind": "original",
+   "md5": "47440ba3ee32fa332ba88e16abeb405b",
+   "path": "original/naruto_series_victory.zip",
+   "shared_files": 4,
+   "shared_sample": [
+    "Naruto Series & Victory/stream;/sound/bgm/bgm_zz07_f_demon.nus3audio",
+    "Naruto Series & Victory/stream;/sound/bgm/bgm_zz07_f_demon.nus3bank",
+    "Naruto Series & Victory/ui/replace_patch/series/series_0/series_0_tekken.bntx",
+    "Naruto Series & Victory/ui/replace_patch/series/series_1/series_1_tekken.bntx"
+   ],
+   "variants": []
+  }
+ ],
+ "code": "81",
+ "folder": "kazuya/426461_naruto_uzumaki",
+ "mod_id": 426461
+}

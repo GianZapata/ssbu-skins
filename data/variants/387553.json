@@ -1,0 +1,55 @@
+{
+ "archives": [
+  {
+   "inspected": true,
+   "kind": "original",
+   "md5": "926a6a4ccb411392b4fabc84c43208fb",
+   "path": "original/config_cc198.zip",
+   "shared_files": 1,
+   "shared_sample": [
+    "config.json"
+   ],
+   "variants": []
+  },
+  {
+   "inspected": true,
+   "kind": "original",
+   "md5": "4c83e3261b462e38ee35a2023fccdb96",
+   "path": "original/raiden_00efb.zip",
+   "shared_files": 4,
+   "shared_sample": [
+    "Raiden/config.json",
+    "Raiden/stream;/sound/bgm/bgm_z61_f_lucina.nus3audio",
+    "Raiden/ui/message/msg_name.xmsbt",
+    "Raiden/ui/param/database/ui_chara_db.prcxml"
+   ],
+   "variants": [
+    {
+     "color": 1,
+     "content_sha256": "cadf49b675ba919ed97e2f7f23f7f5967c5a83b482ec9c5994619bac7ade671e",
+     "duplicate_of": null,
+     "files_count": 73,
+     "has_model": true,
+     "portrait": "92daf76bd78a427256701e371329d85b76727f7c04cbddfa7fe4f29da15de75f",
+     "portrait_source": "Raiden/ui/replace/chara/chara_0/chara_0_chrom_01.bntx",
+     "slot": "c01",
+     "variant_id": "25ε:387553:4c83e326:c01"
+    },
+    {
+     "color": 2,
+     "content_sha256": "84295de4b0e9650b278953e641862b38c3a993c24d373ac7b5ad534184c5d2f7",
+     "duplicate_of": null,
+     "files_count": 70,
+     "has_model": true,
+     "portrait": "c0f49df1ed16567c6ae83ec06b8edbe5277d2d347faf7d6b1e864b93961fbbe4",
+     "portrait_source": "Raiden/ui/replace/chara/chara_0/chara_0_chrom_02.bntx",
+     "slot": "c02",
+     "variant_id": "25ε:387553:4c83e326:c02"
+    }
+   ]
+  }
+ ],
+ "code": "25ε",
+ "folder": "chrom/387553_raiden",
+ "mod_id": 387553
+}

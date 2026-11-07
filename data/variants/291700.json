@@ -1,0 +1,63 @@
+{
+ "archives": [
+  {
+   "inspected": true,
+   "kind": "original",
+   "md5": "c50234c608005a0ab51a349019cf4ad4",
+   "path": "original/install_2b-a2-9s_final__98120.rar",
+   "shared_files": 2,
+   "shared_sample": [
+    "Install 2B-A2-9S [Final]/ui/replace/series/series_0/series_0_xenoblade.bntx",
+    "Install 2B-A2-9S [Final]/ui/replace/series/series_1/series_1_xenoblade.bntx"
+   ],
+   "variants": [
+    {
+     "color": 0,
+     "content_sha256": "7549fc47ebf8197f507f05c555930c68358f12b6b9365462a3f1e00762edfc71",
+     "duplicate_of": null,
+     "files_count": 2,
+     "has_model": false,
+     "portrait": null,
+     "portrait_source": "Install 2B-A2-9S [Final]/ui/replace_patch/chara/chara_10/chara_10_eflame_only_00.bntx",
+     "slot": "c00",
+     "variant_id": "79:291700:c50234c6:c00"
+    },
+    {
+     "color": 7,
+     "content_sha256": "b0f6d596655aa5e5889096f82746e5f9cfc2e979a4d2adc2de42c2afe6aaa187",
+     "duplicate_of": null,
+     "files_count": 107,
+     "has_model": true,
+     "portrait": "096ef231d2128b9090a71431c13eeec84d269b3ed429bed2cfcfd29954ad7627",
+     "portrait_source": "Install 2B-A2-9S [Final]/ui/replace_patch/chara/chara_0/chara_0_eflame_first_07.bntx",
+     "slot": "c07",
+     "variant_id": "79:291700:c50234c6:c07"
+    }
+   ]
+  },
+  {
+   "inspected": true,
+   "kind": "original",
+   "md5": "761a799fa108d7f99734e005b22536b0",
+   "path": "original/install_wolfs_gravestone_a2_sword_a.rar",
+   "shared_files": 0,
+   "shared_sample": [],
+   "variants": [
+    {
+     "color": 7,
+     "content_sha256": "4cdf5d381de99666a4c7fabfce2ecf033dcf5acbb48f91e2a65ce7c3d2a73ff6",
+     "duplicate_of": null,
+     "files_count": 12,
+     "has_model": true,
+     "portrait": "cb1a238fef668f460f72af2ae6fdfae38bdf36881ec2950915630ab9e16faad6",
+     "portrait_source": "Install Wolfs Gravestone A2 sword alt/ui/replace_patch/chara/chara_3/chara_3_eflame_first_07.bntx",
+     "slot": "c07",
+     "variant_id": "79:291700:761a799f:c07"
+    }
+   ]
+  }
+ ],
+ "code": "79",
+ "folder": "pyra_mythra/291700_a2_2b_9s",
+ "mod_id": 291700
+}

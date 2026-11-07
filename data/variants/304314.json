@@ -1,0 +1,98 @@
+{
+ "archives": [
+  {
+   "inspected": true,
+   "kind": "original",
+   "md5": "89ced0bb04183d05c49f1c7521ecff81",
+   "path": "original/marin_fullexpresions.zip",
+   "shared_files": 1,
+   "shared_sample": [
+    "Readme.txt"
+   ],
+   "variants": [
+    {
+     "color": 3,
+     "content_sha256": "e9deb409e63384b27f931c372fede334f387b422cd3d07167a1cdbd849a2a7bb",
+     "duplicate_of": null,
+     "files_count": 15,
+     "has_model": true,
+     "portrait": "5d60d7a5a4f65fe15390adce6883b1acc0cf0e5ae5c080eb1e6be9be9524f5b2",
+     "portrait_source": "Marin over Isabelle C03 (Watapascul)/ui/replace/chara/chara_0/chara_0_shizue_03.bntx",
+     "slot": "c03",
+     "variant_id": "68:304314:89ced0bb:c03"
+    },
+    {
+     "color": 7,
+     "content_sha256": "c1f9973c714a7aad2614fb096b1e9118fbc5a09b227769d53cbcca7a5f2a761d",
+     "duplicate_of": null,
+     "files_count": 15,
+     "has_model": true,
+     "portrait": "22757237152bbda5f284729634938ac2016fa735a8b3891a858e322b067a7574",
+     "portrait_source": "Marin Blonde over Isabelle C07 (Watapascul)/ui/replace/chara/chara_0/chara_0_shizue_07.bntx",
+     "slot": "c07",
+     "variant_id": "68:304314:89ced0bb:c07"
+    }
+   ]
+  },
+  {
+   "inspected": true,
+   "kind": "original",
+   "md5": "e0a9abeac5c2a416dd156c7fd4760583",
+   "path": "original/marin_ssbu_uneven.zip",
+   "shared_files": 3,
+   "shared_sample": [
+    "Readme.txt",
+    "Marin over Isabelle C03 (Watapascul)/info.toml",
+    "Marin over Isabelle C03 (Watapascul)/preview.webp"
+   ],
+   "variants": [
+    {
+     "color": 3,
+     "content_sha256": "3a2880e69c5067b4ccf5e6b42d247d0566115c3e10c96fc40e3f2e2982a402ff",
+     "duplicate_of": null,
+     "files_count": 34,
+     "has_model": true,
+     "portrait": "8a7d2ab227d577fcb4285dbac0db0223686f4870c7cf7a96a13174a32ee875ed",
+     "portrait_source": "Marin over Isabelle C03 (Watapascul)/ui/replace/chara/chara_0/chara_0_shizue_03.bntx",
+     "slot": "c03",
+     "variant_id": "68:304314:e0a9abea:c03"
+    }
+   ]
+  },
+  {
+   "inspected": true,
+   "kind": "original",
+   "md5": "3cd0b471bfabc614a3c9b84ebe98c294",
+   "path": "original/wp_marin.zip",
+   "shared_files": 20,
+   "shared_sample": [
+    "Readme.txt",
+    "Marin over Isabelle C04 (Watapascul)/config.json",
+    "Marin over Isabelle C04 (Watapascul)/info.toml",
+    "Marin over Isabelle C04 (Watapascul)/preview.webp",
+    "Marin over Isabelle C04 (Watapascul)/ui/message/msg_name - Replace if placing over c00.xmsbt",
+    "Marin over Isabelle C04 (Watapascul)/ui/message/msg_name - Replace if placing over c01.xmsbt",
+    "Marin over Isabelle C04 (Watapascul)/ui/message/msg_name - Replace if placing over c02.xmsbt",
+    "Marin over Isabelle C04 (Watapascul)/ui/message/msg_name - Replace if placing over c03.xmsbt",
+    "Marin over Isabelle C04 (Watapascul)/ui/message/msg_name - Replace if placing over c05.xmsbt",
+    "Marin over Isabelle C04 (Watapascul)/ui/message/msg_name - Replace if placing over c06.xmsbt"
+   ],
+   "variants": [
+    {
+     "color": 4,
+     "content_sha256": "414bf759590f3d7a3c0136ab15c7ad55d9b4abe389a28f8f7a754690138c641e",
+     "duplicate_of": null,
+     "files_count": 34,
+     "has_model": true,
+     "portrait": "8a7d2ab227d577fcb4285dbac0db0223686f4870c7cf7a96a13174a32ee875ed",
+     "portrait_source": "Marin over Isabelle C04 (Watapascul)/ui/replace/chara/chara_0/chara_0_shizue_04.bntx",
+     "slot": "c04",
+     "variant_id": "68:304314:3cd0b471:c04"
+    }
+   ]
+  }
+ ],
+ "code": "68",
+ "folder": "isabelle/304314_marin",
+ "mod_id": 304314
+}

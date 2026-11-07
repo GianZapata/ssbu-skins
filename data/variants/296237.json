@@ -1,0 +1,203 @@
+{
+ "archives": [
+  {
+   "inspected": true,
+   "kind": "original",
+   "md5": "6ceab81f82b7dbe0090299eece6bac31",
+   "path": "original/troll_face (1).zip",
+   "shared_files": 0,
+   "shared_sample": [],
+   "variants": [
+    {
+     "color": 0,
+     "content_sha256": "62d5dfa2214c45ea3c53fc872b4c1e7ebd72d66fafc00b3ff7c45d77932cc339",
+     "duplicate_of": null,
+     "files_count": 16,
+     "has_model": true,
+     "portrait": "9825312d02acc29ae7d051e19b79a805d235d49a89c74af8d26a004037980d90",
+     "portrait_source": "Troll Face/ui/replace/chara/chara_0/chara_0_captain_00.bntx",
+     "slot": "c00",
+     "variant_id": "11:296237:6ceab81f:c00"
+    },
+    {
+     "color": 1,
+     "content_sha256": "43dfef4fcaad2611dc2f0ca013d30a65a2d42cede70a754aa60ca69f582b44d0",
+     "duplicate_of": null,
+     "files_count": 15,
+     "has_model": true,
+     "portrait": "248d81f5911e97d793fb7496e599140bb10843f032c6661e24992723a52f1f3f",
+     "portrait_source": "Troll Face/ui/replace/chara/chara_0/chara_0_captain_01.bntx",
+     "slot": "c01",
+     "variant_id": "11:296237:6ceab81f:c01"
+    },
+    {
+     "color": 2,
+     "content_sha256": "90ecf697a9da7d66af93c34951ba1460b0fda5c89725d39073078d951db3629d",
+     "duplicate_of": null,
+     "files_count": 15,
+     "has_model": true,
+     "portrait": "9e4e02d875d0526af9b0e0defbb5cebeb8cd5e90af34e0e48cb52ffe9a03ba59",
+     "portrait_source": "Troll Face/ui/replace/chara/chara_0/chara_0_captain_02.bntx",
+     "slot": "c02",
+     "variant_id": "11:296237:6ceab81f:c02"
+    },
+    {
+     "color": 3,
+     "content_sha256": "30b88bf4c5faf936d61f2b8e542f536a8c4b24f513e8bc00583cdb5e8a896bb5",
+     "duplicate_of": null,
+     "files_count": 15,
+     "has_model": true,
+     "portrait": "ee7b922a2cc5fdb06ce53f24bcf3d5ac45ce50d36e7335df23a5062f34960253",
+     "portrait_source": "Troll Face/ui/replace/chara/chara_0/chara_0_captain_03.bntx",
+     "slot": "c03",
+     "variant_id": "11:296237:6ceab81f:c03"
+    },
+    {
+     "color": 4,
+     "content_sha256": "545ea8c8bcf9e0c312a10080180c37f4a4285970a669563efce7a0e3ac366d65",
+     "duplicate_of": null,
+     "files_count": 15,
+     "has_model": true,
+     "portrait": "14432e5a790992615217c746997ee825e0063db8343d3ffa81b826dd0eae99f5",
+     "portrait_source": "Troll Face/ui/replace/chara/chara_0/chara_0_captain_04.bntx",
+     "slot": "c04",
+     "variant_id": "11:296237:6ceab81f:c04"
+    },
+    {
+     "color": 5,
+     "content_sha256": "bc8682b464a184ca6ab11f8d95c03b58bb46f78be3b0912316715f6926c6b0de",
+     "duplicate_of": null,
+     "files_count": 15,
+     "has_model": true,
+     "portrait": "485e5c7b0ac3283bd14d061afba92fd0c3b12a1290c10a9bd67bbbcd4f874b6f",
+     "portrait_source": "Troll Face/ui/replace/chara/chara_0/chara_0_captain_05.bntx",
+     "slot": "c05",
+     "variant_id": "11:296237:6ceab81f:c05"
+    },
+    {
+     "color": 6,
+     "content_sha256": "59b0c83c997ecd3c247fe867066437e7ad2325ea5d4dec1b7a46b444ae6ed999",
+     "duplicate_of": null,
+     "files_count": 15,
+     "has_model": true,
+     "portrait": "31f0658c827ce2785dd6976dc5026c7dd8136332bf14477681deb83e2d316886",
+     "portrait_source": "Troll Face/ui/replace/chara/chara_0/chara_0_captain_06.bntx",
+     "slot": "c06",
+     "variant_id": "11:296237:6ceab81f:c06"
+    },
+    {
+     "color": 7,
+     "content_sha256": "844ab0245e5bb550ee2a3070351ace2fe278ea5b57f05f41fd6f3afabe437b93",
+     "duplicate_of": null,
+     "files_count": 15,
+     "has_model": true,
+     "portrait": "82e54b44854ae6f5bcaae39b6cae2ec25ed3bcd4ba32a5351943e35233806474",
+     "portrait_source": "Troll Face/ui/replace/chara/chara_0/chara_0_captain_07.bntx",
+     "slot": "c07",
+     "variant_id": "11:296237:6ceab81f:c07"
+    }
+   ]
+  },
+  {
+   "inspected": true,
+   "kind": "original",
+   "md5": "6ceab81f82b7dbe0090299eece6bac31",
+   "path": "original/troll_face.zip",
+   "shared_files": 0,
+   "shared_sample": [],
+   "variants": [
+    {
+     "color": 0,
+     "content_sha256": "62d5dfa2214c45ea3c53fc872b4c1e7ebd72d66fafc00b3ff7c45d77932cc339",
+     "duplicate_of": null,
+     "files_count": 16,
+     "has_model": true,
+     "portrait": "9825312d02acc29ae7d051e19b79a805d235d49a89c74af8d26a004037980d90",
+     "portrait_source": "Troll Face/ui/replace/chara/chara_0/chara_0_captain_00.bntx",
+     "slot": "c00",
+     "variant_id": "11:296237:6ceab81f:c00"
+    },
+    {
+     "color": 1,
+     "content_sha256": "43dfef4fcaad2611dc2f0ca013d30a65a2d42cede70a754aa60ca69f582b44d0",
+     "duplicate_of": null,
+     "files_count": 15,
+     "has_model": true,
+     "portrait": "248d81f5911e97d793fb7496e599140bb10843f032c6661e24992723a52f1f3f",
+     "portrait_source": "Troll Face/ui/replace/chara/chara_0/chara_0_captain_01.bntx",
+     "slot": "c01",
+     "variant_id": "11:296237:6ceab81f:c01"
+    },
+    {
+     "color": 2,
+     "content_sha256": "90ecf697a9da7d66af93c34951ba1460b0fda5c89725d39073078d951db3629d",
+     "duplicate_of": null,
+     "files_count": 15,
+     "has_model": true,
+     "portrait": "9e4e02d875d0526af9b0e0defbb5cebeb8cd5e90af34e0e48cb52ffe9a03ba59",
+     "portrait_source": "Troll Face/ui/replace/chara/chara_0/chara_0_captain_02.bntx",
+     "slot": "c02",
+     "variant_id": "11:296237:6ceab81f:c02"
+    },
+    {
+     "color": 3,
+     "content_sha256": "30b88bf4c5faf936d61f2b8e542f536a8c4b24f513e8bc00583cdb5e8a896bb5",
+     "duplicate_of": null,
+     "files_count": 15,
+     "has_model": true,
+     "portrait": "ee7b922a2cc5fdb06ce53f24bcf3d5ac45ce50d36e7335df23a5062f34960253",
+     "portrait_source": "Troll Face/ui/replace/chara/chara_0/chara_0_captain_03.bntx",
+     "slot": "c03",
+     "variant_id": "11:296237:6ceab81f:c03"
+    },
+    {
+     "color": 4,
+     "content_sha256": "545ea8c8bcf9e0c312a10080180c37f4a4285970a669563efce7a0e3ac366d65",
+     "duplicate_of": null,
+     "files_count": 15,
+     "has_model": true,
+     "portrait": "14432e5a790992615217c746997ee825e0063db8343d3ffa81b826dd0eae99f5",
+     "portrait_source": "Troll Face/ui/replace/chara/chara_0/chara_0_captain_04.bntx",
+     "slot": "c04",
+     "variant_id": "11:296237:6ceab81f:c04"
+    },
+    {
+     "color": 5,
+     "content_sha256": "bc8682b464a184ca6ab11f8d95c03b58bb46f78be3b0912316715f6926c6b0de",
+     "duplicate_of": null,
+     "files_count": 15,
+     "has_model": true,
+     "portrait": "485e5c7b0ac3283bd14d061afba92fd0c3b12a1290c10a9bd67bbbcd4f874b6f",
+     "portrait_source": "Troll Face/ui/replace/chara/chara_0/chara_0_captain_05.bntx",
+     "slot": "c05",
+     "variant_id": "11:296237:6ceab81f:c05"
+    },
+    {
+     "color": 6,
+     "content_sha256": "59b0c83c997ecd3c247fe867066437e7ad2325ea5d4dec1b7a46b444ae6ed999",
+     "duplicate_of": null,
+     "files_count": 15,
+     "has_model": true,
+     "portrait": "31f0658c827ce2785dd6976dc5026c7dd8136332bf14477681deb83e2d316886",
+     "portrait_source": "Troll Face/ui/replace/chara/chara_0/chara_0_captain_06.bntx",
+     "slot": "c06",
+     "variant_id": "11:296237:6ceab81f:c06"
+    },
+    {
+     "color": 7,
+     "content_sha256": "844ab0245e5bb550ee2a3070351ace2fe278ea5b57f05f41fd6f3afabe437b93",
+     "duplicate_of": null,
+     "files_count": 15,
+     "has_model": true,
+     "portrait": "82e54b44854ae6f5bcaae39b6cae2ec25ed3bcd4ba32a5351943e35233806474",
+     "portrait_source": "Troll Face/ui/replace/chara/chara_0/chara_0_captain_07.bntx",
+     "slot": "c07",
+     "variant_id": "11:296237:6ceab81f:c07"
+    }
+   ]
+  }
+ ],
+ "code": "11",
+ "folder": "captain_falcon/296237_troll_face",
+ "mod_id": 296237
+}

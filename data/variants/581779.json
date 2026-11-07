@@ -1,0 +1,72 @@
+{
+ "archives": [
+  {
+   "inspected": true,
+   "kind": "original",
+   "md5": "4596950bce623db4e225d9cd96df6777",
+   "path": "original/jane_doe_v2.rar",
+   "shared_files": 5,
+   "shared_sample": [
+    "Jane Doe V2/config.json",
+    "Jane Doe V2/janedoe.png",
+    "Jane Doe V2/janedoe2.png",
+    "Jane Doe V2/ui/message/msg_name.xmsbt",
+    "Jane Doe V2/ui/param/database/ui_chara_db.prcxml"
+   ],
+   "variants": [
+    {
+     "color": 3,
+     "content_sha256": "c763e27f5ec1d4dd4506c86b261c5e5ba5a7d8a636274a2c4965015490885009",
+     "duplicate_of": null,
+     "files_count": 75,
+     "has_model": true,
+     "portrait": "bc5a36e4c6235d8be0382959720fa5d04c37092f10a467579efceaa349ff9fae",
+     "portrait_source": "Jane Doe V2/ui/replace/chara/chara_0/chara_0_sheik_03.bntx",
+     "slot": "c03",
+     "variant_id": "16:581779:4596950b:c03"
+    },
+    {
+     "color": 4,
+     "content_sha256": "86ead7808b66e1064ba11f60d86944fa74f01f2e431ca17d6e2afc5dcb46eb1d",
+     "duplicate_of": null,
+     "files_count": 77,
+     "has_model": true,
+     "portrait": "b12826928b33e86252d40ba3d7da269df00a54a015df8d09cab7672d46136bfb",
+     "portrait_source": "Jane Doe V2/ui/replace/chara/chara_0/chara_0_sheik_04.bntx",
+     "slot": "c04",
+     "variant_id": "16:581779:4596950b:c04"
+    }
+   ]
+  },
+  {
+   "inspected": true,
+   "kind": "original",
+   "md5": "2c353922d3365beaed8325196cf0313c",
+   "path": "original/jane_doe_v2_-_default_outfit_only.rar",
+   "shared_files": 5,
+   "shared_sample": [
+    "Jane Doe V2 - Default Outfit only/config.json",
+    "Jane Doe V2 - Default Outfit only/janedoe.png",
+    "Jane Doe V2 - Default Outfit only/janedoe2.png",
+    "Jane Doe V2 - Default Outfit only/ui/message/msg_name.xmsbt",
+    "Jane Doe V2 - Default Outfit only/ui/param/database/ui_chara_db.prcxml"
+   ],
+   "variants": [
+    {
+     "color": 3,
+     "content_sha256": "62368189a1eb91a86aac83dff86e24deb5a33df02c5b0b4a09af75c185ac975b",
+     "duplicate_of": null,
+     "files_count": 75,
+     "has_model": true,
+     "portrait": "bc5a36e4c6235d8be0382959720fa5d04c37092f10a467579efceaa349ff9fae",
+     "portrait_source": "Jane Doe V2 - Default Outfit only/ui/replace/chara/chara_0/chara_0_sheik_03.bntx",
+     "slot": "c03",
+     "variant_id": "16:581779:2c353922:c03"
+    }
+   ]
+  }
+ ],
+ "code": "16",
+ "folder": "sheik/581779_jane_doe_v2",
+ "mod_id": 581779
+}
