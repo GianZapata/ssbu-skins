@@ -322,3 +322,23 @@ test('sourceSlotsOf prioriza variant sobre DriveAlt (1..8) y Skin.native (0..7)'
   assert.deepEqual(Array.from(SSBU.sourceSlotsOf({ skin: { native: [] } })), []);
   assert.deepEqual(Array.from(SSBU.compatibleSlots('58', SSBU.sourceSlotsOf({ skin: { native: [] } }))), [0, 1, 2, 3, 4, 5, 6, 7]);
 });
+
+test('familias: código desconocido, families explícito y respaldos sin bloqueo', () => {
+  sandbox.META = { families: {} };
+
+  assert.equal(SSBU.sameFamily('99', 0, 1), true);
+
+  const explicit = { 99: [[0, 1], [2, 3]] };
+  assert.equal(SSBU.sameFamily('99', 0, 1, explicit), true);
+  assert.equal(SSBU.sameFamily('99', 0, 2, explicit), false);
+  assert.deepEqual(Array.from(SSBU.compatibleSlots('99', [2], explicit)), [2, 3]);
+
+  assert.deepEqual(Array.from(SSBU.compatibleSlots('99', [5], explicit)), [0, 1, 2, 3, 4, 5, 6, 7]);
+});
+
+test('sourceSlotsOf ignora variant :c08 y alt.slots inválidos y respeta alt.any sobre native', () => {
+  assert.deepEqual(Array.from(SSBU.sourceSlotsOf({ variant: '61:1:aa:c08', skin: { native: [2] } })), [2]);
+  assert.deepEqual(Array.from(SSBU.sourceSlotsOf({ alt: { slots: [0] }, skin: { native: [4] } })), [4]);
+  assert.deepEqual(Array.from(SSBU.sourceSlotsOf({ alt: { slots: [0] } })), []);
+  assert.deepEqual(Array.from(SSBU.sourceSlotsOf({ alt: { any: true }, skin: { native: [4] } })), [0, 1, 2, 3, 4, 5, 6, 7]);
+});

@@ -72,6 +72,8 @@ const SSBU = (() => {
       });
     });
 
+    if (!out.size) return ALL_SLOTS.slice();
+
     return Array.from(out).sort((a, b) => a - b);
   }
 
@@ -86,8 +88,10 @@ const SSBU = (() => {
 
     if (current.alt) {
       if (current.alt.any) return ALL_SLOTS.slice();
-      if (Array.isArray(current.alt.slots) && current.alt.slots.length) {
-        return current.alt.slots.map((slot) => Number(slot) - 1).filter(validSlot);
+      if (Array.isArray(current.alt.slots)) {
+        const fromAlt = current.alt.slots.map((slot) => Number(slot) - 1).filter(validSlot);
+
+        if (fromAlt.length) return fromAlt;
       }
     }
 
