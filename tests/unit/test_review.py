@@ -102,13 +102,16 @@ class Revision(unittest.TestCase):
         self.assertFalse(any('cruza de familia' in m for m in msgs(it_ok, g_ok, 'ERROR')))
         self.assertTrue(any('dentro de su familia' in m for m in msgs(it_ok, g_ok, 'AVISO')))
         self.assertEqual(len([m for m in msgs(it_var, g_var, 'ERROR') if 'no corresponde' in m]), 0)
+    def test_origen_fuera_de_todo_grupo_cae_a_los_8_slots(self):
+        self.assertEqual(rp.compatible_slots('61', [9], {'61': [[0, 2, 4, 6], [1, 3, 5, 7]]}), list(range(8)))
+        self.assertEqual(rp.compatible_slots('61', [1], {'61': [[0, 2, 4, 6], [1, 3, 5, 7]]}), [1, 3, 5, 7])
     def test_sin_slots_nativos_es_info_y_no_bloquea_por_familia(self):
         f, p = next((f, p) for f, p in PICKS if not p['withdrawn'] and not f['mii'] and not p['native'] and p['slots_orig'] in (None, '', 'sin especificar'))
         it, g = rp.review([{'code': f['code'], 'slot': 1, 'vid': p['vid']}], [], F, INV)
         self.assertFalse(any('cruza de familia' in m for m in msgs(it, g, 'ERROR')))
         self.assertTrue(any('no indica sus slots originales' in m for m in msgs(it, g, 'INFO')))
     def test_cli_source_file_conserva_variant_y_detecta_cruce_de_familia(self):
-        any_cloud = next(p for p in next(f for f in F if f['code'] == '61')['picks'] if not p['withdrawn'])
+        any_cloud = next(p for p in next(f for f in F if f['code'] == '61')['picks'] if not p['withdrawn'] and p['wifi_status'] != 'incompatible')
         payload = {'inventory': {'version': INV['meta']['version']}, 'history': [], 'changes': [
             {'roster_no': '61', 'traje': 2, 'vid': any_cloud['vid'], 'variant': f"{any_cloud['vid']}:aaeedf35:c01"},
             {'roster_no': '61', 'traje': 4, 'vid': any_cloud['vid'], 'variant': f"{any_cloud['vid']}:aaeedf35:c03"}]}

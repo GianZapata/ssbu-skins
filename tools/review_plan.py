@@ -82,7 +82,8 @@ def compatible_slots(code, origin_slots, families):
     groups = (families or {}).get(code) or [list(range(8))]
     if not origin_slots:
         return list(range(8))
-    return sorted({slot for group in groups if any(orig in group for orig in origin_slots) for slot in group})
+    compat = sorted({slot for group in groups if any(orig in group for orig in origin_slots) for slot in group})
+    return compat or list(range(8))
 
 def review(changes, history, fighters, inv, plan_inv_version=None, families=None):
     if families is None:
@@ -215,10 +216,15 @@ def main():
     fighters, cmeta = cd.load(); inv = cd.load_inventory(fighters); ver = None
     missing = []
     def _rows(ch):
-        return [
-            {'code': c['code'], 'slot': int(c['slot']), 'vid': c['vid'], **({'variant': c['variant']} if c.get('variant') else {})}
-            for c in ch if c.get('vid')
-        ]
+        rows = []
+        for c in ch:
+            if not c.get('vid'):
+                continue
+            row = {'code': c['code'], 'slot': int(c['slot']), 'vid': c['vid']}
+            if c.get('variant'):
+                row['variant'] = c['variant']
+            rows.append(row)
+        return rows
     if a.source == 'file':
         if not a.file: ap.error('indica el archivo de la exportación')
         ch, hi, ver = read_file(a.file)
