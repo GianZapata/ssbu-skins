@@ -26,7 +26,8 @@ Exportación de propuestas, no la orden:
     "replaces": { "kind": "original|mod|unknown", "name": "...", "vid": null },
     "relocation": { "native_slots": ["c00","c02"], "needs_move": true, "checked": false },
     "current":  { "kind": "original|mod|unknown", "name": "...", "source": "base|perfil|null", "confirmed": false },
-    "proposal": { "vid": "82:330053", "role": "recomendada|alternativa", "variant": null, "mod_id": 330053, "name": "...", "author": "...", "url": "...", "online": "Online: lo declara el autor",
+    "variant": "82:330053:aaeedf35:c03",
+    "proposal": { "vid": "82:330053", "role": "recomendada|alternativa", "variant": null, "chosen_variant": { "id": "82:330053:aaeedf35:c03", "source_slot": "c03", "destination_slot": "c00" }, "mod_id": 330053, "name": "...", "author": "...", "url": "...", "online": "Online: lo declara el autor",
                   "conditions": null, "dependencies": null, "conflicts": null, "native_slots": "1,4", "dest_hint": "c01", "pack": null, "withdrawn": false },
     "missing_in_catalog": false, "vid": "82:330053", "status": "wanted", "result": null } ],
   "history": [ { "at": "...", "roster_no": "82", "traje": 1, "from": null, "to": "82:330053", "kind": "set" } ] }
@@ -36,6 +37,7 @@ Exportación de propuestas, no la orden:
 - **`traje` (1–8) y `slot` (`c00`–`c07`)** son el destino: la skin debe quedar en ese slot, reubicando los archivos del mod si sus `native_slots` son otros. `dest_hint` solo es orientativo.
 - **`current` nunca está confirmado en consola** (`confirmed: false`). `kind: original` significa «sin mod en el inventario revisado», `unknown` «hay un mod pero no se pudo identificar».
 - **`vid`** identifica la variante exacta (`<luchador>:<id del mod>`; si un mismo mod trae varias variantes para un luchador, la variante añade un sufijo estable).
+- **`variant`** (opcional) y **`proposal.chosen_variant`** identifican la apariencia concreta elegida dentro de un mod: `<vid>:<md5_corto>:<cNN>`, con `md5_corto` de 8 hex y `cNN` el color de origen (`source_slot`); `destination_slot` es el traje elegido. Si falta, se propone el mod sin concretar apariencia. En el historial aparecen como `variant` y `from_variant`.
 - `online` es lo que declara el autor, no una prueba en consola. Respeta `conditions`, `dependencies` y `conflicts`.
 - Un `pack` no nulo indica un mod compartido con otros luchadores.
 

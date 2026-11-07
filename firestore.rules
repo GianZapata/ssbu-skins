@@ -14,6 +14,10 @@ service cloud.firestore {
     }
     function okSlot(s) { return s is int && s >= 0 && s <= 7; }
     function okRef(v) { return v == null || (v is string && v.size() <= 80); }
+    // Variante opcional: apariencia concreta de un mod (<vid>:<md5 corto>:<cNN>). Debe pertenecer al mismo vid que se propone.
+    function okVariant(d, vid) {
+      return !('variant' in d) || (d.variant is string && d.variant.size() <= 120 && d.variant.matches(vid + ':[0-9a-f]{8}:c0[0-7]'));
+    }
 
     match /catalog/{code}   { allow read: if true; allow write: if false; }
     match /installed/{code} { allow read: if true; allow write: if false; }
@@ -26,11 +30,12 @@ service cloud.firestore {
     match /changes/{id} {
       allow read: if true;
       allow create, update: if signedIn()
-        && request.resource.data.keys().hasOnly(['code', 'slot', 'vid', 'by', 'at'])
+        && request.resource.data.keys().hasOnly(['code', 'slot', 'vid', 'variant', 'by', 'at'])
         && request.resource.data.code is string && request.resource.data.code.size() <= 4
         && okSlot(request.resource.data.slot)
         && id == request.resource.data.code + '_' + string(request.resource.data.slot)
         && okVid(request.resource.data.code, request.resource.data.vid)
+        && okVariant(request.resource.data, request.resource.data.vid)
         && request.resource.data.by == request.auth.uid
         && request.resource.data.at == request.time;
       allow delete: if signedIn();
@@ -55,10 +60,12 @@ service cloud.firestore {
     match /history/{id} {
       allow read: if true;
       allow create: if signedIn()
-        && request.resource.data.keys().hasOnly(['code', 'slot', 'from', 'to', 'kind', 'by', 'at'])
+        && request.resource.data.keys().hasOnly(['code', 'slot', 'from', 'to', 'from_variant', 'variant', 'kind', 'by', 'at'])
         && request.resource.data.code is string && request.resource.data.code.size() <= 4
         && okSlot(request.resource.data.slot)
         && okRef(request.resource.data.from) && okRef(request.resource.data.to)
+        && (!('from_variant' in request.resource.data) || (request.resource.data.from_variant is string && request.resource.data.from_variant.size() <= 120))
+        && (!('variant' in request.resource.data) || (request.resource.data.variant is string && request.resource.data.variant.size() <= 120))
         && request.resource.data.kind in ['set', 'clear', 'undo']
         && request.resource.data.by == request.auth.uid
         && request.resource.data.at == request.time;

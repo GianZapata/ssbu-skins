@@ -64,7 +64,14 @@ def from_git():
 
 def read_file(path):
     d = json.load(open(path, encoding='utf-8'))
-    ch = [{'code': c['roster_no'], 'slot': c['traje'] - 1, 'vid': c['vid'], 'at': None, 'by': None} for c in d.get('changes', [])]
+    ch = [{
+        'code': c['roster_no'],
+        'slot': c['traje'] - 1,
+        'vid': c['vid'],
+        'variant': c.get('variant') or ((c.get('proposal') or {}).get('chosen_variant') or {}).get('id'),
+        'at': None,
+        'by': None,
+    } for c in d.get('changes', [])]
     return ch, d.get('history', []), d.get('inventory', {}).get('version')
 
 def slot_now(inv, code, n):
@@ -79,8 +86,9 @@ def review(changes, history, fighters, inv, plan_inv_version=None):
     per_fighter, per_mod = collections.defaultdict(list), collections.defaultdict(list)
     for c in rows:
         code, n, vid = c['code'], c['slot'], c['vid']
+        chosen_variant = c.get('variant')
         f, p = idx.get(vid, (None, None)); fi = by_code.get(code)
-        it = {'fighter': fi['name'] if fi else code, 'roster_no': code, 'traje': n + 1, 'slot': f'c0{n}', 'vid': vid, 'name': p['name'] if p else None, 'notes': []}
+        it = {'fighter': fi['name'] if fi else code, 'roster_no': code, 'traje': n + 1, 'slot': f'c0{n}', 'vid': vid, 'chosen_variant': chosen_variant, 'name': p['name'] if p else None, 'notes': []}
         N = it['notes']
         if not fi: add(N, 'ERROR', f'el luchador {code} no existe en el catálogo')
         elif not (0 <= n <= 7): add(N, 'ERROR', f'traje {n + 1} fuera de rango')
@@ -89,7 +97,7 @@ def review(changes, history, fighters, inv, plan_inv_version=None):
         it.update(author=p['author'], url=p['url'], role='alternativa' if p['role'] == 'alternativa' else 'recomendada', variant=p['variant'])
         if f['code'] != code: add(N, 'ERROR', f'la apariencia es de {f["name"]}, no de {fi["name"] if fi else code}')
         if p['withdrawn']: add(N, 'ERROR', 'la apariencia está RETIRADA del catálogo')
-        per_fighter[code].append((n, p)); per_mod[p['id']].append((code, n, p))
+        per_fighter[code].append((n, p, chosen_variant)); per_mod[p['id']].append((code, n, p))
         # lo que reemplaza
         s = slot_now(inv, code, n); cur = 'original'
         if s.get('src') == 'perfil':
@@ -118,13 +126,22 @@ def review(changes, history, fighters, inv, plan_inv_version=None):
         for x in conf: add(N, 'AVISO', 'conflicto anotado: ' + x[:200])
         if p['pack']: add(N, 'INFO', f'es un paquete compartido con {", ".join(p["pack"]["with"])}: las fotos muestran todo el paquete')
         if p['variant']: add(N, 'INFO', f'variante concreta: {p["variant"]}')
+        if chosen_variant: add(N, 'INFO', f'variante elegida: {chosen_variant} (origen {chosen_variant[-3:]} → destino c0{n})')
         if p['console_test'] and 'pendiente' in p['console_test']: add(N, 'INFO', 'sin prueba en consola; compatibilidad 13.0.5 sin verificar')
         items.append(it)
     # globales
     for code, lst in per_fighter.items():
-        c = collections.Counter(p['id'] for _, p in lst)
+        c = collections.Counter(p['id'] for _, p, _ in lst)
         for mid, k in c.items():
-            if k > 1: add(F, 'AVISO', f'{by_code[code]["name"]}: el mismo mod ({mid}) está en {k} trajes ({", ".join("c0%d" % n for n, p in lst if p["id"] == mid)}); si es un pack de varios diseños está bien, si no es un duplicado')
+            if k <= 1:
+                continue
+            rows_m = [(n, cv) for n, p, cv in lst if p['id'] == mid]
+            slots_str = ', '.join(f'c0{n}' for n, _ in rows_m)
+            variants_m = [cv for _, cv in rows_m if cv]
+            if len(variants_m) == k and len(set(variants_m)) == k:
+                add(F, 'INFO', f'{by_code[code]["name"]}: {k} variantes distintas del mod {mid} en {slots_str}')
+            else:
+                add(F, 'AVISO', f'{by_code[code]["name"]}: el mismo mod ({mid}) está en {k} trajes ({slots_str}); si es un pack de varios diseños está bien, si no es un duplicado')
     for mid, lst in per_mod.items():
         fs = sorted({c for c, _, _ in lst})
         if len(fs) > 1: add(F, 'INFO', f'el mod {mid} («{lst[0][2]["name"]}») sirve a {len(fs)} luchadores del plan: se descarga una sola vez')

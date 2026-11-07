@@ -36,6 +36,16 @@ class Revision(unittest.TestCase):
     def test_mismo_mod_dos_veces_en_un_luchador(self):
         p = next(p for p in next(f for f in F if f['code'] == '01')['picks'] if not p['withdrawn'])
         self.assertTrue(any('está en 2 trajes' in x for x in msgs(*run([('01', 1, p['vid']), ('01', 2, p['vid'])]), 'AVISO')))
+    def test_dos_variantes_distintas_del_mismo_mod_es_info_no_aviso(self):
+        p = next(p for p in next(f for f in F if f['code'] == '01')['picks'] if not p['withdrawn'])
+        rows = [
+            {'code': '01', 'slot': 1, 'vid': p['vid'], 'variant': f"{p['vid']}:aaeedf35:c00"},
+            {'code': '01', 'slot': 2, 'vid': p['vid'], 'variant': f"{p['vid']}:aaeedf35:c03"},
+        ]
+        it, g = rp.review(rows, [], F, INV)
+        self.assertFalse(any('está en 2 trajes' in x for x in msgs(it, g, 'AVISO')))
+        self.assertTrue(any('2 variantes distintas' in x for x in msgs(it, g, 'INFO')))
+        self.assertTrue(any('variante elegida:' in x for x in msgs(it, g, 'INFO')))
     def test_dependencia_condicion_y_online_se_muestran(self):
         f, p = next((f, p) for f, p in PICKS if not p['withdrawn'] and not f['mii'] and p['conditions'] and p['wifi_status'] == 'autor_condicionado')
         self.assertTrue(any('condiciones' in x for x in msgs(*run([(f['code'], 0, p['vid'])]), 'AVISO')))

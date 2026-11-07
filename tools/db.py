@@ -118,17 +118,20 @@ def draft(db):
     for d in db.collection('changes').stream():
         c = d.to_dict(); f, p = by_vid.get(c.get('vid'), (None, None))
         code, n = c['code'], c['slot']; fi = next((x for x in fighters if x['code'] == code), None)
+        cv = c.get('variant')
+        chosen = {'id': cv, 'source_slot': cv[-3:], 'destination_slot': f'c{n:02d}'} if isinstance(cv, str) and len(cv) >= 3 else None
         st = status.get(c['vid']) or {}
         rows.append({'fighter': fi['name'] if fi else code, 'roster_no': code, 'traje': n + 1, 'slot': f'c{n:02d}',
                      'current': _current(inv, code, n),
-                     'proposal': None if not p else {'vid': p['vid'], 'role': p['role'], 'variant': p['variant'], 'mod_id': p['id'], 'name': p['name'], 'author': p['author'], 'url': p['url'],
+                     'proposal': None if not p else {'vid': p['vid'], 'role': p['role'], 'variant': p['variant'], 'chosen_variant': chosen, 'mod_id': p['id'], 'name': p['name'], 'author': p['author'], 'url': p['url'],
                                                     'online': ONLINE.get(p['wifi_status'], 'Online: sin auditar'), 'conditions': p['conditions'] or None,
                                                     'dependencies': p['deps'] or None, 'conflicts': p['conflicts'] or None, 'native_slots': p['slots_orig'],
                                                     'dest_hint': p['dest'], 'pack': p['pack'], 'withdrawn': p['withdrawn']},
-                     'missing_in_catalog': p is None, 'vid': c['vid'], 'proposed_at': c['at'].isoformat() if c.get('at') else None,
+                     'missing_in_catalog': p is None, 'vid': c['vid'], 'variant': cv, 'proposed_at': c['at'].isoformat() if c.get('at') else None,
                      'status': st.get('status', 'wanted'), 'result': st.get('result')})
     rows.sort(key=lambda r: (r['roster_no'], r['traje']))
-    hist = [{'at': h['at'].isoformat() if h.get('at') else None, 'roster_no': h['code'], 'traje': h['slot'] + 1, 'from': h.get('from'), 'to': h.get('to'), 'kind': h.get('kind')}
+    hist = [{'at': h['at'].isoformat() if h.get('at') else None, 'roster_no': h['code'], 'traje': h['slot'] + 1, 'from': h.get('from'), 'to': h.get('to'),
+             **({'from_variant': h['from_variant']} if h.get('from_variant') else {}), **({'variant': h['variant']} if h.get('variant') else {}), 'kind': h.get('kind')}
             for h in (d.to_dict() for d in db.collection('history').order_by('at', direction='DESCENDING').limit(50).stream())]
     out = {'schema': 3, 'generated_at': now().isoformat(), 'catalog': meta.get('generated'),
            'inventory': {'verification': ((inv or {}).get('meta') or {}).get('verification'), 'scanned_at': ((inv or {}).get('meta') or {}).get('scanned_at'),
