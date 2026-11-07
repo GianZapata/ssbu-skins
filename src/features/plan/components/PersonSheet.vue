@@ -38,7 +38,7 @@ const { loop } = useFocusLoop()
     :transition-duration="220"
     no-refocus
     aria-labelledby="person-sheet-title"
-    class="sheet-dialog"
+    class="sheet-dialog person-dialog"
     @show="focusInitial"
     @update:model-value="onOpenChange"
   >
