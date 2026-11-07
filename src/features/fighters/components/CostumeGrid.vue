@@ -16,6 +16,7 @@ interface CostumeGridProps {
 interface CostumeGridEmits {
   select: [n: number]
   clear: [n: number]
+  zoom: [n: number]
 }
 
 const props = defineProps<CostumeGridProps>()
@@ -63,16 +64,28 @@ const onKeys = (event: KeyboardEvent) => {
       <button type="button" class="cell__btn" :aria-label="cell.label" :aria-pressed="cell.sel" :data-slot="cell.n" @click="emit('select', cell.n)">
         <span class="cell__img">
           <AppImg :src="cell.current.img" fit="contain" :missing="cell.current.img ? '' : 'Sin retrato'" eager />
+          <span v-if="cell.sel" class="cell__check" aria-hidden="true"><q-icon name="check" size="16px" /></span>
         </span>
         <span class="cell__txt">
           <b>{{ trajeName(cell.n) }}</b>
           <span class="cell__name">{{ cell.current.name || 'Sin nombre' }}</span>
           <em class="cell__layer">{{ cell.layerLabel }}</em>
         </span>
-        <span v-if="cell.sel" class="cell__check" aria-hidden="true"><q-icon name="check" size="16px" /></span>
         <span v-if="cell.proposalLabel" class="cell__tag" :data-state="cell.proposal">{{ cell.proposalLabel }}</span>
         <span v-else-if="cell.next" class="cell__tag cell__tag--plan">Plan de Gian</span>
       </button>
+      <q-btn
+        v-if="cell.current.img"
+        flat
+        round
+        padding="0"
+        class="cell__zoom"
+        :aria-label="'Ampliar imagen de ' + cell.label"
+        :data-zoom-cell="cell.n"
+        @click.stop="emit('zoom', cell.n)"
+      >
+        <span class="cell__zoom-dot"><q-icon name="zoom_in" size="18px" aria-hidden="true" /></span>
+      </q-btn>
       <q-btn
         v-if="cell.proposal !== ProposalState.None"
         flat

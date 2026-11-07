@@ -1,6 +1,7 @@
 import { nextTick, ref } from 'vue'
 import type { Fighter, Skin } from '../../../boot'
 import { bump, fighterOf, S, scrollMem, route } from '../../../composables/useApp'
+import { hdrHidden } from '../../../composables/useReveal'
 import { openGallery } from '../../gallery/composables/useGallery'
 import { SSBU, type PlanRow } from '../../../shared/helpers/ssbu'
 import { curOf } from '../helpers/lookup'
@@ -108,6 +109,7 @@ export const showNotice = (text: string, action?: NoticeAction | null, ms = 0) =
 
   window.clearTimeout(noticeTimer)
   notice.value = current
+  hdrHidden.value = false
   bump()
 
   if (!ms) return
@@ -216,15 +218,24 @@ export const imgsOf = (skin: Skin): Shot[] => {
   return []
 }
 
-export const zoomSkin = (skin: Skin, index: number) => {
+const openZoom = (name: string, shots: Shot[], index: number) => {
   const origin = document.activeElement as HTMLElement | null
 
-  void openGallery(skin.name, imgsOf(skin), index, {
+  void openGallery(name, shots, index, {
     setIndex: (position) => { S.galI = position },
     onClose: () => {
       void nextTick(() => origin?.focus())
     },
   })
+}
+
+export const zoomSkin = (skin: Skin, index: number) => {
+  openZoom(skin.name, imgsOf(skin), index)
+}
+
+/** Una sola imagen, como el retrato de un traje. */
+export const zoomImage = (name: string, src: string) => {
+  openZoom(name, [{ o: src, m: src, s: src }], 0)
 }
 
 /** Ganchos de depuración que ya existían en window; se conservan sin los de pantallas eliminadas. */

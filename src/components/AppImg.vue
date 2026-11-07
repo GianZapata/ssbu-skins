@@ -10,7 +10,6 @@ interface AppImgProps {
   srcset?: string
   sizes?: string
   eager?: boolean
-  retry?: boolean
   missing?: string
 }
 
@@ -21,15 +20,14 @@ const props = withDefaults(defineProps<AppImgProps>(), {
   srcset: undefined,
   sizes: undefined,
   eager: false,
-  retry: false,
   missing: '',
 })
 
-const { failed, attempt, retryLoad } = useAppImg(props)
+const { failed, loaded, attempt, retryLoad } = useAppImg(props)
 </script>
 
 <template>
-  <div class="app-img">
+  <div class="app-img" :class="{ 'app-img--loading': props.src && !failed && !loaded }">
     <q-img
       v-if="props.src && !failed"
       :key="attempt"
@@ -42,12 +40,16 @@ const { failed, attempt, retryLoad } = useAppImg(props)
       no-spinner
       no-transition
       class="app-img__el"
+      @load="loaded = true"
       @error="failed = true"
     />
-    <div v-else class="app-img__ph" :role="props.alt || props.missing ? 'img' : undefined" :aria-label="props.alt || props.missing || undefined">
-      <q-icon name="image_not_supported" size="28px" aria-hidden="true" />
+    <div v-else-if="props.src" class="app-img__ph app-img__ph--failed" role="img" :aria-label="'No cargó la imagen' + (props.alt ? ': ' + props.alt : '')">
+      <q-icon name="broken_image" size="24px" aria-hidden="true" />
+      <span class="app-img__label">No cargó la imagen</span>
+      <q-btn no-caps unelevated icon="refresh" label="Reintentar" class="app-img__retry" @click.stop="retryLoad" />
+    </div>
+    <div v-else class="app-img__ph app-img__ph--missing" :role="props.alt || props.missing ? 'img' : undefined" :aria-label="props.alt || props.missing || undefined">
       <span v-if="props.missing" class="app-img__missing">{{ props.missing }}</span>
-      <q-btn v-if="props.retry && props.src" no-caps unelevated icon="refresh" label="Reintentar" class="app-img__retry" @click.stop="retryLoad" />
     </div>
   </div>
 </template>

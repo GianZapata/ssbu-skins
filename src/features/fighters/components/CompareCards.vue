@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { QBtn, QIcon } from 'quasar'
 import AppImg from '../../../components/AppImg.vue'
+import { trajeName } from '../../../shared/helpers/text'
 import { useSaveStatus } from '../../plan/saveStatus'
 import { PreviewSource } from '../enums/PreviewSource'
 import type { Cell, StagePreview } from '../../../pages/composables/useFighterPage'
@@ -14,10 +15,12 @@ interface CompareCardsProps {
 }
 
 interface CompareCardsEmits {
-  detail: []
+  zoomCurrent: []
+  zoomNew: []
   act: []
   find: []
   discard: []
+  step: [delta: number]
 }
 
 const props = defineProps<CompareCardsProps>()
@@ -28,10 +31,19 @@ const { saving, saved, savedHere } = useSaveStatus()
 
 <template>
   <section v-if="props.stage" class="cmp" aria-label="Actual y nueva">
+    <div class="cmp__nav" role="group" aria-label="Cambiar de traje">
+      <q-btn flat round padding="0" class="cmp__step" icon="chevron_left" aria-label="Traje anterior" :disable="props.stage.n === 0" @click="emit('step', -1)" />
+      <span class="cmp__where">{{ trajeName(props.stage.n) }} de 8</span>
+      <q-btn flat round padding="0" class="cmp__step" icon="chevron_right" aria-label="Traje siguiente" :disable="props.stage.n === 7" @click="emit('step', 1)" />
+    </div>
+
     <div class="cmp__col">
       <div class="cmp__label">Actual</div>
       <div class="cmp__img cmp__img--cur">
         <AppImg :src="props.stage.current.img" :alt="'Skin actual' + (props.stage.current.name ? ': ' + props.stage.current.name : '')" :missing="props.stage.current.img ? '' : 'Sin retrato'" fit="contain" eager />
+        <q-btn v-if="props.stage.current.img" flat round padding="0" class="cmp__zoom" :aria-label="'Ampliar imagen de ' + (props.stage.current.name || 'la skin actual')" @click="emit('zoomCurrent')">
+          <span class="cmp__zoom-dot"><q-icon name="zoom_in" size="18px" aria-hidden="true" /></span>
+        </q-btn>
       </div>
       <div class="cmp__name cmp__name--cur">{{ props.stage.current.name || ' ' }}</div>
       <div class="cmp__sub">{{ props.stage.layerLabel }}</div>
@@ -39,15 +51,12 @@ const { saving, saved, savedHere } = useSaveStatus()
 
     <div class="cmp__col">
       <div class="cmp__label cmp__label--new">Nueva</div>
-      <button
-        v-if="props.preview"
-        type="button"
-        class="cmp__img cmp__img--new"
-        :aria-label="'Ampliar imagen de ' + props.preview.name"
-        @click="emit('detail')"
-      >
+      <div v-if="props.preview" class="cmp__img cmp__img--new">
         <AppImg :src="props.preview.img" :alt="'Skin nueva: ' + props.preview.name" :missing="props.preview.img ? '' : 'Sin retrato'" fit="contain" eager />
-      </button>
+        <q-btn flat round padding="0" class="cmp__zoom" :aria-label="'Ampliar imagen de ' + props.preview.name" @click="emit('zoomNew')">
+          <span class="cmp__zoom-dot"><q-icon name="zoom_in" size="18px" aria-hidden="true" /></span>
+        </q-btn>
+      </div>
       <button
         v-else
         type="button"
