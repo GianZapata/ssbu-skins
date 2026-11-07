@@ -126,7 +126,11 @@ def review(changes, history, fighters, inv, plan_inv_version=None):
         for x in conf: add(N, 'AVISO', 'conflicto anotado: ' + x[:200])
         if p['pack']: add(N, 'INFO', f'es un paquete compartido con {", ".join(p["pack"]["with"])}: las fotos muestran todo el paquete')
         if p['variant']: add(N, 'INFO', f'variante concreta: {p["variant"]}')
-        if chosen_variant: add(N, 'INFO', f'variante elegida: {chosen_variant} (origen {chosen_variant[-3:]} → destino c0{n})')
+        if chosen_variant:
+            if not chosen_variant.startswith(vid + ':') or not re.search(r':[0-9a-f]{8}:c0[0-7]$', chosen_variant):
+                add(N, 'ERROR', f'la variante elegida no corresponde a esta apariencia: {chosen_variant}')
+            else:
+                add(N, 'INFO', f'apariencia elegida: {chosen_variant} (color de origen {chosen_variant[-3:]}, destino c{n:02d})')
         if p['console_test'] and 'pendiente' in p['console_test']: add(N, 'INFO', 'sin prueba en consola; compatibilidad 13.0.5 sin verificar')
         items.append(it)
     # globales
@@ -136,7 +140,7 @@ def review(changes, history, fighters, inv, plan_inv_version=None):
             if k <= 1:
                 continue
             rows_m = [(n, cv) for n, p, cv in lst if p['id'] == mid]
-            slots_str = ', '.join(f'c0{n}' for n, _ in rows_m)
+            slots_str = ', '.join(f'c{n:02d}' for n, _ in rows_m)
             variants_m = [cv for _, cv in rows_m if cv]
             if len(variants_m) == k and len(set(variants_m)) == k:
                 add(F, 'INFO', f'{by_code[code]["name"]}: {k} variantes distintas del mod {mid} en {slots_str}')

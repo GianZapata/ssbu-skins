@@ -37,7 +37,7 @@ Exportación de propuestas, no la orden:
 - **`traje` (1–8) y `slot` (`c00`–`c07`)** son el destino: la skin debe quedar en ese slot, reubicando los archivos del mod si sus `native_slots` son otros. `dest_hint` solo es orientativo.
 - **`current` nunca está confirmado en consola** (`confirmed: false`). `kind: original` significa «sin mod en el inventario revisado», `unknown` «hay un mod pero no se pudo identificar».
 - **`vid`** identifica la variante exacta (`<luchador>:<id del mod>`; si un mismo mod trae varias variantes para un luchador, la variante añade un sufijo estable).
-- **`variant`** (opcional) y **`proposal.chosen_variant`** identifican la apariencia concreta elegida dentro de un mod: `<vid>:<md5_corto>:<cNN>`, con `md5_corto` de 8 hex y `cNN` el color de origen (`source_slot`); `destination_slot` es el traje elegido. Si falta, se propone el mod sin concretar apariencia. En el historial aparecen como `variant` y `from_variant`.
+- **`variant`** (opcional) y **`proposal.chosen_variant`** identifican la apariencia concreta elegida dentro de un mod: `<vid>:<md5_corto>:<cNN>`, con `md5_corto` de 8 hex y `cNN` el color de origen (`source_slot`); `destination_slot` es el traje elegido. Si falta, se propone el mod sin concretar apariencia. En el historial aparecen como `variant` y `from_variant`. En el historial son texto libre: no se validan contra el catálogo.
 - `online` es lo que declara el autor, no una prueba en consola. Respeta `conditions`, `dependencies` y `conflicts`.
 - Un `pack` no nulo indica un mod compartido con otros luchadores.
 

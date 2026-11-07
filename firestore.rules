@@ -16,7 +16,13 @@ service cloud.firestore {
     function okRef(v) { return v == null || (v is string && v.size() <= 80); }
     // Variante opcional: apariencia concreta de un mod (<vid>:<md5 corto>:<cNN>). Debe pertenecer al mismo vid que se propone.
     function okVariant(d, vid) {
-      return !('variant' in d) || (d.variant is string && d.variant.size() <= 120 && d.variant.matches(vid + ':[0-9a-f]{8}:c0[0-7]'));
+      // Sin regex con el vid (puede traer caracteres especiales como «ε»): prefijo exacto + sufijo ':' + 8 hex + ':' + c0N (13 caracteres).
+      return !('variant' in d) || (
+        d.variant is string
+        && d.variant.size() == vid.size() + 13
+        && d.variant[0:vid.size()] == vid
+        && d.variant[vid.size():d.variant.size()].matches(':[0-9a-f]{8}:c0[0-7]')
+      );
     }
 
     match /catalog/{code}   { allow read: if true; allow write: if false; }

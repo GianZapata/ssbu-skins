@@ -16,7 +16,7 @@
 # Credenciales: GOOGLE_APPLICATION_CREDENTIALS apuntando al JSON de una cuenta de servicio del proyecto
 # (Configuración del proyecto → Cuentas de servicio → Generar clave privada). Para pruebas locales,
 # FIRESTORE_EMULATOR_HOST=127.0.0.1:8080 y GOOGLE_CLOUD_PROJECT=ssbu-441b1 bastan. Requiere: pip install google-cloud-firestore
-import argparse, datetime, json, os, sys
+import argparse, datetime, json, os, re, sys
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import catalog_data as cd
 
@@ -119,7 +119,7 @@ def draft(db):
         c = d.to_dict(); f, p = by_vid.get(c.get('vid'), (None, None))
         code, n = c['code'], c['slot']; fi = next((x for x in fighters if x['code'] == code), None)
         cv = c.get('variant')
-        chosen = {'id': cv, 'source_slot': cv[-3:], 'destination_slot': f'c{n:02d}'} if isinstance(cv, str) and len(cv) >= 3 else None
+        chosen = {'id': cv, 'source_slot': cv[-3:], 'destination_slot': f'c{n:02d}'} if isinstance(cv, str) and re.fullmatch(r'.+:[0-9a-f]{8}:c0[0-7]', cv) else None
         st = status.get(c['vid']) or {}
         rows.append({'fighter': fi['name'] if fi else code, 'roster_no': code, 'traje': n + 1, 'slot': f'c{n:02d}',
                      'current': _current(inv, code, n),

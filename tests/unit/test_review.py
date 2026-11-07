@@ -45,7 +45,32 @@ class Revision(unittest.TestCase):
         it, g = rp.review(rows, [], F, INV)
         self.assertFalse(any('está en 2 trajes' in x for x in msgs(it, g, 'AVISO')))
         self.assertTrue(any('2 variantes distintas' in x for x in msgs(it, g, 'INFO')))
-        self.assertTrue(any('variante elegida:' in x for x in msgs(it, g, 'INFO')))
+        self.assertTrue(any('apariencia elegida:' in x for x in msgs(it, g, 'INFO')))
+    def test_misma_variante_en_dos_trajes_avisa(self):
+        p = next(p for p in next(f for f in F if f['code'] == '01')['picks'] if not p['withdrawn'])
+        v = f"{p['vid']}:aaeedf35:c00"
+        it, g = rp.review([{'code': '01', 'slot': s, 'vid': p['vid'], 'variant': v} for s in (1, 2)], [], F, INV)
+        self.assertTrue(any('está en 2 trajes' in x for x in msgs(it, g, 'AVISO')))
+    def test_una_fila_con_variante_y_otra_sin_avisa(self):
+        p = next(p for p in next(f for f in F if f['code'] == '01')['picks'] if not p['withdrawn'])
+        it, g = rp.review([{'code': '01', 'slot': 1, 'vid': p['vid'], 'variant': f"{p['vid']}:aaeedf35:c00"}, {'code': '01', 'slot': 2, 'vid': p['vid']}], [], F, INV)
+        self.assertTrue(any('está en 2 trajes' in x for x in msgs(it, g, 'AVISO')))
+    def test_variante_de_otro_vid_es_error_y_no_se_anuncia(self):
+        p = next(p for p in next(f for f in F if f['code'] == '01')['picks'] if not p['withdrawn'])
+        it, g = rp.review([{'code': '01', 'slot': 1, 'vid': p['vid'], 'variant': '82:330053:aaeedf35:c03'}], [], F, INV)
+        self.assertTrue(any('no corresponde a esta apariencia' in x for x in msgs(it, g, 'ERROR')))
+        self.assertFalse(any('apariencia elegida' in x for x in msgs(it, g, 'INFO')))
+    def test_read_file_toma_la_variante_de_la_propuesta_o_tolera_sin_propuesta(self):
+        base = {'roster_no': '01', 'traje': 2, 'vid': '01:1'}
+        data = {'inventory': {'version': 'v'}, 'history': [], 'changes': [
+            {**base, 'proposal': {'chosen_variant': {'id': '01:1:aaeedf35:c03'}}},
+            {**base, 'traje': 3, 'proposal': None},
+            {**base, 'traje': 4, 'variant': '01:1:bbbbbbbb:c01', 'proposal': None}]}
+        with tempfile.NamedTemporaryFile('w', suffix='.json', delete=False) as f:
+            json.dump(data, f)
+        try: ch, _, _ = rp.read_file(f.name)
+        finally: os.unlink(f.name)
+        self.assertEqual([c['variant'] for c in ch], ['01:1:aaeedf35:c03', None, '01:1:bbbbbbbb:c01'])
     def test_dependencia_condicion_y_online_se_muestran(self):
         f, p = next((f, p) for f, p in PICKS if not p['withdrawn'] and not f['mii'] and p['conditions'] and p['wifi_status'] == 'autor_condicionado')
         self.assertTrue(any('condiciones' in x for x in msgs(*run([(f['code'], 0, p['vid'])]), 'AVISO')))
