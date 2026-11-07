@@ -5,6 +5,9 @@ import type { PickerFighter } from '../../features/explore/composables/useFighte
 import { zoomSkin } from '../../features/plan/composables/usePlan'
 import { skinOf } from '../../features/plan/helpers/lookup'
 import { state } from '../../features/plan/services/sync'
+import { meterOf, type MeterCostume } from '../../features/roster/costumes'
+import { RosterHelper } from '../../features/roster/helpers/roster.helper'
+import { CostumeLayer } from '../../shared/enums/CostumeLayer'
 import { SSBU } from '../../shared/helpers/ssbu'
 import { coverOf } from '../../shared/helpers/skins'
 import { norm } from '../../shared/helpers/text'
@@ -26,6 +29,8 @@ export interface CatalogGroup {
   id: string
   name: string
   portrait: string | null
+  meter: MeterCostume[]
+  meterLabel: string
   skins: CatalogSkin[]
 }
 
@@ -52,7 +57,9 @@ const byFighter = (rows: CatalogRow[]) => {
   const buckets = new Map<string, CatalogGroup>()
 
   rows.forEach(({ f, p }) => {
-    const group = buckets.get(f.code) || { id: f.code, name: f.name, portrait: f.portrait || null, skins: [] }
+    const meter = meterOf(f.code)
+    const own = meter.filter((costume) => costume.layer === CostumeLayer.Profile).length
+    const group = buckets.get(f.code) || { id: f.code, name: f.name, portrait: f.portrait || null, meter, meterLabel: RosterHelper.meterLabel(own), skins: [] }
 
     group.skins.push(skinRow(f, p))
     buckets.set(f.code, group)

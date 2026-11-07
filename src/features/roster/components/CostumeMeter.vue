@@ -1,12 +1,6 @@
 <script setup lang="ts">
+import type { MeterCostume } from '../costumes'
 import { ProposalState } from '../enums/ProposalState'
-import type { CostumeLayer } from '../../../shared/enums/CostumeLayer'
-
-interface MeterCostume {
-  n: number
-  layer: CostumeLayer
-  proposal: ProposalState
-}
 
 interface CostumeMeterProps {
   costumes: MeterCostume[]

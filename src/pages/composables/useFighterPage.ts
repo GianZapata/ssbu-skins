@@ -10,11 +10,12 @@ import { PulseKind } from '../../features/fighters/enums/PulseKind'
 import { downloadedVids, loadDriveAlts, unauditedVids } from '../../features/roster/driveAlts'
 import { ProposalState } from '../../features/roster/enums/ProposalState'
 import { RosterHelper } from '../../features/roster/helpers/roster.helper'
+import { meterOf, type MeterCostume } from '../../features/roster/costumes'
 import { InstallFaceKind } from '../../shared/enums/InstallFaceKind'
 import { SSBU, type PlanRow, type StageChoice } from '../../shared/helpers/ssbu'
 import { coverOf, currentName } from '../../shared/helpers/skins'
 import { trajeName } from '../../shared/helpers/text'
-import type { CostumeLayer } from '../../shared/enums/CostumeLayer'
+import { CostumeLayer } from '../../shared/enums/CostumeLayer'
 
 const SLOTS = [0, 1, 2, 3, 4, 5, 6, 7]
 
@@ -84,7 +85,7 @@ export const useFighterPage = () => {
     const withSlot = hasSlot()
     const slot = withSlot ? current.n : 0
 
-    if (!fighter) return { fighter: null, code, slot, withSlot, cells: [] as Cell[], rows: [], total: 0 }
+    if (!fighter) return { fighter: null, code, slot, withSlot, cells: [] as Cell[], rows: [], total: 0, meter: [] as MeterCostume[], meterLabel: '', summary: '' }
 
     const usable = !fighter.mii
 
@@ -109,7 +110,10 @@ export const useFighterPage = () => {
       if (face.kind === InstallFaceKind.Original) shown = 'original'
       else if (cur) shown = cur.name
 
-      const label = next ? trajeName(n) + ': ' + shown + ' cambia a ' + next.name : trajeName(n) + ': ' + shown
+      const layerLabel = RosterHelper.layerLabelOf(cur)
+      const proposalLabel = RosterHelper.getProposalMeta(proposal).label
+      const where = next ? trajeName(n) + ': ' + shown + ' cambia a ' + next.name : trajeName(n) + ': ' + shown
+      const label = where + ', ' + layerLabel + (proposalLabel ? ', ' + proposalLabel : '')
 
       return {
         n,
@@ -118,9 +122,9 @@ export const useFighterPage = () => {
         label,
         quitar: 'Quitar propuesta, ' + trajeName(n),
         layer: RosterHelper.layerOf(cur),
-        layerLabel: RosterHelper.layerLabelOf(cur),
+        layerLabel,
         proposal,
-        proposalLabel: RosterHelper.getProposalMeta(proposal).label,
+        proposalLabel,
         current: { name, img: cur ? cur.img : null, original },
         next,
       }
@@ -177,7 +181,21 @@ export const useFighterPage = () => {
     const ordered = [...rows.filter((row) => row.downloaded), ...rows.filter((row) => !row.downloaded)]
     const total = usable ? SSBU.catList(state.all, { code }, SSBU.emptyCat()).length : 0
 
-    return { fighter, code, slot, withSlot, cells, rows: ordered, total }
+    const own = cells.filter((cell) => cell.layer === CostumeLayer.Profile).length
+    const base = cells.filter((cell) => cell.layer === CostumeLayer.Base).length
+
+    return {
+      fighter,
+      code,
+      slot,
+      withSlot,
+      cells,
+      rows: ordered,
+      total,
+      meter: meterOf(code),
+      meterLabel: RosterHelper.meterLabel(own),
+      summary: RosterHelper.summaryLabel(own, base, cells.length - own - base),
+    }
   })
 
   const stage = computed(() => {

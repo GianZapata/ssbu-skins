@@ -22,6 +22,12 @@ interface CostumeGridEmits {
 const props = defineProps<CostumeGridProps>()
 const emit = defineEmits<CostumeGridEmits>()
 
+const columnsOf = (items: HTMLElement[]) => {
+  const top = Math.round(items[0].getBoundingClientRect().top)
+
+  return items.filter((item) => Math.round(item.getBoundingClientRect().top) === top).length
+}
+
 const onKeys = (event: KeyboardEvent) => {
   if (!['ArrowRight', 'ArrowLeft', 'ArrowUp', 'ArrowDown', 'Home', 'End'].includes(event.key)) return
 
@@ -32,14 +38,16 @@ const onKeys = (event: KeyboardEvent) => {
 
   event.preventDefault()
 
+  const columns = columnsOf(items)
+
   let next = index
 
   if (event.key === 'Home') next = 0
   else if (event.key === 'End') next = items.length - 1
   else if (event.key === 'ArrowRight') next = Math.min(items.length - 1, index + 1)
   else if (event.key === 'ArrowLeft') next = Math.max(0, index - 1)
-  else if (event.key === 'ArrowDown') next = Math.min(items.length - 1, index + 2)
-  else next = Math.max(0, index - 2)
+  else if (event.key === 'ArrowDown') next = Math.min(items.length - 1, index + columns)
+  else next = Math.max(0, index - columns)
 
   items[next].focus()
 }

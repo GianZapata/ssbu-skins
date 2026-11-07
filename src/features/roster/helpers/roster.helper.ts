@@ -126,6 +126,10 @@ export class RosterHelper {
     return base + ' del pack base' + unidentifiedLabel + ' · ' + original + ' originales'
   }
 
+  static summaryLabel(profile: number, base: number, original: number) {
+    return profile + ' en tu perfil · ' + base + ' del pack base · ' + original + (original === 1 ? ' original' : ' originales')
+  }
+
   static meterLabel(profile: number) {
     return profile + ' de 8 trajes con mod de tu perfil'
   }

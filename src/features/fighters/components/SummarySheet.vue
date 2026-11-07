@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { QBtn, QDialog, QIcon } from 'quasar'
 import AppImg from '../../../components/AppImg.vue'
+import { useFocusLoop } from '../../../composables/useFocusLoop'
 import { ProposalOrigin } from '../../plan/enums/ProposalOrigin'
 import { useSummarySheet } from '../composables/useSummarySheet'
 
@@ -20,6 +21,8 @@ const {
   undo,
   keep,
 } = useSummarySheet()
+
+const { loop } = useFocusLoop()
 </script>
 
 <template>
@@ -33,7 +36,7 @@ const {
     class="sheet-dialog"
     @update:model-value="(v: boolean) => { if (!v) close() }"
   >
-    <div class="sheet sheet--list" role="dialog" aria-label="Cambios">
+    <div class="sheet sheet--list" role="dialog" aria-label="Cambios" @keydown="loop">
       <div class="sheet__grab" aria-hidden="true"></div>
       <div class="sheet__head">
         <h2 class="sheet__h">Cambios</h2>

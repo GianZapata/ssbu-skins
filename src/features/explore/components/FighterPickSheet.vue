@@ -2,6 +2,7 @@
 import { computed } from 'vue'
 import { QBtn, QDialog, QIcon, QInput } from 'quasar'
 import AppImg from '../../../components/AppImg.vue'
+import { useFocusLoop } from '../../../composables/useFocusLoop'
 import { useFighterPickSheet, type PickerFighter } from '../composables/useFighterPickSheet'
 
 interface FighterPickSheetProps {
@@ -23,6 +24,7 @@ const props = defineProps<FighterPickSheetProps>()
 const emit = defineEmits<FighterPickSheetEmits>()
 
 const { query, rows } = useFighterPickSheet(props)
+const { loop } = useFocusLoop()
 
 const totalText = computed(() => props.total + ' ' + (props.total === 1 ? props.one : props.many))
 
@@ -40,7 +42,7 @@ const countOf = (count: number) => count + ' ' + (count === 1 ? props.one : prop
     class="sheet-dialog"
     @update:model-value="(v: boolean) => { if (!v) emit('close') }"
   >
-    <div class="sheet" role="dialog" aria-label="Personaje">
+    <div class="sheet" role="dialog" aria-label="Personaje" @keydown="loop">
       <div class="sheet__grab" aria-hidden="true"></div>
       <div class="sheet__head">
         <h2 class="sheet__h">Personaje</h2>

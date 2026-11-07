@@ -50,7 +50,7 @@ module.exports = async (b, base) => {
   // la cuadrícula muestra «Traje N»; el nombre de cada traje va en la etiqueta accesible del botón
   await P.goto(base + '#/luchador/13'); await P.waitForSelector('[data-view="fighter:13"] .cgrid .cell__btn');
   const tags = (await P.$$eval('[data-view="fighter:13"] .cgrid .cell__btn', bs => bs.map(b => b.getAttribute('aria-label') || ''))).join(' | ');
-  ok(tags.includes('Traje 3: Sin nombre') && !/Apariencia sin identificar/.test(tags), 'la pantalla del luchador usa «Sin nombre», sin etiquetas duplicadas');
+  ok(tags.includes('Traje 3: Sin nombre, Pack base · sin nombre') && !/Apariencia sin identificar/.test(tags), 'la pantalla del luchador usa «Sin nombre», sin etiquetas duplicadas');
   await P.goto(base + '#/luchador/11/3'); await P.waitForSelector('.cmp'); ok(/Shaggy/.test(await P.textContent('.cmp')), 'Shaggy sigue instalado en su traje');
   // regresión Shadow Mewtwo
   const mw = await P.evaluate(() => { const f = F.find(f => /Mewtwo/.test(f.name)); const sm = f.picks.find(p => /Shadow Mewtwo/i.test(p.name)); return { code: f.code, vid: sm && sm.vid }; });
