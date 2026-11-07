@@ -201,9 +201,9 @@ def review(changes, history, fighters, inv, plan_inv_version=None, families=None
     if inv and plan_inv_version and plan_inv_version != inv['meta'].get('version'):
         add(F, 'AVISO', f'la exportación se hizo con otra versión del inventario ({plan_inv_version}) que la actual ({inv["meta"].get("version")})')
     # historial: cambios de opinión recientes
-    flips = collections.Counter((h.get('code'), h.get('slot')) for h in history if h.get('kind') in ('set', 'undo', 'clear'))
-    for (code, n), k in flips.items():
-        if k >= 4 and code in by_code: add(F, 'INFO', f'{by_code[code]["name"]} traje {n + 1}: {k} cambios recientes en el historial (hay desacuerdo); revisa antes de instalar')
+    flips = collections.Counter((h.get('code'), h.get('slot'), h.get('name') or '') for h in history if h.get('kind') in ('set', 'undo', 'clear'))
+    for (code, n, who_h), k in flips.items():
+        if k >= 4 and code in by_code: add(F, 'INFO', f'{by_code[code]["name"]}{f" ({who_h})" if who_h else ""} traje {n + 1}: {k} cambios recientes en el historial (hay desacuerdo); revisa antes de instalar')
     if not rows: add(F, 'INFO', 'el plan está vacío: nada que revisar')
     return items, F
 

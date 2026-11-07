@@ -173,6 +173,13 @@ class ReviewByPersonTests(unittest.TestCase):
         q = next(p for p in next(f for f in F if f['code'] == '80')['picks'] if not p['withdrawn'])
         it, g = rp.review([{'code': '79', 'slot': 3, 'vid': p['vid'], 'person': 'Gian'}, {'code': '80', 'slot': 3, 'vid': q['vid'], 'person': 'Alan'}], [], F, INV)
         self.assertEqual(sum('Pyra y Mythra' in x for x in msgs(it, g, 'AVISO')), 2)
+    def test_cambios_de_historial_se_cuentan_por_persona(self):
+        v = self._pick()['vid']
+        h = [{'code': '01', 'slot': 0, 'kind': 'set', 'name': 'Gian' if i % 2 else 'Alan'} for i in range(4)]
+        it, g = rp.review([{'code': '01', 'slot': 0, 'vid': v, 'person': 'Gian'}], h, F, INV)
+        self.assertFalse(any('desacuerdo' in x for x in msgs(it, g)))
+        it, g = rp.review([{'code': '01', 'slot': 0, 'vid': v, 'person': 'Gian'}], [dict(x, name='Gian') for x in h], F, INV)
+        self.assertTrue(any('(Gian)' in x and 'desacuerdo' in x for x in msgs(it, g)))
     def test_persona_desde_el_id_y_otros_para_documentos_sin_name(self):
         self.assertEqual(rp._person_of({'_id': '01_0_Ches'}), 'Ches')
         self.assertEqual(rp._person_of({'_id': '01_0'}, default_other=True), 'Otros')
