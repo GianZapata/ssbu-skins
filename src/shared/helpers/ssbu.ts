@@ -33,6 +33,29 @@ export interface PlanRow {
   n: number
   vid: string
   variant?: string | null
+  key?: string
+  name?: string | null
+  by?: string | null
+  at?: number | null
+  unsent?: boolean
+}
+
+export interface DocKeyParts {
+  code: string
+  slot: number
+  name: string | null
+}
+
+export interface ProposalRow {
+  key: string
+  code: string
+  n: number
+  vid: string
+  variant: string | null
+  name: string | null
+  by: string | null
+  at: number | null
+  unsent: boolean
 }
 
 export interface Current {
@@ -58,6 +81,7 @@ interface Op {
   exp: string | null
   variant?: string | null
   expVariant?: string | null
+  name?: string
   kind: string
 }
 
@@ -125,8 +149,16 @@ export interface Domain {
   emptyCat: () => CatState
   migrateCat: (saved: unknown) => CatState
   assignBlock: (entries: PlanRow[], code: string, slot: number, vid: string, variant?: string | null) => AssignBlockResult
-  setOp: (code: string, slot: number, vid: string, prev: string | null, variant?: string | null, prevVariant?: string | null) => Op | null
-  clearOp: (code: string, slot: number, prev: string | null, prevVariant?: string | null) => Op | null
+  setOp: (code: string, slot: number, vid: string, prev: string | null, variant?: string | null, prevVariant?: string | null, name?: string | null) => Op | null
+  clearOp: (code: string, slot: number, prev: string | null, prevVariant?: string | null, name?: string | null) => Op | null
+  PEOPLE: string[]
+  validPerson: (name: unknown) => boolean
+  docKey: (code: string, slot: number, name?: string | null) => string
+  parseDocKey: (key: string) => DocKeyParts | null
+  proposalsAt: (code: string, slot: number, ctx: unknown) => ProposalRow[]
+  ownVid: (code: string, slot: number, ctx: unknown) => string | null
+  ownVariant: (code: string, slot: number, ctx: unknown) => string | null
+  ownEntries: (ctx: unknown) => ProposalRow[]
   curOf: (code: string, slot: number, ctx: unknown) => Current | null
   catList: (rows: unknown[], ctx: CatListContext | null, st: CatState) => CatEntry[]
   stageChoice: (input: StageChoiceInput) => StageChoice

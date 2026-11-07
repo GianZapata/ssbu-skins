@@ -21,7 +21,7 @@ module.exports = async (b, base) => {
   ok(await until(B, () => PEND.length === 0 && dbState === 'ok' && syncKind === null, null, 15000) && (await B.textContent('#sync')) === '', 'al volver la red se guarda solo y la cabecera no deja Guardado fijo');
   const d2 = await B.evaluate(() => window.__ssbuDiag().errors.filter(e => e.kind !== 'offline').length); ok(d2 === 0, 'una caída de red no se registra como fallo de configuración');
   // 3) Reglas que rechazan un cambio (apariencia inexistente): no bloquea la cola y deja diagnóstico
-  await B.evaluate(() => { PEND.push({ code: '01', slot: 5, to: '01:no-existe', exp: null, kind: 'set' }); savePend(); flush(); });
+  await B.evaluate(() => { PEND.push({ code: '01', slot: 5, name: 'Gian', to: '01:no-existe', exp: null, kind: 'set' }); savePend(); flush(); });
   ok(await until(B, () => PEND.length === 0, null, 20000), 'el cambio que las reglas rechazan (apariencia inexistente) se descarta y la cola sigue libre');
   const d3 = await B.evaluate(() => window.__ssbuDiag()); ok(d3.errors.some(e => e.kind === 'perm'), 'el rechazo por permisos queda como kind=perm en el diagnóstico');
   await B.evaluate(() => { proposeAt('01', 6, byCode['01'].picks[2].vid); });

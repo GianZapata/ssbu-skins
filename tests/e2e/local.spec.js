@@ -1,6 +1,7 @@
 const { test, expect } = require('@playwright/test');
 
-test.beforeEach(async ({ context }) => {
+test.beforeEach(async ({ context, page }, testInfo) => {
+  if (!testInfo.title.includes('gate perezoso')) await page.addInitScript(() => { try { localStorage.setItem('ssbu_person', 'Gian'); } catch (_) {} });
   await context.route(/googleapis|gstatic\.com\/firebasejs|identitytoolkit|securetoken/, route => route.abort());
 });
 
@@ -527,4 +528,32 @@ test('en la cuadrícula pequeña el estado de cada traje va por forma o texto, n
   for (const item of glyphs) expect(item.glyph).toBe({ profile: '"●"', base: '"◐"', original: '"○"' }[item.layer]);
   await expect(page.locator('.cell--prop .cell__tag')).toHaveText(/Sin enviar|Propuesta/);
   await expect(page.locator('.cell--prop .cell__btn')).toHaveAttribute('aria-label', /, (Sin enviar|Propuesta)$/);
+});
+
+test('gate perezoso: navegar no abre la hoja; guardar sin persona pide elegir y completa la propuesta', async ({ page }) => {
+  await page.setViewportSize({ width: 390, height: 844 });
+  const sheet = page.getByRole('dialog', { name: '¿Quién propone?' });
+  await page.goto('/#/luchadores');
+  await page.waitForSelector('.rrow');
+  await page.goto('/#/luchador/01/3');
+  await page.waitForSelector('[data-skin]');
+  await expect(sheet).toHaveCount(0);
+  await page.locator('[data-skin]').first().click();
+  await expect(sheet).toHaveCount(0);
+  const before = await page.evaluate(() => window.planEntries().length);
+  await page.locator('[data-act]').click();
+  await expect(sheet).toBeVisible();
+  await expect.poll(() => page.evaluate(() => window.planEntries().length)).toBe(before);
+  await page.locator('[data-person="Samu"]').click();
+  await expect(sheet).toBeHidden();
+  await expect.poll(() => page.evaluate(() => window.planEntries().length)).toBe(before + 1);
+  await expect(page.getByText('Propuesta guardada').first()).toBeVisible();
+  await expect.poll(() => page.evaluate(() => localStorage.getItem('ssbu_person'))).toBe('Samu');
+  await page.getByRole('button', { name: 'Más opciones' }).click();
+  await page.getByText('Cambiar persona (Samu)').click();
+  await expect(sheet).toBeVisible();
+  await expect(page.locator('[data-person="Samu"]')).toHaveAttribute('aria-pressed', 'true');
+  await page.locator('[data-person="Alan"]').click();
+  await expect(sheet).toBeHidden();
+  await expect.poll(() => page.evaluate(() => localStorage.getItem('ssbu_person'))).toBe('Alan');
 });

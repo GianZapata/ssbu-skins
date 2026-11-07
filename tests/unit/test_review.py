@@ -140,6 +140,51 @@ class Revision(unittest.TestCase):
 def up():
     try: urllib.request.urlopen('http://127.0.0.1:8080', timeout=2); return True
     except Exception: return False
+class ReviewByPersonTests(unittest.TestCase):
+    def _pick(self):
+        return next(p for p in next(f for f in F if f['code'] == '01')['picks'] if not p['withdrawn'])
+    def test_propuestas_del_mismo_traje_se_agrupan_por_persona(self):
+        p = self._pick(); v = p['vid']
+        rows = [{'code': '01', 'slot': 0, 'vid': v, 'person': 'Otros'}, {'code': '01', 'slot': 0, 'vid': v, 'person': 'Alan'}, {'code': '01', 'slot': 0, 'vid': v, 'person': 'Gian'}]
+        it, g = rp.review(rows, [], F, INV)
+        self.assertEqual([x['person'] for x in it], ['Gian', 'Alan', 'Otros'])
+        md = rp.render(it, g, {'generated': 'x'})
+        self.assertEqual(sum(1 for l in md.splitlines() if l.startswith('### ') and 'Traje 1 (c00)' in l), 1)
+        pos = [md.index(f'{n} →') for n in ('Gian', 'Alan', 'Otros')]
+        self.assertEqual(pos, sorted(pos))
+        for n in ('Gian', 'Alan', 'Otros'): self.assertRegex(md, rf'#### \S+ {n} →')
+    def test_mismo_mod_en_trajes_distintos_de_dos_personas_no_avisa(self):
+        v = self._pick()['vid']
+        it, g = rp.review([{'code': '01', 'slot': 0, 'vid': v, 'person': 'Gian'}, {'code': '01', 'slot': 2, 'vid': v, 'person': 'Alan'}], [], F, INV)
+        self.assertFalse(any('está en 2 trajes' in x for x in msgs(it, g, 'AVISO')))
+    def test_la_misma_persona_con_el_mismo_mod_en_dos_trajes_avisa(self):
+        v = self._pick()['vid']
+        it, g = rp.review([{'code': '01', 'slot': 0, 'vid': v, 'person': 'Gian'}, {'code': '01', 'slot': 2, 'vid': v, 'person': 'Gian'}], [], F, INV)
+        self.assertTrue(any('(Gian)' in x and 'está en 2 trajes' in x for x in msgs(it, g, 'AVISO')))
+    def test_ocho_trajes_se_cuentan_por_persona(self):
+        v = self._pick()['vid']
+        rows = [{'code': '01', 'slot': n, 'vid': v, 'person': 'Gian' if n < 4 else 'Alan'} for n in range(8)]
+        it, g = rp.review(rows, [], F, INV)
+        self.assertFalse(any('los 8 trajes' in x for x in msgs(it, g)))
+        it, g = rp.review([{'code': '01', 'slot': n, 'vid': v, 'person': 'Gian'} for n in range(8)], [], F, INV)
+        self.assertTrue(any('(Gian)' in x and 'los 8 trajes' in x for x in msgs(it, g)))
+    def test_pyra_mythra_se_coordina_por_persona(self):
+        p = next(p for p in next(f for f in F if f['code'] == '79')['picks'] if not p['withdrawn'])
+        q = next(p for p in next(f for f in F if f['code'] == '80')['picks'] if not p['withdrawn'])
+        it, g = rp.review([{'code': '79', 'slot': 3, 'vid': p['vid'], 'person': 'Gian'}, {'code': '80', 'slot': 3, 'vid': q['vid'], 'person': 'Alan'}], [], F, INV)
+        self.assertEqual(sum('Pyra y Mythra' in x for x in msgs(it, g, 'AVISO')), 2)
+    def test_cambios_de_historial_se_cuentan_por_persona(self):
+        v = self._pick()['vid']
+        h = [{'code': '01', 'slot': 0, 'kind': 'set', 'name': 'Gian' if i % 2 else 'Alan'} for i in range(4)]
+        it, g = rp.review([{'code': '01', 'slot': 0, 'vid': v, 'person': 'Gian'}], h, F, INV)
+        self.assertFalse(any('desacuerdo' in x for x in msgs(it, g)))
+        it, g = rp.review([{'code': '01', 'slot': 0, 'vid': v, 'person': 'Gian'}], [dict(x, name='Gian') for x in h], F, INV)
+        self.assertTrue(any('(Gian)' in x and 'desacuerdo' in x for x in msgs(it, g)))
+    def test_persona_desde_el_id_y_otros_para_documentos_sin_name(self):
+        self.assertEqual(rp._person_of({'_id': '01_0_Ches'}), 'Ches')
+        self.assertEqual(rp._person_of({'_id': '01_0'}, default_other=True), 'Otros')
+        self.assertIsNone(rp._person_of({'_id': '01_0'}))
+
 @unittest.skipUnless(up(), 'emulador de Firestore no disponible')
 class DesdeFirestore(unittest.TestCase):
     def test_rest_y_admin_leen_el_mismo_plan(self):

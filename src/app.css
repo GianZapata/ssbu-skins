@@ -519,8 +519,6 @@ html { -webkit-tap-highlight-color: color-mix(in srgb, var(--color-pend) 20%, tr
 }
 
 .sheet__note { margin: 0; color: var(--tx-mu); font-size: 14px; line-height: 20px; }
-.srow__ask { flex: none; display: flex; flex-wrap: wrap; align-items: center; justify-content: flex-end; gap: 4px 8px; max-width: 56%; padding: 8px; font-size: 14px; line-height: 20px; }
-.srow__ask .q-btn { min-height: 44px; }
 
 /* ============================ Luchadores: filas con sus 8 trajes ============================ */
 .roster-tools { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; position: static; padding-bottom: 4px; }
@@ -604,3 +602,10 @@ html:has(.cbar) { scroll-padding-top: 88px; }
   .rcost:hover .rcost__img { filter: brightness(1.2); }
   .card__btn:hover { background: var(--s2); }
 }
+
+/* ============================ Elección de persona ============================ */
+.q-dialog__inner > .sheet.sheet--person { height: auto; max-height: calc(100dvh - 96px); }
+.person-note { margin: 0; color: var(--tx-mu); font-size: 14px; line-height: 20px; }
+.person-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+.person-btn { min-height: 52px; padding: 10px 16px; border: 1px solid var(--bd-active); border-radius: 12px; background: var(--s2); color: var(--tx); font-size: 17px; font-weight: 700; text-align: center; }
+.person-btn--on { border-color: var(--ac); background: var(--color-propuesta-bg); color: var(--color-propuesta); }
