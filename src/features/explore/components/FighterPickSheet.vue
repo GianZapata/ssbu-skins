@@ -9,6 +9,7 @@ import {
   DrawerRoot,
   DrawerTitle,
 } from 'vaul-vue'
+
 import AppImg from '../../../components/AppImg.vue'
 import { useFocusLoop } from '../../../composables/useFocusLoop'
 import CostumeMeter from '../../roster/components/CostumeMeter.vue'
@@ -38,6 +39,7 @@ const {
   pickSkin,
   onOpenChange,
 } = useFighterPickSheet(emit)
+
 const { loop } = useFocusLoop()
 </script>
 

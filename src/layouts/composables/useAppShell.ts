@@ -4,6 +4,7 @@ import { useFighterPick } from '../../features/explore/composables/useFighterPic
 import { activePerson, closePersonSheet, isOpenPerson, openPersonSheet } from '../../features/plan/composables/usePerson'
 import { bootPlan, countChosen, dismissNotice, notice, retrySync } from '../../features/plan/composables/usePlan'
 import { useSaveStatus } from '../../features/plan/saveStatus'
+import { loadDriveAlts } from '../../features/roster/driveAlts'
 
 export const useAppShell = () => {
   const countPulse = ref(false)
@@ -84,6 +85,7 @@ export const useAppShell = () => {
   onMounted(() => {
     start()
     bootPlan()
+    void loadDriveAlts()
   })
 
   return {
