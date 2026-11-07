@@ -55,12 +55,14 @@ def build_families(paths, codes, overrides=None):
         by_code.setdefault(code, {slot: set() for slot in range(8)})[int(slot_str)].add(f'{internal}:{tex}')
 
     out = {}
+    missing = []
     for code in codes:
         if code in active_overrides:
             out[code] = [list(group) for group in active_overrides[code]]
             continue
         slots_map = by_code.get(code)
         if not slots_map or all(len(files) == 0 for files in slots_map.values()):
+            missing.append(code)
             out[code] = [list(range(8))]
             continue
         groups, seen = [], {}
@@ -71,6 +73,8 @@ def build_families(paths, codes, overrides=None):
                 groups.append(seen[sig])
             seen[sig].append(slot)
         out[code] = groups
+    if missing:
+        print(f'aviso: sin archivos model/body o sin entrada en INTERNAL, se asumen los 8 trajes: {", ".join(missing)}', file=sys.stderr)
     return out
 
 
@@ -91,6 +95,8 @@ def main():
     parser.add_argument('--check', action='store_true', help='verifica que el archivo coincide sin escribir')
     args = parser.parse_args()
 
+    if not os.path.isfile(args.vanilla_files):
+        sys.exit(f'no existe --vanilla-files: {args.vanilla_files}')
     fighters, _ = cd.load()
     codes = [fighter['code'] for fighter in fighters]
     families = build_families(load_vanilla_paths(args.vanilla_files), codes)

@@ -39,6 +39,23 @@ class ExportFamiliesUnit(unittest.TestCase):
             self.assertEqual(ef.load_vanilla_paths(jpath), ['fighter/mario/model/body/c00/a.nutexb'])
             self.assertEqual(ef.load_vanilla_paths(tpath), ['fighter/mario/model/body/c00/a.nutexb'])
 
+    def test_avisa_por_stderr_de_codigos_sin_archivos(self):
+        import contextlib, io
+        err = io.StringIO()
+        with contextlib.redirect_stderr(err):
+            got = ef.build_families(['fighter/mario/model/body/c00/a.nutexb'], ['99'], overrides={})
+        self.assertEqual(got['99'], [list(range(8))])
+        self.assertIn('99', err.getvalue())
+
+    def test_vanilla_files_inexistente_sale_con_mensaje(self):
+        import subprocess
+        for extra in ([], ['--check']):
+            r = subprocess.run([sys.executable, os.path.join(R, 'tools', 'export_families.py'),
+                                '--vanilla-files', '/no/existe.json'] + extra, capture_output=True, text=True)
+            self.assertEqual(r.returncode, 1)
+            self.assertIn('no existe --vanilla-files', r.stderr)
+            self.assertNotIn('Traceback', r.stderr)
+
 
 class FamiliesDataContract(unittest.TestCase):
     @classmethod
