@@ -1,0 +1,53 @@
+{
+ "archives": [
+  {
+   "inspected": true,
+   "kind": "original",
+   "md5": "22310ba6220ca2e2854f3ac9d346c9a5",
+   "path": "original/timeless_river_doctor_c01.7z",
+   "shared_files": 1,
+   "shared_sample": [
+    "ThankYou.txt"
+   ],
+   "variants": [
+    {
+     "color": 1,
+     "content_sha256": "9cd34ed9822dab63e23be6b313bb30aee6d847e1d8e13546b4c7e095f55b0681",
+     "duplicate_of": null,
+     "files_count": 16,
+     "has_model": true,
+     "portrait": "36db7eeb86ad0f30f18050554694967e39f9f0b6760f28d846d8d3e459934b22",
+     "portrait_source": "Timeless River Doctor/ui/replace/chara/chara_0/chara_0_mariod_01.bntx",
+     "slot": "c01",
+     "variant_id": "18:384627:22310ba6:c01"
+    }
+   ]
+  },
+  {
+   "inspected": true,
+   "kind": "original",
+   "md5": "c752f9ffde0034d6775170b78a075747",
+   "path": "original/timeless_river_doctor_c07.7z",
+   "shared_files": 1,
+   "shared_sample": [
+    "ThankYou.txt"
+   ],
+   "variants": [
+    {
+     "color": 7,
+     "content_sha256": "9cd34ed9822dab63e23be6b313bb30aee6d847e1d8e13546b4c7e095f55b0681",
+     "duplicate_of": null,
+     "files_count": 16,
+     "has_model": true,
+     "portrait": "36db7eeb86ad0f30f18050554694967e39f9f0b6760f28d846d8d3e459934b22",
+     "portrait_source": "Timeless River Doctor/ui/replace/chara/chara_0/chara_0_mariod_07.bntx",
+     "slot": "c07",
+     "variant_id": "18:384627:c752f9ff:c07"
+    }
+   ]
+  }
+ ],
+ "code": "18",
+ "folder": "dr_mario/384627_timeless_river_dr_mario",
+ "mod_id": 384627
+}

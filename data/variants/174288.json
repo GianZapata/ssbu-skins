@@ -1,0 +1,109 @@
+{
+ "archives": [
+  {
+   "inspected": true,
+   "kind": "original",
+   "md5": "7abe2d979d23a7ae667a779006e740b5",
+   "path": "original/oot_link_v2_extras.zip",
+   "shared_files": 12,
+   "shared_sample": [
+    "OoT_Link_Extras/ReadMe.txt",
+    "OoT_Link_Extras/config.json",
+    "OoT_Link_Extras/effect/fighter/link/trail_c04/tex_link_sword1.nutexb",
+    "OoT_Link_Extras/effect/fighter/link/trail_c04/texlinkswordtrace.nutexb",
+    "OoT_Link_Extras/effect/fighter/link/trail_c04/texlinkswordtraceadd.nutexb",
+    "OoT_Link_Extras/effect/fighter/link/trail_c04/texlinkswordturntrace.nutexb",
+    "OoT_Link_Extras/effect/fighter/link/trail_c04/texlinkswordturntraceadd.nutexb",
+    "OoT_Link_Extras/effect/fighter/link/trail_c07/tex_link_sword1.nutexb",
+    "OoT_Link_Extras/effect/fighter/link/trail_c07/texlinkswordtrace.nutexb",
+    "OoT_Link_Extras/effect/fighter/link/trail_c07/texlinkswordtraceadd.nutexb"
+   ],
+   "variants": [
+    {
+     "color": 0,
+     "content_sha256": "ad5ebf5cfbce75b16c3d211b82e7c98e378b5939aa7ed38815f7861e53d63985",
+     "duplicate_of": null,
+     "files_count": 15,
+     "has_model": true,
+     "portrait": null,
+     "portrait_source": null,
+     "slot": "c00",
+     "variant_id": "03:174288:7abe2d97:c00"
+    },
+    {
+     "color": 3,
+     "content_sha256": "76ff6c79b64c33ede4191351869de43937dff65c14a7dc642287cde16a949b9b",
+     "duplicate_of": null,
+     "files_count": 60,
+     "has_model": true,
+     "portrait": "17d01c6e740d694191042615edcc4974231987f87f5b0eb3969b138acbdbe76a",
+     "portrait_source": "OoT_Link_Extras/ui/replace/chara/chara_0/chara_0_link_03.bntx",
+     "slot": "c03",
+     "variant_id": "03:174288:7abe2d97:c03"
+    },
+    {
+     "color": 4,
+     "content_sha256": "a26bd2ec73f527586c8bac3e4a55a89de233df377824fa41fbc74a9884d4594a",
+     "duplicate_of": null,
+     "files_count": 60,
+     "has_model": true,
+     "portrait": "2c71c9d4040e5c910cbedbb72f0dacd574ca1a5d55d7edadd13a111243e9e5a6",
+     "portrait_source": "OoT_Link_Extras/ui/replace/chara/chara_0/chara_0_link_04.bntx",
+     "slot": "c04",
+     "variant_id": "03:174288:7abe2d97:c04"
+    },
+    {
+     "color": 7,
+     "content_sha256": "f71e515bc7983cb79e5f140a35c590c9639d648afba7bc410edca424344ad8cc",
+     "duplicate_of": null,
+     "files_count": 57,
+     "has_model": true,
+     "portrait": "051fe59acd5c4606836a76018b6061cbdaed791ef4f4c978c53e181442ac4661",
+     "portrait_source": "OoT_Link_Extras/ui/replace/chara/chara_0/chara_0_link_07.bntx",
+     "slot": "c07",
+     "variant_id": "03:174288:7abe2d97:c07"
+    }
+   ]
+  },
+  {
+   "inspected": true,
+   "kind": "original",
+   "md5": "eccb4413f6ecafcd6a98a43c130beed9",
+   "path": "original/oot_link_v2_solo.zip",
+   "shared_files": 4,
+   "shared_sample": [
+    "OoT_Link_Solo/ReadMe.txt",
+    "OoT_Link_Solo/config.json",
+    "OoT_Link_Solo/info.toml",
+    "OoT_Link_Solo/preview.webp"
+   ],
+   "variants": [
+    {
+     "color": 0,
+     "content_sha256": "ef6cb85122fe9d6edc8e6e0f9d66d17726036bd35a2a1d3947c84c502c8e2338",
+     "duplicate_of": null,
+     "files_count": 15,
+     "has_model": true,
+     "portrait": null,
+     "portrait_source": null,
+     "slot": "c00",
+     "variant_id": "03:174288:eccb4413:c00"
+    },
+    {
+     "color": 1,
+     "content_sha256": "4ba697afb21a6a3af45992257cc1be20f188c0b7c87c15eae0b7585b72217f0a",
+     "duplicate_of": null,
+     "files_count": 60,
+     "has_model": true,
+     "portrait": "ed54e18a220fe995e85f8460c466210ba943c082e497ccdfccb0c310b2313e3e",
+     "portrait_source": "OoT_Link_Solo/ui/replace/chara/chara_0/chara_0_link_01.bntx",
+     "slot": "c01",
+     "variant_id": "03:174288:eccb4413:c01"
+    }
+   ]
+  }
+ ],
+ "code": "03",
+ "folder": "link/174288_Ocarina_of_Time_Link",
+ "mod_id": 174288
+}

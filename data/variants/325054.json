@@ -1,0 +1,71 @@
+{
+ "archives": [
+  {
+   "inspected": true,
+   "kind": "original",
+   "md5": "cd9f59d3fc766aa72bb64b01d2b81cc3",
+   "path": "original/cooler_over_ganondorf_c01__54097.7z",
+   "shared_files": 0,
+   "shared_sample": [],
+   "variants": [
+    {
+     "color": 0,
+     "content_sha256": "61657e7aa484d58bdc459c008b8018f5dfd8fe61268eacd77957f5bcb25207af",
+     "duplicate_of": null,
+     "files_count": 11,
+     "has_model": true,
+     "portrait": null,
+     "portrait_source": null,
+     "slot": "c00",
+     "variant_id": "23:325054:cd9f59d3:c00"
+    },
+    {
+     "color": 1,
+     "content_sha256": "ec727086a99b3abebf403c2e3d956efbe129fbae0eb715d65f9eec4060466d91",
+     "duplicate_of": null,
+     "files_count": 19,
+     "has_model": true,
+     "portrait": "4fd0c59d1c2bc15b5cf822a38e8c81f090beb4c204cd16ec1726709bb852942d",
+     "portrait_source": "Cooler Over Ganondorf (c01)/ui/replace/chara/chara_0/chara_0_ganon_01.bntx",
+     "slot": "c01",
+     "variant_id": "23:325054:cd9f59d3:c01"
+    }
+   ]
+  },
+  {
+   "inspected": true,
+   "kind": "original",
+   "md5": "cabfe6754b5d727d58d251487d882ba7",
+   "path": "original/cooler_over_ganondorf_c01_alternate_.7z",
+   "shared_files": 0,
+   "shared_sample": [],
+   "variants": [
+    {
+     "color": 0,
+     "content_sha256": "61657e7aa484d58bdc459c008b8018f5dfd8fe61268eacd77957f5bcb25207af",
+     "duplicate_of": null,
+     "files_count": 11,
+     "has_model": true,
+     "portrait": null,
+     "portrait_source": null,
+     "slot": "c00",
+     "variant_id": "23:325054:cabfe675:c00"
+    },
+    {
+     "color": 1,
+     "content_sha256": "c664b6c2a565dabbb5b9294e9abf8c1340581f4e1225e2cff5ecaba3d49973fa",
+     "duplicate_of": null,
+     "files_count": 18,
+     "has_model": true,
+     "portrait": "51b3aa8bb35155fd0adf44d12357f9f924e36ec55b18b7f03a534188b22fafcb",
+     "portrait_source": "Cooler Over Ganondorf (c01)/ui/replace/chara/chara_0/chara_0_ganon_01.bntx",
+     "slot": "c01",
+     "variant_id": "23:325054:cabfe675:c01"
+    }
+   ]
+  }
+ ],
+ "code": "23",
+ "folder": "ganondorf/325054_cooler_over_ganondorf",
+ "mod_id": 325054
+}

@@ -1,0 +1,41 @@
+{
+ "archives": [
+  {
+   "inspected": true,
+   "kind": "original",
+   "md5": "87a07c8a72360e266783d2d4c4237ecb",
+   "path": "original/mod_link_twilight_princess_4f39d.rar",
+   "shared_files": 1,
+   "shared_sample": [
+    "Mod Link Twilight Princess/effect/fighter/link/ef_link.eff"
+   ],
+   "variants": [
+    {
+     "color": 0,
+     "content_sha256": "6cc99a8a31321502822852a20e9a391c0bf4bf1dcaa7ddf2504472dd8a7b6c35",
+     "duplicate_of": null,
+     "files_count": 13,
+     "has_model": true,
+     "portrait": null,
+     "portrait_source": null,
+     "slot": "c00",
+     "variant_id": "03:434704:87a07c8a:c00"
+    },
+    {
+     "color": 5,
+     "content_sha256": "3791758a95d8c69ef7af514352ebfc60e6597b81af14340304574e64544ccee2",
+     "duplicate_of": null,
+     "files_count": 143,
+     "has_model": true,
+     "portrait": "0993e6dfdc251be1e3f9530184458956de425aff4d9a7f067240107b181e40f6",
+     "portrait_source": "Mod Link Twilight Princess/ui/replace/chara/chara_0/chara_0_link_05.bntx",
+     "slot": "c05",
+     "variant_id": "03:434704:87a07c8a:c05"
+    }
+   ]
+  }
+ ],
+ "code": "03",
+ "folder": "link/434704_Link_(Twilight_Princess)",
+ "mod_id": 434704
+}

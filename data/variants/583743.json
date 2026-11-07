@@ -1,0 +1,71 @@
+{
+ "archives": [
+  {
+   "inspected": true,
+   "kind": "original",
+   "md5": "0b9b6612273581835b00fb284451460b",
+   "path": "original/friendly_neighborhood_spider-man.rar",
+   "shared_files": 0,
+   "shared_sample": [],
+   "variants": [
+    {
+     "color": 3,
+     "content_sha256": "af7e953f6d4b459271d5452bb81491d3af4487896139869553cbf149c5956887",
+     "duplicate_of": null,
+     "files_count": 23,
+     "has_model": true,
+     "portrait": "16364b111ad3bccff2538e499f23274ba34bd2ee25b4d8a0de9f18d5cac39668",
+     "portrait_source": "friendly neighborhood spider-man/ui/replace/chara/chara_0/chara_0_littlemac_03.bntx",
+     "slot": "c03",
+     "variant_id": "49:583743:0b9b6612:c03"
+    },
+    {
+     "color": 4,
+     "content_sha256": "a434be3e1237863ba5fc69f9699065fefe660cf1aae4fccbdf7f66946bad1e1e",
+     "duplicate_of": null,
+     "files_count": 23,
+     "has_model": true,
+     "portrait": "006c0f2065d7b1a7437de04a1a427dad7d991bba37ea710d89e73df474f9973f",
+     "portrait_source": "friendly neighborhood spider-man/ui/replace/chara/chara_0/chara_0_littlemac_04.bntx",
+     "slot": "c04",
+     "variant_id": "49:583743:0b9b6612:c04"
+    }
+   ]
+  },
+  {
+   "inspected": true,
+   "kind": "original",
+   "md5": "163a7fabe8d462f4adce500b42c13ff6",
+   "path": "original/the_human_spider.rar",
+   "shared_files": 0,
+   "shared_sample": [],
+   "variants": [
+    {
+     "color": 3,
+     "content_sha256": "ec1ea4a4c1d71903e7cf9fd9235017e636406d8a9377262187680c9b33ead61a",
+     "duplicate_of": null,
+     "files_count": 22,
+     "has_model": true,
+     "portrait": "4e3edb50266aa8e496247759062b1be91db2fa67b8037721d50e0a03876ce0d0",
+     "portrait_source": "the human spider/ui/replace/chara/chara_0/chara_0_littlemac_03.bntx",
+     "slot": "c03",
+     "variant_id": "49:583743:163a7fab:c03"
+    }
+   ]
+  },
+  {
+   "inspected": true,
+   "kind": "original",
+   "md5": "9d52c74817222d1980217a455ed8089c",
+   "path": "original/tobey_voice_b4cf1.rar",
+   "shared_files": 1,
+   "shared_sample": [
+    "tobey voice/sound/bank/fighter_voice/vc_littlemac_c10.nus3audio"
+   ],
+   "variants": []
+  }
+ ],
+ "code": "49",
+ "folder": "littlemac/583743_spiderman_friend_or_foe",
+ "mod_id": 583743
+}

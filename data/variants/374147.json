@@ -1,0 +1,61 @@
+{
+ "archives": [
+  {
+   "inspected": true,
+   "kind": "original",
+   "md5": "a3a380786ae8770f58511f5aa181e384",
+   "path": "original/moogle_over_mario_453b1.7z",
+   "shared_files": 19,
+   "shared_sample": [
+    "Credits.txt",
+    "License.txt",
+    "Moogle over Mario (c00-c02)/effect/fighter/mario/ef_mario.eff",
+    "Screenshots/2022042314243600-0E7DF678130F4F0FA2C88AE72B47AFDF.jpg",
+    "Screenshots/2022042314250700-0E7DF678130F4F0FA2C88AE72B47AFDF.jpg",
+    "Screenshots/2022042314254700-0E7DF678130F4F0FA2C88AE72B47AFDF.jpg",
+    "Screenshots/2022042314260700-0E7DF678130F4F0FA2C88AE72B47AFDF.jpg",
+    "Screenshots/2022042314262500-0E7DF678130F4F0FA2C88AE72B47AFDF.jpg",
+    "Screenshots/2022042314310000-0E7DF678130F4F0FA2C88AE72B47AFDF.jpg",
+    "Screenshots/2022042319322800-0E7DF678130F4F0FA2C88AE72B47AFDF.jpg"
+   ],
+   "variants": [
+    {
+     "color": 0,
+     "content_sha256": "76633447c976571e53398fb45feff4906dfce659020bf1851e44ec101ca83145",
+     "duplicate_of": null,
+     "files_count": 33,
+     "has_model": true,
+     "portrait": "043e9d408a8484de9ba4cecd6acd6016fdaf727f7eb877bb9f5a08b86c903611",
+     "portrait_source": "Moogle over Mario (c00-c02)/ui/replace/chara/chara_0/chara_0_mario_00.bntx",
+     "slot": "c00",
+     "variant_id": "01:374147:a3a38078:c00"
+    },
+    {
+     "color": 1,
+     "content_sha256": "d923b3c92911f922da7dae0291c9af659c1f270b7c5fdd668a6fece8bf550df6",
+     "duplicate_of": null,
+     "files_count": 27,
+     "has_model": true,
+     "portrait": "1dbd314b90064b6eb6aa734b19c00cf5d475d20774203a7f3ea74b90484c273c",
+     "portrait_source": "Moogle over Mario (c00-c02)/ui/replace/chara/chara_0/chara_0_mario_01.bntx",
+     "slot": "c01",
+     "variant_id": "01:374147:a3a38078:c01"
+    },
+    {
+     "color": 2,
+     "content_sha256": "9d91f25c46fc1b51fbdafaba302efb1b006229802355ae5c867a1b140caab7cf",
+     "duplicate_of": null,
+     "files_count": 36,
+     "has_model": true,
+     "portrait": "70f9de3c5bd7549b9d3a7b35dda542844e82e5c53bea810590675e6edb8a1a86",
+     "portrait_source": "Moogle over Mario (c00-c02)/ui/replace/chara/chara_0/chara_0_mario_02.bntx",
+     "slot": "c02",
+     "variant_id": "01:374147:a3a38078:c02"
+    }
+   ]
+  }
+ ],
+ "code": "01",
+ "folder": "mario/374147_moogle_over_mario",
+ "mod_id": 374147
+}

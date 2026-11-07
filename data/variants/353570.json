@@ -1,0 +1,203 @@
+{
+ "archives": [
+  {
+   "inspected": true,
+   "kind": "original",
+   "md5": "e793e7177da892adfa896ec8e7c65cc6",
+   "path": "original/aqua_over_aegis_31.7z",
+   "shared_files": 0,
+   "shared_sample": [],
+   "variants": [
+    {
+     "color": 0,
+     "content_sha256": "1d1305409a5a69c117e865ebe7c1f89fea191cde8bcfd272bbbee8ae220e6701",
+     "duplicate_of": null,
+     "files_count": 133,
+     "has_model": true,
+     "portrait": "bea1b50bc46581fd87dc52a7ffebfb35f1c6fd0edbe5f5608f78e54be3fccf5f",
+     "portrait_source": "Aqua over Aegis 3.1/ui/replace_patch/chara/chara_0/chara_0_eflame_first_00.bntx",
+     "slot": "c00",
+     "variant_id": "79:353570:e793e717:c00"
+    },
+    {
+     "color": 1,
+     "content_sha256": "6ba13675fe302737ed6b80bae4577d466576d560a4e346431f3c66797ae957fa",
+     "duplicate_of": null,
+     "files_count": 132,
+     "has_model": true,
+     "portrait": "32b97732748717d1aa57f352289ecec5fcfcdc8764ce9d2bf54b6c8b0c1c4e42",
+     "portrait_source": "Aqua over Aegis 3.1/ui/replace_patch/chara/chara_0/chara_0_eflame_first_01.bntx",
+     "slot": "c01",
+     "variant_id": "79:353570:e793e717:c01"
+    },
+    {
+     "color": 2,
+     "content_sha256": "bcb247a44907193da8ca07e87365fb2d444e50cfce18081cd32f6622e68374d0",
+     "duplicate_of": null,
+     "files_count": 132,
+     "has_model": true,
+     "portrait": "afd6010a24c1e32d12184103320d94cc0361c158ad612ee7f8465aecae8fe507",
+     "portrait_source": "Aqua over Aegis 3.1/ui/replace_patch/chara/chara_0/chara_0_eflame_first_02.bntx",
+     "slot": "c02",
+     "variant_id": "79:353570:e793e717:c02"
+    },
+    {
+     "color": 3,
+     "content_sha256": "c528d645e31723029e9e36193693496329271bc90386bfe92dfdd37c68ca8f5f",
+     "duplicate_of": null,
+     "files_count": 132,
+     "has_model": true,
+     "portrait": "a6650fec252d06d0f608a374e9cb87a7d78d68d26ecf38edd53b9fcddb5f577d",
+     "portrait_source": "Aqua over Aegis 3.1/ui/replace_patch/chara/chara_0/chara_0_eflame_first_03.bntx",
+     "slot": "c03",
+     "variant_id": "79:353570:e793e717:c03"
+    },
+    {
+     "color": 4,
+     "content_sha256": "90cc9c754829f7bf5c44cc1cba84bf73fe7c8115f5239175ea6d61e69bab2d88",
+     "duplicate_of": null,
+     "files_count": 132,
+     "has_model": true,
+     "portrait": "4d7d7a9353267924f9022d51ace5094ffed73b0aac8e3713ccbfd4f5290d130f",
+     "portrait_source": "Aqua over Aegis 3.1/ui/replace_patch/chara/chara_0/chara_0_eflame_first_04.bntx",
+     "slot": "c04",
+     "variant_id": "79:353570:e793e717:c04"
+    },
+    {
+     "color": 5,
+     "content_sha256": "4e70b73ea2b86a4de81b7684109a04b4e960bfaf5104c97eb50130b1efbdd0a9",
+     "duplicate_of": null,
+     "files_count": 132,
+     "has_model": true,
+     "portrait": "f104edb700e3f43b033fcf8221aae3023c6442c25947f3918dd065755e7aef7b",
+     "portrait_source": "Aqua over Aegis 3.1/ui/replace_patch/chara/chara_0/chara_0_eflame_first_05.bntx",
+     "slot": "c05",
+     "variant_id": "79:353570:e793e717:c05"
+    },
+    {
+     "color": 6,
+     "content_sha256": "97a1a56259cd315274ba6ddf906248ae258f9029955e31e7c10bf8ace2b7e55d",
+     "duplicate_of": null,
+     "files_count": 132,
+     "has_model": true,
+     "portrait": "e365034a6242ac177f273a07ac8be0d0e0fd0bd0f28b2bde4b82984d9fb78264",
+     "portrait_source": "Aqua over Aegis 3.1/ui/replace_patch/chara/chara_0/chara_0_eflame_first_06.bntx",
+     "slot": "c06",
+     "variant_id": "79:353570:e793e717:c06"
+    },
+    {
+     "color": 7,
+     "content_sha256": "ac8ba36eb42d8ae73010ba1b2a8e1569de1f83a740a8dacbe9bbd0ffd3f3ebb8",
+     "duplicate_of": null,
+     "files_count": 132,
+     "has_model": true,
+     "portrait": "5df83c12b9454c8a6496316bae4f0072bcc2e27925f392b8eccf488383c4e329",
+     "portrait_source": "Aqua over Aegis 3.1/ui/replace_patch/chara/chara_0/chara_0_eflame_first_07.bntx",
+     "slot": "c07",
+     "variant_id": "79:353570:e793e717:c07"
+    }
+   ]
+  },
+  {
+   "inspected": true,
+   "kind": "original",
+   "md5": "b671e19de7c4328e05df3a111fc1ff22",
+   "path": "original/aqua_over_aegis_31_-_dusk.7z",
+   "shared_files": 0,
+   "shared_sample": [],
+   "variants": [
+    {
+     "color": 0,
+     "content_sha256": "ceade4b671f5b52f5bbf451eabba7aab80eb16d1f642c1f6be634707931e541c",
+     "duplicate_of": null,
+     "files_count": 97,
+     "has_model": true,
+     "portrait": "bea1b50bc46581fd87dc52a7ffebfb35f1c6fd0edbe5f5608f78e54be3fccf5f",
+     "portrait_source": "Aqua over Aegis 3.1 - Dusk/ui/replace_patch/chara/chara_0/chara_0_eflame_first_00.bntx",
+     "slot": "c00",
+     "variant_id": "79:353570:b671e19d:c00"
+    },
+    {
+     "color": 1,
+     "content_sha256": "8dc1aee2d317405b9847b239c655219bbebc4ea1a57f2c632219b5cca3c438e9",
+     "duplicate_of": null,
+     "files_count": 96,
+     "has_model": true,
+     "portrait": "32b97732748717d1aa57f352289ecec5fcfcdc8764ce9d2bf54b6c8b0c1c4e42",
+     "portrait_source": "Aqua over Aegis 3.1 - Dusk/ui/replace_patch/chara/chara_0/chara_0_eflame_first_01.bntx",
+     "slot": "c01",
+     "variant_id": "79:353570:b671e19d:c01"
+    },
+    {
+     "color": 2,
+     "content_sha256": "5b9fbe65a0f877c570fe4fc2a6d407b25ef372e68ca31616b0583cde407ac395",
+     "duplicate_of": null,
+     "files_count": 96,
+     "has_model": true,
+     "portrait": "afd6010a24c1e32d12184103320d94cc0361c158ad612ee7f8465aecae8fe507",
+     "portrait_source": "Aqua over Aegis 3.1 - Dusk/ui/replace_patch/chara/chara_0/chara_0_eflame_first_02.bntx",
+     "slot": "c02",
+     "variant_id": "79:353570:b671e19d:c02"
+    },
+    {
+     "color": 3,
+     "content_sha256": "9df581a762635d2db348dc16a865bf3c09be0a57fabace21dc4238d79daea4f4",
+     "duplicate_of": null,
+     "files_count": 96,
+     "has_model": true,
+     "portrait": "a6650fec252d06d0f608a374e9cb87a7d78d68d26ecf38edd53b9fcddb5f577d",
+     "portrait_source": "Aqua over Aegis 3.1 - Dusk/ui/replace_patch/chara/chara_0/chara_0_eflame_first_03.bntx",
+     "slot": "c03",
+     "variant_id": "79:353570:b671e19d:c03"
+    },
+    {
+     "color": 4,
+     "content_sha256": "2fc5e3b281300c440685b47a9b0d41da06893f182449918456f7f5add79461e3",
+     "duplicate_of": null,
+     "files_count": 96,
+     "has_model": true,
+     "portrait": "4d7d7a9353267924f9022d51ace5094ffed73b0aac8e3713ccbfd4f5290d130f",
+     "portrait_source": "Aqua over Aegis 3.1 - Dusk/ui/replace_patch/chara/chara_0/chara_0_eflame_first_04.bntx",
+     "slot": "c04",
+     "variant_id": "79:353570:b671e19d:c04"
+    },
+    {
+     "color": 5,
+     "content_sha256": "91df72f7ca176b9930b4aa52a7ca8e6017bf859754ba2b4504e2db6fea122758",
+     "duplicate_of": null,
+     "files_count": 96,
+     "has_model": true,
+     "portrait": "f104edb700e3f43b033fcf8221aae3023c6442c25947f3918dd065755e7aef7b",
+     "portrait_source": "Aqua over Aegis 3.1 - Dusk/ui/replace_patch/chara/chara_0/chara_0_eflame_first_05.bntx",
+     "slot": "c05",
+     "variant_id": "79:353570:b671e19d:c05"
+    },
+    {
+     "color": 6,
+     "content_sha256": "70d18142c9fdccec17b7fbec5f6b6adc285c3a009206c86516ecf4f6f051a6b2",
+     "duplicate_of": null,
+     "files_count": 96,
+     "has_model": true,
+     "portrait": "e365034a6242ac177f273a07ac8be0d0e0fd0bd0f28b2bde4b82984d9fb78264",
+     "portrait_source": "Aqua over Aegis 3.1 - Dusk/ui/replace_patch/chara/chara_0/chara_0_eflame_first_06.bntx",
+     "slot": "c06",
+     "variant_id": "79:353570:b671e19d:c06"
+    },
+    {
+     "color": 7,
+     "content_sha256": "e2f454cdc2f70d3d6c2db510387acd5a0aacbb44b28e3929fb40ca19310f473f",
+     "duplicate_of": null,
+     "files_count": 96,
+     "has_model": true,
+     "portrait": "5df83c12b9454c8a6496316bae4f0072bcc2e27925f392b8eccf488383c4e329",
+     "portrait_source": "Aqua over Aegis 3.1 - Dusk/ui/replace_patch/chara/chara_0/chara_0_eflame_first_07.bntx",
+     "slot": "c07",
+     "variant_id": "79:353570:b671e19d:c07"
+    }
+   ]
+  }
+ ],
+ "code": "79",
+ "folder": "pyra_mythra/353570_aqua_over_aegis",
+ "mod_id": 353570
+}

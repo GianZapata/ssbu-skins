@@ -1,0 +1,483 @@
+{
+ "archives": [
+  {
+   "inspected": true,
+   "kind": "original",
+   "md5": "083263822a31a27f120bd734231d9afc",
+   "path": "original/ice_breath-_smashline_1.zip",
+   "shared_files": 3,
+   "shared_sample": [
+    "ice breath- smashline 1/README_ICEBREATH.txt",
+    "ice breath- smashline 1/plugin.nro",
+    "ice breath- smashline 1/Marker to place in CXX folders of body folder/midbus.marker"
+   ],
+   "variants": []
+  },
+  {
+   "inspected": true,
+   "kind": "original",
+   "md5": "a739f2bf113d1e8e3fe5250871a263f2",
+   "path": "original/ice_breath_-_smashline_2.zip",
+   "shared_files": 3,
+   "shared_sample": [
+    "ice breath - smashline 2/README_ICEBREATH.txt",
+    "ice breath - smashline 2/plugin.nro",
+    "ice breath - smashline 2/Marker to place in CXX folders of body folder/midbus.marker"
+   ],
+   "variants": []
+  },
+  {
+   "inspected": true,
+   "kind": "original",
+   "md5": "8cd171cd98cbd2debc97c917cf66ce4c",
+   "path": "original/midbus_fullreplacement_6db15.zip",
+   "shared_files": 7,
+   "shared_sample": [
+    "Midbus_FullReplacement/README_FULLREPLACEMENT.txt",
+    "Midbus_FullReplacement/Midbus_FullReplacement/info.toml",
+    "Midbus_FullReplacement/Midbus_FullReplacement/preview.webp",
+    "Midbus_FullReplacement/Midbus_FullReplacement/effect/fighter/koopa/ef_koopa.eff",
+    "Midbus_FullReplacement/Midbus_FullReplacement/sound/bank/narration/vc_narration_characall.nus3audio",
+    "Midbus_FullReplacement/Midbus_FullReplacement/stream;/sound/bgm/bgm_z12_f_koopa.nus3audio",
+    "Midbus_FullReplacement/Midbus_FullReplacement/ui/message/msg_name.xmsbt"
+   ],
+   "variants": [
+    {
+     "color": 0,
+     "content_sha256": "56f8387ea0bf340885cd87a264483a9b8fca4d5ad45dde9e67bb6e92f8c29ce2",
+     "duplicate_of": null,
+     "files_count": 42,
+     "has_model": true,
+     "portrait": "581e184e36e066174f68b3820dfaeb504c1a7a038ea75f68398ffec8bb0781b3",
+     "portrait_source": "Midbus_FullReplacement/Midbus_FullReplacement/ui/replace/chara/chara_0/chara_0_koopa_00.bntx",
+     "slot": "c00",
+     "variant_id": "14:427685:8cd171cd:c00"
+    },
+    {
+     "color": 1,
+     "content_sha256": "2f5ec38ab10a35583b137998c98985bb1c029e18528117fa71e0e0ace33714eb",
+     "duplicate_of": null,
+     "files_count": 40,
+     "has_model": true,
+     "portrait": "ea5856491223ae8a31af9aa6fc975eadadab051c03793140d3f1297c22bbf846",
+     "portrait_source": "Midbus_FullReplacement/Midbus_FullReplacement/ui/replace/chara/chara_0/chara_0_koopa_01.bntx",
+     "slot": "c01",
+     "variant_id": "14:427685:8cd171cd:c01"
+    },
+    {
+     "color": 2,
+     "content_sha256": "ade335b6e97b6617d6d61a0c26cb6117194da929938a76a1c4eaa04b561871fa",
+     "duplicate_of": null,
+     "files_count": 40,
+     "has_model": true,
+     "portrait": "d20d68f37d77f0b6a34c513090769e97fe75dd0bb4597da6dcbbc63850adcaad",
+     "portrait_source": "Midbus_FullReplacement/Midbus_FullReplacement/ui/replace/chara/chara_0/chara_0_koopa_02.bntx",
+     "slot": "c02",
+     "variant_id": "14:427685:8cd171cd:c02"
+    },
+    {
+     "color": 3,
+     "content_sha256": "56811127563824d9f7877e93c583e1cec1ad68785a54d6c1395e118e32be7e34",
+     "duplicate_of": null,
+     "files_count": 40,
+     "has_model": true,
+     "portrait": "cb6121325444423c979a4f06171ae5a6b9f11ae7c70058605e0cc03d6e5ba790",
+     "portrait_source": "Midbus_FullReplacement/Midbus_FullReplacement/ui/replace/chara/chara_0/chara_0_koopa_03.bntx",
+     "slot": "c03",
+     "variant_id": "14:427685:8cd171cd:c03"
+    },
+    {
+     "color": 4,
+     "content_sha256": "82789f49822b44e971a4aa12ca3f2f08d0e2c63938dfa824e451f5645e63d43c",
+     "duplicate_of": null,
+     "files_count": 40,
+     "has_model": true,
+     "portrait": "a017fb3222f6187f079211e1e7d3503b0ad804fb4eede6e46f344fc4b90f466d",
+     "portrait_source": "Midbus_FullReplacement/Midbus_FullReplacement/ui/replace/chara/chara_0/chara_0_koopa_04.bntx",
+     "slot": "c04",
+     "variant_id": "14:427685:8cd171cd:c04"
+    },
+    {
+     "color": 5,
+     "content_sha256": "0215e8e08aeb592b7bf612804eafbe53acb8571d0f0e7b6eccc448688aaf17e0",
+     "duplicate_of": null,
+     "files_count": 40,
+     "has_model": true,
+     "portrait": "3b1674d025244982e70353b66ac65d6301d03e6e80c8825107dd2b080ca2a83d",
+     "portrait_source": "Midbus_FullReplacement/Midbus_FullReplacement/ui/replace/chara/chara_0/chara_0_koopa_05.bntx",
+     "slot": "c05",
+     "variant_id": "14:427685:8cd171cd:c05"
+    },
+    {
+     "color": 6,
+     "content_sha256": "a30c857dfbd5c20ffce5f5bb6e72e68b2b5ac175405cb70581b661afa649e10e",
+     "duplicate_of": null,
+     "files_count": 40,
+     "has_model": true,
+     "portrait": "02dcc4ef21f14955d6b2ac02d7cb1fc288030715db945da557bb197c422f4a0f",
+     "portrait_source": "Midbus_FullReplacement/Midbus_FullReplacement/ui/replace/chara/chara_0/chara_0_koopa_06.bntx",
+     "slot": "c06",
+     "variant_id": "14:427685:8cd171cd:c06"
+    },
+    {
+     "color": 7,
+     "content_sha256": "160c22a61e81b17f0c93f601706edab0e78bb8d7e2eb2933020d78d9e4ae52ee",
+     "duplicate_of": null,
+     "files_count": 40,
+     "has_model": true,
+     "portrait": "a3a96a7f149a61a957f4883de12913969d5f3042e653af53578577c8958d742f",
+     "portrait_source": "Midbus_FullReplacement/Midbus_FullReplacement/ui/replace/chara/chara_0/chara_0_koopa_07.bntx",
+     "slot": "c07",
+     "variant_id": "14:427685:8cd171cd:c07"
+    }
+   ]
+  },
+  {
+   "inspected": true,
+   "kind": "original",
+   "md5": "28e4d70070bfef2c8de1ab8aaeb027d4",
+   "path": "original/midbus_twoslots.zip",
+   "shared_files": 12,
+   "shared_sample": [
+    "Midbus_TwoSlots/README_TWOSLOTS.txt",
+    "Midbus_TwoSlots/Midbus_TwoSlots/config.json",
+    "Midbus_TwoSlots/Midbus_TwoSlots/info.toml",
+    "Midbus_TwoSlots/Midbus_TwoSlots/preview.webp",
+    "Midbus_TwoSlots/Midbus_TwoSlots/victory.toml",
+    "Midbus_TwoSlots/Midbus_TwoSlots/sound/bank/narration/vc_narration_characall.nus3audio",
+    "Midbus_TwoSlots/Midbus_TwoSlots/sound/bank/narration/vc_narration_characall.nus3bank",
+    "Midbus_TwoSlots/Midbus_TwoSlots/sound/param/soundlabelinfo.sli",
+    "Midbus_TwoSlots/Midbus_TwoSlots/stream;/sound/bgm/bgm_z12_f_koopa.nus3audio",
+    "Midbus_TwoSlots/Midbus_TwoSlots/stream;/sound/bgm/bgm_z12_f_koopa.nus3bank"
+   ],
+   "variants": [
+    {
+     "color": 6,
+     "content_sha256": "f1cbbad48ea6a9f5dbcac785e5eba59979683a7a2fc5442c44ac669a600d82a6",
+     "duplicate_of": null,
+     "files_count": 40,
+     "has_model": true,
+     "portrait": "b08067ea29f72a8fcff14916efa67501b7d6a8af5ac993ef7dd6e718d1f1ada1",
+     "portrait_source": "Midbus_TwoSlots/Midbus_TwoSlots/ui/replace/chara/chara_1/chara_1_koopa_06.bntx",
+     "slot": "c06",
+     "variant_id": "14:427685:28e4d700:c06"
+    },
+    {
+     "color": 7,
+     "content_sha256": "9217796f115c86ce8015d6bee91217e6d2dbc46cf24b19a33166c6db77d61ebd",
+     "duplicate_of": null,
+     "files_count": 40,
+     "has_model": true,
+     "portrait": "49869e5d928a7ab91fd3140f86faed00a87ff852a6bd67bf58f609b21c8d92fb",
+     "portrait_source": "Midbus_TwoSlots/Midbus_TwoSlots/ui/replace/chara/chara_1/chara_1_koopa_07.bntx",
+     "slot": "c07",
+     "variant_id": "14:427685:28e4d700:c07"
+    }
+   ]
+  },
+  {
+   "inspected": true,
+   "kind": "original",
+   "md5": "cf3682acdda11b4de73b957f633b6837",
+   "path": "original/midbusvoice_marioseriesstyle.zip",
+   "shared_files": 1,
+   "shared_sample": [
+    "MidbusVoice_MarioSeriesStyle/README_MARIOVOICE.txt"
+   ],
+   "variants": [
+    {
+     "color": 0,
+     "content_sha256": "a794de86af5cf95a8ab271c4b77d0ca479a2021459785a81d530bfe1ac2f078d",
+     "duplicate_of": null,
+     "files_count": 2,
+     "has_model": false,
+     "portrait": null,
+     "portrait_source": null,
+     "slot": "c00",
+     "variant_id": "14:427685:cf3682ac:c00"
+    },
+    {
+     "color": 1,
+     "content_sha256": "a794de86af5cf95a8ab271c4b77d0ca479a2021459785a81d530bfe1ac2f078d",
+     "duplicate_of": "c00",
+     "files_count": 2,
+     "has_model": false,
+     "portrait": null,
+     "portrait_source": null,
+     "slot": "c01",
+     "variant_id": "14:427685:cf3682ac:c01"
+    },
+    {
+     "color": 2,
+     "content_sha256": "a794de86af5cf95a8ab271c4b77d0ca479a2021459785a81d530bfe1ac2f078d",
+     "duplicate_of": "c00",
+     "files_count": 2,
+     "has_model": false,
+     "portrait": null,
+     "portrait_source": null,
+     "slot": "c02",
+     "variant_id": "14:427685:cf3682ac:c02"
+    },
+    {
+     "color": 3,
+     "content_sha256": "a794de86af5cf95a8ab271c4b77d0ca479a2021459785a81d530bfe1ac2f078d",
+     "duplicate_of": "c00",
+     "files_count": 2,
+     "has_model": false,
+     "portrait": null,
+     "portrait_source": null,
+     "slot": "c03",
+     "variant_id": "14:427685:cf3682ac:c03"
+    },
+    {
+     "color": 4,
+     "content_sha256": "a794de86af5cf95a8ab271c4b77d0ca479a2021459785a81d530bfe1ac2f078d",
+     "duplicate_of": "c00",
+     "files_count": 2,
+     "has_model": false,
+     "portrait": null,
+     "portrait_source": null,
+     "slot": "c04",
+     "variant_id": "14:427685:cf3682ac:c04"
+    },
+    {
+     "color": 5,
+     "content_sha256": "a794de86af5cf95a8ab271c4b77d0ca479a2021459785a81d530bfe1ac2f078d",
+     "duplicate_of": "c00",
+     "files_count": 2,
+     "has_model": false,
+     "portrait": null,
+     "portrait_source": null,
+     "slot": "c05",
+     "variant_id": "14:427685:cf3682ac:c05"
+    },
+    {
+     "color": 6,
+     "content_sha256": "a794de86af5cf95a8ab271c4b77d0ca479a2021459785a81d530bfe1ac2f078d",
+     "duplicate_of": "c00",
+     "files_count": 2,
+     "has_model": false,
+     "portrait": null,
+     "portrait_source": null,
+     "slot": "c06",
+     "variant_id": "14:427685:cf3682ac:c06"
+    },
+    {
+     "color": 7,
+     "content_sha256": "a794de86af5cf95a8ab271c4b77d0ca479a2021459785a81d530bfe1ac2f078d",
+     "duplicate_of": "c00",
+     "files_count": 2,
+     "has_model": false,
+     "portrait": null,
+     "portrait_source": null,
+     "slot": "c07",
+     "variant_id": "14:427685:cf3682ac:c07"
+    }
+   ]
+  },
+  {
+   "inspected": true,
+   "kind": "original",
+   "md5": "f85a636624b60b8638f95dc89c1f7aaf",
+   "path": "original/midbusvoice_smashbrosstyle.zip",
+   "shared_files": 1,
+   "shared_sample": [
+    "MidbusVoice_SmashBrosStyle/README_SSBVOICE.txt"
+   ],
+   "variants": [
+    {
+     "color": 0,
+     "content_sha256": "4b788c2606a0c4dc98f7038fd6845fa83ada4b6a9dcdba822247fad6e19e9c67",
+     "duplicate_of": null,
+     "files_count": 2,
+     "has_model": false,
+     "portrait": null,
+     "portrait_source": null,
+     "slot": "c00",
+     "variant_id": "14:427685:f85a6366:c00"
+    },
+    {
+     "color": 1,
+     "content_sha256": "4b788c2606a0c4dc98f7038fd6845fa83ada4b6a9dcdba822247fad6e19e9c67",
+     "duplicate_of": "c00",
+     "files_count": 2,
+     "has_model": false,
+     "portrait": null,
+     "portrait_source": null,
+     "slot": "c01",
+     "variant_id": "14:427685:f85a6366:c01"
+    },
+    {
+     "color": 2,
+     "content_sha256": "4b788c2606a0c4dc98f7038fd6845fa83ada4b6a9dcdba822247fad6e19e9c67",
+     "duplicate_of": "c00",
+     "files_count": 2,
+     "has_model": false,
+     "portrait": null,
+     "portrait_source": null,
+     "slot": "c02",
+     "variant_id": "14:427685:f85a6366:c02"
+    },
+    {
+     "color": 3,
+     "content_sha256": "4b788c2606a0c4dc98f7038fd6845fa83ada4b6a9dcdba822247fad6e19e9c67",
+     "duplicate_of": "c00",
+     "files_count": 2,
+     "has_model": false,
+     "portrait": null,
+     "portrait_source": null,
+     "slot": "c03",
+     "variant_id": "14:427685:f85a6366:c03"
+    },
+    {
+     "color": 4,
+     "content_sha256": "4b788c2606a0c4dc98f7038fd6845fa83ada4b6a9dcdba822247fad6e19e9c67",
+     "duplicate_of": "c00",
+     "files_count": 2,
+     "has_model": false,
+     "portrait": null,
+     "portrait_source": null,
+     "slot": "c04",
+     "variant_id": "14:427685:f85a6366:c04"
+    },
+    {
+     "color": 5,
+     "content_sha256": "4b788c2606a0c4dc98f7038fd6845fa83ada4b6a9dcdba822247fad6e19e9c67",
+     "duplicate_of": "c00",
+     "files_count": 2,
+     "has_model": false,
+     "portrait": null,
+     "portrait_source": null,
+     "slot": "c05",
+     "variant_id": "14:427685:f85a6366:c05"
+    },
+    {
+     "color": 6,
+     "content_sha256": "4b788c2606a0c4dc98f7038fd6845fa83ada4b6a9dcdba822247fad6e19e9c67",
+     "duplicate_of": "c00",
+     "files_count": 2,
+     "has_model": false,
+     "portrait": null,
+     "portrait_source": null,
+     "slot": "c06",
+     "variant_id": "14:427685:f85a6366:c06"
+    },
+    {
+     "color": 7,
+     "content_sha256": "4b788c2606a0c4dc98f7038fd6845fa83ada4b6a9dcdba822247fad6e19e9c67",
+     "duplicate_of": "c00",
+     "files_count": 2,
+     "has_model": false,
+     "portrait": null,
+     "portrait_source": null,
+     "slot": "c07",
+     "variant_id": "14:427685:f85a6366:c07"
+    }
+   ]
+  },
+  {
+   "inspected": true,
+   "kind": "original",
+   "md5": "06c5bdd4066520dc4c730911d3f93467",
+   "path": "original/optional_kirbyhat_gigamidbus.zip",
+   "shared_files": 2,
+   "shared_sample": [
+    "Optional_KirbyHat_GigaMidbus/README_OPTIONALDOWNLOADS.txt",
+    "Optional_KirbyHat_GigaMidbus/GigaMidbus/config.json"
+   ],
+   "variants": [
+    {
+     "color": 0,
+     "content_sha256": "878ea1ab70d39521fc592626ecbf0b3aa863e986a7a66a4bf9c9fcfbd7a392ae",
+     "duplicate_of": null,
+     "files_count": 39,
+     "has_model": true,
+     "portrait": null,
+     "portrait_source": null,
+     "slot": "c00",
+     "variant_id": "14:427685:06c5bdd4:c00"
+    },
+    {
+     "color": 1,
+     "content_sha256": "a956657fa60e3510e4fd229b34c5ff16a7a41d91f74909eee4c6328a0039c000",
+     "duplicate_of": null,
+     "files_count": 15,
+     "has_model": true,
+     "portrait": null,
+     "portrait_source": null,
+     "slot": "c01",
+     "variant_id": "14:427685:06c5bdd4:c01"
+    },
+    {
+     "color": 2,
+     "content_sha256": "a956657fa60e3510e4fd229b34c5ff16a7a41d91f74909eee4c6328a0039c000",
+     "duplicate_of": "c01",
+     "files_count": 15,
+     "has_model": true,
+     "portrait": null,
+     "portrait_source": null,
+     "slot": "c02",
+     "variant_id": "14:427685:06c5bdd4:c02"
+    },
+    {
+     "color": 3,
+     "content_sha256": "a956657fa60e3510e4fd229b34c5ff16a7a41d91f74909eee4c6328a0039c000",
+     "duplicate_of": "c01",
+     "files_count": 15,
+     "has_model": true,
+     "portrait": null,
+     "portrait_source": null,
+     "slot": "c03",
+     "variant_id": "14:427685:06c5bdd4:c03"
+    },
+    {
+     "color": 4,
+     "content_sha256": "a956657fa60e3510e4fd229b34c5ff16a7a41d91f74909eee4c6328a0039c000",
+     "duplicate_of": "c01",
+     "files_count": 15,
+     "has_model": true,
+     "portrait": null,
+     "portrait_source": null,
+     "slot": "c04",
+     "variant_id": "14:427685:06c5bdd4:c04"
+    },
+    {
+     "color": 5,
+     "content_sha256": "a956657fa60e3510e4fd229b34c5ff16a7a41d91f74909eee4c6328a0039c000",
+     "duplicate_of": "c01",
+     "files_count": 15,
+     "has_model": true,
+     "portrait": null,
+     "portrait_source": null,
+     "slot": "c05",
+     "variant_id": "14:427685:06c5bdd4:c05"
+    },
+    {
+     "color": 6,
+     "content_sha256": "a956657fa60e3510e4fd229b34c5ff16a7a41d91f74909eee4c6328a0039c000",
+     "duplicate_of": "c01",
+     "files_count": 15,
+     "has_model": true,
+     "portrait": null,
+     "portrait_source": null,
+     "slot": "c06",
+     "variant_id": "14:427685:06c5bdd4:c06"
+    },
+    {
+     "color": 7,
+     "content_sha256": "a956657fa60e3510e4fd229b34c5ff16a7a41d91f74909eee4c6328a0039c000",
+     "duplicate_of": "c01",
+     "files_count": 15,
+     "has_model": true,
+     "portrait": null,
+     "portrait_source": null,
+     "slot": "c07",
+     "variant_id": "14:427685:06c5bdd4:c07"
+    }
+   ]
+  }
+ ],
+ "code": "14",
+ "folder": "bowser/427685_midbus",
+ "mod_id": 427685
+}

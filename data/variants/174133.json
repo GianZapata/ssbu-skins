@@ -1,0 +1,111 @@
+{
+ "archives": [
+  {
+   "inspected": true,
+   "kind": "original",
+   "md5": "81afcd22dedab18ce1794205e300d1af",
+   "path": "original/gurassbu_65cf3.zip",
+   "shared_files": 5,
+   "shared_sample": [
+    "GuraSSBU/sound/bank/fighter_voice/vc_luigi.nus3audio",
+    "GuraSSBU/sound/bank/narration/vc_narration_characall.nus3audio",
+    "GuraSSBU/ui/message/msg_name.msbt",
+    "GuraSSBU/ui/replace/chara/chara_5/desktop.ini",
+    "GuraSSBU/ui/replace/chara/chara_6/desktop.ini"
+   ],
+   "variants": [
+    {
+     "color": 0,
+     "content_sha256": "f43afc90150222400d417346a236ca1b3826eb7d59a4c79c5571a4fd29c0fd1a",
+     "duplicate_of": null,
+     "files_count": 15,
+     "has_model": true,
+     "portrait": "e7491e372bdf9152f91398c34c61012a420696732cebbf11af05acbc5073f13e",
+     "portrait_source": "GuraSSBU/ui/replace/chara/chara_0/chara_0_luigi_00.bntx",
+     "slot": "c00",
+     "variant_id": "09:174133:81afcd22:c00"
+    },
+    {
+     "color": 1,
+     "content_sha256": "3106de634a28ee5a345bc2ea0b26df38458105b9fe8dc2e222a735cd46c2240c",
+     "duplicate_of": null,
+     "files_count": 14,
+     "has_model": true,
+     "portrait": "e7491e372bdf9152f91398c34c61012a420696732cebbf11af05acbc5073f13e",
+     "portrait_source": "GuraSSBU/ui/replace/chara/chara_0/chara_0_luigi_01.bntx",
+     "slot": "c01",
+     "variant_id": "09:174133:81afcd22:c01"
+    },
+    {
+     "color": 2,
+     "content_sha256": "3106de634a28ee5a345bc2ea0b26df38458105b9fe8dc2e222a735cd46c2240c",
+     "duplicate_of": "c01",
+     "files_count": 14,
+     "has_model": true,
+     "portrait": "e7491e372bdf9152f91398c34c61012a420696732cebbf11af05acbc5073f13e",
+     "portrait_source": "GuraSSBU/ui/replace/chara/chara_0/chara_0_luigi_02.bntx",
+     "slot": "c02",
+     "variant_id": "09:174133:81afcd22:c02"
+    },
+    {
+     "color": 3,
+     "content_sha256": "3106de634a28ee5a345bc2ea0b26df38458105b9fe8dc2e222a735cd46c2240c",
+     "duplicate_of": "c01",
+     "files_count": 14,
+     "has_model": true,
+     "portrait": "e7491e372bdf9152f91398c34c61012a420696732cebbf11af05acbc5073f13e",
+     "portrait_source": "GuraSSBU/ui/replace/chara/chara_0/chara_0_luigi_03.bntx",
+     "slot": "c03",
+     "variant_id": "09:174133:81afcd22:c03"
+    },
+    {
+     "color": 4,
+     "content_sha256": "3106de634a28ee5a345bc2ea0b26df38458105b9fe8dc2e222a735cd46c2240c",
+     "duplicate_of": "c01",
+     "files_count": 14,
+     "has_model": true,
+     "portrait": "e7491e372bdf9152f91398c34c61012a420696732cebbf11af05acbc5073f13e",
+     "portrait_source": "GuraSSBU/ui/replace/chara/chara_0/chara_0_luigi_04.bntx",
+     "slot": "c04",
+     "variant_id": "09:174133:81afcd22:c04"
+    },
+    {
+     "color": 5,
+     "content_sha256": "3106de634a28ee5a345bc2ea0b26df38458105b9fe8dc2e222a735cd46c2240c",
+     "duplicate_of": "c01",
+     "files_count": 14,
+     "has_model": true,
+     "portrait": "e7491e372bdf9152f91398c34c61012a420696732cebbf11af05acbc5073f13e",
+     "portrait_source": "GuraSSBU/ui/replace/chara/chara_0/chara_0_luigi_05.bntx",
+     "slot": "c05",
+     "variant_id": "09:174133:81afcd22:c05"
+    },
+    {
+     "color": 6,
+     "content_sha256": "3106de634a28ee5a345bc2ea0b26df38458105b9fe8dc2e222a735cd46c2240c",
+     "duplicate_of": "c01",
+     "files_count": 14,
+     "has_model": true,
+     "portrait": "e7491e372bdf9152f91398c34c61012a420696732cebbf11af05acbc5073f13e",
+     "portrait_source": "GuraSSBU/ui/replace/chara/chara_0/chara_0_luigi_06.bntx",
+     "slot": "c06",
+     "variant_id": "09:174133:81afcd22:c06"
+    },
+    {
+     "color": 7,
+     "content_sha256": "3106de634a28ee5a345bc2ea0b26df38458105b9fe8dc2e222a735cd46c2240c",
+     "duplicate_of": "c01",
+     "files_count": 14,
+     "has_model": true,
+     "portrait": "e7491e372bdf9152f91398c34c61012a420696732cebbf11af05acbc5073f13e",
+     "portrait_source": "GuraSSBU/ui/replace/chara/chara_0/chara_0_luigi_07.bntx",
+     "slot": "c07",
+     "variant_id": "09:174133:81afcd22:c07"
+    }
+   ]
+  }
+ ],
+ "code": "09",
+ "folder": "luigi/174133_gawr_gura",
+ "mod_id": 174133
+}

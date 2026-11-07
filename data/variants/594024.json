@@ -1,0 +1,626 @@
+{
+ "archives": [
+  {
+   "inspected": true,
+   "kind": "original",
+   "md5": "4a8d115657da9585992829c96ae3b04a",
+   "path": "original/classic_victory_theme_f0f8c.zip",
+   "shared_files": 1,
+   "shared_sample": [
+    "Classic Victory Theme/stream;/sound/bgm/bgm_z35_f_robot.nus3audio"
+   ],
+   "variants": []
+  },
+  {
+   "inspected": true,
+   "kind": "original",
+   "md5": "57f7c05f95f65eaf76d834dab629c7ba",
+   "path": "original/thomas_the_tank_engine_birthday_wishes_-_c02_.rar",
+   "shared_files": 8,
+   "shared_sample": [
+    "Thomas The Tank Engine (Birthday Wishes - c02)/Thomas The Tank Engine (Birthday Wishes - c02)/config.json",
+    "Thomas The Tank Engine (Birthday Wishes - c02)/Thomas The Tank Engine (Birthday Wishes - c02)/info.toml",
+    "Thomas The Tank Engine (Birthday Wishes - c02)/Thomas The Tank Engine (Birthday Wishes - c02)/preview.webp",
+    "Thomas The Tank Engine (Birthday Wishes - c02)/Thomas The Tank Engine (Birthday Wishes - c02)/stream;/sound/bgm/bgm_z35_f_robot.nus3audio",
+    "Thomas The Tank Engine (Birthday Wishes - c02)/Thomas The Tank Engine (Birthday Wishes - c02)/ui/message/msg_name.xmsbt",
+    "Thomas The Tank Engine (Birthday Wishes - c02)/Thomas The Tank Engine (Birthday Wishes - c02)/ui/param/database/ui_chara_db.prcxml",
+    "Thomas The Tank Engine (Birthday Wishes - c02)/Thomas The Tank Engine (Birthday Wishes - c02)/ui/replace/series/series_0/series_0_famicomrobot.bntx",
+    "Thomas The Tank Engine (Birthday Wishes - c02)/Thomas The Tank Engine (Birthday Wishes - c02)/ui/replace/series/series_1/series_1_famicomrobot.bntx"
+   ],
+   "variants": [
+    {
+     "color": 0,
+     "content_sha256": "19cb5358708022def07fee1046e7a21641787a081a7499b51db588ed481e99f4",
+     "duplicate_of": null,
+     "files_count": 1,
+     "has_model": false,
+     "portrait": "ae7d1048c3697d4aaf95528a7b1b19b3ea87187ea005c2d33f007f01c6bbcf71",
+     "portrait_source": "Thomas The Tank Engine (Birthday Wishes - c02)/Thomas The Tank Engine (Birthday Wishes - c02)/ui/replace/chara/chara_7/chara_7_robot_00.bntx",
+     "slot": "c00",
+     "variant_id": "42:594024:57f7c05f:c00"
+    },
+    {
+     "color": 1,
+     "content_sha256": "b8f011084c973472f030bb3972b9047dd2361ed3c32295c4194915bf04fd7fc1",
+     "duplicate_of": null,
+     "files_count": 1,
+     "has_model": false,
+     "portrait": "04d614d4f38e3ba262d7daa4e325612bc5cb8f70efdd7ee9025c87c556ffddf2",
+     "portrait_source": "Thomas The Tank Engine (Birthday Wishes - c02)/Thomas The Tank Engine (Birthday Wishes - c02)/ui/replace/chara/chara_7/chara_7_robot_01.bntx",
+     "slot": "c01",
+     "variant_id": "42:594024:57f7c05f:c01"
+    },
+    {
+     "color": 2,
+     "content_sha256": "8254e41326755edfb5b81e94b28db30fef196ec114f21b70f10cc416b3509408",
+     "duplicate_of": null,
+     "files_count": 75,
+     "has_model": true,
+     "portrait": "6aee2b1b8505ef466d3c080607edab4592e6993aaf63dd39d49fc5075900ad14",
+     "portrait_source": "Thomas The Tank Engine (Birthday Wishes - c02)/Thomas The Tank Engine (Birthday Wishes - c02)/ui/replace/chara/chara_0/chara_0_robot_02.bntx",
+     "slot": "c02",
+     "variant_id": "42:594024:57f7c05f:c02"
+    }
+   ]
+  },
+  {
+   "inspected": true,
+   "kind": "original",
+   "md5": "c3a16fd62f541c8a4bf6e921635abf47",
+   "path": "original/thomas_the_tank_engine_c01_.rar",
+   "shared_files": 8,
+   "shared_sample": [
+    "Thomas The Tank Engine (c01)/Thomas The Tank Engine/config.json",
+    "Thomas The Tank Engine (c01)/Thomas The Tank Engine/info.toml",
+    "Thomas The Tank Engine (c01)/Thomas The Tank Engine/preview.webp",
+    "Thomas The Tank Engine (c01)/Thomas The Tank Engine/stream;/sound/bgm/bgm_z35_f_robot.nus3audio",
+    "Thomas The Tank Engine (c01)/Thomas The Tank Engine/ui/message/msg_name.xmsbt",
+    "Thomas The Tank Engine (c01)/Thomas The Tank Engine/ui/param/database/ui_chara_db.prcxml",
+    "Thomas The Tank Engine (c01)/Thomas The Tank Engine/ui/replace/series/series_0/series_0_famicomrobot.bntx",
+    "Thomas The Tank Engine (c01)/Thomas The Tank Engine/ui/replace/series/series_1/series_1_famicomrobot.bntx"
+   ],
+   "variants": [
+    {
+     "color": 0,
+     "content_sha256": "f4efa8ed322250be42fb693894f817b0c10362b39b9d984fb0c7a4a8ad0cc1b0",
+     "duplicate_of": null,
+     "files_count": 1,
+     "has_model": false,
+     "portrait": "ae7d1048c3697d4aaf95528a7b1b19b3ea87187ea005c2d33f007f01c6bbcf71",
+     "portrait_source": "Thomas The Tank Engine (c01)/Thomas The Tank Engine/ui/replace/chara/chara_7/chara_7_robot_00.bntx",
+     "slot": "c00",
+     "variant_id": "42:594024:c3a16fd6:c00"
+    },
+    {
+     "color": 1,
+     "content_sha256": "7ecb32d9923a2d095996700fe8376d5101c5cac047d3aaf3d1489fb285bf128c",
+     "duplicate_of": null,
+     "files_count": 76,
+     "has_model": true,
+     "portrait": "5f067d19f1a8b8ead8b65f6d6044d1dd8f56b23f3b09d2de5106848f7e0a3487",
+     "portrait_source": "Thomas The Tank Engine (c01)/Thomas The Tank Engine/ui/replace/chara/chara_0/chara_0_robot_01.bntx",
+     "slot": "c01",
+     "variant_id": "42:594024:c3a16fd6:c01"
+    }
+   ]
+  },
+  {
+   "inspected": true,
+   "kind": "original",
+   "md5": "dc70d750aa22d3a32245a109f17fc934",
+   "path": "original/thomas_the_tank_engine_classic_-_c00__8940b.rar",
+   "shared_files": 8,
+   "shared_sample": [
+    "Thomas The Tank Engine (Classic - c00)/Thomas The Tank Engine (Classic - c00)/config.json",
+    "Thomas The Tank Engine (Classic - c00)/Thomas The Tank Engine (Classic - c00)/info.toml",
+    "Thomas The Tank Engine (Classic - c00)/Thomas The Tank Engine (Classic - c00)/preview.webp",
+    "Thomas The Tank Engine (Classic - c00)/Thomas The Tank Engine (Classic - c00)/stream;/sound/bgm/bgm_z35_f_robot.nus3audio",
+    "Thomas The Tank Engine (Classic - c00)/Thomas The Tank Engine (Classic - c00)/ui/message/msg_name.xmsbt",
+    "Thomas The Tank Engine (Classic - c00)/Thomas The Tank Engine (Classic - c00)/ui/param/database/ui_chara_db.prcxml",
+    "Thomas The Tank Engine (Classic - c00)/Thomas The Tank Engine (Classic - c00)/ui/replace/series/series_0/series_0_famicomrobot.bntx",
+    "Thomas The Tank Engine (Classic - c00)/Thomas The Tank Engine (Classic - c00)/ui/replace/series/series_1/series_1_famicomrobot.bntx"
+   ],
+   "variants": [
+    {
+     "color": 0,
+     "content_sha256": "3b7ba87a752902d64b069cec5d3a010c2939b929602695552bb31295708e037e",
+     "duplicate_of": null,
+     "files_count": 69,
+     "has_model": true,
+     "portrait": "bed14cf4c4e52613cd0f7f40bfe2d3b80643fc941c0d27c47cababae5d53012a",
+     "portrait_source": "Thomas The Tank Engine (Classic - c00)/Thomas The Tank Engine (Classic - c00)/ui/replace/chara/chara_0/chara_0_robot_00.bntx",
+     "slot": "c00",
+     "variant_id": "42:594024:dc70d750:c00"
+    },
+    {
+     "color": 1,
+     "content_sha256": "ef66541dd0b5542016126fdfd3ef2779d8b5b35871403f01fdc31a8ea0ac32c9",
+     "duplicate_of": null,
+     "files_count": 1,
+     "has_model": false,
+     "portrait": "04d614d4f38e3ba262d7daa4e325612bc5cb8f70efdd7ee9025c87c556ffddf2",
+     "portrait_source": "Thomas The Tank Engine (Classic - c00)/Thomas The Tank Engine (Classic - c00)/ui/replace/chara/chara_7/chara_7_robot_01.bntx",
+     "slot": "c01",
+     "variant_id": "42:594024:dc70d750:c01"
+    }
+   ]
+  },
+  {
+   "inspected": true,
+   "kind": "original",
+   "md5": "ded24f2d951a0f4ffa826e2411ad072b",
+   "path": "original/thomas_the_tank_engine_full_slot_replacement_-_john_hasler_.rar",
+   "shared_files": 8,
+   "shared_sample": [
+    "Thomas the Tank Engine (Full Slot Replacement - John Hasler)/Thomas the Tank Engine (Full Slot Replacement)/config.json",
+    "Thomas the Tank Engine (Full Slot Replacement - John Hasler)/Thomas the Tank Engine (Full Slot Replacement)/info.toml",
+    "Thomas the Tank Engine (Full Slot Replacement - John Hasler)/Thomas the Tank Engine (Full Slot Replacement)/preview.webp",
+    "Thomas the Tank Engine (Full Slot Replacement - John Hasler)/Thomas the Tank Engine (Full Slot Replacement)/stream;/sound/bgm/bgm_z35_f_robot.nus3audio",
+    "Thomas the Tank Engine (Full Slot Replacement - John Hasler)/Thomas the Tank Engine (Full Slot Replacement)/ui/message/msg_name.xmsbt",
+    "Thomas the Tank Engine (Full Slot Replacement - John Hasler)/Thomas the Tank Engine (Full Slot Replacement)/ui/param/database/ui_chara_db.prcxml",
+    "Thomas the Tank Engine (Full Slot Replacement - John Hasler)/Thomas the Tank Engine (Full Slot Replacement)/ui/replace/series/series_0/series_0_famicomrobot.bntx",
+    "Thomas the Tank Engine (Full Slot Replacement - John Hasler)/Thomas the Tank Engine (Full Slot Replacement)/ui/replace/series/series_1/series_1_famicomrobot.bntx"
+   ],
+   "variants": [
+    {
+     "color": 0,
+     "content_sha256": "2a11f51972709df8f483dabe0549a0d974e8e8dc8e4e0ed75e917bbd947e7ccf",
+     "duplicate_of": null,
+     "files_count": 69,
+     "has_model": true,
+     "portrait": "bed14cf4c4e52613cd0f7f40bfe2d3b80643fc941c0d27c47cababae5d53012a",
+     "portrait_source": "Thomas the Tank Engine (Full Slot Replacement - John Hasler)/Thomas the Tank Engine (Full Slot Replacement)/ui/replace/chara/chara_0/chara_0_robot_00.bntx",
+     "slot": "c00",
+     "variant_id": "42:594024:ded24f2d:c00"
+    },
+    {
+     "color": 1,
+     "content_sha256": "2fe24b3db89306066741ad4b47a6a6be8e42717b9f01d825578f14b697a09b62",
+     "duplicate_of": null,
+     "files_count": 76,
+     "has_model": true,
+     "portrait": "5f067d19f1a8b8ead8b65f6d6044d1dd8f56b23f3b09d2de5106848f7e0a3487",
+     "portrait_source": "Thomas the Tank Engine (Full Slot Replacement - John Hasler)/Thomas the Tank Engine (Full Slot Replacement)/ui/replace/chara/chara_0/chara_0_robot_01.bntx",
+     "slot": "c01",
+     "variant_id": "42:594024:ded24f2d:c01"
+    },
+    {
+     "color": 2,
+     "content_sha256": "dace19fedbe6dde46c7fedb9486676c5defd11d9a15be852617e266024a5d3a0",
+     "duplicate_of": null,
+     "files_count": 74,
+     "has_model": true,
+     "portrait": "6aee2b1b8505ef466d3c080607edab4592e6993aaf63dd39d49fc5075900ad14",
+     "portrait_source": "Thomas the Tank Engine (Full Slot Replacement - John Hasler)/Thomas the Tank Engine (Full Slot Replacement)/ui/replace/chara/chara_0/chara_0_robot_02.bntx",
+     "slot": "c02",
+     "variant_id": "42:594024:ded24f2d:c02"
+    },
+    {
+     "color": 3,
+     "content_sha256": "719539eb0f2b66d19e264c7ae5307cd7dc2379ee72364cb5eb58b1af51b058b9",
+     "duplicate_of": null,
+     "files_count": 74,
+     "has_model": true,
+     "portrait": "7d6a286fbaff271969298b7aedf8a40acd8cc88f08d0b86b8228a2c762e0cb45",
+     "portrait_source": "Thomas the Tank Engine (Full Slot Replacement - John Hasler)/Thomas the Tank Engine (Full Slot Replacement)/ui/replace/chara/chara_0/chara_0_robot_03.bntx",
+     "slot": "c03",
+     "variant_id": "42:594024:ded24f2d:c03"
+    },
+    {
+     "color": 4,
+     "content_sha256": "0fe7f80214023d01ff8e6e52c31ae8085d1fe9e85fec2420c66526c53882f260",
+     "duplicate_of": null,
+     "files_count": 74,
+     "has_model": true,
+     "portrait": "5f56f4528897b778245a68cd44b9cc9463eb74f1f5bc533bdf883659e18285a5",
+     "portrait_source": "Thomas the Tank Engine (Full Slot Replacement - John Hasler)/Thomas the Tank Engine (Full Slot Replacement)/ui/replace/chara/chara_0/chara_0_robot_04.bntx",
+     "slot": "c04",
+     "variant_id": "42:594024:ded24f2d:c04"
+    },
+    {
+     "color": 5,
+     "content_sha256": "82d5f637f7bc8dec406a2d87f94d1f79f7a7c7fec9cf69fe7f1be9e8fc1d8331",
+     "duplicate_of": null,
+     "files_count": 74,
+     "has_model": true,
+     "portrait": "162189c89f73ac86a7f90712690c876831400da9bfd96336d5bb13e62df8f2e5",
+     "portrait_source": "Thomas the Tank Engine (Full Slot Replacement - John Hasler)/Thomas the Tank Engine (Full Slot Replacement)/ui/replace/chara/chara_0/chara_0_robot_05.bntx",
+     "slot": "c05",
+     "variant_id": "42:594024:ded24f2d:c05"
+    },
+    {
+     "color": 6,
+     "content_sha256": "e084517b7ab3f228378f51f4fef79c95c64dd899ab417f4e810ac4dff78758db",
+     "duplicate_of": null,
+     "files_count": 72,
+     "has_model": true,
+     "portrait": "be5dc6de136d9741183f2f8b706c5476f54595444b227fb2303318ca85322c94",
+     "portrait_source": "Thomas the Tank Engine (Full Slot Replacement - John Hasler)/Thomas the Tank Engine (Full Slot Replacement)/ui/replace/chara/chara_0/chara_0_robot_06.bntx",
+     "slot": "c06",
+     "variant_id": "42:594024:ded24f2d:c06"
+    },
+    {
+     "color": 7,
+     "content_sha256": "601efd979f4d5490e17d410118c7a668b2a413a3e0d8f6108e08ca711ea467f8",
+     "duplicate_of": null,
+     "files_count": 75,
+     "has_model": true,
+     "portrait": "77325003ddb3d7d89ed6fc66e14be6795163c3ff0c9cfca51a96ca4443db3117",
+     "portrait_source": "Thomas the Tank Engine (Full Slot Replacement - John Hasler)/Thomas the Tank Engine (Full Slot Replacement)/ui/replace/chara/chara_0/chara_0_robot_07.bntx",
+     "slot": "c07",
+     "variant_id": "42:594024:ded24f2d:c07"
+    }
+   ]
+  },
+  {
+   "inspected": true,
+   "kind": "original",
+   "md5": "304956d8e233019d9e7345b7d740a3b5",
+   "path": "original/thomas_the_tank_engine_full_slot_replacement__39389.rar",
+   "shared_files": 8,
+   "shared_sample": [
+    "Thomas the Tank Engine (Full Slot Replacement)/Thomas the Tank Engine (Full Slot Replacement)/config.json",
+    "Thomas the Tank Engine (Full Slot Replacement)/Thomas the Tank Engine (Full Slot Replacement)/info.toml",
+    "Thomas the Tank Engine (Full Slot Replacement)/Thomas the Tank Engine (Full Slot Replacement)/preview.webp",
+    "Thomas the Tank Engine (Full Slot Replacement)/Thomas the Tank Engine (Full Slot Replacement)/stream;/sound/bgm/bgm_z35_f_robot.nus3audio",
+    "Thomas the Tank Engine (Full Slot Replacement)/Thomas the Tank Engine (Full Slot Replacement)/ui/message/msg_name.xmsbt",
+    "Thomas the Tank Engine (Full Slot Replacement)/Thomas the Tank Engine (Full Slot Replacement)/ui/param/database/ui_chara_db.prcxml",
+    "Thomas the Tank Engine (Full Slot Replacement)/Thomas the Tank Engine (Full Slot Replacement)/ui/replace/series/series_0/series_0_famicomrobot.bntx",
+    "Thomas the Tank Engine (Full Slot Replacement)/Thomas the Tank Engine (Full Slot Replacement)/ui/replace/series/series_1/series_1_famicomrobot.bntx"
+   ],
+   "variants": [
+    {
+     "color": 0,
+     "content_sha256": "adcba6869ae14d7cec1b4db2be0950f405b7b53d1a2f1ef2c50c1e8bfee57f9a",
+     "duplicate_of": null,
+     "files_count": 69,
+     "has_model": true,
+     "portrait": "bed14cf4c4e52613cd0f7f40bfe2d3b80643fc941c0d27c47cababae5d53012a",
+     "portrait_source": "Thomas the Tank Engine (Full Slot Replacement)/Thomas the Tank Engine (Full Slot Replacement)/ui/replace/chara/chara_0/chara_0_robot_00.bntx",
+     "slot": "c00",
+     "variant_id": "42:594024:304956d8:c00"
+    },
+    {
+     "color": 1,
+     "content_sha256": "f3921bdbc062befe917e895b271277a581dfca5fe040c3f352396def500577d0",
+     "duplicate_of": null,
+     "files_count": 76,
+     "has_model": true,
+     "portrait": "5f067d19f1a8b8ead8b65f6d6044d1dd8f56b23f3b09d2de5106848f7e0a3487",
+     "portrait_source": "Thomas the Tank Engine (Full Slot Replacement)/Thomas the Tank Engine (Full Slot Replacement)/ui/replace/chara/chara_0/chara_0_robot_01.bntx",
+     "slot": "c01",
+     "variant_id": "42:594024:304956d8:c01"
+    },
+    {
+     "color": 2,
+     "content_sha256": "b37891660a8c7f68488ef89bdd66ddb5fc77309b4357079948cb46ca3afd0d06",
+     "duplicate_of": null,
+     "files_count": 74,
+     "has_model": true,
+     "portrait": "6aee2b1b8505ef466d3c080607edab4592e6993aaf63dd39d49fc5075900ad14",
+     "portrait_source": "Thomas the Tank Engine (Full Slot Replacement)/Thomas the Tank Engine (Full Slot Replacement)/ui/replace/chara/chara_0/chara_0_robot_02.bntx",
+     "slot": "c02",
+     "variant_id": "42:594024:304956d8:c02"
+    },
+    {
+     "color": 3,
+     "content_sha256": "3a90fcfe59d445eb975c2cb367c3571710ad5a7084d5b768d4b8741ecc06fd65",
+     "duplicate_of": null,
+     "files_count": 74,
+     "has_model": true,
+     "portrait": "7d6a286fbaff271969298b7aedf8a40acd8cc88f08d0b86b8228a2c762e0cb45",
+     "portrait_source": "Thomas the Tank Engine (Full Slot Replacement)/Thomas the Tank Engine (Full Slot Replacement)/ui/replace/chara/chara_0/chara_0_robot_03.bntx",
+     "slot": "c03",
+     "variant_id": "42:594024:304956d8:c03"
+    },
+    {
+     "color": 4,
+     "content_sha256": "be6882ddb905e1b441ea67125a13d0c163ceb0831b118377639c947fcf51afd0",
+     "duplicate_of": null,
+     "files_count": 74,
+     "has_model": true,
+     "portrait": "5f56f4528897b778245a68cd44b9cc9463eb74f1f5bc533bdf883659e18285a5",
+     "portrait_source": "Thomas the Tank Engine (Full Slot Replacement)/Thomas the Tank Engine (Full Slot Replacement)/ui/replace/chara/chara_0/chara_0_robot_04.bntx",
+     "slot": "c04",
+     "variant_id": "42:594024:304956d8:c04"
+    },
+    {
+     "color": 5,
+     "content_sha256": "39009dde3ca1797c65299bb821a53bb09215331cd25c004c47d75fa9db5d41ba",
+     "duplicate_of": null,
+     "files_count": 74,
+     "has_model": true,
+     "portrait": "162189c89f73ac86a7f90712690c876831400da9bfd96336d5bb13e62df8f2e5",
+     "portrait_source": "Thomas the Tank Engine (Full Slot Replacement)/Thomas the Tank Engine (Full Slot Replacement)/ui/replace/chara/chara_0/chara_0_robot_05.bntx",
+     "slot": "c05",
+     "variant_id": "42:594024:304956d8:c05"
+    },
+    {
+     "color": 6,
+     "content_sha256": "1762676cb8462e569f2d5fdc5b9280a4931d068d6555b4baf4e1ab74c4ccb4de",
+     "duplicate_of": null,
+     "files_count": 72,
+     "has_model": true,
+     "portrait": "be5dc6de136d9741183f2f8b706c5476f54595444b227fb2303318ca85322c94",
+     "portrait_source": "Thomas the Tank Engine (Full Slot Replacement)/Thomas the Tank Engine (Full Slot Replacement)/ui/replace/chara/chara_0/chara_0_robot_06.bntx",
+     "slot": "c06",
+     "variant_id": "42:594024:304956d8:c06"
+    },
+    {
+     "color": 7,
+     "content_sha256": "077261bb84a389e06349488791f3c47155c23de26cef9657f948617a28e4c58d",
+     "duplicate_of": null,
+     "files_count": 75,
+     "has_model": true,
+     "portrait": "77325003ddb3d7d89ed6fc66e14be6795163c3ff0c9cfca51a96ca4443db3117",
+     "portrait_source": "Thomas the Tank Engine (Full Slot Replacement)/Thomas the Tank Engine (Full Slot Replacement)/ui/replace/chara/chara_0/chara_0_robot_07.bntx",
+     "slot": "c07",
+     "variant_id": "42:594024:304956d8:c07"
+    }
+   ]
+  },
+  {
+   "inspected": true,
+   "kind": "original",
+   "md5": "115f2d821b33fa4e6c27d972d2ae78ea",
+   "path": "original/thomas_the_tank_engine_james_-_c07_.rar",
+   "shared_files": 8,
+   "shared_sample": [
+    "Thomas The Tank Engine (James - c07)/Thomas the Tank Engine (James - c07)/config.json",
+    "Thomas The Tank Engine (James - c07)/Thomas the Tank Engine (James - c07)/info.toml",
+    "Thomas The Tank Engine (James - c07)/Thomas the Tank Engine (James - c07)/preview.webp",
+    "Thomas The Tank Engine (James - c07)/Thomas the Tank Engine (James - c07)/stream;/sound/bgm/bgm_z35_f_robot.nus3audio",
+    "Thomas The Tank Engine (James - c07)/Thomas the Tank Engine (James - c07)/ui/message/msg_name.xmsbt",
+    "Thomas The Tank Engine (James - c07)/Thomas the Tank Engine (James - c07)/ui/param/database/ui_chara_db.prcxml",
+    "Thomas The Tank Engine (James - c07)/Thomas the Tank Engine (James - c07)/ui/replace/series/series_0/series_0_famicomrobot.bntx",
+    "Thomas The Tank Engine (James - c07)/Thomas the Tank Engine (James - c07)/ui/replace/series/series_1/series_1_famicomrobot.bntx"
+   ],
+   "variants": [
+    {
+     "color": 0,
+     "content_sha256": "e95ca409b757bb56d2d22f002cedb76904f169030328db26a7541f15ee5153ba",
+     "duplicate_of": null,
+     "files_count": 1,
+     "has_model": false,
+     "portrait": "ae7d1048c3697d4aaf95528a7b1b19b3ea87187ea005c2d33f007f01c6bbcf71",
+     "portrait_source": "Thomas The Tank Engine (James - c07)/Thomas the Tank Engine (James - c07)/ui/replace/chara/chara_7/chara_7_robot_00.bntx",
+     "slot": "c00",
+     "variant_id": "42:594024:115f2d82:c00"
+    },
+    {
+     "color": 1,
+     "content_sha256": "bdea3c405aad6abb1b506e45996524a7f4c5c3975d0ff045c683e9db76a4269a",
+     "duplicate_of": null,
+     "files_count": 1,
+     "has_model": false,
+     "portrait": "04d614d4f38e3ba262d7daa4e325612bc5cb8f70efdd7ee9025c87c556ffddf2",
+     "portrait_source": "Thomas The Tank Engine (James - c07)/Thomas the Tank Engine (James - c07)/ui/replace/chara/chara_7/chara_7_robot_01.bntx",
+     "slot": "c01",
+     "variant_id": "42:594024:115f2d82:c01"
+    },
+    {
+     "color": 7,
+     "content_sha256": "62061c4f9af10a9c21adb6606d3b6cb7d395833f6aac0c6009dd667c25e53566",
+     "duplicate_of": null,
+     "files_count": 75,
+     "has_model": true,
+     "portrait": "77325003ddb3d7d89ed6fc66e14be6795163c3ff0c9cfca51a96ca4443db3117",
+     "portrait_source": "Thomas The Tank Engine (James - c07)/Thomas the Tank Engine (James - c07)/ui/replace/chara/chara_0/chara_0_robot_07.bntx",
+     "slot": "c07",
+     "variant_id": "42:594024:115f2d82:c07"
+    }
+   ]
+  },
+  {
+   "inspected": true,
+   "kind": "original",
+   "md5": "8660492bf88f5071666f4247fd284039",
+   "path": "original/thomas_the_tank_engine_minis_-_c06_.rar",
+   "shared_files": 8,
+   "shared_sample": [
+    "Thomas The Tank Engine (Minis - c06)/Thomas the Tank Engine (Minis - c06)/config.json",
+    "Thomas The Tank Engine (Minis - c06)/Thomas the Tank Engine (Minis - c06)/info.toml",
+    "Thomas The Tank Engine (Minis - c06)/Thomas the Tank Engine (Minis - c06)/preview.webp",
+    "Thomas The Tank Engine (Minis - c06)/Thomas the Tank Engine (Minis - c06)/stream;/sound/bgm/bgm_z35_f_robot.nus3audio",
+    "Thomas The Tank Engine (Minis - c06)/Thomas the Tank Engine (Minis - c06)/ui/message/msg_name.xmsbt",
+    "Thomas The Tank Engine (Minis - c06)/Thomas the Tank Engine (Minis - c06)/ui/param/database/ui_chara_db.prcxml",
+    "Thomas The Tank Engine (Minis - c06)/Thomas the Tank Engine (Minis - c06)/ui/replace/series/series_0/series_0_famicomrobot.bntx",
+    "Thomas The Tank Engine (Minis - c06)/Thomas the Tank Engine (Minis - c06)/ui/replace/series/series_1/series_1_famicomrobot.bntx"
+   ],
+   "variants": [
+    {
+     "color": 0,
+     "content_sha256": "15ef34d070aed79e71e8de5741c0bb83e38aebaaf665e069564845c109140101",
+     "duplicate_of": null,
+     "files_count": 1,
+     "has_model": false,
+     "portrait": "ae7d1048c3697d4aaf95528a7b1b19b3ea87187ea005c2d33f007f01c6bbcf71",
+     "portrait_source": "Thomas The Tank Engine (Minis - c06)/Thomas the Tank Engine (Minis - c06)/ui/replace/chara/chara_7/chara_7_robot_00.bntx",
+     "slot": "c00",
+     "variant_id": "42:594024:8660492b:c00"
+    },
+    {
+     "color": 1,
+     "content_sha256": "803a752a678cf1f4b32b9facff4e93e0bfb263bf716d7f285ac52b854ec8ec7d",
+     "duplicate_of": null,
+     "files_count": 1,
+     "has_model": false,
+     "portrait": "04d614d4f38e3ba262d7daa4e325612bc5cb8f70efdd7ee9025c87c556ffddf2",
+     "portrait_source": "Thomas The Tank Engine (Minis - c06)/Thomas the Tank Engine (Minis - c06)/ui/replace/chara/chara_7/chara_7_robot_01.bntx",
+     "slot": "c01",
+     "variant_id": "42:594024:8660492b:c01"
+    },
+    {
+     "color": 6,
+     "content_sha256": "c1e38b2cd11243767745d5f8af2d01456347dde9f5ab9f17df470e7f0a378fae",
+     "duplicate_of": null,
+     "files_count": 72,
+     "has_model": true,
+     "portrait": "be5dc6de136d9741183f2f8b706c5476f54595444b227fb2303318ca85322c94",
+     "portrait_source": "Thomas The Tank Engine (Minis - c06)/Thomas the Tank Engine (Minis - c06)/ui/replace/chara/chara_0/chara_0_robot_06.bntx",
+     "slot": "c06",
+     "variant_id": "42:594024:8660492b:c06"
+    }
+   ]
+  },
+  {
+   "inspected": true,
+   "kind": "original",
+   "md5": "e9bde51d19fd4fb5244c816e28dd431c",
+   "path": "original/thomas_the_tank_engine_rosie_-_c03_.rar",
+   "shared_files": 8,
+   "shared_sample": [
+    "Thomas The Tank Engine (Rosie - c03)/Thomas the Tank Engine (Rosie - c03)/config.json",
+    "Thomas The Tank Engine (Rosie - c03)/Thomas the Tank Engine (Rosie - c03)/info.toml",
+    "Thomas The Tank Engine (Rosie - c03)/Thomas the Tank Engine (Rosie - c03)/preview.webp",
+    "Thomas The Tank Engine (Rosie - c03)/Thomas the Tank Engine (Rosie - c03)/stream;/sound/bgm/bgm_z35_f_robot.nus3audio",
+    "Thomas The Tank Engine (Rosie - c03)/Thomas the Tank Engine (Rosie - c03)/ui/message/msg_name.xmsbt",
+    "Thomas The Tank Engine (Rosie - c03)/Thomas the Tank Engine (Rosie - c03)/ui/param/database/ui_chara_db.prcxml",
+    "Thomas The Tank Engine (Rosie - c03)/Thomas the Tank Engine (Rosie - c03)/ui/replace/series/series_0/series_0_famicomrobot.bntx",
+    "Thomas The Tank Engine (Rosie - c03)/Thomas the Tank Engine (Rosie - c03)/ui/replace/series/series_1/series_1_famicomrobot.bntx"
+   ],
+   "variants": [
+    {
+     "color": 0,
+     "content_sha256": "589997558ed20db403d6962454f6c18deda33c7c5bc19fd80d71021e82df8825",
+     "duplicate_of": null,
+     "files_count": 1,
+     "has_model": false,
+     "portrait": "ae7d1048c3697d4aaf95528a7b1b19b3ea87187ea005c2d33f007f01c6bbcf71",
+     "portrait_source": "Thomas The Tank Engine (Rosie - c03)/Thomas the Tank Engine (Rosie - c03)/ui/replace/chara/chara_7/chara_7_robot_00.bntx",
+     "slot": "c00",
+     "variant_id": "42:594024:e9bde51d:c00"
+    },
+    {
+     "color": 1,
+     "content_sha256": "58fa26b4ae17e1bf9763fa22b8c06f09563d940926c7d23c966d4cc9af93a50c",
+     "duplicate_of": null,
+     "files_count": 1,
+     "has_model": false,
+     "portrait": "04d614d4f38e3ba262d7daa4e325612bc5cb8f70efdd7ee9025c87c556ffddf2",
+     "portrait_source": "Thomas The Tank Engine (Rosie - c03)/Thomas the Tank Engine (Rosie - c03)/ui/replace/chara/chara_7/chara_7_robot_01.bntx",
+     "slot": "c01",
+     "variant_id": "42:594024:e9bde51d:c01"
+    },
+    {
+     "color": 3,
+     "content_sha256": "dfb3e7b4fdb089c673b74175f596ed0ed4727a019de4f23d70118b9512437813",
+     "duplicate_of": null,
+     "files_count": 75,
+     "has_model": true,
+     "portrait": "7d6a286fbaff271969298b7aedf8a40acd8cc88f08d0b86b8228a2c762e0cb45",
+     "portrait_source": "Thomas The Tank Engine (Rosie - c03)/Thomas the Tank Engine (Rosie - c03)/ui/replace/chara/chara_0/chara_0_robot_03.bntx",
+     "slot": "c03",
+     "variant_id": "42:594024:e9bde51d:c03"
+    }
+   ]
+  },
+  {
+   "inspected": true,
+   "kind": "original",
+   "md5": "41b92b029f76d495450d810d985e1e0d",
+   "path": "original/thomas_the_tank_engine_tatmr_-_c04_.rar",
+   "shared_files": 8,
+   "shared_sample": [
+    "Thomas The Tank Engine (TATMR - c04)/Thomas the Tank Engine (TATMR - c04)/config.json",
+    "Thomas The Tank Engine (TATMR - c04)/Thomas the Tank Engine (TATMR - c04)/info.toml",
+    "Thomas The Tank Engine (TATMR - c04)/Thomas the Tank Engine (TATMR - c04)/preview.webp",
+    "Thomas The Tank Engine (TATMR - c04)/Thomas the Tank Engine (TATMR - c04)/stream;/sound/bgm/bgm_z35_f_robot.nus3audio",
+    "Thomas The Tank Engine (TATMR - c04)/Thomas the Tank Engine (TATMR - c04)/ui/message/msg_name.xmsbt",
+    "Thomas The Tank Engine (TATMR - c04)/Thomas the Tank Engine (TATMR - c04)/ui/param/database/ui_chara_db.prcxml",
+    "Thomas The Tank Engine (TATMR - c04)/Thomas the Tank Engine (TATMR - c04)/ui/replace/series/series_0/series_0_famicomrobot.bntx",
+    "Thomas The Tank Engine (TATMR - c04)/Thomas the Tank Engine (TATMR - c04)/ui/replace/series/series_1/series_1_famicomrobot.bntx"
+   ],
+   "variants": [
+    {
+     "color": 0,
+     "content_sha256": "1aff803381b7039eff06968750b997b7f8c41691f8cfc968eeef5e20c219e055",
+     "duplicate_of": null,
+     "files_count": 1,
+     "has_model": false,
+     "portrait": "ae7d1048c3697d4aaf95528a7b1b19b3ea87187ea005c2d33f007f01c6bbcf71",
+     "portrait_source": "Thomas The Tank Engine (TATMR - c04)/Thomas the Tank Engine (TATMR - c04)/ui/replace/chara/chara_7/chara_7_robot_00.bntx",
+     "slot": "c00",
+     "variant_id": "42:594024:41b92b02:c00"
+    },
+    {
+     "color": 1,
+     "content_sha256": "1b22b37815be1364e9be4c98726e1e4d6d7d3a2ff19b20a66070eec9949fcb1b",
+     "duplicate_of": null,
+     "files_count": 1,
+     "has_model": false,
+     "portrait": "04d614d4f38e3ba262d7daa4e325612bc5cb8f70efdd7ee9025c87c556ffddf2",
+     "portrait_source": "Thomas The Tank Engine (TATMR - c04)/Thomas the Tank Engine (TATMR - c04)/ui/replace/chara/chara_7/chara_7_robot_01.bntx",
+     "slot": "c01",
+     "variant_id": "42:594024:41b92b02:c01"
+    },
+    {
+     "color": 4,
+     "content_sha256": "fb060a6e59c227e79f1b9b8b7a0d9fb0a436442bf6da3f3ce1ee250f57c49b00",
+     "duplicate_of": null,
+     "files_count": 75,
+     "has_model": true,
+     "portrait": "5f56f4528897b778245a68cd44b9cc9463eb74f1f5bc533bdf883659e18285a5",
+     "portrait_source": "Thomas The Tank Engine (TATMR - c04)/Thomas the Tank Engine (TATMR - c04)/ui/replace/chara/chara_0/chara_0_robot_04.bntx",
+     "slot": "c04",
+     "variant_id": "42:594024:41b92b02:c04"
+    }
+   ]
+  },
+  {
+   "inspected": true,
+   "kind": "original",
+   "md5": "be3c571a0e3837e97e467c5fd3c1faa1",
+   "path": "original/thomas_the_tank_engine_the_adventure_begins_-_c05_.rar",
+   "shared_files": 8,
+   "shared_sample": [
+    "Thomas The Tank Engine (The Adventure Begins - c05)/Thomas the Tank Engine (LBSC 70 - c05)/config.json",
+    "Thomas The Tank Engine (The Adventure Begins - c05)/Thomas the Tank Engine (LBSC 70 - c05)/info.toml",
+    "Thomas The Tank Engine (The Adventure Begins - c05)/Thomas the Tank Engine (LBSC 70 - c05)/preview.webp",
+    "Thomas The Tank Engine (The Adventure Begins - c05)/Thomas the Tank Engine (LBSC 70 - c05)/stream;/sound/bgm/bgm_z35_f_robot.nus3audio",
+    "Thomas The Tank Engine (The Adventure Begins - c05)/Thomas the Tank Engine (LBSC 70 - c05)/ui/message/msg_name.xmsbt",
+    "Thomas The Tank Engine (The Adventure Begins - c05)/Thomas the Tank Engine (LBSC 70 - c05)/ui/param/database/ui_chara_db.prcxml",
+    "Thomas The Tank Engine (The Adventure Begins - c05)/Thomas the Tank Engine (LBSC 70 - c05)/ui/replace/series/series_0/series_0_famicomrobot.bntx",
+    "Thomas The Tank Engine (The Adventure Begins - c05)/Thomas the Tank Engine (LBSC 70 - c05)/ui/replace/series/series_1/series_1_famicomrobot.bntx"
+   ],
+   "variants": [
+    {
+     "color": 0,
+     "content_sha256": "4ad22cbada4c59aa5a9220175d3fa9efaba867ee9949c9f113dd6c93e66e41f0",
+     "duplicate_of": null,
+     "files_count": 1,
+     "has_model": false,
+     "portrait": "ae7d1048c3697d4aaf95528a7b1b19b3ea87187ea005c2d33f007f01c6bbcf71",
+     "portrait_source": "Thomas The Tank Engine (The Adventure Begins - c05)/Thomas the Tank Engine (LBSC 70 - c05)/ui/replace/chara/chara_7/chara_7_robot_00.bntx",
+     "slot": "c00",
+     "variant_id": "42:594024:be3c571a:c00"
+    },
+    {
+     "color": 1,
+     "content_sha256": "12b3e339e617e9a3823a04c34598fa2505ddbc993f2ea7229cbe1a7a7508ba61",
+     "duplicate_of": null,
+     "files_count": 1,
+     "has_model": false,
+     "portrait": "04d614d4f38e3ba262d7daa4e325612bc5cb8f70efdd7ee9025c87c556ffddf2",
+     "portrait_source": "Thomas The Tank Engine (The Adventure Begins - c05)/Thomas the Tank Engine (LBSC 70 - c05)/ui/replace/chara/chara_7/chara_7_robot_01.bntx",
+     "slot": "c01",
+     "variant_id": "42:594024:be3c571a:c01"
+    },
+    {
+     "color": 5,
+     "content_sha256": "203fbcaae5f2afae6e9ae92a41acbbffccaddefbfad4012e9e54037dc1197e9d",
+     "duplicate_of": null,
+     "files_count": 74,
+     "has_model": true,
+     "portrait": "162189c89f73ac86a7f90712690c876831400da9bfd96336d5bb13e62df8f2e5",
+     "portrait_source": "Thomas The Tank Engine (The Adventure Begins - c05)/Thomas the Tank Engine (LBSC 70 - c05)/ui/replace/chara/chara_0/chara_0_robot_05.bntx",
+     "slot": "c05",
+     "variant_id": "42:594024:be3c571a:c05"
+    }
+   ]
+  }
+ ],
+ "code": "42",
+ "folder": "rob/594024_Thomas_The_Tank_Engine_(DELUXE)",
+ "mod_id": 594024
+}

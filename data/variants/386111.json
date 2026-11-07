@@ -1,0 +1,73 @@
+{
+ "archives": [
+  {
+   "inspected": true,
+   "kind": "original",
+   "md5": "2e3b8245f5d1c35da7455e211e0475e9",
+   "path": "original/actualkuramajpvoices.zip",
+   "shared_files": 0,
+   "shared_sample": [],
+   "variants": [
+    {
+     "color": 5,
+     "content_sha256": "614b5803be590782d4a81748ffaf4b39738dd07f7242f9130f354a271727e5e9",
+     "duplicate_of": null,
+     "files_count": 2,
+     "has_model": false,
+     "portrait": null,
+     "portrait_source": null,
+     "slot": "c05",
+     "variant_id": "14:386111:2e3b8245:c05"
+    },
+    {
+     "color": 6,
+     "content_sha256": "614b5803be590782d4a81748ffaf4b39738dd07f7242f9130f354a271727e5e9",
+     "duplicate_of": "c05",
+     "files_count": 2,
+     "has_model": false,
+     "portrait": null,
+     "portrait_source": null,
+     "slot": "c06",
+     "variant_id": "14:386111:2e3b8245:c06"
+    }
+   ]
+  },
+  {
+   "inspected": true,
+   "kind": "original",
+   "md5": "0e82a609436e0212a8402d20f6d7e22d",
+   "path": "original/kuramalinkedandsusanooarmor.zip",
+   "shared_files": 1,
+   "shared_sample": [
+    "KuramaLinkedandSusanooArmor/config.json"
+   ],
+   "variants": [
+    {
+     "color": 5,
+     "content_sha256": "7e3d4e8109fa0bdc05b228bb87daa2ad38a7069a7f27d19fe6e9b4ce2b98efc2",
+     "duplicate_of": null,
+     "files_count": 19,
+     "has_model": true,
+     "portrait": "73dc00363b26ac835c01124eea2da6dfad76d08f01f28bc705d806cf3b4b0322",
+     "portrait_source": "KuramaLinkedandSusanooArmor/ui/replace/chara/chara_0/chara_0_koopa_05.bntx",
+     "slot": "c05",
+     "variant_id": "14:386111:0e82a609:c05"
+    },
+    {
+     "color": 6,
+     "content_sha256": "53bdc123e25d48ed787267845097f4b265319bd53f92056b7dde1097fe23af88",
+     "duplicate_of": null,
+     "files_count": 20,
+     "has_model": true,
+     "portrait": "81f303bc9fef370771a7d282ce6714d7567c0bf9b9fc0a38c8e133fefdab8522",
+     "portrait_source": "KuramaLinkedandSusanooArmor/ui/replace/chara/chara_0/chara_0_koopa_06.bntx",
+     "slot": "c06",
+     "variant_id": "14:386111:0e82a609:c06"
+    }
+   ]
+  }
+ ],
+ "code": "14",
+ "folder": "bowser/386111_kurama_linked_susano_o_armor_jp_voice_new",
+ "mod_id": 386111
+}

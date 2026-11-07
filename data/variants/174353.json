@@ -1,0 +1,50 @@
+{
+ "archives": [
+  {
+   "inspected": true,
+   "kind": "original",
+   "md5": "a94d9826e02483dc3205af57c71c641a",
+   "path": "original/install_exdeath_final_.rar",
+   "shared_files": 0,
+   "shared_sample": [],
+   "variants": [
+    {
+     "color": 5,
+     "content_sha256": "0e3bc2775f6637cb1d2c4eebdd715ecb7c98cccead4a2a4f3202b6e2055116ee",
+     "duplicate_of": null,
+     "files_count": 31,
+     "has_model": true,
+     "portrait": "962f5bfbfa3722fa3a08772f0b298174707f146f3513372933e3addeacbe64af",
+     "portrait_source": "Install ExDeath [Final]/ui/replace/chara/chara_0/chara_0_ganon_05.bntx",
+     "slot": "c05",
+     "variant_id": "23:174353:a94d9826:c05"
+    },
+    {
+     "color": 6,
+     "content_sha256": "6c4a7a3ac0642664727bf6605e6e0a6eae9f526180cfd1ae1d95de7ec5bba87c",
+     "duplicate_of": null,
+     "files_count": 31,
+     "has_model": true,
+     "portrait": "b1c420b1b281ab947496d8e42319a04581cc1d52f7a776c23b6445ffbe63e9a2",
+     "portrait_source": "Install ExDeath [Final]/ui/replace/chara/chara_0/chara_0_ganon_06.bntx",
+     "slot": "c06",
+     "variant_id": "23:174353:a94d9826:c06"
+    },
+    {
+     "color": 7,
+     "content_sha256": "fbaa82f4c8097ed56f13b5861627541c76e09acd253a8b0b2bb1c99c0c72217c",
+     "duplicate_of": null,
+     "files_count": 31,
+     "has_model": true,
+     "portrait": "6e827c7b9707b1b7e45ec4cd27a3b646dcacba6d970f970586ff35d73d8f0360",
+     "portrait_source": "Install ExDeath [Final]/ui/replace/chara/chara_0/chara_0_ganon_07.bntx",
+     "slot": "c07",
+     "variant_id": "23:174353:a94d9826:c07"
+    }
+   ]
+  }
+ ],
+ "code": "23",
+ "folder": "ganondorf/174353_exdeath",
+ "mod_id": 174353
+}

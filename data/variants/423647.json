@@ -1,0 +1,57 @@
+{
+ "archives": [
+  {
+   "inspected": true,
+   "kind": "original",
+   "md5": "3f9149eb1e54b63f91b23d572370eacd",
+   "path": "original/magnezone_1.zip",
+   "shared_files": 3,
+   "shared_sample": [
+    "aaMagnezone/config.json",
+    "aaMagnezone/effect/fighter/robot/trail_c02/texrobotbeamltrace.nutexb",
+    "aaMagnezone/effect/fighter/robot/trail_c02/texrobotbeamstrace.nutexb"
+   ],
+   "variants": [
+    {
+     "color": 2,
+     "content_sha256": "2d0ca76f4c9e97cdcda9a670d91b28cbe3045c0c80932bf3679a6b982993509d",
+     "duplicate_of": null,
+     "files_count": 73,
+     "has_model": true,
+     "portrait": "effa68d0e6e5cc95fb7277fe167894a7799f33929216250af114779740eff1b9",
+     "portrait_source": "aaMagnezone/ui/replace/chara/chara_0/chara_0_robot_02.bntx",
+     "slot": "c02",
+     "variant_id": "42:423647:3f9149eb:c02"
+    }
+   ]
+  },
+  {
+   "inspected": true,
+   "kind": "original",
+   "md5": "c39e41b6ea46f810643b6953cccb9847",
+   "path": "original/shiny_magnezone_1.zip",
+   "shared_files": 3,
+   "shared_sample": [
+    "aaMagnezoneShiny/config.json",
+    "aaMagnezoneShiny/effect/fighter/robot/trail_c03/texrobotbeamltrace.nutexb",
+    "aaMagnezoneShiny/effect/fighter/robot/trail_c03/texrobotbeamstrace.nutexb"
+   ],
+   "variants": [
+    {
+     "color": 3,
+     "content_sha256": "02caaca6eb45c06b469940d24ed1f520a6072dcdec8eea025faa89a5a815f893",
+     "duplicate_of": null,
+     "files_count": 73,
+     "has_model": true,
+     "portrait": "170a4edd910057c66734c7ec356aabf13b6e812fec7fce4e5b7b351aef81e016",
+     "portrait_source": "aaMagnezoneShiny/ui/replace/chara/chara_0/chara_0_robot_03.bntx",
+     "slot": "c03",
+     "variant_id": "42:423647:c39e41b6:c03"
+    }
+   ]
+  }
+ ],
+ "code": "42",
+ "folder": "rob/423647_Magnezone",
+ "mod_id": 423647
+}

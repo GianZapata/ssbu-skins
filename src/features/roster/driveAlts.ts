@@ -1,5 +1,12 @@
 import { ref } from 'vue'
 
+export interface DriveVariant {
+  id: string
+  slot: number
+  source: string
+  portrait: string | null
+}
+
 export interface DriveAlt {
   code: string
   mod_id: string
@@ -9,6 +16,7 @@ export interface DriveAlt {
   vid: string | null
   unaudited: boolean
   img: string | null
+  variants?: DriveVariant[]
 }
 
 export const driveAlts = ref<DriveAlt[]>([])

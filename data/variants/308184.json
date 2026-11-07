@@ -1,0 +1,52 @@
+{
+ "archives": [
+  {
+   "inspected": true,
+   "kind": "original",
+   "md5": "384c24596f5b15de31401251fffc09c1",
+   "path": "original/n64_link_6e260.zip",
+   "shared_files": 1,
+   "shared_sample": [
+    "Readme.txt"
+   ],
+   "variants": [
+    {
+     "color": 1,
+     "content_sha256": "706a050590b659d65b1cb51143ced26a5f9cae1c191b8a83c1d8a596f9485f48",
+     "duplicate_of": null,
+     "files_count": 24,
+     "has_model": true,
+     "portrait": "831aa15004c4e3c54d48a6f6a2f2773547553218b847f956304244e862fefe72",
+     "portrait_source": "N64 Link over Link C01 (Watapascul)/ui/replace/chara/chara_0/chara_0_link_01.bntx",
+     "slot": "c01",
+     "variant_id": "03:308184:384c2459:c01"
+    },
+    {
+     "color": 5,
+     "content_sha256": "6f2d49a4d7dc66a4e15dd98458f134ed583d0161484ee2498434d4c9465c96b0",
+     "duplicate_of": null,
+     "files_count": 24,
+     "has_model": true,
+     "portrait": "98155a5a7f36902070d51fb8430349badcdd935fcaeb85fbfae6beefe1cdc37e",
+     "portrait_source": "Blue N64 Link over Link C05 (Watapascul)/ui/replace/chara/chara_0/chara_0_link_05.bntx",
+     "slot": "c05",
+     "variant_id": "03:308184:384c2459:c05"
+    },
+    {
+     "color": 7,
+     "content_sha256": "2e6a7f07ae2893b4099bde0112c86e484b6e666657660f085b7638525483eef7",
+     "duplicate_of": null,
+     "files_count": 24,
+     "has_model": true,
+     "portrait": "aa16df33101a95bc19b27c80a0186c5513938634493c35c75c7f25100c1566de",
+     "portrait_source": "Red N64 Link over Link C07 (Watapascul)/ui/replace/chara/chara_0/chara_0_link_07.bntx",
+     "slot": "c07",
+     "variant_id": "03:308184:384c2459:c07"
+    }
+   ]
+  }
+ ],
+ "code": "03",
+ "folder": "link/308184_Smash_64_Link",
+ "mod_id": 308184
+}

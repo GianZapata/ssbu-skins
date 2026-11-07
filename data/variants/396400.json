@@ -1,0 +1,49 @@
+{
+ "archives": [
+  {
+   "inspected": true,
+   "kind": "original",
+   "md5": "a7689556b82e64e6e0128029fe4741fe",
+   "path": "original/tingle_even_numb_08d13.zip",
+   "shared_files": 0,
+   "shared_sample": [],
+   "variants": [
+    {
+     "color": 0,
+     "content_sha256": "7cde70c14c90b8f6b88da678606638b94aa1f7dcb87a520158a0d861812639c8",
+     "duplicate_of": null,
+     "files_count": 18,
+     "has_model": true,
+     "portrait": "91af014f104694182c4005bdf5b46c6c49b6bf5d485295bc398ba2bbd17db1f1",
+     "portrait_source": "tingle even numb/ui/replace/chara/chara_0/chara_0_bayonetta_00.bntx",
+     "slot": "c00",
+     "variant_id": "63:396400:a7689556:c00"
+    }
+   ]
+  },
+  {
+   "inspected": true,
+   "kind": "original",
+   "md5": "76b7533bd500343ecb4876e73df97dc9",
+   "path": "original/tingle_odd_numb.zip",
+   "shared_files": 0,
+   "shared_sample": [],
+   "variants": [
+    {
+     "color": 1,
+     "content_sha256": "9705081aa99d72a98283e59a83dce0b418067a0f6e20849064bc62f17104d314",
+     "duplicate_of": null,
+     "files_count": 17,
+     "has_model": true,
+     "portrait": "91af014f104694182c4005bdf5b46c6c49b6bf5d485295bc398ba2bbd17db1f1",
+     "portrait_source": "tingle odd numb/ui/replace/chara/chara_0/chara_0_bayonetta_01.bntx",
+     "slot": "c01",
+     "variant_id": "63:396400:76b7533b:c01"
+    }
+   ]
+  }
+ ],
+ "code": "63",
+ "folder": "bayonetta/396400_tingle",
+ "mod_id": 396400
+}

@@ -1,0 +1,39 @@
+{
+ "archives": [
+  {
+   "inspected": true,
+   "kind": "original",
+   "md5": "f98325035c8e84794ecc8347aae04747",
+   "path": "original/jill_valentine_zss_.zip",
+   "shared_files": 0,
+   "shared_sample": [],
+   "variants": [
+    {
+     "color": 0,
+     "content_sha256": "584e82ace95621c13ccb896ab7f8975ee8d46ecb38bec67e7f7d2a7cfe70d6ca",
+     "duplicate_of": null,
+     "files_count": 1,
+     "has_model": false,
+     "portrait": "c39cce8f48519e1c021df9ef806d95076a355ed5b363780a67d831e1701502cf",
+     "portrait_source": "Jill Valentine (ZSS)/ui/replace/chara/chara_5/chara_5_szerosuit_00.bntx",
+     "slot": "c00",
+     "variant_id": "29:368929:f9832503:c00"
+    },
+    {
+     "color": 5,
+     "content_sha256": "02d2a59581336c791d1cbd32423d4742f395aeda63fd426346d53d401f81e99d",
+     "duplicate_of": null,
+     "files_count": 26,
+     "has_model": true,
+     "portrait": "0eeac57c84e7cc988f853f271ae3055d2f83fbc2202f3e32bcad7cfda8453c6e",
+     "portrait_source": "Jill Valentine (ZSS)/ui/replace/chara/chara_0/chara_0_szerosuit_05.bntx",
+     "slot": "c05",
+     "variant_id": "29:368929:f9832503:c05"
+    }
+   ]
+  }
+ ],
+ "code": "29",
+ "folder": "zero_suit_samus/368929_jill_valentine",
+ "mod_id": 368929
+}

@@ -1,0 +1,50 @@
+{
+ "archives": [
+  {
+   "inspected": true,
+   "kind": "original",
+   "md5": "8673515c3fc40a3db84ce14003c2c13c",
+   "path": "original/terra_terranort_over_ike_c00_c02_.7z",
+   "shared_files": 23,
+   "shared_sample": [
+    "Credits.txt",
+    "License.txt",
+    "Screenshots/2022060315324500-0E7DF678130F4F0FA2C88AE72B47AFDF.jpg",
+    "Screenshots/2022060315325800-0E7DF678130F4F0FA2C88AE72B47AFDF.jpg",
+    "Screenshots/2022060315330800-0E7DF678130F4F0FA2C88AE72B47AFDF.jpg",
+    "Screenshots/2022060315332600-0E7DF678130F4F0FA2C88AE72B47AFDF.jpg",
+    "Screenshots/2022060315334100-0E7DF678130F4F0FA2C88AE72B47AFDF.jpg",
+    "Screenshots/2022060315340500-0E7DF678130F4F0FA2C88AE72B47AFDF.jpg",
+    "Screenshots/2022060315341200-0E7DF678130F4F0FA2C88AE72B47AFDF.jpg",
+    "Screenshots/2022060315343400-0E7DF678130F4F0FA2C88AE72B47AFDF.jpg"
+   ],
+   "variants": [
+    {
+     "color": 0,
+     "content_sha256": "bdfe042effe428acdc7b60443b24ea5171d7eb29999c521fe5681d43d0efadbe",
+     "duplicate_of": null,
+     "files_count": 45,
+     "has_model": true,
+     "portrait": "219ea986e96ddad94c8aada4fa9254e5d29bc626e828f7e2b99def767a5d924d",
+     "portrait_source": "Terra & Terranort Over Ike (c00 & c02)/ui/replace/chara/chara_0/chara_0_ike_00.bntx",
+     "slot": "c00",
+     "variant_id": "32:381503:8673515c:c00"
+    },
+    {
+     "color": 2,
+     "content_sha256": "082934d311ec2c573b7872a3a9a72ee436227648bf818744b2cf06cd1c30cbc0",
+     "duplicate_of": null,
+     "files_count": 45,
+     "has_model": true,
+     "portrait": "fcb1c585fbac3ed0eb1780c0df8a1b122c74f0dae84e3e92bf009d49e036c804",
+     "portrait_source": "Terra & Terranort Over Ike (c00 & c02)/ui/replace/chara/chara_0/chara_0_ike_02.bntx",
+     "slot": "c02",
+     "variant_id": "32:381503:8673515c:c02"
+    }
+   ]
+  }
+ ],
+ "code": "32",
+ "folder": "ike/381503_terra_over_ike",
+ "mod_id": 381503
+}

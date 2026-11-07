@@ -1,0 +1,43 @@
+{
+ "archives": [
+  {
+   "inspected": true,
+   "kind": "original",
+   "md5": "4b6995a19440113bafcf491cd59f13fb",
+   "path": "original/mod_jin_27cc8.rar",
+   "shared_files": 3,
+   "shared_sample": [
+    "Mod Jin/info.toml",
+    "Mod Jin/preview.webp",
+    "Mod Jin/sound/bank/narration/vc_narration_characall_demon+us_en.nus3audio"
+   ],
+   "variants": [
+    {
+     "color": 6,
+     "content_sha256": "689888c7e41c18efa0b5c144df521d8b2107eafb2c45d8bac2906facb1f67687",
+     "duplicate_of": null,
+     "files_count": 77,
+     "has_model": true,
+     "portrait": "8ddbf6fd03ed7f1a0c98a028403e925173608a13638621c36f56c93ff3786906",
+     "portrait_source": "Mod Jin/ui/replace_patch/chara/chara_0/chara_0_demon_06.bntx",
+     "slot": "c06",
+     "variant_id": "81:335512:4b6995a1:c06"
+    },
+    {
+     "color": 7,
+     "content_sha256": "0494d2e1ef993f146517e0da5c724cefdacb87dfdd320ad571e89e5a7e216550",
+     "duplicate_of": null,
+     "files_count": 78,
+     "has_model": true,
+     "portrait": "273149bf506a381fd99154b82393c76c42ff71a98ee8f4aef2fe652fc0ef0c00",
+     "portrait_source": "Mod Jin/ui/replace_patch/chara/chara_0/chara_0_demon_07.bntx",
+     "slot": "c07",
+     "variant_id": "81:335512:4b6995a1:c07"
+    }
+   ]
+  }
+ ],
+ "code": "81",
+ "folder": "kazuya/335512_jin_kazama",
+ "mod_id": 335512
+}

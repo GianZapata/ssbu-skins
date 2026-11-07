@@ -49,6 +49,14 @@ const SSBU = (() => {
     return v;
   }
 
+  function planVariant(code, n, ctx) {
+    const plan = ctx.PLAN || {};
+    const pend = ctx.PEND || [];
+    let v = (plan[keyOf(code, n)] || {}).variant || null;
+    for (const o of pend) if (o.code === code && o.slot === n) v = o.to ? (o.variant || null) : null;
+    return v;
+  }
+
   function planEntries(ctx) {
     const plan = ctx.PLAN || {};
     const pend = ctx.PEND || [];
@@ -61,7 +69,7 @@ const SSBU = (() => {
       const code = k.slice(0, i);
       const n = +k.slice(i + 1);
       const vid = planVid(code, n, ctx);
-      if (vid && byCode[code]) out.push({ code, n, vid });
+      if (vid && byCode[code]) out.push({ code, n, vid, variant: planVariant(code, n, ctx) });
     });
 
     const ord = Object.keys(byCode);
@@ -234,28 +242,41 @@ const SSBU = (() => {
     return { kind: 'use', label: 'Guardar propuesta', line, other: null };
   }
 
-  function assignBlock(entries, code, slot, vid) {
+  const sameLook = (e, vid, variant) =>
+    e.vid === vid && (!variant || !e.variant || e.variant === variant);
+
+  function assignBlock(entries, code, slot, vid, variant) {
     if (!validSlot(slot)) return { kind: 'bad-slot' };
-    const dup = (entries || []).find(e => e.code === code && e.vid === vid && e.n !== slot);
+
+    const dup = (entries || []).find(e => e.code === code && e.n !== slot && sameLook(e, vid, variant));
 
     if (dup) return { kind: 'duplicate', other: dup.n };
 
     const cur = (entries || []).find(e => e.code === code && e.n === slot);
 
-    if (cur && cur.vid === vid) return { kind: 'same' };
+    if (cur && cur.vid === vid && (cur.variant || null) === (variant || null)) return { kind: 'same' };
     if (cur) return { kind: 'replace', currentVid: cur.vid };
     return { kind: 'free' };
   }
 
-  function setOp(code, n, vid, prev) {
+  function setOp(code, n, vid, prev, variant, prevVariant) {
     if (!validSlot(n)) return null;
-    if (prev === vid) return null;
-    return { code, slot: n, to: vid, exp: prev, kind: 'set' };
+    if (prev === vid && (variant || null) === (prevVariant || null)) return null;
+
+    const op = { code, slot: n, to: vid, exp: prev, kind: 'set' };
+
+    if (variant) op.variant = variant;
+    op.expVariant = prevVariant || null;
+    return op;
   }
 
-  function clearOp(code, n, prev) {
+  function clearOp(code, n, prev, prevVariant) {
     if (!validSlot(n) || !prev) return null;
-    return { code, slot: n, to: null, exp: prev, kind: 'clear' };
+
+    const op = { code, slot: n, to: null, exp: prev, kind: 'clear' };
+
+    op.expVariant = prevVariant || null;
+    return op;
   }
 
   function withOp(pend, op) {
@@ -277,7 +298,7 @@ const SSBU = (() => {
 
   return {
     keyOf, norm, ONLINE, WIFI_KEYS, FILTER_KEYS, emptyCat, migrateCat, validSlot,
-    planVid, planEntries, isAlt, onlineOf, catList, initials, originalArt, curOf,
+    planVid, planVariant, planEntries, isAlt, onlineOf, catList, initials, originalArt, curOf,
     assignBlock, setOp, clearOp, withOp, stageChoice, seriesOf, seriesLabel, installFace,
   };
 })();

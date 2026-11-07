@@ -1,0 +1,55 @@
+{
+ "archives": [
+  {
+   "inspected": true,
+   "kind": "original",
+   "md5": "86afdc0cd30540e6d7260a67c4b80804",
+   "path": "original/numbah_6_with_extra.zip",
+   "shared_files": 4,
+   "shared_sample": [
+    "BigSmoke/config.json",
+    "BigSmoke/stream;/sound/bgm/bgm_z20_f_ganon.nus3audio",
+    "BigSmoke/ui/message/msg_name.xmsbt",
+    "BigSmoke/ui/param/database/ui_chara_db.prcx"
+   ],
+   "variants": [
+    {
+     "color": 0,
+     "content_sha256": "9dd6d27769bf88953702430662a8756c3a39256078bba102edca0c502a4a8e72",
+     "duplicate_of": null,
+     "files_count": 8,
+     "has_model": true,
+     "portrait": null,
+     "portrait_source": null,
+     "slot": "c00",
+     "variant_id": "23:447428:86afdc0c:c00"
+    },
+    {
+     "color": 2,
+     "content_sha256": "273f6d4bb01c938da8f01017e619c03b7bb54c6e42dadbf5b7aab56d342cc172",
+     "duplicate_of": null,
+     "files_count": 24,
+     "has_model": true,
+     "portrait": "6c6f204b4c24c36207278218492b3d814958aa1ed9c394586ba31044b267379f",
+     "portrait_source": "BigSmoke/ui/replace/chara/chara_0/chara_0_ganon_02.bntx",
+     "slot": "c02",
+     "variant_id": "23:447428:86afdc0c:c02"
+    },
+    {
+     "color": 3,
+     "content_sha256": "c08b657e7e97ebcce833d62b416b1c50224486671ab8ea0a0ea685945dd8dfd9",
+     "duplicate_of": null,
+     "files_count": 24,
+     "has_model": true,
+     "portrait": "f16b68b435b5b2d70fee224f5c97ffa8db7adc27bb6f605b5d7777aa3cc44579",
+     "portrait_source": "BigSmoke/ui/replace/chara/chara_0/chara_0_ganon_03.bntx",
+     "slot": "c03",
+     "variant_id": "23:447428:86afdc0c:c03"
+    }
+   ]
+  }
+ ],
+ "code": "23",
+ "folder": "ganondorf/447428_big_smoke",
+ "mod_id": 447428
+}

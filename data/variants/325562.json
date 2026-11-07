@@ -1,0 +1,49 @@
+{
+ "archives": [
+  {
+   "inspected": true,
+   "kind": "original",
+   "md5": "5ad7871abbcec20740dad76d842996c1",
+   "path": "original/1997_cloud_c00_even_slots_only_.zip",
+   "shared_files": 0,
+   "shared_sample": [],
+   "variants": [
+    {
+     "color": 0,
+     "content_sha256": "27483dbf8e93158fc5512f9d7716b101924844a7bbe1cafdb326ab7e7a214434",
+     "duplicate_of": null,
+     "files_count": 15,
+     "has_model": true,
+     "portrait": "5b3231ba5c30e2f4ceb7cb582a3273efbc43a69f4a85ab9770584170e228ffff",
+     "portrait_source": "1997 Cloud (even slots only)/ui/replace/chara/chara_0/chara_0_cloud_00.bntx",
+     "slot": "c00",
+     "variant_id": "61:325562:5ad7871a:c00"
+    }
+   ]
+  },
+  {
+   "inspected": true,
+   "kind": "original",
+   "md5": "6ef07f8d84d39bd3b48e65edff166e6f",
+   "path": "original/1997_cloud_c01_odd_slots_only_.zip",
+   "shared_files": 0,
+   "shared_sample": [],
+   "variants": [
+    {
+     "color": 1,
+     "content_sha256": "e53f677e4bfe6f1f8965ee94f4216f04abf38cb278495a01e9cd449900c7ce42",
+     "duplicate_of": null,
+     "files_count": 15,
+     "has_model": true,
+     "portrait": "b21739bb5d336124a67469623d931bf451df9be5eafd16b1a05f7cfcb8581cf8",
+     "portrait_source": "1997 Cloud (odd slots only)/ui/replace/chara/chara_0/chara_0_cloud_01.bntx",
+     "slot": "c01",
+     "variant_id": "61:325562:6ef07f8d:c01"
+    }
+   ]
+  }
+ ],
+ "code": "61",
+ "folder": "cloud/325562_1997_cloud",
+ "mod_id": 325562
+}

@@ -1,0 +1,397 @@
+{
+ "archives": [
+  {
+   "inspected": true,
+   "kind": "original",
+   "md5": "75e78d835c52481fd2e1fd9543825f1b",
+   "path": "original/--main--_one_slot_crash_bandicoot_61b9f.7z",
+   "shared_files": 27,
+   "shared_sample": [
+    "Include [Mods] as separate mod folders (readme).txt",
+    "[Mods] - Animations (not wifi safe pack)/info.toml",
+    "[Mods] - Animations (not wifi safe pack)/preview.webp",
+    "[Mods] - Animations (not wifi safe pack)/fighter/common/param/fighter_param.prcx",
+    "[Mods] - Crash Bandicoot (wifi safe pack)/config.json",
+    "[Mods] - Crash Bandicoot (wifi safe pack)/info.toml",
+    "[Mods] - Crash Bandicoot (wifi safe pack)/preview.webp",
+    "[Side folder] - Announcer voice clip wav format/How to use it.txt",
+    "[Side folder] - Announcer voice clip wav format/clip.wav",
+    "[Side folder] - Nameplate required files (wifi safe)/Include these as separate mod folders/Choose only slots you want to replace.txt"
+   ],
+   "variants": [
+    {
+     "color": 6,
+     "content_sha256": "7cd6c057ae304a3a3d361b0910b449e03c545a03b300294f5b1421d9d16a9e98",
+     "duplicate_of": null,
+     "files_count": 102,
+     "has_model": true,
+     "portrait": "53fba80dcf76ece1cad13fdb0b87d1bd6fa33f907d789cb04ae46a25584796da",
+     "portrait_source": "[Mods] - Crash Bandicoot (wifi safe pack)/ui/replace/chara/chara_0/chara_0_mariod_06.bntx",
+     "slot": "c06",
+     "variant_id": "18:390349:75e78d83:c06"
+    },
+    {
+     "color": 7,
+     "content_sha256": "4d26d14b066115483852b1f2899a85156d8b10ce430843e22f321b8d71241771",
+     "duplicate_of": null,
+     "files_count": 102,
+     "has_model": true,
+     "portrait": "3029476dc1ee69f77f117acb23381b0822bffcbcad11abfa2a95c9ce5c70df38",
+     "portrait_source": "[Mods] - Crash Bandicoot (wifi safe pack)/ui/replace/chara/chara_0/chara_0_mariod_07.bntx",
+     "slot": "c07",
+     "variant_id": "18:390349:75e78d83:c07"
+    }
+   ]
+  },
+  {
+   "inspected": true,
+   "kind": "original",
+   "md5": "b2aeabc65d57a13f6c008b6df40561b5",
+   "path": "original/--optional--_entrance_alt_anim.7z",
+   "shared_files": 1,
+   "shared_sample": [
+    "Simply drag that folder into the main mod folder.txt"
+   ],
+   "variants": [
+    {
+     "color": 0,
+     "content_sha256": "1e9a9de4fc7b0ba6743f2aa424e0acff1f21da5ede1e36a34f93d9014e75c2a4",
+     "duplicate_of": null,
+     "files_count": 1,
+     "has_model": false,
+     "portrait": null,
+     "portrait_source": null,
+     "slot": "c00",
+     "variant_id": "18:390349:b2aeabc6:c00"
+    }
+   ]
+  },
+  {
+   "inspected": true,
+   "kind": "original",
+   "md5": "5f7cb1151385f60986544ad80d369890",
+   "path": "original/--optional--_iat_crash_colors.7z",
+   "shared_files": 2,
+   "shared_sample": [
+    "Simply drag that folder into the main mod folder.txt",
+    "ui/replace/chara/chara_6/chara_6_mariod_01mod.bntx"
+   ],
+   "variants": [
+    {
+     "color": 0,
+     "content_sha256": "705eb6c974b21d754fc1cfb97eb7083455beef39a4b2dc8c84de9dc0b3f5f7ed",
+     "duplicate_of": null,
+     "files_count": 6,
+     "has_model": true,
+     "portrait": "f82b96762d3fa567ffce64300179e63f6e775d55de7ac07d2023b4686ef3789f",
+     "portrait_source": "ui/replace/chara/chara_0/chara_0_mariod_00.bntx",
+     "slot": "c00",
+     "variant_id": "18:390349:5f7cb115:c00"
+    }
+   ]
+  },
+  {
+   "inspected": true,
+   "kind": "original",
+   "md5": "a833e6e264b7dd2623f046924d082ff3",
+   "path": "original/--optional--_iat_warp_orb.7z",
+   "shared_files": 1,
+   "shared_sample": [
+    "Simply drag that folder into the main mod folder.txt"
+   ],
+   "variants": [
+    {
+     "color": 0,
+     "content_sha256": "01cc3585a7fd1993129a0bc902db43797cc0cd8de7187164fa523bb1a9597048",
+     "duplicate_of": null,
+     "files_count": 7,
+     "has_model": true,
+     "portrait": null,
+     "portrait_source": null,
+     "slot": "c00",
+     "variant_id": "18:390349:a833e6e2:c00"
+    },
+    {
+     "color": 1,
+     "content_sha256": "01cc3585a7fd1993129a0bc902db43797cc0cd8de7187164fa523bb1a9597048",
+     "duplicate_of": "c00",
+     "files_count": 7,
+     "has_model": true,
+     "portrait": null,
+     "portrait_source": null,
+     "slot": "c01",
+     "variant_id": "18:390349:a833e6e2:c01"
+    },
+    {
+     "color": 2,
+     "content_sha256": "01cc3585a7fd1993129a0bc902db43797cc0cd8de7187164fa523bb1a9597048",
+     "duplicate_of": "c00",
+     "files_count": 7,
+     "has_model": true,
+     "portrait": null,
+     "portrait_source": null,
+     "slot": "c02",
+     "variant_id": "18:390349:a833e6e2:c02"
+    },
+    {
+     "color": 3,
+     "content_sha256": "01cc3585a7fd1993129a0bc902db43797cc0cd8de7187164fa523bb1a9597048",
+     "duplicate_of": "c00",
+     "files_count": 7,
+     "has_model": true,
+     "portrait": null,
+     "portrait_source": null,
+     "slot": "c03",
+     "variant_id": "18:390349:a833e6e2:c03"
+    },
+    {
+     "color": 4,
+     "content_sha256": "01cc3585a7fd1993129a0bc902db43797cc0cd8de7187164fa523bb1a9597048",
+     "duplicate_of": "c00",
+     "files_count": 7,
+     "has_model": true,
+     "portrait": null,
+     "portrait_source": null,
+     "slot": "c04",
+     "variant_id": "18:390349:a833e6e2:c04"
+    },
+    {
+     "color": 5,
+     "content_sha256": "01cc3585a7fd1993129a0bc902db43797cc0cd8de7187164fa523bb1a9597048",
+     "duplicate_of": "c00",
+     "files_count": 7,
+     "has_model": true,
+     "portrait": null,
+     "portrait_source": null,
+     "slot": "c05",
+     "variant_id": "18:390349:a833e6e2:c05"
+    },
+    {
+     "color": 6,
+     "content_sha256": "01cc3585a7fd1993129a0bc902db43797cc0cd8de7187164fa523bb1a9597048",
+     "duplicate_of": "c00",
+     "files_count": 7,
+     "has_model": true,
+     "portrait": null,
+     "portrait_source": null,
+     "slot": "c06",
+     "variant_id": "18:390349:a833e6e2:c06"
+    },
+    {
+     "color": 7,
+     "content_sha256": "01cc3585a7fd1993129a0bc902db43797cc0cd8de7187164fa523bb1a9597048",
+     "duplicate_of": "c00",
+     "files_count": 7,
+     "has_model": true,
+     "portrait": null,
+     "portrait_source": null,
+     "slot": "c07",
+     "variant_id": "18:390349:a833e6e2:c07"
+    }
+   ]
+  },
+  {
+   "inspected": true,
+   "kind": "original",
+   "md5": "31e3373ab4ff805d3f17720db071eaad",
+   "path": "original/--optional--_nst_aku_aku.7z",
+   "shared_files": 1,
+   "shared_sample": [
+    "Simply drag that folder into the main mod folder.txt"
+   ],
+   "variants": [
+    {
+     "color": 0,
+     "content_sha256": "73acb6567719442fcd5c6f9a1cd9ac9fddab52227dce7172105b6ffce9541cb0",
+     "duplicate_of": null,
+     "files_count": 10,
+     "has_model": true,
+     "portrait": null,
+     "portrait_source": null,
+     "slot": "c00",
+     "variant_id": "18:390349:31e3373a:c00"
+    },
+    {
+     "color": 1,
+     "content_sha256": "73acb6567719442fcd5c6f9a1cd9ac9fddab52227dce7172105b6ffce9541cb0",
+     "duplicate_of": "c00",
+     "files_count": 10,
+     "has_model": true,
+     "portrait": null,
+     "portrait_source": null,
+     "slot": "c01",
+     "variant_id": "18:390349:31e3373a:c01"
+    },
+    {
+     "color": 2,
+     "content_sha256": "73acb6567719442fcd5c6f9a1cd9ac9fddab52227dce7172105b6ffce9541cb0",
+     "duplicate_of": "c00",
+     "files_count": 10,
+     "has_model": true,
+     "portrait": null,
+     "portrait_source": null,
+     "slot": "c02",
+     "variant_id": "18:390349:31e3373a:c02"
+    },
+    {
+     "color": 3,
+     "content_sha256": "73acb6567719442fcd5c6f9a1cd9ac9fddab52227dce7172105b6ffce9541cb0",
+     "duplicate_of": "c00",
+     "files_count": 10,
+     "has_model": true,
+     "portrait": null,
+     "portrait_source": null,
+     "slot": "c03",
+     "variant_id": "18:390349:31e3373a:c03"
+    },
+    {
+     "color": 4,
+     "content_sha256": "73acb6567719442fcd5c6f9a1cd9ac9fddab52227dce7172105b6ffce9541cb0",
+     "duplicate_of": "c00",
+     "files_count": 10,
+     "has_model": true,
+     "portrait": null,
+     "portrait_source": null,
+     "slot": "c04",
+     "variant_id": "18:390349:31e3373a:c04"
+    },
+    {
+     "color": 5,
+     "content_sha256": "73acb6567719442fcd5c6f9a1cd9ac9fddab52227dce7172105b6ffce9541cb0",
+     "duplicate_of": "c00",
+     "files_count": 10,
+     "has_model": true,
+     "portrait": null,
+     "portrait_source": null,
+     "slot": "c05",
+     "variant_id": "18:390349:31e3373a:c05"
+    },
+    {
+     "color": 6,
+     "content_sha256": "73acb6567719442fcd5c6f9a1cd9ac9fddab52227dce7172105b6ffce9541cb0",
+     "duplicate_of": "c00",
+     "files_count": 10,
+     "has_model": true,
+     "portrait": null,
+     "portrait_source": null,
+     "slot": "c06",
+     "variant_id": "18:390349:31e3373a:c06"
+    },
+    {
+     "color": 7,
+     "content_sha256": "73acb6567719442fcd5c6f9a1cd9ac9fddab52227dce7172105b6ffce9541cb0",
+     "duplicate_of": "c00",
+     "files_count": 10,
+     "has_model": true,
+     "portrait": null,
+     "portrait_source": null,
+     "slot": "c07",
+     "variant_id": "18:390349:31e3373a:c07"
+    }
+   ]
+  },
+  {
+   "inspected": true,
+   "kind": "original",
+   "md5": "eca6a2571b8cf1e82befd6f5813d6f06",
+   "path": "original/--optional--_silent_crash.7z",
+   "shared_files": 1,
+   "shared_sample": [
+    "Simply drag that folder into the main mod folder.txt"
+   ],
+   "variants": [
+    {
+     "color": 0,
+     "content_sha256": "647a185d49db7a241842007db33d3b316249353a4cf22a210ab9239d9bc27d12",
+     "duplicate_of": null,
+     "files_count": 1,
+     "has_model": false,
+     "portrait": null,
+     "portrait_source": null,
+     "slot": "c00",
+     "variant_id": "18:390349:eca6a257:c00"
+    },
+    {
+     "color": 1,
+     "content_sha256": "647a185d49db7a241842007db33d3b316249353a4cf22a210ab9239d9bc27d12",
+     "duplicate_of": "c00",
+     "files_count": 1,
+     "has_model": false,
+     "portrait": null,
+     "portrait_source": null,
+     "slot": "c01",
+     "variant_id": "18:390349:eca6a257:c01"
+    },
+    {
+     "color": 2,
+     "content_sha256": "647a185d49db7a241842007db33d3b316249353a4cf22a210ab9239d9bc27d12",
+     "duplicate_of": "c00",
+     "files_count": 1,
+     "has_model": false,
+     "portrait": null,
+     "portrait_source": null,
+     "slot": "c02",
+     "variant_id": "18:390349:eca6a257:c02"
+    },
+    {
+     "color": 3,
+     "content_sha256": "647a185d49db7a241842007db33d3b316249353a4cf22a210ab9239d9bc27d12",
+     "duplicate_of": "c00",
+     "files_count": 1,
+     "has_model": false,
+     "portrait": null,
+     "portrait_source": null,
+     "slot": "c03",
+     "variant_id": "18:390349:eca6a257:c03"
+    },
+    {
+     "color": 4,
+     "content_sha256": "647a185d49db7a241842007db33d3b316249353a4cf22a210ab9239d9bc27d12",
+     "duplicate_of": "c00",
+     "files_count": 1,
+     "has_model": false,
+     "portrait": null,
+     "portrait_source": null,
+     "slot": "c04",
+     "variant_id": "18:390349:eca6a257:c04"
+    },
+    {
+     "color": 5,
+     "content_sha256": "647a185d49db7a241842007db33d3b316249353a4cf22a210ab9239d9bc27d12",
+     "duplicate_of": "c00",
+     "files_count": 1,
+     "has_model": false,
+     "portrait": null,
+     "portrait_source": null,
+     "slot": "c05",
+     "variant_id": "18:390349:eca6a257:c05"
+    },
+    {
+     "color": 6,
+     "content_sha256": "647a185d49db7a241842007db33d3b316249353a4cf22a210ab9239d9bc27d12",
+     "duplicate_of": "c00",
+     "files_count": 1,
+     "has_model": false,
+     "portrait": null,
+     "portrait_source": null,
+     "slot": "c06",
+     "variant_id": "18:390349:eca6a257:c06"
+    },
+    {
+     "color": 7,
+     "content_sha256": "647a185d49db7a241842007db33d3b316249353a4cf22a210ab9239d9bc27d12",
+     "duplicate_of": "c00",
+     "files_count": 1,
+     "has_model": false,
+     "portrait": null,
+     "portrait_source": null,
+     "slot": "c07",
+     "variant_id": "18:390349:eca6a257:c07"
+    }
+   ]
+  }
+ ],
+ "code": "18",
+ "folder": "dr_mario/390349_Crash_Bandicoot_-_Definitive_Edition",
+ "mod_id": 390349
+}

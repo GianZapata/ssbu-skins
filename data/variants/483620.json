@@ -1,0 +1,39 @@
+{
+ "archives": [
+  {
+   "inspected": true,
+   "kind": "original",
+   "md5": "283fde278e47d8e1c8cf622422b8c18b",
+   "path": "original/hakusmash.7z",
+   "shared_files": 0,
+   "shared_sample": [],
+   "variants": [
+    {
+     "color": 1,
+     "content_sha256": "e994c33ebd14dabe383226930b0b4db6c14352f521ac946fdab14117bda06cda",
+     "duplicate_of": null,
+     "files_count": 21,
+     "has_model": true,
+     "portrait": "a516b96fd661b6ea0ce812f370874a6b85bbcc19993242110ea62973ac75bc19",
+     "portrait_source": "HakuSheik/ui/replace/chara/chara_0/chara_0_sheik_01.bntx",
+     "slot": "c01",
+     "variant_id": "16:483620:283fde27:c01"
+    },
+    {
+     "color": 2,
+     "content_sha256": "90dc14fe910e14fbdab3a76f6ad8cd736730973fa39c1d22b358fcde2ab23ada",
+     "duplicate_of": null,
+     "files_count": 17,
+     "has_model": true,
+     "portrait": "44c2b1ab0ce37b609e6b9a406e39904af5063811a5c99fb3e313c68d94c9c92d",
+     "portrait_source": "HakuSheik/ui/replace/chara/chara_0/chara_0_sheik_02.bntx",
+     "slot": "c02",
+     "variant_id": "16:483620:283fde27:c02"
+    }
+   ]
+  }
+ ],
+ "code": "16",
+ "folder": "sheik/483620_haku",
+ "mod_id": 483620
+}

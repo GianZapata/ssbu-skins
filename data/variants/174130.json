@@ -1,0 +1,105 @@
+{
+ "archives": [
+  {
+   "inspected": true,
+   "kind": "original",
+   "md5": "44c525199936b2769b3ba637c4f9672a",
+   "path": "original/smash_64_luigi_v3.zip",
+   "shared_files": 0,
+   "shared_sample": [],
+   "variants": [
+    {
+     "color": 0,
+     "content_sha256": "4241d045ab393a871bce0d16a2dafb5b4445d86b16cbc4e4b4a7d782757f2fff",
+     "duplicate_of": null,
+     "files_count": 54,
+     "has_model": true,
+     "portrait": "f341e7394f5314493a2b55bdf28967023eb98118c3d204494f02b7731eca7894",
+     "portrait_source": "Full/ui/replace/chara/chara_0/chara_0_luigi_00.bntx",
+     "slot": "c00",
+     "variant_id": "09:174130:44c52519:c00"
+    },
+    {
+     "color": 1,
+     "content_sha256": "feba0ca81bd1b7256a54b3968843364a15fe85cf6441b5b53b22cba69ea92e0e",
+     "duplicate_of": null,
+     "files_count": 26,
+     "has_model": true,
+     "portrait": "f06964f7f4a348cadbbd293cc72a24fbbd389c8e30e07284c7eddd07b5ef9bfd",
+     "portrait_source": "Full/ui/replace/chara/chara_0/chara_0_luigi_01.bntx",
+     "slot": "c01",
+     "variant_id": "09:174130:44c52519:c01"
+    },
+    {
+     "color": 2,
+     "content_sha256": "a8f5bcc64048b661fefcf605d57ae251c9c1cd541047eed4a9d2da7efc9c5c26",
+     "duplicate_of": null,
+     "files_count": 26,
+     "has_model": true,
+     "portrait": "d706e2ed15c542aa9cfc41ac6f75bcbc15a054f731d22e7b7bb16ade79059c22",
+     "portrait_source": "Full/ui/replace/chara/chara_0/chara_0_luigi_02.bntx",
+     "slot": "c02",
+     "variant_id": "09:174130:44c52519:c02"
+    },
+    {
+     "color": 3,
+     "content_sha256": "dabc09dcc4b9ea2701603956db7c5142041938498972b28df9b5b750a84a57e7",
+     "duplicate_of": null,
+     "files_count": 26,
+     "has_model": true,
+     "portrait": "7cf92103ca7473876c4f129a7bcbeee1e924ff3b97b1a4c2f5b66adfd711c8b1",
+     "portrait_source": "Full/ui/replace/chara/chara_0/chara_0_luigi_03.bntx",
+     "slot": "c03",
+     "variant_id": "09:174130:44c52519:c03"
+    },
+    {
+     "color": 4,
+     "content_sha256": "bd1338dcaad96be0e0299cfa336e543abe1e27604744f5d8c029820c98321dc4",
+     "duplicate_of": null,
+     "files_count": 26,
+     "has_model": true,
+     "portrait": "8516963ea41fec264cbd8ea7614d3bf46f3d3c7b4c490d44787ef02f5fe4fbee",
+     "portrait_source": "Full/ui/replace/chara/chara_0/chara_0_luigi_04.bntx",
+     "slot": "c04",
+     "variant_id": "09:174130:44c52519:c04"
+    },
+    {
+     "color": 5,
+     "content_sha256": "186b23ab871bef78ced958b8648d043f3a8ad228116cbe5d3813d59243f6c3d1",
+     "duplicate_of": null,
+     "files_count": 26,
+     "has_model": true,
+     "portrait": "fc5a9db00a41a5fb2550e5705b564e49a73976b262262a640b24365999f95a59",
+     "portrait_source": "Full/ui/replace/chara/chara_0/chara_0_luigi_05.bntx",
+     "slot": "c05",
+     "variant_id": "09:174130:44c52519:c05"
+    },
+    {
+     "color": 6,
+     "content_sha256": "814953b08cc70ea6ef6d4a7412389b70f88b4727c2cd737561ed2e129eab0bff",
+     "duplicate_of": null,
+     "files_count": 26,
+     "has_model": true,
+     "portrait": "10aebe98f48bbd3931146a52c9f92cec4c71faf5f97fc3c0bc871e8a8b64f7de",
+     "portrait_source": "Full/ui/replace/chara/chara_0/chara_0_luigi_06.bntx",
+     "slot": "c06",
+     "variant_id": "09:174130:44c52519:c06"
+    },
+    {
+     "color": 7,
+     "content_sha256": "51488f67ea14f79d3a0e2988eba66a55a35d521ae45b7d83b721c591a4564102",
+     "duplicate_of": null,
+     "files_count": 26,
+     "has_model": true,
+     "portrait": "08507aae48372b177107de422bc63c141d6f9e02ece2e01db411a2d1225ca497",
+     "portrait_source": "Full/ui/replace/chara/chara_0/chara_0_luigi_07.bntx",
+     "slot": "c07",
+     "variant_id": "09:174130:44c52519:c07"
+    }
+   ]
+  }
+ ],
+ "code": "09",
+ "folder": "luigi/174130_smash64_luigi",
+ "mod_id": 174130
+}

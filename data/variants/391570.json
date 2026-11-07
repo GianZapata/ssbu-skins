@@ -1,0 +1,72 @@
+{
+ "archives": [
+  {
+   "inspected": true,
+   "kind": "original",
+   "md5": "49639fb992b782f030acf7e65f559b9c",
+   "path": "original/luigi-c06_-_rayman_update_-_effects_8b55e.zip",
+   "shared_files": 1,
+   "shared_sample": [
+    "Luigi-C06 - Rayman/config.json"
+   ],
+   "variants": [
+    {
+     "color": 6,
+     "content_sha256": "bf3646f38b8e63b567d9851562f67fccb518a179b1669dcd1f62f63b7b447a27",
+     "duplicate_of": null,
+     "files_count": 23,
+     "has_model": true,
+     "portrait": "3ecdf50611279f8c4816c0fcb9e4cf6a565a6bd0efafdc83813c7542d4e1c52c",
+     "portrait_source": "Luigi-C06 - Rayman/ui/replace/chara/chara_0/chara_0_luigi_06.bntx",
+     "slot": "c06",
+     "variant_id": "09:391570:49639fb9:c06"
+    }
+   ]
+  },
+  {
+   "inspected": true,
+   "kind": "original",
+   "md5": "6da06dd0a0c4d82ba802efa9344d521a",
+   "path": "original/luigi-c07_-_rayman.zip",
+   "shared_files": 0,
+   "shared_sample": [],
+   "variants": [
+    {
+     "color": 7,
+     "content_sha256": "674ff694caa317f5e04a9a626049b14b015a93f7d2c3f1c4ec9cd0aee4304fab",
+     "duplicate_of": null,
+     "files_count": 30,
+     "has_model": true,
+     "portrait": "3ecdf50611279f8c4816c0fcb9e4cf6a565a6bd0efafdc83813c7542d4e1c52c",
+     "portrait_source": "Luigi-C07 - Rayman/ui/replace/chara/chara_0/chara_0_luigi_07.bntx",
+     "slot": "c07",
+     "variant_id": "09:391570:6da06dd0:c07"
+    }
+   ]
+  },
+  {
+   "inspected": true,
+   "kind": "original",
+   "md5": "3a91da2adea38bacb63100d7ff80e50d",
+   "path": "original/sound_1935f.zip",
+   "shared_files": 0,
+   "shared_sample": [],
+   "variants": [
+    {
+     "color": 7,
+     "content_sha256": "889ca11cfeafe7a93562053895e0a5c9bbd3bac0203a958aa38f5e859598fd2d",
+     "duplicate_of": null,
+     "files_count": 1,
+     "has_model": false,
+     "portrait": null,
+     "portrait_source": null,
+     "slot": "c07",
+     "variant_id": "09:391570:3a91da2a:c07"
+    }
+   ]
+  }
+ ],
+ "code": "09",
+ "folder": "luigi/391570_rayman_wiiu_trophy",
+ "mod_id": 391570
+}

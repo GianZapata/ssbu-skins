@@ -1,0 +1,211 @@
+{
+ "archives": [
+  {
+   "inspected": true,
+   "kind": "original",
+   "md5": "79b55920c0daf1a3ffb32dba519c05f7",
+   "path": "original/sm64_penguin_over_dr_mario.7z",
+   "shared_files": 3,
+   "shared_sample": [
+    "#SM64 Penguin over Dr. Mario/config.json",
+    "#SM64 Penguin over Dr. Mario/ui/message/msg_name.xmsbt",
+    "#SM64 Penguin over Dr. Mario/ui/param/database/ui_chara_db.prcxml"
+   ],
+   "variants": [
+    {
+     "color": 0,
+     "content_sha256": "6b967f5dd8fbaf189cf33720265f5214a7a506ee48fbac1e05a9c7c768c1ab9b",
+     "duplicate_of": null,
+     "files_count": 21,
+     "has_model": true,
+     "portrait": "57320f9be8afeaa4e3628787abef953b2986dcf2919b567b41e524ed16e32838",
+     "portrait_source": "#SM64 Penguin over Dr. Mario/ui/replace/chara/chara_0/chara_0_mariod_00.bntx",
+     "slot": "c00",
+     "variant_id": "18:681123:79b55920:c00"
+    },
+    {
+     "color": 1,
+     "content_sha256": "b7de880e5c3f2248a8630d415c361854cf5ad1330780c55728fa5e44f2af00df",
+     "duplicate_of": null,
+     "files_count": 19,
+     "has_model": true,
+     "portrait": "0d120dc02480385013d4a6a0b12aa82d3371f58587d07c756ad92a9907e63228",
+     "portrait_source": "#SM64 Penguin over Dr. Mario/ui/replace/chara/chara_0/chara_0_mariod_01.bntx",
+     "slot": "c01",
+     "variant_id": "18:681123:79b55920:c01"
+    },
+    {
+     "color": 2,
+     "content_sha256": "22f7203ce70cb0827257bbf1593d6a64d93abd74c204759473a61dbc8a240e06",
+     "duplicate_of": null,
+     "files_count": 19,
+     "has_model": true,
+     "portrait": "77c5fdea807c96141c2e3827584d1302b3237e0d15db378275c7766f710e1a53",
+     "portrait_source": "#SM64 Penguin over Dr. Mario/ui/replace/chara/chara_0/chara_0_mariod_02.bntx",
+     "slot": "c02",
+     "variant_id": "18:681123:79b55920:c02"
+    },
+    {
+     "color": 3,
+     "content_sha256": "f798254f86152018b2b25856cd77d3fb50643f308d5cc857156ca08d3c19525e",
+     "duplicate_of": null,
+     "files_count": 19,
+     "has_model": true,
+     "portrait": "f0fc4da3e811485c9e0ca33c493cb43f981797f3f359e7d3d20e549762a7f529",
+     "portrait_source": "#SM64 Penguin over Dr. Mario/ui/replace/chara/chara_0/chara_0_mariod_03.bntx",
+     "slot": "c03",
+     "variant_id": "18:681123:79b55920:c03"
+    },
+    {
+     "color": 4,
+     "content_sha256": "c522bb9dca8eee383e35fd9e17c499e2b45242889bb321a6f6a659acad891a4c",
+     "duplicate_of": null,
+     "files_count": 19,
+     "has_model": true,
+     "portrait": "a2744c9c301c93eba165aeb82fc3d03201ce87fc3473afbd35bc41138242069a",
+     "portrait_source": "#SM64 Penguin over Dr. Mario/ui/replace/chara/chara_0/chara_0_mariod_04.bntx",
+     "slot": "c04",
+     "variant_id": "18:681123:79b55920:c04"
+    },
+    {
+     "color": 5,
+     "content_sha256": "0b801d59da24178d45cac0bd78ef5fcceba2a01124ded43094ccfc99b8484b76",
+     "duplicate_of": null,
+     "files_count": 19,
+     "has_model": true,
+     "portrait": "6c62975f2f49d89b2ec6edfddbb12fba3091d87e22b674a05acfd87cd69f804a",
+     "portrait_source": "#SM64 Penguin over Dr. Mario/ui/replace/chara/chara_0/chara_0_mariod_05.bntx",
+     "slot": "c05",
+     "variant_id": "18:681123:79b55920:c05"
+    },
+    {
+     "color": 6,
+     "content_sha256": "da7e0b59ea07232073f865909cc9348a22d5d3b2b422f88adf6ad8f9268e1ab2",
+     "duplicate_of": null,
+     "files_count": 19,
+     "has_model": true,
+     "portrait": "d1eff647f98bea51ff149d129348cb445cabad1c79e62267f24b58ca3de0123f",
+     "portrait_source": "#SM64 Penguin over Dr. Mario/ui/replace/chara/chara_0/chara_0_mariod_06.bntx",
+     "slot": "c06",
+     "variant_id": "18:681123:79b55920:c06"
+    },
+    {
+     "color": 7,
+     "content_sha256": "7decb8af131ff4cb8f5347b360ebc55ec41b389dc48d411b5bfd97fb065fcb9e",
+     "duplicate_of": null,
+     "files_count": 19,
+     "has_model": true,
+     "portrait": "0effb46a36527ce2cc65d867a8cd6c99cfba114d10fe9fc1c682e3519b081ddf",
+     "portrait_source": "#SM64 Penguin over Dr. Mario/ui/replace/chara/chara_0/chara_0_mariod_07.bntx",
+     "slot": "c07",
+     "variant_id": "18:681123:79b55920:c07"
+    }
+   ]
+  },
+  {
+   "inspected": true,
+   "kind": "original",
+   "md5": "d8e47eed9085991fa98f93785de4e7ee",
+   "path": "original/sm64_penguin_over_dr_mario_c00-c07_.7z",
+   "shared_files": 3,
+   "shared_sample": [
+    "SM64 Penguin over Dr. Mario (c00-c07)/config.json",
+    "SM64 Penguin over Dr. Mario (c00-c07)/ui/message/msg_name.xmsbt",
+    "SM64 Penguin over Dr. Mario (c00-c07)/ui/param/database/ui_chara_db.prcxml"
+   ],
+   "variants": [
+    {
+     "color": 0,
+     "content_sha256": "ac7dbbe305b1044acf944e7c23bc6a0e29e3e04382ecab526c3e9ccc00f19f33",
+     "duplicate_of": null,
+     "files_count": 21,
+     "has_model": true,
+     "portrait": "57320f9be8afeaa4e3628787abef953b2986dcf2919b567b41e524ed16e32838",
+     "portrait_source": "SM64 Penguin over Dr. Mario (c00-c07)/ui/replace/chara/chara_0/chara_0_mariod_00.bntx",
+     "slot": "c00",
+     "variant_id": "18:681123:d8e47eed:c00"
+    },
+    {
+     "color": 1,
+     "content_sha256": "c960edfe510832fff6e0100017b4bc375685cec3f3c160e2b6c142a505ec914d",
+     "duplicate_of": null,
+     "files_count": 19,
+     "has_model": true,
+     "portrait": "0d120dc02480385013d4a6a0b12aa82d3371f58587d07c756ad92a9907e63228",
+     "portrait_source": "SM64 Penguin over Dr. Mario (c00-c07)/ui/replace/chara/chara_0/chara_0_mariod_01.bntx",
+     "slot": "c01",
+     "variant_id": "18:681123:d8e47eed:c01"
+    },
+    {
+     "color": 2,
+     "content_sha256": "c7ddaa22bc4f95689200da447e8b5b7878044cae278830579c2034c3c4031e15",
+     "duplicate_of": null,
+     "files_count": 19,
+     "has_model": true,
+     "portrait": "77c5fdea807c96141c2e3827584d1302b3237e0d15db378275c7766f710e1a53",
+     "portrait_source": "SM64 Penguin over Dr. Mario (c00-c07)/ui/replace/chara/chara_0/chara_0_mariod_02.bntx",
+     "slot": "c02",
+     "variant_id": "18:681123:d8e47eed:c02"
+    },
+    {
+     "color": 3,
+     "content_sha256": "5925a156aba5fed158de980c07bedf7d6c76c27371843d18940864e4ac9a5627",
+     "duplicate_of": null,
+     "files_count": 19,
+     "has_model": true,
+     "portrait": "f0fc4da3e811485c9e0ca33c493cb43f981797f3f359e7d3d20e549762a7f529",
+     "portrait_source": "SM64 Penguin over Dr. Mario (c00-c07)/ui/replace/chara/chara_0/chara_0_mariod_03.bntx",
+     "slot": "c03",
+     "variant_id": "18:681123:d8e47eed:c03"
+    },
+    {
+     "color": 4,
+     "content_sha256": "55c55e802dc7f3d7f6cad630dff41878054a2c4aa597a31f1881f6730a6b7594",
+     "duplicate_of": null,
+     "files_count": 19,
+     "has_model": true,
+     "portrait": "a2744c9c301c93eba165aeb82fc3d03201ce87fc3473afbd35bc41138242069a",
+     "portrait_source": "SM64 Penguin over Dr. Mario (c00-c07)/ui/replace/chara/chara_0/chara_0_mariod_04.bntx",
+     "slot": "c04",
+     "variant_id": "18:681123:d8e47eed:c04"
+    },
+    {
+     "color": 5,
+     "content_sha256": "2c614d4e3c88bf14408f08f726e95ccab5ba4681bb39b7054a7ec3e294f0ff10",
+     "duplicate_of": null,
+     "files_count": 19,
+     "has_model": true,
+     "portrait": "6c62975f2f49d89b2ec6edfddbb12fba3091d87e22b674a05acfd87cd69f804a",
+     "portrait_source": "SM64 Penguin over Dr. Mario (c00-c07)/ui/replace/chara/chara_0/chara_0_mariod_05.bntx",
+     "slot": "c05",
+     "variant_id": "18:681123:d8e47eed:c05"
+    },
+    {
+     "color": 6,
+     "content_sha256": "3c049e0253a20bc4db92f0b889c6084fb6ea75fe89bceddba6e53f8eba77776a",
+     "duplicate_of": null,
+     "files_count": 19,
+     "has_model": true,
+     "portrait": "d1eff647f98bea51ff149d129348cb445cabad1c79e62267f24b58ca3de0123f",
+     "portrait_source": "SM64 Penguin over Dr. Mario (c00-c07)/ui/replace/chara/chara_0/chara_0_mariod_06.bntx",
+     "slot": "c06",
+     "variant_id": "18:681123:d8e47eed:c06"
+    },
+    {
+     "color": 7,
+     "content_sha256": "ea3c60d4e3b8dcbb48165a2e5ad298494a3de1e6fc51a9efd73612b082d5ba10",
+     "duplicate_of": null,
+     "files_count": 19,
+     "has_model": true,
+     "portrait": "0effb46a36527ce2cc65d867a8cd6c99cfba114d10fe9fc1c682e3519b081ddf",
+     "portrait_source": "SM64 Penguin over Dr. Mario (c00-c07)/ui/replace/chara/chara_0/chara_0_mariod_07.bntx",
+     "slot": "c07",
+     "variant_id": "18:681123:d8e47eed:c07"
+    }
+   ]
+  }
+ ],
+ "code": "18",
+ "folder": "dr_mario/681123_SM64_Penguin_Over_Dr._Mario",
+ "mod_id": 681123
+}

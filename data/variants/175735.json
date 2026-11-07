@@ -1,0 +1,39 @@
+{
+ "archives": [
+  {
+   "inspected": true,
+   "kind": "original",
+   "md5": "1c4540df614285f057d5dae3e980f3a8",
+   "path": "original/trunks_brave.zip",
+   "shared_files": 0,
+   "shared_sample": [],
+   "variants": [
+    {
+     "color": 2,
+     "content_sha256": "3aa3c7f7cc20b2501b6f6fb11d4a1d841d7303d43c0be40bb69aacb74241e153",
+     "duplicate_of": null,
+     "files_count": 15,
+     "has_model": true,
+     "portrait": "38e98a2adadc193e636f643ce53403938aabb262c50d9d1585ca06d0d7070ea5",
+     "portrait_source": "Trunks_Brave/ui/replace_patch/chara/chara_0/chara_0_brave_02.bntx",
+     "slot": "c02",
+     "variant_id": "72:175735:1c4540df:c02"
+    },
+    {
+     "color": 6,
+     "content_sha256": "be7d14c6eb2312167b68a75dd3ccada6df5e5cd9c09ddfd6a62152abc8ddd9df",
+     "duplicate_of": null,
+     "files_count": 15,
+     "has_model": true,
+     "portrait": "1c0c8b1479e3f7af3fa8db268070754c5a3284f92ccb1e0ea0b859581ae53efb",
+     "portrait_source": "Trunks_Brave/ui/replace_patch/chara/chara_0/chara_0_brave_06.bntx",
+     "slot": "c06",
+     "variant_id": "72:175735:1c4540df:c06"
+    }
+   ]
+  }
+ ],
+ "code": "72",
+ "folder": "hero/175735_trunks",
+ "mod_id": 175735
+}

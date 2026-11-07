@@ -1,0 +1,61 @@
+{
+ "archives": [
+  {
+   "inspected": true,
+   "kind": "original",
+   "md5": "a7332bfb4df7c9f85fa1578f7460e22e",
+   "path": "original/crisis_core_cloud.7z",
+   "shared_files": 0,
+   "shared_sample": [],
+   "variants": [
+    {
+     "color": 0,
+     "content_sha256": "99b7908f647ef21fbc25a0a65dc617eb38653fd706af9558c6957d98b64c53da",
+     "duplicate_of": null,
+     "files_count": 42,
+     "has_model": true,
+     "portrait": "5adfe4d3107523aaee43f02f0a744471bb15f4932754a9cc350c15fcb959bfdb",
+     "portrait_source": "Crisis Core Cloud/ui/replace/chara/chara_0/chara_0_cloud_00.bntx",
+     "slot": "c00",
+     "variant_id": "61:175324:a7332bfb:c00"
+    },
+    {
+     "color": 2,
+     "content_sha256": "38e0dc5ee514e8d172644dd0f1de643f73b5840f65df8053525050979aacc57a",
+     "duplicate_of": null,
+     "files_count": 39,
+     "has_model": true,
+     "portrait": "4dbfbb59259486aab0edd45eafc8398da5a199e268b0a4e1a27f5d726d23774f",
+     "portrait_source": "Crisis Core Cloud/ui/replace/chara/chara_0/chara_0_cloud_02.bntx",
+     "slot": "c02",
+     "variant_id": "61:175324:a7332bfb:c02"
+    },
+    {
+     "color": 4,
+     "content_sha256": "8e3d5cd3d2df6a09a130221f683bd2bb7e5c072ec8a6ffe0f820ac9eae6df8e9",
+     "duplicate_of": null,
+     "files_count": 39,
+     "has_model": true,
+     "portrait": "9e4230f146ddeee35b0c323e847eb0b74022dad507941e2b2dd23c209c5f1ba0",
+     "portrait_source": "Crisis Core Cloud/ui/replace/chara/chara_0/chara_0_cloud_04.bntx",
+     "slot": "c04",
+     "variant_id": "61:175324:a7332bfb:c04"
+    },
+    {
+     "color": 6,
+     "content_sha256": "02c9afb2500fe2d1c0d12690e610d37aa2c0599239aec637b62519ca53d1f3d7",
+     "duplicate_of": null,
+     "files_count": 39,
+     "has_model": true,
+     "portrait": "a733cd40514610d704142c382a1e36d47deffffeace7018b90c631dafb4df8d5",
+     "portrait_source": "Crisis Core Cloud/ui/replace/chara/chara_0/chara_0_cloud_06.bntx",
+     "slot": "c06",
+     "variant_id": "61:175324:a7332bfb:c06"
+    }
+   ]
+  }
+ ],
+ "code": "61",
+ "folder": "cloud/175324_crisis_core_cloud",
+ "mod_id": 175324
+}

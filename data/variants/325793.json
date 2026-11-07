@@ -1,0 +1,61 @@
+{
+ "archives": [
+  {
+   "inspected": true,
+   "kind": "original",
+   "md5": "624d94e8e73510dc8133ad387ac4c0b8",
+   "path": "original/wario_man_22c27.zip",
+   "shared_files": 0,
+   "shared_sample": [],
+   "variants": [
+    {
+     "color": 0,
+     "content_sha256": "79fd0f20334c96bf8e78454ed13071a6da62ac92570fea43de0dd88a017993a4",
+     "duplicate_of": null,
+     "files_count": 17,
+     "has_model": true,
+     "portrait": "74b77e2b8e63ae497a1dc7b790e67d5ce2bc732d72b939c506acf79af1eb2910",
+     "portrait_source": "ui/replace/chara/chara_0/chara_0_wario_00.bntx",
+     "slot": "c00",
+     "variant_id": "30:325793:624d94e8:c00"
+    },
+    {
+     "color": 2,
+     "content_sha256": "ef187ec66a01c06968cb9cada0a275660143239d8ecc13092b046c48af75d8c2",
+     "duplicate_of": null,
+     "files_count": 15,
+     "has_model": true,
+     "portrait": "1d7a5fd85f469e12ae1d87ff808278af116028ddd05185f504a81da202a98bb0",
+     "portrait_source": "ui/replace/chara/chara_0/chara_0_wario_02.bntx",
+     "slot": "c02",
+     "variant_id": "30:325793:624d94e8:c02"
+    },
+    {
+     "color": 4,
+     "content_sha256": "2ae93745064f3ef035eef0213975eadef1eccf9ade496cc313c836e274e06b4f",
+     "duplicate_of": null,
+     "files_count": 15,
+     "has_model": true,
+     "portrait": "7dd70c37571b034b498bf9b7ed6ecb80d0e7176f6975e0aac9f34c06314c3907",
+     "portrait_source": "ui/replace/chara/chara_0/chara_0_wario_04.bntx",
+     "slot": "c04",
+     "variant_id": "30:325793:624d94e8:c04"
+    },
+    {
+     "color": 6,
+     "content_sha256": "240d3246fa9a4e2ba3c4048bbe0503b1f0130f2e4e6ee9a2cc86f46721cac284",
+     "duplicate_of": null,
+     "files_count": 15,
+     "has_model": true,
+     "portrait": "dadc953a83cabe42eb3ca5d577911b79fa2f9837a7098f90071e6dc816fa71fb",
+     "portrait_source": "ui/replace/chara/chara_0/chara_0_wario_06.bntx",
+     "slot": "c06",
+     "variant_id": "30:325793:624d94e8:c06"
+    }
+   ]
+  }
+ ],
+ "code": "30",
+ "folder": "wario/325793_wario_man",
+ "mod_id": 325793
+}

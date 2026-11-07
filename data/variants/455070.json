@@ -1,0 +1,49 @@
+{
+ "archives": [
+  {
+   "inspected": true,
+   "kind": "original",
+   "md5": "210b221d965535bbaa79ec55168741b8",
+   "path": "original/wario_-_ugandan_knuckles_sonic_alt_c05_.zip",
+   "shared_files": 0,
+   "shared_sample": [],
+   "variants": [
+    {
+     "color": 5,
+     "content_sha256": "0be5e57ac7c4ce09ee0b67e7aaa690a62aa53a988de8f6d2287682ce34fa7aaa",
+     "duplicate_of": null,
+     "files_count": 63,
+     "has_model": true,
+     "portrait": "e3a37c703cc9037d3d81096a26a325c7ff94422fa1926072678514767144837e",
+     "portrait_source": "Wario - Ugandan Knuckles Sonic Alt (c05)/ui/replace/chara/chara_0/chara_0_wario_05.bntx",
+     "slot": "c05",
+     "variant_id": "30:455070:210b221d:c05"
+    }
+   ]
+  },
+  {
+   "inspected": true,
+   "kind": "original",
+   "md5": "fcab05eb84eaa788ce603b1d3b03dd14",
+   "path": "original/wario_c03_-_ugandan_knuckles_0e241.zip",
+   "shared_files": 0,
+   "shared_sample": [],
+   "variants": [
+    {
+     "color": 3,
+     "content_sha256": "48bdcc2b4bedce2ff9be84f76b3ad7a3363d35d64b289aab04aa31e5d222f8b9",
+     "duplicate_of": null,
+     "files_count": 63,
+     "has_model": true,
+     "portrait": "aab3a6d99e543b1e1d70475a0eb78427eefc068732046ecfe737ef7d1e19cceb",
+     "portrait_source": "Wario c03 - Ugandan Knuckles/ui/replace/chara/chara_0/chara_0_wario_03.bntx",
+     "slot": "c03",
+     "variant_id": "30:455070:fcab05eb:c03"
+    }
+   ]
+  }
+ ],
+ "code": "30",
+ "folder": "wario/455070_ugandan_knuckles",
+ "mod_id": 455070
+}

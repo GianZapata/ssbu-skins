@@ -1,0 +1,50 @@
+{
+ "archives": [
+  {
+   "inspected": true,
+   "kind": "original",
+   "md5": "f440945d1519d944c303a6253d144bc0",
+   "path": "original/darth_luigi.zip",
+   "shared_files": 11,
+   "shared_sample": [
+    "Darth Luigi/config.json",
+    "Darth Luigi/Fighter/edge/trail/tex_edge_sword1.nutexb",
+    "Darth Luigi/Fighter/edge/trail/tex_edge_sword2.nutexb",
+    "Darth Luigi/Fighter/edge/trail/tex_edge_sword3.nutexb",
+    "Darth Luigi/Fighter/edge/trail/tex_edge_sword4.nutexb",
+    "Darth Luigi/sound/bank/narration/vc_narration_characall_edge.nus3audio",
+    "Darth Luigi/stream;/sound/bgm/bgm_zz05_f_edge.nus3audio",
+    "Darth Luigi/stream;/sound/bgm/bgm_zz05_f_edge.nus3bank",
+    "Darth Luigi/ui/message/msg_name.xmsbt",
+    "Darth Luigi/ui/param/database/ui_chara_db.prcxml"
+   ],
+   "variants": [
+    {
+     "color": 0,
+     "content_sha256": "e3271dcbb2fbf73f837f621ed40d911c9d4b14f8cf26267735b8b67bef9999bd",
+     "duplicate_of": null,
+     "files_count": 1,
+     "has_model": false,
+     "portrait": null,
+     "portrait_source": null,
+     "slot": "c00",
+     "variant_id": "78:592795:f440945d:c00"
+    },
+    {
+     "color": 1,
+     "content_sha256": "da3efc9203f2a2b628c4b769d51fddff90a9ce2d2322f01a78c84142075b53c9",
+     "duplicate_of": null,
+     "files_count": 43,
+     "has_model": true,
+     "portrait": "48702015413da74ed6977de670750975eb55c600119eddc440ec23477603469e",
+     "portrait_source": "Darth Luigi/ui/replace_patch/chara/chara_0/chara_0_edge_01.bntx",
+     "slot": "c01",
+     "variant_id": "78:592795:f440945d:c01"
+    }
+   ]
+  }
+ ],
+ "code": "78",
+ "folder": "sephiroth/592795_darth_luigi",
+ "mod_id": 592795
+}

@@ -1,0 +1,107 @@
+{
+ "archives": [
+  {
+   "inspected": true,
+   "kind": "original",
+   "md5": "c176e8b5ae32f53cb71156b78951b631",
+   "path": "original/super_mario_64_mario_super_smash_br_50376.zip",
+   "shared_files": 1,
+   "shared_sample": [
+    "Custom Audio/Victory Theme/bgm_z01_f_mario.nus3audio"
+   ],
+   "variants": [
+    {
+     "color": 0,
+     "content_sha256": "d2543cda239057d844ce8df49607765152d887ac75d1192862970a24ca16ae71",
+     "duplicate_of": null,
+     "files_count": 63,
+     "has_model": true,
+     "portrait": "b8fae53006aeb9a904665f273c1f9fab19a995b06dd8942bf2f7f8215f8ef238",
+     "portrait_source": "UI Elements/chara_0/chara_0_mario_00.bntx",
+     "slot": "c00",
+     "variant_id": "01:294695:c176e8b5:c00"
+    },
+    {
+     "color": 1,
+     "content_sha256": "074578f20716698866ab4b4b2a3d4ef2d5306342915ca2d2f3b333da477c9265",
+     "duplicate_of": null,
+     "files_count": 35,
+     "has_model": true,
+     "portrait": "87890e709f462e997286f184a338d68a869ea8d107a168e699f87dd7713ffdc6",
+     "portrait_source": "UI Elements/chara_0/chara_0_mario_01.bntx",
+     "slot": "c01",
+     "variant_id": "01:294695:c176e8b5:c01"
+    },
+    {
+     "color": 2,
+     "content_sha256": "e0312116d5ddc1ca524e780b43e48cb9539d3e3790ad8dc179f74e6462fdd8a2",
+     "duplicate_of": null,
+     "files_count": 35,
+     "has_model": true,
+     "portrait": "c10be95813b0addf4107aa64a2e19d46e2ec5a3a36682ca2d48c37234d6432bd",
+     "portrait_source": "UI Elements/chara_0/chara_0_mario_02.bntx",
+     "slot": "c02",
+     "variant_id": "01:294695:c176e8b5:c02"
+    },
+    {
+     "color": 3,
+     "content_sha256": "2a99cee2cdbe1762d7adfe8f260058677675e2580e69d422508747dfc76953f8",
+     "duplicate_of": null,
+     "files_count": 35,
+     "has_model": true,
+     "portrait": "a474f08e03946c96ef9223b38556c82b80bb25c9b0f17de913f32f87e047412b",
+     "portrait_source": "UI Elements/chara_0/chara_0_mario_03.bntx",
+     "slot": "c03",
+     "variant_id": "01:294695:c176e8b5:c03"
+    },
+    {
+     "color": 4,
+     "content_sha256": "fd5ebfc01fddce88b399820ba214892c8a16d8263fd234321a8fc6be6d142b83",
+     "duplicate_of": null,
+     "files_count": 35,
+     "has_model": true,
+     "portrait": "39a9140d854dc89e349992af2400bb0b2094314ccd3f3fa7bddedae90899d3db",
+     "portrait_source": "UI Elements/chara_0/chara_0_mario_04.bntx",
+     "slot": "c04",
+     "variant_id": "01:294695:c176e8b5:c04"
+    },
+    {
+     "color": 5,
+     "content_sha256": "a01d2803e3ad05b4f6177326d395b071e795024def1f2fee49b96a2fc1ae6232",
+     "duplicate_of": null,
+     "files_count": 35,
+     "has_model": true,
+     "portrait": "c9ea9378e552dcaf329bfca07a92bf4e6980c13590433f27572a6c80586497d7",
+     "portrait_source": "UI Elements/chara_0/chara_0_mario_05.bntx",
+     "slot": "c05",
+     "variant_id": "01:294695:c176e8b5:c05"
+    },
+    {
+     "color": 6,
+     "content_sha256": "39adbc6b3ecc2a81414eae27d64d931c677c315e2b755f32c51be8a4bbfd1a32",
+     "duplicate_of": null,
+     "files_count": 38,
+     "has_model": true,
+     "portrait": "a18294c9d4743bcb3a556e781adeded6b8137228bc4fa02e19e30cc24954848b",
+     "portrait_source": "UI Elements/chara_0/chara_0_mario_06.bntx",
+     "slot": "c06",
+     "variant_id": "01:294695:c176e8b5:c06"
+    },
+    {
+     "color": 7,
+     "content_sha256": "db140b92c91f8ec0022a7eb440814d607976c303900cca78bbf7ca165a8fff29",
+     "duplicate_of": null,
+     "files_count": 38,
+     "has_model": true,
+     "portrait": "667f5e6457444f0c2df0724380df6293f63a243ff52bc534420b944c58c2f452",
+     "portrait_source": "UI Elements/chara_0/chara_0_mario_07.bntx",
+     "slot": "c07",
+     "variant_id": "01:294695:c176e8b5:c07"
+    }
+   ]
+  }
+ ],
+ "code": "01",
+ "folder": "mario/294695_sm64_mario",
+ "mod_id": 294695
+}

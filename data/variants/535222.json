@@ -1,0 +1,42 @@
+{
+ "archives": [
+  {
+   "inspected": true,
+   "kind": "original",
+   "md5": "c9904ffb93cc434e7a2b06aaaef64812",
+   "path": "original/aerith_c00_c01.rar",
+   "shared_files": 2,
+   "shared_sample": [
+    "aerith_c00_c01/Zelda Aerith c00/config.json",
+    "aerith_c00_c01/Zelda Aerith c01/config.json"
+   ],
+   "variants": [
+    {
+     "color": 0,
+     "content_sha256": "fbe99fd653afa10283dc3530816cdeeb696081160d04d5feca6bda528809c93b",
+     "duplicate_of": null,
+     "files_count": 71,
+     "has_model": true,
+     "portrait": "df50cdd02ba67e5aec9bb4ca76be73cb153edd7747bd44e59121227ecbff35d6",
+     "portrait_source": "aerith_c00_c01/Zelda Aerith c00/ui/replace/chara/chara_1/chara_1_zelda_00.bntx",
+     "slot": "c00",
+     "variant_id": "17:535222:c9904ffb:c00"
+    },
+    {
+     "color": 1,
+     "content_sha256": "2d014285915a59e0a416355cd22f3aaaa04a948f3b3fac00553671ed2a14f9f4",
+     "duplicate_of": null,
+     "files_count": 68,
+     "has_model": true,
+     "portrait": "336d0c8ee34ed9b69604d33fba5af2cf615ae527ebd7ab654095a91477ceb7de",
+     "portrait_source": "aerith_c00_c01/Zelda Aerith c01/ui/replace/chara/chara_1/chara_1_zelda_01.bntx",
+     "slot": "c01",
+     "variant_id": "17:535222:c9904ffb:c01"
+    }
+   ]
+  }
+ ],
+ "code": "17",
+ "folder": "zelda/535222_aerith_gainsborough_final_fantasy_vii",
+ "mod_id": 535222
+}

@@ -1,0 +1,61 @@
+{
+ "archives": [
+  {
+   "inspected": true,
+   "kind": "original",
+   "md5": "0e6b3e9456fbe20670ea6216a4b3a877",
+   "path": "original/curious_george_c04_steroid_edition.rar",
+   "shared_files": 8,
+   "shared_sample": [
+    "CURIOUS GEORGE (c04)/ui/message/msg_name.xmsbt",
+    "CURIOUS GEORGE (c04)/ui/param/database/ui_chara_db.prcxml",
+    "CURIOUS GEORGE (c04)/ui/replace/chara/chara_0_donkey_00.png",
+    "CURIOUS GEORGE (c04)/ui/replace/chara/chara_1_donkey_00.png",
+    "CURIOUS GEORGE (c04)/ui/replace/chara/chara_2_donkey_00.png",
+    "CURIOUS GEORGE (c04)/ui/replace/chara/chara_3_donkey_00.png",
+    "CURIOUS GEORGE (c04)/ui/replace/chara/chara_4_donkey_00.png",
+    "CURIOUS GEORGE (c04)/ui/replace/chara/chara_6_donkey_00.png"
+   ],
+   "variants": [
+    {
+     "color": 4,
+     "content_sha256": "c675692bf9596a373fb154fe2c649f7d74b466a1f0ad0e7ad3936290a7b02be0",
+     "duplicate_of": null,
+     "files_count": 39,
+     "has_model": true,
+     "portrait": "8a050c1a025e9902ddef192ff9c5d150055bd5bfefd61bf3c113d76267db7321",
+     "portrait_source": "CURIOUS GEORGE (c04)/ui/replace/chara/chara_0/chara_0_donkey_04.bntx",
+     "slot": "c04",
+     "variant_id": "36:471006:0e6b3e94:c04"
+    }
+   ]
+  },
+  {
+   "inspected": true,
+   "kind": "original",
+   "md5": "6e31b2778a4d584ae9294a5631f1cd02",
+   "path": "original/curious_george_diddy_kong_edition_c07_.rar",
+   "shared_files": 2,
+   "shared_sample": [
+    "CURIOUS GEORGE (Diddy Kong Edition) (c07)/ui/message/msg_name.xmsbt",
+    "CURIOUS GEORGE (Diddy Kong Edition) (c07)/ui/param/database/ui_chara_db.prcx"
+   ],
+   "variants": [
+    {
+     "color": 7,
+     "content_sha256": "7cc8717b933049639a5c4a78b562e123e18d115404e470f19aff4684b5cef90f",
+     "duplicate_of": null,
+     "files_count": 78,
+     "has_model": true,
+     "portrait": "3be20e3f1f30aaf1eead83c04be0bbe5bffbe70da367376eb006b95c2906f41c",
+     "portrait_source": "CURIOUS GEORGE (Diddy Kong Edition) (c07)/ui/replace/chara/chara_0/chara_0_diddy_07.bntx",
+     "slot": "c07",
+     "variant_id": "36:471006:6e31b277:c07"
+    }
+   ]
+  }
+ ],
+ "code": "36",
+ "folder": "diddy/471006_CURIOUS_GEORGE",
+ "mod_id": 471006
+}

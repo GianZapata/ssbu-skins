@@ -1,0 +1,39 @@
+{
+ "archives": [
+  {
+   "inspected": true,
+   "kind": "original",
+   "md5": "30db77ad35460c3bcc552369ecfbf57b",
+   "path": "original/lego_batman.rar",
+   "shared_files": 0,
+   "shared_sample": [],
+   "variants": [
+    {
+     "color": 0,
+     "content_sha256": "8614b322845c3aa767f5ffb43d62811b6c52be2d7d684ac63436b9192b219801",
+     "duplicate_of": null,
+     "files_count": 16,
+     "has_model": true,
+     "portrait": "d5b450619cae64cf3ddbcee340d24c3c6b4a2d6a6496b0c92e83fea2c372370a",
+     "portrait_source": "Lego Batman/ui/replace_patch/chara/chara_1/chara_1_pickel_00.bntx",
+     "slot": "c00",
+     "variant_id": "77:579591:30db77ad:c00"
+    },
+    {
+     "color": 1,
+     "content_sha256": "0b67e9b2725bd2ed117476498358b422c813dfef750962fde6a7cd5b3dd88639",
+     "duplicate_of": null,
+     "files_count": 7,
+     "has_model": true,
+     "portrait": null,
+     "portrait_source": null,
+     "slot": "c01",
+     "variant_id": "77:579591:30db77ad:c01"
+    }
+   ]
+  }
+ ],
+ "code": "77",
+ "folder": "steve/579591_lego_batman",
+ "mod_id": 579591
+}

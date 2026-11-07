@@ -1,0 +1,116 @@
+{
+ "archives": [
+  {
+   "inspected": true,
+   "kind": "original",
+   "md5": "b7b50aa001459ccf0232a6ed9f17b9a6",
+   "path": "original/kermit_over_marth_c00-c07__8168c.rar",
+   "shared_files": 15,
+   "shared_sample": [
+    "Kermit over Marth (c00-c07)/Preview.webp",
+    "Kermit over Marth (c00-c07)/info.toml",
+    "Kermit over Marth (c00-c07)/effect/fighter/marth/ef_marth.eff",
+    "Kermit over Marth (c00-c07)/effect/fighter/marth/trail/tex_marth_sword1.nutexb",
+    "Kermit over Marth (c00-c07)/effect/fighter/marth/trail/tex_marth_sword2.nutexb",
+    "Kermit over Marth (c00-c07)/effect/fighter/marth/trail/texmarthcombihi.nutexb",
+    "Kermit over Marth (c00-c07)/effect/fighter/marth/trail/texmarthcombihiadd.nutexb",
+    "Kermit over Marth (c00-c07)/effect/fighter/marth/trail/texmarthcombilow.nutexb",
+    "Kermit over Marth (c00-c07)/effect/fighter/marth/trail/texmarthcombilowadd.nutexb",
+    "Kermit over Marth (c00-c07)/effect/fighter/marth/trail/texmarthcombimid.nutexb"
+   ],
+   "variants": [
+    {
+     "color": 0,
+     "content_sha256": "e00430ebed256a1535a5609bb6e9dbdb7a5df0dc42a74e18565264eb67e36d3e",
+     "duplicate_of": null,
+     "files_count": 17,
+     "has_model": true,
+     "portrait": "155c901c4254945fbb6a000c8759b65dae83076cdce2f997b8e52a3c5e51babf",
+     "portrait_source": "Kermit over Marth (c00-c07)/ui/replace/chara/chara_0/chara_0_marth_00.bntx",
+     "slot": "c00",
+     "variant_id": "21:504236:b7b50aa0:c00"
+    },
+    {
+     "color": 1,
+     "content_sha256": "351dda8583be4b504b7af050c69f9986663f1d0cb39bed7b9c3bf6c03a35b967",
+     "duplicate_of": null,
+     "files_count": 16,
+     "has_model": true,
+     "portrait": "0ca76fe67adbd666fd1c3db2f5a66365369abad11a161baacf306042cff8b189",
+     "portrait_source": "Kermit over Marth (c00-c07)/ui/replace/chara/chara_0/chara_0_marth_01.bntx",
+     "slot": "c01",
+     "variant_id": "21:504236:b7b50aa0:c01"
+    },
+    {
+     "color": 2,
+     "content_sha256": "cf706aff372281c2a7d3d2951bdadcb8fabc5ee11adb8e826768fe6da83f5985",
+     "duplicate_of": null,
+     "files_count": 16,
+     "has_model": true,
+     "portrait": "30e56924661b7925c5a314f43ed37e3e728370ea07b15270011e32e65ec42219",
+     "portrait_source": "Kermit over Marth (c00-c07)/ui/replace/chara/chara_0/chara_0_marth_02.bntx",
+     "slot": "c02",
+     "variant_id": "21:504236:b7b50aa0:c02"
+    },
+    {
+     "color": 3,
+     "content_sha256": "720277af72c3a4c331ef0f27c28bde50d58f683562335d2a9229b947fe46fc8e",
+     "duplicate_of": null,
+     "files_count": 16,
+     "has_model": true,
+     "portrait": "c4f99a78b0f3abebec3b2dc3db545276076eed08f29257c141b20b19f69f8bcd",
+     "portrait_source": "Kermit over Marth (c00-c07)/ui/replace/chara/chara_0/chara_0_marth_03.bntx",
+     "slot": "c03",
+     "variant_id": "21:504236:b7b50aa0:c03"
+    },
+    {
+     "color": 4,
+     "content_sha256": "89d7fdca7390946afc1348c07bf9391a05e5c02623b245c18b66fa80908ab718",
+     "duplicate_of": null,
+     "files_count": 16,
+     "has_model": true,
+     "portrait": "94fcf75208eb3d228afe561644e14e33114858b2fc5996d44c9ad3441de18c44",
+     "portrait_source": "Kermit over Marth (c00-c07)/ui/replace/chara/chara_0/chara_0_marth_04.bntx",
+     "slot": "c04",
+     "variant_id": "21:504236:b7b50aa0:c04"
+    },
+    {
+     "color": 5,
+     "content_sha256": "d14f072758ca57a79fead4daa0732bee0857a6142c3e2a3e196693e5c7efb587",
+     "duplicate_of": null,
+     "files_count": 16,
+     "has_model": true,
+     "portrait": "513fcdbfc5e0ee637926d099677c68061e4d8b1b220c20a0a1eac53025305bff",
+     "portrait_source": "Kermit over Marth (c00-c07)/ui/replace/chara/chara_0/chara_0_marth_05.bntx",
+     "slot": "c05",
+     "variant_id": "21:504236:b7b50aa0:c05"
+    },
+    {
+     "color": 6,
+     "content_sha256": "282f91882bc0ffe5a505c833b094e39e44ffbd5f15e06a184c5057d2f5196bd8",
+     "duplicate_of": null,
+     "files_count": 16,
+     "has_model": true,
+     "portrait": "ea973ae49f15e5ecf1ba146c62ca30a6015c037de651085348bd8708cbcc3ab8",
+     "portrait_source": "Kermit over Marth (c00-c07)/ui/replace/chara/chara_0/chara_0_marth_06.bntx",
+     "slot": "c06",
+     "variant_id": "21:504236:b7b50aa0:c06"
+    },
+    {
+     "color": 7,
+     "content_sha256": "46d29b98734a26c7940903c031a2c8b7609d9ab02b8c7ac67878124b9cad4cc2",
+     "duplicate_of": null,
+     "files_count": 16,
+     "has_model": true,
+     "portrait": "ae945d59ecf2b9f104fd2c41e81b3139c9e4188a0394035d2c6a83b5022ae51a",
+     "portrait_source": "Kermit over Marth (c00-c07)/ui/replace/chara/chara_0/chara_0_marth_07.bntx",
+     "slot": "c07",
+     "variant_id": "21:504236:b7b50aa0:c07"
+    }
+   ]
+  }
+ ],
+ "code": "21",
+ "folder": "marth/504236_Kermit_the_Frog_(Mirrorverse)",
+ "mod_id": 504236
+}

@@ -1,0 +1,46 @@
+{
+ "archives": [
+  {
+   "inspected": true,
+   "kind": "original",
+   "md5": "0494f7d05190e59d6121b14d53084d40",
+   "path": "original/zabuza.zip",
+   "shared_files": 6,
+   "shared_sample": [
+    "aZabuza/config.json",
+    "aZabuza/effect/fighter/cloud/trail_c01/tex_cloud_sword1.nutexb",
+    "aZabuza/effect/fighter/cloud/trail_c01/tex_cloud_sword1_purple.nutexb",
+    "aZabuza/effect/fighter/cloud/trail_c01/tex_cloud_sword1_red.nutexb",
+    "aZabuza/effect/fighter/cloud/trail_c01/tex_cloud_sword1_yellow.nutexb",
+    "aZabuza/effect/fighter/cloud/trail_c01/tex_cloud_sword3.nutexb"
+   ],
+   "variants": [
+    {
+     "color": 0,
+     "content_sha256": "ce0b870acd893cd58cf4bbb040a299abd389493cce969eab159c91274ccca9ac",
+     "duplicate_of": null,
+     "files_count": 39,
+     "has_model": true,
+     "portrait": null,
+     "portrait_source": null,
+     "slot": "c00",
+     "variant_id": "61:398823:0494f7d0:c00"
+    },
+    {
+     "color": 1,
+     "content_sha256": "9325a01c8a0eb40750f465935931ed80bbec5db6e4824dfbae8eba0175527ec4",
+     "duplicate_of": null,
+     "files_count": 31,
+     "has_model": true,
+     "portrait": "96743a1738127a95d959ebf411993e5b59177388a58b9eddd3c5db2d809ba0f6",
+     "portrait_source": "aZabuza/ui/replace/chara/chara_0/chara_0_cloud_01.bntx",
+     "slot": "c01",
+     "variant_id": "61:398823:0494f7d0:c01"
+    }
+   ]
+  }
+ ],
+ "code": "61",
+ "folder": "cloud/398823_zabuza_momochi (1)",
+ "mod_id": 398823
+}

@@ -1,0 +1,82 @@
+{
+ "archives": [
+  {
+   "inspected": true,
+   "kind": "original",
+   "md5": "8f5dcbbf635e4a8600032d720c08214c",
+   "path": "original/moar_krabs_c04.zip",
+   "shared_files": 0,
+   "shared_sample": [],
+   "variants": [
+    {
+     "color": 4,
+     "content_sha256": "5fe4974025f60942356c51ce2d3e8ac05aa4acc298407534df710ca8bae0fc43",
+     "duplicate_of": null,
+     "files_count": 38,
+     "has_model": true,
+     "portrait": "7a0b315b15ad3dde0e0d3e3f13c071f4ad3ad4ad428788da18ee5689ee73a83b",
+     "portrait_source": "Moar Krabs c04/ui/replace/chara/chara_0/chara_0_wario_04.bntx",
+     "slot": "c04",
+     "variant_id": "30:376188:8f5dcbbf:c04"
+    }
+   ]
+  },
+  {
+   "inspected": true,
+   "kind": "original",
+   "md5": "53be11680b8230277fffb5848f44a8f5",
+   "path": "original/mr_krabs_final_smash_moar_krabs.zip",
+   "shared_files": 0,
+   "shared_sample": [],
+   "variants": [
+    {
+     "color": 1,
+     "content_sha256": "d7ea0080c61aaca7223b651ab92c5c849dd003f753071729fc982462b0b4df3e",
+     "duplicate_of": null,
+     "files_count": 17,
+     "has_model": true,
+     "portrait": null,
+     "portrait_source": null,
+     "slot": "c01",
+     "variant_id": "30:376188:53be1168:c01"
+    },
+    {
+     "color": 3,
+     "content_sha256": "d7ea0080c61aaca7223b651ab92c5c849dd003f753071729fc982462b0b4df3e",
+     "duplicate_of": "c01",
+     "files_count": 17,
+     "has_model": true,
+     "portrait": null,
+     "portrait_source": null,
+     "slot": "c03",
+     "variant_id": "30:376188:53be1168:c03"
+    },
+    {
+     "color": 5,
+     "content_sha256": "d7ea0080c61aaca7223b651ab92c5c849dd003f753071729fc982462b0b4df3e",
+     "duplicate_of": "c01",
+     "files_count": 17,
+     "has_model": true,
+     "portrait": null,
+     "portrait_source": null,
+     "slot": "c05",
+     "variant_id": "30:376188:53be1168:c05"
+    },
+    {
+     "color": 7,
+     "content_sha256": "d7ea0080c61aaca7223b651ab92c5c849dd003f753071729fc982462b0b4df3e",
+     "duplicate_of": "c01",
+     "files_count": 17,
+     "has_model": true,
+     "portrait": null,
+     "portrait_source": null,
+     "slot": "c07",
+     "variant_id": "30:376188:53be1168:c07"
+    }
+   ]
+  }
+ ],
+ "code": "30",
+ "folder": "wario/376188_moar_krabs",
+ "mod_id": 376188
+}
