@@ -85,6 +85,49 @@ class Revision(unittest.TestCase):
         r = subprocess.run([sys.executable, os.path.join(R, 'tools', 'review_plan.py'), '--source', 'file', f.name, '--strict'], capture_output=True, text=True)
         os.unlink(f.name); self.assertEqual(r.returncode, 0, r.stderr); self.assertIn('Revisión del plan', r.stdout); self.assertIn('Traje 3', r.stdout)
 
+    def test_cruzar_de_familia_es_error_por_native_y_por_variante(self):
+        cloud = next(f for f in F if f['code'] == '61')
+        cloud_even = next(p for p in cloud['picks'] if not p['withdrawn'] and p['native'] and set(p['native']) <= {0, 2, 4, 6} and len(p['native']) < 4)
+        it_err, g_err = rp.review([{'code': '61', 'slot': 1, 'vid': cloud_even['vid']}], [], F, INV)
+        self.assertTrue(any('cruza de familia de colores' in m for m in msgs(it_err, g_err, 'ERROR')))
+        self.assertFalse(any('moverlo de slot' in m for m in msgs(it_err, g_err, 'AVISO')))
+        target_same = next(s for s in (0, 2, 4, 6) if s not in cloud_even['native'])
+        it_warn, g_warn = rp.review([{'code': '61', 'slot': target_same, 'vid': cloud_even['vid']}], [], F, INV)
+        self.assertFalse(any('cruza de familia' in m for m in msgs(it_warn, g_warn, 'ERROR')))
+        self.assertTrue(any('moverlo de slot' in m for m in msgs(it_warn, g_warn, 'AVISO')))
+        any_cloud = next(p for p in cloud['picks'] if not p['withdrawn'])
+        it_var, g_var = rp.review([{'code': '61', 'slot': 2, 'vid': any_cloud['vid'], 'variant': f"{any_cloud['vid']}:aaeedf35:c01"}], [], F, INV)
+        self.assertTrue(any('cruza de familia de colores' in m for m in msgs(it_var, g_var, 'ERROR')))
+        it_ok, g_ok = rp.review([{'code': '61', 'slot': 3, 'vid': any_cloud['vid'], 'variant': f"{any_cloud['vid']}:aaeedf35:c01"}], [], F, INV)
+        self.assertFalse(any('cruza de familia' in m for m in msgs(it_ok, g_ok, 'ERROR')))
+        self.assertTrue(any('dentro de su familia' in m for m in msgs(it_ok, g_ok, 'AVISO')))
+        self.assertEqual(len([m for m in msgs(it_var, g_var, 'ERROR') if 'no corresponde' in m]), 0)
+    def test_sin_slots_nativos_es_info_y_no_bloquea_por_familia(self):
+        f, p = next((f, p) for f, p in PICKS if not p['withdrawn'] and not f['mii'] and not p['native'] and p['slots_orig'] in (None, '', 'sin especificar'))
+        it, g = rp.review([{'code': f['code'], 'slot': 1, 'vid': p['vid']}], [], F, INV)
+        self.assertFalse(any('cruza de familia' in m for m in msgs(it, g, 'ERROR')))
+        self.assertTrue(any('no indica sus slots originales' in m for m in msgs(it, g, 'INFO')))
+    def test_cli_source_file_conserva_variant_y_detecta_cruce_de_familia(self):
+        any_cloud = next(p for p in next(f for f in F if f['code'] == '61')['picks'] if not p['withdrawn'])
+        payload = {'inventory': {'version': INV['meta']['version']}, 'history': [], 'changes': [
+            {'roster_no': '61', 'traje': 2, 'vid': any_cloud['vid'], 'variant': f"{any_cloud['vid']}:aaeedf35:c01"},
+            {'roster_no': '61', 'traje': 4, 'vid': any_cloud['vid'], 'variant': f"{any_cloud['vid']}:aaeedf35:c03"}]}
+        cmd = lambda path: [sys.executable, os.path.join(R, 'tools', 'review_plan.py'), '--source', 'file', path, '--strict']
+        with tempfile.NamedTemporaryFile('w', suffix='.json', delete=False) as f:
+            json.dump(payload, f)
+        try:
+            ok_run = subprocess.run(cmd(f.name), capture_output=True, text=True)
+            payload['changes'][0]['traje'] = 3
+            with open(f.name, 'w', encoding='utf-8') as f2:
+                json.dump(payload, f2)
+            bad_run = subprocess.run(cmd(f.name), capture_output=True, text=True)
+        finally:
+            os.unlink(f.name)
+        self.assertEqual(ok_run.returncode, 0, ok_run.stdout + ok_run.stderr)
+        self.assertIn('2 variantes distintas', ok_run.stdout)
+        self.assertEqual(bad_run.returncode, 1)
+        self.assertIn('cruza de familia de colores', bad_run.stdout)
+
     def test_sin_argumentos_revisa_el_plan_de_git(self):
         r = subprocess.run([sys.executable, os.path.join(R, 'tools', 'review_plan.py')], capture_output=True, text=True)
         self.assertEqual(r.returncode, 0, r.stderr)

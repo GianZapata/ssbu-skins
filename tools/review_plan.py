@@ -78,7 +78,15 @@ def slot_now(inv, code, n):
     s = (((inv or {}).get('fighters') or {}).get(code) or {}).get('slots', {}).get(str(n)) or {}
     return s
 
-def review(changes, history, fighters, inv, plan_inv_version=None):
+def compatible_slots(code, origin_slots, families):
+    groups = (families or {}).get(code) or [list(range(8))]
+    if not origin_slots:
+        return list(range(8))
+    return sorted({slot for group in groups if any(orig in group for orig in origin_slots) for slot in group})
+
+def review(changes, history, fighters, inv, plan_inv_version=None, families=None):
+    if families is None:
+        families = cd._jload('families.json') or {}
     by_code = {f['code']: f for f in fighters}; idx = {p['vid']: (f, p) for f in fighters for p in f['picks']}
     items, F = [], []   # items: un registro por cambio; F: hallazgos globales
     def add(lst, sev, msg): lst.append({'sev': sev, 'msg': msg})
@@ -109,10 +117,26 @@ def review(changes, history, fighters, inv, plan_inv_version=None):
         if s.get('staged'):
             st = s['staged']; add(N, 'INFO', f'ya hay una skin preparada en una rama del ModPack ({st.get("name") or "sin nombre"}, rama {(st.get("branch") or "").split("/")[-1]}): se pisarían')
         it['current'] = cur
-        # reubicación
-        if p['native'] and n not in p['native']:
-            add(N, 'AVISO', f'el mod trae trajes para {", ".join("c0%d" % k for k in p["native"])}; ponerlo en c0{n} exige moverlo de slot (nadie ha comprobado que se pueda)')
-        elif not p['native'] and p['slots_orig'] in (None, '', 'sin especificar'):
+        # variante elegida y familia de colores
+        valid_variant = False
+        if chosen_variant:
+            if not chosen_variant.startswith(vid + ':') or not re.search(r':[0-9a-f]{8}:c0[0-7]$', chosen_variant):
+                add(N, 'ERROR', f'la variante elegida no corresponde a esta apariencia: {chosen_variant}')
+            else:
+                valid_variant = True
+        origin_slots = [int(chosen_variant[-2:])] if valid_variant else list(p['native'] or [])
+        if origin_slots:
+            compat = compatible_slots(code, origin_slots, families)
+            if 0 <= n <= 7 and n not in compat:
+                orig_txt = ', '.join(f'c{k:02d}' for k in origin_slots)
+                compat_txt = ', '.join(f'c{k:02d}' for k in compat)
+                add(N, 'ERROR', f'cruza de familia de colores: origen {orig_txt} solo es compatible con {compat_txt}, no con c{n:02d}')
+            elif n not in origin_slots:
+                if valid_variant:
+                    add(N, 'AVISO', f'la variante viene de c{origin_slots[0]:02d}; ponerla en c{n:02d} exige moverla de slot dentro de su familia')
+                else:
+                    add(N, 'AVISO', f'el mod trae trajes para {", ".join("c0%d" % k for k in p["native"])}; ponerlo en c0{n} exige moverlo de slot (nadie ha comprobado que se pueda)')
+        elif p['slots_orig'] in (None, '', 'sin especificar'):
             add(N, 'INFO', 'el catálogo no indica sus slots originales')
         if p['dest'] and p['dest'] != f'c0{n}' and not isinstance(p['dest'], int):
             add(N, 'INFO', f'el auditor sugería {p["dest"]}; tu elección (c0{n}) manda')
@@ -126,11 +150,8 @@ def review(changes, history, fighters, inv, plan_inv_version=None):
         for x in conf: add(N, 'AVISO', 'conflicto anotado: ' + x[:200])
         if p['pack']: add(N, 'INFO', f'es un paquete compartido con {", ".join(p["pack"]["with"])}: las fotos muestran todo el paquete')
         if p['variant']: add(N, 'INFO', f'variante concreta: {p["variant"]}')
-        if chosen_variant:
-            if not chosen_variant.startswith(vid + ':') or not re.search(r':[0-9a-f]{8}:c0[0-7]$', chosen_variant):
-                add(N, 'ERROR', f'la variante elegida no corresponde a esta apariencia: {chosen_variant}')
-            else:
-                add(N, 'INFO', f'apariencia elegida: {chosen_variant} (color de origen {chosen_variant[-3:]}, destino c{n:02d})')
+        if valid_variant:
+            add(N, 'INFO', f'apariencia elegida: {chosen_variant} (color de origen {chosen_variant[-3:]}, destino c{n:02d})')
         if p['console_test'] and 'pendiente' in p['console_test']: add(N, 'INFO', 'sin prueba en consola; compatibilidad 13.0.5 sin verificar')
         items.append(it)
     # globales
@@ -193,16 +214,21 @@ def main():
     a = ap.parse_args()
     fighters, cmeta = cd.load(); inv = cd.load_inventory(fighters); ver = None
     missing = []
+    def _rows(ch):
+        return [
+            {'code': c['code'], 'slot': int(c['slot']), 'vid': c['vid'], **({'variant': c['variant']} if c.get('variant') else {})}
+            for c in ch if c.get('vid')
+        ]
     if a.source == 'file':
         if not a.file: ap.error('indica el archivo de la exportación')
         ch, hi, ver = read_file(a.file)
-        changes = [{'code': c['code'], 'slot': int(c['slot']), 'vid': c['vid']} for c in ch if c.get('vid')]
+        changes = _rows(ch)
     elif a.source == 'admin':
         ch, hi = read_admin()
-        changes = [{'code': c['code'], 'slot': int(c['slot']), 'vid': c['vid']} for c in ch if c.get('vid')]
+        changes = _rows(ch)
     elif a.source == 'changes':
         pid = (cd.load_firebase() or {}).get('projectId'); ch, hi = read_rest(pid, a.rest_base)
-        changes = [{'code': c['code'], 'slot': int(c['slot']), 'vid': c['vid']} for c in ch if c.get('vid')]
+        changes = _rows(ch)
     else:
         changes, missing = from_git(); hi = []
     items, F = review(changes, hi, fighters, inv, ver)
