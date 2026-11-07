@@ -182,3 +182,61 @@ test('replacing one variant with another of the same mod preserves the chosen va
   assert.equal(conflicted, true);
   assert.equal(h.state.planVariant('82', 0), 'A:11111111:c05');
 });
+
+function variantHarness({ remote, op }) {
+  const h = harness({ current: 'A', readAt: 1, commitAt: 2 });
+  let conflicted = false;
+  h.state.conflict = () => { conflicted = true; };
+  h.resolveReadFrom(remote && { code: '82', slot: 0, by: 'other', at: timestamp(1), ...remote });
+  h.state.PEND = [{ code: '82', slot: 0, ...op }];
+  return { h, conflicted: () => conflicted };
+}
+
+test('a clear carrying expVariant conflicts when the remote variant changed', async () => {
+  const { h, conflicted } = variantHarness({
+    remote: { vid: 'A', variant: 'A:11111111:c05' },
+    op: { to: null, exp: 'A', expVariant: 'A:11111111:c00', kind: 'clear' },
+  });
+  await h.flush();
+  assert.equal(conflicted(), true);
+  assert.equal(h.state.planVariant('82', 0), 'A:11111111:c05');
+});
+
+test('an op that saw no variant conflicts when the remote now has one', async () => {
+  const { h, conflicted } = variantHarness({
+    remote: { vid: 'A', variant: 'A:11111111:c05' },
+    op: { to: 'B', exp: 'A', expVariant: null, kind: 'set' },
+  });
+  await h.flush();
+  assert.equal(conflicted(), true);
+  assert.equal(h.state.planVariant('82', 0), 'A:11111111:c05');
+});
+
+test('a legacy op without the expVariant key still flushes against a remote with a variant', async () => {
+  const { h, conflicted } = variantHarness({
+    remote: { vid: 'A', variant: 'A:11111111:c05' },
+    op: { to: 'B', exp: 'A', kind: 'set' },
+  });
+  await h.flush();
+  assert.equal(conflicted(), false);
+  acknowledged(h, 'B');
+});
+
+test('an op equal to the remote vid and variant is a noop', async () => {
+  const writes = [];
+  const { h, conflicted } = variantHarness({
+    remote: { vid: 'A', variant: 'A:11111111:c03' },
+    op: { to: 'A', exp: 'A', expVariant: 'A:11111111:c00', variant: 'A:11111111:c03', kind: 'set' },
+  });
+  const original = h.state.fb;
+  h.state.fb = async () => {
+    const api = await original();
+    const run = api.runTransaction;
+    api.runTransaction = (db, callback) => run(db, tx => callback({ ...tx, set: (...args) => writes.push(args), delete: (...args) => writes.push(args) }));
+    return api;
+  };
+  await h.flush();
+  assert.equal(conflicted(), false);
+  assert.equal(writes.length, 0);
+  acknowledged(h, 'A');
+});

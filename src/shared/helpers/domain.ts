@@ -49,6 +49,14 @@ const SSBU = (() => {
     return v;
   }
 
+  function planVariant(code, n, ctx) {
+    const plan = ctx.PLAN || {};
+    const pend = ctx.PEND || [];
+    let v = (plan[keyOf(code, n)] || {}).variant || null;
+    for (const o of pend) if (o.code === code && o.slot === n) v = o.to ? (o.variant || null) : null;
+    return v;
+  }
+
   function planEntries(ctx) {
     const plan = ctx.PLAN || {};
     const pend = ctx.PEND || [];
@@ -61,7 +69,7 @@ const SSBU = (() => {
       const code = k.slice(0, i);
       const n = +k.slice(i + 1);
       const vid = planVid(code, n, ctx);
-      if (vid && byCode[code]) out.push({ code, n, vid });
+      if (vid && byCode[code]) out.push({ code, n, vid, variant: planVariant(code, n, ctx) });
     });
 
     const ord = Object.keys(byCode);
@@ -258,7 +266,7 @@ const SSBU = (() => {
     const op = { code, slot: n, to: vid, exp: prev, kind: 'set' };
 
     if (variant) op.variant = variant;
-    if (prevVariant) op.expVariant = prevVariant;
+    op.expVariant = prevVariant || null;
     return op;
   }
 
@@ -267,7 +275,7 @@ const SSBU = (() => {
 
     const op = { code, slot: n, to: null, exp: prev, kind: 'clear' };
 
-    if (prevVariant) op.expVariant = prevVariant;
+    op.expVariant = prevVariant || null;
     return op;
   }
 
@@ -290,7 +298,7 @@ const SSBU = (() => {
 
   return {
     keyOf, norm, ONLINE, WIFI_KEYS, FILTER_KEYS, emptyCat, migrateCat, validSlot,
-    planVid, planEntries, isAlt, onlineOf, catList, initials, originalArt, curOf,
+    planVid, planVariant, planEntries, isAlt, onlineOf, catList, initials, originalArt, curOf,
     assignBlock, setOp, clearOp, withOp, stageChoice, seriesOf, seriesLabel, installFace,
   };
 })();

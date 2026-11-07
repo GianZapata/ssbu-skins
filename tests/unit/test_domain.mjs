@@ -259,4 +259,13 @@ test('variantes de un mismo mod: se pueden poner en trajes distintos, no repetir
   const cl = SSBU.clearOp('01', 0, '01:a', '01:a:aaaaaaaa:c03');
   assert.equal(cl.expVariant, '01:a:aaaaaaaa:c03');
   assert.equal('variant' in SSBU.setOp('01', 1, '01:b', null), false);
+  const bare = SSBU.setOp('01', 1, '01:b', null);
+  assert.equal('expVariant' in bare, true);
+  assert.equal(bare.expVariant, null);
+  const bareClear = SSBU.clearOp('01', 1, '01:b');
+  assert.equal('expVariant' in bareClear, true);
+  assert.equal(bareClear.expVariant, null);
+  const withVariant = [{ code: '01', n: 0, vid: '01:a' }];
+  assert.equal(SSBU.assignBlock(withVariant, '01', 1, '01:a', '01:a:aaaaaaaa:c03').kind, 'duplicate');
+  assert.equal(SSBU.assignBlock(withVariant, '01', 1, '01:a', '01:a:aaaaaaaa:c03').other, 0);
 });
