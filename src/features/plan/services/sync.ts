@@ -99,6 +99,7 @@ function mergeChanges(m,changes){
 
  return m}
 let PEND=namedOps(J('ssbu_pend3',[]));
+const droppedPend=(J('ssbu_pend3',[])||[]).length-PEND.length;
 savePend();
 let HIST = []
 let STATUS = {}
@@ -243,6 +244,9 @@ function classify(e){const t=String(e&&(e.code||'')+' '+(e&&e.message||'')+' '+(
  return 'other'}
 function diag(where,e,extra){const k=classify(e),d={t:Date.now(),where,kind:k,code:(e&&(e.code||e.name))||'',msg:String(e&&e.message||e||'').slice(0,220),online:navigator.onLine,pend:PEND.length,project:FBCFG&&FBCFG.projectId,...extra};
  DIAG.unshift(d);DIAG.length=Math.min(DIAG.length,12);LS('ssbu_diag',JSON.stringify(DIAG));try{console.warn('[ssbu-sync] '+JSON.stringify(d))}catch(_){}return k}
+
+if(droppedPend>0)diag('cola descartada',new Error('operaciones sin persona'),{dropped:droppedPend});
+
 window.__ssbuDiag=()=>({state:dbState,syncKind,pend:PEND.length,lastOk:lastOk,online:navigator.onLine,project:FBCFG&&FBCFG.projectId,errors:DIAG});
 function syncInfo(){const n=PEND.length;
  if(syncKind==='service')return ['err',n?'No se pudo guardar ('+n+')':'Servicio no disponible'];

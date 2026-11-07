@@ -88,13 +88,21 @@ const commitProposal = (person: PersonName, code: string, slot: number, vid: str
 }
 
 /** El botón del escenario guarda. La cuadrícula no llama aquí. Sin persona elegida abre la hoja y guarda al elegir. */
-export const proposeAt = (code: string, slot: number, vid: string, variant: string | null = null): boolean => {
+export const proposeAt = (
+  code: string,
+  slot: number,
+  vid: string,
+  variant: string | null = null,
+  onSaved?: () => void,
+): boolean => {
   if (!SSBU.validSlot(slot)) return false
 
   let saved = false
 
   const hasPerson = requirePerson((person) => {
     saved = commitProposal(person, code, slot, vid, variant)
+
+    if (saved && onSaved) onSaved()
   })
 
   if (!hasPerson) return false
@@ -102,11 +110,12 @@ export const proposeAt = (code: string, slot: number, vid: string, variant: stri
   return saved
 }
 
-/** Solo deshace la propuesta de la persona activa; las de otras personas y las antiguas no se tocan. */
-export const clearAt = (code: string, slot: number): boolean => {
+/** Solo deshace la propuesta de la persona activa (o de `author`, si sigue activa); las de otras personas y las antiguas no se tocan. */
+export const clearAt = (code: string, slot: number, author?: PersonName | null): boolean => {
   const person = getPerson() as PersonName | null
 
   if (!person) return false
+  if (author !== undefined && author !== person) return false
 
   const prev = ownVid(code, slot) as string | null
   const prevVariant = ownVariant(code, slot) as string | null

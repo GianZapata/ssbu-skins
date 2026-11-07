@@ -519,8 +519,6 @@ html { -webkit-tap-highlight-color: color-mix(in srgb, var(--color-pend) 20%, tr
 }
 
 .sheet__note { margin: 0; color: var(--tx-mu); font-size: 14px; line-height: 20px; }
-.srow__ask { flex: none; display: flex; flex-wrap: wrap; align-items: center; justify-content: flex-end; gap: 4px 8px; max-width: 56%; padding: 8px; font-size: 14px; line-height: 20px; }
-.srow__ask .q-btn { min-height: 44px; }
 
 /* ============================ Luchadores: filas con sus 8 trajes ============================ */
 .roster-tools { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; position: static; padding-bottom: 4px; }
