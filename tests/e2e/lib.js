@@ -51,12 +51,32 @@ async function wipe() {
   await fetch('http://127.0.0.1:8080/emulator/v1/projects/ssbu-441b1/databases/(default)/documents', { method: 'DELETE' });
   await fetch('http://127.0.0.1:9099/emulator/v1/projects/ssbu-441b1/accounts', { method: 'DELETE' });
 }
-// recorrido completo por la interfaz: traje → alternativa → «Usar en Traje N»
+// recorrido completo por la interfaz: traje → alternativa compatible → «Reemplazar»
 async function pick(p, base, code, n, name) {
-  await p.goto(base + '#/luchador/' + code + '/' + (n + 1)); await p.waitForSelector('[data-skin]');
-  if (name) await p.locator('.card', { hasText: name }).locator('[data-skin]').click();
-  else await p.evaluate(() => { const used = new Set(planEntries().filter(e => e.code === RT.code).map(e => e.vid)); const b = [...document.querySelectorAll('[data-skin]')].find(x => !used.has(x.dataset.skin)); b.click(); });
-  await p.waitForSelector('[data-act="use"], [data-act="replace"]'); await p.locator('[data-act="use"], [data-act="replace"]').first().click();
+  await p.goto(base + '#/luchador/' + code + '/' + (n + 1));
+  await p.waitForSelector('[data-skin]');
+  if (name) {
+    await p.locator('.card', { hasText: name }).locator('[data-skin]').click();
+  } else {
+    await p.evaluate(async (slot) => {
+      const alts = await fetch('/drive-alts.json').then(r => (r.ok ? r.json() : []), () => []);
+      const used = new Set(planEntries().filter(e => e.code === RT.code).map(e => e.vid));
+      const b = [...document.querySelectorAll('[data-skin]')].find(x => {
+        const vid = x.dataset.skin;
+        if (used.has(vid)) return false;
+        const skin = idx[vid] && idx[vid].p;
+        const alt = alts.find(a => a.code === RT.code && (a.vid === vid || a.mod_id === String(skin && skin.id))) || null;
+        const matchVar = alt && Array.isArray(alt.variants) && alt.variants.length
+          ? (alt.variants.find(v => v.slot === slot + 1) || alt.variants[0])
+          : null;
+        const source = SSBU.sourceSlotsOf({ variant: matchVar ? matchVar.id : null, alt, skin });
+        return SSBU.compatibleSlots(RT.code, source).includes(slot);
+      });
+      b.click();
+    }, n);
+  }
+  await p.waitForSelector('[data-act="replace"]');
+  await p.locator('[data-act="replace"]').first().click();
   await p.waitForSelector('[data-act="clear"]');
 }
 const done = () => { console.log(`\n${passes} correctas, ${fails} fallos`); return fails; };

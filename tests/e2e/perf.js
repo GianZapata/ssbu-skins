@@ -20,7 +20,7 @@ const measure = async (page, url, ready) => {
 };
 
 module.exports = async (b, base) => {
-  for (const [name, hash, ready] of [['Luchadores', '#/luchadores', '.rrow'], ['Luchador con un traje', '#/luchador/01/3', '.cmp']]) {
+  for (const [name, hash, ready] of [['Entrada inicial (redirección)', '#/luchadores', '.costume-strip'], ['Luchador directo', '#/luchador/01/3', '.costume-strip']]) {
     const page = await mk(b, { w: 390, h: 844 });
     const vitals = await measure(page, base + hash, ready);
     ok(vitals.lcp > 0 && vitals.lcp <= LCP_MS, `${name}: LCP ${Math.round(vitals.lcp)} ms (máximo ${LCP_MS})`);

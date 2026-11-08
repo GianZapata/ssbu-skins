@@ -4,7 +4,7 @@ module.exports = async (b, base) => {
   // 1) Autenticación anónima desactivada en Firebase (OPERATION_NOT_ALLOWED)
   const A = await mk(b);
   await A.route('http://localhost:9099/**/accounts:signUp**', r => r.fulfill({ status: 400, contentType: 'application/json', headers: { 'access-control-allow-origin': '*' }, body: JSON.stringify({ error: { code: 400, message: 'OPERATION_NOT_ALLOWED' } }) }));
-  await A.goto(base + '#/luchadores'); await A.waitForSelector('.rrow');
+  await A.goto(base + '#/luchadores'); await A.waitForSelector('.costume-strip');
   ok(await until(A, () => syncKind === 'service', null, 12000), 'auth desactivada: el estado pasa a «servicio» (no a «sin conexión»)');
   const txt = await A.locator('.sync-fail').textContent(); ok(/No se pudo guardar la propuesta/.test(txt) && !/Sin conexión/.test(txt), `el visitante ve un estado breve: «${txt}»`);
   const d1 = await A.evaluate(() => window.__ssbuDiag()); ok(d1.errors[0] && d1.errors[0].kind === 'auth' && /operation-not-allowed/.test(d1.errors[0].code), 'diagnóstico registra kind=auth y el código de Firebase');
@@ -13,7 +13,7 @@ module.exports = async (b, base) => {
   ok(await A.locator('button', { hasText: 'Reintentar' }).count() === 1 && await A.locator('.error').count() === 0, 'el fallo es una frase y Reintentar, sin un informe que tape las skins');
   ok(!A.errs.length, 'auth desactivada: sin errores de JS ' + JSON.stringify(A.errs)); await A.ctx.close();
   // 2) Pérdida real de conexión: se recupera sola
-  const B = await mk(b); await B.goto(base + '#/luchadores'); await B.waitForSelector('.rrow'); await until(B, () => dbState === 'ok', null);
+  const B = await mk(b); await B.goto(base + '#/luchadores'); await B.waitForSelector('.costume-strip'); await until(B, () => dbState === 'ok', null);
   await B.context().setOffline(true); await B.evaluate(() => window.dispatchEvent(new Event('offline')));
   ok(/Sin conexión/.test(await B.locator('.sync-fail').textContent()) && await B.evaluate(() => syncKind === 'offline'), 'sin red: «Sin conexión» (no «servicio»)');
   await B.evaluate(() => proposeAt('01', 4, byCode['01'].picks[1].vid)); ok(/propuesta sin enviar/.test(await B.locator('.sync-fail').textContent()) && await B.locator('button', { hasText: 'Reintentar' }).count() === 1, 'sin red: la propuesta queda sin enviar y se puede reintentar');

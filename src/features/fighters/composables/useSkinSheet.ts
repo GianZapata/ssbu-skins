@@ -370,6 +370,16 @@ export const useSkinSheet = (props: UseSkinSheetProps, emit: UseSkinSheetEmits) 
         return
       }
 
+      const existing = (ownEntries() as PlanRow[]).find(
+        (entry) => entry.code === props.fighterCode && entry.vid === props.candidateVid,
+      )
+
+      if (existing?.variant && variants.some((v) => v.id === existing.variant)) {
+        selectedVariantId.value = existing.variant
+
+        return
+      }
+
       const matchingActive = variants.find((item) => item.slot === props.activeSlot + 1)
 
       selectedVariantId.value = (matchingActive ?? variants[0])?.id ?? null

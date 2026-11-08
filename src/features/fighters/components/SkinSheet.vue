@@ -3,6 +3,7 @@ import { LayoutGroup, motion } from 'motion-v'
 import {
   DrawerClose,
   DrawerContent,
+  DrawerDescription,
   DrawerOverlay,
   DrawerPortal,
   DrawerRoot,
@@ -180,7 +181,7 @@ const MotionSpan = motion.span
   <DrawerRoot v-else :open="isOpen" @update:open="onDrawerOpenChange">
     <DrawerPortal>
       <DrawerOverlay class="vaul-overlay" />
-      <DrawerContent v-if="skin" class="vaul-sheet sheet sheet--skin" aria-describedby="">
+      <DrawerContent v-if="skin" class="vaul-sheet sheet sheet--skin">
         <div class="sheet__grab" aria-hidden="true"></div>
         <div class="sheet__head">
           <div>
@@ -191,6 +192,7 @@ const MotionSpan = motion.span
             <button type="button" class="icon-btn" aria-label="Cerrar">✕</button>
           </DrawerClose>
         </div>
+        <DrawerDescription class="sr-only">Elige variante y traje de destino para {{ skin.name }}.</DrawerDescription>
 
         <div class="sheet__scroll skin-sheet-body">
           <div class="skin-compare">

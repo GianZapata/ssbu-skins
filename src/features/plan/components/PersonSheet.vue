@@ -25,6 +25,7 @@ const props = defineProps<PersonSheetProps>()
 const emit = defineEmits<PersonSheetEmits>()
 
 const { desktop, grid, people, activePerson, selectPerson, onOpenChange, focusInitial } = usePersonSheet(emit)
+
 const { loop } = useFocusLoop()
 </script>
 
@@ -77,7 +78,7 @@ const { loop } = useFocusLoop()
       >
         <div class="sheet__grab" aria-hidden="true"></div>
         <div class="sheet__head">
-          <DrawerTitle id="person-sheet-title" class="sheet__h">¿Quién propone?</DrawerTitle>
+          <DrawerTitle class="sheet__h">¿Quién propone?</DrawerTitle>
           <DrawerClose as-child>
             <q-btn flat round padding="0" class="icon-btn" icon="close" aria-label="Cerrar" />
           </DrawerClose>

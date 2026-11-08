@@ -1,14 +1,14 @@
-// Recorridos de la app Vue: candidata, botón, catálogo, luchadores, notas, Atrás y sync.
+// Recorridos de la app Vue: pantalla única, selector global, SkinSheet, notas, Atrás y sync multi-persona.
 const { execFileSync } = require('child_process');
 const L = require('./lib');
-const { ok, until, mk, tap } = L;
+const { ok, until, mk } = L;
 
 module.exports = async (b, base) => {
   const widths = [390, 360, 320, 1440];
   for (const width of widths) {
     const page = await mk(b, { w: width, h: width >= 1024 ? 900 : 844, mobile: width < 1024 });
     await page.goto(base + '#/luchadores');
-    await page.waitForSelector('.rrow');
+    await page.waitForSelector('.costume-strip');
     await until(page, () => dbState === 'ok', null, 15000);
     const title = await page.locator('#ttl').boundingBox();
     ok((await page.locator('#sync').textContent()) === '', 'la cabecera no anuncia Guardado a ' + width);
@@ -19,74 +19,83 @@ module.exports = async (b, base) => {
 
   const A = await mk(b, { w: 390, h: 844 });
   await A.goto(base + '#/luchadores');
-  await A.waitForSelector('.rrow');
+  await A.waitForSelector('.costume-strip');
   await until(A, () => dbState === 'ok', null, 15000);
+  ok(/#\/luchador\/01$/.test(A.url()), '#/luchadores redirige al luchador recordado (01 por defecto)');
+  ok(await A.locator('[data-costume="0"][aria-pressed="true"]').count() === 1, 'Traje 1 queda activo por defecto');
   ok((await A.textContent('#sync')) === '', 'la cabecera no deja Guardado fijo');
   ok(await A.getByRole('button', { name: 'Historial' }).count() === 0, 'no hay Historial');
   ok(await A.getByRole('button', { name: 'Sobre los datos' }).count() === 0, 'no hay Sobre los datos');
   ok(await A.getByRole('button', { name: 'Cómo se usa' }).count() === 0, 'no hay Cómo se usa');
 
+  // recordar ssbu_last_fighter al redirigir desde rutas antiguas
+  await A.goto(base + '#/instaladas?pj=04');
+  await A.waitForSelector('[data-view="fighter:04"] .costume-strip');
+  ok(/#\/luchador\/04$/.test(A.url()), '#/instaladas?pj=04 redirige a Samus');
   await A.goto(base + '#/catalogo');
-  await A.waitForSelector('.cgroup');
-  ok(await A.getByRole('button', { name: 'Dry Bones (v3.1 Update)', exact: true }).count() === 1, 'el catálogo muestra skins de Mario');
-  ok(await A.getByRole('button', { name: 'Breath of the Wild Princess Zelda', exact: true }).count() === 1, 'el catálogo muestra skins de Zelda');
-  ok(await A.getByRole('button', { name: 'Instalar' }).count() === 0, 'la tarjeta del catálogo no lleva acciones');
-  await A.getByRole('button', { name: 'Personaje: Todos los personajes' }).click();
-  await A.getByRole('button', { name: /^Mario, \d+ apariencias/ }).click();
-  ok(await A.getByRole('button', { name: 'Dry Bones (v3.1 Update)', exact: true }).count() === 1, 'Mario deja ver sus skins');
-  ok(await A.getByRole('button', { name: 'Breath of the Wild Princess Zelda', exact: true }).count() === 0, 'filtrar Mario oculta a Zelda');
+  await A.waitForSelector('[data-view="fighter:04"] .costume-strip');
+  ok(/#\/luchador\/04$/.test(A.url()), '#/catalogo redirige recordando ssbu_last_fighter (04)');
+  ok(await A.locator('[data-costume="0"][aria-pressed="true"]').count() === 1, 'la redirección deja Traje 1 activo');
 
-  await A.goto(base + '#/instaladas');
-  await A.waitForSelector('.rcost');
-  ok(/#\/luchadores\?filtro=perfil$/.test(A.url()), '#/instaladas redirige a Luchadores con el filtro del perfil');
-  ok(await A.getByRole('link', { name: /: Ventus/ }).count() >= 1, 'Sora con Ventus aparece en Luchadores');
-  ok(await A.getByRole('link', { name: /Breath of the Wild/ }).count() === 0, 'una skin que solo está en el catálogo no sale en Luchadores');
+  // selector global FighterPickSheet: buscar skin de Zelda y saltar directo con ?skin=
+  await A.locator('[data-fighter-pick]').click();
+  await A.waitForSelector('[data-fighter-tile]');
+  await A.fill('#fighter-pick-input-m', 'Breath of the Wild Princess Zelda');
+  await A.waitForSelector('[data-pick-skin]');
+  await A.locator('[data-pick-skin]').first().click();
+  await A.waitForSelector('.skin-sheet-body');
+  ok(/#\/luchador\/\w+\?skin=/.test(A.url()), 'elegir una skin en el buscador global abre su luchador con ?skin=');
+  await A.keyboard.press('Escape');
+  await until(A, () => !/skin=/.test(location.hash), null, 5000);
 
+  // flujo de propuesta desde SkinSheet sobre Mario Traje 3
   const before = await A.evaluate(() => planEntries().length);
   await A.goto(base + '#/luchador/01/3');
   await A.waitForSelector('[data-skin]');
-  await A.locator('[data-skin]').first().click();
-  ok(await A.locator('[data-act="use"], [data-act="replace"]').count() === 1, 'el toque deja el botón del escenario');
-  ok(await A.evaluate(n => planEntries().length === n, before), 'un toque no escribe el plan');
-  const label = await A.locator('[data-act]').first().textContent();
-  ok(/Guardar propuesta/.test(label || ''), 'el botón confirma la propuesta');
-  ok(/Mario · Traje 3/.test(await A.textContent('main') || ''), 'la acción muestra el traje');
-  await A.locator('[data-act="use"], [data-act="replace"]').first().click();
-  ok(await until(A, () => PEND.length === 0, null, 15000), 'el botón guarda la propuesta');
-  ok(/Propuesta guardada/.test(await A.locator('main').textContent() || ''), 'la confirmación llega después de guardar');
+  await A.evaluate(async () => {
+    const alts = await fetch('/drive-alts.json').then(r => (r.ok ? r.json() : []), () => []);
+    const b = [...document.querySelectorAll('[data-skin]')].find(x => {
+      const vid = x.dataset.skin;
+      const skin = idx[vid] && idx[vid].p;
+      const alt = alts.find(a => a.code === '01' && (a.vid === vid || a.mod_id === String(skin && skin.id))) || null;
+      const matchVar = alt && Array.isArray(alt.variants) && alt.variants.length
+        ? (alt.variants.find(v => v.slot === 3) || alt.variants[0])
+        : null;
+      const source = SSBU.sourceSlotsOf({ variant: matchVar ? matchVar.id : null, alt, skin });
+      return SSBU.compatibleSlots('01', source).includes(2);
+    });
+    b.click();
+  });
+  await A.waitForSelector('[data-act="replace"]');
+  ok(await A.evaluate(n => planEntries().length === n, before), 'un toque abre la vista previa pero no escribe el plan');
+  const label = await A.locator('[data-act="replace"]').first().textContent();
+  ok(/Reemplazar/.test(label || ''), 'el botón primario ofrece Reemplazar');
+  ok(await A.locator('[data-dest-slot="2"][aria-pressed="true"]').count() === 1, 'Traje 3 aparece seleccionado en ¿En qué traje va?');
+  await A.locator('[data-act="replace"]').first().click();
+  ok(await until(A, () => PEND.length === 0 && !!planVid('01', 2), null, 15000), 'el botón guarda la propuesta');
+  ok(/Propuesta guardada · Traje 3/.test(await A.locator('#toast').textContent() || ''), 'el aviso confirma el traje guardado');
   const kept = await A.evaluate(() => planVid('01', 2));
   await A.reload();
   ok(await until(A, (vid) => planVid('01', 2) === vid && !!vid, kept, 15000), 'recargar conserva la propuesta');
   await A.waitForSelector('[data-skin]');
 
-  await A.locator('[data-skin]').nth(1).click();
-  ok(await A.locator('[data-act="replace"]').count() === 1 && /Guardar propuesta/.test(await A.locator('[data-act]').first().textContent() || ''), 'reemplazar también se confirma con Guardar propuesta');
+  // bloqueo de duplicado de la misma persona en otro traje
   const used = await A.evaluate(() => planVid('01', 2));
   await A.goto(base + '#/luchador/01/4');
   await A.waitForSelector('[data-skin="' + used + '"]');
   await A.locator('[data-skin="' + used + '"]').click();
-  ok(/Ir a Traje 3/.test(await A.locator('[data-act]').first().textContent() || ''), 'no se copia: el botón lleva al otro traje');
+  await A.waitForSelector('[data-act="jump"]');
+  ok(/Ir a Traje 3/.test(await A.locator('[data-act="jump"]').first().textContent() || ''), 'no se copia: el botón lleva al otro traje');
   ok(await A.evaluate(v => planVid('01', 3) == null && planVid('01', 2) === v, used), 'sigue una sola copia');
+  await A.keyboard.press('Escape');
 
-  await A.goto(base + '#/luchador/01/5');
-  await A.waitForSelector('[data-skin]');
-  await A.locator('[data-skin]').first().click();
-  const vid = await A.locator('[data-skin][aria-pressed="true"]').getAttribute('data-skin');
-  await A.locator('.card__more').first().click();
-  await A.waitForSelector('.pswp--open', { timeout: 8000 });
-  await A.waitForTimeout(800);
-  await A.getByRole('button', { name: 'Cerrar' }).last().click();
-  await until(A, () => !document.querySelector('.pswp'), null, 8000);
-  ok(await A.locator('[data-skin="' + vid + '"][aria-pressed="true"]').count() === 1, 'cerrar la imagen no quita la candidata');
-  await A.locator('[data-slot="5"]').click();
-  ok(await A.locator('[aria-pressed="true"][data-skin="' + vid + '"]').count() === 1 && /\/6\?skin=/.test(A.url()), 'cambiar de traje lleva la candidata para compararla ahí');
-  await A.getByRole('button', { name: 'Descartar skin' }).click();
-  ok(await A.locator('[aria-pressed="true"][data-skin]').count() === 0 && !/skin=/.test(A.url()), 'descartar la skin quita la candidata y la ruta la olvida');
-
-  await A.fill('[aria-label="Buscar skin"]', 'Happy190');
+  // búsqueda sin resultados en SkinGrid
+  await A.fill('[aria-label="Buscar skin"]', 'xyznoexiste');
   await A.waitForTimeout(200);
-  ok(await A.getByText('Sin resultados').count() === 1, 'buscar por autor no encuentra');
+  ok(await A.getByText('Sin resultados').count() === 1, 'buscar término inexistente muestra Sin resultados');
+  await A.fill('[aria-label="Buscar skin"]', '');
 
+  // notas pendientes
   await A.goto(base + '#/notas');
   await A.getByLabel('¿Qué skin quieres buscar después?').fill('DBZ');
   await A.getByRole('button', { name: 'Anotar' }).click();
@@ -101,10 +110,9 @@ module.exports = async (b, base) => {
   const B = await mk(b, { w: 390, h: 844, person: 'Alan' });
   await B.goto(base + '#/notas');
   ok(await until(B, () => NOTES.some(note => note.text === 'DBZ'), null, 15000), 'otro cliente ve la nota');
-  await B.goto(base + '#/catalogo');
-  ok(await B.getByText('DBZ').count() === 0, 'la nota no aparece en el catálogo');
-  await B.goto(base + '#/luchadores');
-  ok(await B.getByText('DBZ').count() === 0, 'la nota no aparece en Luchadores');
+  await B.goto(base + '#/luchador/01');
+  await B.waitForSelector('.costume-strip');
+  ok(await B.getByText('DBZ').count() === 0, 'la nota no aparece en la pantalla del luchador');
 
   await A.goto(base + '#/cambios');
   await A.waitForSelector('[aria-label="Cambios"]');
@@ -120,15 +128,15 @@ module.exports = async (b, base) => {
   await A.waitForTimeout(600);
   ok(await A.locator('.pswp').count() === 0 && /\/luchador\/01\/1/.test(A.url()), 'Atrás cierra la imagen sin salir del luchador');
   const focused = await A.evaluate(() => { const el = document.activeElement && document.activeElement.closest('[aria-label]'); return el && el.getAttribute('aria-label'); });
-  ok(/^Ampliar imagen de /.test(focused || ''), 'el foco vuelve al botón de ampliar');
+  ok(/^Ampliar im[aá]genes? de /.test(focused || ''), 'el foco vuelve al botón de ampliar');
 
   // dos personas proponen en el mismo traje sin pisarse; cada una solo deshace lo suyo
-  await B.goto(base + '#/luchadores');
+  await B.goto(base + '#/luchador/02');
   await until(B, () => dbState === 'ok', null, 15000);
-  await A.goto(base + '#/luchadores');
+  await A.goto(base + '#/luchador/02');
   await until(A, () => dbState === 'ok', null, 15000);
   const vidAlan = await B.evaluate(() => byCode['02'].picks[0].vid);
-  const vidGian = await B.evaluate(() => byCode['02'].picks[1].vid);
+  const vidGian = await A.evaluate(() => byCode['02'].picks[1].vid);
   await B.evaluate(vid => proposeAt('02', 1, vid), vidAlan);
   ok(await until(B, () => PEND.length === 0, null, 15000), 'Alan guarda una propuesta');
   ok(await until(A, vid => proposalsAt('02', 1).some(p => p.name === 'Alan' && p.vid === vid), vidAlan, 15000), 'la propuesta de Alan llega en vivo a Gian');
@@ -155,24 +163,26 @@ module.exports = async (b, base) => {
   ok(await B.locator('[data-section="mine"] [data-undo="02_1_Alan"]').count() === 1, 'Alan sí puede quitar la suya');
   await B.keyboard.press('Escape');
 
-  // gate perezoso: sin persona guardada, navegar no abre la hoja; guardar la pide y completa la propuesta
+  // gate perezoso: sin persona guardada, navegar no abre la hoja; guardar la pide sobre SkinSheet y completa la propuesta
   const C = await mk(b, { w: 390, h: 844, person: null });
   await C.goto(base + '#/luchadores');
-  await C.waitForSelector('.rrow');
+  await C.waitForSelector('.costume-strip');
   await until(C, () => dbState === 'ok', null, 15000);
   await C.goto(base + '#/luchador/01/3');
   await C.waitForSelector('[data-skin]');
   ok(await C.getByRole('dialog', { name: '¿Quién propone?' }).count() === 0, 'sin persona, navegar y leer no abre la hoja');
   await C.locator('[data-skin]').first().click();
-  ok(await C.getByRole('dialog', { name: '¿Quién propone?' }).count() === 0, 'sin persona, elegir candidata tampoco abre la hoja');
-  await C.locator('[data-act]').first().click();
+  await C.waitForSelector('[data-act="replace"]');
+  ok(await C.getByRole('dialog', { name: '¿Quién propone?' }).count() === 0, 'sin persona, abrir SkinSheet tampoco abre la hoja');
+  await C.locator('[data-act="replace"]').first().click();
   await C.getByRole('dialog', { name: '¿Quién propone?' }).waitFor();
-  ok(await C.evaluate(() => PEND.length === 0 && !PLAN['01_2_Ches']), 'la hoja aparece antes de escribir nada');
+  const targetSlot = Number(await C.locator('[data-dest-slot][aria-pressed="true"]').getAttribute('data-dest-slot'));
+  ok(await C.evaluate((s) => PEND.length === 0 && !PLAN[`01_${s}_Ches`], targetSlot), 'la hoja aparece antes de escribir nada');
   await C.locator('[data-person="Ches"]').click();
   await C.getByRole('dialog', { name: '¿Quién propone?' }).waitFor({ state: 'hidden' });
-  ok(await until(C, () => !!PLAN['01_2_Ches'] && PEND.length === 0, null, 15000), 'al elegir persona se guarda la propuesta como Ches');
+  ok(await until(C, (s) => !!PLAN[`01_${s}_Ches`] && PEND.length === 0, targetSlot, 15000), 'al elegir persona se guarda la propuesta como Ches');
   ok(await C.evaluate(() => localStorage.getItem('ssbu_person')) === 'Ches', 'la persona queda recordada');
-  ok(JSON.parse(L.py('draft')).changes.some(c => c.roster_no === '01' && c.traje === 3 && c.person === 'Ches'), 'Firestore conserva la propuesta de Ches');
+  ok(JSON.parse(L.py('draft')).changes.some(c => c.roster_no === '01' && c.traje === targetSlot + 1 && c.person === 'Ches'), 'Firestore conserva la propuesta de Ches');
 
   // reglas de Firestore sobre el emulador
   execFileSync(L.PY, ['-c', "from google.cloud import firestore as f; f.Client(project='ssbu-441b1').collection('changes').document('01_7').set({'code': '01', 'slot': 7, 'vid': 'x'})"], { env: L.ENV });

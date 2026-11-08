@@ -2,7 +2,7 @@
 const L = require('./lib');
 module.exports = async (browser, base) => {
   const A = await L.mk(browser, { deferChanges: true });
-  await A.goto(base + '#/luchadores'); await A.waitForSelector('.rrow');
+  await A.goto(base + '#/luchadores'); await A.waitForSelector('.costume-strip');
   L.ok(await L.until(A, () => dbState === 'ok' && planLoaded), 'ack: listener inicial preparado');
   await A.addInitScript(() => { globalThis.__holdChanges = true; });
   await A.evaluate(() => { globalThis.__holdChanges = true; });

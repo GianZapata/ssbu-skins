@@ -42,6 +42,12 @@ const isEditableTarget = (target: EventTarget | null): boolean => {
   return ['INPUT', 'TEXTAREA', 'SELECT'].includes(target.tagName) || target.isContentEditable
 }
 
+const isArrowOwnedTarget = (target: EventTarget | null): boolean => {
+  if (!(target instanceof HTMLElement)) return false
+
+  return Boolean(target.closest('.costume-strip, [role="tablist"]'))
+}
+
 const skinTagOf = (isDownloaded: boolean, isUnaudited: boolean): string => {
   if (!isDownloaded) return ''
   if (isUnaudited) return 'En Drive'
@@ -207,7 +213,7 @@ export const useFighterPage = () => {
   }
 
   onKeyStroke(['ArrowLeft', 'ArrowRight', '/'], (event) => {
-    if (isOverlayOpen.value || isEditableTarget(event.target)) return
+    if (event.defaultPrevented || isOverlayOpen.value || isEditableTarget(event.target)) return
 
     if (event.key === '/') {
       event.preventDefault()
@@ -215,6 +221,8 @@ export const useFighterPage = () => {
 
       return
     }
+
+    if (isArrowOwnedTarget(event.target)) return
 
     event.preventDefault()
     stepFighter(event.key === 'ArrowRight' ? 1 : -1)
