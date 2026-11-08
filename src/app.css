@@ -406,6 +406,88 @@ button.ft { appearance: none; border: 0; margin: 0; padding: 0; background: tran
 .q-btn.srow__x { flex: none; width: 48px; height: 48px; min-width: 48px; min-height: 48px; }
 .srow__x-dot { width: 34px; height: 34px; border-radius: 17px; background: var(--s3); border: 1px solid var(--bd-active); color: var(--tx); display: flex; align-items: center; justify-content: center; }
 
+button.srow__x {
+  flex: none;
+  min-height: 40px;
+  padding: 8px 14px;
+  border-radius: 8px;
+  border: 1px solid var(--bd-active);
+  background: var(--s3);
+  color: var(--tx);
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+button.srow__x:hover {
+  background: var(--s1);
+  border-color: var(--tx-mu);
+}
+
+button.srow__x:focus-visible {
+  outline: 2px solid var(--ac);
+  outline-offset: 2px;
+}
+
+.summary-tabs {
+  display: flex;
+  gap: 4px;
+  overflow-x: auto;
+  padding: 0 16px;
+  border-bottom: 1px solid var(--bd);
+}
+
+.summary-tab {
+  position: relative;
+  min-height: 44px;
+  padding: 10px 12px;
+  border: 0;
+  background: transparent;
+  color: var(--tx-mu);
+  font-size: 14px;
+  font-weight: 600;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.summary-tab:hover {
+  color: var(--tx);
+}
+
+.summary-tab:focus-visible {
+  outline: 2px solid var(--ac);
+  outline-offset: -2px;
+}
+
+.summary-tab--on {
+  color: var(--tx);
+}
+
+.summary-tab__line {
+  position: absolute;
+  left: 8px;
+  right: 8px;
+  bottom: 0;
+  height: 3px;
+  border-radius: 3px 3px 0 0;
+  background: var(--color-propuesta);
+}
+
+.summary-panel__empty {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 16px;
+}
+
+.srow__unsent {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--color-propuesta);
+}
+
 /* ============================ Error global ============================ */
 
 /* ============================ Escritorio ============================ */
