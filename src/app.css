@@ -187,8 +187,8 @@ input { caret-color: var(--color-pend); }
 
 /* ============================ Imagen con marcador ============================ */
 .app-img { position: relative; width: 100%; height: 100%; background: var(--s2); overflow: hidden; container-type: inline-size; }
-.app-img--loading::after { content: ""; position: absolute; inset: 0; background: var(--s3); opacity: 0; pointer-events: none; animation: img-wait 1.4s ease-in-out infinite; }
-@keyframes img-wait { 50% { opacity: 0.7; } }
+.app-img--loading::after { content: ""; position: absolute; inset: 0; background: var(--s3); opacity: 0.55; pointer-events: none; animation: img-wait 1.4s ease-in-out infinite; }
+@keyframes img-wait { 50% { opacity: 1; } }
 .app-img__ph--failed { background: var(--color-stage); }
 .app-img__label { max-width: 100%; color: var(--color-mute); font-size: 12px; line-height: 16px; font-weight: 600; }
 @container (max-width: 110px) { .app-img__retry, .app-img__label, .app-img__missing { display: none; } }

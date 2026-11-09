@@ -48,7 +48,8 @@ const { failed, loaded, attempt, retryLoad } = useAppImg(props)
       <span class="app-img__label">No cargó la imagen</span>
       <q-btn no-caps unelevated icon="refresh" label="Reintentar" class="app-img__retry" @click.stop="retryLoad" />
     </div>
-    <div v-else class="app-img__ph app-img__ph--missing" :role="props.alt || props.missing ? 'img' : undefined" :aria-label="props.alt || props.missing || undefined">
+    <div v-else class="app-img__ph app-img__ph--missing" role="img" :aria-label="props.alt || props.missing || 'Sin retrato'">
+      <q-icon name="broken_image" size="24px" aria-hidden="true" />
       <span v-if="props.missing" class="app-img__missing">{{ props.missing }}</span>
     </div>
   </div>

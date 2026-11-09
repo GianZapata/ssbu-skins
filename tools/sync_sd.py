@@ -16,7 +16,8 @@ Pasos, en orden; el primero que falla detiene todo:
      de la SD (`source: profile`) sí se actualizan.
   4. scan_profile (perfil en `main`), scan_branches y, con --drive, scan_drive.
   5. slot_plan --check y validate_catalog: 0 errores.
-  6. sd_publish (retratos a Cloudinary) y db.py seed (dry-run salvo --apply).
+  6. Retratos, en el mismo pase: extraer los BNTX del paquete, subirlos a Cloudinary y sembrar Firestore.
+     `sd_publish` solo no alcanza: lee una caché. Si esa caché es anterior al paquete, el traje queda sin imagen.
 Credenciales: Cloudinary en el .env.local del ModPack (lo lee sd_publish); Firestore con GOOGLE_APPLICATION_CREDENTIALS
 o ~/.secrets/ssbu-441b1.json. No se leen ni se imprimen aquí."""
 import argparse, copy, datetime, json, os, re, subprocess, sys
@@ -147,6 +148,15 @@ def align_plan(a):
     return rep
 
 
+def portrait_commands(modpack, package, apply, py=None):
+    """Extraer los BNTX del paquete y después publicarlos. El orden importa: publicar una caché vieja deja el traje sin imagen."""
+    py = py or sys.executable
+    tools = os.path.join(modpack, 'tools')
+    extract = [py, os.path.join(tools, 'sd_board_portraits.py'), '--mods', package]
+    publish = [py, os.path.join(tools, 'sd_publish.py')] + ([] if apply else ['--dry-run'])
+    return extract, publish
+
+
 def main(argv=None):
     global MODPACK
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
@@ -178,7 +188,8 @@ def main(argv=None):
     run('Catálogo', [py, os.path.join(HERE, 'validate_catalog.py')])
 
     if 'publish' not in a.skip:
-        pub = [py, os.path.join(MODPACK, 'tools', 'sd_publish.py')] + ([] if a.apply else ['--dry-run'])
+        extract, pub = portrait_commands(MODPACK, a.package, a.apply, py)
+        run('Retratos del paquete', extract)
         run('Retratos → Cloudinary' + ('' if a.apply else ' (dry-run)'), pub)
     if os.path.isfile(venv):
         for part in (s for s in SEEDS if s not in a.skip):

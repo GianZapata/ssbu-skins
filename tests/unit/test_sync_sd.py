@@ -104,6 +104,17 @@ class PlanAdditions(unittest.TestCase):
         self.assertEqual((rep['added'], new['fighters']), ([], {}))
 
 
+class Retratos(unittest.TestCase):
+    def test_el_paquete_se_extrae_antes_de_publicar(self):
+        extract, publish = ss.portrait_commands('/modpack', '/paquete/ultimate/mods', False, 'python3')
+        self.assertEqual(extract[-2:], ['--mods', '/paquete/ultimate/mods'])
+        self.assertTrue(extract[1].endswith('sd_board_portraits.py'))
+        self.assertTrue(publish[1].endswith('sd_publish.py'))
+        self.assertIn('--dry-run', publish)
+        applied = ss.portrait_commands('/modpack', '/paquete', True, 'python3')[1]
+        self.assertNotIn('--dry-run', applied)
+
+
 class Guardas(unittest.TestCase):
     def test_sin_paquete_se_detiene_antes_de_escribir(self):
         with tempfile.TemporaryDirectory() as sd:
