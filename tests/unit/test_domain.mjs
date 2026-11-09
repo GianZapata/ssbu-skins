@@ -25,10 +25,9 @@ test('planVid: lo pendiente gana al plan y una marca enviada no lo tapa', () => 
   const now = 10_000;
   const ctx = {
     PLAN: { '01_2': { vid: '01:remoto' } },
-    PEND: [{ code: '01', slot: 2, to: '01:local', name: 'Gian' }],
+    PEND: [{ code: '01', slot: 2, to: '01:local' }],
     now,
     byCode,
-    person: 'Gian',
   };
   assert.equal(SSBU.planVid('01', 2, ctx), '01:local');
   assert.equal(SSBU.planVid('01', 2, { PLAN: { '01_2': { vid: '01:remoto' } }, PEND: [], now, byCode }), '01:remoto');
@@ -39,12 +38,11 @@ test('planVid: lo pendiente gana al plan y una marca enviada no lo tapa', () => 
 
 test('planEntries ignora un traje vaciado y ordena por el catálogo', () => {
   const ctx = {
-    PLAN: { '82_1_Gian': { vid: '82:b' }, '01_0_Gian': { vid: '01:a' } },
+    PLAN: { '82_1': { vid: '82:b' }, '01_0': { vid: '01:a' } },
     SENT: {},
-    PEND: [{ code: '82', slot: 1, to: null, name: 'Gian' }],
+    PEND: [{ code: '82', slot: 1, to: null }],
     now: 1,
     byCode,
-    person: 'Gian',
   };
   assert.equal(SSBU.planEntries(ctx).map(e => e.code + ':' + e.n).join(','), '01:0');
 });
@@ -152,11 +150,11 @@ test('destino, duplicado y reemplazo', () => {
   assert.equal(SSBU.validSlot(7), true);
   assert.equal(SSBU.setOp('01', 8, '01:z', null), null);
   assert.equal(SSBU.setOp('01', 1, '01:z', '01:z'), null);
-  const op = SSBU.setOp('01', 1, '01:z', null, null, null, 'Gian');
+  const op = SSBU.setOp('01', 1, '01:z', null);
   const pend = SSBU.withOp([], op);
-  const ctx = { PLAN: {}, SENT: {}, PEND: pend, now: 1, byCode, person: 'Gian' };
+  const ctx = { PLAN: {}, SENT: {}, PEND: pend, now: 1, byCode };
   assert.equal(SSBU.planVid('01', 1, ctx), '01:z');
-  const cleared = SSBU.withOp(pend, SSBU.clearOp('01', 1, '01:z', null, 'Gian'));
+  const cleared = SSBU.withOp(pend, SSBU.clearOp('01', 1, '01:z'));
   assert.equal(SSBU.planVid('01', 1, { ...ctx, PEND: cleared }), null);
   assert.equal(SSBU.clearOp('01', 1, null), null);
 });
@@ -270,158 +268,4 @@ test('variantes de un mismo mod: se pueden poner en trajes distintos, no repetir
   const withVariant = [{ code: '01', n: 0, vid: '01:a' }];
   assert.equal(SSBU.assignBlock(withVariant, '01', 1, '01:a', '01:a:aaaaaaaa:c03').kind, 'duplicate');
   assert.equal(SSBU.assignBlock(withVariant, '01', 1, '01:a', '01:a:aaaaaaaa:c03').other, 0);
-});
-
-test('sameFamily y compatibleSlots respetan familias reales y habilitan los 8 cuando no hay datos', () => {
-  const families = JSON.parse(fs.readFileSync(new URL('../../data/families.json', import.meta.url), 'utf8'));
-  sandbox.META = { families };
-
-  assert.equal(SSBU.sameFamily('61', 0, 2), true);
-  assert.equal(SSBU.sameFamily('61', 0, 1), false);
-  assert.equal(SSBU.sameFamily('61', -1, 0), false);
-  assert.equal(SSBU.sameFamily('58', 0, 1), false);
-  assert.equal(SSBU.sameFamily('11', 0, 7), true);
-
-  assert.deepEqual(Array.from(SSBU.compatibleSlots('61', [1])), [1, 3, 5, 7]);
-  assert.deepEqual(Array.from(SSBU.compatibleSlots('61', [0, 1])), [0, 1, 2, 3, 4, 5, 6, 7]);
-  assert.deepEqual(Array.from(SSBU.compatibleSlots('78', [6])), [6, 7]);
-  assert.deepEqual(Array.from(SSBU.compatibleSlots('58', [3])), [3]);
-  assert.deepEqual(Array.from(SSBU.compatibleSlots('82', [1])), [1, 5]);
-  assert.deepEqual(Array.from(SSBU.compatibleSlots('61', [])), [0, 1, 2, 3, 4, 5, 6, 7]);
-  assert.deepEqual(Array.from(SSBU.compatibleSlots('61', null)), [0, 1, 2, 3, 4, 5, 6, 7]);
-});
-
-test('sourceSlotsOf prioriza variant sobre DriveAlt (1..8) y Skin.native (0..7)', () => {
-  const families = JSON.parse(fs.readFileSync(new URL('../../data/families.json', import.meta.url), 'utf8'));
-  sandbox.META = { families };
-
-  const fromVariant = SSBU.sourceSlotsOf({
-    variant: '61:123456:aaeedf35:c03',
-    alt: { any: true, slots: [1, 2, 3, 4, 5, 6, 7, 8] },
-    skin: { native: [0, 2, 4, 6] },
-  });
-  assert.deepEqual(Array.from(fromVariant), [3]);
-  assert.deepEqual(Array.from(SSBU.compatibleSlots('61', fromVariant)), [1, 3, 5, 7]);
-
-  const fromDriveSlots = SSBU.sourceSlotsOf({
-    variant: null,
-    alt: { any: false, slots: [2, 4] },
-    skin: { native: [] },
-  });
-  assert.deepEqual(Array.from(fromDriveSlots), [1, 3]);
-  assert.deepEqual(Array.from(SSBU.compatibleSlots('61', fromDriveSlots)), [1, 3, 5, 7]);
-
-  const fromDriveAny = SSBU.sourceSlotsOf({
-    alt: { any: true, slots: [1] },
-  });
-  assert.deepEqual(Array.from(fromDriveAny), [0, 1, 2, 3, 4, 5, 6, 7]);
-
-  const fromNative = SSBU.sourceSlotsOf({
-    skin: { native: [6] },
-  });
-  assert.deepEqual(Array.from(SSBU.compatibleSlots('49', fromNative)), [6, 7]);
-
-  assert.deepEqual(Array.from(SSBU.sourceSlotsOf({ skin: { native: [] } })), []);
-  assert.deepEqual(Array.from(SSBU.compatibleSlots('58', SSBU.sourceSlotsOf({ skin: { native: [] } }))), [0, 1, 2, 3, 4, 5, 6, 7]);
-});
-
-test('familias: código desconocido, families explícito y respaldos sin bloqueo', () => {
-  sandbox.META = { families: {} };
-
-  assert.equal(SSBU.sameFamily('99', 0, 1), true);
-
-  const explicit = { 99: [[0, 1], [2, 3]] };
-  assert.equal(SSBU.sameFamily('99', 0, 1, explicit), true);
-  assert.equal(SSBU.sameFamily('99', 0, 2, explicit), false);
-  assert.deepEqual(Array.from(SSBU.compatibleSlots('99', [2], explicit)), [2, 3]);
-
-  assert.deepEqual(Array.from(SSBU.compatibleSlots('99', [5], explicit)), [0, 1, 2, 3, 4, 5, 6, 7]);
-});
-
-test('sourceSlotsOf ignora variant :c08 y alt.slots inválidos y respeta alt.any sobre native', () => {
-  assert.deepEqual(Array.from(SSBU.sourceSlotsOf({ variant: '61:1:aa:c08', skin: { native: [2] } })), [2]);
-  assert.deepEqual(Array.from(SSBU.sourceSlotsOf({ alt: { slots: [0] }, skin: { native: [4] } })), [4]);
-  assert.deepEqual(Array.from(SSBU.sourceSlotsOf({ alt: { slots: [0] } })), []);
-  assert.deepEqual(Array.from(SSBU.sourceSlotsOf({ alt: { any: true }, skin: { native: [4] } })), [0, 1, 2, 3, 4, 5, 6, 7]);
-});
-
-const plain = (value) => JSON.parse(JSON.stringify(value));
-
-test('docKey y parseDocKey: persona válida, documento antiguo y nombre fuera de la lista', () => {
-  assert.deepEqual([...SSBU.PEOPLE], ['Gian', 'Alan', 'Ches', 'Samu']);
-  assert.equal(SSBU.docKey('01', 2, 'Gian'), '01_2_Gian');
-  assert.equal(SSBU.docKey('01', 2, 'Otro'), '01_2');
-  assert.equal(SSBU.docKey('01', 2), '01_2');
-  assert.deepEqual({ ...SSBU.parseDocKey('01_2_Gian') }, { code: '01', slot: 2, name: 'Gian' });
-  assert.deepEqual({ ...SSBU.parseDocKey('01_2') }, { code: '01', slot: 2, name: null });
-  assert.equal(SSBU.parseDocKey('01_2_Otro'), null);
-  assert.equal(SSBU.parseDocKey('01_9_Gian'), null);
-  assert.equal(SSBU.parseDocKey('01_x'), null);
-  assert.equal(SSBU.parseDocKey(''), null);
-});
-
-test('proposalsAt: la propuesta propia no se confunde con la de otro ni con la antigua', () => {
-  const PLAN = { '01_0_Alan': { vid: '01:100', at: 20 }, '01_0': { vid: '01:200', at: 10 } };
-  const ctx = { PLAN, PEND: [], byCode, person: 'Gian' };
-  assert.equal(SSBU.ownVid('01', 0, ctx), null);
-  assert.equal(SSBU.planVid('01', 0, ctx), '01:100');
-  const rows = SSBU.proposalsAt('01', 0, ctx);
-  assert.deepEqual(plain(rows.map((r) => r.name)), ['Alan', null]);
-  assert.deepEqual(plain(rows.map((r) => r.vid)), ['01:100', '01:200']);
-  assert.equal(rows[0].key, '01_0_Alan');
-  assert.equal(rows[1].key, '01_0');
-  const withMine = { ...ctx, PLAN: { ...PLAN, '01_0_Gian': { vid: '01:300', variant: '01:300:aaaaaaaa:c01', at: 5 } } };
-  assert.equal(SSBU.ownVid('01', 0, withMine), '01:300');
-  assert.equal(SSBU.ownVariant('01', 0, withMine), '01:300:aaaaaaaa:c01');
-  assert.equal(SSBU.planVid('01', 0, withMine), '01:300');
-  assert.equal(SSBU.proposalsAt('01', 0, withMine)[0].name, 'Gian');
-  assert.equal(SSBU.ownVid('01', 0, { ...withMine, person: null }), null);
-});
-
-test('proposalsAt: lo pendiente solo toca la propuesta de su persona', () => {
-  const PLAN = { '01_0_Alan': { vid: '01:100', at: 20 }, '01_0_Gian': { vid: '01:300', at: 5 } };
-  const pend = [{ code: '01', slot: 0, to: null, name: 'Gian', kind: 'clear' }];
-  const ctx = { PLAN, PEND: pend, byCode, person: 'Gian' };
-  assert.equal(SSBU.ownVid('01', 0, ctx), null);
-  assert.equal(SSBU.planVid('01', 0, ctx), '01:100');
-  const set = [{ code: '01', slot: 0, to: '01:400', name: 'Alan', kind: 'set' }];
-  const rows = SSBU.proposalsAt('01', 0, { PLAN, PEND: set, byCode, person: 'Gian' });
-  assert.equal(rows.find((r) => r.name === 'Alan').vid, '01:400');
-  assert.equal(rows.find((r) => r.name === 'Alan').unsent, true);
-  assert.equal(rows.find((r) => r.name === 'Gian').vid, '01:300');
-  assert.deepEqual(plain(SSBU.proposalsAt('01', 0, { PLAN, PEND: [{ code: '01', slot: 0, to: '01:z', kind: 'set' }], byCode }).map((r) => r.vid).sort()), ['01:100', '01:300']);
-});
-
-test('assignBlock sobre ownEntries: solo bloquea lo que la misma persona ya puso en otro traje', () => {
-  const ctx = {
-    PLAN: { '01_0_Alan': { vid: '01:a' }, '01_0_Gian': { vid: '01:g' } },
-    PEND: [],
-    byCode,
-    person: 'Gian',
-  };
-  assert.equal(SSBU.planEntries(ctx).length, 2);
-  const own = SSBU.ownEntries(ctx);
-  assert.deepEqual(plain(own.map((r) => r.vid)), ['01:g']);
-  assert.equal(SSBU.assignBlock(own, '01', 1, '01:a').kind, 'free');
-  const dup = SSBU.assignBlock(own, '01', 1, '01:g');
-  assert.equal(dup.kind, 'duplicate');
-  assert.equal(dup.other, 0);
-  assert.deepEqual(plain(SSBU.ownEntries({ ...ctx, person: null })), []);
-});
-
-test('planEntries: devuelve una fila por persona y traje, ordenadas por luchador, traje y persona', () => {
-  const ctx = {
-    PLAN: { '01_1_Alan': { vid: '01:a', at: 9 }, '01_1_Gian': { vid: '01:g', at: 1 }, '01_0': { vid: '01:old', at: 1 }, '82_0_Samu': { vid: '82:s', at: 1 } },
-    PEND: [],
-    byCode,
-    person: 'Gian',
-  };
-  assert.deepEqual(plain(SSBU.planEntries(ctx).map((r) => r.key)), ['82_0_Samu', '01_0', '01_1_Gian', '01_1_Alan']);
-});
-
-test('setOp y clearOp llevan la persona solo si es válida', () => {
-  assert.equal(SSBU.setOp('01', 1, '01:z', null, null, null, 'Alan').name, 'Alan');
-  assert.equal('name' in SSBU.setOp('01', 1, '01:z', null, null, null, 'Otro'), false);
-  assert.equal(SSBU.clearOp('01', 1, '01:z', null, 'Ches').name, 'Ches');
-  assert.equal('name' in SSBU.clearOp('01', 1, '01:z'), false);
 });

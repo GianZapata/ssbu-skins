@@ -1,17 +1,17 @@
-import { computed, nextTick, reactive, ref, shallowRef } from 'vue'
+import { reactive, ref, shallowRef } from 'vue'
 import type { Fighter, Skin } from '../boot'
 import { state } from '../features/plan/services/sync'
-import { NavigationDirection } from '../shared/enums/NavigationDirection'
 import { SSBU } from '../shared/helpers/ssbu'
-import { runDirectionalTransition } from '../shared/helpers/viewTransition'
 
 /*
  * Rutas (hash):
- *   #/luchador/:codigo[/:traje]       Pantalla única: luchador con Traje 1 a 8 (Traje 1 por defecto)
+ *   #/luchadores[?filtro=]            Luchadores (portada): cada luchador con sus 8 trajes
+ *   #/luchador/:codigo[/:traje]       Luchador (Traje 1 a 8): comparar y proponer
  *   #/luchador/...?skin=:vid          Con una skin candidata, sin guardar
+ *   #/catalogo[?pj=]                  Todas las skins, agrupadas
  *   #/notas                           Pedidos de búsqueda
  *   #/cambios                         Cambios: hoja sobre la pantalla actual
- * Redirigen al último luchador visitado: #/, #/luchadores, #/catalogo, #/tarjeta, #/instaladas y #/apariencia.
+ * Redirigen por enlaces ya compartidos: #/tarjeta, #/instaladas y #/apariencia.
  * La hoja de cambios es una ruta, así que el gesto o botón "atrás" del móvil la cierra.
  */
 export interface AppRoute {
@@ -34,7 +34,7 @@ export const S = reactive({
   galI: 0,
 })
 export const route = shallowRef<AppRoute>({ v: '', code: '', n: 0, vid: '', q: {}, key: '', to: '' })
-export const baseRoute = shallowRef<AppRoute>({ v: 'luchador', code: '', n: 0, vid: '', q: {}, key: '', to: '' })
+export const baseRoute = shallowRef<AppRoute>({ v: 'luchadores', code: '', n: 0, vid: '', q: {}, key: '', to: '' })
 export const scrollMem: Record<string, number> = {}
 
 const enc = encodeURIComponent
@@ -136,38 +136,6 @@ const closeGallery = (gallery: OpenGallery) => {
 export const fighterOf = (code: string) => (state.byCode as Record<string, Fighter>)[code]
 export const skinEntry = (vid: string) => (state.idx as Record<string, { f: Fighter, p: Skin }>)[vid]
 
-const LAST_FIGHTER_KEY = 'ssbu_last_fighter'
-
-export const playableFighters = (): Fighter[] => (state.F as Fighter[]).filter((fighter) => !fighter.mii)
-
-export const isPlayableCode = (code: string): boolean => {
-  const fighter = fighterOf(code)
-
-  return Boolean(fighter && !fighter.mii)
-}
-
-export const defaultFighterCode = (): string => {
-  try {
-    const saved = localStorage.getItem(LAST_FIGHTER_KEY)
-
-    if (saved && isPlayableCode(saved)) return saved
-  } catch {
-    // almacenamiento no disponible
-  }
-
-  return playableFighters()[0]?.code || '01'
-}
-
-const rememberLastFighter = (code: string) => {
-  if (!isPlayableCode(code)) return
-
-  try {
-    localStorage.setItem(LAST_FIGHTER_KEY, code)
-  } catch {
-    // almacenamiento no disponible
-  }
-}
-
 export const paraOf = (raw: string | undefined) => {
   const match = /^(.+)_([0-7])$/.exec(raw || '')
   if (!match || !fighterOf(match[1])) return null
@@ -175,12 +143,12 @@ export const paraOf = (raw: string | undefined) => {
 }
 
 const blank = (partial: Partial<AppRoute>): AppRoute => ({
-  v: 'luchador',
+  v: 'luchadores',
   code: '',
   n: 0,
   vid: '',
   q: {},
-  key: '',
+  key: '#/luchadores',
   to: '',
   ...partial,
 })
@@ -192,48 +160,38 @@ export const fighterHash = (code: string, slot: number | null = null, skin = '')
 const redirect = (to: string, key: string) => blank({ v: 'redirect', to, key })
 
 const legacyTarget = (view: string, seg: string[], q: Record<string, string>, key: string) => {
-  if (['luchadores', 'catalogo', 'tarjeta', 'instaladas'].includes(view)) {
-    if (q.pj && isPlayableCode(q.pj)) return redirect(fighterHash(q.pj), key)
-
-    return redirect(fighterHash(defaultFighterCode()), key)
-  }
+  if (view === 'tarjeta') return redirect('#/luchadores', key)
+  if (view === 'instaladas') return redirect(q.pj ? fighterHash(q.pj) : '#/luchadores?filtro=perfil', key)
 
   if (view === 'apariencia') {
     const para = paraOf(q.para)
     const vid = seg.slice(1).join('/')
 
-    if (!para || !isPlayableCode(para.code)) return redirect(fighterHash(defaultFighterCode()), key)
+    if (!para) return redirect('#/luchadores', key)
 
-    return redirect(fighterHash(para.code, q.de === 'catalogo' ? 0 : para.n, vid), key)
+    return redirect(fighterHash(para.code, q.de === 'catalogo' ? null : para.n, vid), key)
   }
 
   return null
 }
 
 const parse = (hash: string): AppRoute => {
-  const raw = hash.replace(/^#/, '')
-
-  if (!raw || raw === '/') {
-    const code = defaultFighterCode()
-
-    return redirect(fighterHash(code), '#/luchador/' + code)
-  }
-
+  const raw = hash.replace(/^#/, '') || '/luchadores'
   const [path, qs] = raw.split('?')
   const q = Object.fromEntries(new URLSearchParams(qs || ''))
   const seg = path.split('/').filter(Boolean).map(dec)
-  const view = seg[0]
-  const key = hash
+  const view = seg[0] || 'luchadores'
+  const key = !hash || hash === '#' ? '#/luchadores' : hash
   const legacy = legacyTarget(view, seg, q, key)
 
   if (legacy) return legacy
 
   if (view === 'luchador' && seg[2]) return blank({ v: 'traje', code: seg[1], n: Number(seg[2]) - 1, q, key })
-  if (view === 'luchador' && seg[1]) return blank({ v: 'luchador', code: seg[1], q, key })
+  if (view === 'luchador') return blank({ v: 'luchador', code: seg[1], q, key })
   if (view === 'cambios') return blank({ v: 'cambios', q, key })
-  if (view === 'notas') return blank({ v: 'notas', q, key })
+  if (view === 'catalogo' || view === 'notas' || view === 'luchadores') return blank({ v: view, q, key })
 
-  return redirect(fighterHash(defaultFighterCode()), key)
+  return redirect('#/luchadores', key)
 }
 
 const isFighterView = (r: AppRoute) => r.v === 'luchador' || r.v === 'traje'
@@ -243,11 +201,7 @@ const isSheet = (r: AppRoute) => r.v === 'cambios'
 /** Página que queda debajo de una hoja. Una hoja no la sustituye. */
 export const viewRoute = () => (isSheet(route.value) ? baseRoute.value : route.value)
 
-const fallbackBase = (): AppRoute => {
-  const code = defaultFighterCode()
-
-  return blank({ v: 'luchador', code, n: 0, key: fighterHash(code) })
-}
+const fallbackBase = (): AppRoute => blank({ v: 'luchadores', key: '#/luchadores' })
 
 const rememberBase = (next: AppRoute) => {
   if (!isSheet(next)) {
@@ -276,8 +230,8 @@ export const slotOf = () => {
   return current.v === 'traje' && SSBU.validSlot(current.n) ? current.n : 0
 }
 
-/** Con un luchador abierto siempre hay un traje activo: sin /<n>, el Traje 1. */
-export const hasSlot = () => onFighter()
+/** Hay un traje elegido en la ruta (Traje 1 a 8), no solo el luchador. */
+export const hasSlot = () => viewRoute().v === 'traje' && SSBU.validSlot(viewRoute().n)
 
 /** Skin candidata de la ruta: sin guardar, solo para comparar. */
 export const skinParam = () => viewRoute().q.skin || ''
@@ -286,12 +240,17 @@ export const titleOf = () => {
   const current = route.value
 
   if (current.v === 'cambios') return 'Cambios'
+  if (current.v === 'catalogo') return 'Catálogo'
   if (current.v === 'notas') return 'Búsquedas pendientes'
   if (isFighterView(current)) return fighterOf(current.code)?.name || 'Luchador'
-  return 'Luchador'
+  return 'Luchadores'
 }
 
-export const showBack = () => route.value.v === 'notas'
+export const showBack = () => {
+  const view = route.value.v
+
+  return isFighterView(route.value) || view === 'catalogo' || view === 'notas'
+}
 
 /** Navega y añade una entrada al historial. */
 export const go = (hash: string) => {
@@ -316,8 +275,8 @@ const applyHash = (force: boolean, replace = false) => {
     return
   }
 
-  if (isFighterView(next) && !isPlayableCode(next.code)) {
-    location.replace(fighterHash(defaultFighterCode()))
+  if (isFighterView(next) && !fighterOf(next.code)) {
+    location.replace('#/luchadores')
 
     return
   }
@@ -360,8 +319,6 @@ const applyHash = (force: boolean, replace = false) => {
     S.nav = depthOf()
   }
 
-  if (isFighterView(next)) rememberLastFighter(next.code)
-
   rememberBase(next)
   route.value = next
   document.title = titleOf() + ' · Skins SSBU'
@@ -396,10 +353,17 @@ export const back = () => {
     return
   }
 
-  swap(fighterHash(defaultFighterCode()))
+  const current = route.value
+
+  if (current.v === 'traje') {
+    swap(fighterHash(current.code, null, current.q.skin))
+    return
+  }
+
+  swap('#/luchadores')
 }
 
-/** Cambia el traje activo del luchador abierto sin añadir historial. La skin candidata viaja con él salvo que se pida lo contrario. */
+/** Abre un traje, o cambia de traje sin añadir historial. La candidata viaja con él salvo que se pida lo contrario. */
 export const selectSlot = (slot: number, keepSkin = true) => {
   const current = viewRoute()
 
@@ -407,8 +371,9 @@ export const selectSlot = (slot: number, keepSkin = true) => {
 
   const target = fighterHash(current.code, slot, keepSkin ? current.q.skin : '')
 
-  // Cambiar de traje no apila entradas en el historial.
-  swap(target)
+  // Abrir el primer traje suma una entrada: Atrás vuelve a la cuadrícula. Cambiar de traje no.
+  if (current.v === 'traje') swap(target)
+  else go(target)
 }
 
 /** Deja una skin como candidata del luchador abierto, o la quita con una cadena vacía. */
@@ -423,65 +388,6 @@ export const setSkin = (vid: string) => {
 /** Abre un luchador con una skin candidata. Es la entrada «skin primero» del catálogo. */
 export const openSkin = (code: string, vid: string) => {
   go(fighterHash(code, null, vid))
-}
-
-export const jumpToFighter = (
-  nextCode: string,
-  slot: number | null = null,
-  skin = '',
-  explicitDirection?: NavigationDirection,
-) => {
-  if (!isPlayableCode(nextCode)) return
-
-  const list = playableFighters()
-  const currentCode = viewRoute().code
-  const currentIndex = list.findIndex((fighter) => fighter.code === currentCode)
-  const nextIndex = list.findIndex((fighter) => fighter.code === nextCode)
-  const targetHash = fighterHash(nextCode, slot, skin)
-
-  if (currentCode === nextCode) {
-    swap(targetHash)
-
-    return
-  }
-
-  const direction = explicitDirection
-    ?? (nextIndex >= currentIndex ? NavigationDirection.Forward : NavigationDirection.Backward)
-
-  runDirectionalTransition(direction, () => {
-    go(targetHash)
-    applyHash(false)
-
-    return nextTick()
-  })
-}
-
-export const stepFighter = (delta: -1 | 1) => {
-  const list = playableFighters()
-
-  if (!list.length) return
-
-  const currentCode = viewRoute().code
-  const currentIndex = list.findIndex((fighter) => fighter.code === currentCode)
-  const baseIndex = currentIndex >= 0 ? currentIndex : 0
-  const nextIndex = (baseIndex + delta + list.length) % list.length
-  const target = list[nextIndex]
-
-  if (!target) return
-
-  const direction = delta > 0 ? NavigationDirection.Forward : NavigationDirection.Backward
-
-  jumpToFighter(target.code, null, '', direction)
-}
-
-export const useApp = () => {
-  const view = computed(() => {
-    tick.value
-
-    return viewRoute().v
-  })
-
-  return { view }
 }
 
 export const start = () => {

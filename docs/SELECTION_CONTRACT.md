@@ -2,7 +2,7 @@
 
 La orden de instalación es `data/slot_plan.json` (slots `approved: true` y `state: mod`). Se lee con `python3 tools/db.py plan` (schema 4, clave `install`). No sale de Firestore.
 
-Las propuestas de la web están en `changes/{luchador}_{traje}_{persona}`, una por persona (`Gian`, `Alan`, `Ches` o `Samu`) y traje; el documento lleva `name` con esa persona. Los documentos anteriores `changes/{luchador}_{traje}` no tienen `name`: se leen como `Otros` y son de solo lectura (las reglas no permiten editarlos ni borrarlos). Guardar una propuesta no la instala. `python3 tools/review_plan.py --source changes` las revisa; sin argumentos se revisa la orden de Git.
+Las propuestas de la web siguen en `changes/{luchador}_{traje}`. Guardar una no la instala. `python3 tools/review_plan.py --source changes` las revisa; sin argumentos se revisa la orden de Git.
 
 ```bash
 python3 tools/db.py plan                                   # orden de Git (schema 4, clave install)
@@ -21,7 +21,7 @@ Exportación de propuestas, no la orden:
   "inventory": { "version": "156bae20", "profile": { "name": "default", "ref": "...@sha", "excluded_base_slots": [] }, "verification": "parcial", "scanned_at": "...", "sources": [ ... ] },
   "target": { "game": "Super Smash Bros. Ultimate", "version": "13.0.5", "loader": "ARCropolis 4.1.1" },
   "changes": [ {
-    "fighter": "Sora", "roster_no": "82", "traje": 1, "slot": "c00", "name": "Gian", "person": "Gian",
+    "fighter": "Sora", "roster_no": "82", "traje": 1, "slot": "c00",
     "user_destination": { "traje": 1, "slot": "c00", "priority": "el destino elegido manda sobre dest_hint" },
     "replaces": { "kind": "original|mod|unknown", "name": "...", "vid": null },
     "relocation": { "native_slots": ["c00","c02"], "needs_move": true, "checked": false },
@@ -30,7 +30,7 @@ Exportación de propuestas, no la orden:
     "proposal": { "vid": "82:330053", "role": "recomendada|alternativa", "variant": null, "chosen_variant": { "id": "82:330053:aaeedf35:c03", "source_slot": "c03", "destination_slot": "c00" }, "mod_id": 330053, "name": "...", "author": "...", "url": "...", "online": "Online: lo declara el autor",
                   "conditions": null, "dependencies": null, "conflicts": null, "native_slots": "1,4", "dest_hint": "c01", "pack": null, "withdrawn": false },
     "missing_in_catalog": false, "vid": "82:330053", "status": "wanted", "result": null } ],
-  "history": [ { "at": "...", "roster_no": "82", "traje": 1, "from": null, "to": "82:330053", "name": "Gian", "kind": "set" } ] }
+  "history": [ { "at": "...", "roster_no": "82", "traje": 1, "from": null, "to": "82:330053", "kind": "set" } ] }
 ```
 
 - **`user_destination` manda sobre `dest_hint`** (la sugerencia del auditor), siempre que sea técnicamente viable. `relocation.needs_move` indica que el traje elegido no está entre los slots originales del mod; `checked: false` significa que **nadie ha comprobado** que ese mod se pueda reubicar: hay que verlo al instalar.
@@ -38,7 +38,6 @@ Exportación de propuestas, no la orden:
 - **`current` nunca está confirmado en consola** (`confirmed: false`). `kind: original` significa «sin mod en el inventario revisado», `unknown` «hay un mod pero no se pudo identificar».
 - **`vid`** identifica la variante exacta (`<luchador>:<id del mod>`; si un mismo mod trae varias variantes para un luchador, la variante añade un sufijo estable).
 - **`variant`** (opcional) y **`proposal.chosen_variant`** identifican la apariencia concreta elegida dentro de un mod: `<vid>:<md5_corto>:<cNN>`, con `md5_corto` de 8 hex y `cNN` el color de origen (`source_slot`); `destination_slot` es el traje elegido. Si falta, se propone el mod sin concretar apariencia. En el historial aparecen como `variant` y `from_variant`. En el historial son texto libre: no se validan contra el catálogo.
-- **`name` y `person`**: quien propone (`Gian`, `Alan`, `Ches`, `Samu`). `person` vale `Otros` cuando el documento anterior no tiene `name`. Varias personas pueden proponer cosas distintas para el mismo traje; es un borrador de propuestas, no una orden de instalación. `review_plan.py` las agrupa por traje y persona. En el historial, `name` es quien hizo el cambio.
 - `online` es lo que declara el autor, no una prueba en consola. Respeta `conditions`, `dependencies` y `conflicts`.
 - Un `pack` no nulo indica un mod compartido con otros luchadores.
 
@@ -81,13 +80,3 @@ Cuando quieras instalar, no hace falta exportar a mano: **pídele a Claude «rev
 4. no instala ni modifica nada.
 
 Alternativas: `python3 tools/review_plan.py --source changes` (propuestas, API REST pública), `--source admin` (con credenciales o emulador) o `--source file exportacion.json` (la exportación de propuestas). Con `--strict` termina con código 1 si hay errores. La instalación sigue siendo manual y la hace quien tiene el ModPack, con el informe delante.
-
-## Propuestas antiguas sin persona
-
-Los documentos `changes/{luchador}_{traje}` anteriores no tienen `name`; la web los muestra como `Otros` y las reglas no dejan editarlos ni borrarlos. Quien mantiene el proyecto los gestiona con `tools/db.py legacy` (credenciales de administrador). Por defecto solo muestra qué haría; escribe únicamente con `--apply`:
-
-- `python3 tools/db.py legacy [--code 01] [--slot 2]`: lista las antiguas.
-- `python3 tools/db.py legacy --assign Gian --apply`: crea `changes/{luchador}_{traje}_Gian` con los mismos `vid`, `variant`, `by` y `at`, y borra la antigua, en un solo lote. Si ya existe el documento con nombre, avisa y la salta.
-- `python3 tools/db.py legacy --remove --apply`: las borra.
-
-`python3 tools/db.py migrate --person Gian` exige indicar la persona y crea `changes/{luchador}_{traje}_{persona}` con `name`.

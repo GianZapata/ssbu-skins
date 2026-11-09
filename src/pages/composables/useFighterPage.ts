@@ -1,250 +1,367 @@
-import { computed, ref } from 'vue'
-import { onKeyStroke, usePointerSwipe } from '@vueuse/core'
-import type { Skin } from '../../boot'
-import {
-  fighterOf,
-  route,
-  S,
-  selectSlot,
-  setSkin,
-  skinParam,
-  slotOf,
-  stepFighter,
-  tick,
-  viewRoute,
-} from '../../composables/useApp'
-import { useDesktop } from '../../composables/useDesktop'
+import { computed, onBeforeUnmount, reactive, ref, watch } from 'vue'
 import { useOutOfView } from '../../composables/useOutOfView'
-import { isOpenFighterPick, openFighterPick } from '../../features/explore/composables/useFighterPick'
-import { zoomSkin } from '../../features/plan/composables/usePlan'
-import { isOpenPerson } from '../../features/plan/composables/usePerson'
-import { skinOf } from '../../features/plan/helpers/lookup'
-import { ownEntries, ownVid } from '../../features/plan/services/sync'
-import { downloadedVids, unauditedVids } from '../../features/roster/driveAlts'
-import type { PlanRow } from '../../shared/helpers/ssbu'
-import { thumbOf } from '../../shared/helpers/skins'
-import { norm, trajeName } from '../../shared/helpers/text'
+import { fighterOf, hasSlot, selectSlot, setSkin, skinParam, S, tick, viewRoute } from '../../composables/useApp'
+import { commitStage } from '../../features/fighters/stage'
+import { clearAt, touched, zoomImage, zoomSkin } from '../../features/plan/composables/usePlan'
+import { curOf, isUnsent, skinOf, slotPlanOf } from '../../features/plan/helpers/lookup'
+import { keyOf, planEntries, planVid, state } from '../../features/plan/services/sync'
+import { PreviewSource } from '../../features/fighters/enums/PreviewSource'
+import { PulseKind } from '../../features/fighters/enums/PulseKind'
+import { downloadedVids, loadDriveAlts, unauditedVids } from '../../features/roster/driveAlts'
+import { ProposalState } from '../../features/roster/enums/ProposalState'
+import { RosterHelper } from '../../features/roster/helpers/roster.helper'
+import { meterOf, type MeterCostume } from '../../features/roster/costumes'
+import { InstallFaceKind } from '../../shared/enums/InstallFaceKind'
+import { SSBU, type PlanRow, type StageChoice } from '../../shared/helpers/ssbu'
+import { coverOf, currentName } from '../../shared/helpers/skins'
+import { trajeName } from '../../shared/helpers/text'
+import { CostumeLayer } from '../../shared/enums/CostumeLayer'
 
-export interface SkinGridRow {
-  vid: string
+const SLOTS = [0, 1, 2, 3, 4, 5, 6, 7]
+
+interface CellCurrent {
   name: string
   img: string | null
-  chosen: boolean
-  other: number | null
+  original: boolean
+}
+
+interface CellNext {
+  name: string
+  img: string | null
+  vid: string
+}
+
+export interface Cell {
+  n: number
+  sel: boolean
+  vid: string | null
   label: string
-  detail: string
-  tag: string
+  quitar: string
+  layer: CostumeLayer
+  layerLabel: string
+  proposal: ProposalState
+  proposalLabel: string
+  current: CellCurrent
+  next: CellNext | null
 }
 
-const isEditableTarget = (target: EventTarget | null): boolean => {
-  if (!(target instanceof HTMLElement)) return false
-
-  return ['INPUT', 'TEXTAREA', 'SELECT'].includes(target.tagName) || target.isContentEditable
+export interface StagePreview {
+  name: string
+  img: string | null
+  vid: string
+  author: string
+  url: string
+  source: PreviewSource
 }
 
-const isArrowOwnedTarget = (target: EventTarget | null): boolean => {
-  if (!(target instanceof HTMLElement)) return false
+const gridLabel = (name: string, chosen: boolean, other: number | null) => {
+  if (chosen) return name + ', en Nueva'
+  if (other !== null) return name + ', ya está en ' + trajeName(other)
 
-  return Boolean(target.closest('.costume-strip, [role="tablist"]'))
+  return name
 }
 
-const skinTagOf = (isDownloaded: boolean, isUnaudited: boolean): string => {
-  if (!isDownloaded) return ''
-  if (isUnaudited) return 'En Drive'
-
-  return 'Descargada'
-}
+const authorOf = (author: string | undefined) => (author && author !== 'pending' ? author : '')
 
 export const useFighterPage = () => {
+  // Pulso al elegir (de este dispositivo) y halo cuando alguien cambia un traje en vivo.
+  const pulse = reactive<Record<number, PulseKind>>({})
+
   const onlyDownloaded = ref(false)
-  const swipeZone = ref<HTMLElement | null>(null)
-  const topSentinel = ref<HTMLElement | null>(null)
+  const panel = ref<HTMLElement | null>(null)
 
-  const desktop = useDesktop()
+  const panelOut = useOutOfView(panel)
 
-  const showScrollTop = useOutOfView(topSentinel)
+  let timers: number[] = []
+  let baseline = ''
+  let baseCode = ''
 
-  const pointerSwipe = usePointerSwipe(swipeZone, {
-    threshold: 56,
-    onSwipeEnd: () => {
-      if (isOverlayOpen.value) return
-      if (!['left', 'right'].includes(pointerSwipe.direction.value)) return
-      if (Math.abs(pointerSwipe.distanceX.value) < 56) return
-      if (Math.abs(pointerSwipe.distanceX.value) <= Math.abs(pointerSwipe.distanceY.value) * 1.8) return
-
-      stepFighter(pointerSwipe.direction.value === 'left' ? 1 : -1)
-    },
-  })
-
-  const fighter = computed(() => {
+  const model = computed(() => {
     tick.value
 
-    return fighterOf(viewRoute().code) || null
-  })
+    const current = viewRoute()
+    const code = current.code
+    const fighter = fighterOf(code)
+    const withSlot = hasSlot()
+    const slot = withSlot ? current.n : 0
 
-  const fighterCode = computed(() => fighter.value?.code || '01')
+    if (!fighter) return { fighter: null, code, slot, withSlot, cells: [] as Cell[], rows: [], total: 0, meter: [] as MeterCostume[], meterLabel: '', summary: '' }
 
-  const activeSlot = computed(() => {
-    tick.value
+    const usable = !fighter.mii
 
-    return slotOf()
-  })
+    const cells: Cell[] = SLOTS.map((n) => {
+      const cur = curOf(code, n)
+      const decision = slotPlanOf(code, n)
+      const face = SSBU.installFace(Boolean(state.slotPlanReady), decision, cur)
+      const order = face.kind === InstallFaceKind.Install ? face.install : null
+      const pick = order ? skinOf(order.vid) : null
+      const name = currentName(cur)
+      const original = cur?.kind === 'original'
+      const vid = usable ? (planVid(code, n) as string | null) : null
+      const proposal = RosterHelper.proposalOf(vid, isUnsent(code, n))
+      let nextImg: string | null = null
 
-  const candidateVid = computed(() => {
-    tick.value
+      if (pick) nextImg = coverOf(pick)
+      else if (cur) nextImg = cur.img
 
-    return skinParam()
-  })
+      const next = order ? { name: order.name, img: nextImg, vid: order.vid || '' } : null
+      let shown = 'skin sin nombre'
 
-  const isOverlayOpen = computed(() => {
-    tick.value
+      if (face.kind === InstallFaceKind.Original) shown = 'original'
+      else if (cur) shown = cur.name
 
-    const mobileSheetOpen = !desktop.value && Boolean(candidateVid.value)
-    const galleryOpen = typeof window !== 'undefined' && Boolean(window.PSWP)
-
-    return (
-      isOpenPerson.value
-      || isOpenFighterPick.value
-      || route.value.v === 'cambios'
-      || mobileSheetOpen
-      || galleryOpen
-    )
-  })
-
-  const allPicks = computed<Skin[]>(() => {
-    tick.value
-
-    const currentFighter = fighter.value
-
-    if (!currentFighter) return []
-
-    const unaudited = unauditedVids()
-
-    return currentFighter.picks.filter(
-      (skin) => !skin.withdrawn && (skin.audited || unaudited.has(skin.vid)),
-    )
-  })
-
-  const skinRows = computed<SkinGridRow[]>(() => {
-    tick.value
-
-    const code = fighterCode.value
-    const slot = activeSlot.value
-    const activeCandidate = candidateVid.value
-    const currentOwnVid = ownVid(code, slot) as string | null
-    const mine = (ownEntries() as PlanRow[]).filter((entry) => entry.code === code)
-    const downloaded = downloadedVids()
-    const unaudited = unauditedVids()
-    const queryWords = norm(S.tc.q || '').split(/\s+/).filter(Boolean)
-
-    const filtered = allPicks.value.filter((skin) => {
-      if (onlyDownloaded.value && !downloaded.has(skin.vid)) return false
-      if (!queryWords.length) return true
-
-      const haystack = norm(skin.name + ' ' + (skin.author || ''))
-
-      return queryWords.every((word) => haystack.includes(word))
-    })
-
-    const ordered = [...filtered].sort((left, right) => {
-      const leftDl = downloaded.has(left.vid) ? 1 : 0
-      const rightDl = downloaded.has(right.vid) ? 1 : 0
-
-      if (leftDl !== rightDl) return rightDl - leftDl
-
-      return left.name.localeCompare(right.name, 'es')
-    })
-
-    return ordered.map((skin) => {
-      const isSelected = activeCandidate
-        ? activeCandidate === skin.vid
-        : currentOwnVid === skin.vid
-
-      const elsewhere = mine.find((entry) => entry.vid === skin.vid && entry.n !== slot) ?? null
-      const tag = skinTagOf(downloaded.has(skin.vid), unaudited.has(skin.vid))
-      const labelParts = [skin.name]
-
-      if (tag) labelParts.push(tag)
-      if (elsewhere) labelParts.push('en ' + trajeName(elsewhere.n))
+      const layerLabel = RosterHelper.layerLabelOf(cur)
+      const proposalLabel = RosterHelper.getProposalMeta(proposal).label
+      const where = next ? trajeName(n) + ': ' + shown + ' cambia a ' + next.name : trajeName(n) + ': ' + shown
+      const label = where + ', ' + layerLabel + (proposalLabel ? ', ' + proposalLabel : '')
 
       return {
-        vid: skin.vid,
-        name: skin.name,
-        img: thumbOf(skin),
-        chosen: isSelected,
-        other: elsewhere ? elsewhere.n : null,
-        label: labelParts.join(', '),
-        detail: 'Ampliar imágenes de ' + skin.name,
-        tag,
+        n,
+        sel: withSlot && n === slot,
+        vid,
+        label,
+        quitar: 'Quitar propuesta, ' + trajeName(n),
+        layer: RosterHelper.layerOf(cur),
+        layerLabel,
+        proposal,
+        proposalLabel,
+        current: { name, img: cur ? cur.img : null, original },
+        next,
       }
+    })
+
+    // La cuadrícula solo marca la candidata. El plan no cambia hasta el botón.
+    const staged = usable ? skinOf(skinParam()) : null
+    const placed = new Map<string, number>()
+    const mine = (planEntries() as PlanRow[]).filter((row) => row.code === code)
+
+    mine.forEach((row) => placed.set(row.vid, row.n))
+
+    const inProfile = new Map<string, number>()
+
+    SLOTS.forEach((n) => {
+      const cur = curOf(code, n)
+
+      if (cur?.layer === 'profile' && cur.vid) inProfile.set(cur.vid, n)
+    })
+
+    const downloaded = downloadedVids()
+    const unaudited = unauditedVids()
+    const all = usable ? SSBU.catList(state.all, { code }, S.tc) : []
+
+    const rows = all
+      .map(({ p }) => {
+        const at = placed.has(p.vid) ? (placed.get(p.vid) as number) : null
+        const chosen = staged ? p.vid === staged.vid : withSlot && at === slot
+        const other = at !== null && at !== slot ? at : null
+        const label = gridLabel(p.name, chosen, other)
+        const profileAt = inProfile.has(p.vid) ? (inProfile.get(p.vid) as number) : null
+        const tags: string[] = []
+
+        if (profileAt !== null) tags.push('En el perfil · ' + trajeName(profileAt))
+        else if (downloaded.has(p.vid)) tags.push('Descargada')
+
+        if (unaudited.has(p.vid)) tags.push('Sin auditar')
+
+        return {
+          vid: p.vid,
+          name: p.name,
+          img: coverOf(p),
+          chosen,
+          other,
+          label,
+          detail: 'Ampliar imagen de ' + p.name,
+          tag: tags.join(' · '),
+          downloaded: downloaded.has(p.vid),
+        }
+      })
+      .filter((row) => !onlyDownloaded.value || row.downloaded)
+
+    // Las descargadas primero: es lo que se puede instalar sin buscar el mod.
+    const ordered = [...rows.filter((row) => row.downloaded), ...rows.filter((row) => !row.downloaded)]
+    const total = usable ? SSBU.catList(state.all, { code }, SSBU.emptyCat()).length : 0
+
+    const own = cells.filter((cell) => cell.layer === CostumeLayer.Profile).length
+    const base = cells.filter((cell) => cell.layer === CostumeLayer.Base).length
+
+    return {
+      fighter,
+      code,
+      slot,
+      withSlot,
+      cells,
+      rows: ordered,
+      total,
+      meter: meterOf(code),
+      meterLabel: RosterHelper.meterLabel(own),
+      summary: RosterHelper.summaryLabel(own, base, cells.length - own - base),
+    }
+  })
+
+  const stage = computed(() => {
+    const m = model.value
+
+    return m.withSlot ? m.cells[m.slot] || null : null
+  })
+
+  const candidate = computed(() => {
+    tick.value
+
+    return model.value.fighter ? skinOf(skinParam()) : null
+  })
+
+  const preview = computed((): StagePreview | null => {
+    const skin = candidate.value
+
+    if (skin) return { name: skin.name, img: coverOf(skin), vid: skin.vid, author: authorOf(skin.author), url: skin.url || '', source: PreviewSource.Candidate }
+
+    const current = stage.value
+    const saved = current && current.vid ? skinOf(current.vid) : null
+
+    if (saved) return { name: saved.name, img: coverOf(saved), vid: saved.vid, author: authorOf(saved.author), url: saved.url || '', source: PreviewSource.Proposal }
+
+    if (current && current.next) {
+      const planned = skinOf(current.next.vid)
+
+      return { name: current.next.name, img: current.next.img, vid: current.next.vid, author: authorOf(planned?.author), url: planned?.url || '', source: PreviewSource.Plan }
+    }
+
+    return null
+  })
+
+  const choice = computed((): StageChoice => {
+    tick.value
+
+    const m = model.value
+    const skin = candidate.value
+    const saved = stage.value ? stage.value.vid : null
+    const placed = skin
+      ? (planEntries() as PlanRow[]).find((row) => row.code === m.code && row.vid === skin.vid && row.n !== m.slot)
+      : null
+
+    return SSBU.stageChoice({
+      slot: m.slot,
+      vid: skin ? skin.vid : null,
+      saved,
+      elsewhere: placed ? placed.n : null,
+      withdrawn: !!(skin && skin.withdrawn),
+      mii: !!(m.fighter && m.fighter.mii) || !!(skin && skin.mii),
+      incompatible: !!(skin && skin.wifi_status === 'incompatible'),
     })
   })
 
-  const onSelectSlot = (slot: number) => {
-    selectSlot(slot, true)
-  }
+  const placeLabel = computed(() => {
+    const name = model.value.fighter ? model.value.fighter.name : ''
 
-  const onPickSkin = (vid: string) => {
-    if (candidateVid.value === vid) {
-      setSkin('')
+    if (!name) return ''
 
-      return
-    }
+    return name + ' · ' + trajeName(model.value.slot)
+  })
+
+  /** Con un traje abierto y la comparación ya fuera de pantalla, su resumen queda fijo arriba. */
+  const barOn = computed(() => panelOut.value && !!stage.value)
+
+  /** Con una skin candidata y sin traje, la página pide el traje. */
+  const placing = computed(() => {
+    const skin = candidate.value
+
+    if (!skin || model.value.withSlot) return null
+
+    return { name: skin.name, img: coverOf(skin) }
+  })
+
+  /** La cuadrícula deja la skin en Nueva. No escribe el plan. */
+  const pick = (vid: string) => {
+    if (!model.value.fighter || !skinOf(vid)) return
 
     setSkin(vid)
   }
 
-  const onDetailSkin = (vid: string) => {
-    const target = skinOf(vid)
+  const openDetail = (vid: string) => {
+    const skin = skinOf(vid)
 
-    if (target) zoomSkin(target, 0)
+    if (skin) zoomSkin(skin, 0)
   }
 
-  const onToggleDownloaded = () => {
-    onlyDownloaded.value = !onlyDownloaded.value
+  const openStage = () => {
+    const shown = preview.value
+
+    if (shown) openDetail(shown.vid)
   }
 
-  const onCloseSkinSheet = () => {
+  const zoomCell = (n: number) => {
+    const cell = model.value.cells[n]
+
+    if (cell && cell.current.img) zoomImage(cell.label, cell.current.img)
+  }
+
+  const zoomCurrent = () => {
+    const current = stage.value
+
+    if (current && current.current.img) zoomImage(current.current.name || trajeName(current.n), current.current.img)
+  }
+
+  const step = (delta: number) => {
+    const next = model.value.slot + delta
+
+    if (model.value.withSlot && next >= 0 && next < SLOTS.length) selectSlot(next)
+  }
+
+  const commit = () => {
+    const m = model.value
+
+    commitStage(m.code, m.slot, choice.value, candidate.value)
+  }
+
+  const discard = () => {
     setSkin('')
   }
 
-  const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' })
+  const clear = (n: number) => clearAt(model.value.code, n)
+
+  const toggleDownloaded = () => {
+    onlyDownloaded.value = !onlyDownloaded.value
   }
 
-  onKeyStroke(['ArrowLeft', 'ArrowRight', '/'], (event) => {
-    if (event.defaultPrevented || isOverlayOpen.value || isEditableTarget(event.target)) return
+  const focusSearch = () => {
+    const field = document.getElementById('skin-search')
 
-    if (event.key === '/') {
-      event.preventDefault()
-      openFighterPick()
+    if (!field) return
 
-      return
-    }
+    field.focus()
+    field.scrollIntoView({ block: 'nearest' })
+  }
 
-    if (isArrowOwnedTarget(event.target)) return
+  watch(
+    () => model.value.cells.map((cell) => cell.vid || '').join('|') + '@' + model.value.code,
+    (snapshot) => {
+      const code = model.value.code
+      const was = baseline.split('|')
+      const now = model.value.cells.map((cell) => cell.vid || '')
+      const same = baseCode === code && baseline !== ''
 
-    event.preventDefault()
-    stepFighter(event.key === 'ArrowRight' ? 1 : -1)
+      baseline = snapshot.split('@')[0]
+      baseCode = code
+
+      if (!same) return
+
+      now.forEach((vid, n) => {
+        if (vid === (was[n] || '')) return
+
+        const mine = Date.now() - (touched[keyOf(code, n)] || 0) < 3000
+
+        pulse[n] = mine ? PulseKind.Local : PulseKind.Live
+        timers.push(window.setTimeout(() => { delete pulse[n] }, mine ? 320 : 640))
+      })
+    },
+    { immediate: true },
+  )
+
+  void loadDriveAlts()
+
+  onBeforeUnmount(() => {
+    timers.forEach((id) => window.clearTimeout(id))
   })
 
-  return {
-    desktop,
-    fighter,
-    fighterCode,
-    activeSlot,
-    candidateVid,
-    onlyDownloaded,
-    allPicks,
-    skinRows,
-    swipeZone,
-    topSentinel,
-    showScrollTop,
-    onSelectSlot,
-    onPickSkin,
-    onDetailSkin,
-    onToggleDownloaded,
-    onCloseSkinSheet,
-    scrollToTop,
-  }
+  return { model, stage, preview, choice, placeLabel, placing, onlyDownloaded, panel, barOn, pulse, pick, openDetail, openStage, zoomCell, zoomCurrent, step, commit, discard, clear, toggleDownloaded, focusSearch, selectSlot }
 }

@@ -20,14 +20,10 @@ export const skinOf = (vid: string | null | undefined) => {
 interface PendOp {
   code: string
   slot: number
-  name?: string | null
 }
 
-/** Hay un cambio de este traje que todavía no llegó a Firestore; con `name`, solo cuenta el de esa persona. */
-export const isUnsent = (code: string, slot: number, name?: string | null) =>
-  (state.PEND as PendOp[]).some(
-    (op) => op.code === code && op.slot === slot && (name === undefined || (op.name || state.activePerson) === name),
-  )
+/** Hay un cambio de este traje que todavía no llegó a Firestore. */
+export const isUnsent = (code: string, slot: number) => (state.PEND as PendOp[]).some((op) => op.code === code && op.slot === slot)
 
 export const changesOf = (code: string) => (planEntries() as PlanRow[]).filter((row) => row.code === code)
 

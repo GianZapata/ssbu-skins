@@ -83,7 +83,7 @@ familias de colores ni quién hizo cada propuesta.
   lectura de enlaces). La hoja con los 4 botones (**Gian, Alan, Ches, Samu**) se abre al intentar guardar la primera
   propuesta; el menú ⋮ incluye «Cambiar persona».
 - Esquema en Firestore: `changes/{code}_{slot}_{name}` con campo `name`, e `history` con `name`.
-  - **Transición sin caída en `firestore.rules`:** fusionar primero el PR y esperar a que Vercel marque «Ready»; **después** publicar las reglas (el cliente nuevo, rechazado por las reglas viejas, conserva sus operaciones en la cola y las reintenta; al revés se perderían las escrituras del cliente viejo, y las pestañas viejas no podrán escribir hasta recargar). En escritura/borrado,
+  - **Transición sin caída en `firestore.rules`:** desplegar las reglas **antes** de fusionar el PR. En escritura/borrado,
     `id` debe coincidir con `code + '_' + string(slot) + '_' + name` y `name in ['Gian', 'Alan', 'Ches', 'Samu']`. En
     `delete`, exigir que `resource.data` tenga `name` válido para que las propuestas legacy `{code}_{slot}` sin `name`
     queden protegidas como **solo lectura** («Otros»). No se abre escritura a ninguna otra colección.

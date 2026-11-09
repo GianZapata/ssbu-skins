@@ -18,12 +18,10 @@ export const coverOf = (skin: Skin | null | undefined) => {
 }
 
 /** Nombre visible de lo que hay instalado: solo si es el original o tiene nombre. */
-export const currentName = (current: Current | null): string => {
+export const currentName = (current: Current | null) => {
   if (!current) return ''
   if (current.kind === 'original') return 'Original'
-  if (current.kind === 'mod') return current.name
-  if (['unnamed', 'unknown'].includes(current.kind)) return 'Mod'
-
+  if (current.kind === 'mod' || current.kind === 'unnamed' || current.kind === 'unknown') return current.name
   return ''
 }
 

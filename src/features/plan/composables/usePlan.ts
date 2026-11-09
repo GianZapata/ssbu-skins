@@ -1,35 +1,26 @@
 import { nextTick, ref } from 'vue'
 import type { Fighter, Skin } from '../../../boot'
 import { bump, fighterOf, S, scrollMem, route } from '../../../composables/useApp'
+import { hdrHidden } from '../../../composables/useReveal'
 import { openGallery } from '../../gallery/composables/useGallery'
 import { SSBU, type PlanRow } from '../../../shared/helpers/ssbu'
 import { curOf } from '../helpers/lookup'
 import { markSaved } from '../saveStatus'
-import type { PersonName } from '../enums/PersonName'
-import { PlanHelper } from '../helpers/plan.helper'
-import { bindPersonSync, requirePerson, syncStoredPerson } from './usePerson'
 import {
   addNote,
   bind,
   classify,
-  docKey,
   enqueue,
   fail,
   fb,
   flush,
-  getPerson,
   keyOf,
   markNote,
-  ownEntries,
-  ownVariant,
-  ownVid,
   paintSync,
   planEntries,
   planVariant,
   planVid,
-  proposalsAt,
   savePend,
-  setPerson,
   startDb,
   state,
 } from '../services/sync'
@@ -54,7 +45,6 @@ interface HistoryRecord {
   to: string | null
   from_variant?: string | null
   variant?: string | null
-  name?: string | null
   kind: string
   t: number | null
 }
@@ -64,80 +54,36 @@ interface StatusRecord {
   result?: string | null
 }
 
-export interface SavedPulse {
-  code: string
-  slot: number
-  at: number
-}
+/** El botón del escenario guarda. La cuadrícula no llama aquí. */
+export const proposeAt = (code: string, slot: number, vid: string, variant: string | null = null) => {
+  if (!SSBU.validSlot(slot)) return false
 
-export const lastSavedPulse = ref<SavedPulse | null>(null)
+  const prev = planVid(code, slot) as string | null
+  const prevVariant = planVariant(code, slot) as string | null
 
-const commitProposal = (
-  person: PersonName,
-  code: string,
-  slot: number,
-  vid: string,
-  variant: string | null,
-  onCommitted?: () => void,
-): boolean => {
-  const prev = ownVid(code, slot) as string | null
-  const prevVariant = ownVariant(code, slot) as string | null
-
-  // Sin selector de variantes en la UI, repetir la misma skin no debe borrar la variante que ya eligió esta persona.
+  // Sin selector de variantes en la UI, repetir la misma skin no debe borrar la variante que eligió otra persona.
   if (variant === null && vid === prev && prevVariant) return false
 
-  const block = SSBU.assignBlock(ownEntries() as PlanRow[], code, slot, vid, variant)
+  const block = SSBU.assignBlock(planEntries(), code, slot, vid, variant)
 
-  if (['duplicate', 'same', 'bad-slot'].includes(block.kind)) return false
+  if (block.kind === 'duplicate' || block.kind === 'same' || block.kind === 'bad-slot') return false
 
-  const op = SSBU.setOp(code, slot, vid, prev, variant, prevVariant, person)
+  const op = SSBU.setOp(code, slot, vid, prev, variant, prevVariant)
 
   if (!op) return false
 
-  touched[docKey(code, slot, person)] = Date.now()
   touched[keyOf(code, slot)] = Date.now()
   enqueue(op)
-  lastSavedPulse.value = { code, slot, at: Date.now() }
-  onCommitted?.()
-
   return true
 }
 
-/** El botón del escenario guarda. La cuadrícula no llama aquí. Sin persona elegida abre la hoja y guarda al elegir. */
-export const proposeAt = (
-  code: string,
-  slot: number,
-  vid: string,
-  variant: string | null = null,
-  onCommitted?: () => void,
-): boolean => {
-  if (!SSBU.validSlot(slot)) return false
-
-  let saved = false
-
-  const hasPerson = requirePerson((person) => {
-    saved = commitProposal(person, code, slot, vid, variant, onCommitted)
-  })
-
-  if (!hasPerson) return false
-
-  return saved
-}
-
-/** Solo deshace la propuesta de la persona activa (o de `author`, si sigue activa); las de otras personas y las antiguas no se tocan. */
-export const clearAt = (code: string, slot: number, author?: PersonName | null): boolean => {
-  const person = getPerson() as PersonName | null
-
-  if (!person) return false
-  if (author !== undefined && author !== person) return false
-
-  const prev = ownVid(code, slot) as string | null
-  const prevVariant = ownVariant(code, slot) as string | null
-  const op = SSBU.clearOp(code, slot, prev, prevVariant, person)
+export const clearAt = (code: string, slot: number) => {
+  const prev = planVid(code, slot) as string | null
+  const prevVariant = planVariant(code, slot) as string | null
+  const op = SSBU.clearOp(code, slot, prev, prevVariant)
 
   if (!op) return false
 
-  touched[docKey(code, slot, person)] = Date.now()
   touched[keyOf(code, slot)] = Date.now()
   enqueue(op)
 
@@ -204,6 +150,7 @@ export const showNotice = (text: string, action?: NoticeAction | null, ms = 0) =
 
   window.clearTimeout(noticeTimer)
   notice.value = current
+  hdrHidden.value = false
   bump()
 
   if (!ms) return
@@ -252,8 +199,6 @@ export const exportPlan = () => {
       const skin = (state.idx as Record<string, { p: Skin }>)[entry.vid]?.p
       const row = status[entry.vid] || {}
       return {
-        name: entry.name || null,
-        person: PlanHelper.personLabel(entry.name),
         fighter: fighter ? fighter.name : entry.code,
         roster_no: entry.code,
         traje: entry.n + 1,
@@ -297,7 +242,6 @@ export const exportPlan = () => {
       to: row.to,
       from_variant: row.from_variant || null,
       variant: row.variant || null,
-      name: row.name || null,
       kind: row.kind,
     })),
   }
@@ -358,18 +302,6 @@ const publish = () => {
   host.planVid = planVid
   host.proposeAt = proposeAt
   host.planVariant = planVariant
-  host.proposalsAt = proposalsAt
-  host.ownVid = ownVid
-  host.ownVariant = ownVariant
-  host.ownEntries = ownEntries
-  host.docKey = docKey
-  host.getPerson = getPerson
-  host.setPerson = (name: string | null) => {
-    syncStoredPerson(name)
-
-    return getPerson()
-  }
-
   host.buildExport = exportPlan
   host.curOf = curOf
   host.isAlt = (skin: Skin) => SSBU.isAlt(skin)
@@ -408,8 +340,5 @@ bind({
   paint: () => bump(),
   toast: showNotice,
   noteSaved: (op: unknown) => markSaved(!op),
-})
-bindPersonSync((person) => {
-  setPerson(person)
 })
 publish()

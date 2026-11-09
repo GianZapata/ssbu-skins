@@ -1175,29 +1175,3 @@ Expected: suite e2e en verde sobre emuladores locales (si el entorno local bloqu
 
 1. Confirmar con `git status -s` que `AGENTS.md` no entró en ningún commit de la rama.
 2. Pedir autorización explícita de Gian antes de desplegar `firestore.rules` en `ssbu-441b1` (**debe desplegarse antes de fusionar el PR en `master`** para que Vercel nunca publique un cliente cuyo esquema las reglas rechacen).
-
----
-
-## Revisión post-implementación (PR #49 · `8c5cdc2`)
-
-Revisión verificada sobre `master@8c5cdc2` el 2026-11-07:
-
-### Lo que quedó verificado y en verde
-
-- **Suites y contratos:** `python3 -m unittest discover -s tests/unit -p 'test_*.py'` (55 pruebas OK), `node --test tests/unit/*.mjs tests/unit/*.js` (36 pruebas OK), `npm run typecheck` (`0` errores) y `python3 tools/board_public.py --check` (`0` diferencias: 457 entradas, 78 con `variants`, 373 variantes publicadas).
-- **Endurecimientos adicionales incorporados en `#49`:**
-  - `firestore.rules`: `okVariant(d, vid)` valida prefijo por longitud e índice (`d.variant[0:vid.size()] == vid`) en lugar de interpolar `vid` en una expresión regular, protegiendo códigos con `ε` (`04ε`, `60ε`).
-  - `tools/inspect_variants.py`: extracción atómica por directorio `.partial` + `os.replace`, exclusión de enlaces simbólicos y salvaguarda `keeps_previous` (`--force`) para no sobrescribir un manifiesto válido si una corrida abre `0` archivos.
-  - `src/shared/helpers/domain.ts` y `src/features/plan/services/sync.ts`: `setOp` y `clearOp` fijan siempre `expVariant: prevVariant || null`, detectando conflictos cuando otro cliente añade o cambia una variante en paralelo.
-  - `src/features/plan/composables/usePlan.ts`: `proposeAt` evita borrar la variante remota si se vuelve a guardar el mismo `vid` con `variant === null` mientras aún no existe selector en UI, y `chosenVariantOf` valida el formato `VARIANT_ID`.
-
-### Pendientes detectados y cómo quedan encauzados
-
-1. **Gap de código en `tools/review_plan.py` `main()` (líneas 199, 202 y 205):**
-   - `read_file()`, `read_admin()`, `read_rest()` y `review()` ya leen y evalúan `variant`, pero `main()` reconstruye `changes = [{'code': c['code'], 'slot': int(c['slot']), 'vid': c['vid']} for c in ch if c.get('vid')]` en `--source file`, `--source admin` y `--source changes`, descartando `variant` al invocar `review_plan.py` desde CLI.
-   - **Resolución:** Incluido como primer paso de la **Tarea 3** en `2026-11-07-fase-2-familias-colores.md`, junto con su prueba de regresión por CLI (`--source file`).
-2. **Estado operativo de retratos de variantes (`0 / 373` con retrato publicado):**
-   - Los 79 manifiestos de `data/variants/*.json` proceden de `feat/variant-inspector` (generados antes de `portrait_size` por `BRTI` y sin `data/variant_portraits.json` poblado en Cloudinary). `board_public.py` cumple el contrato devolviendo `portrait: null` en las 373 variantes («Sin retrato», sin sustituir nunca por imágenes ajenas).
-   - **Acción operativa cuando se conecte `SSBU_mods` y Cloudinary:** correr `tools/inspect_variants.py <SSBU_mods> ... --portraits <dir> --force`, subir los `.webp` nuevos a `ssbu/portraits/<sha256>`, registrar sus hashes en `data/variant_portraits.json` y regenerar `python3 tools/board_public.py`.
-3. **Publicación de `firestore.rules` en `ssbu-441b1`:**
-   - La fusión en `master` activa Vercel y `publish.yml`, pero no despliega reglas de Firestore automáticamente. Confirmar que `firestore.rules` esté desplegado en `ssbu-441b1` antes de que la Fase 4 empiece a escribir `variant` desde la interfaz.

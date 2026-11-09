@@ -1,5 +1,5 @@
 import './domain'
-import type { FamilyGroups, Fighter, Skin } from '../../boot'
+import type { Fighter, Skin } from '../../boot'
 import type { InstallFaceKind } from '../enums/InstallFaceKind'
 
 export interface CatState {
@@ -33,29 +33,6 @@ export interface PlanRow {
   n: number
   vid: string
   variant?: string | null
-  key?: string
-  name?: string | null
-  by?: string | null
-  at?: number | null
-  unsent?: boolean
-}
-
-export interface DocKeyParts {
-  code: string
-  slot: number
-  name: string | null
-}
-
-export interface ProposalRow {
-  key: string
-  code: string
-  n: number
-  vid: string
-  variant: string | null
-  name: string | null
-  by: string | null
-  at: number | null
-  unsent: boolean
 }
 
 export interface Current {
@@ -81,7 +58,6 @@ interface Op {
   exp: string | null
   variant?: string | null
   expVariant?: string | null
-  name?: string
   kind: string
 }
 
@@ -124,41 +100,14 @@ export interface StageChoiceInput {
   incompatible: boolean
 }
 
-export interface SlotCarrier {
-  any?: boolean
-  slots?: number[]
-}
-
-export interface NativeSkinCarrier {
-  native?: number[]
-}
-
-export interface SourceSlotsInput {
-  variant?: string | null
-  alt?: SlotCarrier | null
-  skin?: NativeSkinCarrier | null
-}
-
 export interface Domain {
   keyOf: (code: string, slot: number) => string
   validSlot: (slot: number) => boolean
-  familiesOf: (code: string, families?: FamilyGroups) => number[][]
-  sameFamily: (code: string, from: number, to: number, families?: FamilyGroups) => boolean
-  compatibleSlots: (code: string, sourceSlots?: number[] | null, families?: FamilyGroups) => number[]
-  sourceSlotsOf: (input?: SourceSlotsInput | null) => number[]
   emptyCat: () => CatState
   migrateCat: (saved: unknown) => CatState
   assignBlock: (entries: PlanRow[], code: string, slot: number, vid: string, variant?: string | null) => AssignBlockResult
-  setOp: (code: string, slot: number, vid: string, prev: string | null, variant?: string | null, prevVariant?: string | null, name?: string | null) => Op | null
-  clearOp: (code: string, slot: number, prev: string | null, prevVariant?: string | null, name?: string | null) => Op | null
-  PEOPLE: string[]
-  validPerson: (name: unknown) => boolean
-  docKey: (code: string, slot: number, name?: string | null) => string
-  parseDocKey: (key: string) => DocKeyParts | null
-  proposalsAt: (code: string, slot: number, ctx: unknown) => ProposalRow[]
-  ownVid: (code: string, slot: number, ctx: unknown) => string | null
-  ownVariant: (code: string, slot: number, ctx: unknown) => string | null
-  ownEntries: (ctx: unknown) => ProposalRow[]
+  setOp: (code: string, slot: number, vid: string, prev: string | null, variant?: string | null, prevVariant?: string | null) => Op | null
+  clearOp: (code: string, slot: number, prev: string | null, prevVariant?: string | null) => Op | null
   curOf: (code: string, slot: number, ctx: unknown) => Current | null
   catList: (rows: unknown[], ctx: CatListContext | null, st: CatState) => CatEntry[]
   stageChoice: (input: StageChoiceInput) => StageChoice
@@ -173,12 +122,3 @@ export interface Domain {
 
 const host = globalThis as typeof globalThis & { SSBU: Domain }
 export const SSBU = host.SSBU
-
-export const sameFamily = (code: string, from: number, to: number, families?: FamilyGroups) =>
-  SSBU.sameFamily(code, from, to, families)
-
-export const compatibleSlots = (code: string, sourceSlots?: number[] | null, families?: FamilyGroups) =>
-  SSBU.compatibleSlots(code, sourceSlots, families)
-
-export const sourceSlotsOf = (input?: SourceSlotsInput | null) =>
-  SSBU.sourceSlotsOf(input)

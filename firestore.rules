@@ -1,10 +1,9 @@
 rules_version = '2';
 // Modelo: un único plan compartido, editable por cualquiera con sesión anónima automática.
 //  - catalog, installed, drive, slot_plan, meta, status: los escribe el backend (cuenta de servicio, que se salta estas reglas); la web solo lee.
-//  - changes/{luchador}_{traje}_{persona}: UNA propuesta por persona (Gian, Alan, Ches, Samu) y traje, para que
-//    editar trajes o personas distintos nunca se pisen. Solo hacia una apariencia que exista en el catálogo.
-//    Los documentos anteriores {luchador}_{traje} sin `name` quedan como solo lectura («Otros»): no se editan ni se borran.
-//  - history/{id}: registro inmutable de cada cambio (para el historial y el deshacer), con `name`.
+//  - changes/{luchador}_{traje}: UNA propuesta por traje (un documento por traje, para que editar trajes distintos
+//    nunca se pisen). Cualquiera puede proponer o deshacer, pero solo hacia una apariencia que exista en el catálogo.
+//  - history/{id}: registro inmutable de cada cambio (para el historial y el deshacer).
 //  - selection/*: modelo anterior (dueño + recomendaciones); solo lectura, para migrar con tools/db.py migrate.
 service cloud.firestore {
   match /databases/{database}/documents {
@@ -14,7 +13,6 @@ service cloud.firestore {
       return vid is string && vid.size() <= 80 && exists(catPath(code)) && vid in get(catPath(code)).data.vids;
     }
     function okSlot(s) { return s is int && s >= 0 && s <= 7; }
-    function okPerson(n) { return n is string && n in ['Gian', 'Alan', 'Ches', 'Samu']; }
     function okRef(v) { return v == null || (v is string && v.size() <= 80); }
     // Variante opcional: apariencia concreta de un mod (<vid>:<md5 corto>:<cNN>). Debe pertenecer al mismo vid que se propone.
     function okVariant(d, vid) {
@@ -38,19 +36,15 @@ service cloud.firestore {
     match /changes/{id} {
       allow read: if true;
       allow create, update: if signedIn()
-        && request.resource.data.keys().hasOnly(['code', 'slot', 'vid', 'variant', 'name', 'by', 'at'])
+        && request.resource.data.keys().hasOnly(['code', 'slot', 'vid', 'variant', 'by', 'at'])
         && request.resource.data.code is string && request.resource.data.code.size() <= 4
         && okSlot(request.resource.data.slot)
-        && okPerson(request.resource.data.name)
-        && id == request.resource.data.code + '_' + string(request.resource.data.slot) + '_' + request.resource.data.name
+        && id == request.resource.data.code + '_' + string(request.resource.data.slot)
         && okVid(request.resource.data.code, request.resource.data.vid)
         && okVariant(request.resource.data, request.resource.data.vid)
         && request.resource.data.by == request.auth.uid
         && request.resource.data.at == request.time;
-      allow delete: if signedIn()
-        && 'name' in resource.data
-        && okPerson(resource.data.name)
-        && id == resource.data.code + '_' + string(resource.data.slot) + '_' + resource.data.name;
+      allow delete: if signedIn();
     }
 
     match /requests/{id} {
@@ -72,10 +66,9 @@ service cloud.firestore {
     match /history/{id} {
       allow read: if true;
       allow create: if signedIn()
-        && request.resource.data.keys().hasOnly(['code', 'slot', 'from', 'to', 'from_variant', 'variant', 'name', 'kind', 'by', 'at'])
+        && request.resource.data.keys().hasOnly(['code', 'slot', 'from', 'to', 'from_variant', 'variant', 'kind', 'by', 'at'])
         && request.resource.data.code is string && request.resource.data.code.size() <= 4
         && okSlot(request.resource.data.slot)
-        && okPerson(request.resource.data.name)
         && okRef(request.resource.data.from) && okRef(request.resource.data.to)
         && (!('from_variant' in request.resource.data) || (request.resource.data.from_variant is string && request.resource.data.from_variant.size() <= 120))
         && (!('variant' in request.resource.data) || (request.resource.data.variant is string && request.resource.data.variant.size() <= 120))
