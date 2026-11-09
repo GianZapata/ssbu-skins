@@ -1,6 +1,6 @@
 {
- "scanned_at": "2026-11-06T16:41:00Z",
- "base": "main@1b426fd",
+ "scanned_at": "2026-11-09T20:02:43Z",
+ "base": "main@8657253",
  "integration": "cursor/gamebanana-skin-additions-0ddb",
  "note": "Cambios en ramas sin fusionar en main: skins preparadas por agentes, sin confirmar en la consola.",
  "branches": [

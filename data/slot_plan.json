@@ -1,6 +1,6 @@
 {
  "_nota": "Decisiones de slots de Gian. state: mod|wuboy|vanilla; source: drive|profile|wuboy|vanilla; approved false = propuesta. Regenerar el informe: python3 tools/slot_plan.py [--check]. Un grupo [a, b] en priority comparte posición (Pyra y Mythra). updated_at cambia solo cuando cambia una decisión, no al copiar el plan.",
- "updated_at": "2026-11-06T10:40:57-06:00",
+ "updated_at": "2026-11-09T13:50:37-06:00",
  "priority": [
   "01",
   "09",
@@ -181,13 +181,14 @@
      "approved": true
     },
     "5": {
-     "state": "wuboy",
-     "name": "Jotaro",
-     "mod_id": null,
-     "source": "wuboy",
+     "state": "mod",
+     "name": "dolly - Katsuki Bakugo",
+     "mod_id": 645748,
+     "source": "profile",
      "reslot_from": null,
      "file": null,
-     "approved": true
+     "approved": true,
+     "nota": "Instalada en la SD (dolly-bakugo-c05); plan alineado con la SD el 2026-11-09"
     },
     "6": {
      "state": "mod",
@@ -900,34 +901,34 @@
      "nota": "Solo la skin: se quita vc_narration_characallus_en (narración en inglés de todos los luchadores)"
     },
     "3": {
-     "state": "vanilla",
-     "name": "Original",
-     "mod_id": null,
-     "source": "vanilla",
+     "state": "mod",
+     "name": "zelda - Iono",
+     "mod_id": 416174,
+     "source": "profile",
      "reslot_from": null,
      "file": null,
-     "approved": false,
-     "nota": "se quita la skin de WuBoy"
+     "approved": true,
+     "nota": "Instalada en la SD (zelda-iono-c03); plan alineado con la SD el 2026-11-09"
     },
     "4": {
-     "state": "vanilla",
-     "name": "Original",
-     "mod_id": null,
-     "source": "vanilla",
-     "reslot_from": null,
+     "state": "mod",
+     "name": "zelda - ALttP",
+     "mod_id": 367370,
+     "source": "profile",
+     "reslot_from": 0,
      "file": null,
-     "approved": false,
-     "nota": "se quita la skin de WuBoy"
+     "approved": true,
+     "nota": "Instalada en la SD (zelda-alttp-c04); plan alineado con la SD el 2026-11-09"
     },
     "5": {
-     "state": "vanilla",
-     "name": "Original",
-     "mod_id": null,
-     "source": "vanilla",
-     "reslot_from": null,
+     "state": "mod",
+     "name": "zelda - Raven",
+     "mod_id": 582010,
+     "source": "profile",
+     "reslot_from": 0,
      "file": null,
-     "approved": false,
-     "nota": "se quita la skin de WuBoy"
+     "approved": true,
+     "nota": "Instalada en la SD (zelda-raven-c05); plan alineado con la SD el 2026-11-09"
     },
     "6": {
      "state": "mod",
@@ -941,13 +942,13 @@
     },
     "7": {
      "state": "mod",
-     "name": "Elise zelda",
-     "mod_id": 347784,
+     "name": "zelda - Toon Zelda",
+     "mod_id": 457085,
      "source": "profile",
      "reslot_from": null,
      "file": null,
      "approved": true,
-     "nota": "Instalada en la SD (zelda-elise-c07); plan alineado con la SD el 2026-11-01"
+     "nota": "Instalada en la SD (zelda-toon-c07); plan alineado con la SD el 2026-11-09; antes: Elise zelda"
     }
    }
   },
@@ -1012,13 +1013,14 @@
      "nota": "Instalada en la SD (szerosuit-jill-368929-c05); plan alineado con la SD el 2026-11-01"
     },
     "6": {
-     "state": "vanilla",
-     "name": "Original",
-     "mod_id": null,
-     "source": "vanilla",
+     "state": "mod",
+     "name": "szerosuit - Neon",
+     "mod_id": 403480,
+     "source": "profile",
      "reslot_from": null,
      "file": null,
-     "approved": false
+     "approved": true,
+     "nota": "Instalada en la SD (szerosuit-neon-c06); plan alineado con la SD el 2026-11-09"
     },
     "7": {
      "state": "mod",
@@ -1513,7 +1515,68 @@
    }
   },
   "60ε": {
-   "slots": {},
+   "slots": {
+    "0": {
+     "state": "mod",
+     "name": "ken - Goku SSJ4 Daima",
+     "mod_id": 601448,
+     "source": "profile",
+     "reslot_from": null,
+     "file": null,
+     "approved": true,
+     "nota": "Instalada en la SD (ken-goku-ssj4-daima-c00); plan alineado con la SD el 2026-11-09"
+    },
+    "1": {
+     "state": "mod",
+     "name": "ken - Heatblast",
+     "mod_id": 643215,
+     "source": "profile",
+     "reslot_from": null,
+     "file": null,
+     "approved": true,
+     "nota": "Instalada en la SD (ken-heatblast-c01); plan alineado con la SD el 2026-11-09"
+    },
+    "2": {
+     "state": "mod",
+     "name": "ken - Benson",
+     "mod_id": 694983,
+     "source": "profile",
+     "reslot_from": null,
+     "file": null,
+     "approved": true,
+     "nota": "Instalada en la SD (ken-benson-c02); plan alineado con la SD el 2026-11-09"
+    },
+    "3": {
+     "state": "mod",
+     "name": "ken - Akaza",
+     "mod_id": 463685,
+     "source": "profile",
+     "reslot_from": null,
+     "file": null,
+     "approved": true,
+     "nota": "Instalada en la SD (ken-akaza-c03); plan alineado con la SD el 2026-11-09"
+    },
+    "4": {
+     "state": "mod",
+     "name": "ken - Mr. Satan",
+     "mod_id": 420619,
+     "source": "profile",
+     "reslot_from": null,
+     "file": null,
+     "approved": true,
+     "nota": "Instalada en la SD (ken-mr-satan-c04); plan alineado con la SD el 2026-11-09"
+    },
+    "5": {
+     "state": "mod",
+     "name": "ken - PS1 Ken",
+     "mod_id": 527998,
+     "source": "profile",
+     "reslot_from": null,
+     "file": null,
+     "approved": true,
+     "nota": "Instalada en la SD (ken-ps1-c05); plan alineado con la SD el 2026-11-09"
+    }
+   },
    "nota": "Pendiente: Goku (498005, 8 looks) y los demás packs de muchos slots. Hasta decidir, Ken no tiene propuestas."
   },
   "63": {
@@ -1596,44 +1659,65 @@
   },
   "72": {
    "slots": {
-    "2": {
-     "state": "wuboy",
-     "name": "Trunks",
-     "mod_id": null,
-     "source": "wuboy",
+    "0": {
+     "state": "mod",
+     "name": "brave - Skeleton (escudo)",
+     "mod_id": 644719,
+     "source": "profile",
      "reslot_from": null,
      "file": null,
-     "approved": false
+     "approved": true,
+     "nota": "Instalada en la SD (brave-skeleton-c00); plan alineado con la SD el 2026-11-09"
+    },
+    "1": {
+     "state": "mod",
+     "name": "brave - SSJ God Erdrick",
+     "mod_id": 475835,
+     "source": "profile",
+     "reslot_from": null,
+     "file": null,
+     "approved": true,
+     "nota": "Instalada en la SD (brave-ssj-god-erdrick-c01); plan alineado con la SD el 2026-11-09"
+    },
+    "2": {
+     "state": "mod",
+     "name": "brave - Goku Black Rose",
+     "mod_id": 507392,
+     "source": "profile",
+     "reslot_from": null,
+     "file": null,
+     "approved": true,
+     "nota": "Instalada en la SD (brave-goku-black-rose-c02); plan alineado con la SD el 2026-11-09"
     },
     "3": {
-     "state": "vanilla",
-     "name": "Original",
-     "mod_id": null,
-     "source": "vanilla",
+     "state": "mod",
+     "name": "brave - Caesar King v2",
+     "mod_id": 581146,
+     "source": "profile",
      "reslot_from": null,
      "file": null,
-     "approved": false,
-     "nota": "se quita la skin de WuBoy"
+     "approved": true,
+     "nota": "Instalada en la SD (brave-caesar-king-c03); plan alineado con la SD el 2026-11-09"
     },
     "4": {
-     "state": "vanilla",
-     "name": "Original",
-     "mod_id": null,
-     "source": "vanilla",
+     "state": "mod",
+     "name": "brave - Shoto Todoroki",
+     "mod_id": 322759,
+     "source": "profile",
      "reslot_from": null,
      "file": null,
-     "approved": false,
-     "nota": "se quita la skin de WuBoy"
+     "approved": true,
+     "nota": "Instalada en la SD (brave-shoto-todoroki-c04); plan alineado con la SD el 2026-11-09"
     },
     "5": {
-     "state": "vanilla",
-     "name": "Original",
-     "mod_id": null,
-     "source": "vanilla",
+     "state": "mod",
+     "name": "brave - Herotsune Miku",
+     "mod_id": 695542,
+     "source": "profile",
      "reslot_from": null,
      "file": null,
-     "approved": false,
-     "nota": "se quita la skin de WuBoy"
+     "approved": true,
+     "nota": "Instalada en la SD (brave-herotsune-miku-c05); plan alineado con la SD el 2026-11-09"
     },
     "6": {
      "state": "mod",
@@ -1646,14 +1730,14 @@
      "nota": "el mod trae 2 looks; solo uno. WuBoy ya tiene un Trunks en c02 (se conserva)"
     },
     "7": {
-     "state": "vanilla",
-     "name": "Original",
-     "mod_id": null,
-     "source": "vanilla",
+     "state": "mod",
+     "name": "brave - Dark Magician Girl",
+     "mod_id": 635337,
+     "source": "profile",
      "reslot_from": null,
      "file": null,
-     "approved": false,
-     "nota": "se quita la skin de WuBoy"
+     "approved": true,
+     "nota": "Instalada en la SD (brave-dark-magician-girl-c07); plan alineado con la SD el 2026-11-09"
     }
    }
   },
@@ -1748,15 +1832,25 @@
      "approved": true,
      "nota": "Instalada en la SD (ness-susie-c00); plan alineado con la SD el 2026-11-01"
     },
-    "2": {
-     "state": "vanilla",
-     "name": "Original",
-     "mod_id": null,
-     "source": "vanilla",
+    "1": {
+     "state": "mod",
+     "name": "ness - Stan Marsh",
+     "mod_id": 320361,
+     "source": "profile",
      "reslot_from": null,
      "file": null,
-     "approved": false,
-     "nota": "se quita la skin de WuBoy"
+     "approved": true,
+     "nota": "Instalada en la SD (ness-stan-c01); plan alineado con la SD el 2026-11-09"
+    },
+    "2": {
+     "state": "mod",
+     "name": "ness - Jerry",
+     "mod_id": 340271,
+     "source": "profile",
+     "reslot_from": 1,
+     "file": null,
+     "approved": true,
+     "nota": "Instalada en la SD (ness-jerry-c02); plan alineado con la SD el 2026-11-09"
     },
     "3": {
      "state": "mod",
@@ -1768,15 +1862,45 @@
      "approved": false,
      "nota": "Solo la skin: se quita el tema de victoria de Ness (bgm_z11_f_ness)"
     },
-    "6": {
-     "state": "vanilla",
-     "name": "Original",
-     "mod_id": null,
-     "source": "vanilla",
+    "4": {
+     "state": "mod",
+     "name": "ness - Courage",
+     "mod_id": 569783,
+     "source": "profile",
      "reslot_from": null,
      "file": null,
-     "approved": false,
-     "nota": "se quita la skin de WuBoy"
+     "approved": true,
+     "nota": "Instalada en la SD (ness-courage-c04); plan alineado con la SD el 2026-11-09"
+    },
+    "5": {
+     "state": "mod",
+     "name": "ness - Chiaotzu",
+     "mod_id": 437879,
+     "source": "profile",
+     "reslot_from": 1,
+     "file": null,
+     "approved": true,
+     "nota": "Instalada en la SD (ness-chiaotzu-c05); plan alineado con la SD el 2026-11-09"
+    },
+    "6": {
+     "state": "mod",
+     "name": "ness - Mini Luigi",
+     "mod_id": 174772,
+     "source": "profile",
+     "reslot_from": 0,
+     "file": null,
+     "approved": true,
+     "nota": "Instalada en la SD (ness-mini-luigi-c06); plan alineado con la SD el 2026-11-09"
+    },
+    "7": {
+     "state": "mod",
+     "name": "ness - Goku Daima",
+     "mod_id": 549329,
+     "source": "profile",
+     "reslot_from": null,
+     "file": null,
+     "approved": true,
+     "nota": "Instalada en la SD (ness-goku-daima-c07); plan alineado con la SD el 2026-11-09"
     }
    }
   },
@@ -1803,34 +1927,64 @@
      "nota": "el mod trae 2 looks; solo uno. Usar el config.json de config_cc198.zip. Solo la skin: se quita el tema de victoria (bgm_z61_f_lucina) y los nombres se recortan a c01"
     },
     "2": {
-     "state": "vanilla",
-     "name": "Original",
-     "mod_id": null,
-     "source": "vanilla",
+     "state": "mod",
+     "name": "chrom - Roronoa Zoro",
+     "mod_id": 445062,
+     "source": "profile",
      "reslot_from": null,
      "file": null,
-     "approved": false,
-     "nota": "se quita la skin de WuBoy"
+     "approved": true,
+     "nota": "Instalada en la SD (chrom-zoro-c02); plan alineado con la SD el 2026-11-09"
+    },
+    "3": {
+     "state": "mod",
+     "name": "chrom - Tung Tung Tung Sahur",
+     "mod_id": 632839,
+     "source": "profile",
+     "reslot_from": null,
+     "file": null,
+     "approved": true,
+     "nota": "Instalada en la SD (chrom-tung-tung-c03); plan alineado con la SD el 2026-11-09"
+    },
+    "4": {
+     "state": "mod",
+     "name": "chrom - Mountain Dew",
+     "mod_id": 691100,
+     "source": "profile",
+     "reslot_from": null,
+     "file": null,
+     "approved": true,
+     "nota": "Instalada en la SD (chrom-mountain-dew-c04); plan alineado con la SD el 2026-11-09"
+    },
+    "5": {
+     "state": "mod",
+     "name": "chrom - Giyu Tomioka",
+     "mod_id": 355747,
+     "source": "profile",
+     "reslot_from": null,
+     "file": null,
+     "approved": true,
+     "nota": "Instalada en la SD (chrom-giyu-c05); plan alineado con la SD el 2026-11-09"
     },
     "6": {
-     "state": "vanilla",
-     "name": "Original",
-     "mod_id": null,
-     "source": "vanilla",
+     "state": "mod",
+     "name": "chrom - Inosuke (Demon Slayer pack)",
+     "mod_id": 175881,
+     "source": "profile",
      "reslot_from": null,
      "file": null,
-     "approved": false,
-     "nota": "se quita la skin de WuBoy"
+     "approved": true,
+     "nota": "Instalada en la SD (chrom-inosuke-c06); plan alineado con la SD el 2026-11-09"
     },
     "7": {
-     "state": "vanilla",
-     "name": "Original",
-     "mod_id": null,
-     "source": "vanilla",
+     "state": "mod",
+     "name": "chrom - Ethel",
+     "mod_id": 427828,
+     "source": "profile",
      "reslot_from": null,
      "file": null,
-     "approved": false,
-     "nota": "se quita la skin de WuBoy"
+     "approved": true,
+     "nota": "Instalada en la SD (chrom-ethel-c07); plan alineado con la SD el 2026-11-09"
     }
    },
    "nota": "Squall: un solo look (c00), por decisión de Gian. Raiden en c01."
@@ -2094,14 +2248,14 @@
      "nota": "se quita la skin de WuBoy"
     },
     "1": {
-     "state": "vanilla",
-     "name": "Original",
-     "mod_id": null,
-     "source": "vanilla",
+     "state": "mod",
+     "name": "master - Mitsuri Kanroji",
+     "mod_id": 465028,
+     "source": "profile",
      "reslot_from": null,
      "file": null,
-     "approved": false,
-     "nota": "se quita la skin de WuBoy"
+     "approved": true,
+     "nota": "Instalada en la SD (master-mitsuri-c01); plan alineado con la SD el 2026-11-09"
     },
     "2": {
      "state": "mod",
@@ -2218,15 +2372,35 @@
      "approved": true,
      "nota": "Instalada en la SD (snake-chris-c01); plan alineado con la SD el 2026-11-01"
     },
-    "4": {
-     "state": "vanilla",
-     "name": "Original",
-     "mod_id": null,
-     "source": "vanilla",
+    "2": {
+     "state": "mod",
+     "name": "snake - CJ",
+     "mod_id": 334147,
+     "source": "profile",
      "reslot_from": null,
      "file": null,
-     "approved": false,
-     "nota": "se quita la skin de WuBoy"
+     "approved": true,
+     "nota": "Instalada en la SD (snake-cj-c02); plan alineado con la SD el 2026-11-09"
+    },
+    "3": {
+     "state": "mod",
+     "name": "snake - Deadpool",
+     "mod_id": 175173,
+     "source": "profile",
+     "reslot_from": 1,
+     "file": null,
+     "approved": true,
+     "nota": "Instalada en la SD (snake-deadpool-c03); plan alineado con la SD el 2026-11-09"
+    },
+    "4": {
+     "state": "mod",
+     "name": "snake - Grinch",
+     "mod_id": 405831,
+     "source": "profile",
+     "reslot_from": null,
+     "file": null,
+     "approved": true,
+     "nota": "Instalada en la SD (snake-grinch-c04); plan alineado con la SD el 2026-11-09"
     },
     "5": {
      "state": "mod",
@@ -2237,6 +2411,26 @@
      "file": null,
      "approved": true,
      "nota": "Instalada en la SD (snake-leon-c05); plan alineado con la SD el 2026-11-05"
+    },
+    "6": {
+     "state": "mod",
+     "name": "snake - Green Goblin",
+     "mod_id": 378187,
+     "source": "profile",
+     "reslot_from": null,
+     "file": null,
+     "approved": true,
+     "nota": "Instalada en la SD (snake-goblin-c06); plan alineado con la SD el 2026-11-09"
+    },
+    "7": {
+     "state": "mod",
+     "name": "snake - Master Chief",
+     "mod_id": 336176,
+     "source": "profile",
+     "reslot_from": 0,
+     "file": null,
+     "approved": true,
+     "nota": "Instalada en la SD (snake-master-chief-c07); plan alineado con la SD el 2026-11-09"
     }
    }
   },
@@ -3237,23 +3431,23 @@
    "slots": {
     "0": {
      "state": "mod",
-     "name": "Hoopa lucas",
-     "mod_id": 347784,
+     "name": "lucas - Midna",
+     "mod_id": 478916,
      "source": "profile",
      "reslot_from": null,
      "file": null,
      "approved": true,
-     "nota": "Instalada en la SD (lucas-hoopa-c00); plan alineado con la SD el 2026-11-01"
+     "nota": "Instalada en la SD (lucas-midna-c00); plan alineado con la SD el 2026-11-09; antes: Hoopa lucas"
     },
     "1": {
      "state": "mod",
-     "name": "Maglor lucas",
-     "mod_id": 347784,
+     "name": "lucas - Donald (KH)",
+     "mod_id": 394503,
      "source": "profile",
      "reslot_from": null,
      "file": null,
      "approved": true,
-     "nota": "Instalada en la SD (lucas-maglor-c01); plan alineado con la SD el 2026-11-01"
+     "nota": "Instalada en la SD (lucas-donald-c01); plan alineado con la SD el 2026-11-09; antes: Maglor lucas"
     },
     "2": {
      "state": "mod",
@@ -3266,54 +3460,54 @@
      "nota": "Instalada en la SD (lucas-banette-c02); plan alineado con la SD el 2026-11-01"
     },
     "3": {
-     "state": "vanilla",
-     "name": "Original",
-     "mod_id": null,
-     "source": "vanilla",
+     "state": "mod",
+     "name": "lucas - SpongeBob (NASB)",
+     "mod_id": 328234,
+     "source": "profile",
      "reslot_from": null,
      "file": null,
      "approved": true,
-     "nota": "Sin skin en la SD"
+     "nota": "Instalada en la SD (lucas-spongebob-c03); plan alineado con la SD el 2026-11-09"
     },
     "4": {
-     "state": "vanilla",
-     "name": "Original",
-     "mod_id": null,
-     "source": "vanilla",
+     "state": "mod",
+     "name": "lucas - Vivi Ornitier",
+     "mod_id": 336773,
+     "source": "profile",
      "reslot_from": null,
      "file": null,
      "approved": true,
-     "nota": "Sin skin en la SD"
+     "nota": "Instalada en la SD (lucas-vivi-c04); plan alineado con la SD el 2026-11-09"
     },
     "5": {
-     "state": "vanilla",
-     "name": "Original",
-     "mod_id": null,
-     "source": "vanilla",
+     "state": "mod",
+     "name": "lucas - Jimmy Neutron",
+     "mod_id": 346988,
+     "source": "profile",
      "reslot_from": null,
      "file": null,
      "approved": true,
-     "nota": "Sin skin en la SD"
+     "nota": "Instalada en la SD (lucas-jimmy-neutron-c05); plan alineado con la SD el 2026-11-09"
     },
     "6": {
-     "state": "vanilla",
-     "name": "Original",
-     "mod_id": null,
-     "source": "vanilla",
+     "state": "mod",
+     "name": "lucas - Pablo (Backyardigans)",
+     "mod_id": 425504,
+     "source": "profile",
      "reslot_from": null,
      "file": null,
      "approved": true,
-     "nota": "Sin skin en la SD"
+     "nota": "Instalada en la SD (lucas-pablo-c06); plan alineado con la SD el 2026-11-09"
     },
     "7": {
-     "state": "vanilla",
-     "name": "Original",
-     "mod_id": null,
-     "source": "vanilla",
+     "state": "mod",
+     "name": "lucas - EarthBound 64 Lucas",
+     "mod_id": 174792,
+     "source": "profile",
      "reslot_from": null,
      "file": null,
      "approved": true,
-     "nota": "Sin skin en la SD"
+     "nota": "Instalada en la SD (lucas-eb64-c07); plan alineado con la SD el 2026-11-09"
     }
    }
   },
@@ -3416,14 +3610,14 @@
      "nota": "Skin de WuBoy en la SD"
     },
     "1": {
-     "state": "wuboy",
-     "name": "WuBoy",
-     "mod_id": null,
-     "source": "wuboy",
+     "state": "mod",
+     "name": "reflet - Female Morgan",
+     "mod_id": 597904,
+     "source": "profile",
      "reslot_from": null,
      "file": null,
      "approved": true,
-     "nota": "Skin de WuBoy en la SD"
+     "nota": "Instalada en la SD (reflet-female-morgan-c01); plan alineado con la SD el 2026-11-09"
     },
     "2": {
      "state": "mod",
@@ -3437,13 +3631,13 @@
     },
     "3": {
      "state": "mod",
-     "name": "Dorothea Robin",
-     "mod_id": 347784,
+     "name": "reflet - Lana",
+     "mod_id": 687975,
      "source": "profile",
      "reslot_from": null,
      "file": null,
      "approved": true,
-     "nota": "Instalada en la SD (reflet-dorothea-c03); plan alineado con la SD el 2026-11-01"
+     "nota": "Instalada en la SD (reflet-lana-c03); plan alineado con la SD el 2026-11-09; antes: Dorothea Robin"
     },
     "4": {
      "state": "wuboy",
@@ -3456,34 +3650,34 @@
      "nota": "Skin de WuBoy en la SD"
     },
     "5": {
-     "state": "wuboy",
-     "name": "WuBoy",
-     "mod_id": null,
-     "source": "wuboy",
-     "reslot_from": null,
-     "file": null,
-     "approved": true,
-     "nota": "Skin de WuBoy en la SD"
-    },
-    "6": {
      "state": "mod",
-     "name": "Dr Strange Robin",
-     "mod_id": 347784,
+     "name": "reflet - Na'el",
+     "mod_id": 675963,
      "source": "profile",
      "reslot_from": null,
      "file": null,
      "approved": true,
-     "nota": "Instalada en la SD (reflet-strange-c06); plan alineado con la SD el 2026-11-01"
+     "nota": "Instalada en la SD (reflet-nael-c05); plan alineado con la SD el 2026-11-09"
     },
-    "7": {
-     "state": "wuboy",
-     "name": "WuBoy",
-     "mod_id": null,
-     "source": "wuboy",
+    "6": {
+     "state": "mod",
+     "name": "reflet - Dr. Strange (Mastaklo)",
+     "mod_id": 461148,
+     "source": "profile",
      "reslot_from": null,
      "file": null,
      "approved": true,
-     "nota": "Skin de WuBoy en la SD"
+     "nota": "Instalada en la SD (reflet-dr-strange-c06); plan alineado con la SD el 2026-11-09; antes: Dr Strange Robin"
+    },
+    "7": {
+     "state": "mod",
+     "name": "reflet - Seaside Tactician",
+     "mod_id": 331493,
+     "source": "profile",
+     "reslot_from": null,
+     "file": null,
+     "approved": true,
+     "nota": "Instalada en la SD (reflet-seaside-c07); plan alineado con la SD el 2026-11-09"
     }
    }
   },
@@ -3491,24 +3685,24 @@
    "nota": "Agregado al alinear el plan con la SD el 2026-11-01.",
    "slots": {
     "0": {
-     "state": "vanilla",
-     "name": "Original",
-     "mod_id": null,
-     "source": "vanilla",
+     "state": "mod",
+     "name": "roy - Rengoku",
+     "mod_id": 368368,
+     "source": "profile",
      "reslot_from": null,
      "file": null,
      "approved": true,
-     "nota": "Sin skin en la SD"
+     "nota": "Instalada en la SD (roy-rengoku-c00); plan alineado con la SD el 2026-11-09"
     },
     "1": {
-     "state": "vanilla",
-     "name": "Original",
-     "mod_id": null,
-     "source": "vanilla",
+     "state": "mod",
+     "name": "roy - Tanjiro (Demon Slayer pack)",
+     "mod_id": 175881,
+     "source": "profile",
      "reslot_from": null,
      "file": null,
      "approved": true,
-     "nota": "Sin skin en la SD"
+     "nota": "Instalada en la SD (roy-tanjiro-c01); plan alineado con la SD el 2026-11-09"
     },
     "2": {
      "state": "wuboy",
@@ -3661,14 +3855,14 @@
    "nota": "Agregado al alinear el plan con la SD el 2026-11-01.",
    "slots": {
     "0": {
-     "state": "vanilla",
-     "name": "Original",
-     "mod_id": null,
-     "source": "vanilla",
+     "state": "mod",
+     "name": "simon - Steve",
+     "mod_id": 175577,
+     "source": "profile",
      "reslot_from": null,
      "file": null,
      "approved": true,
-     "nota": "Sin skin en la SD"
+     "nota": "Instalada en la SD (simon-steve-c00); plan alineado con la SD el 2026-11-09"
     },
     "1": {
      "state": "mod",
@@ -3681,64 +3875,64 @@
      "nota": "Instalada en la SD (simon-gabriel-c01); plan alineado con la SD el 2026-11-01"
     },
     "2": {
-     "state": "vanilla",
-     "name": "Original",
-     "mod_id": null,
-     "source": "vanilla",
+     "state": "mod",
+     "name": "simon - Simondorf",
+     "mod_id": 175573,
+     "source": "profile",
      "reslot_from": null,
      "file": null,
      "approved": true,
-     "nota": "Sin skin en la SD"
+     "nota": "Instalada en la SD (simon-simondorf-c02); plan alineado con la SD el 2026-11-09"
     },
     "3": {
-     "state": "vanilla",
-     "name": "Original",
-     "mod_id": null,
-     "source": "vanilla",
+     "state": "mod",
+     "name": "simon - Doofenshmirtz",
+     "mod_id": 422195,
+     "source": "profile",
      "reslot_from": null,
      "file": null,
      "approved": true,
-     "nota": "Sin skin en la SD"
+     "nota": "Instalada en la SD (simon-doof-c03); plan alineado con la SD el 2026-11-09"
     },
     "4": {
-     "state": "vanilla",
-     "name": "Original",
-     "mod_id": null,
-     "source": "vanilla",
-     "reslot_from": null,
+     "state": "mod",
+     "name": "simon - Castlevania II",
+     "mod_id": 315956,
+     "source": "profile",
+     "reslot_from": 1,
      "file": null,
      "approved": true,
-     "nota": "Sin skin en la SD"
+     "nota": "Instalada en la SD (simon-castlevania-c04); plan alineado con la SD el 2026-11-09"
     },
     "5": {
-     "state": "vanilla",
-     "name": "Original",
-     "mod_id": null,
-     "source": "vanilla",
+     "state": "mod",
+     "name": "simon - Clown",
+     "mod_id": 462567,
+     "source": "profile",
      "reslot_from": null,
      "file": null,
      "approved": true,
-     "nota": "Sin skin en la SD"
+     "nota": "Instalada en la SD (simon-clown-c05); plan alineado con la SD el 2026-11-09"
     },
     "6": {
-     "state": "wuboy",
-     "name": "WuBoy",
-     "mod_id": null,
-     "source": "wuboy",
+     "state": "mod",
+     "name": "simon - Scorpion",
+     "mod_id": 561571,
+     "source": "profile",
      "reslot_from": null,
      "file": null,
      "approved": true,
-     "nota": "Skin de WuBoy en la SD"
+     "nota": "Instalada en la SD (simon-scorpion-c06); plan alineado con la SD el 2026-11-09"
     },
     "7": {
-     "state": "vanilla",
-     "name": "Original",
-     "mod_id": null,
-     "source": "vanilla",
+     "state": "mod",
+     "name": "simon - Tuxedo",
+     "mod_id": 473248,
+     "source": "profile",
      "reslot_from": null,
      "file": null,
      "approved": true,
-     "nota": "Sin skin en la SD"
+     "nota": "Instalada en la SD (simon-tuxedo-c07); plan alineado con la SD el 2026-11-09"
     }
    }
   },
@@ -4497,6 +4691,1116 @@
      "file": null,
      "approved": true,
      "nota": "Instalada en la SD (murabito-toadette-c07); plan alineado con la SD el 2026-11-05"
+    }
+   }
+  },
+  "06": {
+   "slots": {
+    "0": {
+     "state": "mod",
+     "name": "kirby - Prime Bottle",
+     "mod_id": 555124,
+     "source": "profile",
+     "reslot_from": null,
+     "file": null,
+     "approved": true,
+     "nota": "Instalada en la SD (kirby-prime-bottle-c00); plan alineado con la SD el 2026-11-09"
+    },
+    "1": {
+     "state": "mod",
+     "name": "kirby - Potato",
+     "mod_id": 534232,
+     "source": "profile",
+     "reslot_from": null,
+     "file": null,
+     "approved": true,
+     "nota": "Instalada en la SD (kirby-potato-c01); plan alineado con la SD el 2026-11-09"
+    },
+    "2": {
+     "state": "mod",
+     "name": "kirby - Funko Pop",
+     "mod_id": 694922,
+     "source": "profile",
+     "reslot_from": null,
+     "file": null,
+     "approved": true,
+     "nota": "Instalada en la SD (kirby-funko-pop-c02); plan alineado con la SD el 2026-11-09"
+    },
+    "3": {
+     "state": "mod",
+     "name": "kirby - Waddle Doo",
+     "mod_id": 667141,
+     "source": "profile",
+     "reslot_from": null,
+     "file": null,
+     "approved": true,
+     "nota": "Instalada en la SD (kirby-waddle-doo-c03); plan alineado con la SD el 2026-11-09"
+    },
+    "4": {
+     "state": "mod",
+     "name": "kirby - Annoying Orange",
+     "mod_id": 613537,
+     "source": "profile",
+     "reslot_from": null,
+     "file": null,
+     "approved": true,
+     "nota": "Instalada en la SD (kirby-annoying-orange-c04); plan alineado con la SD el 2026-11-09"
+    },
+    "5": {
+     "state": "mod",
+     "name": "kirby - Perfect Kirby",
+     "mod_id": 729120,
+     "source": "profile",
+     "reslot_from": null,
+     "file": null,
+     "approved": true,
+     "nota": "Instalada en la SD (kirby-perfect-c05); plan alineado con la SD el 2026-11-09"
+    },
+    "6": {
+     "state": "mod",
+     "name": "kirby - Very Cursed Kirby (Awesome Face)",
+     "mod_id": 711314,
+     "source": "profile",
+     "reslot_from": null,
+     "file": null,
+     "approved": true,
+     "nota": "Instalada en la SD (kirby-cursed-awesome-face-c06); plan alineado con la SD el 2026-11-09"
+    },
+    "7": {
+     "state": "mod",
+     "name": "kirby - Cantaloupe",
+     "mod_id": 620158,
+     "source": "profile",
+     "reslot_from": null,
+     "file": null,
+     "approved": true,
+     "nota": "Instalada en la SD (kirby-cantaloupe-c07); plan alineado con la SD el 2026-11-09"
+    }
+   }
+  },
+  "13ε": {
+   "slots": {
+    "0": {
+     "state": "mod",
+     "name": "daisy - Velma",
+     "mod_id": 539598,
+     "source": "profile",
+     "reslot_from": null,
+     "file": null,
+     "approved": true,
+     "nota": "Instalada en la SD (daisy-velma-c00); plan alineado con la SD el 2026-11-09"
+    },
+    "1": {
+     "state": "mod",
+     "name": "daisy - Toy Chica",
+     "mod_id": 510585,
+     "source": "profile",
+     "reslot_from": null,
+     "file": null,
+     "approved": true,
+     "nota": "Instalada en la SD (daisy-toy-chica-c01); plan alineado con la SD el 2026-11-09"
+    },
+    "2": {
+     "state": "mod",
+     "name": "daisy - Mekka Warrior",
+     "mod_id": 713450,
+     "source": "profile",
+     "reslot_from": null,
+     "file": null,
+     "approved": true,
+     "nota": "Instalada en la SD (daisy-mekka-c02); plan alineado con la SD el 2026-11-09"
+    },
+    "3": {
+     "state": "mod",
+     "name": "daisy - Jane",
+     "mod_id": 478509,
+     "source": "profile",
+     "reslot_from": null,
+     "file": null,
+     "approved": true,
+     "nota": "Instalada en la SD (daisy-jane-c03); plan alineado con la SD el 2026-11-09"
+    },
+    "4": {
+     "state": "mod",
+     "name": "daisy - Leaf (Pokémon Trainer)",
+     "mod_id": 610333,
+     "source": "profile",
+     "reslot_from": null,
+     "file": null,
+     "approved": true,
+     "nota": "Instalada en la SD (daisy-leaf-c04); plan alineado con la SD el 2026-11-09"
+    },
+    "5": {
+     "state": "mod",
+     "name": "daisy - Sakura",
+     "mod_id": 602464,
+     "source": "profile",
+     "reslot_from": null,
+     "file": null,
+     "approved": true,
+     "nota": "Instalada en la SD (daisy-sakura-c05); plan alineado con la SD el 2026-11-09"
+    },
+    "6": {
+     "state": "mod",
+     "name": "daisy - Cecilia Immergreen",
+     "mod_id": 582830,
+     "source": "profile",
+     "reslot_from": null,
+     "file": null,
+     "approved": true,
+     "nota": "Instalada en la SD (daisy-cecilia-c06); plan alineado con la SD el 2026-11-09"
+    },
+    "7": {
+     "state": "mod",
+     "name": "daisy - Jessie (Toy Story)",
+     "mod_id": 691794,
+     "source": "profile",
+     "reslot_from": null,
+     "file": null,
+     "approved": true,
+     "nota": "Instalada en la SD (daisy-jessie-c07); plan alineado con la SD el 2026-11-09"
+    }
+   }
+  },
+  "41": {
+   "slots": {
+    "0": {
+     "state": "mod",
+     "name": "lucario - Xeno Vegeta",
+     "mod_id": 469177,
+     "source": "profile",
+     "reslot_from": null,
+     "file": null,
+     "approved": true,
+     "nota": "Instalada en la SD (lucario-xeno-vegeta-c00); plan alineado con la SD el 2026-11-09"
+    },
+    "1": {
+     "state": "mod",
+     "name": "lucario - Medicham",
+     "mod_id": 570650,
+     "source": "profile",
+     "reslot_from": null,
+     "file": null,
+     "approved": true,
+     "nota": "Instalada en la SD (lucario-medicham-c01); plan alineado con la SD el 2026-11-09"
+    },
+    "2": {
+     "state": "mod",
+     "name": "lucario - Sly Cooper",
+     "mod_id": 725545,
+     "source": "profile",
+     "reslot_from": null,
+     "file": null,
+     "approved": true,
+     "nota": "Instalada en la SD (lucario-sly-cooper-c02); plan alineado con la SD el 2026-11-09"
+    },
+    "3": {
+     "state": "mod",
+     "name": "lucario - Goku",
+     "mod_id": 421077,
+     "source": "profile",
+     "reslot_from": null,
+     "file": null,
+     "approved": true,
+     "nota": "Instalada en la SD (lucario-goku-c03); plan alineado con la SD el 2026-11-09"
+    },
+    "4": {
+     "state": "mod",
+     "name": "lucario - Darkrai",
+     "mod_id": 174686,
+     "source": "profile",
+     "reslot_from": null,
+     "file": null,
+     "approved": true,
+     "nota": "Instalada en la SD (lucario-darkrai-c04); plan alineado con la SD el 2026-11-09"
+    },
+    "5": {
+     "state": "mod",
+     "name": "lucario - Chick Hicks",
+     "mod_id": 539703,
+     "source": "profile",
+     "reslot_from": null,
+     "file": null,
+     "approved": true,
+     "nota": "Instalada en la SD (lucario-chick-hicks-c05); plan alineado con la SD el 2026-11-09"
+    },
+    "6": {
+     "state": "mod",
+     "name": "lucario - Blaze",
+     "mod_id": 514695,
+     "source": "profile",
+     "reslot_from": null,
+     "file": null,
+     "approved": true,
+     "nota": "Instalada en la SD (lucario-blaze-c06); plan alineado con la SD el 2026-11-09"
+    },
+    "7": {
+     "state": "mod",
+     "name": "lucario - N",
+     "mod_id": 532557,
+     "source": "profile",
+     "reslot_from": null,
+     "file": null,
+     "approved": true,
+     "nota": "Instalada en la SD (lucario-n-c07); plan alineado con la SD el 2026-11-09"
+    }
+   }
+  },
+  "39": {
+   "slots": {
+    "0": {
+     "state": "mod",
+     "name": "dedede - Demyx",
+     "mod_id": 372215,
+     "source": "profile",
+     "reslot_from": null,
+     "file": null,
+     "approved": true,
+     "nota": "Instalada en la SD (dedede-demyx-c00); plan alineado con la SD el 2026-11-09"
+    },
+    "1": {
+     "state": "mod",
+     "name": "dedede - Oogie Boogie",
+     "mod_id": 476509,
+     "source": "profile",
+     "reslot_from": null,
+     "file": null,
+     "approved": true,
+     "nota": "Instalada en la SD (dedede-oogie-boogie-c01); plan alineado con la SD el 2026-11-09"
+    },
+    "2": {
+     "state": "mod",
+     "name": "dedede - Grimace",
+     "mod_id": 478890,
+     "source": "profile",
+     "reslot_from": null,
+     "file": null,
+     "approved": true,
+     "nota": "Instalada en la SD (dedede-grimace-c02); plan alineado con la SD el 2026-11-09"
+    },
+    "3": {
+     "state": "mod",
+     "name": "dedede - Beeg Yoshi",
+     "mod_id": 544742,
+     "source": "profile",
+     "reslot_from": null,
+     "file": null,
+     "approved": true,
+     "nota": "Instalada en la SD (dedede-beeg-yoshi-c03); plan alineado con la SD el 2026-11-09"
+    },
+    "4": {
+     "state": "mod",
+     "name": "dedede - Pingu's Mother",
+     "mod_id": 428645,
+     "source": "profile",
+     "reslot_from": null,
+     "file": null,
+     "approved": true,
+     "nota": "Instalada en la SD (dedede-pingus-mother-c04); plan alineado con la SD el 2026-11-09"
+    },
+    "5": {
+     "state": "mod",
+     "name": "dedede - King Pig",
+     "mod_id": 621272,
+     "source": "profile",
+     "reslot_from": null,
+     "file": null,
+     "approved": true,
+     "nota": "Instalada en la SD (dedede-king-pig-c05); plan alineado con la SD el 2026-11-09"
+    },
+    "6": {
+     "state": "mod",
+     "name": "dedede - General Chungus",
+     "mod_id": 591195,
+     "source": "profile",
+     "reslot_from": null,
+     "file": null,
+     "approved": true,
+     "nota": "Instalada en la SD (dedede-general-chungus-c06); plan alineado con la SD el 2026-11-09"
+    },
+    "7": {
+     "state": "mod",
+     "name": "dedede - Club Penguin",
+     "mod_id": 454908,
+     "source": "profile",
+     "reslot_from": null,
+     "file": null,
+     "approved": true,
+     "nota": "Instalada en la SD (dedede-club-penguin-c07); plan alineado con la SD el 2026-11-09"
+    }
+   }
+  },
+  "27": {
+   "slots": {
+    "0": {
+     "state": "mod",
+     "name": "metaknight - Wario's Face",
+     "mod_id": 371208,
+     "source": "profile",
+     "reslot_from": null,
+     "file": null,
+     "approved": true,
+     "nota": "Instalada en la SD (metaknight-warios-face-c00); plan alineado con la SD el 2026-11-09"
+    },
+    "1": {
+     "state": "mod",
+     "name": "metaknight - Crystalline Meta Knight",
+     "mod_id": 174498,
+     "source": "profile",
+     "reslot_from": null,
+     "file": null,
+     "approved": true,
+     "nota": "Instalada en la SD (metaknight-crystalline-c01); plan alineado con la SD el 2026-11-09"
+    },
+    "2": {
+     "state": "mod",
+     "name": "metaknight - Bandana Dee",
+     "mod_id": 362115,
+     "source": "profile",
+     "reslot_from": null,
+     "file": null,
+     "approved": true,
+     "nota": "Instalada en la SD (metaknight-bandana-dee-c02); plan alineado con la SD el 2026-11-09"
+    },
+    "3": {
+     "state": "mod",
+     "name": "metaknight - Hollow Knight",
+     "mod_id": 504522,
+     "source": "profile",
+     "reslot_from": null,
+     "file": null,
+     "approved": true,
+     "nota": "Instalada en la SD (metaknight-hollow-knight-c03); plan alineado con la SD el 2026-11-09"
+    },
+    "4": {
+     "state": "mod",
+     "name": "metaknight - The Meta Knight",
+     "mod_id": 370170,
+     "source": "profile",
+     "reslot_from": null,
+     "file": null,
+     "approved": true,
+     "nota": "Instalada en la SD (metaknight-the-meta-knight-c04); plan alineado con la SD el 2026-11-09"
+    },
+    "5": {
+     "state": "mod",
+     "name": "metaknight - Oddish",
+     "mod_id": 469166,
+     "source": "profile",
+     "reslot_from": null,
+     "file": null,
+     "approved": true,
+     "nota": "Instalada en la SD (metaknight-oddish-c05); plan alineado con la SD el 2026-11-09"
+    },
+    "6": {
+     "state": "mod",
+     "name": "metaknight - Galacta Knight",
+     "mod_id": 333956,
+     "source": "profile",
+     "reslot_from": null,
+     "file": null,
+     "approved": true,
+     "nota": "Instalada en la SD (metaknight-galacta-knight-c06); plan alineado con la SD el 2026-11-09"
+    },
+    "7": {
+     "state": "mod",
+     "name": "metaknight - Froggy Chair",
+     "mod_id": 174513,
+     "source": "profile",
+     "reslot_from": null,
+     "file": null,
+     "approved": true,
+     "nota": "Instalada en la SD (metaknight-froggy-chair-c07); plan alineado con la SD el 2026-11-09"
+    }
+   }
+  },
+  "24": {
+   "slots": {
+    "0": {
+     "state": "mod",
+     "name": "mewtwo - Frieza",
+     "mod_id": 418937,
+     "source": "profile",
+     "reslot_from": null,
+     "file": null,
+     "approved": true,
+     "nota": "Instalada en la SD (mewtwo-frieza-c00); plan alineado con la SD el 2026-11-09"
+    },
+    "1": {
+     "state": "mod",
+     "name": "mewtwo - Sceptile",
+     "mod_id": 350840,
+     "source": "profile",
+     "reslot_from": null,
+     "file": null,
+     "approved": true,
+     "nota": "Instalada en la SD (mewtwo-sceptile-c01); plan alineado con la SD el 2026-11-09"
+    },
+    "2": {
+     "state": "mod",
+     "name": "mewtwo - Mew Li (Safe)",
+     "mod_id": 495011,
+     "source": "profile",
+     "reslot_from": null,
+     "file": null,
+     "approved": true,
+     "nota": "Instalada en la SD (mewtwo-mew-li-c02); plan alineado con la SD el 2026-11-09"
+    },
+    "3": {
+     "state": "mod",
+     "name": "mewtwo - OoT Ganondorf",
+     "mod_id": 594268,
+     "source": "profile",
+     "reslot_from": null,
+     "file": null,
+     "approved": true,
+     "nota": "Instalada en la SD (mewtwo-oot-ganondorf-c03); plan alineado con la SD el 2026-11-09"
+    },
+    "4": {
+     "state": "mod",
+     "name": "mewtwo - Majin Android 21 (Good)",
+     "mod_id": 362738,
+     "source": "profile",
+     "reslot_from": null,
+     "file": null,
+     "approved": true,
+     "nota": "Instalada en la SD (mewtwo-android-21-c04); plan alineado con la SD el 2026-11-09"
+    },
+    "5": {
+     "state": "mod",
+     "name": "mewtwo - Beerus",
+     "mod_id": 453683,
+     "source": "profile",
+     "reslot_from": null,
+     "file": null,
+     "approved": true,
+     "nota": "Instalada en la SD (mewtwo-beerus-c05); plan alineado con la SD el 2026-11-09"
+    },
+    "6": {
+     "state": "mod",
+     "name": "mewtwo - Alakazam",
+     "mod_id": 473908,
+     "source": "profile",
+     "reslot_from": null,
+     "file": null,
+     "approved": true,
+     "nota": "Instalada en la SD (mewtwo-alakazam-c06); plan alineado con la SD el 2026-11-09"
+    },
+    "7": {
+     "state": "mod",
+     "name": "mewtwo - Porygon-Z",
+     "mod_id": 174629,
+     "source": "profile",
+     "reslot_from": null,
+     "file": null,
+     "approved": true,
+     "nota": "Instalada en la SD (mewtwo-porygon-z-c07); plan alineado con la SD el 2026-11-09"
+    }
+   }
+  },
+  "26": {
+   "slots": {
+    "0": {
+     "state": "mod",
+     "name": "gamewatch - G&W Galaxy",
+     "mod_id": 174967,
+     "source": "profile",
+     "reslot_from": null,
+     "file": null,
+     "approved": true,
+     "nota": "Instalada en la SD (gamewatch-galaxy-c00); plan alineado con la SD el 2026-11-09"
+    },
+    "1": {
+     "state": "mod",
+     "name": "gamewatch - Weegee",
+     "mod_id": 456701,
+     "source": "profile",
+     "reslot_from": null,
+     "file": null,
+     "approved": true,
+     "nota": "Instalada en la SD (gamewatch-weegee-c01); plan alineado con la SD el 2026-11-09"
+    },
+    "2": {
+     "state": "mod",
+     "name": "gamewatch - Arcade Floor",
+     "mod_id": 174965,
+     "source": "profile",
+     "reslot_from": null,
+     "file": null,
+     "approved": true,
+     "nota": "Instalada en la SD (gamewatch-arcade-floor-c02); plan alineado con la SD el 2026-11-09"
+    },
+    "3": {
+     "state": "mod",
+     "name": "gamewatch - Ms. Game & Watch",
+     "mod_id": 491494,
+     "source": "profile",
+     "reslot_from": null,
+     "file": null,
+     "approved": true,
+     "nota": "Instalada en la SD (gamewatch-ms-game-watch-c03); plan alineado con la SD el 2026-11-09"
+    },
+    "4": {
+     "state": "mod",
+     "name": "gamewatch - Animdude",
+     "mod_id": 465428,
+     "source": "profile",
+     "reslot_from": null,
+     "file": null,
+     "approved": true,
+     "nota": "Instalada en la SD (gamewatch-animdude-c04); plan alineado con la SD el 2026-11-09"
+    },
+    "5": {
+     "state": "mod",
+     "name": "gamewatch - Cactuar",
+     "mod_id": 647586,
+     "source": "profile",
+     "reslot_from": null,
+     "file": null,
+     "approved": true,
+     "nota": "Instalada en la SD (gamewatch-cactuar-c05); plan alineado con la SD el 2026-11-09"
+    },
+    "6": {
+     "state": "mod",
+     "name": "gamewatch - Mr Shapes & Beats (Cube)",
+     "mod_id": 461712,
+     "source": "profile",
+     "reslot_from": null,
+     "file": null,
+     "approved": true,
+     "nota": "Instalada en la SD (gamewatch-shapes-beats-c06); plan alineado con la SD el 2026-11-09"
+    },
+    "7": {
+     "state": "mod",
+     "name": "gamewatch - Jazz Cup",
+     "mod_id": 384936,
+     "source": "profile",
+     "reslot_from": null,
+     "file": null,
+     "approved": true,
+     "nota": "Instalada en la SD (gamewatch-jazz-cup-c07); plan alineado con la SD el 2026-11-09"
+    }
+   }
+  },
+  "04ε": {
+   "slots": {
+    "0": {
+     "state": "mod",
+     "name": "samusd - Raven Beak",
+     "mod_id": 329142,
+     "source": "profile",
+     "reslot_from": null,
+     "file": null,
+     "approved": true,
+     "nota": "Instalada en la SD (samusd-raven-beak-c00); plan alineado con la SD el 2026-11-09"
+    },
+    "1": {
+     "state": "mod",
+     "name": "samusd - Death",
+     "mod_id": 551437,
+     "source": "profile",
+     "reslot_from": null,
+     "file": null,
+     "approved": true,
+     "nota": "Instalada en la SD (samusd-death-c01); plan alineado con la SD el 2026-11-09"
+    },
+    "2": {
+     "state": "mod",
+     "name": "samusd - Chromastone",
+     "mod_id": 639398,
+     "source": "profile",
+     "reslot_from": null,
+     "file": null,
+     "approved": true,
+     "nota": "Instalada en la SD (samusd-chromastone-c02); plan alineado con la SD el 2026-11-09"
+    },
+    "3": {
+     "state": "mod",
+     "name": "samusd - Deoxys",
+     "mod_id": 506291,
+     "source": "profile",
+     "reslot_from": null,
+     "file": null,
+     "approved": true,
+     "nota": "Instalada en la SD (samusd-deoxys-c03); plan alineado con la SD el 2026-11-09"
+    },
+    "4": {
+     "state": "mod",
+     "name": "samusd - Mecha Sonic (SMBZ)",
+     "mod_id": 395401,
+     "source": "profile",
+     "reslot_from": null,
+     "file": null,
+     "approved": true,
+     "nota": "Instalada en la SD (samusd-mecha-sonic-c04); plan alineado con la SD el 2026-11-09"
+    },
+    "5": {
+     "state": "mod",
+     "name": "samusd - Ultimate Echo Echo",
+     "mod_id": 646058,
+     "source": "profile",
+     "reslot_from": null,
+     "file": null,
+     "approved": true,
+     "nota": "Instalada en la SD (samusd-echo-echo-c05); plan alineado con la SD el 2026-11-09"
+    },
+    "6": {
+     "state": "mod",
+     "name": "samusd - E-123 Omega",
+     "mod_id": 383793,
+     "source": "profile",
+     "reslot_from": null,
+     "file": null,
+     "approved": true,
+     "nota": "Instalada en la SD (samusd-omega-c06); plan alineado con la SD el 2026-11-09"
+    },
+    "7": {
+     "state": "mod",
+     "name": "samusd - Iron Man",
+     "mod_id": 522099,
+     "source": "profile",
+     "reslot_from": null,
+     "file": null,
+     "approved": true,
+     "nota": "Instalada en la SD (samusd-iron-man-c07); plan alineado con la SD el 2026-11-09"
+    }
+   }
+  },
+  "05": {
+   "slots": {
+    "0": {
+     "state": "mod",
+     "name": "yoshi - Yoshi's Island Art",
+     "mod_id": 319207,
+     "source": "profile",
+     "reslot_from": null,
+     "file": null,
+     "approved": true,
+     "nota": "Instalada en la SD (yoshi-yoshis-island-art-c00); plan alineado con la SD el 2026-11-09"
+    },
+    "1": {
+     "state": "mod",
+     "name": "yoshi - Chocobo",
+     "mod_id": 376936,
+     "source": "profile",
+     "reslot_from": null,
+     "file": null,
+     "approved": true,
+     "nota": "Instalada en la SD (yoshi-chocobo-c01); plan alineado con la SD el 2026-11-09"
+    },
+    "2": {
+     "state": "mod",
+     "name": "yoshi - Boshi",
+     "mod_id": 174235,
+     "source": "profile",
+     "reslot_from": null,
+     "file": null,
+     "approved": true,
+     "nota": "Instalada en la SD (yoshi-boshi-c02); plan alineado con la SD el 2026-11-09"
+    },
+    "3": {
+     "state": "mod",
+     "name": "yoshi - Birdo (verde)",
+     "mod_id": 434760,
+     "source": "profile",
+     "reslot_from": null,
+     "file": null,
+     "approved": true,
+     "nota": "Instalada en la SD (yoshi-birdo-c03); plan alineado con la SD el 2026-11-09"
+    },
+    "4": {
+     "state": "mod",
+     "name": "yoshi - Lickitung",
+     "mod_id": 469063,
+     "source": "profile",
+     "reslot_from": null,
+     "file": null,
+     "approved": true,
+     "nota": "Instalada en la SD (yoshi-lickitung-c04); plan alineado con la SD el 2026-11-09"
+    },
+    "5": {
+     "state": "mod",
+     "name": "yoshi - Hammer Bro",
+     "mod_id": 335814,
+     "source": "profile",
+     "reslot_from": null,
+     "file": null,
+     "approved": true,
+     "nota": "Instalada en la SD (yoshi-hammer-bro-c05); plan alineado con la SD el 2026-11-09"
+    },
+    "6": {
+     "state": "mod",
+     "name": "yoshi - White Yoshi",
+     "mod_id": 174230,
+     "source": "profile",
+     "reslot_from": null,
+     "file": null,
+     "approved": true,
+     "nota": "Instalada en la SD (yoshi-white-c06); plan alineado con la SD el 2026-11-09"
+    },
+    "7": {
+     "state": "mod",
+     "name": "yoshi - Tsuyu Asui (Froppy)",
+     "mod_id": 487558,
+     "source": "profile",
+     "reslot_from": null,
+     "file": null,
+     "approved": true,
+     "nota": "Instalada en la SD (yoshi-froppy-c07); plan alineado con la SD el 2026-11-09"
+    }
+   }
+  },
+  "12": {
+   "slots": {
+    "0": {
+     "state": "mod",
+     "name": "purin - Oreo",
+     "mod_id": 694831,
+     "source": "profile",
+     "reslot_from": null,
+     "file": null,
+     "approved": true,
+     "nota": "Instalada en la SD (purin-oreo-c00); plan alineado con la SD el 2026-11-09"
+    },
+    "4": {
+     "state": "mod",
+     "name": "purin - Pou",
+     "mod_id": 726068,
+     "source": "profile",
+     "reslot_from": null,
+     "file": null,
+     "approved": true,
+     "nota": "Instalada en la SD (purin-pou-c04); plan alineado con la SD el 2026-11-09"
+    },
+    "5": {
+     "state": "mod",
+     "name": "purin - 1UP Mushroom",
+     "mod_id": 639614,
+     "source": "profile",
+     "reslot_from": null,
+     "file": null,
+     "approved": true,
+     "nota": "Instalada en la SD (purin-1up-mushroom-c05); plan alineado con la SD el 2026-11-09"
+    },
+    "6": {
+     "state": "mod",
+     "name": "purin - Apple",
+     "mod_id": 688751,
+     "source": "profile",
+     "reslot_from": null,
+     "file": null,
+     "approved": true,
+     "nota": "Instalada en la SD (purin-apple-c06); plan alineado con la SD el 2026-11-09"
+    },
+    "7": {
+     "state": "mod",
+     "name": "purin - Luma",
+     "mod_id": 728396,
+     "source": "profile",
+     "reslot_from": null,
+     "file": null,
+     "approved": true,
+     "nota": "Instalada en la SD (purin-luma-c07); plan alineado con la SD el 2026-11-09"
+    }
+   }
+  },
+  "19": {
+   "slots": {
+    "0": {
+     "state": "mod",
+     "name": "pichu - Captain Pichu",
+     "mod_id": 464897,
+     "source": "profile",
+     "reslot_from": null,
+     "file": null,
+     "approved": true,
+     "nota": "Instalada en la SD (pichu-captain-c00); plan alineado con la SD el 2026-11-09"
+    },
+    "1": {
+     "state": "mod",
+     "name": "pichu - Wooper",
+     "mod_id": 299614,
+     "source": "profile",
+     "reslot_from": null,
+     "file": null,
+     "approved": true,
+     "nota": "Instalada en la SD (pichu-wooper-c01); plan alineado con la SD el 2026-11-09"
+    },
+    "2": {
+     "state": "mod",
+     "name": "pichu - GIR (Puppy v2)",
+     "mod_id": 460376,
+     "source": "profile",
+     "reslot_from": null,
+     "file": null,
+     "approved": true,
+     "nota": "Instalada en la SD (pichu-gir-c02); plan alineado con la SD el 2026-11-09"
+    },
+    "3": {
+     "state": "mod",
+     "name": "pichu - Paldean Wooper",
+     "mod_id": 427898,
+     "source": "profile",
+     "reslot_from": null,
+     "file": null,
+     "approved": true,
+     "nota": "Instalada en la SD (pichu-paldean-wooper-c03); plan alineado con la SD el 2026-11-09"
+    },
+    "4": {
+     "state": "mod",
+     "name": "pichu - Verity",
+     "mod_id": 703917,
+     "source": "profile",
+     "reslot_from": null,
+     "file": null,
+     "approved": true,
+     "nota": "Instalada en la SD (pichu-verity-c04); plan alineado con la SD el 2026-11-09"
+    },
+    "5": {
+     "state": "mod",
+     "name": "pichu - Chiikawa",
+     "mod_id": 598082,
+     "source": "profile",
+     "reslot_from": null,
+     "file": null,
+     "approved": true,
+     "nota": "Instalada en la SD (pichu-chiikawa-c05); plan alineado con la SD el 2026-11-09"
+    },
+    "6": {
+     "state": "mod",
+     "name": "pichu - Sylveon Fusion",
+     "mod_id": 435293,
+     "source": "profile",
+     "reslot_from": null,
+     "file": null,
+     "approved": true,
+     "nota": "Instalada en la SD (pichu-sylveon-c06); plan alineado con la SD el 2026-11-09"
+    },
+    "7": {
+     "state": "mod",
+     "name": "pichu - Bald Pichu",
+     "mod_id": 426564,
+     "source": "profile",
+     "reslot_from": null,
+     "file": null,
+     "approved": true,
+     "nota": "Instalada en la SD (pichu-bald-c07); plan alineado con la SD el 2026-11-09"
+    }
+   }
+  },
+  "08": {
+   "slots": {
+    "0": {
+     "state": "mod",
+     "name": "pikachu - Ken Sugimori",
+     "mod_id": 438395,
+     "source": "profile",
+     "reslot_from": null,
+     "file": null,
+     "approved": true,
+     "nota": "Instalada en la SD (pikachu-ken-sugimori-c00); plan alineado con la SD el 2026-11-09"
+    },
+    "1": {
+     "state": "mod",
+     "name": "pikachu - Perry the Platypus",
+     "mod_id": 431378,
+     "source": "profile",
+     "reslot_from": null,
+     "file": null,
+     "approved": true,
+     "nota": "Instalada en la SD (pikachu-perry-c01); plan alineado con la SD el 2026-11-09"
+    },
+    "2": {
+     "state": "mod",
+     "name": "pikachu - Smash 64 Pikachu",
+     "mod_id": 618173,
+     "source": "profile",
+     "reslot_from": null,
+     "file": null,
+     "approved": true,
+     "nota": "Instalada en la SD (pikachu-smash-64-c02); plan alineado con la SD el 2026-11-09"
+    },
+    "3": {
+     "state": "mod",
+     "name": "pikachu - Mimikyu (arms)",
+     "mod_id": 341276,
+     "source": "profile",
+     "reslot_from": null,
+     "file": null,
+     "approved": true,
+     "nota": "Instalada en la SD (pikachu-mimikyu-c03); plan alineado con la SD el 2026-11-09"
+    },
+    "4": {
+     "state": "mod",
+     "name": "pikachu - Happy Banana Cat",
+     "mod_id": 463946,
+     "source": "profile",
+     "reslot_from": null,
+     "file": null,
+     "approved": true,
+     "nota": "Instalada en la SD (pikachu-banana-cat-c04); plan alineado con la SD el 2026-11-09"
+    },
+    "5": {
+     "state": "mod",
+     "name": "pikachu - Gengar Cosplay",
+     "mod_id": 418999,
+     "source": "profile",
+     "reslot_from": null,
+     "file": null,
+     "approved": true,
+     "nota": "Instalada en la SD (pikachu-gengar-cosplay-c05); plan alineado con la SD el 2026-11-09"
+    },
+    "6": {
+     "state": "mod",
+     "name": "pikachu - Bald Pikachu",
+     "mod_id": 426697,
+     "source": "profile",
+     "reslot_from": null,
+     "file": null,
+     "approved": true,
+     "nota": "Instalada en la SD (pikachu-bald-c06); plan alineado con la SD el 2026-11-09"
+    },
+    "7": {
+     "state": "mod",
+     "name": "pikachu - Eevee",
+     "mod_id": 678775,
+     "source": "profile",
+     "reslot_from": null,
+     "file": null,
+     "approved": true,
+     "nota": "Instalada en la SD (pikachu-eevee-c07); plan alineado con la SD el 2026-11-09"
+    }
+   }
+  },
+  "65": {
+   "slots": {
+    "0": {
+     "state": "mod",
+     "name": "ridley - Imperfect Cell",
+     "mod_id": 669246,
+     "source": "profile",
+     "reslot_from": null,
+     "file": null,
+     "approved": true,
+     "nota": "Instalada en la SD (ridley-imperfect-cell-c00); plan alineado con la SD el 2026-11-09"
+    },
+    "1": {
+     "state": "mod",
+     "name": "ridley - Zilla (verde)",
+     "mod_id": 583578,
+     "source": "profile",
+     "reslot_from": null,
+     "file": null,
+     "approved": true,
+     "nota": "Instalada en la SD (ridley-zilla-c01); plan alineado con la SD el 2026-11-09"
+    },
+    "2": {
+     "state": "mod",
+     "name": "ridley - Zekrom",
+     "mod_id": 407600,
+     "source": "profile",
+     "reslot_from": null,
+     "file": null,
+     "approved": true,
+     "nota": "Instalada en la SD (ridley-zekrom-c02); plan alineado con la SD el 2026-11-09"
+    },
+    "3": {
+     "state": "mod",
+     "name": "ridley - Ender Dragon",
+     "mod_id": 175454,
+     "source": "profile",
+     "reslot_from": null,
+     "file": null,
+     "approved": true,
+     "nota": "Instalada en la SD (ridley-ender-dragon-c03); plan alineado con la SD el 2026-11-09"
+    },
+    "4": {
+     "state": "mod",
+     "name": "ridley - Naruto Nine Tails",
+     "mod_id": 475180,
+     "source": "profile",
+     "reslot_from": null,
+     "file": null,
+     "approved": true,
+     "nota": "Instalada en la SD (ridley-nine-tails-c04); plan alineado con la SD el 2026-11-09"
+    },
+    "5": {
+     "state": "mod",
+     "name": "ridley - Alien (Xeno)",
+     "mod_id": 360221,
+     "source": "profile",
+     "reslot_from": null,
+     "file": null,
+     "approved": true,
+     "nota": "Instalada en la SD (ridley-alien-c05); plan alineado con la SD el 2026-11-09"
+    },
+    "6": {
+     "state": "mod",
+     "name": "ridley - Toothless",
+     "mod_id": 558124,
+     "source": "profile",
+     "reslot_from": null,
+     "file": null,
+     "approved": true,
+     "nota": "Instalada en la SD (ridley-toothless-c06); plan alineado con la SD el 2026-11-09"
+    },
+    "7": {
+     "state": "mod",
+     "name": "ridley - Light Ridley (Galeem)",
+     "mod_id": 491089,
+     "source": "profile",
+     "reslot_from": null,
+     "file": null,
+     "approved": true,
+     "nota": "Instalada en la SD (ridley-light-ridley-c07); plan alineado con la SD el 2026-11-09"
+    }
+   }
+  },
+  "71": {
+   "slots": {
+    "0": {
+     "state": "mod",
+     "name": "jack - Toga",
+     "mod_id": 577644,
+     "source": "profile",
+     "reslot_from": null,
+     "file": null,
+     "approved": true,
+     "nota": "Instalada en la SD (jack-toga-c00); plan alineado con la SD el 2026-11-09"
+    },
+    "1": {
+     "state": "mod",
+     "name": "jack - Sung Jinwoo",
+     "mod_id": 560534,
+     "source": "profile",
+     "reslot_from": null,
+     "file": null,
+     "approved": true,
+     "nota": "Instalada en la SD (jack-sung-jinwoo-c01); plan alineado con la SD el 2026-11-09"
+    }
+   }
+  },
+  "38": {
+   "slots": {
+    "1": {
+     "state": "mod",
+     "name": "sonic - Sanic",
+     "mod_id": 175203,
+     "source": "profile",
+     "reslot_from": null,
+     "file": null,
+     "approved": true,
+     "nota": "Instalada en la SD (sonic-sanic-c01); plan alineado con la SD el 2026-11-09"
+    },
+    "3": {
+     "state": "mod",
+     "name": "sonic - Silver",
+     "mod_id": 303287,
+     "source": "profile",
+     "reslot_from": null,
+     "file": null,
+     "approved": true,
+     "nota": "Instalada en la SD (sonic-silver-c03); plan alineado con la SD el 2026-11-09"
     }
    }
   }

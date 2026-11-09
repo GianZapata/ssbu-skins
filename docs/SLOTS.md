@@ -1,8 +1,8 @@
 # Plan de slots
 
-_Generado por `tools/slot_plan.py` a partir de `data/slot_plan.json`, `installed.json`, `inventory_profile.json` y `drive.json`; no editar a mano. Nada de esto está instalado ni probado en consola. Plan actualizado: 2026-11-06T10:40:57-06:00._
+_Generado por `tools/slot_plan.py` a partir de `data/slot_plan.json`, `installed.json`, `inventory_profile.json` y `drive.json`; no editar a mano. Nada de esto está instalado ni probado en consola. Plan actualizado: 2026-11-09T13:50:37-06:00._
 
-**65 luchadores · 347 slots aprobados · 82 propuestos · 91 sin decidir (de 520)**
+**73 luchadores · 487 slots aprobados · 66 propuestos · 31 sin decidir (de 584)**
 
 Orígenes de los mods del Drive: usuario 115 · búsqueda 11 · búsqueda + usuario 6 · perfil 9 · auditoría/previo 17 · sin registro 342. _usuario = lo mandó Gian por enlace; búsqueda = lo encontró el asistente en la investigación wifi-safe; perfil = skin del perfil del ModPack (ya en la SD), bajada de GameBanana para tener el original; auditoría/previo = ya estaba en el Drive (espejo de D:\) sin registro de origen._
 
@@ -18,51 +18,59 @@ Orígenes de los mods del Drive: usuario 115 · búsqueda 11 · búsqueda + usua
 | 6 | Diddy Kong (36) | 8/8 | 0 | 0 | 1 | 0 |
 | 7 | Link (03) | 8/8 | 0 | 0 | 1 | 0 |
 | 8 | Sheik (16) | 8/8 | 0 | 0 | 3 | 1 |
-| 9 | Zelda (17) | 2/8 | 6 | 0 | 7 | 0 |
+| 9 | Zelda (17) | 5/8 | 3 | 0 | 3 | 0 |
 | 10 | Ganondorf (23) | 8/8 | 0 | 0 | 5 | 0 |
-| 11 | Zero Suit Samus (29) | 4/8 | 4 | 0 | 3 | 0 |
+| 11 | Zero Suit Samus (29) | 5/8 | 3 | 0 | 2 | 0 |
 | 12 | Fox (07) | 7/8 | 1 | 0 | 0 | 0 |
 | 13 | Falco (20) | 7/8 | 1 | 0 | 1 | 0 |
 | 14 | Incineroar (69) | 8/8 | 0 | 0 | 1 | 0 |
 | 15 | Captain Falcon (11) | 6/8 | 2 | 0 | 9 | 8 |
 | 16 | Lucina (21ε) | 7/8 | 1 | 0 | 2 | 0 |
 | 17 | Marth (21) | 8/8 | 0 | 0 | 1 | 0 |
-| 18 | Byleth (75) | 2/8 | 6 | 0 | 1 | 0 |
+| 18 | Byleth (75) | 3/8 | 5 | 0 | 0 | 0 |
 | 19 | Palutena (54) | 1/8 | 2 | 5 | 0 | 0 |
-| 20 | Snake (31) | 3/8 | 1 | 4 | 6 | 0 |
+| 20 | Snake (31) | 8/8 | 0 | 0 | 1 | 0 |
 | 21 | Isabelle (68) | 8/8 | 0 | 0 | 2 | 2 |
 | 22 | Wii Fit Trainer (47) | 8/8 | 0 | 0 | 0 | 0 |
 | 23 | Little Mac (49) | 8/8 | 0 | 0 | 1 | 0 |
 | 24 | Pyra (79) | 0/8 | 8 | 0 | 0 | 0 |
 | 24 | Mythra (80) | 1/8 | 7 | 0 | 0 | 0 |
 | 25 | Ryu (60) | 0/8 | 7 | 1 | 0 | 0 |
-| 26 | Ken (60ε) | 0/8 | 0 | 8 | 9 | 0 |
+| 26 | Ken (60ε) | 6/8 | 0 | 2 | 3 | 0 |
 | 27 | Cloud (61) | 5/8 | 3 | 0 | 2 | 2 |
 | 28 | Sephiroth (78) | 4/8 | 4 | 0 | 1 | 0 |
 | 29 | Bayonetta (63) | 8/8 | 0 | 0 | 2 | 2 |
-| 30 | Hero (72) | 0/8 | 6 | 2 | 9 | 0 |
+| 30 | Hero (72) | 7/8 | 1 | 0 | 2 | 0 |
 | 31 | Steve (77) | 6/8 | 2 | 0 | 4 | 1 |
 | 32 | Kazuya (81) | 8/8 | 0 | 0 | 3 | 1 |
 | 33 | Sora (82) | 4/8 | 4 | 0 | 0 | 0 |
 | 34 | Bowser Jr. (58) | 8/8 | 0 | 0 | 0 | 0 |
 | 35 | Lucas (37) | 8/8 | 0 | 0 | 0 | 0 |
 | 36 | Dark Pit (28ε) | 8/8 | 0 | 0 | 0 | 0 |
-| 37 | Robin (56) | 8/8 | 0 | 0 | 8 | 0 |
-| 38 | Roy (25) | 8/8 | 0 | 0 | 1 | 0 |
+| 37 | Robin (56) | 8/8 | 0 | 0 | 3 | 0 |
+| 38 | Roy (25) | 8/8 | 0 | 0 | 0 | 0 |
 | 39 | Samus (04) | 8/8 | 0 | 0 | 0 | 0 |
-| 40 | Simon (66) | 8/8 | 0 | 0 | 8 | 0 |
+| 40 | Simon (66) | 8/8 | 0 | 0 | 1 | 0 |
 | 41 | Wario (30) | 8/8 | 0 | 0 | 5 | 4 |
 | 42 | Young Link (22) | 8/8 | 0 | 0 | 0 | 0 |
-| — | Kirby (06) | 0/8 | 0 | 8 | 8 | 0 |
-| — | Ness (10) | 1/8 | 3 | 4 | 7 | 0 |
-| — | Jigglypuff (12) | 0/8 | 0 | 8 | 8 | 0 |
+| — | Dark Samus (04ε) | 8/8 | 0 | 0 | 0 | 0 |
+| — | Yoshi (05) | 8/8 | 0 | 0 | 0 | 0 |
+| — | Kirby (06) | 8/8 | 0 | 0 | 0 | 0 |
+| — | Pikachu (08) | 8/8 | 0 | 0 | 0 | 0 |
+| — | Ness (10) | 7/8 | 1 | 0 | 1 | 0 |
+| — | Jigglypuff (12) | 5/8 | 0 | 3 | 3 | 0 |
 | — | Peach (13) | 0/8 | 0 | 8 | 1 | 1 |
-| — | Daisy (13ε) | 0/8 | 0 | 8 | 8 | 0 |
+| — | Daisy (13ε) | 8/8 | 0 | 0 | 0 | 0 |
 | — | Ice Climbers (15) | 8/8 | 0 | 0 | 1 | 0 |
-| — | Chrom (25ε) | 0/8 | 5 | 3 | 7 | 0 |
+| — | Pichu (19) | 8/8 | 0 | 0 | 0 | 0 |
+| — | Mewtwo (24) | 8/8 | 0 | 0 | 0 | 0 |
+| — | Chrom (25ε) | 6/8 | 2 | 0 | 2 | 0 |
+| — | Mr. Game & Watch (26) | 8/8 | 0 | 0 | 0 | 0 |
+| — | Meta Knight (27) | 8/8 | 0 | 0 | 0 | 0 |
 | — | Ike (32) | 8/8 | 0 | 0 | 0 | 0 |
-| — | Sonic (38) | 0/8 | 0 | 8 | 8 | 0 |
-| — | Lucario (41) | 0/8 | 0 | 8 | 8 | 0 |
+| — | Sonic (38) | 2/8 | 0 | 6 | 6 | 0 |
+| — | King Dedede (39) | 8/8 | 0 | 0 | 0 | 0 |
+| — | Lucario (41) | 8/8 | 0 | 0 | 0 | 0 |
 | — | R.O.B. (42) | 8/8 | 0 | 0 | 0 | 0 |
 | — | Toon Link (43) | 8/8 | 0 | 0 | 0 | 0 |
 | — | Wolf (44) | 7/8 | 1 | 0 | 0 | 0 |
@@ -70,11 +78,11 @@ Orígenes de los mods del Drive: usuario 115 · búsqueda 11 · búsqueda + usua
 | — | Greninja (50) | 8/8 | 0 | 0 | 0 | 0 |
 | — | Duck Hunt (59) | 8/8 | 0 | 0 | 0 | 0 |
 | — | Corrin (62) | 7/8 | 1 | 0 | 0 | 0 |
-| — | Ridley (65) | 0/8 | 0 | 8 | 8 | 0 |
+| — | Ridley (65) | 8/8 | 0 | 0 | 0 | 0 |
 | — | King K. Rool (67) | 8/8 | 0 | 0 | 0 | 0 |
-| — | Joker (71) | 0/8 | 0 | 8 | 2 | 0 |
+| — | Joker (71) | 2/8 | 0 | 6 | 0 | 0 |
 | — | Banjo & Kazooie (73) | 8/8 | 0 | 0 | 0 | 0 |
-| — | Terry (74) | 7/8 | 1 | 0 | 1 | 0 |
+| — | Terry (74) | 7/8 | 1 | 0 | 0 | 0 |
 
 ## 1. Mario (01)
 
@@ -247,23 +255,19 @@ Mods del Drive sin asignar:
 | c00 | perfil · Aerith | Aerith (GB 535222) | propuesto |
 | c01 | perfil · Aerith | Aerith (GB 535222) | propuesto |
 | c02 | perfil · Jean Grey | Jean Grey (GB 346851) · reslot desde c01 · Solo la skin: se quita vc_narration_characallus_en (narración en inglés de todos los luchadores) | propuesto |
-| c03 | original | original | propuesto |
-| c04 | original | original | propuesto |
-| c05 | original | original | propuesto |
+| c03 | perfil · zelda - Iono | perfil · zelda - Iono (GB 416174) · Instalada en la SD (zelda-iono-c03); plan alineado con la SD el 2026-11-09 | aprobado |
+| c04 | perfil · zelda - ALttP | perfil · zelda - ALttP (GB 367370) · reslot desde c00 · Instalada en la SD (zelda-alttp-c04); plan alineado con la SD el 2026-11-09 | aprobado |
+| c05 | perfil · zelda - Raven | perfil · zelda - Raven (GB 582010) · reslot desde c00 · Instalada en la SD (zelda-raven-c05); plan alineado con la SD el 2026-11-09 | aprobado |
 | c06 | perfil · Tharja over zelda | perfil · Tharja over zelda (GB 347784) · Instalada en la SD (zelda-tharja-c06); plan alineado con la SD el 2026-11-01 | aprobado |
-| c07 | perfil · Elise zelda | perfil · Elise zelda (GB 347784) · Instalada en la SD (zelda-elise-c07); plan alineado con la SD el 2026-11-01 | aprobado |
+| c07 | perfil · zelda - Toon Zelda | perfil · zelda - Toon Zelda (GB 457085) · Instalada en la SD (zelda-toon-c07); plan alineado con la SD el 2026-11-09; antes: Elise zelda | aprobado |
 
 Mods del Drive sin asignar:
 
 | Mod | Nombre | Origen | Slots nativos | Wifi | Toca c00 |
 |---|---|---|---|---|---|
 | 174315 | botw_princess_zelda | — | c00, c01, c02, c03, c04, c05, c06, c07 | explícita | sí |
-| 367370 | alttp_zelda_casual_wear | — | c00 | explícita | sí |
-| 416174 | iono | — | c00, c01, c02, c03, c04, c05, c06, c07 | explícita | sí |
 | 421007 | camie_utsushimi | — | c00, c01 | — | sí |
-| 457085 | toon_zelda_windwaker | — | c07 | — | no |
 | 526697 | pauline_jump_up_super_star | — | c00, c01, c02, c03, c04, c05, c06, c07 | — | sí |
-| 582010 | raven | — | c00 | — | sí |
 
 ## 10. Ganondorf (23)
 
@@ -302,14 +306,13 @@ _Spider-Gwen fuera: viene como parches .pad con un Install.bat de Windows, no co
 | c03 | perfil · Spider-Gwen | Spider-Gwen (GB 174461) · reslot desde c07 | aprobado |
 | c04 | perfil · Lucy | Lucy (GB 690283) · reslot desde c01 | aprobado |
 | c05 | perfil · Jill | perfil · Jill (GB 368929) · Instalada en la SD (szerosuit-jill-368929-c05); plan alineado con la SD el 2026-11-01 | aprobado |
-| c06 | original | original | propuesto |
+| c06 | perfil · szerosuit - Neon | perfil · szerosuit - Neon (GB 403480) · Instalada en la SD (szerosuit-neon-c06); plan alineado con la SD el 2026-11-09 | aprobado |
 | c07 | perfil · Jill Valentine | Jill Valentine (GB 637464) · reslot desde c00 · Solo la skin: se quitan el tema de victoria de ZSS (bgm_z24_f_zerosamus) y el archivo sobrante «se_szerosuit_c00 - Copy» | propuesto |
 
 Mods del Drive sin asignar:
 
 | Mod | Nombre | Origen | Slots nativos | Wifi | Toca c00 |
 |---|---|---|---|---|---|
-| 403480 | neon | — | c00, c06 | condicionada | sí |
 | 480880 | zero_suit_samus_daily_life_jobs_receptionist | — | c04 | — | no |
 | 486582 | ochaco_uraraka | — | c00, c01, c02, c03, c04, c05, c06, c07 | — | sí |
 
@@ -443,19 +446,13 @@ Mods del Drive sin asignar:
 | Slot | Hoy | Plan | Estado |
 |---|---|---|---|
 | c00 | original | original | propuesto |
-| c01 | original | original | propuesto |
+| c01 | perfil · master - Mitsuri Kanroji | perfil · master - Mitsuri Kanroji (GB 465028) · Instalada en la SD (master-mitsuri-c01); plan alineado con la SD el 2026-11-09 | aprobado |
 | c02 | perfil · Dimitri Byleth | perfil · Dimitri Byleth (GB 347784) · Instalada en la SD (master-dimitri-c02); plan alineado con la SD el 2026-11-01 | aprobado |
 | c03 | perfil · Yuri byleth | perfil · Yuri byleth (GB 347784) · Instalada en la SD (master-yuri-c03); plan alineado con la SD el 2026-11-01 | aprobado |
 | c04 | original | original | propuesto |
 | c05 | original | original | propuesto |
 | c06 | original | original | propuesto |
 | c07 | WuBoy «Morag» | WuBoy «Morag» | propuesto |
-
-Mods del Drive sin asignar:
-
-| Mod | Nombre | Origen | Slots nativos | Wifi | Toca c00 |
-|---|---|---|---|---|---|
-| 465028 | mitsuri_kanroji_demon_slayer | — | c01 | — | no |
 
 ## 19. Palutena (54)
 
@@ -476,22 +473,17 @@ Mods del Drive sin asignar:
 |---|---|---|---|
 | c00 | perfil · Wesker snake | perfil · Wesker snake (GB 347784) · Instalada en la SD (snake-wesker-c00); plan alineado con la SD el 2026-11-01 | aprobado |
 | c01 | perfil · Chris redfield snake | perfil · Chris redfield snake (GB 347784) · Instalada en la SD (snake-chris-c01); plan alineado con la SD el 2026-11-01 | aprobado |
-| c02 | original | original | sin decidir |
-| c03 | original | original | sin decidir |
-| c04 | original | original | propuesto |
+| c02 | perfil · snake - CJ | perfil · snake - CJ (GB 334147) · Instalada en la SD (snake-cj-c02); plan alineado con la SD el 2026-11-09 | aprobado |
+| c03 | perfil · snake - Deadpool | perfil · snake - Deadpool (GB 175173) · reslot desde c01 · Instalada en la SD (snake-deadpool-c03); plan alineado con la SD el 2026-11-09 | aprobado |
+| c04 | perfil · snake - Grinch | perfil · snake - Grinch (GB 405831) · Instalada en la SD (snake-grinch-c04); plan alineado con la SD el 2026-11-09 | aprobado |
 | c05 | perfil · Snake - Leon Kennedy | perfil · Snake - Leon Kennedy (GB 455931) · Instalada en la SD (snake-leon-c05); plan alineado con la SD el 2026-11-05 | aprobado |
-| c06 | original | original | sin decidir |
-| c07 | original | original | sin decidir |
+| c06 | perfil · snake - Green Goblin | perfil · snake - Green Goblin (GB 378187) · Instalada en la SD (snake-goblin-c06); plan alineado con la SD el 2026-11-09 | aprobado |
+| c07 | perfil · snake - Master Chief | perfil · snake - Master Chief (GB 336176) · reslot desde c00 · Instalada en la SD (snake-master-chief-c07); plan alineado con la SD el 2026-11-09 | aprobado |
 
 Mods del Drive sin asignar:
 
 | Mod | Nombre | Origen | Slots nativos | Wifi | Toca c00 |
 |---|---|---|---|---|---|
-| 175173 | deadpool | — | c01 | — | no |
-| 334147 | cj_san_andreas | — | c01, c02 | — | no |
-| 336176 | master_chief | — | sin listar | — | ? |
-| 378187 | green_goblin_over_snake | — | c00, c02, c06 | — | sí |
-| 405831 | the_grinch | — | c01, c04, c05 | explícita | no |
 | 556158 | old_snake | — | c01, c02 | — | no |
 
 ## 21. Isabelle (68)
@@ -597,12 +589,12 @@ _Pendiente: Goku (498005, 8 looks) y los demás packs de muchos slots. Hasta dec
 
 | Slot | Hoy | Plan | Estado |
 |---|---|---|---|
-| c00 | WuBoy | WuBoy | sin decidir |
-| c01 | WuBoy | WuBoy | sin decidir |
-| c02 | WuBoy | WuBoy | sin decidir |
-| c03 | WuBoy | WuBoy | sin decidir |
-| c04 | WuBoy | WuBoy | sin decidir |
-| c05 | WuBoy | WuBoy | sin decidir |
+| c00 | perfil · ken - Goku SSJ4 Daima | perfil · ken - Goku SSJ4 Daima (GB 601448) · Instalada en la SD (ken-goku-ssj4-daima-c00); plan alineado con la SD el 2026-11-09 | aprobado |
+| c01 | perfil · ken - Heatblast | perfil · ken - Heatblast (GB 643215) · Instalada en la SD (ken-heatblast-c01); plan alineado con la SD el 2026-11-09 | aprobado |
+| c02 | perfil · ken - Benson | perfil · ken - Benson (GB 694983) · Instalada en la SD (ken-benson-c02); plan alineado con la SD el 2026-11-09 | aprobado |
+| c03 | perfil · ken - Akaza | perfil · ken - Akaza (GB 463685) · Instalada en la SD (ken-akaza-c03); plan alineado con la SD el 2026-11-09 | aprobado |
+| c04 | perfil · ken - Mr. Satan | perfil · ken - Mr. Satan (GB 420619) · Instalada en la SD (ken-mr-satan-c04); plan alineado con la SD el 2026-11-09 | aprobado |
+| c05 | perfil · ken - PS1 Ken | perfil · ken - PS1 Ken (GB 527998) · Instalada en la SD (ken-ps1-c05); plan alineado con la SD el 2026-11-09 | aprobado |
 | c06 | WuBoy | WuBoy | sin decidir |
 | c07 | WuBoy | WuBoy | sin decidir |
 
@@ -611,14 +603,8 @@ Mods del Drive sin asignar:
 | Mod | Nombre | Origen | Slots nativos | Wifi | Toca c00 |
 |---|---|---|---|---|---|
 | 404416 | chun_li | — | c00, c01, c02, c03, c04, c05, c06, c07 | — | sí |
-| 420619 | mr_satan | — | c03 | — | no |
-| 463685 | akaza_demon_slayer | — | c03 | explícita | no |
 | 498005 | goku | auditoría/previo | c00, c01, c02, c03, c04, c05, c06, c07 | explícita | sí |
-| 527998 | ps1_ken | — | c00, c01, c02, c03, c04, c05, c06, c07 | — | sí |
-| 601448 | goku_ssj4_daima | — | c00 | — | sí |
-| 643215 | heatblast_over_ken | — | c00, c01, c02, c03, c04 | — | sí |
 | 667379 | chun_li_sf6_fatal_fury | — | c00 | explícita | sí |
-| 694983 | benson_regular_show | — | c02, c03 | — | no |
 
 ## 27. Cloud (61)
 
@@ -685,28 +671,21 @@ Mods del Drive sin asignar:
 
 | Slot | Hoy | Plan | Estado |
 |---|---|---|---|
-| c00 | original | original | sin decidir |
-| c01 | original | original | sin decidir |
-| c02 | WuBoy «Trunks» | WuBoy «Trunks» | propuesto |
-| c03 | original | original | propuesto |
-| c04 | original | original | propuesto |
-| c05 | original | original | propuesto |
+| c00 | perfil · brave - Skeleton (escudo) | perfil · brave - Skeleton (escudo) (GB 644719) · Instalada en la SD (brave-skeleton-c00); plan alineado con la SD el 2026-11-09 | aprobado |
+| c01 | perfil · brave - SSJ God Erdrick | perfil · brave - SSJ God Erdrick (GB 475835) · Instalada en la SD (brave-ssj-god-erdrick-c01); plan alineado con la SD el 2026-11-09 | aprobado |
+| c02 | perfil · brave - Goku Black Rose | perfil · brave - Goku Black Rose (GB 507392) · Instalada en la SD (brave-goku-black-rose-c02); plan alineado con la SD el 2026-11-09 | aprobado |
+| c03 | perfil · brave - Caesar King v2 | perfil · brave - Caesar King v2 (GB 581146) · Instalada en la SD (brave-caesar-king-c03); plan alineado con la SD el 2026-11-09 | aprobado |
+| c04 | perfil · brave - Shoto Todoroki | perfil · brave - Shoto Todoroki (GB 322759) · Instalada en la SD (brave-shoto-todoroki-c04); plan alineado con la SD el 2026-11-09 | aprobado |
+| c05 | perfil · brave - Herotsune Miku | perfil · brave - Herotsune Miku (GB 695542) · Instalada en la SD (brave-herotsune-miku-c05); plan alineado con la SD el 2026-11-09 | aprobado |
 | c06 | perfil · Trunks (Futuro) | Trunks (Futuro) (GB 175735) · el mod trae 2 looks; solo uno. WuBoy ya tiene un Trunks en c02 (se conserva) | propuesto |
-| c07 | original | original | propuesto |
+| c07 | perfil · brave - Dark Magician Girl | perfil · brave - Dark Magician Girl (GB 635337) · Instalada en la SD (brave-dark-magician-girl-c07); plan alineado con la SD el 2026-11-09 | aprobado |
 
 Mods del Drive sin asignar:
 
 | Mod | Nombre | Origen | Slots nativos | Wifi | Toca c00 |
 |---|---|---|---|---|---|
-| 322759 | shoto_todoroki | — | c04 | — | no |
 | 383835 | crono | — | c00, c01, c02, c03, c04, c05, c06, c07 | — | sí |
-| 475835 | ssj_god_erdrick | — | c01 | — | no |
-| 507392 | goku_black_rose | — | c02 | — | no |
-| 581146 | caesar_king_v2 | — | c00, c01, c02, c03, c04, c05, c06, c07 | — | sí |
 | 628622 | sophia | — | c02 | explícita | no |
-| 635337 | dark_magician_girl | — | c00, c01, c02, c03, c04, c05, c06, c07 | — | sí |
-| 644719 | skeleton_pirate | — | c04, c05 | — | no |
-| 695542 | herotsune_miku | — | c05 | — | no |
 
 ## 31. Steve (77)
 
@@ -791,14 +770,14 @@ _Agregado al alinear el plan con la SD el 2026-11-01._
 
 | Slot | Hoy | Plan | Estado |
 |---|---|---|---|
-| c00 | perfil · Hoopa lucas | perfil · Hoopa lucas (GB 347784) · Instalada en la SD (lucas-hoopa-c00); plan alineado con la SD el 2026-11-01 | aprobado |
-| c01 | perfil · Maglor lucas | perfil · Maglor lucas (GB 347784) · Instalada en la SD (lucas-maglor-c01); plan alineado con la SD el 2026-11-01 | aprobado |
+| c00 | perfil · lucas - Midna | perfil · lucas - Midna (GB 478916) · Instalada en la SD (lucas-midna-c00); plan alineado con la SD el 2026-11-09; antes: Hoopa lucas | aprobado |
+| c01 | perfil · lucas - Donald (KH) | perfil · lucas - Donald (KH) (GB 394503) · Instalada en la SD (lucas-donald-c01); plan alineado con la SD el 2026-11-09; antes: Maglor lucas | aprobado |
 | c02 | perfil · Banette lucas | perfil · Banette lucas (GB 347784) · Instalada en la SD (lucas-banette-c02); plan alineado con la SD el 2026-11-01 | aprobado |
-| c03 | original | original | aprobado |
-| c04 | original | original | aprobado |
-| c05 | original | original | aprobado |
-| c06 | original | original | aprobado |
-| c07 | original | original | aprobado |
+| c03 | perfil · lucas - SpongeBob (NASB) | perfil · lucas - SpongeBob (NASB) (GB 328234) · Instalada en la SD (lucas-spongebob-c03); plan alineado con la SD el 2026-11-09 | aprobado |
+| c04 | perfil · lucas - Vivi Ornitier | perfil · lucas - Vivi Ornitier (GB 336773) · Instalada en la SD (lucas-vivi-c04); plan alineado con la SD el 2026-11-09 | aprobado |
+| c05 | perfil · lucas - Jimmy Neutron | perfil · lucas - Jimmy Neutron (GB 346988) · Instalada en la SD (lucas-jimmy-neutron-c05); plan alineado con la SD el 2026-11-09 | aprobado |
+| c06 | perfil · lucas - Pablo (Backyardigans) | perfil · lucas - Pablo (Backyardigans) (GB 425504) · Instalada en la SD (lucas-pablo-c06); plan alineado con la SD el 2026-11-09 | aprobado |
+| c07 | perfil · lucas - EarthBound 64 Lucas | perfil · lucas - EarthBound 64 Lucas (GB 174792) · Instalada en la SD (lucas-eb64-c07); plan alineado con la SD el 2026-11-09 | aprobado |
 
 ## 36. Dark Pit (28ε)
 
@@ -822,26 +801,21 @@ _Agregado al alinear el plan con la SD el 2026-11-01._
 | Slot | Hoy | Plan | Estado |
 |---|---|---|---|
 | c00 | WuBoy | WuBoy | aprobado |
-| c01 | WuBoy | WuBoy | aprobado |
+| c01 | perfil · reflet - Female Morgan | perfil · reflet - Female Morgan (GB 597904) · Instalada en la SD (reflet-female-morgan-c01); plan alineado con la SD el 2026-11-09 | aprobado |
 | c02 | perfil · Leo robin | perfil · Leo robin (GB 347784) · Instalada en la SD (reflet-leo-c02); plan alineado con la SD el 2026-11-01 | aprobado |
-| c03 | perfil · Dorothea Robin | perfil · Dorothea Robin (GB 347784) · Instalada en la SD (reflet-dorothea-c03); plan alineado con la SD el 2026-11-01 | aprobado |
+| c03 | perfil · reflet - Lana | perfil · reflet - Lana (GB 687975) · Instalada en la SD (reflet-lana-c03); plan alineado con la SD el 2026-11-09; antes: Dorothea Robin | aprobado |
 | c04 | WuBoy | WuBoy | aprobado |
-| c05 | WuBoy | WuBoy | aprobado |
-| c06 | perfil · Dr Strange Robin | perfil · Dr Strange Robin (GB 347784) · Instalada en la SD (reflet-strange-c06); plan alineado con la SD el 2026-11-01 | aprobado |
-| c07 | WuBoy | WuBoy | aprobado |
+| c05 | perfil · reflet - Na'el | perfil · reflet - Na'el (GB 675963) · Instalada en la SD (reflet-nael-c05); plan alineado con la SD el 2026-11-09 | aprobado |
+| c06 | perfil · reflet - Dr. Strange (Mastaklo) | perfil · reflet - Dr. Strange (Mastaklo) (GB 461148) · Instalada en la SD (reflet-dr-strange-c06); plan alineado con la SD el 2026-11-09; antes: Dr Strange Robin | aprobado |
+| c07 | perfil · reflet - Seaside Tactician | perfil · reflet - Seaside Tactician (GB 331493) · Instalada en la SD (reflet-seaside-c07); plan alineado con la SD el 2026-11-09 | aprobado |
 
 Mods del Drive sin asignar:
 
 | Mod | Nombre | Origen | Slots nativos | Wifi | Toca c00 |
 |---|---|---|---|---|---|
-| 331493 | seaside_tactician_robin | — | c01, c03, c05, c07 | explícita | no |
-| 461148 | dr_strange | — | c02 | — | no |
 | 495077 | megumin | — | c01 | — | no |
 | 582942 | the_herta | — | c01 | — | no |
-| 597904 | female_morgan | — | c01 | — | no |
 | 635462 | clippy | — | c01 | — | no |
-| 675963 | nael_xenoblade3 | — | c00, c03, c05, c07 | — | sí |
-| 687975 | lana_got_hyrule_warriors | — | c01, c03 | — | no |
 
 ## 38. Roy (25)
 
@@ -849,20 +823,14 @@ _Agregado al alinear el plan con la SD el 2026-11-01._
 
 | Slot | Hoy | Plan | Estado |
 |---|---|---|---|
-| c00 | original | original | aprobado |
-| c01 | original | original | aprobado |
+| c00 | perfil · roy - Rengoku | perfil · roy - Rengoku (GB 368368) · Instalada en la SD (roy-rengoku-c00); plan alineado con la SD el 2026-11-09 | aprobado |
+| c01 | perfil · roy - Tanjiro (Demon Slayer pack) | perfil · roy - Tanjiro (Demon Slayer pack) (GB 175881) · Instalada en la SD (roy-tanjiro-c01); plan alineado con la SD el 2026-11-09 | aprobado |
 | c02 | WuBoy | WuBoy | aprobado |
 | c03 | original | original | aprobado |
 | c04 | WuBoy | WuBoy | aprobado |
 | c05 | perfil · Alm | perfil · Alm (GB 347784) · Instalada en la SD (roy-simple-c05); plan alineado con la SD el 2026-11-01 | aprobado |
 | c06 | original | original | aprobado |
 | c07 | original | original | aprobado |
-
-Mods del Drive sin asignar:
-
-| Mod | Nombre | Origen | Slots nativos | Wifi | Toca c00 |
-|---|---|---|---|---|---|
-| 368368 | rengoku | — | c00 | condicionada | sí |
 
 ## 39. Samus (04)
 
@@ -885,27 +853,20 @@ _Agregado al alinear el plan con la SD el 2026-11-01._
 
 | Slot | Hoy | Plan | Estado |
 |---|---|---|---|
-| c00 | original | original | aprobado |
+| c00 | perfil · simon - Steve | perfil · simon - Steve (GB 175577) · Instalada en la SD (simon-steve-c00); plan alineado con la SD el 2026-11-09 | aprobado |
 | c01 | perfil · Gabriel belmont simon | perfil · Gabriel belmont simon (GB 347784) · Instalada en la SD (simon-gabriel-c01); plan alineado con la SD el 2026-11-01 | aprobado |
-| c02 | original | original | aprobado |
-| c03 | original | original | aprobado |
-| c04 | original | original | aprobado |
-| c05 | original | original | aprobado |
-| c06 | WuBoy | WuBoy | aprobado |
-| c07 | original | original | aprobado |
+| c02 | perfil · simon - Simondorf | perfil · simon - Simondorf (GB 175573) · Instalada en la SD (simon-simondorf-c02); plan alineado con la SD el 2026-11-09 | aprobado |
+| c03 | perfil · simon - Doofenshmirtz | perfil · simon - Doofenshmirtz (GB 422195) · Instalada en la SD (simon-doof-c03); plan alineado con la SD el 2026-11-09 | aprobado |
+| c04 | perfil · simon - Castlevania II | perfil · simon - Castlevania II (GB 315956) · reslot desde c01 · Instalada en la SD (simon-castlevania-c04); plan alineado con la SD el 2026-11-09 | aprobado |
+| c05 | perfil · simon - Clown | perfil · simon - Clown (GB 462567) · Instalada en la SD (simon-clown-c05); plan alineado con la SD el 2026-11-09 | aprobado |
+| c06 | perfil · simon - Scorpion | perfil · simon - Scorpion (GB 561571) · Instalada en la SD (simon-scorpion-c06); plan alineado con la SD el 2026-11-09 | aprobado |
+| c07 | perfil · simon - Tuxedo | perfil · simon - Tuxedo (GB 473248) · Instalada en la SD (simon-tuxedo-c07); plan alineado con la SD el 2026-11-09 | aprobado |
 
 Mods del Drive sin asignar:
 
 | Mod | Nombre | Origen | Slots nativos | Wifi | Toca c00 |
 |---|---|---|---|---|---|
-| 175573 | simondorf | — | c02 | — | no |
-| 175577 | steve_over_simon | — | c00 | — | sí |
-| 315956 | castlevania_2_simon | — | c01 | — | no |
 | 388490 | ghost_rider | — | c00, c05 | explícita | sí |
-| 422195 | dr_doofenshmirtz | — | c03 | — | no |
-| 462567 | the_clown_dead_by_daylight | — | c05 | — | no |
-| 473248 | tuxedo_simon | — | c01, c03, c05, c07 | explícita | no |
-| 561571 | scorpion_simon | — | c06 | — | no |
 
 ## 41. Wario (30)
 
@@ -950,82 +911,97 @@ _Agregado al alinear el plan con la SD el 2026-11-01._
 ## Otros
 
 
+### Dark Samus (04ε)
+
+| Slot | Hoy | Plan | Estado |
+|---|---|---|---|
+| c00 | perfil · samusd - Raven Beak | perfil · samusd - Raven Beak (GB 329142) · Instalada en la SD (samusd-raven-beak-c00); plan alineado con la SD el 2026-11-09 | aprobado |
+| c01 | perfil · samusd - Death | perfil · samusd - Death (GB 551437) · Instalada en la SD (samusd-death-c01); plan alineado con la SD el 2026-11-09 | aprobado |
+| c02 | perfil · samusd - Chromastone | perfil · samusd - Chromastone (GB 639398) · Instalada en la SD (samusd-chromastone-c02); plan alineado con la SD el 2026-11-09 | aprobado |
+| c03 | perfil · samusd - Deoxys | perfil · samusd - Deoxys (GB 506291) · Instalada en la SD (samusd-deoxys-c03); plan alineado con la SD el 2026-11-09 | aprobado |
+| c04 | perfil · samusd - Mecha Sonic (SMBZ) | perfil · samusd - Mecha Sonic (SMBZ) (GB 395401) · Instalada en la SD (samusd-mecha-sonic-c04); plan alineado con la SD el 2026-11-09 | aprobado |
+| c05 | perfil · samusd - Ultimate Echo Echo | perfil · samusd - Ultimate Echo Echo (GB 646058) · Instalada en la SD (samusd-echo-echo-c05); plan alineado con la SD el 2026-11-09 | aprobado |
+| c06 | perfil · samusd - E-123 Omega | perfil · samusd - E-123 Omega (GB 383793) · Instalada en la SD (samusd-omega-c06); plan alineado con la SD el 2026-11-09 | aprobado |
+| c07 | perfil · samusd - Iron Man | perfil · samusd - Iron Man (GB 522099) · Instalada en la SD (samusd-iron-man-c07); plan alineado con la SD el 2026-11-09 | aprobado |
+
+### Yoshi (05)
+
+| Slot | Hoy | Plan | Estado |
+|---|---|---|---|
+| c00 | perfil · yoshi - Yoshi's Island Art | perfil · yoshi - Yoshi's Island Art (GB 319207) · Instalada en la SD (yoshi-yoshis-island-art-c00); plan alineado con la SD el 2026-11-09 | aprobado |
+| c01 | perfil · yoshi - Chocobo | perfil · yoshi - Chocobo (GB 376936) · Instalada en la SD (yoshi-chocobo-c01); plan alineado con la SD el 2026-11-09 | aprobado |
+| c02 | perfil · yoshi - Boshi | perfil · yoshi - Boshi (GB 174235) · Instalada en la SD (yoshi-boshi-c02); plan alineado con la SD el 2026-11-09 | aprobado |
+| c03 | perfil · yoshi - Birdo (verde) | perfil · yoshi - Birdo (verde) (GB 434760) · Instalada en la SD (yoshi-birdo-c03); plan alineado con la SD el 2026-11-09 | aprobado |
+| c04 | perfil · yoshi - Lickitung | perfil · yoshi - Lickitung (GB 469063) · Instalada en la SD (yoshi-lickitung-c04); plan alineado con la SD el 2026-11-09 | aprobado |
+| c05 | perfil · yoshi - Hammer Bro | perfil · yoshi - Hammer Bro (GB 335814) · Instalada en la SD (yoshi-hammer-bro-c05); plan alineado con la SD el 2026-11-09 | aprobado |
+| c06 | perfil · yoshi - White Yoshi | perfil · yoshi - White Yoshi (GB 174230) · Instalada en la SD (yoshi-white-c06); plan alineado con la SD el 2026-11-09 | aprobado |
+| c07 | perfil · yoshi - Tsuyu Asui (Froppy) | perfil · yoshi - Tsuyu Asui (Froppy) (GB 487558) · Instalada en la SD (yoshi-froppy-c07); plan alineado con la SD el 2026-11-09 | aprobado |
+
 ### Kirby (06)
 
 | Slot | Hoy | Plan | Estado |
 |---|---|---|---|
-| c00 | original | original | sin decidir |
-| c01 | WuBoy | WuBoy | sin decidir |
-| c02 | original | original | sin decidir |
-| c03 | original | original | sin decidir |
-| c04 | original | original | sin decidir |
-| c05 | WuBoy | WuBoy | sin decidir |
-| c06 | original | original | sin decidir |
-| c07 | original | original | sin decidir |
+| c00 | perfil · kirby - Prime Bottle | perfil · kirby - Prime Bottle (GB 555124) · Instalada en la SD (kirby-prime-bottle-c00); plan alineado con la SD el 2026-11-09 | aprobado |
+| c01 | perfil · kirby - Potato | perfil · kirby - Potato (GB 534232) · Instalada en la SD (kirby-potato-c01); plan alineado con la SD el 2026-11-09 | aprobado |
+| c02 | perfil · kirby - Funko Pop | perfil · kirby - Funko Pop (GB 694922) · Instalada en la SD (kirby-funko-pop-c02); plan alineado con la SD el 2026-11-09 | aprobado |
+| c03 | perfil · kirby - Waddle Doo | perfil · kirby - Waddle Doo (GB 667141) · Instalada en la SD (kirby-waddle-doo-c03); plan alineado con la SD el 2026-11-09 | aprobado |
+| c04 | perfil · kirby - Annoying Orange | perfil · kirby - Annoying Orange (GB 613537) · Instalada en la SD (kirby-annoying-orange-c04); plan alineado con la SD el 2026-11-09 | aprobado |
+| c05 | perfil · kirby - Perfect Kirby | perfil · kirby - Perfect Kirby (GB 729120) · Instalada en la SD (kirby-perfect-c05); plan alineado con la SD el 2026-11-09 | aprobado |
+| c06 | perfil · kirby - Very Cursed Kirby (Awesome Face) | perfil · kirby - Very Cursed Kirby (Awesome Face) (GB 711314) · Instalada en la SD (kirby-cursed-awesome-face-c06); plan alineado con la SD el 2026-11-09 | aprobado |
+| c07 | perfil · kirby - Cantaloupe | perfil · kirby - Cantaloupe (GB 620158) · Instalada en la SD (kirby-cantaloupe-c07); plan alineado con la SD el 2026-11-09 | aprobado |
 
-Mods del Drive sin asignar:
+### Pikachu (08)
 
-| Mod | Nombre | Origen | Slots nativos | Wifi | Toca c00 |
-|---|---|---|---|---|---|
-| 534232 | potato | — | c01 | — | no |
-| 555124 | prime_bottle | — | c00 | — | sí |
-| 613537 | annoying_orange | — | c04 | — | no |
-| 620158 | cantaloupe_kirby_c07 | — | c07 | — | no |
-| 667141 | waddle_doo | — | c03 | — | no |
-| 694922 | funko_pop_kirby | — | c03 | — | no |
-| 711314 | very_cursed_kirbys | — | c00, c01, c04 | — | sí |
-| 729120 | perfect_kirby_c05 | — | c05 | — | no |
+| Slot | Hoy | Plan | Estado |
+|---|---|---|---|
+| c00 | perfil · pikachu - Ken Sugimori | perfil · pikachu - Ken Sugimori (GB 438395) · Instalada en la SD (pikachu-ken-sugimori-c00); plan alineado con la SD el 2026-11-09 | aprobado |
+| c01 | perfil · pikachu - Perry the Platypus | perfil · pikachu - Perry the Platypus (GB 431378) · Instalada en la SD (pikachu-perry-c01); plan alineado con la SD el 2026-11-09 | aprobado |
+| c02 | perfil · pikachu - Smash 64 Pikachu | perfil · pikachu - Smash 64 Pikachu (GB 618173) · Instalada en la SD (pikachu-smash-64-c02); plan alineado con la SD el 2026-11-09 | aprobado |
+| c03 | perfil · pikachu - Mimikyu (arms) | perfil · pikachu - Mimikyu (arms) (GB 341276) · Instalada en la SD (pikachu-mimikyu-c03); plan alineado con la SD el 2026-11-09 | aprobado |
+| c04 | perfil · pikachu - Happy Banana Cat | perfil · pikachu - Happy Banana Cat (GB 463946) · Instalada en la SD (pikachu-banana-cat-c04); plan alineado con la SD el 2026-11-09 | aprobado |
+| c05 | perfil · pikachu - Gengar Cosplay | perfil · pikachu - Gengar Cosplay (GB 418999) · Instalada en la SD (pikachu-gengar-cosplay-c05); plan alineado con la SD el 2026-11-09 | aprobado |
+| c06 | perfil · pikachu - Bald Pikachu | perfil · pikachu - Bald Pikachu (GB 426697) · Instalada en la SD (pikachu-bald-c06); plan alineado con la SD el 2026-11-09 | aprobado |
+| c07 | perfil · pikachu - Eevee | perfil · pikachu - Eevee (GB 678775) · Instalada en la SD (pikachu-eevee-c07); plan alineado con la SD el 2026-11-09 | aprobado |
 
 ### Ness (10)
 
 | Slot | Hoy | Plan | Estado |
 |---|---|---|---|
 | c00 | perfil · Susie Haltmann ness | perfil · Susie Haltmann ness (GB 347784) · Instalada en la SD (ness-susie-c00); plan alineado con la SD el 2026-11-01 | aprobado |
-| c01 | original | original | sin decidir |
-| c02 | original | original | propuesto |
+| c01 | perfil · ness - Stan Marsh | perfil · ness - Stan Marsh (GB 320361) · Instalada en la SD (ness-stan-c01); plan alineado con la SD el 2026-11-09 | aprobado |
+| c02 | perfil · ness - Jerry | perfil · ness - Jerry (GB 340271) · reslot desde c01 · Instalada en la SD (ness-jerry-c02); plan alineado con la SD el 2026-11-09 | aprobado |
 | c03 | perfil · Kid Buu | Kid Buu (GB 560241) · Solo la skin: se quita el tema de victoria de Ness (bgm_z11_f_ness) | propuesto |
-| c04 | original | original | sin decidir |
-| c05 | original | original | sin decidir |
-| c06 | original | original | propuesto |
-| c07 | original | original | sin decidir |
+| c04 | perfil · ness - Courage | perfil · ness - Courage (GB 569783) · Instalada en la SD (ness-courage-c04); plan alineado con la SD el 2026-11-09 | aprobado |
+| c05 | perfil · ness - Chiaotzu | perfil · ness - Chiaotzu (GB 437879) · reslot desde c01 · Instalada en la SD (ness-chiaotzu-c05); plan alineado con la SD el 2026-11-09 | aprobado |
+| c06 | perfil · ness - Mini Luigi | perfil · ness - Mini Luigi (GB 174772) · reslot desde c00 · Instalada en la SD (ness-mini-luigi-c06); plan alineado con la SD el 2026-11-09 | aprobado |
+| c07 | perfil · ness - Goku Daima | perfil · ness - Goku Daima (GB 549329) · Instalada en la SD (ness-goku-daima-c07); plan alineado con la SD el 2026-11-09 | aprobado |
 
 Mods del Drive sin asignar:
 
 | Mod | Nombre | Origen | Slots nativos | Wifi | Toca c00 |
 |---|---|---|---|---|---|
-| 174772 | mini_luigi | — | c00 | — | sí |
-| 320361 | stan_marsh | — | c01 | explícita | no |
-| 340271 | jerry_the_mouse | — | c01 | explícita | no |
-| 437879 | chiaotzu | — | c01 | — | no |
 | 455620 | kamek_over_ness | — | c00 | — | sí |
-| 549329 | son_goku_dragon_ball_daima | — | c07 | — | no |
-| 569783 | courage_the_cowardly_dog_ness_c04 | — | c04 | — | no |
 
 ### Jigglypuff (12)
 
 | Slot | Hoy | Plan | Estado |
 |---|---|---|---|
-| c00 | original | original | sin decidir |
+| c00 | perfil · purin - Oreo | perfil · purin - Oreo (GB 694831) · Instalada en la SD (purin-oreo-c00); plan alineado con la SD el 2026-11-09 | aprobado |
 | c01 | WuBoy | WuBoy | sin decidir |
 | c02 | original | original | sin decidir |
 | c03 | original | original | sin decidir |
-| c04 | WuBoy | WuBoy | sin decidir |
-| c05 | original | original | sin decidir |
-| c06 | WuBoy «Spheal» | WuBoy «Spheal» | sin decidir |
-| c07 | WuBoy | WuBoy | sin decidir |
+| c04 | perfil · purin - Pou | perfil · purin - Pou (GB 726068) · Instalada en la SD (purin-pou-c04); plan alineado con la SD el 2026-11-09 | aprobado |
+| c05 | perfil · purin - 1UP Mushroom | perfil · purin - 1UP Mushroom (GB 639614) · Instalada en la SD (purin-1up-mushroom-c05); plan alineado con la SD el 2026-11-09 | aprobado |
+| c06 | perfil · purin - Apple | perfil · purin - Apple (GB 688751) · Instalada en la SD (purin-apple-c06); plan alineado con la SD el 2026-11-09 | aprobado |
+| c07 | perfil · purin - Luma | perfil · purin - Luma (GB 728396) · Instalada en la SD (purin-luma-c07); plan alineado con la SD el 2026-11-09 | aprobado |
 
 Mods del Drive sin asignar:
 
 | Mod | Nombre | Origen | Slots nativos | Wifi | Toca c00 |
 |---|---|---|---|---|---|
-| 639614 | 1up_mushroom_over_jigglypuff | — | c05 | — | no |
-| 688751 | apples | — | c05, c06, c07 | — | no |
-| 694831 | oreo | — | c00 | — | sí |
 | 695763 | awesome_face_jigglypuff | — | c00 | — | sí |
 | 701238 | polyester_spiderman_edit | — | c00 | — | sí |
 | 712417 | peepa | — | c00 | — | sí |
-| 726068 | pou_over_jigglypuff | — | c04 | — | no |
-| 728396 | luma | — | c00, c01, c02, c03, c04, c05, c06, c07 | — | sí |
 
 ### Peach (13)
 
@@ -1050,27 +1026,14 @@ Mods del Drive sin asignar:
 
 | Slot | Hoy | Plan | Estado |
 |---|---|---|---|
-| c00 | original | original | sin decidir |
-| c01 | original | original | sin decidir |
-| c02 | WuBoy | WuBoy | sin decidir |
-| c03 | WuBoy | WuBoy | sin decidir |
-| c04 | original | original | sin decidir |
-| c05 | WuBoy | WuBoy | sin decidir |
-| c06 | WuBoy | WuBoy | sin decidir |
-| c07 | WuBoy | WuBoy | sin decidir |
-
-Mods del Drive sin asignar:
-
-| Mod | Nombre | Origen | Slots nativos | Wifi | Toca c00 |
-|---|---|---|---|---|---|
-| 478509 | jane | — | c03 | — | no |
-| 510585 | toy_chica | — | c01 | — | no |
-| 539598 | velma | — | c00 | — | sí |
-| 582830 | cecilia_immergreen | — | c01 | — | no |
-| 602464 | sakura_daisy | — | c05 | — | no |
-| 610333 | leaf_pokemon_trainer | — | c00 | — | sí |
-| 691794 | toy_story_jessie_daisy | — | c01 | — | no |
-| 713450 | daisy_mekka_warrior | — | c02 | — | no |
+| c00 | perfil · daisy - Velma | perfil · daisy - Velma (GB 539598) · Instalada en la SD (daisy-velma-c00); plan alineado con la SD el 2026-11-09 | aprobado |
+| c01 | perfil · daisy - Toy Chica | perfil · daisy - Toy Chica (GB 510585) · Instalada en la SD (daisy-toy-chica-c01); plan alineado con la SD el 2026-11-09 | aprobado |
+| c02 | perfil · daisy - Mekka Warrior | perfil · daisy - Mekka Warrior (GB 713450) · Instalada en la SD (daisy-mekka-c02); plan alineado con la SD el 2026-11-09 | aprobado |
+| c03 | perfil · daisy - Jane | perfil · daisy - Jane (GB 478509) · Instalada en la SD (daisy-jane-c03); plan alineado con la SD el 2026-11-09 | aprobado |
+| c04 | perfil · daisy - Leaf (Pokémon Trainer) | perfil · daisy - Leaf (Pokémon Trainer) (GB 610333) · Instalada en la SD (daisy-leaf-c04); plan alineado con la SD el 2026-11-09 | aprobado |
+| c05 | perfil · daisy - Sakura | perfil · daisy - Sakura (GB 602464) · Instalada en la SD (daisy-sakura-c05); plan alineado con la SD el 2026-11-09 | aprobado |
+| c06 | perfil · daisy - Cecilia Immergreen | perfil · daisy - Cecilia Immergreen (GB 582830) · Instalada en la SD (daisy-cecilia-c06); plan alineado con la SD el 2026-11-09 | aprobado |
+| c07 | perfil · daisy - Jessie (Toy Story) | perfil · daisy - Jessie (Toy Story) (GB 691794) · Instalada en la SD (daisy-jessie-c07); plan alineado con la SD el 2026-11-09 | aprobado |
 
 ### Ice Climbers (15)
 
@@ -1091,6 +1054,32 @@ Mods del Drive sin asignar:
 |---|---|---|---|---|---|
 | 515075 | smiling_friends | — | c00 | — | sí |
 
+### Pichu (19)
+
+| Slot | Hoy | Plan | Estado |
+|---|---|---|---|
+| c00 | perfil · pichu - Captain Pichu | perfil · pichu - Captain Pichu (GB 464897) · Instalada en la SD (pichu-captain-c00); plan alineado con la SD el 2026-11-09 | aprobado |
+| c01 | perfil · pichu - Wooper | perfil · pichu - Wooper (GB 299614) · Instalada en la SD (pichu-wooper-c01); plan alineado con la SD el 2026-11-09 | aprobado |
+| c02 | perfil · pichu - GIR (Puppy v2) | perfil · pichu - GIR (Puppy v2) (GB 460376) · Instalada en la SD (pichu-gir-c02); plan alineado con la SD el 2026-11-09 | aprobado |
+| c03 | perfil · pichu - Paldean Wooper | perfil · pichu - Paldean Wooper (GB 427898) · Instalada en la SD (pichu-paldean-wooper-c03); plan alineado con la SD el 2026-11-09 | aprobado |
+| c04 | perfil · pichu - Verity | perfil · pichu - Verity (GB 703917) · Instalada en la SD (pichu-verity-c04); plan alineado con la SD el 2026-11-09 | aprobado |
+| c05 | perfil · pichu - Chiikawa | perfil · pichu - Chiikawa (GB 598082) · Instalada en la SD (pichu-chiikawa-c05); plan alineado con la SD el 2026-11-09 | aprobado |
+| c06 | perfil · pichu - Sylveon Fusion | perfil · pichu - Sylveon Fusion (GB 435293) · Instalada en la SD (pichu-sylveon-c06); plan alineado con la SD el 2026-11-09 | aprobado |
+| c07 | perfil · pichu - Bald Pichu | perfil · pichu - Bald Pichu (GB 426564) · Instalada en la SD (pichu-bald-c07); plan alineado con la SD el 2026-11-09 | aprobado |
+
+### Mewtwo (24)
+
+| Slot | Hoy | Plan | Estado |
+|---|---|---|---|
+| c00 | perfil · mewtwo - Frieza | perfil · mewtwo - Frieza (GB 418937) · Instalada en la SD (mewtwo-frieza-c00); plan alineado con la SD el 2026-11-09 | aprobado |
+| c01 | perfil · mewtwo - Sceptile | perfil · mewtwo - Sceptile (GB 350840) · Instalada en la SD (mewtwo-sceptile-c01); plan alineado con la SD el 2026-11-09 | aprobado |
+| c02 | perfil · mewtwo - Mew Li (Safe) | perfil · mewtwo - Mew Li (Safe) (GB 495011) · Instalada en la SD (mewtwo-mew-li-c02); plan alineado con la SD el 2026-11-09 | aprobado |
+| c03 | perfil · mewtwo - OoT Ganondorf | perfil · mewtwo - OoT Ganondorf (GB 594268) · Instalada en la SD (mewtwo-oot-ganondorf-c03); plan alineado con la SD el 2026-11-09 | aprobado |
+| c04 | perfil · mewtwo - Majin Android 21 (Good) | perfil · mewtwo - Majin Android 21 (Good) (GB 362738) · Instalada en la SD (mewtwo-android-21-c04); plan alineado con la SD el 2026-11-09 | aprobado |
+| c05 | perfil · mewtwo - Beerus | perfil · mewtwo - Beerus (GB 453683) · Instalada en la SD (mewtwo-beerus-c05); plan alineado con la SD el 2026-11-09 | aprobado |
+| c06 | perfil · mewtwo - Alakazam | perfil · mewtwo - Alakazam (GB 473908) · Instalada en la SD (mewtwo-alakazam-c06); plan alineado con la SD el 2026-11-09 | aprobado |
+| c07 | perfil · mewtwo - Porygon-Z | perfil · mewtwo - Porygon-Z (GB 174629) · Instalada en la SD (mewtwo-porygon-z-c07); plan alineado con la SD el 2026-11-09 | aprobado |
+
 ### Chrom (25ε)
 
 _Squall: un solo look (c00), por decisión de Gian. Raiden en c01._
@@ -1099,24 +1088,45 @@ _Squall: un solo look (c00), por decisión de Gian. Raiden en c01._
 |---|---|---|---|
 | c00 | perfil · Squall (negro) | Squall (negro) (GB 175495) · un solo look (c00, ropa negra); zip partido: unir part01 + part02 (MD5 691946b0…) | propuesto |
 | c01 | perfil · Raiden | Raiden (GB 387553) · el mod trae 2 looks; solo uno. Usar el config.json de config_cc198.zip. Solo la skin: se quita el tema de victoria (bgm_z61_f_lucina) y los nombres se recortan a c01 | propuesto |
-| c02 | original | original | propuesto |
-| c03 | original | original | sin decidir |
-| c04 | original | original | sin decidir |
-| c05 | original | original | sin decidir |
-| c06 | original | original | propuesto |
-| c07 | original | original | propuesto |
+| c02 | perfil · chrom - Roronoa Zoro | perfil · chrom - Roronoa Zoro (GB 445062) · Instalada en la SD (chrom-zoro-c02); plan alineado con la SD el 2026-11-09 | aprobado |
+| c03 | perfil · chrom - Tung Tung Tung Sahur | perfil · chrom - Tung Tung Tung Sahur (GB 632839) · Instalada en la SD (chrom-tung-tung-c03); plan alineado con la SD el 2026-11-09 | aprobado |
+| c04 | perfil · chrom - Mountain Dew | perfil · chrom - Mountain Dew (GB 691100) · Instalada en la SD (chrom-mountain-dew-c04); plan alineado con la SD el 2026-11-09 | aprobado |
+| c05 | perfil · chrom - Giyu Tomioka | perfil · chrom - Giyu Tomioka (GB 355747) · Instalada en la SD (chrom-giyu-c05); plan alineado con la SD el 2026-11-09 | aprobado |
+| c06 | perfil · chrom - Inosuke (Demon Slayer pack) | perfil · chrom - Inosuke (Demon Slayer pack) (GB 175881) · Instalada en la SD (chrom-inosuke-c06); plan alineado con la SD el 2026-11-09 | aprobado |
+| c07 | perfil · chrom - Ethel | perfil · chrom - Ethel (GB 427828) · Instalada en la SD (chrom-ethel-c07); plan alineado con la SD el 2026-11-09 | aprobado |
 
 Mods del Drive sin asignar:
 
 | Mod | Nombre | Origen | Slots nativos | Wifi | Toca c00 |
 |---|---|---|---|---|---|
-| 355747 | giyu_tomioka | — | c05 | — | no |
-| 427828 | ethel | — | c07 | condicionada | no |
-| 445062 | roronoa_zoro | — | c00 | — | sí |
 | 588224 | sigurd | — | c00 | — | sí |
-| 632839 | tung_tung_tung_sahur | — | c00, c01 | — | sí |
-| 691100 | mountain_dew | — | c01 | — | no |
 | 705981 | squall_lionhart | — | c01 | — | no |
+
+### Mr. Game & Watch (26)
+
+| Slot | Hoy | Plan | Estado |
+|---|---|---|---|
+| c00 | perfil · gamewatch - G&W Galaxy | perfil · gamewatch - G&W Galaxy (GB 174967) · Instalada en la SD (gamewatch-galaxy-c00); plan alineado con la SD el 2026-11-09 | aprobado |
+| c01 | perfil · gamewatch - Weegee | perfil · gamewatch - Weegee (GB 456701) · Instalada en la SD (gamewatch-weegee-c01); plan alineado con la SD el 2026-11-09 | aprobado |
+| c02 | perfil · gamewatch - Arcade Floor | perfil · gamewatch - Arcade Floor (GB 174965) · Instalada en la SD (gamewatch-arcade-floor-c02); plan alineado con la SD el 2026-11-09 | aprobado |
+| c03 | perfil · gamewatch - Ms. Game & Watch | perfil · gamewatch - Ms. Game & Watch (GB 491494) · Instalada en la SD (gamewatch-ms-game-watch-c03); plan alineado con la SD el 2026-11-09 | aprobado |
+| c04 | perfil · gamewatch - Animdude | perfil · gamewatch - Animdude (GB 465428) · Instalada en la SD (gamewatch-animdude-c04); plan alineado con la SD el 2026-11-09 | aprobado |
+| c05 | perfil · gamewatch - Cactuar | perfil · gamewatch - Cactuar (GB 647586) · Instalada en la SD (gamewatch-cactuar-c05); plan alineado con la SD el 2026-11-09 | aprobado |
+| c06 | perfil · gamewatch - Mr Shapes & Beats (Cube) | perfil · gamewatch - Mr Shapes & Beats (Cube) (GB 461712) · Instalada en la SD (gamewatch-shapes-beats-c06); plan alineado con la SD el 2026-11-09 | aprobado |
+| c07 | perfil · gamewatch - Jazz Cup | perfil · gamewatch - Jazz Cup (GB 384936) · Instalada en la SD (gamewatch-jazz-cup-c07); plan alineado con la SD el 2026-11-09 | aprobado |
+
+### Meta Knight (27)
+
+| Slot | Hoy | Plan | Estado |
+|---|---|---|---|
+| c00 | perfil · metaknight - Wario's Face | perfil · metaknight - Wario's Face (GB 371208) · Instalada en la SD (metaknight-warios-face-c00); plan alineado con la SD el 2026-11-09 | aprobado |
+| c01 | perfil · metaknight - Crystalline Meta Knight | perfil · metaknight - Crystalline Meta Knight (GB 174498) · Instalada en la SD (metaknight-crystalline-c01); plan alineado con la SD el 2026-11-09 | aprobado |
+| c02 | perfil · metaknight - Bandana Dee | perfil · metaknight - Bandana Dee (GB 362115) · Instalada en la SD (metaknight-bandana-dee-c02); plan alineado con la SD el 2026-11-09 | aprobado |
+| c03 | perfil · metaknight - Hollow Knight | perfil · metaknight - Hollow Knight (GB 504522) · Instalada en la SD (metaknight-hollow-knight-c03); plan alineado con la SD el 2026-11-09 | aprobado |
+| c04 | perfil · metaknight - The Meta Knight | perfil · metaknight - The Meta Knight (GB 370170) · Instalada en la SD (metaknight-the-meta-knight-c04); plan alineado con la SD el 2026-11-09 | aprobado |
+| c05 | perfil · metaknight - Oddish | perfil · metaknight - Oddish (GB 469166) · Instalada en la SD (metaknight-oddish-c05); plan alineado con la SD el 2026-11-09 | aprobado |
+| c06 | perfil · metaknight - Galacta Knight | perfil · metaknight - Galacta Knight (GB 333956) · Instalada en la SD (metaknight-galacta-knight-c06); plan alineado con la SD el 2026-11-09 | aprobado |
+| c07 | perfil · metaknight - Froggy Chair | perfil · metaknight - Froggy Chair (GB 174513) · Instalada en la SD (metaknight-froggy-chair-c07); plan alineado con la SD el 2026-11-09 | aprobado |
 
 ### Ike (32)
 
@@ -1138,9 +1148,9 @@ _Los colores 4, 5, 7 y 8 siguen en WuBoy._
 | Slot | Hoy | Plan | Estado |
 |---|---|---|---|
 | c00 | WuBoy | WuBoy | sin decidir |
-| c01 | WuBoy | WuBoy | sin decidir |
+| c01 | perfil · sonic - Sanic | perfil · sonic - Sanic (GB 175203) · Instalada en la SD (sonic-sanic-c01); plan alineado con la SD el 2026-11-09 | aprobado |
 | c02 | WuBoy | WuBoy | sin decidir |
-| c03 | WuBoy | WuBoy | sin decidir |
+| c03 | perfil · sonic - Silver | perfil · sonic - Silver (GB 303287) · Instalada en la SD (sonic-silver-c03); plan alineado con la SD el 2026-11-09 | aprobado |
 | c04 | WuBoy | WuBoy | sin decidir |
 | c05 | original | original | sin decidir |
 | c06 | original | original | sin decidir |
@@ -1150,8 +1160,6 @@ Mods del Drive sin asignar:
 
 | Mod | Nombre | Origen | Slots nativos | Wifi | Toca c00 |
 |---|---|---|---|---|---|
-| 175203 | sanic_hegehog | — | c01 | — | no |
-| 303287 | silver | — | c03, c04 | explícita | no |
 | 320370 | super_sonic | — | c00, c01, c02, c03, c04, c05, c06, c07 | — | sí |
 | 397941 | fall_guy_sonic | — | c00 | — | sí |
 | 425829 | ultimate_shadow_the_hedgehog | — | c07 | explícita | ? |
@@ -1159,31 +1167,31 @@ Mods del Drive sin asignar:
 | 469589 | amy_rose | — | c00 | — | sí |
 | 475923 | metal_sonic_smash_ultimate_style | — | sin listar | explícita | ? |
 
+### King Dedede (39)
+
+| Slot | Hoy | Plan | Estado |
+|---|---|---|---|
+| c00 | perfil · dedede - Demyx | perfil · dedede - Demyx (GB 372215) · Instalada en la SD (dedede-demyx-c00); plan alineado con la SD el 2026-11-09 | aprobado |
+| c01 | perfil · dedede - Oogie Boogie | perfil · dedede - Oogie Boogie (GB 476509) · Instalada en la SD (dedede-oogie-boogie-c01); plan alineado con la SD el 2026-11-09 | aprobado |
+| c02 | perfil · dedede - Grimace | perfil · dedede - Grimace (GB 478890) · Instalada en la SD (dedede-grimace-c02); plan alineado con la SD el 2026-11-09 | aprobado |
+| c03 | perfil · dedede - Beeg Yoshi | perfil · dedede - Beeg Yoshi (GB 544742) · Instalada en la SD (dedede-beeg-yoshi-c03); plan alineado con la SD el 2026-11-09 | aprobado |
+| c04 | perfil · dedede - Pingu's Mother | perfil · dedede - Pingu's Mother (GB 428645) · Instalada en la SD (dedede-pingus-mother-c04); plan alineado con la SD el 2026-11-09 | aprobado |
+| c05 | perfil · dedede - King Pig | perfil · dedede - King Pig (GB 621272) · Instalada en la SD (dedede-king-pig-c05); plan alineado con la SD el 2026-11-09 | aprobado |
+| c06 | perfil · dedede - General Chungus | perfil · dedede - General Chungus (GB 591195) · Instalada en la SD (dedede-general-chungus-c06); plan alineado con la SD el 2026-11-09 | aprobado |
+| c07 | perfil · dedede - Club Penguin | perfil · dedede - Club Penguin (GB 454908) · Instalada en la SD (dedede-club-penguin-c07); plan alineado con la SD el 2026-11-09 | aprobado |
+
 ### Lucario (41)
 
 | Slot | Hoy | Plan | Estado |
 |---|---|---|---|
-| c00 | original | original | sin decidir |
-| c01 | WuBoy | WuBoy | sin decidir |
-| c02 | WuBoy | WuBoy | sin decidir |
-| c03 | original | original | sin decidir |
-| c04 | WuBoy | WuBoy | sin decidir |
-| c05 | WuBoy | WuBoy | sin decidir |
-| c06 | WuBoy | WuBoy | sin decidir |
-| c07 | WuBoy | WuBoy | sin decidir |
-
-Mods del Drive sin asignar:
-
-| Mod | Nombre | Origen | Slots nativos | Wifi | Toca c00 |
-|---|---|---|---|---|---|
-| 174686 | darkrai | — | c00, c01, c02, c03, c04, c05, c06, c07 | — | sí |
-| 421077 | goku_lucario | — | c03 | explícita | no |
-| 469177 | xeno_vegeta | — | sin listar | — | ? |
-| 514695 | blaze_the_cat | — | c03, c06 | condicionada | no |
-| 532557 | n_pokemon | — | c07 | — | no |
-| 539703 | chick_hicks | — | c05 | — | no |
-| 570650 | medicham | — | c00, c01, c02, c03, c04, c05, c06, c07 | explícita | sí |
-| 725545 | sly_cooper | — | c02 | — | no |
+| c00 | perfil · lucario - Xeno Vegeta | perfil · lucario - Xeno Vegeta (GB 469177) · Instalada en la SD (lucario-xeno-vegeta-c00); plan alineado con la SD el 2026-11-09 | aprobado |
+| c01 | perfil · lucario - Medicham | perfil · lucario - Medicham (GB 570650) · Instalada en la SD (lucario-medicham-c01); plan alineado con la SD el 2026-11-09 | aprobado |
+| c02 | perfil · lucario - Sly Cooper | perfil · lucario - Sly Cooper (GB 725545) · Instalada en la SD (lucario-sly-cooper-c02); plan alineado con la SD el 2026-11-09 | aprobado |
+| c03 | perfil · lucario - Goku | perfil · lucario - Goku (GB 421077) · Instalada en la SD (lucario-goku-c03); plan alineado con la SD el 2026-11-09 | aprobado |
+| c04 | perfil · lucario - Darkrai | perfil · lucario - Darkrai (GB 174686) · Instalada en la SD (lucario-darkrai-c04); plan alineado con la SD el 2026-11-09 | aprobado |
+| c05 | perfil · lucario - Chick Hicks | perfil · lucario - Chick Hicks (GB 539703) · Instalada en la SD (lucario-chick-hicks-c05); plan alineado con la SD el 2026-11-09 | aprobado |
+| c06 | perfil · lucario - Blaze | perfil · lucario - Blaze (GB 514695) · Instalada en la SD (lucario-blaze-c06); plan alineado con la SD el 2026-11-09 | aprobado |
+| c07 | perfil · lucario - N | perfil · lucario - N (GB 532557) · Instalada en la SD (lucario-n-c07); plan alineado con la SD el 2026-11-09 | aprobado |
 
 ### R.O.B. (42)
 
@@ -1280,27 +1288,14 @@ Mods del Drive sin asignar:
 
 | Slot | Hoy | Plan | Estado |
 |---|---|---|---|
-| c00 | original | original | sin decidir |
-| c01 | original | original | sin decidir |
-| c02 | WuBoy | WuBoy | sin decidir |
-| c03 | WuBoy | WuBoy | sin decidir |
-| c04 | WuBoy | WuBoy | sin decidir |
-| c05 | WuBoy | WuBoy | sin decidir |
-| c06 | WuBoy | WuBoy | sin decidir |
-| c07 | WuBoy | WuBoy | sin decidir |
-
-Mods del Drive sin asignar:
-
-| Mod | Nombre | Origen | Slots nativos | Wifi | Toca c00 |
-|---|---|---|---|---|---|
-| 175454 | ender_dragon_ridley | — | c00 | — | sí |
-| 360221 | alien_ridley | — | c05 | explícita | no |
-| 407600 | zekrom | — | c00, c02 | — | sí |
-| 475180 | naruto_nine_tails | — | c00 | condicionada | sí |
-| 491089 | light_ridley_ui | — | c07 | — | no |
-| 558124 | toothless | — | c00, c01, c02, c03, c04, c05, c06, c07 | condicionada | sí |
-| 583578 | zilla_over_ridley | — | sin listar | — | ? |
-| 669246 | imperfect_cell | — | c00 | — | sí |
+| c00 | perfil · ridley - Imperfect Cell | perfil · ridley - Imperfect Cell (GB 669246) · Instalada en la SD (ridley-imperfect-cell-c00); plan alineado con la SD el 2026-11-09 | aprobado |
+| c01 | perfil · ridley - Zilla (verde) | perfil · ridley - Zilla (verde) (GB 583578) · Instalada en la SD (ridley-zilla-c01); plan alineado con la SD el 2026-11-09 | aprobado |
+| c02 | perfil · ridley - Zekrom | perfil · ridley - Zekrom (GB 407600) · Instalada en la SD (ridley-zekrom-c02); plan alineado con la SD el 2026-11-09 | aprobado |
+| c03 | perfil · ridley - Ender Dragon | perfil · ridley - Ender Dragon (GB 175454) · Instalada en la SD (ridley-ender-dragon-c03); plan alineado con la SD el 2026-11-09 | aprobado |
+| c04 | perfil · ridley - Naruto Nine Tails | perfil · ridley - Naruto Nine Tails (GB 475180) · Instalada en la SD (ridley-nine-tails-c04); plan alineado con la SD el 2026-11-09 | aprobado |
+| c05 | perfil · ridley - Alien (Xeno) | perfil · ridley - Alien (Xeno) (GB 360221) · Instalada en la SD (ridley-alien-c05); plan alineado con la SD el 2026-11-09 | aprobado |
+| c06 | perfil · ridley - Toothless | perfil · ridley - Toothless (GB 558124) · Instalada en la SD (ridley-toothless-c06); plan alineado con la SD el 2026-11-09 | aprobado |
+| c07 | perfil · ridley - Light Ridley (Galeem) | perfil · ridley - Light Ridley (Galeem) (GB 491089) · Instalada en la SD (ridley-light-ridley-c07); plan alineado con la SD el 2026-11-09 | aprobado |
 
 ### King K. Rool (67)
 
@@ -1319,21 +1314,14 @@ Mods del Drive sin asignar:
 
 | Slot | Hoy | Plan | Estado |
 |---|---|---|---|
-| c00 | WuBoy | WuBoy | sin decidir |
-| c01 | WuBoy «Violet» | WuBoy «Violet» | sin decidir |
+| c00 | perfil · jack - Toga | perfil · jack - Toga (GB 577644) · Instalada en la SD (jack-toga-c00); plan alineado con la SD el 2026-11-09 | aprobado |
+| c01 | perfil · jack - Sung Jinwoo | perfil · jack - Sung Jinwoo (GB 560534) · Instalada en la SD (jack-sung-jinwoo-c01); plan alineado con la SD el 2026-11-09 | aprobado |
 | c02 | WuBoy | WuBoy | sin decidir |
 | c03 | WuBoy | WuBoy | sin decidir |
 | c04 | WuBoy | WuBoy | sin decidir |
 | c05 | WuBoy | WuBoy | sin decidir |
 | c06 | WuBoy | WuBoy | sin decidir |
 | c07 | WuBoy | WuBoy | sin decidir |
-
-Mods del Drive sin asignar:
-
-| Mod | Nombre | Origen | Slots nativos | Wifi | Toca c00 |
-|---|---|---|---|---|---|
-| 560534 | sung_jinwoo | — | c01 | — | no |
-| 577644 | mha_toga_over_joker | — | c00 | — | sí |
 
 ### Banjo & Kazooie (73)
 
@@ -1359,12 +1347,6 @@ _Tifa: un traje (el segundo, c01) en c03, en lugar de Vegeta SSB. Gogeta y SSJ4 
 | c02 | perfil · Vegeta SSJ | Vegeta SSJ (GB 609500) · necesita One Slot Effects. Solo la skin: su config.json y sus nombres se recortan a c02 (hoy declaran también c03, que es de Tifa) | aprobado |
 | c03 | perfil · Tifa (segundo traje) | Tifa (segundo traje) (GB 559818) · reslot desde c01 · reemplaza a Vegeta SSB (Vegeta queda con 1 look). Trae música (tema de victoria y 2 pistas, globales) | propuesto |
 | c04 | WuBoy «All Might» | WuBoy «All Might» | aprobado |
-| c05 | WuBoy «Jotaro» | WuBoy «Jotaro» | aprobado |
+| c05 | perfil · dolly - Katsuki Bakugo | perfil · dolly - Katsuki Bakugo (GB 645748) · Instalada en la SD (dolly-bakugo-c05); plan alineado con la SD el 2026-11-09 | aprobado |
 | c06 | perfil · Goku Black | Goku Black (GB 333706) | aprobado |
 | c07 | perfil · Gogeta SSJ4 | Gogeta SSJ4 (GB 446815) | aprobado |
-
-Mods del Drive sin asignar:
-
-| Mod | Nombre | Origen | Slots nativos | Wifi | Toca c00 |
-|---|---|---|---|---|---|
-| 645748 | katsuki_bakugo_skin_over_terry | — | c00 | — | sí |
